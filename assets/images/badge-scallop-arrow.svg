@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none">
+  <!-- 12-point scalloped cookie/flower badge -->
+  <path d="M 20 2 
+           C 22.5 2, 24 4.5, 26 5
+           C 28 5.5, 30.5 4.5, 32 6
+           C 33.5 7.5, 32.5 10, 33 12
+           C 33.5 14, 36 15.5, 36 18
+           C 36 20.5, 34 22, 33.5 24
+           C 33 26, 34 28.5, 32.5 30
+           C 31 31.5, 28.5 30.5, 26.5 31
+           C 24.5 31.5, 23 34, 20.5 34
+           C 18 34, 16.5 31.5, 14.5 31
+           C 12.5 30.5, 10 31.5, 8.5 30
+           C 7 28.5, 8 26, 7.5 24
+           C 7 22, 5 20.5, 5 18
+           C 5 15.5, 7.5 14, 8 12
+           C 8.5 10, 7.5 7.5, 9 6
+           C 10.5 4.5, 13 5.5, 15 5
+           C 17 4.5, 18.5 2, 20 2 Z"
+        fill="#E53935" stroke="#121212" stroke-width="2" stroke-linejoin="round"/>
+  <!-- Crisp White Arrow -->
+  <path d="M 14 18 L 26 18 M 21 13 L 26 18 L 21 23" 
+        stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -1,49 +1,49 @@
 <!-- Navigation Bar Component -->
-<header class="sticky top-0 z-50 bg-[#FAF7F0]/95 backdrop-blur-md border-b-[2.5px] border-[#121212] transition-all">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+<header class="sticky top-0 z-50 bg-[#FAF7F0]/90 backdrop-blur-md transition-all">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
     
     <!-- Logo -->
     <a href="#" class="flex items-center gap-2 group focus:outline-none" aria-label="Krackerz Home">
       <img src="./assets/images/logo-krackerz.svg" alt="Krackerz Logo" class="h-10 w-auto group-hover:scale-105 transition-transform">
     </a>
 
-    <!-- Desktop Navigation Links -->
-    <nav class="hidden md:flex items-center gap-8 font-label text-sm font-bold tracking-wider uppercase">
-      <a href="#about" class="hover:text-[#E53935] transition-colors">Why Krackerz</a>
-      <a href="#curriculum" class="hover:text-[#E53935] transition-colors">Curriculum</a>
-      <a href="#testimonials" class="hover:text-[#E53935] transition-colors">Proof</a>
-      <a href="#pricing" class="hover:text-[#E53935] transition-colors">Pricing</a>
-      <a href="#faq" class="hover:text-[#E53935] transition-colors">FAQ</a>
-    </nav>
+    <!-- Pill Navbar Capsule (Exact Design Matching Provided Reference Image) -->
+    <div class="hidden lg:flex items-center bg-[#FAF7F0] border-[1.5px] border-[#121212] rounded-full pl-8 pr-1.5 py-1.5 shadow-[0_4px_16px_rgba(0,0,0,0.06)]">
+      <nav class="flex items-center gap-8 font-body font-semibold text-[14px] text-[#121212] pr-7">
+        <a href="#curriculum" class="hover:text-[#E53935] transition-colors">Features</a>
+        <a href="#pricing" class="hover:text-[#E53935] transition-colors">Pricing</a>
+        <a href="#partner" class="hover:text-[#E53935] transition-colors">For partners</a>
+        <a href="#faq" class="hover:text-[#E53935] transition-colors">FAQ</a>
+        <a href="#shop" class="hover:text-[#E53935] transition-colors">Shop</a>
+      </nav>
 
-    <!-- Desktop CTA & Mobile Toggle -->
-    <div class="flex items-center gap-4">
-      <button data-open-modal="waitlist" class="btn-tactile hidden sm:inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-lime text-[#121212] font-label font-bold text-xs uppercase tracking-wider border-[2.5px] border-[#121212] brutal-shadow">
-        <span>Join Waitlist</span>
-        <span class="w-5 h-5 rounded-full bg-[#121212] text-white flex items-center justify-center text-[11px] font-bold">➔</span>
-      </button>
-
-      <!-- Mobile Menu Hamburger Button -->
-      <button id="btn-mobile-menu" aria-label="Toggle navigation menu" aria-expanded="false" class="md:hidden p-2.5 rounded-xl border-[2.5px] border-[#121212] bg-white brutal-shadow-sm btn-tactile">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
+      <!-- Pill Button inside Capsule -->
+      <button data-open-modal="waitlist" class="btn-tactile flex items-center gap-2.5 px-6 py-2.5 rounded-2xl bg-lime text-[#121212] font-display font-black text-sm uppercase tracking-tight border-[2px] border-[#121212] shadow-[2px_3px_0px_#121212] hover:shadow-[1px_1px_0px_#121212] hover:translate-x-0.5 hover:translate-y-0.5 transition-all">
+        <span>JOIN WAITLIST</span>
+        <img src="./assets/images/badge-scallop-arrow.svg" alt="Arrow" class="w-6 h-6">
       </button>
     </div>
+
+    <!-- Mobile Menu Hamburger Button -->
+    <button id="btn-mobile-menu" aria-label="Toggle navigation menu" aria-expanded="false" class="lg:hidden p-2.5 rounded-xl border-[2px] border-[#121212] bg-white brutal-shadow-sm btn-tactile">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
 
   </div>
 
   <!-- Mobile Navigation Drawer -->
-  <div id="mobile-nav" class="hidden md:hidden border-t-[2.5px] border-[#121212] bg-[#FAF7F0] px-6 py-6 space-y-4">
-    <a href="#about" class="block font-label font-bold text-base uppercase tracking-wider hover:text-[#E53935]">Why Krackerz</a>
-    <a href="#curriculum" class="block font-label font-bold text-base uppercase tracking-wider hover:text-[#E53935]">Curriculum</a>
-    <a href="#testimonials" class="block font-label font-bold text-base uppercase tracking-wider hover:text-[#E53935]">Proof</a>
-    <a href="#pricing" class="block font-label font-bold text-base uppercase tracking-wider hover:text-[#E53935]">Pricing</a>
-    <a href="#faq" class="block font-label font-bold text-base uppercase tracking-wider hover:text-[#E53935]">FAQ</a>
+  <div id="mobile-nav" class="hidden lg:hidden border-t-[2.5px] border-[#121212] bg-[#FAF7F0] px-6 py-6 space-y-4">
+    <a href="#curriculum" class="block font-body font-semibold text-base text-[#121212] hover:text-[#E53935]">Features</a>
+    <a href="#pricing" class="block font-body font-semibold text-base text-[#121212] hover:text-[#E53935]">Pricing</a>
+    <a href="#partner" class="block font-body font-semibold text-base text-[#121212] hover:text-[#E53935]">For partners</a>
+    <a href="#faq" class="block font-body font-semibold text-base text-[#121212] hover:text-[#E53935]">FAQ</a>
+    <a href="#shop" class="block font-body font-semibold text-base text-[#121212] hover:text-[#E53935]">Shop</a>
     <div class="pt-2">
-      <button data-open-modal="waitlist" class="w-full btn-tactile flex items-center justify-center gap-3 px-6 py-3 rounded-full bg-lime text-[#121212] font-label font-bold text-sm uppercase tracking-wider border-[2.5px] border-[#121212] brutal-shadow">
-        <span>Join Waitlist</span>
-        <span class="w-5 h-5 rounded-full bg-[#121212] text-white flex items-center justify-center text-[11px] font-bold">➔</span>
+      <button data-open-modal="waitlist" class="w-full btn-tactile flex items-center justify-center gap-2.5 px-6 py-3 rounded-2xl bg-lime text-[#121212] font-display font-black text-sm uppercase tracking-tight border-[2px] border-[#121212] brutal-shadow-sm">
+        <span>JOIN WAITLIST</span>
+        <img src="./assets/images/badge-scallop-arrow.svg" alt="Arrow" class="w-6 h-6">
       </button>
     </div>
   </div>

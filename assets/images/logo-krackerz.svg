@@ -1,26 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" fill="none">
-  <!-- KRACKERZ Wordmark -->
-  <text x="5" y="44" font-family="'Bricolage Grotesque', 'Impact', sans-serif" font-weight="900" font-size="44" fill="#121212" letter-spacing="-0.02em">
-    KR
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 60" fill="none">
+  <!-- KRACKERZ Wordmark: KRA -->
+  <text x="4" y="44" font-family="'Bricolage Grotesque', 'Impact', sans-serif" font-weight="900" font-size="44" fill="#121212" letter-spacing="-0.02em">
+    KRA
   </text>
-  <!-- Cracker Character as 'A' / Centerpiece -->
-  <g transform="translate(68, 8)">
-    <!-- Cracker Body -->
-    <circle cx="22" cy="22" r="20" fill="#E64A19" stroke="#121212" stroke-width="3"/>
-    <!-- Bite Cutout on top-right -->
-    <path d="M36 8 A 7 7 0 0 0 42 22 A 20 20 0 0 1 36 8 Z" fill="#FAF7F0" />
-    <!-- Cracker Dots -->
-    <circle cx="14" cy="14" r="1.5" fill="#121212"/>
-    <circle cx="28" cy="16" r="1.5" fill="#121212"/>
-    <circle cx="16" cy="28" r="1.5" fill="#121212"/>
-    <circle cx="28" cy="28" r="1.5" fill="#121212"/>
-    <!-- Sunglasses -->
-    <path d="M8 18 L20 18 L18 25 L10 25 Z" fill="#121212"/>
-    <path d="M24 18 L36 18 L34 25 L26 25 Z" fill="#121212"/>
-    <line x1="20" y1="20" x2="24" y2="20" stroke="#121212" stroke-width="2.5"/>
-    <path d="M12 28 Q 22 35 32 28" stroke="#121212" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  
+  <!-- Red Cracker Cookie as 'C' -->
+  <g transform="translate(102, 10)">
+    <!-- Cracker C Body -->
+    <path d="M 28 6 A 17 17 0 1 0 28 34 L 28 26 A 9 9 0 1 1 28 14 Z" fill="#E53935" stroke="#121212" stroke-width="2.5" stroke-linejoin="round"/>
+    <!-- Cracker dots -->
+    <circle cx="11" cy="14" r="1.5" fill="#FFFFFF"/>
+    <circle cx="8" cy="20" r="1.5" fill="#FFFFFF"/>
+    <circle cx="11" cy="26" r="1.5" fill="#FFFFFF"/>
+    <circle cx="18" cy="10" r="1.5" fill="#FFFFFF"/>
+    <circle cx="18" cy="30" r="1.5" fill="#FFFFFF"/>
   </g>
-  <text x="120" y="44" font-family="'Bricolage Grotesque', 'Impact', sans-serif" font-weight="900" font-size="44" fill="#121212" letter-spacing="-0.02em">
-    CKERZ
+
+  <!-- Wordmark: KERZ -->
+  <text x="144" y="44" font-family="'Bricolage Grotesque', 'Impact', sans-serif" font-weight="900" font-size="44" fill="#121212" letter-spacing="-0.02em">
+    KERZ
   </text>
 </svg>
