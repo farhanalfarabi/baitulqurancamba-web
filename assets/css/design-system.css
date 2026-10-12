@@ -433,4 +433,28 @@ body {
   transform: rotate(360deg);
 }
 
+/* ==========================================================================
+   Hero Card Fan & Scalloped Wave Ribbon (Rotational Hover Physics)
+   ========================================================================== */
+.hero-card-fan {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  will-change: transform, box-shadow;
+  transform-origin: center center;
+}
+
+.hero-card-fan:hover {
+  z-index: 50 !important;
+  box-shadow: 6px 14px 0px 0px #121212 !important;
+}
+
+/* Hide scrollbar for clean horizontal swipe on mobile */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+
 

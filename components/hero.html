@@ -1,81 +1,171 @@
 <!-- Hero Section Component -->
-<section class="relative pt-12 pb-24 overflow-hidden">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+<section class="relative pt-3 sm:pt-5 pb-4 sm:pb-6 overflow-hidden">
+  
+  <!-- Background Subtle Biscuit Wave -->
+  <div class="absolute inset-x-0 top-1/4 -translate-y-8 h-80 pointer-events-none -z-0 opacity-40">
+    <svg viewBox="0 0 1440 320" fill="none" preserveAspectRatio="none" class="w-full h-full">
+      <path d="M0,80 C320,150 540,30 880,110 C1200,180 1340,90 1440,60 L1440,320 L0,320 Z" fill="#E8E1D2" />
+    </svg>
+  </div>
+
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center relative z-10">
     
     <!-- Top Pill Badge -->
-    <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#121212] text-lime font-label font-bold text-xs uppercase tracking-widest border-[2px] border-[#121212] brutal-shadow-sm mb-8 tilt-left-sm">
-      <span class="text-base">🏆</span>
-      <span>World's First Sales Course for Designers</span>
+    <div class="inline-flex items-center gap-2 pl-1.5 pr-3.5 sm:pr-4 py-1 rounded-full bg-[#121212] text-lime border-[2px] border-[#121212] brutal-shadow-sm mb-3 sm:mb-4">
+      <img src="./assets/images/badge-scallop-trophy.svg" alt="Trophy" class="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0">
+      <span class="font-label font-bold text-[10px] sm:text-xs tracking-wider uppercase text-lime">
+        World's First Sales Course for Designers
+      </span>
     </div>
 
-    <!-- Main Hero Title -->
-    <div class="relative max-w-4xl mx-auto mb-8">
-      <!-- Floating Mascot on left -->
-      <div class="hidden lg:block absolute -left-16 top-0 w-28 h-auto tilt-left animate-bounce" style="animation-duration: 3s;">
-        <img src="./assets/images/mascot-cracker.svg" alt="Krackerz Mascot" class="w-full h-auto drop-shadow-[3px_3px_0px_#121212]">
-      </div>
+    <!-- Main Hero Title (3-Line Lockup) -->
+    <div class="relative max-w-4xl mx-auto mb-3 sm:mb-4">
+      <h1 class="font-display font-black text-3xl sm:text-5xl lg:text-6xl xl:text-[66px] tracking-tight text-[#121212] uppercase leading-[0.98] sm:leading-[1.02] flex flex-col items-center justify-center gap-1 sm:gap-2">
+        <!-- Line 1 -->
+        <span class="block">FOR THE STUFF</span>
+        
+        <!-- Line 2: Mascot + THEY + don't + TEACH -->
+        <span class="inline-flex items-center justify-center flex-wrap gap-x-2 sm:gap-x-3">
+          <img src="./assets/images/mascot-cracker-c.svg" alt="Krackerz Mascot" class="w-9 h-9 sm:w-12 sm:h-12 lg:w-14 lg:h-14 inline-block flex-shrink-0 animate-bounce drop-shadow-[2px_2px_0px_#121212]" style="animation-duration: 3.5s;">
+          <span>THEY</span>
+          <span class="font-cursive italic font-bold lowercase text-[1.1em] sm:text-[1.2em] text-[#121212] -rotate-3 inline-block">don't</span>
+          <span>TEACH</span>
+        </span>
 
-      <h1 class="font-display font-black text-5xl sm:text-7xl lg:text-8xl tracking-tight text-[#121212] uppercase leading-[0.95]">
-        For the stuff<br>
-        they <span class="font-cursive lowercase text-[#E53935] font-bold text-6xl sm:text-8xl lg:text-9xl tracking-normal inline-block transform -rotate-6">don't</span><br>
-        teach<br>
-        in design<br>
-        schools
+        <!-- Line 3 -->
+        <span class="block">IN DESIGN SCHOOLS</span>
       </h1>
     </div>
 
     <!-- Hero Primary CTA -->
-    <div class="flex justify-center mb-16">
-      <button data-open-modal="waitlist" class="btn-tactile inline-flex items-center gap-4 px-10 py-4 rounded-full bg-lime text-[#121212] font-label font-black text-sm sm:text-base uppercase tracking-wider border-[3px] border-[#121212] brutal-shadow-lg">
-        <span>Join Waitlist</span>
-        <span class="w-7 h-7 rounded-full bg-[#E53935] text-white flex items-center justify-center text-sm font-black border-[2px] border-[#121212]">➔</span>
+    <div class="flex justify-center mb-4 sm:mb-5">
+      <button data-open-modal="waitlist" class="btn-tactile inline-flex items-center gap-3 pl-6 pr-2.5 sm:pl-8 sm:pr-3 py-2 sm:py-2.5 rounded-xl sm:rounded-2xl bg-lime text-[#121212] font-display font-black text-xs sm:text-sm uppercase tracking-wider border-[2.5px] border-[#121212] brutal-shadow-lg group">
+        <span>JOIN WAITLIST</span>
+        <img src="./assets/images/badge-scallop-arrow.svg" alt="Arrow" class="w-6 h-6 sm:w-7 sm:h-7 flex-shrink-0 group-hover:translate-x-1 transition-transform">
       </button>
     </div>
 
-    <!-- 4 Polaroid / Cracker Cards Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+  </div>
+
+  <!-- 6 Scalloped Wave Cards (Fanned Ribbon Stack) -->
+  <div class="relative w-full max-w-[1340px] mx-auto px-2 sm:px-4">
+    <div class="flex items-center justify-start lg:justify-center -space-x-2.5 sm:-space-x-3.5 lg:-space-x-4 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory py-3 sm:py-4 px-3 sm:px-4">
       
-      <!-- Card 1 -->
-      <div class="card-hover-lift rounded-2xl bg-white border-[2.5px] border-[#121212] brutal-shadow overflow-hidden text-left p-3 transform -rotate-1">
-        <div class="h-56 rounded-xl overflow-hidden border-[2px] border-[#121212] mb-3 bg-[#E8E2D5]">
-          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="Designer interview preparation" class="w-full h-full object-cover">
+      <!-- Card 1 (Ivory Cream / Wine Text) -->
+      <div class="hero-card-fan relative flex-shrink-0 w-[145px] sm:w-[165px] lg:w-[185px] xl:w-[195px] rounded-[18px] sm:rounded-[22px] overflow-hidden border-[2px] sm:border-[2.5px] border-[#121212] bg-[#FAF7F0] shadow-[-4px_8px_16px_rgba(0,0,0,0.12)] brutal-shadow-sm select-none transform -rotate-[4.5deg] translate-y-2 hover:rotate-[5deg] hover:scale-[1.03] z-10 snap-center cursor-pointer">
+        <!-- Photo -->
+        <div class="h-[155px] sm:h-[175px] lg:h-[190px] xl:h-[205px] w-full bg-[#E5E0D5] overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="Getting ready for my next interview" class="w-full h-full object-cover pointer-events-none">
         </div>
-        <div class="p-2">
-          <p class="font-display font-bold text-base text-[#121212] leading-snug">Getting ready for my next interview</p>
-        </div>
-      </div>
-
-      <!-- Card 2 -->
-      <div class="card-hover-lift rounded-2xl bg-[#4A0E17] text-white border-[2.5px] border-[#121212] brutal-shadow overflow-hidden text-left p-3 transform rotate-1">
-        <div class="h-56 rounded-xl overflow-hidden border-[2px] border-[#121212] mb-3 bg-[#380810]">
-          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Uplifting design portfolio" class="w-full h-full object-cover">
-        </div>
-        <div class="p-2">
-          <p class="font-display font-bold text-base text-white leading-snug">Uplifting my design portfolio</p>
-        </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="card-hover-lift rounded-2xl bg-white border-[2.5px] border-[#121212] brutal-shadow overflow-hidden text-left p-3 transform -rotate-2">
-        <div class="h-56 rounded-xl overflow-hidden border-[2px] border-[#121212] mb-3 bg-[#E8E2D5]">
-          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" alt="Cold outreach without cringing" class="w-full h-full object-cover">
-        </div>
-        <div class="p-2">
-          <p class="font-display font-bold text-base text-[#121212] leading-snug">Cold outreaching without cringing</p>
+        <!-- Scallop Cut & Footer -->
+        <div class="relative -mt-3 sm:-mt-3.5 z-10 text-[#FAF7F0] bg-[#FAF7F0]">
+          <svg viewBox="0 0 280 20" preserveAspectRatio="none" class="w-full h-3 sm:h-3.5 block -mb-[1px] fill-current">
+            <path d="M 0,20 L 0,10 A 17.5 10 0 0,1 35,10 A 17.5 10 0 0,1 70,10 A 17.5 10 0 0,1 105,10 A 17.5 10 0 0,1 140,10 A 17.5 10 0 0,1 175,10 A 17.5 10 0 0,1 210,10 A 17.5 10 0 0,1 245,10 A 17.5 10 0 0,1 280,10 L 280,20 Z" />
+          </svg>
+          <div class="px-2 sm:px-2.5 pt-0.5 pb-2 text-center">
+            <p class="font-display font-bold text-[11px] sm:text-xs leading-snug text-[#4A0E17]">
+              Getting ready for my next interview
+            </p>
+          </div>
         </div>
       </div>
 
-      <!-- Card 4 -->
-      <div class="card-hover-lift rounded-2xl bg-[#4A0E17] text-white border-[2.5px] border-[#121212] brutal-shadow overflow-hidden text-left p-3 transform rotate-2">
-        <div class="h-56 rounded-xl overflow-hidden border-[2px] border-[#121212] mb-3 bg-[#380810]">
-          <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80" alt="Connecting with other designers" class="w-full h-full object-cover">
+      <!-- Card 2 (Wine Burgundy / White Text) -->
+      <div class="hero-card-fan relative flex-shrink-0 w-[145px] sm:w-[165px] lg:w-[185px] xl:w-[195px] rounded-[18px] sm:rounded-[22px] overflow-hidden border-[2px] sm:border-[2.5px] border-[#121212] bg-[#4A0E17] shadow-[-4px_8px_16px_rgba(0,0,0,0.16)] brutal-shadow-sm select-none transform rotate-[1.5deg] -translate-y-1.5 hover:-rotate-[5deg] hover:scale-[1.03] z-20 snap-center cursor-pointer">
+        <!-- Photo -->
+        <div class="h-[155px] sm:h-[175px] lg:h-[190px] xl:h-[205px] w-full bg-[#380810] overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Uplifting my design portfolio" class="w-full h-full object-cover pointer-events-none">
         </div>
-        <div class="p-2">
-          <p class="font-display font-bold text-base text-white leading-snug">Connecting with other designers</p>
+        <!-- Scallop Cut & Footer -->
+        <div class="relative -mt-3 sm:-mt-3.5 z-10 text-[#4A0E17] bg-[#4A0E17]">
+          <svg viewBox="0 0 280 20" preserveAspectRatio="none" class="w-full h-3 sm:h-3.5 block -mb-[1px] fill-current">
+            <path d="M 0,20 L 0,10 A 17.5 10 0 0,1 35,10 A 17.5 10 0 0,1 70,10 A 17.5 10 0 0,1 105,10 A 17.5 10 0 0,1 140,10 A 17.5 10 0 0,1 175,10 A 17.5 10 0 0,1 210,10 A 17.5 10 0 0,1 245,10 A 17.5 10 0 0,1 280,10 L 280,20 Z" />
+          </svg>
+          <div class="px-2 sm:px-2.5 pt-0.5 pb-2 text-center">
+            <p class="font-display font-bold text-[11px] sm:text-xs leading-snug text-white">
+              Uplifting my design portfolio
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 (Ivory Cream / Wine Text) -->
+      <div class="hero-card-fan relative flex-shrink-0 w-[145px] sm:w-[165px] lg:w-[185px] xl:w-[195px] rounded-[18px] sm:rounded-[22px] overflow-hidden border-[2px] sm:border-[2.5px] border-[#121212] bg-[#FAF7F0] shadow-[-4px_8px_16px_rgba(0,0,0,0.12)] brutal-shadow-sm select-none transform -rotate-[1deg] translate-y-1.5 hover:rotate-[5deg] hover:scale-[1.03] z-10 snap-center cursor-pointer">
+        <!-- Photo -->
+        <div class="h-[155px] sm:h-[175px] lg:h-[190px] xl:h-[205px] w-full bg-[#E5E0D5] overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&w=600&q=80" alt="Cold outreaching without cringing" class="w-full h-full object-cover pointer-events-none">
+        </div>
+        <!-- Scallop Cut & Footer -->
+        <div class="relative -mt-3 sm:-mt-3.5 z-10 text-[#FAF7F0] bg-[#FAF7F0]">
+          <svg viewBox="0 0 280 20" preserveAspectRatio="none" class="w-full h-3 sm:h-3.5 block -mb-[1px] fill-current">
+            <path d="M 0,20 L 0,10 A 17.5 10 0 0,1 35,10 A 17.5 10 0 0,1 70,10 A 17.5 10 0 0,1 105,10 A 17.5 10 0 0,1 140,10 A 17.5 10 0 0,1 175,10 A 17.5 10 0 0,1 210,10 A 17.5 10 0 0,1 245,10 A 17.5 10 0 0,1 280,10 L 280,20 Z" />
+          </svg>
+          <div class="px-2 sm:px-2.5 pt-0.5 pb-2 text-center">
+            <p class="font-display font-bold text-[11px] sm:text-xs leading-snug text-[#4A0E17]">
+              Cold outreaching without cringing
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 (Wine Burgundy / White Text) -->
+      <div class="hero-card-fan relative flex-shrink-0 w-[145px] sm:w-[165px] lg:w-[185px] xl:w-[195px] rounded-[18px] sm:rounded-[22px] overflow-hidden border-[2px] sm:border-[2.5px] border-[#121212] bg-[#4A0E17] shadow-[-4px_8px_16px_rgba(0,0,0,0.16)] brutal-shadow-sm select-none transform rotate-[2.5deg] -translate-y-1 hover:-rotate-[5deg] hover:scale-[1.03] z-20 snap-center cursor-pointer">
+        <!-- Photo -->
+        <div class="h-[155px] sm:h-[175px] lg:h-[190px] xl:h-[205px] w-full bg-[#380810] overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80" alt="Connecting with other designers" class="w-full h-full object-cover pointer-events-none">
+        </div>
+        <!-- Scallop Cut & Footer -->
+        <div class="relative -mt-3 sm:-mt-3.5 z-10 text-[#4A0E17] bg-[#4A0E17]">
+          <svg viewBox="0 0 280 20" preserveAspectRatio="none" class="w-full h-3 sm:h-3.5 block -mb-[1px] fill-current">
+            <path d="M 0,20 L 0,10 A 17.5 10 0 0,1 35,10 A 17.5 10 0 0,1 70,10 A 17.5 10 0 0,1 105,10 A 17.5 10 0 0,1 140,10 A 17.5 10 0 0,1 175,10 A 17.5 10 0 0,1 210,10 A 17.5 10 0 0,1 245,10 A 17.5 10 0 0,1 280,10 L 280,20 Z" />
+          </svg>
+          <div class="px-2 sm:px-2.5 pt-0.5 pb-2 text-center">
+            <p class="font-display font-bold text-[11px] sm:text-xs leading-snug text-white">
+              Connecting with other designers
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5 (Ivory Cream / Wine Text) -->
+      <div class="hero-card-fan relative flex-shrink-0 w-[145px] sm:w-[165px] lg:w-[185px] xl:w-[195px] rounded-[18px] sm:rounded-[22px] overflow-hidden border-[2px] sm:border-[2.5px] border-[#121212] bg-[#FAF7F0] shadow-[-4px_8px_16px_rgba(0,0,0,0.12)] brutal-shadow-sm select-none transform -rotate-[2.5deg] translate-y-1.5 hover:rotate-[5deg] hover:scale-[1.03] z-10 snap-center cursor-pointer">
+        <!-- Photo -->
+        <div class="h-[155px] sm:h-[175px] lg:h-[190px] xl:h-[205px] w-full bg-[#E5E0D5] overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=600&q=80" alt="Selling my work, not just making it" class="w-full h-full object-cover pointer-events-none">
+        </div>
+        <!-- Scallop Cut & Footer -->
+        <div class="relative -mt-3 sm:-mt-3.5 z-10 text-[#FAF7F0] bg-[#FAF7F0]">
+          <svg viewBox="0 0 280 20" preserveAspectRatio="none" class="w-full h-3 sm:h-3.5 block -mb-[1px] fill-current">
+            <path d="M 0,20 L 0,10 A 17.5 10 0 0,1 35,10 A 17.5 10 0 0,1 70,10 A 17.5 10 0 0,1 105,10 A 17.5 10 0 0,1 140,10 A 17.5 10 0 0,1 175,10 A 17.5 10 0 0,1 210,10 A 17.5 10 0 0,1 245,10 A 17.5 10 0 0,1 280,10 L 280,20 Z" />
+          </svg>
+          <div class="px-2 sm:px-2.5 pt-0.5 pb-2 text-center">
+            <p class="font-display font-bold text-[11px] sm:text-xs leading-snug text-[#4A0E17]">
+              Selling my work, not just making it
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6 (Wine Burgundy / White Text) -->
+      <div class="hero-card-fan relative flex-shrink-0 w-[145px] sm:w-[165px] lg:w-[185px] xl:w-[195px] rounded-[18px] sm:rounded-[22px] overflow-hidden border-[2px] sm:border-[2.5px] border-[#121212] bg-[#4A0E17] shadow-[-4px_8px_16px_rgba(0,0,0,0.16)] brutal-shadow-sm select-none transform rotate-[3.5deg] -translate-y-1.5 hover:-rotate-[5deg] hover:scale-[1.03] z-20 snap-center cursor-pointer">
+        <!-- Photo -->
+        <div class="h-[155px] sm:h-[175px] lg:h-[190px] xl:h-[205px] w-full bg-[#380810] overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=600&q=80" alt="Refining my personal brand" class="w-full h-full object-cover pointer-events-none">
+        </div>
+        <!-- Scallop Cut & Footer -->
+        <div class="relative -mt-3 sm:-mt-3.5 z-10 text-[#4A0E17] bg-[#4A0E17]">
+          <svg viewBox="0 0 280 20" preserveAspectRatio="none" class="w-full h-3 sm:h-3.5 block -mb-[1px] fill-current">
+            <path d="M 0,20 L 0,10 A 17.5 10 0 0,1 35,10 A 17.5 10 0 0,1 70,10 A 17.5 10 0 0,1 105,10 A 17.5 10 0 0,1 140,10 A 17.5 10 0 0,1 175,10 A 17.5 10 0 0,1 210,10 A 17.5 10 0 0,1 245,10 A 17.5 10 0 0,1 280,10 L 280,20 Z" />
+          </svg>
+          <div class="px-2 sm:px-2.5 pt-0.5 pb-2 text-center">
+            <p class="font-display font-bold text-[11px] sm:text-xs leading-snug text-white">
+              Refining my personal brand
+            </p>
+          </div>
         </div>
       </div>
 
     </div>
-
   </div>
 </section>
+

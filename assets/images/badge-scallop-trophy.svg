@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none">
+  <!-- 10-point scalloped cookie rosette -->
+  <path d="
+    M 18 2
+    C 20 2, 21.5 4, 23.5 4.5
+    C 25.5 5, 27.5 4.5, 29 6
+    C 30.5 7.5, 30 9.5, 30.5 11.5
+    C 31 13.5, 33 15, 33 17
+    C 33 19, 31 20.5, 30.5 22.5
+    C 30 24.5, 30.5 26.5, 29 28
+    C 27.5 29.5, 25.5 29, 23.5 29.5
+    C 21.5 30, 20 32, 18 32
+    C 16 32, 14.5 30, 12.5 29.5
+    C 10.5 29, 8.5 29.5, 7 28
+    C 5.5 26.5, 6 24.5, 5.5 22.5
+    C 5 20.5, 3 19, 3 17
+    C 3 15, 5 13.5, 5.5 11.5
+    C 6 9.5, 5.5 7.5, 7 6
+    C 8.5 4.5, 10.5 5, 12.5 4.5
+    C 14.5 4, 16 2, 18 2 Z
+  " fill="#D4FF00" stroke="#121212" stroke-width="2" stroke-linejoin="round"/>
+
+  <!-- Clean line Trophy Icon in Black -->
+  <g transform="translate(10, 8)" stroke="#121212" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Cup Rim & Body -->
+    <path d="M 2 2 L 14 2 L 13 9 C 12.5 12, 9.5 13.5, 8 13.5 C 6.5 13.5, 3.5 12, 3 9 Z" fill="#D4FF00"/>
+    <!-- Left Handle -->
+    <path d="M 2 4 C 0 4, 0 8, 2.5 9"/>
+    <!-- Right Handle -->
+    <path d="M 14 4 C 16 4, 16 8, 13.5 9"/>
+    <!-- Stem -->
+    <line x1="8" y1="13.5" x2="8" y2="16.5"/>
+    <!-- Base -->
+    <line x1="5" y1="16.5" x2="11" y2="16.5"/>
+  </g>
+</svg>
