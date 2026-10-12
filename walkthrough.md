@@ -79,7 +79,12 @@ Jika Anda ingin mengedit bagian tertentu:
        - Di sisi kiri kata `THEY`, terdapat maskot biskuit berbentuk huruf "C" merah bergerigi dengan mata kartun, alis tebal garang, dan kumis gentleman hitam (`mascot-cracker-c.svg`).
        - Kata `don't` bergaya tulisan sambung miring (*editorial italic script*) hitam yang anggun dan kontras.
      - **Line 3**: `IN DESIGN SCHOOLS` (font display hitam tebal).
-     - Di belakang judul terdapat kontur gelombang biskuit organik yang lembut (*subtle biscuit wave*).
+      - **Background Awan Berputar & Bergerak (*Krackerz Rotating Cloud Wave Engine*)**:
+        - **Reverse-Engineered dari Produksi Asli**: Diambil langsung dari struktur kode inspect Framer `https://krackerz.com/` (`<div class="framer-h4nTm framer-7xzl3c">`).
+        - **Aset Vektor Asli**: [assets/svg/krackerz-wave-shape.svg](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/assets/svg/krackerz-wave-shape.svg) (lingkaran awan bergigi gelombang 360° resolusi tinggi).
+        - **Animasi Rotasi Berkelanjutan (68s Infinite Loop)**: Sesuai parameter asli Krackerz (`duration: 68s, ease: linear, loop`), bentuk awan berputar 360° secara halus non-stop di background (`@keyframes krackerzWaveRotate 68s linear infinite`), menghasilkan efek lengkungan gelombang awan putih yang bergulir dan bernapas di batas antara judul hero dan deretan kartu.
+        - **Geometri & Pembagian Warna**: Bagian atas (navbar, badge, judul hero, tombol CTA) dinaungi bagian dalam awan putih solid (`#FFFFFF`), sedangkan bagian bawah (area 6 kartu biskuit) menampilkan kanvas krem (`#FAF7F0`).
+        - **Parallax Responsif Scroll**: Dilengkapi `initHeroWaveParallax()` di `assets/js/main.js` yang memberikan kedalaman vertikal lembut saat halaman di-scroll ke bawah.
    - **Hero Primary CTA Button**:
      - Tombol kapsul berwarna Electric Lime bertuliskan *"JOIN WAITLIST"*.
      - Di ujung kanan tombol terdapat rosette biskuit merah dengan panah putih (`badge-scallop-arrow.svg`).

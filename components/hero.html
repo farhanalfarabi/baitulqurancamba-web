@@ -1,11 +1,12 @@
 <!-- Hero Section Component -->
-<section class="relative pt-3 sm:pt-5 pb-4 sm:pb-6 overflow-hidden">
+<section class="relative pt-3 sm:pt-5 pb-4 sm:pb-6 overflow-hidden bg-[#FAF7F0]">
   
-  <!-- Background Subtle Biscuit Wave -->
-  <div class="absolute inset-x-0 top-1/4 -translate-y-8 h-80 pointer-events-none -z-0 opacity-40">
-    <svg viewBox="0 0 1440 320" fill="none" preserveAspectRatio="none" class="w-full h-full">
-      <path d="M0,80 C320,150 540,30 880,110 C1200,180 1340,90 1440,60 L1440,320 L0,320 Z" fill="#E8E1D2" />
-    </svg>
+  <!-- Krackerz Rotating Cloud Wave Background (Matching https://krackerz.com/ element .framer-h4nTm .framer-7xzl3c) -->
+  <div class="krackerz-wave-wrapper absolute inset-0 w-full h-full pointer-events-none -z-0 overflow-hidden">
+    <!-- Top White Cap to guarantee solid crisp white background behind navbar, badge, and title -->
+    <div class="absolute inset-x-0 top-0 h-44 sm:h-60 bg-white pointer-events-none -z-10"></div>
+    <!-- Giant Rotating Scalloped Wave Shape from Krackerz -->
+    <img src="./assets/svg/krackerz-wave-shape.svg" alt="Krackerz Rotating Cloud Wave" class="krackerz-rotating-wave pointer-events-none select-none" aria-hidden="true">
   </div>
 
   <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center relative z-10">

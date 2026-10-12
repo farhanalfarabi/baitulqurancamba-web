@@ -9,6 +9,7 @@ window.initKrackerzApp = function() {
   initFaqAccordion();
   initDraggableStickers();
   initWaitlistModal();
+  initHeroWaveParallax();
 };
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -314,4 +315,19 @@ function initWaitlistModal() {
       closeModal();
     });
   }
+}
+
+/* ==========================================================================
+   7. Hero Wave Scroll Parallax (Complementing the 68s continuous rotation)
+   ========================================================================== */
+function initHeroWaveParallax() {
+  const waveWrapper = document.querySelector('.krackerz-wave-wrapper');
+  if (!waveWrapper) return;
+
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    if (scrollY < 1200) {
+      waveWrapper.style.transform = `translateY(${scrollY * 0.12}px)`;
+    }
+  }, { passive: true });
 }
