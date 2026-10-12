@@ -59,7 +59,12 @@ Jika Anda ingin mengedit bagian tertentu:
      - Arahkan kursor (*hover*) ke masing-masing item menu (`Features`, `Pricing`, `For partners`, `FAQ`, `Shop`).
      - Perhatikan teks awal berwarna hitam akan bergeser naik ke atas (*slide up* keluar viewport wadah), dan secara simultan teks duplikat berwarna merah aksen biskuit (`#E53935`) naik dari bawah menggantikan posisinya secara mulus (*slot machine cylinder roll*).
      - Gerakkan kursor keluar (*unhover*) untuk melihat animasi berputar kembali ke posisi awal.
-     - Hover juga tombol **JOIN WAITLIST** untuk melihat efek rolling text pada label tombolnya.
+   - **Uji Hover Tombol "JOIN WAITLIST" (Stationary Button + Rolling Text + Rotating Scallop Border)**:
+     - Arahkan kursor (*hover*) ke tombol **JOIN WAITLIST**.
+     - **Ekspektasi Fisik**: Tombol itu sendiri **TIDAK BERGERAK** (tetap diam kokoh di tempat tanpa bergeser).
+     - **Ekspektasi Teks**: Teks label *"JOIN WAITLIST"* berputar meluncur ke atas (*rolling text*).
+     - **Ekspektasi Ikon**: Lingkaran rosette/bintang biskuit merah di sisi kanan tombol berputar mulus 360° (*spinning border*), sementara panah putih di tengahnya tetap tegak menunjuk ke depan (*stationary arrow*).
+     - Gerakkan kursor keluar (*unhover*) untuk melihat border kembali berputar ke posisi semula secara halus.
    - Klik link `Features`, `Pricing`, `For partners`, `FAQ`, `Shop` untuk memverifikasi smooth scrolling ke masing-masing section.
 2. **Folder Tabs**: Klik tab *"Win Work Prep"* di section kurikulum; pastikan materi berganti seketika.
 3. **Pricing Switcher**: Klik toggle switch *"Yearly (-20%)"*; pastikan harga berubah menjadi `$28/mo` dan `$12.99/mo`.

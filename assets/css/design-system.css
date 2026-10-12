@@ -418,3 +418,19 @@ body {
   transform: translateY(-50%);
 }
 
+/* ==========================================================================
+   Scallop Badge Border Spin Animation (Icon Spin on Button Hover)
+   ========================================================================== */
+.badge-spin-border {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform;
+}
+
+.group:hover .badge-spin-border,
+.group:focus-visible .badge-spin-border {
+  transform: rotate(360deg);
+}
+
+

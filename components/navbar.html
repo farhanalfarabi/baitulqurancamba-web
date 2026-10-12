@@ -42,15 +42,41 @@
         </a>
       </nav>
 
-      <!-- Pill Button inside Capsule -->
-      <button data-open-modal="waitlist" class="btn-tactile flex items-center gap-2.5 px-6 py-2.5 rounded-2xl bg-lime text-[#121212] font-display font-black text-sm uppercase tracking-tight border-[2px] border-[#121212] shadow-[2px_3px_0px_#121212] hover:shadow-[1px_1px_0px_#121212] hover:translate-x-0.5 hover:translate-y-0.5 transition-all">
+      <!-- Pill Button inside Capsule (Stationary button, rolling text, spinning scallop border) -->
+      <button data-open-modal="waitlist" class="group flex items-center gap-2.5 px-6 py-2.5 rounded-2xl bg-lime text-[#121212] font-display font-black text-sm uppercase tracking-tight border-[2px] border-[#121212] shadow-[2px_3px_0px_#121212] cursor-pointer focus:outline-none">
         <span class="roll-link">
           <span class="roll-link-inner">
             <span>JOIN WAITLIST</span>
             <span class="text-[#121212]" aria-hidden="true">JOIN WAITLIST</span>
           </span>
         </span>
-        <img src="./assets/images/badge-scallop-arrow.svg" alt="Arrow" class="w-6 h-6">
+        <!-- Scalloped Badge with Spinning Border -->
+        <div class="relative w-6 h-6 flex items-center justify-center flex-shrink-0">
+          <svg class="w-6 h-6 badge-spin-border" viewBox="0 0 40 40" fill="none">
+            <path d="M 20 2 
+                     C 22.5 2, 24 4.5, 26 5
+                     C 28 5.5, 30.5 4.5, 32 6
+                     C 33.5 7.5, 32.5 10, 33 12
+                     C 33.5 14, 36 15.5, 36 18
+                     C 36 20.5, 34 22, 33.5 24
+                     C 33 26, 34 28.5, 32.5 30
+                     C 31 31.5, 28.5 30.5, 26.5 31
+                     C 24.5 31.5, 23 34, 20.5 34
+                     C 18 34, 16.5 31.5, 14.5 31
+                     C 12.5 30.5, 10 31.5, 8.5 30
+                     C 7 28.5, 8 26, 7.5 24
+                     C 7 22, 5 20.5, 5 18
+                     C 5 15.5, 7.5 14, 8 12
+                     C 8.5 10, 7.5 7.5, 9 6
+                     C 10.5 4.5, 13 5.5, 15 5
+                     C 17 4.5, 18.5 2, 20 2 Z"
+                  fill="#E53935" stroke="#121212" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+          <svg class="absolute inset-0 w-6 h-6 pointer-events-none" viewBox="0 0 40 40" fill="none">
+            <path d="M 14 18 L 26 18 M 21 13 L 26 18 L 21 23" 
+                  stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
       </button>
     </div>
 
@@ -96,14 +122,40 @@
       </span>
     </a>
     <div class="pt-2">
-      <button data-open-modal="waitlist" class="w-full btn-tactile flex items-center justify-center gap-2.5 px-6 py-3 rounded-2xl bg-lime text-[#121212] font-display font-black text-sm uppercase tracking-tight border-[2px] border-[#121212] brutal-shadow-sm">
+      <button data-open-modal="waitlist" class="group w-full flex items-center justify-center gap-2.5 px-6 py-3 rounded-2xl bg-lime text-[#121212] font-display font-black text-sm uppercase tracking-tight border-[2px] border-[#121212] shadow-[2px_3px_0px_#121212] cursor-pointer focus:outline-none">
         <span class="roll-link">
           <span class="roll-link-inner">
             <span>JOIN WAITLIST</span>
             <span class="text-[#121212]" aria-hidden="true">JOIN WAITLIST</span>
           </span>
         </span>
-        <img src="./assets/images/badge-scallop-arrow.svg" alt="Arrow" class="w-6 h-6">
+        <!-- Scalloped Badge with Spinning Border -->
+        <div class="relative w-6 h-6 flex items-center justify-center flex-shrink-0">
+          <svg class="w-6 h-6 badge-spin-border" viewBox="0 0 40 40" fill="none">
+            <path d="M 20 2 
+                     C 22.5 2, 24 4.5, 26 5
+                     C 28 5.5, 30.5 4.5, 32 6
+                     C 33.5 7.5, 32.5 10, 33 12
+                     C 33.5 14, 36 15.5, 36 18
+                     C 36 20.5, 34 22, 33.5 24
+                     C 33 26, 34 28.5, 32.5 30
+                     C 31 31.5, 28.5 30.5, 26.5 31
+                     C 24.5 31.5, 23 34, 20.5 34
+                     C 18 34, 16.5 31.5, 14.5 31
+                     C 12.5 30.5, 10 31.5, 8.5 30
+                     C 7 28.5, 8 26, 7.5 24
+                     C 7 22, 5 20.5, 5 18
+                     C 5 15.5, 7.5 14, 8 12
+                     C 8.5 10, 7.5 7.5, 9 6
+                     C 10.5 4.5, 13 5.5, 15 5
+                     C 17 4.5, 18.5 2, 20 2 Z"
+                  fill="#E53935" stroke="#121212" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+          <svg class="absolute inset-0 w-6 h-6 pointer-events-none" viewBox="0 0 40 40" fill="none">
+            <path d="M 14 18 L 26 18 M 21 13 L 26 18 L 21 23" 
+                  stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
       </button>
     </div>
   </div>
