@@ -101,17 +101,17 @@ function initPricingToggle() {
     const isYearly = toggle.checked;
 
     if (isYearly) {
-      if (priceReady) priceReady.textContent = '$28';
-      if (periodReady) periodReady.textContent = '/ MONTH (BILLED ANNUALLY)';
-      if (priceStudents) priceStudents.textContent = '$12.99';
-      if (periodStudents) periodStudents.textContent = '/ MONTH (BILLED ANNUALLY)';
+      if (priceReady) priceReady.textContent = 'Rp 360rb';
+      if (periodReady) periodReady.textContent = '/ BULAN (BAYAR TAHUNAN)';
+      if (priceStudents) priceStudents.textContent = 'Rp 200rb';
+      if (periodStudents) periodStudents.textContent = '/ BULAN (BAYAR TAHUNAN)';
       if (labelYearly) labelYearly.classList.add('text-[#121212]', 'font-bold');
       if (labelMonthly) labelMonthly.classList.remove('font-bold');
     } else {
-      if (priceReady) priceReady.textContent = '$35';
-      if (periodReady) periodReady.textContent = '/ MONTH';
-      if (priceStudents) priceStudents.textContent = '$15.99';
-      if (periodStudents) periodStudents.textContent = '/ MONTH';
+      if (priceReady) priceReady.textContent = 'Rp 450rb';
+      if (periodReady) periodReady.textContent = '/ BULAN';
+      if (priceStudents) priceStudents.textContent = 'Rp 250rb';
+      if (periodStudents) periodStudents.textContent = '/ BULAN';
       if (labelMonthly) labelMonthly.classList.add('font-bold');
       if (labelYearly) labelYearly.classList.remove('font-bold');
     }
@@ -291,7 +291,7 @@ function initWaitlistModal() {
       const roleSelect = form.querySelector('#waitlist-role');
 
       if (!nameInput.value.trim() || !emailInput.value.trim()) {
-        alert('Please fill in your name and email address.');
+        alert('Mohon isi nama lengkap calon santri dan kontak wali santri.');
         return;
       }
 

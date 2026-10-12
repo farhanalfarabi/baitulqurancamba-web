@@ -1,54 +1,52 @@
-<!-- Waitlist Interactive Modal Dialog Component -->
+<!-- Admissions Interactive Modal Dialog Component -->
 <div id="waitlist-modal" class="fixed inset-0 z-50 hidden modal-overlay flex items-center justify-center p-4">
   <div class="relative w-full max-w-md rounded-3xl bg-[#FAF7F0] border-[3.5px] border-[#121212] brutal-shadow-xl p-6 sm:p-8 modal-enter">
     
     <!-- Close Button -->
-    <button id="btn-close-modal" aria-label="Close dialog" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-[#E53935] text-white border-[2px] border-[#121212] flex items-center justify-center text-sm font-black brutal-shadow-sm btn-tactile">
+    <button id="btn-close-modal" aria-label="Tutup dialog" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-[#E53935] text-white border-[2px] border-[#121212] flex items-center justify-center text-sm font-black brutal-shadow-sm btn-tactile">
       ✕
     </button>
 
     <!-- Form State -->
     <form id="waitlist-form" class="space-y-5">
       <div class="text-left mb-6">
-        <div class="stamp-badge stamp-badge-red mb-2">Early Access</div>
+        <div class="stamp-badge stamp-badge-red mb-2">Penerimaan Santri 2026/2027</div>
         <h3 class="font-display font-black text-2xl uppercase tracking-tight text-[#121212]">
-          Join The Krackerz Waitlist
+          Pendaftaran Santri Baru
         </h3>
         <p class="font-body text-xs text-slate-muted font-medium mt-1">
-          Be the first to learn how to pitch, price, and sell your design craft.
+          Formulir pendaftaran calon santri jenjang Wustha, Ulya, atau Tahfizh Khusus.
         </p>
       </div>
 
       <div class="text-left">
         <label for="waitlist-name" class="block font-label font-bold text-xs uppercase tracking-wider text-[#121212] mb-1.5">
-          Full Name
+          Nama Lengkap Calon Santri
         </label>
-        <input type="text" id="waitlist-name" required placeholder="e.g. Penny Lane" class="w-full px-4 py-3 rounded-xl bg-white text-[#121212] border-[2px] border-[#121212] brutal-shadow-sm font-body text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-lime">
+        <input type="text" id="waitlist-name" required placeholder="misal: Muhammad Al-Fatih" class="w-full px-4 py-3 rounded-xl bg-white text-[#121212] border-[2px] border-[#121212] brutal-shadow-sm font-body text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-lime">
       </div>
 
       <div class="text-left">
         <label for="waitlist-email" class="block font-label font-bold text-xs uppercase tracking-wider text-[#121212] mb-1.5">
-          Work or Student Email
+          Nomor WhatsApp atau Email Wali
         </label>
-        <input type="email" id="waitlist-email" required placeholder="e.g. penny@studio.com" class="w-full px-4 py-3 rounded-xl bg-white text-[#121212] border-[2px] border-[#121212] brutal-shadow-sm font-body text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-lime">
+        <input type="text" id="waitlist-email" required placeholder="misal: 0821... atau nama@gmail.com" class="w-full px-4 py-3 rounded-xl bg-white text-[#121212] border-[2px] border-[#121212] brutal-shadow-sm font-body text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-lime">
       </div>
 
       <div class="text-left">
         <label for="waitlist-role" class="block font-label font-bold text-xs uppercase tracking-wider text-[#121212] mb-1.5">
-          Current Role
+          Pilihan Jenjang Pendidikan
         </label>
         <select id="waitlist-role" class="w-full px-4 py-3 rounded-xl bg-white text-[#121212] border-[2px] border-[#121212] brutal-shadow-sm font-body text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-lime">
-          <option value="Product Designer">Product Designer</option>
-          <option value="UX/UI Designer">UX/UI Designer</option>
-          <option value="Freelance Designer">Freelance Designer</option>
-          <option value="Design Lead / Manager">Design Lead / Manager</option>
-          <option value="Design Student">Design Student</option>
-          <option value="Other">Other</option>
+          <option value="Jenjang Wustha (Setara SMP)">Jenjang Wustha (Setara SMP / Tsanawiyah)</option>
+          <option value="Jenjang Ulya (Setara SMA)">Jenjang Ulya (Setara SMA / Aliyah)</option>
+          <option value="Program Khusus Tahfizh 30 Juz">Program Intensif Tahfizh 30 Juz Bersanad</option>
+          <option value="Jalur Beasiswa Tahfizh Yatim/Dhuafa">Jalur Beasiswa Tahfizh (Yatim & Dhuafa)</option>
         </select>
       </div>
 
       <button type="submit" class="w-full btn-tactile mt-6 py-4 rounded-full bg-lime text-[#121212] font-label font-black text-sm uppercase tracking-wider border-[2.5px] border-[#121212] brutal-shadow flex items-center justify-center gap-3">
-        <span>Claim My Spot</span>
+        <span>Kirim Pendaftaran</span>
         <span class="w-6 h-6 rounded-full bg-[#121212] text-white flex items-center justify-center text-xs font-black">➔</span>
       </button>
     </form>
@@ -59,13 +57,13 @@
         🎉
       </div>
       <h3 class="font-display font-black text-2xl uppercase tracking-tight text-[#121212]">
-        You're In Line!
+        Pendaftaran Berhasil Dikirim!
       </h3>
       <p class="font-body text-sm text-slate-muted font-medium">
-        We sent a confirmation link to <span id="success-email-text" class="font-bold text-[#121212]"></span>. You'll receive your early access invite very soon!
+        Alhamdulillah! Kami telah menerima data pendaftaran untuk kontak <span id="success-email-text" class="font-bold text-[#121212]"></span>. Panitia penerimaan santri akan segera menghubungi Anda.
       </p>
       <button id="btn-reset-form" class="btn-tactile px-6 py-2.5 rounded-full bg-white text-[#121212] border-[2px] border-[#121212] brutal-shadow-sm font-label font-bold text-xs uppercase tracking-wider mt-4">
-        Close
+        Tutup
       </button>
     </div>
 

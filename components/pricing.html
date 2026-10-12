@@ -1,135 +1,148 @@
-<!-- Pricing Section Component: Choose Your Way To Level Up -->
+<!-- Pricing Section Component: Educational Investment & Admissions -->
 <section id="pricing" class="py-24 bg-[#FCF9F2] relative">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
     
     <!-- Header -->
     <div class="mb-10">
       <div class="stamp-badge stamp-badge-red mb-4">
-        Pricing
+        Biaya Pendidikan & Pendaftaran
       </div>
       <h2 class="font-display font-black text-4xl sm:text-6xl text-[#121212] uppercase tracking-tight">
-        Choose Your Way To <span class="inline-block px-4 py-1.5 bg-[#121212] text-lime rounded-xl border-[2.5px] border-[#121212] brutal-shadow tilt-left transform">Level Up</span>
+        Investasi Pendidikan <br class="hidden sm:inline">
+        <span class="inline-block mt-2 px-4 py-1.5 bg-[#121212] text-lime rounded-xl border-[2.5px] border-[#121212] brutal-shadow tilt-left transform">Generasi Qur'ani</span>
       </h2>
+      <p class="font-body text-sm sm:text-base text-slate-muted font-medium max-w-2xl mx-auto mt-4">
+        Seluruh program sudah mencakup asrama 24 jam dengan bimbingan asatidz, makan santri 3x sehari, pendidikan formal, dan tahfizh terstruktur. Tersedia jalur beasiswa untuk dhuafa dan yatim.
+      </p>
     </div>
 
     <!-- Monthly / Yearly Switcher -->
     <div class="inline-flex items-center gap-4 px-6 py-3 rounded-full bg-white border-[2.5px] border-[#121212] brutal-shadow mb-16">
-      <span id="label-monthly" class="font-label text-xs uppercase tracking-wider font-bold">Monthly</span>
+      <span id="label-monthly" class="font-label text-xs uppercase tracking-wider font-bold">Bulanan</span>
       <label class="relative inline-flex items-center cursor-pointer">
         <input type="checkbox" id="billing-toggle" class="sr-only peer">
         <div class="w-12 h-6 bg-[#E8E2D5] peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-[#121212] after:border-[#121212] after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-lime border-[2px] border-[#121212]"></div>
       </label>
-      <span id="label-yearly" class="font-label text-xs uppercase tracking-wider text-slate-muted">Yearly <span class="text-[#E53935] font-bold">(-20%)</span></span>
+      <span id="label-yearly" class="font-label text-xs uppercase tracking-wider text-slate-muted">Tahunan <span class="text-[#E53935] font-bold">(-20%)</span></span>
     </div>
 
     <!-- 3 Pricing Tier Cards Grid -->
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 text-left items-stretch max-w-5xl mx-auto">
       
-      <!-- Tier 1: Free -->
+      <!-- Tier 1: Wustha (Junior High) -->
       <div class="rounded-3xl bg-white border-[3px] border-[#121212] brutal-shadow-lg p-8 flex flex-col justify-between">
         <div>
           <div class="mb-6">
-            <h3 class="font-display font-black text-2xl uppercase tracking-tight">Just Krumbling</h3>
-            <p class="font-body text-xs text-slate-muted font-medium mt-1">Get a taste of Krackerz</p>
+            <h3 class="font-display font-black text-2xl uppercase tracking-tight">Jenjang Wustha</h3>
+            <p class="font-body text-xs text-slate-muted font-medium mt-1">Setara SMP / Tsanawiyah (Usia 12–15 Tahun)</p>
           </div>
           <div class="mb-8">
-            <span class="font-display font-black text-4xl uppercase text-[#121212]">Free</span>
+            <span class="font-display font-black text-4xl uppercase text-[#121212]">Rp 350rb</span>
+            <span class="font-label text-xs uppercase tracking-wider text-slate-muted block mt-1">/ Bulan (Termasuk Asrama & Makan)</span>
           </div>
           <button data-open-modal="waitlist" class="w-full btn-tactile mb-8 py-3 rounded-xl bg-white border-[2.5px] border-[#121212] brutal-shadow font-label font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2">
-            <span>Join Waitlist</span>
+            <span>Daftar Jenjang Wustha</span>
             <span class="text-sm">➔</span>
           </button>
           <ul class="space-y-4 font-body text-sm font-semibold text-[#121212]">
             <li class="flex items-center gap-3">
               <span class="w-5 h-5 rounded-full bg-[#E8E2D5] border-[1.5px] border-[#121212] flex items-center justify-center text-[10px] font-bold">✓</span>
-              <span>Access to first module for 14 days</span>
+              <span>Ijazah resmi terakreditasi negara setara SMP</span>
             </li>
             <li class="flex items-center gap-3">
               <span class="w-5 h-5 rounded-full bg-[#E8E2D5] border-[1.5px] border-[#121212] flex items-center justify-center text-[10px] font-bold">✓</span>
-              <span>Discover and join public events</span>
+              <span>Target hafalan 10–15 Juz Al-Qur'an & tajwid talaqqi</span>
             </li>
             <li class="flex items-center gap-3">
               <span class="w-5 h-5 rounded-full bg-[#E8E2D5] border-[1.5px] border-[#121212] flex items-center justify-center text-[10px] font-bold">✓</span>
-              <span>Benchmark yourself scorecard</span>
+              <span>Asrama 24 jam & makan bergizi 3x sehari</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-5 h-5 rounded-full bg-[#E8E2D5] border-[1.5px] border-[#121212] flex items-center justify-center text-[10px] font-bold">✓</span>
+              <span>Pembiasaan percakapan Bahasa Arab & Inggris dasar</span>
             </li>
           </ul>
         </div>
       </div>
 
-      <!-- Tier 2: Ready to Krack (Featured) -->
+      <!-- Tier 2: Ulya (Senior High - Featured) -->
       <div class="rounded-3xl bg-[#4A0E17] text-white border-[3.5px] border-[#121212] brutal-shadow-xl p-8 flex flex-col justify-between relative transform lg:-translate-y-3">
         <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-lime text-[#121212] font-label font-black text-[11px] uppercase tracking-wider px-4 py-1 rounded-full border-[2px] border-[#121212] brutal-shadow-sm">
-          Most Popular
+          Pilihan Utama
         </div>
         <div>
           <div class="mb-6">
-            <h3 class="font-display font-black text-2xl uppercase tracking-tight text-white">Ready to Krack</h3>
-            <p class="font-body text-xs text-white/80 font-medium mt-1">For designers ready to krack further</p>
+            <h3 class="font-display font-black text-2xl uppercase tracking-tight text-white">Jenjang Ulya</h3>
+            <p class="font-body text-xs text-white/80 font-medium mt-1">Setara SMA / Aliyah (Usia 15–18 Tahun)</p>
           </div>
           <div class="mb-8">
-            <span id="price-ready" class="font-display font-black text-5xl uppercase text-lime">$35</span>
-            <span id="period-ready" class="font-label text-xs uppercase tracking-wider text-white/80 block mt-1">/ Month</span>
+            <span id="price-ready" class="font-display font-black text-5xl uppercase text-lime">Rp 450rb</span>
+            <span id="period-ready" class="font-label text-xs uppercase tracking-wider text-white/80 block mt-1">/ Bulan</span>
           </div>
           <button data-open-modal="waitlist" class="w-full btn-tactile mb-8 py-3.5 rounded-xl bg-lime text-[#121212] border-[2.5px] border-[#121212] brutal-shadow font-label font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2">
-            <span>Join Waitlist</span>
+            <span>Daftar Jenjang Ulya</span>
             <span class="text-sm">➔</span>
           </button>
           <ul class="space-y-4 font-body text-sm font-semibold text-white">
             <li class="flex items-center gap-3">
               <span class="w-5 h-5 rounded-full bg-lime text-[#121212] border-[1.5px] border-[#121212] flex items-center justify-center text-[10px] font-black">✓</span>
-              <span>Full access to all modules & lessons</span>
+              <span>Ijazah resmi terakreditasi negara setara SMA</span>
             </li>
             <li class="flex items-center gap-3">
               <span class="w-5 h-5 rounded-full bg-lime text-[#121212] border-[1.5px] border-[#121212] flex items-center justify-center text-[10px] font-black">✓</span>
-              <span>Discover and join private events</span>
+              <span>Hafalan 30 Juz Al-Qur'an dengan sanad bersambung</span>
             </li>
             <li class="flex items-center gap-3">
               <span class="w-5 h-5 rounded-full bg-lime text-[#121212] border-[1.5px] border-[#121212] flex items-center justify-center text-[10px] font-black">✓</span>
-              <span>Benchmark yourself scorecards</span>
+              <span>Pidato (muhadharah) 3 bahasa & kepemimpinan dakwah</span>
             </li>
             <li class="flex items-center gap-3">
               <span class="w-5 h-5 rounded-full bg-lime text-[#121212] border-[1.5px] border-[#121212] flex items-center justify-center text-[10px] font-black">✓</span>
-              <span>Connect with private communities</span>
+              <span>Kajian Kitab Kuning / Turath & kaidah fikih</span>
             </li>
             <li class="flex items-center gap-3">
               <span class="w-5 h-5 rounded-full bg-lime text-[#121212] border-[1.5px] border-[#121212] flex items-center justify-center text-[10px] font-black">✓</span>
-              <span>Mentor feedback from industry experts*</span>
+              <span>Bimbingan masuk PTN & beasiswa luar negeri</span>
             </li>
           </ul>
         </div>
       </div>
 
-      <!-- Tier 3: Students -->
+      <!-- Tier 3: Tahfizh Intensive Track -->
       <div class="rounded-3xl bg-white border-[3px] border-[#121212] brutal-shadow-lg p-8 flex flex-col justify-between relative">
         <!-- Gradcap sticker bottom right -->
         <div class="absolute bottom-4 right-4 w-12 h-12 tilt-right">
-          <img src="./assets/images/sticker-gradcap.svg" alt="Graduation Cap sticker" class="w-full h-full drop-shadow-[2px_2px_0px_#121212]">
+          <img src="./assets/images/sticker-gradcap.svg" alt="Topi Wisuda" class="w-full h-full drop-shadow-[2px_2px_0px_#121212]">
         </div>
         <div>
           <div class="mb-6">
-            <h3 class="font-display font-black text-2xl uppercase tracking-tight">Students</h3>
-            <p class="font-body text-xs text-slate-muted font-medium mt-1">Get krackin' early in your career</p>
+            <h3 class="font-display font-black text-2xl uppercase tracking-tight">Tahfizh Khusus Sanad</h3>
+            <p class="font-body text-xs text-slate-muted font-medium mt-1">Program Intensif 30 Juz Al-Qur'an</p>
           </div>
           <div class="mb-8">
-            <span id="price-students" class="font-display font-black text-4xl uppercase text-[#121212]">$15.99</span>
-            <span id="period-students" class="font-label text-xs uppercase tracking-wider text-slate-muted block mt-1">/ Month</span>
+            <span id="price-students" class="font-display font-black text-4xl uppercase text-[#121212]">Rp 250rb</span>
+            <span id="period-students" class="font-label text-xs uppercase tracking-wider text-slate-muted block mt-1">/ Bulan</span>
           </div>
           <button data-open-modal="waitlist" class="w-full btn-tactile mb-8 py-3 rounded-xl bg-white border-[2.5px] border-[#121212] brutal-shadow font-label font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2">
-            <span>Join Waitlist</span>
+            <span>Daftar Tahfizh Khusus</span>
             <span class="text-sm">➔</span>
           </button>
           <ul class="space-y-4 font-body text-sm font-semibold text-[#121212]">
             <li class="flex items-center gap-3">
               <span class="w-5 h-5 rounded-full bg-[#E8E2D5] border-[1.5px] border-[#121212] flex items-center justify-center text-[10px] font-bold">✓</span>
-              <span>Full access to all course modules</span>
+              <span>Halaqah tahfizh intensif pagi, siang, dan petang</span>
             </li>
             <li class="flex items-center gap-3">
               <span class="w-5 h-5 rounded-full bg-[#E8E2D5] border-[1.5px] border-[#121212] flex items-center justify-center text-[10px] font-bold">✓</span>
-              <span>Discover and join student events</span>
+              <span>Pengambilan sanad qira'ah bersambung bagi hafizh 30 juz</span>
             </li>
             <li class="flex items-center gap-3">
               <span class="w-5 h-5 rounded-full bg-[#E8E2D5] border-[1.5px] border-[#121212] flex items-center justify-center text-[10px] font-bold">✓</span>
-              <span>Connect with student design cohorts</span>
+              <span>Fasilitas asrama penuh & bimbingan akhlak santri</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-5 h-5 rounded-full bg-[#E8E2D5] border-[1.5px] border-[#121212] flex items-center justify-center text-[10px] font-bold">✓</span>
+              <span>Tersedia beasiswa penuh bagi santri yatim dan dhuafa</span>
             </li>
           </ul>
         </div>

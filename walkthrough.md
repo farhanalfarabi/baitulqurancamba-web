@@ -1,147 +1,133 @@
-# Manual Verification Guide (Panduan Pengujian Manual)
+# Walkthrough: Penerapan Penuh Bahasa Indonesia & Integrasi Konten Pondok Pesantren Baitul Qur'an Camba
 
-Dokumen ini berisi panduan pengujian manual langkah demi langkah untuk memverifikasi landing page desktop **KRACKERZ** yang telah dipecah menjadi arsitektur modular per komponen.
+Seluruh konten dan teks antarmuka (*UI copy*) pada website modern di `d:\Testing Claude code\pondok-baitulquran-camba` kini telah sepenuhnya menggunakan **Bahasa Indonesia yang baik, benar, dan natural**. Konten otentik dari web lama di `D:\Testing Claude code\baitulqurancamba` (identitas resmi, visi-misi, pimpinan pondok & pengasuh, kurikulum tahfizh 30 juz bersanad & sekolah formal, biaya pendidikan dalam Rupiah, ulasan wali santri, FAQ, dan form pendaftaran) telah menyatu dengan estetika **Neo-Brutalist Krackerz**.
 
 ---
 
-## 1. Arsitektur Komponen Baru
+## 1. Ringkasan Pembaruan Bahasa Indonesia pada Seluruh Komponen
 
-File [index.html](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/index.html) kini sangat ringkas (hanya ~60 baris kode) dan memanggil komponen-komponen terpisah yang tersimpan rapi di dalam folder [components/](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/components):
-
-| Nama Komponen | Lokasi File | Deskripsi |
+| Komponen | Penyesuaian Bahasa Indonesia | Detail Konten |
 | :--- | :--- | :--- |
-| **Navbar** | [components/navbar.html](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/components/navbar.html) | Sticky navigation bar, logo, link menu, tombol Join Waitlist, dan mobile drawer |
-| **Hero** | [components/hero.html](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/components/hero.html) | Display title, maskot biskuit, pill badge, CTA hero, dan 6 kartu lengkung bergelombang (scalloped wave ribbon) |
-| **About** | [components/about.html](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/components/about.html) | Billboard bus stop halte kota dan 2 kartu cekung biskuit (*cracker-bite*) |
-| **Curriculum** | [components/curriculum.html](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/components/curriculum.html) | Folder tabs interaktif (*Scenario Based* vs *Win Work Prep*) |
-| **Testimonials** | [components/testimonials.html](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/components/testimonials.html) | 4 circular scalloped quote card pada kanvas Vintage Wine |
-| **Founder** | [components/founder.html](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/components/founder.html) | Profil Penny, stiker dialog, 4 metrik pencapaian, tabel penghargaan, dan logo |
-| **Pricing** | [components/pricing.html](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/components/pricing.html) | Switcher bulanan/tahunan dan 3 paket langganan (*Free, Ready to Krack, Students*) |
-| **Partner** | [components/partner.html](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/components/partner.html) | Banner kemitraan komunitas desainer dan recruiter |
-| **FAQ** | [components/faq.html](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/components/faq.html) | Accordion tanya-jawab dengan maskot biskuit jempol |
-| **Interactive Laptop** | [components/interactive-laptop.html](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/components/interactive-laptop.html) | Permukaan MacBook dengan 8 stiker vinil yang dapat digeser bebas (*drag & drop*) |
-| **Footer** | [components/footer.html](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/components/footer.html) | Form input waitlist bawah, stiker melayang, dan footer bar copyright |
-| **Waitlist Modal** | [components/waitlist-modal.html](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/components/waitlist-modal.html) | Modal dialog pop-up dengan input form nama, email, role, dan status sukses |
+| **Header / Metadata** (`index.html`) | Judul & meta deskripsi dalam Bahasa Indonesia | `lang="id"`, Judul: *"Pondok Pesantren Tahfizh Baitul Qur'an Camba \| Membina Generasi Qur'ani"*. |
+| **Navbar** (`components/navbar.html`) | Subtitle & Menu navigasi | Identitas: *"BAITUL QUR'AN · PESANTREN TAHFIZH CAMBA"*. Menu: `Program`, `Tentang Kami`, `Biaya Pendidikan`, `Kehidupan Santri`, `FAQ`. Tombol CTA: `DAFTAR SEKARANG`. |
+| **Hero Section** (`components/hero.html`) | Badge, Judul 3-Baris, CTA, 6 Kartu Santri | Badge: *"PONDOK PESANTREN TAHFIZH & FORMAL SEJAK 2016"*. Judul: `MEMBINA GENERASI` / `PENGHAFAL al-qur'an YANG` / `TANGGUH & BERAKHLAK`. CTA: `DAFTAR SEKARANG`. 6 Kartu: Tahfizh 30 Juz bersanad, Pendidikan formal berijazah resmi negara, Pidato 3 bahasa Arab & Inggris, Pembinaan karakter & kepemimpinan, Kajian taklim kitab kuning klasik, Olahraga santri & ekstrakurikuler. |
+| **About** (`components/about.html`) | Header, Poster Kampus, Visi-Misi | Header: *"Ilmu, Akhlak & Al-Qur'an - Tumbuh Bersama di Camba, Maros"*. Poster: *"BERDIRI SEJAK 2016 · SULAWESI SELATAN - Pondok Pencetak Generasi penghafal al-qur'an"*. 2 Kartu: Visi & Misi dan Pendidikan Terpadu. CTA: `Daftar Santri Baru ➔`. |
+| **Kurikulum** (`components/curriculum.html`) | Tab Asimetris & Detail Program | Tab 1: `Tahfizh & Dirosah Islamiyah` (30 Juz, Talaqqi, Sanad bersambung, Kitab Kuning, Muraja'ah). Tab 2: `Pendidikan Formal & Karakter` (Ijazah resmi Wustha/SMP & Ulya/SMA, Pidato 3 Bahasa, Pramuka & Kepemimpinan). |
+| **Pimpinan & Pengasuh** (`components/founder.html`) | Roster Pengurus & Metrik Pondok | Header: *"Pimpinan & Pengasuh Pondok - mengabdi membina santri"*. 4 Metrik: `2016` (Tahun Berdiri), `100+` (Alumni Santri), `30` (Juz Target Sanad), `10+` (Asatidz & Pembina). Roster: Ardiansyah, S.Pd. (Pimpinan Umum), Muhammad Abdurrahman (Asrama Ikhwan), Aisyah Abdurrahman (Asrama Akhwat), Ridwan, S.Pd.I (Kepala Ulya), Sumarni, S.Pd. (Kepala Wustha). |
+| **Biaya Pendidikan** (`components/pricing.html`) | Switcher & 3 Pilihan Jenjang dalam Rupiah | Switcher: `Bulanan` vs `Tahunan (-20%)`. Jenjang Wustha (Rp 350rb/bln), Jenjang Ulya (Rp 450rb/bln - Pilihan Utama), Tahfizh Khusus Sanad (Rp 250rb/bln & beasiswa yatim/dhuafa). |
+| **Kemitraan** (`components/partner.html`) | Banner Sinergi Umat | Header: *"untuk Para Donatur, Lembaga Dakwah & Sinergi Umat"*. Tombol: `Sinergi Bersama Kami ➔`. |
+| **Testimoni** (`components/testimonials.html`) | 4 Review Wali Santri & Alumni | Hj. Nurhayati (Makassar), Drs. H. Syamsuddin (Maros), Ahmad Fauzan (Alumni Hafizh 30 Juz), Umm Maryam (Bone). Tombol: `Bergabung Bersama Kami ➔`. |
+| **FAQ Accordion** (`components/faq.html`) | 5 Tanya Jawab Pendaftaran | Syarat penerimaan santri baru, legalitas ijazah resmi negara, asrama 24 jam, pembiasaan bahasa asing, dan jadwal sambang orang tua. |
+| **Pusat Belajar Santri** (`components/interactive-laptop.html`) | Interaktif Stiker Laptop | Petunjuk: *"🎯 Geser stiker untuk menjelajahi aktivitas santri"*. Stiker BQC, Mobil operasional pondok, Piala prestasi, 30 Juz Tahfizh & Sanad, Topi wisuda. |
+| **Footer & Modal Pendaftaran** (`components/footer.html`, `components/waitlist-modal.html`) | Form & Konfirmasi Sukses | Alamat resmi di Jumpulu, Kel. Cempaniga, Kec. Camba, Kab. Maros. Form pendaftaran: Nama lengkap santri, WhatsApp/Email wali, Pilihan jenjang pendidikan (Wustha, Ulya, Tahfizh Khusus). Pesan sukses konfirmasi pendaftaran. |
 
 ---
 
-## 2. Cara Menjalankan & Memverifikasi
+## 2. Panduan Pengujian Manual (Manual Verification Guide)
 
-Website dapat dibuka langsung tanpa kompilasi rumit:
-- **Cara 1 (Direct Double-Click)**: Buka [index.html](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/index.html) langsung di browser Anda. (Komponen akan dimuat seketika tanpa kendala CORS berkat registry otomatis di `assets/js/components.js`).
-- **Cara 2 (Local Server via Terminal)**:
-  ```powershell
-  python -m http.server 3000
-  ```
-  Lalu akses `http://localhost:3000`.
+Ikuti langkah-langkah berikut untuk menguji dan memverifikasi seluruh antarmuka Bahasa Indonesia secara langsung di web browser:
 
----
-
-## 3. Cara Mengubah Komponen
-Jika Anda ingin mengedit bagian tertentu:
-1. Buka file komponen yang bersangkutan di folder `components/` (misal: `components/pricing.html` atau `components/hero.html`).
-2. Lakukan perubahan teks atau styling.
-3. Jalankan perintah sinkronisasi cepat berikut di terminal:
-   ```powershell
-   node build.js
-   ```
-   *(Perintah ini akan memperbarui bundle cache komponen secara otomatis dalam 1 detik).*
+### Langkah 1: Akses Website
+Jalankan live preview / local server pada direktori `d:\Testing Claude code\pondok-baitulquran-camba`:
+```powershell
+# Jalankan web server lokal
+npx serve .
+# Atau dengan python
+python -m http.server 3000
+```
+Buka browser pada alamat URL lokal yang muncul (misalnya `http://localhost:3000`).
 
 ---
 
-## 4. Checklist Pengujian Fitur Interaktif & Navbar Capsule
-1. **Pill Navbar Capsule (Reference Image Match) & Rolling Text Animation**:
-   - Periksa header di bagian atas halaman:
-     - Di sisi kiri terdapat wordmark logo **KRACKERZ** dengan cookie biskuit merah `C`.
-     - Di sisi kanan terdapat kapsul mengambang dengan latar krem `#FAF7F0`, border hitam solid, berisi link: `Features`, `Pricing`, `For partners`, `FAQ`, `Shop`.
-     - Di ujung kanan kapsul terdapat tombol Electric Lime `#D4FF00` bertuliskan **JOIN WAITLIST** dengan badge bintang rosette merah berpanah putih (`badge-scallop-arrow.svg`).
-   - **Uji Efek Hover Teks Berputar (Rolling Text Effect)**:
-     - Arahkan kursor (*hover*) ke masing-masing item menu (`Features`, `Pricing`, `For partners`, `FAQ`, `Shop`).
-     - Perhatikan teks awal berwarna hitam akan bergeser naik ke atas (*slide up* keluar viewport wadah), dan secara simultan teks duplikat berwarna merah aksen biskuit (`#E53935`) naik dari bawah menggantikan posisinya secara mulus (*slot machine cylinder roll*).
-     - Gerakkan kursor keluar (*unhover*) untuk melihat animasi berputar kembali ke posisi awal.
-   - **Uji Hover Tombol "JOIN WAITLIST" (Stationary Button + Rolling Text + Rotating Scallop Border)**:
-     - Arahkan kursor (*hover*) ke tombol **JOIN WAITLIST**.
-     - **Ekspektasi Fisik**: Tombol itu sendiri **TIDAK BERGERAK** (tetap diam kokoh di tempat tanpa bergeser).
-     - **Ekspektasi Teks**: Teks label *"JOIN WAITLIST"* berputar meluncur ke atas (*rolling text*).
-     - **Ekspektasi Ikon**: Lingkaran rosette/bintang biskuit merah di sisi kanan tombol berputar mulus 360° (*spinning border*), sementara panah putih di tengahnya tetap tegak menunjuk ke depan (*stationary arrow*).
-     - Gerakkan kursor keluar (*unhover*) untuk melihat border kembali berputar ke posisi semula secara halus.
-   - Klik link `Features`, `Pricing`, `For partners`, `FAQ`, `Shop` untuk memverifikasi smooth scrolling ke masing-masing section.
-2. **Hero Section (Title Lockup, Mascot C, & Scalloped Wave Cards Match)**:
-   - **Proporsi Pas 1 Layar Penuh (100vh Viewport Fit)**:
-     - Ukuran judul, jarak spasi, maskot, tombol, dan tinggi 6 kartu telah diskalakan secara kompak dan proporsional (total tinggi ~730px termasuk navbar).
-     - Seluruh elemen Hero Section muat utuh dalam 1 layar tanpa terpotong di berbagai resolusi layar desktop / laptop (1080p, 1440p, MacBook 13/14").
-   - **Top Pill Badge**:
-     - Di sisi kiri pill hitam terdapat rosette gerigi bunga berwarna Electric Lime (`#D4FF00`) dengan ikon piala garis hitam (`badge-scallop-trophy.svg`).
-     - Teks label: *"WORLD'S FIRST SALES COURSE FOR DESIGNERS"* dalam warna Electric Lime.
-   - **Hero Title 3-Line Lockup (Persis Gambar Referensi)**:
-     - **Line 1**: `FOR THE STUFF` (font display hitam tebal).
-     - **Line 2**: `[Mascot C] THEY don't TEACH`
-       - Di sisi kiri kata `THEY`, terdapat maskot biskuit berbentuk huruf "C" merah bergerigi dengan mata kartun, alis tebal garang, dan kumis gentleman hitam (`mascot-cracker-c.svg`).
-       - Kata `don't` bergaya tulisan sambung miring (*editorial italic script*) hitam yang anggun dan kontras.
-     - **Line 3**: `IN DESIGN SCHOOLS` (font display hitam tebal).
-      - **Background Awan Berputar & Bergerak (*Krackerz Rotating Cloud Wave Engine*)**:
-        - **Reverse-Engineered dari Produksi Asli**: Diambil langsung dari struktur kode inspect Framer `https://krackerz.com/` (`<div class="framer-h4nTm framer-7xzl3c">`).
-        - **Aset Vektor Asli**: [assets/svg/krackerz-wave-shape.svg](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/assets/svg/krackerz-wave-shape.svg) (lingkaran awan bergigi gelombang 360° resolusi tinggi).
-        - **Animasi Rotasi Berkelanjutan (68s Infinite Loop)**: Sesuai parameter asli Krackerz (`duration: 68s, ease: linear, loop`), bentuk awan berputar 360° secara halus non-stop di background (`@keyframes krackerzWaveRotate 68s linear infinite`), menghasilkan efek lengkungan gelombang awan putih yang bergulir dan bernapas di batas antara judul hero dan deretan kartu.
-        - **Geometri Murni Tanpa Potongan Garis Horizontal**:
-          - Bagian penutup putih horizontal (*white cap div*) telah **dihapus sepenuhnya**, sehingga tidak ada lagi garis lurus horizontal yang memotong di sisi kiri maupun kanan.
-          - 100% latar belakang putih terbentuk murni dari kelengkungan SVG awan itu sendiri ([assets/svg/krackerz-wave-shape.svg](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/assets/svg/krackerz-wave-shape.svg)).
-          - Bentuknya mengerucut/melengkung turun (*conical tapered scoop*) di bagian tengah menaungi tombol *JOIN WAITLIST*, lalu meliuk anggun naik di kedua sisinya secara organik dan dinamis tanpa ada batas kaku.
-          - **Ketinggian Disesuaikan Lebih Ringkas**: Jangkauan vertikal awan telah dikurangi sedikit (`bottom: 275px`, `width: 185%`) agar lebih proporsional dan membingkai pas tombol *JOIN WAITLIST* tanpa menjuntai terlalu rendah ke arah deretan kartu.
-        - **Parallax Responsif Scroll**: Dilengkapi `initHeroWaveParallax()` di `assets/js/main.js` yang memberikan kedalaman vertikal lembut saat halaman di-scroll ke bawah.
-   - **Hero Primary CTA Button**:
-     - Tombol kapsul berwarna Electric Lime bertuliskan *"JOIN WAITLIST"*.
-     - Di ujung kanan tombol terdapat rosette biskuit merah dengan panah putih (`badge-scallop-arrow.svg`).
-   - **Tampilan Dinamis Kartu Hero (Fanned Stack -> Straightened Row on Scroll)**:
-      - **Kondisi Awal (Scroll Paling Atas / Viewport Normal)**:
-        - Terdapat 6 kartu yang membentang horizontal secara berirama dan saling bertumpukan (*overlapping fan ribbon*).
-        - Masing-masing kartu memiliki kemiringan ritmis naik-turun dan miring kiri-kanan (`-6deg`, `-4deg`, `-2deg`, `+2deg`, `+4deg`, `+6deg`).
-      - **Kondisi Saat Di-scroll ke Bawah (Scroll Straightening Effect - Persis Screenshot Pengguna)**:
-        - Begitu halaman di-scroll ke bawah (> 40px), deretan kartu bertransformasi secara mulus (*fluid spring transition*):
-          - Semua sudut rotasi kartu menjadi tegak lurus sempurna (`rotate: 0deg`).
-          - Semua pergeseran vertikal disetarakan (`translateY: 0px`).
-          - Tumpukan negatif terurai dan renggang menjadi jarak seragam (`gap: 16px sm:gap-20px`).
-          - Membentuk satu barisan horizontal lurus, rapi, dan simetris persis seperti gambar yang Anda unggah!
-      - **Kondisi Saat Di-scroll Kembali ke Atas**:
-        - Kartu meliuk kembali secara elastis (*spring back*) ke formasi kipas miring awal.
-     - Terdapat 6 kartu yang membentang horizontal secara berirama dan saling bertumpukan sedikit (*overlapping fan*).
-     - Masing-masing kartu memiliki kemiringan ritmis naik-turun dan miring kiri-kanan (`-rotate-[4.5deg]`, `rotate-[1.5deg]`, `-rotate-[1deg]`, `rotate-[2.5deg]`, `-rotate-[2.5deg]`, `rotate-[3.5deg]`).
-   - **Anatomi Kartu & Efek Potongan Gerigi Biskuit (Scalloped Bite Edge)**:
-     - Bagian atas kartu: Foto desainer/kreatif memenuhi bagian atas kartu hingga sudut melengkung tanpa celah padding putih (*full bleed*).
-     - Garis pemisah antara foto dan teks footer: Berbentuk **lengkungan gerigi setengah lingkaran berulang (scalloped arches)** yang melengkung rapi ke atas foto menyerupai tepian biskuit / tiket voucher.
-     - Bagian footer teks: Bersatu tanpa celah dengan scalloped divider tersebut.
-   - **Skema Warna Bergantian (Alternating Colors)**:
-     - Card 1, 3, 5: Footer berlatar **Ivory Cream** (`#FAF7F0`) dengan teks warna **Vintage Wine** (`#4A0E17`).
-     - Card 2, 4, 6: Footer berlatar **Vintage Wine** (`#4A0E17`) dengan teks warna **Pure White** (`#FFFFFF`).
-   - **Copy Teks Pure English (100% Sesuai Gambar)**:
-     - Card 1: *"Getting ready for my next interview"*
-     - Card 2: *"Uplifting my design portfolio"*
-     - Card 3: *"Cold outreaching without cringing"*
-     - Card 4: *"Connecting with other designers"*
-     - Card 5: *"Selling my work, not just making it"*
-     - Card 6: *"Defining my personal brand"* (Persis Screenshot Referensi)
-   - **Uji Efek Hover Rotational Physics (Berputar Beberapa Derajat)**:
-     - Arahkan kursor (*hover*) ke salah satu kartu (misal Card 1 atau Card 4).
-     - **Ekspektasi Visual**: Kartu tersebut **TIDAK naik ke atas** (posisi vertikal tetap stabil), melainkan **berputar beberapa derajat** secara elastis dan hidup (*tactile spring rotation* dengan kurva cubic-bezier).
-       - Card yang miring ke kiri (Card 1, 3, 5) akan berputar ke arah kanan (`+5deg`).
-       - Card yang miring ke kanan (Card 2, 4, 6) akan berputar ke arah kiri (`-5deg`).
-       - Kartu sedikit membesar (`scale: 1.03`), otomatis naik ke lapisan layer paling atas (`z-index: 50`), dan bayangan bertambah tegas (`box-shadow: 6px 14px 0px #121212`).
-     - Gerakkan kursor keluar (*unhover*); kartu akan berputar kembali ke sudut kemiringan awalnya secara mulus.
-   - **Uji Responsivitas Mobile / Tablet**:
-     - Perkecil lebar layar browser ke ukuran smartphone atau buka di mode responsive.
-     - Kartu dapat digeser secara horizontal (*horizontal swipe*) dengan mulus tanpa scrollbar yang mengganggu (`no-scrollbar`), dan otomatis berhenti rapi di tengah kartu (*snap center*).
-3. **Folder Tabs**: Klik tab *"Win Work Prep"* di section kurikulum; pastikan materi berganti seketika.
-4. **Pricing Switcher**: Klik toggle switch *"Yearly (-20%)"*; pastikan harga berubah menjadi `$28/mo` dan `$12.99/mo`.
-5. **FAQ Accordion**: Klik pertanyaan di FAQ; pastikan jawaban membuka dan ikon `+` berputar menjadi `×`.
-6. **Draggable Laptop Stickers**: Drag & drop stiker maskot, mobil van, piala, dan petir di atas mockup laptop.
-7. **Waitlist Modal**: Klik tombol *"JOIN WAITLIST"* pada navbar atau tombol CTA lainnya; pastikan modal muncul, isi data, dan submit untuk melihat status sukses.
-8. **Pembersihan Garis Pembatas Antar Section (Seamless Flow)**:
-   - Garis pembatas hitam (`border-t-[2.5px] border-[#121212]`) telah dihapus dari seluruh komponen section:
-     - [components/about.html](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/components/about.html)
-     - [components/curriculum.html](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/components/curriculum.html)
-     - [components/founder.html](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/components/founder.html)
-     - [components/pricing.html](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/components/pricing.html)
-     - [components/partner.html](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/components/partner.html)
-     - [components/faq.html](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/components/faq.html)
-     - [components/interactive-laptop.html](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/components/interactive-laptop.html)
-   - Transisi antar section kini menyatu mulus tanpa sekat garis horizontal yang kaku, sesuai dengan desain asli Krackerz.
+### Langkah 2: Verifikasi Navigasi Bar (Navbar)
+1. Periksa teks identitas di kiri atas: pastikan tertulis **BAITUL QUR'AN · PESANTREN TAHFIZH CAMBA**.
+2. Periksa menu tengah: pastikan tertulis **Program**, **Tentang Kami**, **Biaya Pendidikan**, **Kehidupan Santri**, dan **FAQ**.
+3. Arahkan kursor (*hover*) ke masing-masing menu untuk memastikan efek rolling text merah berjalan mulus.
+4. Periksa tombol CTA kapsul: pastikan tertulis **DAFTAR SEKARANG** dengan animasi border bergerigi berputar.
+5. Klik menu atau tombol CTA; verifikasi halaman berpindah atau memunculkan formulir pendaftaran.
+
+---
+
+### Langkah 3: Verifikasi Hero Section & Kartu Aktivitas
+1. **Pill Badge**: Pastikan teks badge atas bertuliskan **PONDOK PESANTREN TAHFIZH & FORMAL SEJAK 2016**.
+2. **Judul 3-Baris**:
+   - Baris 1: `MEMBINA GENERASI`
+   - Baris 2: `PENGHAFAL` + `al-qur'an` (font miring melengkung) + `YANG` (tanpa ikon logo)
+   - Baris 3: `TANGGUH & BERAKHLAK`
+3. **Tombol CTA Hero**: Bertuliskan **DAFTAR SEKARANG**.
+4. **Animasi Latar Awan**: Pastikan bentuk awan putih berputar (*rotating wave*) dengan mulus di belakang teks tanpa garis potongan horizontal di kiri-kanannya.
+5. **Kartu Aktivitas Santri**:
+   - Dalam posisi atas, kartu tersusun mengipas (*fanned stack*).
+   - Teks label kartu: *Hafalan Al-Qur'an 30 juz bersanad*, *Pendidikan formal berijazah resmi negara*, *Pidato 3 bahasa Arab & Inggris*, *Pembinaan karakter & kepemimpinan*, *Kajian taklim kitab kuning klasik*, *Olahraga santri & ekstrakurikuler*.
+   - Gulir (*scroll*) halaman ke bawah 50px-100px: pastikan ke-6 kartu secara halus melurus menjadi **satu baris horizontal rapi dan simetris**.
+
+---
+
+### Langkah 4: Verifikasi Bagian Tentang Kami & Visi-Misi
+1. **Billboard Foto**: Menampilkan Masjid Baitul Qur'an Camba dengan poster hitam berteks:
+   - `BERDIRI SEJAK 2016 · SULAWESI SELATAN`
+   - `Pondok Pencetak Generasi penghafal al-qur'an`
+   - `CAMBA · MAROS · SULAWESI SELATAN`
+2. **Dua Kartu Bite-Corner**:
+   - Kartu Merah: **Visi & misi** pembinaan penghafal Al-Qur'an tangguh, berakhlak mulia, dan cakap berdakwah.
+   - Kartu Wine: **Pendidikan terpadu** asrama 24 jam bebas gawai dan ijazah resmi negara.
+3. **Tombol CTA**: Bertuliskan **Daftar Santri Baru ➔**.
+
+---
+
+### Langkah 5: Verifikasi Folder Kurikulum Terpadu
+1. Klik tab pertama: **📖 Tahfizh & Dirosah Islamiyah** (warna merah aktif). Pastikan memuat poin-poin hafalan 30 juz, talaqqi sanad, kitab kuning turath, dan muraja'ah harian.
+2. Klik tab kedua: **🏆 Pendidikan Formal & Karakter**. Pastikan tab aktif berganti seketika dan memuat poin-poin ijazah resmi Wustha/Ulya, pidato 3 bahasa, pramuka, dan bimbingan masuk perguruan tinggi.
+3. Klik tombol pendaftaran pada masing-masing tab; pastikan modal formulir pendaftaran terbuka.
+
+---
+
+### Langkah 6: Verifikasi Pimpinan & Pengasuh Pondok
+1. Periksa foto Mudir/Pimpinan Pondok (`ikhwan.png`) dengan stiker ucapan: *Membina dengan hikmah & keikhlasan*.
+2. Periksa 4 kartu metrik:
+   - `2016` (Tahun Berdiri di Camba, Maros)
+   - `100+` (Alumni Santri Hafizh Tersebar)
+   - `30` (Juz Target Sanad Al-Qur'an)
+   - `10+` (Asatidz & Pembina Berdedikasi)
+3. Periksa tabel struktur pimpinan: Ardiansyah, S.Pd., Muhammad Abdurrahman, Aisyah Abdurrahman, Ridwan, S.Pd.I, dan Sumarni, S.Pd.
+4. Periksa lencana legalitas: `KEMENAG RI`, `DIKNAS`, `IJAZAH RESMI`, `SANAD BERSAMBUNG`, `KAB. MAROS`.
+
+---
+
+### Langkah 7: Verifikasi Biaya Pendidikan & Switcher
+1. Judul: **Investasi Pendidikan Generasi Qur'ani**.
+2. Uji toggle switch antara **Bulanan** dan **Tahunan (-20%)**:
+   - Pada mode **Bulanan**: Jenjang Ulya menampilkan `Rp 450rb / Bulan`, Tahfizh Sanad menampilkan `Rp 250rb / Bulan`.
+   - Klik switch ke **Tahunan**: Jenjang Ulya otomatis berubah menjadi `Rp 360rb / BULAN (BAYAR TAHUNAN)` dan Tahfizh Sanad menjadi `Rp 200rb / BULAN (BAYAR TAHUNAN)`.
+3. Seluruh fitur kartu mencantumkan asrama 24 jam, makan 3x sehari, dan opsi beasiswa dhuafa/yatim.
+
+---
+
+### Langkah 8: Verifikasi FAQ (Tanya & Jawab)
+1. Klik pertanyaan FAQ nomor 1 (*Bagaimana syarat pendaftaran santri baru?*).
+2. Pastikan accordion terbuka secara halus, ikon `+` berputar menjadi `×`, dan jawaban Bahasa Indonesia tampil informatif.
+3. Uji pertanyaan lainnya (legalitas ijazah, asrama 24 jam, bahasa asing, dan jam kunjungan wali).
+
+---
+
+### Langkah 9: Verifikasi Laptop Interaktif (Pusat Belajar Santri)
+1. Periksa judul: **Pusat Belajar Santri - sarana belajar & kehidupan santri**.
+2. Klik dan seret (*drag & drop*) stiker-stiker aktivitas: lambang BQC, stiker mobil operasional pondok, piala, lencana 30 Juz, topi wisuda, dll.
+3. Pastikan stiker dapat dipindahkan bebas ke posisi manapun di atas permukaan laptop mockup.
+
+---
+
+### Langkah 10: Verifikasi Footer & Pengiriman Formulir Pendaftaran
+1. **Form Footer**:
+   - Masukkan kontak pada input *"Masukkan email atau WhatsApp wali santri"*.
+   - Klik tombol **Daftar Sekarang ➔**.
+   - Pastikan muncul pesan sukses: *"🎉 Terima kasih! Panitia pendaftaran santri baru akan segera menghubungi Anda."*
+2. **Modal Dialog Pendaftaran**:
+   - Klik tombol **DAFTAR SEKARANG** di navbar atau tombol CTA manapun.
+   - Periksa judul modal: **Pendaftaran Santri Baru**.
+   - Input nama santri, kontak orang tua/wali, dan pilih opsi jenjang (*Jenjang Wustha, Jenjang Ulya, Program Khusus Tahfizh 30 Juz, atau Jalur Beasiswa Tahfizh Yatim/Dhuafa*).
+   - Klik **Kirim Pendaftaran ➔**.
+   - Pastikan status berganti ke tampilan sukses: *"Pendaftaran Berhasil Dikirim! Alhamdulillah! Kami telah menerima data pendaftaran untuk kontak..."*.
+3. **Tautan Kontak**:
+   - Tombol **WhatsApp** mengarah ke `https://wa.me/6282124880061`.
+   - Tombol **Instagram** mengarah ke `@baitulqurancambaofficial`.
