@@ -83,12 +83,27 @@ Jika Anda ingin mengedit bagian tertentu:
         - **Reverse-Engineered dari Produksi Asli**: Diambil langsung dari struktur kode inspect Framer `https://krackerz.com/` (`<div class="framer-h4nTm framer-7xzl3c">`).
         - **Aset Vektor Asli**: [assets/svg/krackerz-wave-shape.svg](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/assets/svg/krackerz-wave-shape.svg) (lingkaran awan bergigi gelombang 360° resolusi tinggi).
         - **Animasi Rotasi Berkelanjutan (68s Infinite Loop)**: Sesuai parameter asli Krackerz (`duration: 68s, ease: linear, loop`), bentuk awan berputar 360° secara halus non-stop di background (`@keyframes krackerzWaveRotate 68s linear infinite`), menghasilkan efek lengkungan gelombang awan putih yang bergulir dan bernapas di batas antara judul hero dan deretan kartu.
-        - **Geometri & Pembagian Warna**: Bagian atas (navbar, badge, judul hero, tombol CTA) dinaungi bagian dalam awan putih solid (`#FFFFFF`), sedangkan bagian bawah (area 6 kartu biskuit) menampilkan kanvas krem (`#FAF7F0`).
+        - **Geometri Murni Tanpa Potongan Garis Horizontal**:
+          - Bagian penutup putih horizontal (*white cap div*) telah **dihapus sepenuhnya**, sehingga tidak ada lagi garis lurus horizontal yang memotong di sisi kiri maupun kanan.
+          - 100% latar belakang putih terbentuk murni dari kelengkungan SVG awan itu sendiri ([assets/svg/krackerz-wave-shape.svg](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/assets/svg/krackerz-wave-shape.svg)).
+          - Bentuknya mengerucut/melengkung turun (*conical tapered scoop*) di bagian tengah menaungi tombol *JOIN WAITLIST*, lalu meliuk anggun naik di kedua sisinya secara organik dan dinamis tanpa ada batas kaku.
+          - **Ketinggian Disesuaikan Lebih Ringkas**: Jangkauan vertikal awan telah dikurangi sedikit (`bottom: 275px`, `width: 185%`) agar lebih proporsional dan membingkai pas tombol *JOIN WAITLIST* tanpa menjuntai terlalu rendah ke arah deretan kartu.
         - **Parallax Responsif Scroll**: Dilengkapi `initHeroWaveParallax()` di `assets/js/main.js` yang memberikan kedalaman vertikal lembut saat halaman di-scroll ke bawah.
    - **Hero Primary CTA Button**:
      - Tombol kapsul berwarna Electric Lime bertuliskan *"JOIN WAITLIST"*.
      - Di ujung kanan tombol terdapat rosette biskuit merah dengan panah putih (`badge-scallop-arrow.svg`).
-   - **Tampilan Tata Letak Kartu (Fanned Ribbon Stack)**:
+   - **Tampilan Dinamis Kartu Hero (Fanned Stack -> Straightened Row on Scroll)**:
+      - **Kondisi Awal (Scroll Paling Atas / Viewport Normal)**:
+        - Terdapat 6 kartu yang membentang horizontal secara berirama dan saling bertumpukan (*overlapping fan ribbon*).
+        - Masing-masing kartu memiliki kemiringan ritmis naik-turun dan miring kiri-kanan (`-6deg`, `-4deg`, `-2deg`, `+2deg`, `+4deg`, `+6deg`).
+      - **Kondisi Saat Di-scroll ke Bawah (Scroll Straightening Effect - Persis Screenshot Pengguna)**:
+        - Begitu halaman di-scroll ke bawah (> 40px), deretan kartu bertransformasi secara mulus (*fluid spring transition*):
+          - Semua sudut rotasi kartu menjadi tegak lurus sempurna (`rotate: 0deg`).
+          - Semua pergeseran vertikal disetarakan (`translateY: 0px`).
+          - Tumpukan negatif terurai dan renggang menjadi jarak seragam (`gap: 16px sm:gap-20px`).
+          - Membentuk satu barisan horizontal lurus, rapi, dan simetris persis seperti gambar yang Anda unggah!
+      - **Kondisi Saat Di-scroll Kembali ke Atas**:
+        - Kartu meliuk kembali secara elastis (*spring back*) ke formasi kipas miring awal.
      - Terdapat 6 kartu yang membentang horizontal secara berirama dan saling bertumpukan sedikit (*overlapping fan*).
      - Masing-masing kartu memiliki kemiringan ritmis naik-turun dan miring kiri-kanan (`-rotate-[4.5deg]`, `rotate-[1.5deg]`, `-rotate-[1deg]`, `rotate-[2.5deg]`, `-rotate-[2.5deg]`, `rotate-[3.5deg]`).
    - **Anatomi Kartu & Efek Potongan Gerigi Biskuit (Scalloped Bite Edge)**:
@@ -104,7 +119,7 @@ Jika Anda ingin mengedit bagian tertentu:
      - Card 3: *"Cold outreaching without cringing"*
      - Card 4: *"Connecting with other designers"*
      - Card 5: *"Selling my work, not just making it"*
-     - Card 6: *"Refining my personal brand"*
+     - Card 6: *"Defining my personal brand"* (Persis Screenshot Referensi)
    - **Uji Efek Hover Rotational Physics (Berputar Beberapa Derajat)**:
      - Arahkan kursor (*hover*) ke salah satu kartu (misal Card 1 atau Card 4).
      - **Ekspektasi Visual**: Kartu tersebut **TIDAK naik ke atas** (posisi vertikal tetap stabil), melainkan **berputar beberapa derajat** secara elastis dan hidup (*tactile spring rotation* dengan kurva cubic-bezier).
@@ -120,3 +135,13 @@ Jika Anda ingin mengedit bagian tertentu:
 5. **FAQ Accordion**: Klik pertanyaan di FAQ; pastikan jawaban membuka dan ikon `+` berputar menjadi `×`.
 6. **Draggable Laptop Stickers**: Drag & drop stiker maskot, mobil van, piala, dan petir di atas mockup laptop.
 7. **Waitlist Modal**: Klik tombol *"JOIN WAITLIST"* pada navbar atau tombol CTA lainnya; pastikan modal muncul, isi data, dan submit untuk melihat status sukses.
+8. **Pembersihan Garis Pembatas Antar Section (Seamless Flow)**:
+   - Garis pembatas hitam (`border-t-[2.5px] border-[#121212]`) telah dihapus dari seluruh komponen section:
+     - [components/about.html](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/components/about.html)
+     - [components/curriculum.html](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/components/curriculum.html)
+     - [components/founder.html](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/components/founder.html)
+     - [components/pricing.html](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/components/pricing.html)
+     - [components/partner.html](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/components/partner.html)
+     - [components/faq.html](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/components/faq.html)
+     - [components/interactive-laptop.html](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/components/interactive-laptop.html)
+   - Transisi antar section kini menyatu mulus tanpa sekat garis horizontal yang kaku, sesuai dengan desain asli Krackerz.

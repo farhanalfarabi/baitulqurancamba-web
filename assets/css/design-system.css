@@ -434,16 +434,66 @@ body {
 }
 
 /* ==========================================================================
-   Hero Card Fan & Scalloped Wave Ribbon (Rotational Hover Physics)
+   Hero Cards Fan & Straighten Scroll Effect (Matching Krackerz Desktop 1 -> Desktop 2)
    ========================================================================== */
+.hero-cards-track {
+  transition: gap 0.55s cubic-bezier(0.25, 1, 0.5, 1), margin 0.55s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: gap, transform;
+}
+
 .hero-card-fan {
-  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  transition: transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
   will-change: transform, box-shadow;
   transform-origin: center center;
 }
 
-.hero-card-fan:hover {
+/* 1. Initial State: Playful Fanned Stack (Desktop 1) */
+.hero-cards-track:not(.is-straightened) .hero-card-1 {
+  transform: rotate(-6deg) translateY(24px);
+}
+.hero-cards-track:not(.is-straightened) .hero-card-2 {
+  transform: rotate(-4deg) translateY(0px);
+}
+.hero-cards-track:not(.is-straightened) .hero-card-3 {
+  transform: rotate(-2deg) translateY(10px);
+}
+.hero-cards-track:not(.is-straightened) .hero-card-4 {
+  transform: rotate(2deg) translateY(0px);
+}
+.hero-cards-track:not(.is-straightened) .hero-card-5 {
+  transform: rotate(4deg) translateY(28px);
+}
+.hero-cards-track:not(.is-straightened) .hero-card-6 {
+  transform: rotate(6deg) translateY(0px);
+}
+
+/* 2. Scrolled State: Straightened Row with Even Gap (Desktop 2 - Matching User Screenshot) */
+.hero-cards-track.is-straightened {
+  gap: 16px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+@media (min-width: 640px) {
+  .hero-cards-track.is-straightened {
+    gap: 20px !important;
+  }
+}
+
+.hero-cards-track.is-straightened .hero-card-fan {
+  transform: rotate(0deg) translateY(0px) !important;
+  margin-left: 0 !important;
+}
+
+/* Tactile Hover Effects */
+.hero-cards-track:not(.is-straightened) .hero-card-fan:hover {
   z-index: 50 !important;
+  box-shadow: 6px 14px 0px 0px #121212 !important;
+}
+
+.hero-cards-track.is-straightened .hero-card-fan:hover {
+  z-index: 50 !important;
+  transform: rotate(0deg) translateY(-8px) scale(1.03) !important;
   box-shadow: 6px 14px 0px 0px #121212 !important;
 }
 
@@ -469,10 +519,10 @@ body {
 .krackerz-rotating-wave {
   position: absolute;
   left: 50%;
-  bottom: 235px;
-  width: 190%;
-  min-width: 1500px;
-  max-width: 3400px;
+  bottom: 275px;
+  width: 185%;
+  min-width: 1450px;
+  max-width: 3200px;
   aspect-ratio: 1;
   transform: translateX(-50%) rotate(0deg);
   transform-origin: 50% 50%;
@@ -484,16 +534,16 @@ body {
 
 @media (max-width: 1024px) {
   .krackerz-rotating-wave {
-    bottom: 265px;
-    width: 240%;
-    min-width: 1100px;
+    bottom: 295px;
+    width: 230%;
+    min-width: 1050px;
   }
 }
 
 @media (max-width: 640px) {
   .krackerz-rotating-wave {
-    bottom: 255px;
-    width: 290%;
+    bottom: 280px;
+    width: 280%;
     min-width: 900px;
   }
 }

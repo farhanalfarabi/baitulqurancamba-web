@@ -10,6 +10,7 @@ window.initKrackerzApp = function() {
   initDraggableStickers();
   initWaitlistModal();
   initHeroWaveParallax();
+  initHeroCardsScrollStraighten();
 };
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -330,4 +331,32 @@ function initHeroWaveParallax() {
       waveWrapper.style.transform = `translateY(${scrollY * 0.12}px)`;
     }
   }, { passive: true });
+}
+
+/* ==========================================================================
+   8. Hero Cards Scroll Straighten (Fanned -> Straightened Row on Scroll)
+   ========================================================================== */
+function initHeroCardsScrollStraighten() {
+  const cardsTrack = document.getElementById('hero-cards-track');
+  if (!cardsTrack) return;
+
+  const updateCardState = () => {
+    const scrollY = window.scrollY || window.pageYOffset;
+    // When scrolled down > 40px, cards straighten into neat horizontal row matching reference
+    if (scrollY > 40) {
+      if (!cardsTrack.classList.contains('is-straightened')) {
+        cardsTrack.classList.add('is-straightened');
+        cardsTrack.classList.remove('-space-x-2.5', 'sm:-space-x-3.5', 'lg:-space-x-4');
+      }
+    } else {
+      if (cardsTrack.classList.contains('is-straightened')) {
+        cardsTrack.classList.remove('is-straightened');
+        cardsTrack.classList.add('-space-x-2.5', 'sm:-space-x-3.5', 'lg:-space-x-4');
+      }
+    }
+  };
+
+  window.addEventListener('scroll', updateCardState, { passive: true });
+  window.addEventListener('resize', updateCardState, { passive: true });
+  updateCardState();
 }
