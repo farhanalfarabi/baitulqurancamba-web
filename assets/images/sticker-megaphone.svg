@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 80" fill="none">
+  <g filter="drop-shadow(3px 3px 0px #121212)">
+    <!-- Horn Cone -->
+    <polygon points="35,32 75,15 75,65 35,48" fill="#D4FF00" stroke="#121212" stroke-width="3"/>
+    <!-- Back Cap -->
+    <ellipse cx="35" cy="40" rx="6" ry="8" fill="#E53935" stroke="#121212" stroke-width="2.5"/>
+    <!-- Mouth Ring -->
+    <ellipse cx="75" cy="40" rx="4" ry="25" fill="#FFFFFF" stroke="#121212" stroke-width="2.5"/>
+    <!-- Handle -->
+    <path d="M42 46 L38 68 C38 72 44 72 44 68 L48 48" fill="#121212"/>
+  </g>
+</svg>

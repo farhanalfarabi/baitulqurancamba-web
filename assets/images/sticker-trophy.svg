@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- White halo outline -->
+  <g filter="drop-shadow(3px 3px 0px #121212)">
+    <!-- Base -->
+    <rect x="30" y="80" width="40" height="12" rx="3" fill="#121212" stroke="#FFFFFF" stroke-width="2"/>
+    <rect x="38" y="68" width="24" height="14" fill="#D4FF00" stroke="#121212" stroke-width="3"/>
+    <!-- Cup Stem -->
+    <path d="M42 52 L58 52 L54 68 L46 68 Z" fill="#121212"/>
+    <!-- Cup Bowl -->
+    <path d="M25 22 C25 48 38 54 50 54 C62 54 75 48 75 22 Z" fill="#D4FF00" stroke="#121212" stroke-width="3.5"/>
+    <!-- Handles -->
+    <path d="M25 26 C12 26 12 42 27 44" stroke="#121212" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    <path d="M75 26 C88 26 88 42 73 44" stroke="#121212" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    <!-- Star on cup -->
+    <polygon points="50,30 52,36 58,36 53,40 55,46 50,42 45,46 47,40 42,36 48,36" fill="#121212"/>
+  </g>
+</svg>

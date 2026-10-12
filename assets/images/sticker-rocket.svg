@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 90" fill="none">
+  <g filter="drop-shadow(3px 3px 0px #121212)">
+    <g transform="rotate(45 45 45)">
+      <!-- Rocket Body -->
+      <path d="M45 10 C35 25 35 55 35 65 L55 65 C55 55 55 25 45 10 Z" fill="#D4FF00" stroke="#121212" stroke-width="3"/>
+      <!-- Fins -->
+      <path d="M35 50 L20 65 L35 65 Z" fill="#E53935" stroke="#121212" stroke-width="2.5"/>
+      <path d="M55 50 L70 65 L55 65 Z" fill="#E53935" stroke="#121212" stroke-width="2.5"/>
+      <!-- Window -->
+      <circle cx="45" cy="35" r="5" fill="#FFFFFF" stroke="#121212" stroke-width="2.5"/>
+      <!-- Flame -->
+      <polygon points="40,65 45,78 50,65" fill="#E53935" stroke="#121212" stroke-width="2"/>
+    </g>
+  </g>
+</svg>

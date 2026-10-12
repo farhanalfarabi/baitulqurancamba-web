@@ -1,0 +1,387 @@
+/* ==========================================================================
+   KRACKERZ - Tactile Neo-Brutalist Design System CSS
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800;12..96,900&family=Caveat:wght@600;700&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap');
+
+:root {
+  /* Colors */
+  --color-canvas: #FAF7F0;
+  --color-canvas-light: #FCF9F2;
+  --color-surface-white: #FFFFFF;
+  --color-electric-lime: #D4FF00;
+  --color-vintage-wine: #4A0E17;
+  --color-biscuit-red: #E53935;
+  --color-burnt-biscuit: #C83D2D;
+  --color-jet-charcoal: #121212;
+  --color-muted-slate: #555555;
+  --color-border-dark: #121212;
+  --color-border-soft: #E0DBD0;
+
+  /* Typography */
+  --font-display: 'Bricolage Grotesque', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-label: 'Space Grotesk', sans-serif;
+  --font-cursive: 'Caveat', cursive;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Elevation Shadows */
+  --shadow-brutal-sm: 2px 2px 0px 0px #121212;
+  --shadow-brutal: 4px 4px 0px 0px #121212;
+  --shadow-brutal-lg: 6px 6px 0px 0px #121212;
+  --shadow-brutal-xl: 8px 8px 0px 0px #121212;
+  --shadow-brutal-lime: 4px 4px 0px 0px #D4FF00;
+  --shadow-brutal-white: 4px 4px 0px 0px #FFFFFF;
+}
+
+/* Global Reset & Base */
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-canvas);
+  color: var(--color-jet-charcoal);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Dot Grid Canvas Background */
+.bg-dot-matrix {
+  background-color: var(--color-canvas);
+  background-image: radial-gradient(rgba(18, 18, 18, 0.12) 1.2px, transparent 1.2px);
+  background-size: 20px 20px;
+}
+
+.bg-dot-matrix-light {
+  background-color: var(--color-canvas-light);
+  background-image: radial-gradient(rgba(18, 18, 18, 0.08) 1.2px, transparent 1.2px);
+  background-size: 20px 20px;
+}
+
+.bg-dot-matrix-dark {
+  background-color: var(--color-vintage-wine);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1.2px, transparent 1.2px);
+  background-size: 20px 20px;
+}
+
+/* Fonts */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-label {
+  font-family: var(--font-label);
+}
+
+.font-cursive {
+  font-family: var(--font-cursive);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Hard Drop Shadows */
+.brutal-shadow-sm {
+  box-shadow: var(--shadow-brutal-sm);
+}
+
+.brutal-shadow {
+  box-shadow: var(--shadow-brutal);
+}
+
+.brutal-shadow-lg {
+  box-shadow: var(--shadow-brutal-lg);
+}
+
+.brutal-shadow-xl {
+  box-shadow: var(--shadow-brutal-xl);
+}
+
+.brutal-shadow-lime {
+  box-shadow: var(--shadow-brutal-lime);
+}
+
+/* Tactile Physics */
+.btn-tactile {
+  transition: transform 0.12s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.12s cubic-bezier(0.2, 0, 0, 1);
+  will-change: transform, box-shadow;
+}
+
+.btn-tactile:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px 0px #121212;
+}
+
+.btn-tactile:active {
+  transform: translate(3px, 3px);
+  box-shadow: 1px 1px 0px 0px #121212;
+}
+
+/* Secondary Button Hover */
+.btn-tactile-wine:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px 0px #D4FF00;
+}
+
+.btn-tactile-wine:active {
+  transform: translate(3px, 3px);
+  box-shadow: 1px 1px 0px 0px #D4FF00;
+}
+
+/* Tactile Card Hover */
+.card-hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 8px 8px 0px 0px #121212;
+}
+
+/* Tilted Stickers */
+.tilt-left {
+  transform: rotate(-3deg);
+}
+
+.tilt-right {
+  transform: rotate(3deg);
+}
+
+.tilt-left-sm {
+  transform: rotate(-1.5deg);
+}
+
+.tilt-right-sm {
+  transform: rotate(2deg);
+}
+
+.sticker-halo {
+  border: 3px solid #FFFFFF;
+  box-shadow: 3px 3px 0px 0px #121212;
+}
+
+/* Cracker Bite Mask Geometry */
+.cracker-bite-card {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Notched Cracker Bite Top-Right */
+.bite-corner-tr {
+  position: relative;
+}
+
+.bite-corner-tr::after {
+  content: '';
+  position: absolute;
+  top: -24px;
+  right: -24px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: var(--color-canvas);
+  border: 2.5px solid #121212;
+  box-sizing: border-box;
+}
+
+/* For dark background parent */
+.bite-corner-tr-dark::after {
+  background-color: var(--color-vintage-wine);
+}
+
+/* Scalloped Wavy Edge Dividers */
+.scallop-divider-top {
+  position: relative;
+}
+
+.scallop-divider-top::before {
+  content: '';
+  position: absolute;
+  top: -16px;
+  left: 0;
+  width: 100%;
+  height: 18px;
+  background-repeat: repeat-x;
+  background-size: 32px 18px;
+  background-image: radial-gradient(circle at 16px 18px, var(--color-vintage-wine) 15px, transparent 16px);
+}
+
+.scallop-divider-bottom {
+  position: relative;
+}
+
+.scallop-divider-bottom::after {
+  content: '';
+  position: absolute;
+  bottom: -16px;
+  left: 0;
+  width: 100%;
+  height: 18px;
+  background-repeat: repeat-x;
+  background-size: 32px 18px;
+  background-image: radial-gradient(circle at 16px 0px, var(--color-vintage-wine) 15px, transparent 16px);
+}
+
+/* Circular Scallop Quote Card (Cracker biscuit circular border) */
+.scallop-circle {
+  border-radius: 50%;
+  border: 2.5px solid #121212;
+  box-shadow: 4px 4px 0px 0px #121212;
+  position: relative;
+  background-image: radial-gradient(#121212 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+/* Stamp / Ticket Badge */
+.stamp-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 14px;
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: 2px solid #121212;
+  border-radius: 6px;
+  position: relative;
+}
+
+.stamp-badge-red {
+  background-color: var(--color-biscuit-red);
+  color: #FFFFFF;
+}
+
+.stamp-badge-lime {
+  background-color: var(--color-electric-lime);
+  color: #121212;
+}
+
+/* Folder Tabs */
+.folder-tab {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border: 2.5px solid #121212;
+  border-bottom: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.folder-tab.active {
+  background-color: var(--color-biscuit-red);
+  color: #FFFFFF;
+  transform: translateY(2px);
+}
+
+.folder-tab.inactive {
+  background-color: #E8E2D5;
+  color: #121212;
+  opacity: 0.85;
+}
+
+.folder-tab.inactive:hover {
+  opacity: 1;
+  background-color: #DDD5C4;
+}
+
+/* Interactive Laptop Deck */
+.laptop-lid {
+  background: linear-gradient(145deg, #E6E8EC 0%, #D8DCE2 100%);
+  border: 3px solid #121212;
+  border-radius: 20px;
+  box-shadow: 8px 8px 0px 0px #121212;
+  position: relative;
+  min-height: 400px;
+  overflow: hidden;
+  user-select: none;
+}
+
+.laptop-notch {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 10px;
+  background: #C4C8D0;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border: 2px solid #121212;
+  border-bottom: none;
+}
+
+.draggable-sticker {
+  position: absolute;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  transition: transform 0.1s ease, filter 0.15s ease;
+}
+
+.draggable-sticker:hover {
+  filter: drop-shadow(4px 4px 0px #121212);
+  transform: scale(1.06);
+}
+
+.draggable-sticker.is-dragging {
+  cursor: grabbing;
+  z-index: 100 !important;
+  transform: scale(1.12);
+  filter: drop-shadow(8px 8px 0px #121212);
+}
+
+/* Accordion Transitions */
+.faq-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease;
+  opacity: 0;
+}
+
+.faq-item.active .faq-content {
+  max-height: 300px;
+  opacity: 1;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(45deg);
+  background-color: var(--color-biscuit-red);
+  color: #FFFFFF;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-canvas);
+  border-left: 2px solid #121212;
+}
+::-webkit-scrollbar-thumb {
+  background: #121212;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-biscuit-red);
+}
+
+/* Waitlist Modal Animations */
+.modal-overlay {
+  background-color: rgba(18, 18, 18, 0.7);
+  backdrop-filter: blur(4px);
+}
+
+.modal-enter {
+  animation: brutalPop 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes brutalPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}

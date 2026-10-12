@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240" fill="none">
+  <!-- Legs & Shoes -->
+  <g id="legs">
+    <!-- Left Leg -->
+    <path d="M70 160 L60 195" stroke="#121212" stroke-width="7" stroke-linecap="round"/>
+    <!-- Left Shoe -->
+    <path d="M40 210 C40 195 55 195 65 195 C75 195 80 202 80 210 C80 215 40 215 40 210 Z" fill="#FFFFFF" stroke="#121212" stroke-width="4"/>
+    <path d="M40 210 L80 210" stroke="#121212" stroke-width="5"/>
+    <line x1="58" y1="202" x2="68" y2="202" stroke="#121212" stroke-width="2.5"/>
+    
+    <!-- Right Leg -->
+    <path d="M125 160 L135 195" stroke="#121212" stroke-width="7" stroke-linecap="round"/>
+    <!-- Right Shoe -->
+    <path d="M120 210 C120 195 135 195 145 195 C155 195 165 202 165 210 C165 215 120 215 120 210 Z" fill="#FFFFFF" stroke="#121212" stroke-width="4"/>
+    <path d="M120 210 L165 210" stroke="#121212" stroke-width="5"/>
+    <line x1="138" y1="202" x2="148" y2="202" stroke="#121212" stroke-width="2.5"/>
+  </g>
+
+  <!-- Left Arm (Hands on hip) -->
+  <path d="M50 110 Q 25 125 40 150" stroke="#121212" stroke-width="7" stroke-linecap="round" fill="none"/>
+  <ellipse cx="40" cy="150" rx="9" ry="8" fill="#FFFFFF" stroke="#121212" stroke-width="3.5"/>
+
+  <!-- Right Arm (Thumbs up) -->
+  <path d="M145 110 Q 170 100 175 80" stroke="#121212" stroke-width="7" stroke-linecap="round" fill="none"/>
+  <!-- Glove Thumbs Up -->
+  <g transform="translate(170, 60)">
+    <circle cx="10" cy="20" r="10" fill="#FFFFFF" stroke="#121212" stroke-width="3.5"/>
+    <!-- Thumb pointing up -->
+    <rect x="6" y="2" width="8" height="15" rx="4" fill="#FFFFFF" stroke="#121212" stroke-width="3.5"/>
+    <line x1="10" y1="20" x2="16" y2="20" stroke="#121212" stroke-width="2"/>
+    <line x1="10" y1="24" x2="16" y2="24" stroke="#121212" stroke-width="2"/>
+  </g>
+
+  <!-- Cracker Body -->
+  <g id="body">
+    <!-- Scalloped Cracker Disc -->
+    <path d="
+      M 100 25
+      C 112 24, 122 30, 130 35
+      C 138 31, 148 35, 153 43
+      C 160 43, 168 50, 170 60
+      C 176 65, 180 75, 178 84
+      C 183 92, 182 103, 178 111
+      C 180 120, 177 130, 170 137
+      C 170 146, 162 153, 154 156
+      C 149 164, 139 168, 130 167
+      C 123 173, 112 175, 102 174
+      C 93 177, 82 174, 75 168
+      C 66 170, 56 165, 50 157
+      C 42 154, 35 146, 35 137
+      C 29 130, 26 119, 29 110
+      C 25 102, 25 91, 30 83
+      C 29 74, 34 64, 42 59
+      C 44 49, 53 42, 62 42
+      C 68 34, 78 30, 87 34
+      C 94 28, 97 25, 100 25 Z"
+      fill="#E53935" stroke="#121212" stroke-width="4.5"
+    />
+    
+    <!-- Cracker Dots -->
+    <circle cx="65" cy="65" r="3.5" fill="#B71C1C"/>
+    <circle cx="100" cy="55" r="3.5" fill="#B71C1C"/>
+    <circle cx="135" cy="65" r="3.5" fill="#B71C1C"/>
+    <circle cx="55" cy="110" r="3.5" fill="#B71C1C"/>
+    <circle cx="145" cy="110" r="3.5" fill="#B71C1C"/>
+    <circle cx="68" cy="145" r="3.5" fill="#B71C1C"/>
+    <circle cx="100" cy="155" r="3.5" fill="#B71C1C"/>
+    <circle cx="132" cy="145" r="3.5" fill="#B71C1C"/>
+
+    <!-- Sunglasses (Neo-Brutalist Angular) -->
+    <g transform="translate(42, 68)">
+      <!-- Left Lens -->
+      <polygon points="12,0 48,0 44,28 10,24" fill="#121212"/>
+      <polygon points="18,4 40,4 38,12 17,10" fill="#FFFFFF" opacity="0.3"/>
+      <!-- Bridge -->
+      <rect x="46" y="4" width="18" height="6" fill="#121212"/>
+      <!-- Right Lens -->
+      <polygon points="62,0 98,0 102,24 68,28" fill="#121212"/>
+      <polygon points="68,4 90,4 92,10 71,12" fill="#FFFFFF" opacity="0.3"/>
+    </g>
+
+    <!-- Cool Mustache -->
+    <path d="M85 108 C 80 102 70 105 65 112 C 75 116 85 112 97 106 C 109 112 119 116 129 112 C 124 105 114 102 109 108 C 102 104 92 104 85 108 Z" fill="#121212"/>
+
+    <!-- Smiling Mouth -->
+    <path d="M85 118 Q 97 132 109 118" stroke="#121212" stroke-width="4" stroke-linecap="round" fill="#121212"/>
+    <path d="M88 120 Q 97 128 106 120" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+  </g>
+</svg>

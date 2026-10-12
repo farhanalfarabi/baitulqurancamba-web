@@ -1,0 +1,73 @@
+<!-- Waitlist Interactive Modal Dialog Component -->
+<div id="waitlist-modal" class="fixed inset-0 z-50 hidden modal-overlay flex items-center justify-center p-4">
+  <div class="relative w-full max-w-md rounded-3xl bg-[#FAF7F0] border-[3.5px] border-[#121212] brutal-shadow-xl p-6 sm:p-8 modal-enter">
+    
+    <!-- Close Button -->
+    <button id="btn-close-modal" aria-label="Close dialog" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-[#E53935] text-white border-[2px] border-[#121212] flex items-center justify-center text-sm font-black brutal-shadow-sm btn-tactile">
+      ✕
+    </button>
+
+    <!-- Form State -->
+    <form id="waitlist-form" class="space-y-5">
+      <div class="text-left mb-6">
+        <div class="stamp-badge stamp-badge-red mb-2">Early Access</div>
+        <h3 class="font-display font-black text-2xl uppercase tracking-tight text-[#121212]">
+          Join The Krackerz Waitlist
+        </h3>
+        <p class="font-body text-xs text-slate-muted font-medium mt-1">
+          Be the first to learn how to pitch, price, and sell your design craft.
+        </p>
+      </div>
+
+      <div class="text-left">
+        <label for="waitlist-name" class="block font-label font-bold text-xs uppercase tracking-wider text-[#121212] mb-1.5">
+          Full Name
+        </label>
+        <input type="text" id="waitlist-name" required placeholder="e.g. Penny Lane" class="w-full px-4 py-3 rounded-xl bg-white text-[#121212] border-[2px] border-[#121212] brutal-shadow-sm font-body text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-lime">
+      </div>
+
+      <div class="text-left">
+        <label for="waitlist-email" class="block font-label font-bold text-xs uppercase tracking-wider text-[#121212] mb-1.5">
+          Work or Student Email
+        </label>
+        <input type="email" id="waitlist-email" required placeholder="e.g. penny@studio.com" class="w-full px-4 py-3 rounded-xl bg-white text-[#121212] border-[2px] border-[#121212] brutal-shadow-sm font-body text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-lime">
+      </div>
+
+      <div class="text-left">
+        <label for="waitlist-role" class="block font-label font-bold text-xs uppercase tracking-wider text-[#121212] mb-1.5">
+          Current Role
+        </label>
+        <select id="waitlist-role" class="w-full px-4 py-3 rounded-xl bg-white text-[#121212] border-[2px] border-[#121212] brutal-shadow-sm font-body text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-lime">
+          <option value="Product Designer">Product Designer</option>
+          <option value="UX/UI Designer">UX/UI Designer</option>
+          <option value="Freelance Designer">Freelance Designer</option>
+          <option value="Design Lead / Manager">Design Lead / Manager</option>
+          <option value="Design Student">Design Student</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <button type="submit" class="w-full btn-tactile mt-6 py-4 rounded-full bg-lime text-[#121212] font-label font-black text-sm uppercase tracking-wider border-[2.5px] border-[#121212] brutal-shadow flex items-center justify-center gap-3">
+        <span>Claim My Spot</span>
+        <span class="w-6 h-6 rounded-full bg-[#121212] text-white flex items-center justify-center text-xs font-black">➔</span>
+      </button>
+    </form>
+
+    <!-- Success State -->
+    <div id="waitlist-success" class="hidden text-center py-6 space-y-4">
+      <div class="w-16 h-16 mx-auto rounded-2xl bg-lime border-[2.5px] border-[#121212] brutal-shadow flex items-center justify-center text-3xl">
+        🎉
+      </div>
+      <h3 class="font-display font-black text-2xl uppercase tracking-tight text-[#121212]">
+        You're In Line!
+      </h3>
+      <p class="font-body text-sm text-slate-muted font-medium">
+        We sent a confirmation link to <span id="success-email-text" class="font-bold text-[#121212]"></span>. You'll receive your early access invite very soon!
+      </p>
+      <button id="btn-reset-form" class="btn-tactile px-6 py-2.5 rounded-full bg-white text-[#121212] border-[2px] border-[#121212] brutal-shadow-sm font-label font-bold text-xs uppercase tracking-wider mt-4">
+        Close
+      </button>
+    </div>
+
+  </div>
+</div>

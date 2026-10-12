@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 110" fill="none">
+  <g filter="drop-shadow(3px 3px 0px #121212)">
+    <!-- Straw -->
+    <path d="M48 6 L44 26" stroke="#D4FF00" stroke-width="5" stroke-linecap="round"/>
+    <path d="M48 6 L58 4" stroke="#D4FF00" stroke-width="5" stroke-linecap="round"/>
+    <!-- Lid -->
+    <path d="M20 26 L60 26 C64 26 66 28 64 32 L60 34 L20 34 L16 32 C14 28 16 26 20 26 Z" fill="#FFFFFF" stroke="#121212" stroke-width="3"/>
+    <!-- Cup Body -->
+    <path d="M19 34 L27 96 C28 100 32 102 36 102 L44 102 C48 102 52 100 53 96 L61 34 Z" fill="#E53935" stroke="#121212" stroke-width="3.5"/>
+    <!-- Letter K on Cup -->
+    <text x="32" y="74" font-family="'Space Grotesk', sans-serif" font-weight="900" font-size="24" fill="#FFFFFF">K</text>
+  </g>
+</svg>

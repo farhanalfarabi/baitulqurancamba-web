@@ -1,0 +1,73 @@
+<!-- Footer Section Component: Be The First To Krack & Footer Links -->
+<section class="pt-28 pb-12 bg-[#4A0E17] text-white relative overflow-hidden scallop-divider-top">
+  
+  <!-- Floating decorative stickers -->
+  <div class="hidden lg:block absolute top-12 left-12 w-28 h-auto tilt-left opacity-90">
+    <img src="./assets/images/sticker-van.svg" alt="Van" class="w-full h-auto">
+  </div>
+  <div class="hidden lg:block absolute top-20 right-16 w-16 h-auto tilt-right opacity-90">
+    <img src="./assets/images/sticker-rocket.svg" alt="Rocket" class="w-full h-auto">
+  </div>
+  <div class="hidden lg:block absolute bottom-40 left-20 w-16 h-auto tilt-right opacity-90">
+    <img src="./assets/images/sticker-megaphone.svg" alt="Megaphone" class="w-full h-auto">
+  </div>
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+    
+    <!-- Heading -->
+    <h2 class="font-display font-black text-5xl sm:text-7xl uppercase tracking-tight text-white mb-8">
+      Be The <span class="font-cursive lowercase text-lime text-6xl sm:text-8xl font-bold inline-block transform -rotate-6">first</span> To<br>
+      <span class="inline-block mt-2 px-6 py-2 bg-[#121212] text-lime rounded-2xl border-[3px] border-[#121212] brutal-shadow tilt-right transform">
+        Krack
+      </span>
+    </h2>
+
+    <p class="font-body text-base sm:text-lg text-white/90 font-medium max-w-xl mx-auto mb-10">
+      Get exclusive early bird access, founder discount, and free access to our first sales teardown module.
+    </p>
+
+    <!-- Waitlist Input Form Bar -->
+    <form id="footer-waitlist-form" onsubmit="event.preventDefault(); document.getElementById('footer-email-success').classList.remove('hidden'); this.classList.add('hidden');" class="max-w-lg mx-auto flex flex-col sm:flex-row gap-3 items-stretch justify-center mb-16">
+      <input type="email" required placeholder="Enter your email address" class="flex-1 px-6 py-3.5 rounded-full bg-white text-[#121212] placeholder-gray-500 font-body text-sm font-semibold border-[2.5px] border-[#121212] brutal-shadow focus:outline-none focus:ring-2 focus:ring-lime">
+      <button type="submit" class="btn-tactile px-8 py-3.5 rounded-full bg-lime text-[#121212] font-label font-black text-xs uppercase tracking-wider border-[2.5px] border-[#121212] brutal-shadow whitespace-nowrap">
+        Join Waitlist ➔
+      </button>
+    </form>
+
+    <div id="footer-email-success" class="hidden max-w-md mx-auto p-4 rounded-2xl bg-lime text-[#121212] font-display font-bold text-base border-[2.5px] border-[#121212] brutal-shadow mb-16">
+      🎉 You're on the list! Check your inbox soon.
+    </div>
+
+    <!-- Divider Line -->
+    <div class="border-t border-white/20 pt-12 mt-12 flex flex-col sm:flex-row items-center justify-between gap-6">
+      
+      <!-- Logo & Tagline -->
+      <div class="text-left">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="font-display font-black text-2xl tracking-tight text-white uppercase">KRACKERZ</span>
+        </div>
+        <p class="font-body text-xs text-white/70">
+          For the stuff they don't teach in design schools.
+        </p>
+        <p class="font-label text-[11px] text-lime font-bold mt-1">
+          Powered by Bizkit Group
+        </p>
+      </div>
+
+      <!-- Copyright & Links -->
+      <div class="text-center sm:text-right text-xs text-white/70 font-label">
+        <p>© 2026 Krackerz. All Rights Reserved.</p>
+        <div class="flex items-center justify-center sm:justify-end gap-3 mt-3">
+          <a href="#" class="w-8 h-8 rounded-lg bg-lime text-[#121212] border-[1.5px] border-[#121212] flex items-center justify-center font-bold hover:scale-110 transition-transform" title="LinkedIn">
+            in
+          </a>
+          <a href="#" class="w-8 h-8 rounded-lg bg-lime text-[#121212] border-[1.5px] border-[#121212] flex items-center justify-center font-bold hover:scale-110 transition-transform" title="X / Twitter">
+            𝕏
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>

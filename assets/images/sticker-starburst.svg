@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <g filter="drop-shadow(3px 3px 0px #121212)">
+    <!-- 12-point scalloped/starburst badge -->
+    <path d="M50 4 L57 14 L70 11 L73 24 L86 26 L84 39 L95 45 L89 57 L96 68 L84 74 L84 87 L71 88 L66 100 L53 96 L44 104 L37 94 L24 97 L21 84 L8 82 L10 69 L0 62 L6 50 L0 38 L11 32 L12 19 L25 18 L30 6 L43 10 Z" fill="#D4FF00" stroke="#121212" stroke-width="3"/>
+    <text x="50" y="38" font-family="'Space Grotesk', sans-serif" font-weight="900" font-size="9" fill="#121212" text-anchor="middle">BITE</text>
+    <text x="50" y="52" font-family="'Space Grotesk', sans-serif" font-weight="900" font-size="9" fill="#121212" text-anchor="middle">LEARN</text>
+    <text x="50" y="66" font-family="'Space Grotesk', sans-serif" font-weight="900" font-size="9" fill="#121212" text-anchor="middle">REPEAT</text>
+  </g>
+</svg>
