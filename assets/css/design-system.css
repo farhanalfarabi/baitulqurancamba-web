@@ -385,3 +385,36 @@ body {
     transform: scale(1) translateY(0);
   }
 }
+
+/* ==========================================================================
+   Rolling Text Hover Animation (Cylinder / Slot Machine Roll Effect)
+   ========================================================================== */
+.roll-link {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: middle;
+  height: 1.25em;
+  line-height: 1.25em;
+  position: relative;
+  text-decoration: none;
+}
+
+.roll-link-inner {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s cubic-bezier(0.76, 0, 0.24, 1);
+  will-change: transform;
+}
+
+.roll-link-inner > span {
+  display: block;
+  height: 1.25em;
+  line-height: 1.25em;
+  white-space: nowrap;
+}
+
+.roll-link:hover .roll-link-inner,
+.roll-link:focus-visible .roll-link-inner {
+  transform: translateY(-50%);
+}
+

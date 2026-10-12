@@ -50,12 +50,16 @@ Jika Anda ingin mengedit bagian tertentu:
 ---
 
 ## 4. Checklist Pengujian Fitur Interaktif & Navbar Capsule
-1. **Pill Navbar Capsule (Reference Image Match)**:
+1. **Pill Navbar Capsule (Reference Image Match) & Rolling Text Animation**:
    - Periksa header di bagian atas halaman:
      - Di sisi kiri terdapat wordmark logo **KRACKERZ** dengan cookie biskuit merah `C`.
      - Di sisi kanan terdapat kapsul mengambang dengan latar krem `#FAF7F0`, border hitam solid, berisi link: `Features`, `Pricing`, `For partners`, `FAQ`, `Shop`.
      - Di ujung kanan kapsul terdapat tombol Electric Lime `#D4FF00` bertuliskan **JOIN WAITLIST** dengan badge bintang rosette merah berpanah putih (`badge-scallop-arrow.svg`).
-     - Arahkan kursor (hover) ke tombol `JOIN WAITLIST` untuk melihat efek tactile micro-interaction (geser diagonal halus dan bayangan retro).
+   - **Uji Efek Hover Teks Berputar (Rolling Text Effect)**:
+     - Arahkan kursor (*hover*) ke masing-masing item menu (`Features`, `Pricing`, `For partners`, `FAQ`, `Shop`).
+     - Perhatikan teks awal berwarna hitam akan bergeser naik ke atas (*slide up* keluar viewport wadah), dan secara simultan teks duplikat berwarna merah aksen biskuit (`#E53935`) naik dari bawah menggantikan posisinya secara mulus (*slot machine cylinder roll*).
+     - Gerakkan kursor keluar (*unhover*) untuk melihat animasi berputar kembali ke posisi awal.
+     - Hover juga tombol **JOIN WAITLIST** untuk melihat efek rolling text pada label tombolnya.
    - Klik link `Features`, `Pricing`, `For partners`, `FAQ`, `Shop` untuk memverifikasi smooth scrolling ke masing-masing section.
 2. **Folder Tabs**: Klik tab *"Win Work Prep"* di section kurikulum; pastikan materi berganti seketika.
 3. **Pricing Switcher**: Klik toggle switch *"Yearly (-20%)"*; pastikan harga berubah menjadi `$28/mo` dan `$12.99/mo`.

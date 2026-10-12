@@ -10,16 +10,46 @@
     <!-- Pill Navbar Capsule (Exact Design Matching Provided Reference Image) -->
     <div class="hidden lg:flex items-center bg-[#FAF7F0] border-[1.5px] border-[#121212] rounded-full pl-8 pr-1.5 py-1.5 shadow-[0_4px_16px_rgba(0,0,0,0.06)]">
       <nav class="flex items-center gap-8 font-body font-semibold text-[14px] text-[#121212] pr-7">
-        <a href="#curriculum" class="hover:text-[#E53935] transition-colors">Features</a>
-        <a href="#pricing" class="hover:text-[#E53935] transition-colors">Pricing</a>
-        <a href="#partner" class="hover:text-[#E53935] transition-colors">For partners</a>
-        <a href="#faq" class="hover:text-[#E53935] transition-colors">FAQ</a>
-        <a href="#shop" class="hover:text-[#E53935] transition-colors">Shop</a>
+        <a href="#curriculum" class="roll-link">
+          <span class="roll-link-inner">
+            <span>Features</span>
+            <span class="text-[#E53935]" aria-hidden="true">Features</span>
+          </span>
+        </a>
+        <a href="#pricing" class="roll-link">
+          <span class="roll-link-inner">
+            <span>Pricing</span>
+            <span class="text-[#E53935]" aria-hidden="true">Pricing</span>
+          </span>
+        </a>
+        <a href="#partner" class="roll-link">
+          <span class="roll-link-inner">
+            <span>For partners</span>
+            <span class="text-[#E53935]" aria-hidden="true">For partners</span>
+          </span>
+        </a>
+        <a href="#faq" class="roll-link">
+          <span class="roll-link-inner">
+            <span>FAQ</span>
+            <span class="text-[#E53935]" aria-hidden="true">FAQ</span>
+          </span>
+        </a>
+        <a href="#shop" class="roll-link">
+          <span class="roll-link-inner">
+            <span>Shop</span>
+            <span class="text-[#E53935]" aria-hidden="true">Shop</span>
+          </span>
+        </a>
       </nav>
 
       <!-- Pill Button inside Capsule -->
       <button data-open-modal="waitlist" class="btn-tactile flex items-center gap-2.5 px-6 py-2.5 rounded-2xl bg-lime text-[#121212] font-display font-black text-sm uppercase tracking-tight border-[2px] border-[#121212] shadow-[2px_3px_0px_#121212] hover:shadow-[1px_1px_0px_#121212] hover:translate-x-0.5 hover:translate-y-0.5 transition-all">
-        <span>JOIN WAITLIST</span>
+        <span class="roll-link">
+          <span class="roll-link-inner">
+            <span>JOIN WAITLIST</span>
+            <span class="text-[#121212]" aria-hidden="true">JOIN WAITLIST</span>
+          </span>
+        </span>
         <img src="./assets/images/badge-scallop-arrow.svg" alt="Arrow" class="w-6 h-6">
       </button>
     </div>
@@ -35,14 +65,44 @@
 
   <!-- Mobile Navigation Drawer -->
   <div id="mobile-nav" class="hidden lg:hidden border-t-[2.5px] border-[#121212] bg-[#FAF7F0] px-6 py-6 space-y-4">
-    <a href="#curriculum" class="block font-body font-semibold text-base text-[#121212] hover:text-[#E53935]">Features</a>
-    <a href="#pricing" class="block font-body font-semibold text-base text-[#121212] hover:text-[#E53935]">Pricing</a>
-    <a href="#partner" class="block font-body font-semibold text-base text-[#121212] hover:text-[#E53935]">For partners</a>
-    <a href="#faq" class="block font-body font-semibold text-base text-[#121212] hover:text-[#E53935]">FAQ</a>
-    <a href="#shop" class="block font-body font-semibold text-base text-[#121212] hover:text-[#E53935]">Shop</a>
+    <a href="#curriculum" class="roll-link block font-body font-semibold text-base text-[#121212]">
+      <span class="roll-link-inner">
+        <span>Features</span>
+        <span class="text-[#E53935]" aria-hidden="true">Features</span>
+      </span>
+    </a>
+    <a href="#pricing" class="roll-link block font-body font-semibold text-base text-[#121212]">
+      <span class="roll-link-inner">
+        <span>Pricing</span>
+        <span class="text-[#E53935]" aria-hidden="true">Pricing</span>
+      </span>
+    </a>
+    <a href="#partner" class="roll-link block font-body font-semibold text-base text-[#121212]">
+      <span class="roll-link-inner">
+        <span>For partners</span>
+        <span class="text-[#E53935]" aria-hidden="true">For partners</span>
+      </span>
+    </a>
+    <a href="#faq" class="roll-link block font-body font-semibold text-base text-[#121212]">
+      <span class="roll-link-inner">
+        <span>FAQ</span>
+        <span class="text-[#E53935]" aria-hidden="true">FAQ</span>
+      </span>
+    </a>
+    <a href="#shop" class="roll-link block font-body font-semibold text-base text-[#121212]">
+      <span class="roll-link-inner">
+        <span>Shop</span>
+        <span class="text-[#E53935]" aria-hidden="true">Shop</span>
+      </span>
+    </a>
     <div class="pt-2">
       <button data-open-modal="waitlist" class="w-full btn-tactile flex items-center justify-center gap-2.5 px-6 py-3 rounded-2xl bg-lime text-[#121212] font-display font-black text-sm uppercase tracking-tight border-[2px] border-[#121212] brutal-shadow-sm">
-        <span>JOIN WAITLIST</span>
+        <span class="roll-link">
+          <span class="roll-link-inner">
+            <span>JOIN WAITLIST</span>
+            <span class="text-[#121212]" aria-hidden="true">JOIN WAITLIST</span>
+          </span>
+        </span>
         <img src="./assets/images/badge-scallop-arrow.svg" alt="Arrow" class="w-6 h-6">
       </button>
     </div>
