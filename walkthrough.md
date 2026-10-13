@@ -13,7 +13,7 @@ Garis batas hitam tebal (*heavy black outlines 2.5px-3px*) dan bayangan brutal k
 | **Navbar** (`components/navbar.html`) | **`Button + Link Wrapper` Krackerz**: Tombol CTA menyatu rapi dalam kapsul bersama menu navigasi. Menggunakan **Double-Layer Button** (wadah putih + tombol neon lime + lingkaran panah merah). | Header navbar kini menggunakan **Solid Pure White (`#FFFFFF` / `bg-white`)**, mengalir mulus dan menyatu sempurna dengan latar belakang awan SVG putih (`#FFFFFF`) tanpa garis/titik krem di atasnya. |
 | **Hero Section** (`components/hero.html`) | Tombol pill hijau lama digantikan dengan **Signature Krackerz Double-Layer Button** berlatar putih dengan tombol neon lime dan badge panah merah. | **Continuous Smooth Scroll Interpolation**: Ke-6 kartu dirombak dari snap biner kasar menjadi animasi uncurl super halus via `requestAnimationFrame` + LERP damping. Kartu bertransisi mulus dari fanned ke straightened row, dengan hover lift independen via `.hero-card-inner`. |
 | **About** (`components/about.html`) | Tombol CTA diubah ke **Double-Layer Button** Krackerz (*Daftar Santri Baru ➔*). | Dihilangkan bentuk gigitan kartun (*bite-corner*) hitam. Digantikan dengan **2 Kartu Panel Solid** (**Vermilion Red** `#CF2B09` dan **Cherry Wine** `#580D14`) dengan bingkai billboard putih pekat 8px. |
-| **Kurikulum** (`components/curriculum.html`) | Tombol ganda pada tiap tab kurikulum. | **3 Tab Folder Asimetris SVG Otentik** (`#CF2B09`, `#A52207`, `#7C1A06`), badan kartu tanpa outline hitam menyatu dinamis mengikuti tab aktif, foto berbingkai putih 8px, dan stiker mobil van hijau Krackerz. |
+| **Kurikulum** (`components/curriculum.html`) | Tombol ganda **Double-Layer Button** Krackerz (*REGISTER NOW ➔*). | **Krackerz Sticky Stacking Cards on Scroll (1:1 Asli)**: Dirombak dari tab klik statis menjadi 3 kartu tumpuk bergulir (*sticky stacking*). Awalnya hanya muncul Tab 1; saat discroll ke bawah, Kartu 2 meluncur dari bawah dan menumpuk di atas Kartu 1 sehingga Tab 1 & Tab 2 berdampingan; discroll lagi, Kartu 3 menumpuk sehingga ke-3 tab menyatu rapi. |
 | **Testimoni** (`components/testimonials.html`) | Tombol CTA ganda Krackerz (*Bergabung Bersama Kami ➔*). | **OVERHAUL**: Dari lingkaran bulat lama menjadi **Kartu Tiket/Postcard Miring Krackerz** (`rotate(-2deg)` s/d `rotate(2deg)`) dalam palet hangat `#F95534`, `#CF2B09`, `#7C1A06` dengan kutipan teks besar dan tag wali/santri. |
 | **Pricing** (`components/pricing.html`) | Kartu utama (Jenjang Ulya) dilengkapi tombol ganda **Double-Layer Button** Krackerz. | Dihilangkan border hitam 3px. Tier 1 & 3 (*Secondary*) menggunakan **kartu putih bersih `#FFFFFF`** bersudut 24px dengan bayangan lembut; Tier 2 (*Primary*) menggunakan **kartu Cherry Wine `#580D14` mewah** berstempel *Paling Diminati*. |
 | **Founder** (`components/founder.html`) | Standar visual bersih Krackerz. | Foto pengasuh dibebaskan dari kurungan kotak hitam 3px (kini berbingkai putih bersih); 4 kartu metrik mengadopsi warna solid `#CF2B09` dan `#580D14` dengan bayangan lembut; tabel struktur pimpinan menjadi kartu putih minimalis. |
@@ -78,14 +78,47 @@ Buka browser pada alamat lokal (misalnya `http://localhost:3000`).
 
 ---
 
-### Langkah 4: Verifikasi Bagian Tentang Kami & Kurikulum
+### Langkah 4: Verifikasi Bagian Tentang Kami & Kurikulum (Scroll-Stacking Sticky Cards)
 1. **About**:
    - Foto billboard masjid memiliki bingkai putih tebal pekat 8px.
    - 2 kartu di bawahnya tampil dalam warna solid pekat (**Vermilion Red** dan **Cherry Wine**) tanpa sudut terpotong kartun hitam.
    - Tombol di bawahnya menggunakan double-layer button Krackerz.
-2. **Kurikulum**:
-   - Tab 1, 2, dan 3 berpotongan trapesium mulus.
-   - Saat tab diklik, warna badan kartu berganti seketika (`#CF2B09`, `#A52207`, `#7C1A06`) dan menampilkan foto berbingkai putih 8px dengan stiker mobil van hijau Krackerz pada Tab 3.
+2. **Kurikulum (Alur Stacking Kartu Berdasarkan Scroll - 1:1 Krackerz Original)**:
+   - **Bentuk & Sisi Kiri Kartu 1 (Menyatu Mulus 1:1 Gambar Referensi 2 Krackerz)**:
+     - Garis vertikal tepi kiri Tab 1 dan tepi kiri badan kartu kini **100% rata, lurus, dan menyatu sempurna (*seamless flush vertical line*)**:
+       - Sudut atas Tab 1 melengkung halus (`rounded-tl-[24px]`).
+       - Tepi kiri Tab 1 turun lurus vertikal ke bawah, dan langsung mengalir mulus ke tepi kiri badan kartu tanpa adanya lekukan bahu membulat (*no rounded shoulder*), tanpa celah (*no notch/gap*), dan tanpa tonjolan (*no overhang/step*).
+       - Badan kartu diset `border-top-left-radius: 0 !important;` sehingga menempel rapat dan solid dengan Tab 1.
+       - Teks tab menggunakan Title Case bersih: **`Tahfizh & Sanad`** dengan ikon vektor buku Al-Qur'an putih rapi di sebelah kirinya (persis seperti gaya `Scenario Based Learning` pada Gambar Referensi 2 Krackerz).
+       - Judul di dalam Kartu 1 disusun dalam 3 baris huruf kapital tebal dinamis:
+         ```
+         TAHFIZH
+         & SANAD
+         30 JUZ
+         ```
+         persis seperti layout `SCENARIO / BASED / LEARNING` pada referensi asli.
+       - Poin kurikulum menggunakan ikon bintang 8-titik putih (*asterisk* `✱`) Krackerz.
+   - **Kondisi Awal (Saat Masuk ke Section Kurikulum)**:
+     - Hanya **Kartu 1 (Tahfizh & Sanad)** yang aktif di layar.
+     - Di pojok kiri atas, Tab 1 (**`Tahfizh & Sanad`** berlatar merah cerah `#CF2B09`) menyatu utuh dengan sisi kiri kartu. Area kanan tab bersih dan kosong.
+     - Tombol aksi di dalam kartu bertuliskan **`REGISTER NOW ➔`** (Bahasa Inggris murni).
+   - **Gulir ke Bawah (Kartu 2 Meluncur dari Bawah & Menumpuk)**:
+     - Putar roda mouse ke bawah secara perlahan.
+     - Perhatikan **Kartu 2 (Sekolah Formal)** meluncur naik dari bawah (*slides up from bottom*) dan menutupi badan Kartu 1.
+     - Ketika Kartu 2 terkunci di posisi atas (*sticky*):
+       - Tepi kiri kartu tetap rata dan solid tanpa lekukan aneh di bawah Tab 1.
+       - Tab 2 (**`Sekolah`** berwarna merah bata `#A52207`) kini muncul tepat di samping Tab 1 dan menyatu ke badan Kartu 2.
+       - Di layar kini tampak **DUA TAB berdampingan** tanpa tabrakan teks atau ikon!
+   - **Gulir Lebih Lanjut (Kartu 3 Meluncur dari Bawah)**:
+     - Gulir mouse lebih jauh ke bawah.
+     - **Kartu 3 (Kehidupan Santri)** meluncur naik dari bawah dan menutupi badan Kartu 2.
+     - Ketika Kartu 3 terkunci di posisi atas (*sticky*):
+       - Tab 1 dan Tab 2 tetap terlihat utuh berdampingan.
+       - Tab 3 (**`Asrama`** berwarna merah anggur pekat `#7C1A06`) kini muncul tepat di samping Tab 2 dengan stiker van hijau Krackerz.
+       - Di layar kini tampak **KETIGA TAB bersanding rapi** membentuk folder berundak yang simetris, lega, dan elegan, dengan garis kiri yang selalu rata dan solid!
+   - **Uji Navigasi Klik Tab**:
+     - Saat berada di Kartu 3, klik Tab 1 atau Tab 2: halaman akan secara mulus bergulir (*smooth scroll*) kembali ke posisi kartu yang bersangkutan.
+     - Gulir balik ke atas: kartu akan meluncur turun kembali secara alami mengungkap kartu di baliknya.
 
 ---
 

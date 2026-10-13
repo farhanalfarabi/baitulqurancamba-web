@@ -497,6 +497,36 @@ body {
 }
 
 /* ==========================================================================
+   Curriculum Stacking Scroll Cards (Krackerz Sticky Folder Tabs on Scroll)
+   ========================================================================== */
+.curriculum-card-sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 88px;
+  will-change: transform;
+}
+
+@media (min-width: 640px) {
+  .curriculum-card-sticky {
+    top: 98px;
+  }
+}
+
+.curriculum-card-body {
+  box-shadow: 0 24px 50px -12px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  border-top-left-radius: 0 !important;
+}
+
+.card-tabs-row {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.card-tabs-row::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* ==========================================================================
    Krackerz Rotating Cloud Wave Background Animation
    Exact engine reverse-engineered from https://krackerz.com/ (.framer-h4nTm .framer-7xzl3c)
    ========================================================================== */

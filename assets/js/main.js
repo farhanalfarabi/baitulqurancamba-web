@@ -4,7 +4,7 @@
 
 window.initKrackerzApp = function() {
   initMobileMenu();
-  initFolderTabs();
+  initCurriculumScrollStack();
   initPricingToggle();
   initFaqAccordion();
   initDraggableStickers();
@@ -51,46 +51,33 @@ function initMobileMenu() {
 }
 
 /* ==========================================================================
-   2. Folder Tabs (Core Features - Krackerz Asymmetrical Tabs)
+   2. Curriculum Stacking Scroll Cards (Krackerz Sticky Folder Tabs on Scroll)
    ========================================================================== */
-function initFolderTabs() {
-  const tabs = document.querySelectorAll('.folder-tab-btn');
-  const panels = document.querySelectorAll('.folder-panel');
-  const cardBody = document.getElementById('folder-card-body');
+function initCurriculumScrollStack() {
+  const container = document.getElementById('curriculum-stack-container');
+  if (!container) return;
 
-  if (!tabs.length || !panels.length) return;
+  const cards = [
+    document.getElementById('curriculum-card-1'),
+    document.getElementById('curriculum-card-2'),
+    document.getElementById('curriculum-card-3')
+  ];
 
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      const targetId = tab.getAttribute('data-tab');
-      const targetColor = tab.getAttribute('data-color') || '#CF2B09';
-
-      // 1. Update card body background color to match active tab
-      if (cardBody) {
-        cardBody.style.backgroundColor = targetColor;
+  const triggers = container.querySelectorAll('.curriculum-tab-trigger');
+  triggers.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const cardNum = parseInt(btn.getAttribute('data-target-card'), 10);
+      const targetCard = cards[cardNum - 1];
+      if (targetCard) {
+        const rect = targetCard.getBoundingClientRect();
+        const currentScroll = window.scrollY || window.pageYOffset;
+        const targetTop = currentScroll + rect.top - 100;
+        window.scrollTo({
+          top: targetTop,
+          behavior: 'smooth'
+        });
       }
-
-      // 2. Update active tab states, opacity & elevation z-index
-      tabs.forEach(t => {
-        if (t === tab) {
-          t.classList.add('active', 'opacity-100');
-          t.classList.remove('opacity-85');
-          t.style.zIndex = '30';
-        } else {
-          t.classList.remove('active', 'opacity-100');
-          t.classList.add('opacity-85');
-          t.style.zIndex = '10';
-        }
-      });
-
-      // 3. Update visible panel
-      panels.forEach(p => {
-        if (p.id === targetId) {
-          p.classList.remove('hidden');
-        } else {
-          p.classList.add('hidden');
-        }
-      });
     });
   });
 }
