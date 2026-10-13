@@ -1,24 +1,25 @@
 <!-- Navigation Bar Component -->
-<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md transition-all">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+<header class="sticky top-0 z-50 bg-white transition-all">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-2.5 flex items-center justify-between">
 
-    <!-- Logo -->
-    <a href="#" class="flex items-center gap-3 group focus:outline-none" aria-label="Baitul Qur'an Camba Home">
+    <!-- Logo & Identity -->
+    <a href="#" class="flex items-center gap-2.5 group focus:outline-none" aria-label="Baitul Qur'an Camba Home">
       <img src="./assets/images/logo.png" alt="Baitul Qur'an Camba Logo"
-        class="h-10 w-auto group-hover:scale-105 transition-transform">
+        class="h-8 sm:h-9 w-auto group-hover:scale-105 transition-transform">
       <div class="hidden sm:flex flex-col text-left">
-        <span
-          class="font-display font-black text-sm lg:text-base leading-none text-[#121212] uppercase tracking-tight">BAITUL
-          QUR'AN</span>
-        <span class="font-label font-bold text-[10px] text-[#4A0E17] tracking-widest uppercase">PESANTREN TAHFIZH
-          CAMBA</span>
+        <span class="font-display font-black text-xs sm:text-sm leading-none text-[#121212] uppercase tracking-tight">
+          BAITUL QUR'AN
+        </span>
+        <span class="font-label font-bold text-[9px] text-[#4A0E17] tracking-widest uppercase">
+          PESANTREN TAHFIZH CAMBA
+        </span>
       </div>
     </a>
 
-    <!-- Pill Navbar Capsule (Exact Design Matching Provided Reference Image) -->
+    <!-- Krackerz Button + Link Wrapper Capsule (Compact & Refined) -->
     <div
-      class="hidden lg:flex items-center bg-[#FAF7F0] border-[1.5px] border-[#121212] rounded-full pl-8 pr-1.5 py-1.5 shadow-[0_4px_16px_rgba(0,0,0,0.06)]">
-      <nav class="flex items-center gap-8 font-body font-semibold text-[14px] text-[#121212] pr-7">
+      class="hidden lg:flex items-center bg-[#FAF7F0] border border-[#161616] rounded-xl pl-4 pr-1 py-1 shadow-[0_2px_6px_rgba(0,0,0,0.05)]">
+      <nav class="flex items-center gap-4 lg:gap-5 font-body font-semibold text-xs text-[#121212] pr-3.5">
         <a href="#curriculum" class="roll-link">
           <span class="roll-link-inner">
             <span>Program</span>
@@ -37,7 +38,7 @@
             <span class="text-[#E53935]" aria-hidden="true">Biaya Pendidikan</span>
           </span>
         </a>
-        <a href="#shop" class="roll-link">
+        <a href="#curriculum" class="roll-link">
           <span class="roll-link-inner">
             <span>Kehidupan Santri</span>
             <span class="text-[#E53935]" aria-hidden="true">Kehidupan Santri</span>
@@ -51,49 +52,27 @@
         </a>
       </nav>
 
-      <!-- Pill Button inside Capsule (Stationary button, rolling text, spinning scallop border) -->
+      <!-- Signature Krackerz Double-Layer Primary Button (Compact) -->
       <button data-open-modal="waitlist"
-        class="group flex items-center gap-2.5 px-6 py-2.5 rounded-2xl bg-lime text-[#121212] font-display font-black text-sm uppercase tracking-tight border-[2px] border-[#121212] shadow-[2px_3px_0px_#121212] cursor-pointer focus:outline-none">
-        <span class="roll-link">
-          <span class="roll-link-inner">
-            <span>DAFTAR SEKARANG</span>
-            <span class="text-[#121212]" aria-hidden="true">DAFTAR SEKARANG</span>
+        class="bg-white p-0.5 rounded-lg shadow-sm inline-flex items-center transition-transform hover:scale-[1.02] active:scale-[0.98] cursor-pointer focus:outline-none">
+        <div
+          class="bg-lime text-[#121212] border-[1.5px] border-[#161616] rounded-md px-3 py-1.5 flex items-center gap-2 font-display font-black text-[11px] uppercase tracking-wider">
+          <span class="roll-link">
+            <span class="roll-link-inner">
+              <span>DAFTAR SEKARANG</span>
+              <span class="text-[#121212]" aria-hidden="true">DAFTAR SEKARANG</span>
+            </span>
           </span>
-        </span>
-        <!-- Scalloped Badge with Spinning Border -->
-        <div class="relative w-6 h-6 flex items-center justify-center flex-shrink-0">
-          <svg class="w-6 h-6 badge-spin-border" viewBox="0 0 40 40" fill="none">
-            <path d="M 20 2 
-                     C 22.5 2, 24 4.5, 26 5
-                     C 28 5.5, 30.5 4.5, 32 6
-                     C 33.5 7.5, 32.5 10, 33 12
-                     C 33.5 14, 36 15.5, 36 18
-                     C 36 20.5, 34 22, 33.5 24
-                     C 33 26, 34 28.5, 32.5 30
-                     C 31 31.5, 28.5 30.5, 26.5 31
-                     C 24.5 31.5, 23 34, 20.5 34
-                     C 18 34, 16.5 31.5, 14.5 31
-                     C 12.5 30.5, 10 31.5, 8.5 30
-                     C 7 28.5, 8 26, 7.5 24
-                     C 7 22, 5 20.5, 5 18
-                     C 5 15.5, 7.5 14, 8 12
-                     C 8.5 10, 7.5 7.5, 9 6
-                     C 10.5 4.5, 13 5.5, 15 5
-                     C 17 4.5, 18.5 2, 20 2 Z" fill="#E53935" stroke="#121212" stroke-width="2"
-              stroke-linejoin="round" />
-          </svg>
-          <svg class="absolute inset-0 w-6 h-6 pointer-events-none" viewBox="0 0 40 40" fill="none">
-            <path d="M 14 18 L 26 18 M 21 13 L 26 18 L 21 23" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"
-              stroke-linejoin="round" />
-          </svg>
+          <span
+            class="w-4 h-4 rounded-full bg-[#E53935] text-white flex items-center justify-center text-[9px] font-black">➔</span>
         </div>
       </button>
     </div>
 
     <!-- Mobile Menu Hamburger Button -->
     <button id="btn-mobile-menu" aria-label="Toggle navigation menu" aria-expanded="false"
-      class="lg:hidden p-2.5 rounded-xl border-[2px] border-[#121212] bg-white brutal-shadow-sm btn-tactile">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+      class="lg:hidden p-1.5 rounded-lg border border-[#161616] bg-white shadow-sm btn-tactile">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
       </svg>
     </button>
@@ -101,7 +80,7 @@
   </div>
 
   <!-- Mobile Navigation Drawer -->
-  <div id="mobile-nav" class="hidden lg:hidden border-t-[2.5px] border-[#121212] bg-[#FAF7F0] px-6 py-6 space-y-4">
+  <div id="mobile-nav" class="hidden lg:hidden border-t border-[#161616] bg-[#FAF7F0] px-6 py-6 space-y-4">
     <a href="#curriculum" class="roll-link block font-body font-semibold text-base text-[#121212]">
       <span class="roll-link-inner">
         <span>Program</span>
@@ -120,7 +99,7 @@
         <span class="text-[#E53935]" aria-hidden="true">Biaya Pendidikan</span>
       </span>
     </a>
-    <a href="#shop" class="roll-link block font-body font-semibold text-base text-[#121212]">
+    <a href="#curriculum" class="roll-link block font-body font-semibold text-base text-[#121212]">
       <span class="roll-link-inner">
         <span>Kehidupan Santri</span>
         <span class="text-[#E53935]" aria-hidden="true">Kehidupan Santri</span>
@@ -134,39 +113,12 @@
     </a>
     <div class="pt-2">
       <button data-open-modal="waitlist"
-        class="group w-full flex items-center justify-center gap-2.5 px-6 py-3 rounded-2xl bg-lime text-[#121212] font-display font-black text-sm uppercase tracking-tight border-[2px] border-[#121212] shadow-[2px_3px_0px_#121212] cursor-pointer focus:outline-none">
-        <span class="roll-link">
-          <span class="roll-link-inner">
-            <span>DAFTAR SEKARANG</span>
-            <span class="text-[#121212]" aria-hidden="true">DAFTAR SEKARANG</span>
-          </span>
-        </span>
-        <!-- Scalloped Badge with Spinning Border -->
-        <div class="relative w-6 h-6 flex items-center justify-center flex-shrink-0">
-          <svg class="w-6 h-6 badge-spin-border" viewBox="0 0 40 40" fill="none">
-            <path d="M 20 2 
-                     C 22.5 2, 24 4.5, 26 5
-                     C 28 5.5, 30.5 4.5, 32 6
-                     C 33.5 7.5, 32.5 10, 33 12
-                     C 33.5 14, 36 15.5, 36 18
-                     C 36 20.5, 34 22, 33.5 24
-                     C 33 26, 34 28.5, 32.5 30
-                     C 31 31.5, 28.5 30.5, 26.5 31
-                     C 24.5 31.5, 23 34, 20.5 34
-                     C 18 34, 16.5 31.5, 14.5 31
-                     C 12.5 30.5, 10 31.5, 8.5 30
-                     C 7 28.5, 8 26, 7.5 24
-                     C 7 22, 5 20.5, 5 18
-                     C 5 15.5, 7.5 14, 8 12
-                     C 8.5 10, 7.5 7.5, 9 6
-                     C 10.5 4.5, 13 5.5, 15 5
-                     C 17 4.5, 18.5 2, 20 2 Z" fill="#E53935" stroke="#121212" stroke-width="2"
-              stroke-linejoin="round" />
-          </svg>
-          <svg class="absolute inset-0 w-6 h-6 pointer-events-none" viewBox="0 0 40 40" fill="none">
-            <path d="M 14 18 L 26 18 M 21 13 L 26 18 L 21 23" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"
-              stroke-linejoin="round" />
-          </svg>
+        class="w-full bg-white p-1 rounded-xl shadow-sm flex items-center justify-center transition-transform hover:scale-[1.02] active:scale-[0.98] cursor-pointer focus:outline-none">
+        <div
+          class="w-full bg-lime text-[#121212] border-2 border-[#161616] rounded-lg px-4 py-2.5 flex items-center justify-center gap-2.5 font-display font-black text-xs uppercase tracking-wider">
+          <span>DAFTAR SEKARANG</span>
+          <span
+            class="w-5 h-5 rounded-full bg-[#E53935] text-white flex items-center justify-center text-[10px] font-black">➔</span>
         </div>
       </button>
     </div>

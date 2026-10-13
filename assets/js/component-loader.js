@@ -6,7 +6,7 @@
 
 async function loadComponents() {
   const elements = document.querySelectorAll('[data-component]');
-  
+
   for (const el of elements) {
     const componentName = el.getAttribute('data-component');
     let html = null;

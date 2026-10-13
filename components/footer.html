@@ -1,23 +1,23 @@
-<!-- Footer Section Component: Admissions Callout & Footer Links -->
-<section class="pt-28 pb-12 bg-[#4A0E17] text-white relative overflow-hidden scallop-divider-top">
+<!-- Footer Section Component: Admissions Callout & Footer Links (Krackerz Style) -->
+<section class="pt-28 pb-12 bg-[#580D14] text-white relative overflow-hidden scallop-divider-top">
   
   <!-- Floating decorative stickers -->
-  <div class="hidden lg:block absolute top-12 left-12 w-28 h-auto tilt-left opacity-90">
-    <img src="./assets/images/sticker-van.svg" alt="Mobil Pondok" class="w-full h-auto">
+  <div class="hidden lg:block absolute top-12 left-12 w-28 h-auto tilt-left opacity-90 pointer-events-none">
+    <img src="./assets/images/sticker-van.svg" alt="Mobil Pondok" class="w-full h-auto drop-shadow-lg">
   </div>
-  <div class="hidden lg:block absolute top-20 right-16 w-16 h-auto tilt-right opacity-90">
-    <img src="./assets/images/sticker-rocket.svg" alt="Roket Prestasi" class="w-full h-auto">
+  <div class="hidden lg:block absolute top-20 right-16 w-16 h-auto tilt-right opacity-90 pointer-events-none">
+    <img src="./assets/images/sticker-rocket.svg" alt="Roket Prestasi" class="w-full h-auto drop-shadow-lg">
   </div>
-  <div class="hidden lg:block absolute bottom-40 left-20 w-16 h-auto tilt-right opacity-90">
-    <img src="./assets/images/sticker-megaphone.svg" alt="Pengeras Suara" class="w-full h-auto">
+  <div class="hidden lg:block absolute bottom-40 left-20 w-16 h-auto tilt-right opacity-90 pointer-events-none">
+    <img src="./assets/images/sticker-megaphone.svg" alt="Pengeras Suara" class="w-full h-auto drop-shadow-lg">
   </div>
 
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
     
     <!-- Heading -->
-    <h2 class="font-display font-black text-5xl sm:text-7xl uppercase tracking-tight text-white mb-8">
-      Penerimaan Santri <span class="font-cursive lowercase text-lime text-6xl sm:text-8xl font-bold inline-block transform -rotate-6">baru</span> Tahun Ajaran<br>
-      <span class="inline-block mt-2 px-6 py-2 bg-[#121212] text-lime rounded-2xl border-[3px] border-[#121212] brutal-shadow tilt-right transform">
+    <h2 class="font-display font-black text-4xl sm:text-7xl uppercase tracking-tight text-white mb-6">
+      Penerimaan Santri <span class="font-cursive lowercase text-lime text-5xl sm:text-8xl font-bold inline-block transform -rotate-3">baru</span> Tahun Ajaran<br>
+      <span class="inline-block mt-2 px-6 py-2 bg-[#121212] text-lime rounded-2xl border border-[#161616] tilt-right transform">
         2026 / 2027
       </span>
     </h2>
@@ -26,15 +26,16 @@
       Daftarkan putra-putri Anda untuk mengikuti program hafalan 30 Juz Al-Qur'an dan pendidikan formal terakreditasi resmi di Camba, Maros, Sulawesi Selatan.
     </p>
 
-    <!-- Waitlist / Admissions Input Form Bar -->
-    <form id="footer-waitlist-form" onsubmit="event.preventDefault(); document.getElementById('footer-email-success').classList.remove('hidden'); this.classList.add('hidden');" class="max-w-lg mx-auto flex flex-col sm:flex-row gap-3 items-stretch justify-center mb-16">
-      <input type="text" required placeholder="Masukkan email atau WhatsApp wali santri" class="flex-1 px-6 py-3.5 rounded-full bg-white text-[#121212] placeholder-gray-500 font-body text-sm font-semibold border-[2.5px] border-[#121212] brutal-shadow focus:outline-none focus:ring-2 focus:ring-lime">
-      <button type="submit" class="btn-tactile px-8 py-3.5 rounded-full bg-lime text-[#121212] font-label font-black text-xs uppercase tracking-wider border-[2.5px] border-[#121212] brutal-shadow whitespace-nowrap">
-        Daftar Sekarang ➔
+    <!-- Krackerz Clean Capsule Admissions Input Form Bar -->
+    <form id="footer-waitlist-form" onsubmit="event.preventDefault(); document.getElementById('footer-email-success').classList.remove('hidden'); this.classList.add('hidden');" class="max-w-xl mx-auto flex flex-col sm:flex-row gap-2 items-center bg-white p-2 rounded-2xl sm:rounded-full shadow-2xl mb-16">
+      <input type="text" required placeholder="Masukkan email atau WhatsApp wali santri..." class="w-full flex-1 px-5 py-3 rounded-xl sm:rounded-full bg-transparent text-[#121212] placeholder-gray-400 font-body text-sm font-semibold focus:outline-none">
+      <button type="submit" class="w-full sm:w-auto bg-lime text-[#121212] border-2 border-[#161616] rounded-xl sm:rounded-full px-7 py-3 font-display font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2.5 transition-transform hover:scale-[1.02] active:scale-[0.98] cursor-pointer shadow-sm flex-shrink-0">
+        <span>DAFTAR SEKARANG</span>
+        <span class="w-5 h-5 rounded-full bg-[#E53935] text-white flex items-center justify-center text-[10px] font-black">➔</span>
       </button>
     </form>
 
-    <div id="footer-email-success" class="hidden max-w-md mx-auto p-4 rounded-2xl bg-lime text-[#121212] font-display font-bold text-base border-[2.5px] border-[#121212] brutal-shadow mb-16">
+    <div id="footer-email-success" class="hidden max-w-md mx-auto p-4 rounded-2xl bg-lime text-[#121212] font-display font-bold text-base border-2 border-[#161616] shadow-xl mb-16">
       🎉 Terima kasih! Panitia pendaftaran santri baru akan segera menghubungi Anda.
     </div>
 
@@ -45,7 +46,7 @@
       <div class="text-left">
         <div class="flex items-center gap-2 mb-2">
           <img src="./assets/images/logo.png" alt="Logo BQC" class="h-8 w-auto">
-          <span class="font-display font-black text-2xl tracking-tight text-white uppercase">BAITUL QUR'AN CAMBA</span>
+          <span class="font-display font-black text-xl tracking-tight text-white uppercase">BAITUL QUR'AN CAMBA</span>
         </div>
         <p class="font-body text-xs text-white/70 max-w-md leading-relaxed">
           Jumpulu, Link. Mallisu, Kel. Cempaniga, Kec. Camba, Kab. Maros, Sulawesi Selatan, Indonesia
@@ -58,14 +59,7 @@
       <!-- Copyright & Links -->
       <div class="text-center sm:text-right text-xs text-white/70 font-label">
         <p>© 2026 Baitul Qur'an Camba. Seluruh Hak Cipta Dilindungi.</p>
-        <div class="flex items-center justify-center sm:justify-end gap-3 mt-3">
-          <a href="https://instagram.com/baitulqurancambaofficial" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-lime text-[#121212] border-[1.5px] border-[#121212] flex items-center justify-center font-bold hover:scale-105 transition-transform" title="Instagram">
-            Instagram
-          </a>
-          <a href="https://wa.me/6282124880061" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-lime text-[#121212] border-[1.5px] border-[#121212] flex items-center justify-center font-bold hover:scale-105 transition-transform" title="WhatsApp Pendaftaran">
-            WhatsApp
-          </a>
-        </div>
+        <p class="mt-1 text-white/50">Diadaptasi dengan standar estetika tactile modern Krackerz.</p>
       </div>
 
     </div>
