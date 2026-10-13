@@ -12,7 +12,7 @@ Seluruh konten dan teks antarmuka (*UI copy*) pada website modern di `d:\Testing
 | **Navbar** (`components/navbar.html`) | Subtitle & Menu navigasi | Identitas: *"BAITUL QUR'AN · PESANTREN TAHFIZH CAMBA"*. Menu: `Program`, `Tentang Kami`, `Biaya Pendidikan`, `Kehidupan Santri`, `FAQ`. Tombol CTA: `DAFTAR SEKARANG`. |
 | **Hero Section** (`components/hero.html`) | Badge, Judul 3-Baris, CTA, 6 Kartu Santri | Badge: *"PONDOK PESANTREN TAHFIZH & FORMAL SEJAK 2016"*. Judul: `MEMBINA GENERASI` / `PENGHAFAL al-qur'an YANG` / `TANGGUH & BERAKHLAK`. CTA: `DAFTAR SEKARANG`. 6 Kartu: Tahfizh 30 Juz bersanad, Pendidikan formal berijazah resmi negara, Pidato 3 bahasa Arab & Inggris, Pembinaan karakter & kepemimpinan, Kajian taklim kitab kuning klasik, Olahraga santri & ekstrakurikuler. |
 | **About** (`components/about.html`) | Header, Poster Kampus, Visi-Misi | Header: *"Ilmu, Akhlak & Al-Qur'an - Tumbuh Bersama di Camba, Maros"*. Poster: *"BERDIRI SEJAK 2016 · SULAWESI SELATAN - Pondok Pencetak Generasi penghafal al-qur'an"*. 2 Kartu: Visi & Misi dan Pendidikan Terpadu. CTA: `Daftar Santri Baru ➔`. |
-| **Kurikulum** (`components/curriculum.html`) | Tab Asimetris & Detail Program | Tab 1: `Tahfizh & Dirosah Islamiyah` (30 Juz, Talaqqi, Sanad bersambung, Kitab Kuning, Muraja'ah). Tab 2: `Pendidikan Formal & Karakter` (Ijazah resmi Wustha/SMP & Ulya/SMA, Pidato 3 Bahasa, Pramuka & Kepemimpinan). |
+| **Kurikulum** (`components/curriculum.html`) | 3 Tab Folder Asimetris Krackerz (1:1 Replikasi) | **Tab 1**: `📖 Tahfizh & Sanad 30 Juz` (#CF2B09 vermilion red). **Tab 2**: `🏆 Sekolah Formal & Karakter` (#A52207 rust red). **Tab 3**: `👥 Kehidupan Santri & Asrama` (#7C1A06 wine rust - replika 1:1 tab Community Krackerz). Tata letak 2-kolom horizontal: Kolom kiri dengan judul tebal Bricolage, 3 butir asterik bulat 6-kelopak putih, tombol ganda (wadah putih + tombol neon lime + lingkaran panah merah). Kolom kanan bingkai foto dengan border putih pekat 8px/10px serta stiker die-cut di bagian bawah (bintang sertifikasi, piala, dan mobil van hijau Krackerz). |
 | **Pimpinan & Pengasuh** (`components/founder.html`) | Roster Pengurus & Metrik Pondok | Header: *"Pimpinan & Pengasuh Pondok - mengabdi membina santri"*. 4 Metrik: `2016` (Tahun Berdiri), `100+` (Alumni Santri), `30` (Juz Target Sanad), `10+` (Asatidz & Pembina). Roster: Ardiansyah, S.Pd. (Pimpinan Umum), Muhammad Abdurrahman (Asrama Ikhwan), Aisyah Abdurrahman (Asrama Akhwat), Ridwan, S.Pd.I (Kepala Ulya), Sumarni, S.Pd. (Kepala Wustha). |
 | **Biaya Pendidikan** (`components/pricing.html`) | Switcher & 3 Pilihan Jenjang dalam Rupiah | Switcher: `Bulanan` vs `Tahunan (-20%)`. Jenjang Wustha (Rp 350rb/bln), Jenjang Ulya (Rp 450rb/bln - Pilihan Utama), Tahfizh Khusus Sanad (Rp 250rb/bln & beasiswa yatim/dhuafa). |
 | **Kemitraan** (`components/partner.html`) | Banner Sinergi Umat | Header: *"untuk Para Donatur, Lembaga Dakwah & Sinergi Umat"*. Tombol: `Sinergi Bersama Kami ➔`. |
@@ -75,10 +75,19 @@ Buka browser pada alamat URL lokal yang muncul (misalnya `http://localhost:3000`
 
 ---
 
-### Langkah 5: Verifikasi Folder Kurikulum Terpadu
-1. Klik tab pertama: **📖 Tahfizh & Dirosah Islamiyah** (warna merah aktif). Pastikan memuat poin-poin hafalan 30 juz, talaqqi sanad, kitab kuning turath, dan muraja'ah harian.
-2. Klik tab kedua: **🏆 Pendidikan Formal & Karakter**. Pastikan tab aktif berganti seketika dan memuat poin-poin ijazah resmi Wustha/Ulya, pidato 3 bahasa, pramuka, dan bimbingan masuk perguruan tinggi.
-3. Klik tombol pendaftaran pada masing-masing tab; pastikan modal formulir pendaftaran terbuka.
+### Langkah 5: Verifikasi Folder Card Kurikulum (1:1 Krackerz Style)
+1. **Cek Geometri Tab Asimetris SVG**:
+   - Perhatikan tab atas: 3 tab trapesium bersambung saling bertumpuk mulus tanpa celah (`tab-1.svg`, `tab-2.svg`, `tab-3.svg`).
+   - Warna tab berjenjang (*stepped palette*): Tab 1 `#CF2B09` (vermilion), Tab 2 `#A52207` (rust red), Tab 3 `#7C1A06` (dark rust/wine).
+2. **Uji Klik & Perubahan Warna Dinamis**:
+   - **Tab Default (Tab 1)**: Bertuliskan `📖 Tahfizh & Sanad 30 Juz`. Latar badan kartu berwarna merah cerah `#CF2B09` menyatu sempurna dengan Tab 1 (`rounded-tl-none`).
+   - **Klik Tab 2 (`🏆 Sekolah Formal & Karakter`)**: Perhatikan warna badan kartu seketika berganti menjadi `#A52207`, Tab 2 menjadi aktif (opacity 100%, z-index terangkat), dan panel berganti mulus ke materi sekolah formal & pidato 3 bahasa.
+   - **Klik Tab 3 (`👥 Kehidupan Santri & Asrama`)**: Perhatikan warna badan kartu seketika berganti menjadi `#7C1A06` (persis 1:1 dengan screenshot tab *COMMUNITY* Krackerz), Tab 3 aktif, dan panel menampilkan foto asrama/olahraga dengan stiker mobil van hijau Krackerz (`sticker-van.svg`).
+3. **Cek Tata Letak 2-Kolom Horizontal**:
+   - **Kolom Kiri**: Judul besar font Bricolage tebal (`font-black uppercase`), 3 butir daftar dengan ikon bunga/asterik 6-kelopak putih murni Krackerz (`✱`), dan tombol lapis ganda (wadah putih berbayang halus + tombol neon lime bergaris batas hitam + lingkaran panah merah `➔`).
+   - **Kolom Kanan**: Foto berukuran besar dengan bingkai putih pekat tebal 8px/10px (`border-[8px] sm:border-[10px] border-white shadow-2xl rounded-2xl sm:rounded-3xl`) serta stiker die-cut yang tumpang tindih (*overlap*) di tepi bawah bingkai.
+4. **Cek Tombol & Modal**:
+   - Klik tombol **Daftar Santri Baru ➔** di dalam kartu; pastikan modal pendaftaran santri baru terbuka seketika.
 
 ---
 
