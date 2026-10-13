@@ -348,28 +348,102 @@ function initHeroWaveParallax() {
 
 /* ==========================================================================
    8. Hero Cards Scroll Straighten (Fanned -> Straightened Row on Scroll)
+   Continuous Scroll-Linked Interpolation (Silky Smooth RAF + Damped Lerp)
    ========================================================================== */
 function initHeroCardsScrollStraighten() {
   const cardsTrack = document.getElementById('hero-cards-track');
   if (!cardsTrack) return;
 
-  const updateCardState = () => {
-    const scrollY = window.scrollY || window.pageYOffset;
-    // When scrolled down > 40px, cards straighten into neat horizontal row matching reference
-    if (scrollY > 40) {
-      if (!cardsTrack.classList.contains('is-straightened')) {
-        cardsTrack.classList.add('is-straightened');
-        cardsTrack.classList.remove('-space-x-2.5', 'sm:-space-x-3.5', 'lg:-space-x-4');
-      }
+  const cards = cardsTrack.querySelectorAll('.hero-card-fan');
+  if (!cards.length) return;
+
+  // Base fanned configurations for 6 cards (Desktop reference)
+  const baseCardConfigs = [
+    { rot: -6, y: 24, overlap: 0 },
+    { rot: -4, y: 0,  overlap: -14 },
+    { rot: -2, y: 10, overlap: -14 },
+    { rot: 2,  y: 0,  overlap: -14 },
+    { rot: 4,  y: 26, overlap: -14 },
+    { rot: 6,  y: 0,  overlap: -14 }
+  ];
+
+  let currentP = 0;
+  let targetP = 0;
+  let isTicking = false;
+
+  const getResponsiveFactors = () => {
+    const width = window.innerWidth;
+    if (width < 640) {
+      return { scale: 0.5, maxGap: 12, maxScroll: 150 };
+    } else if (width < 1024) {
+      return { scale: 0.75, maxGap: 16, maxScroll: 175 };
     } else {
-      if (cardsTrack.classList.contains('is-straightened')) {
-        cardsTrack.classList.remove('is-straightened');
-        cardsTrack.classList.add('-space-x-2.5', 'sm:-space-x-3.5', 'lg:-space-x-4');
-      }
+      return { scale: 1.0, maxGap: 20, maxScroll: 200 };
     }
   };
 
-  window.addEventListener('scroll', updateCardState, { passive: true });
-  window.addEventListener('resize', updateCardState, { passive: true });
-  updateCardState();
+  const applyProgress = (p) => {
+    const { scale, maxGap } = getResponsiveFactors();
+    const inv = 1 - p;
+
+    // Smooth gap expansion on track
+    const gap = p * maxGap;
+    cardsTrack.style.setProperty('--track-gap', `${gap.toFixed(2)}px`);
+
+    // Smooth transform & overlap on each individual card
+    cards.forEach((card, index) => {
+      const cfg = baseCardConfigs[index] || { rot: 0, y: 0, overlap: -14 };
+      const rot = cfg.rot * scale * inv;
+      const y = cfg.y * scale * inv;
+      const overlap = cfg.overlap * scale * inv;
+
+      card.style.setProperty('--card-rot', `${rot.toFixed(2)}deg`);
+      card.style.setProperty('--card-y', `${y.toFixed(2)}px`);
+      card.style.setProperty('--card-overlap', `${overlap.toFixed(2)}px`);
+    });
+
+    if (p > 0.95) {
+      cardsTrack.classList.add('is-straightened');
+    } else {
+      cardsTrack.classList.remove('is-straightened');
+    }
+  };
+
+  const tick = () => {
+    const diff = targetP - currentP;
+    if (Math.abs(diff) < 0.001) {
+      currentP = targetP;
+      applyProgress(currentP);
+      isTicking = false;
+      return;
+    }
+
+    // Damped lerp (factor 0.18 for instant reactivity + fluid damping)
+    currentP += diff * 0.18;
+    applyProgress(currentP);
+    requestAnimationFrame(tick);
+  };
+
+  const onScrollOrResize = () => {
+    const scrollY = window.scrollY || window.pageYOffset;
+    const { maxScroll } = getResponsiveFactors();
+
+    // Direct mapping to target progress [0, 1]
+    targetP = Math.min(1, Math.max(0, scrollY / maxScroll));
+
+    if (!isTicking) {
+      isTicking = true;
+      requestAnimationFrame(tick);
+    }
+  };
+
+  window.addEventListener('scroll', onScrollOrResize, { passive: true });
+  window.addEventListener('resize', onScrollOrResize, { passive: true });
+
+  // Initial immediate evaluation based on current page scroll
+  const initialY = window.scrollY || window.pageYOffset;
+  const { maxScroll } = getResponsiveFactors();
+  targetP = Math.min(1, Math.max(0, initialY / maxScroll));
+  currentP = targetP;
+  applyProgress(currentP);
 }

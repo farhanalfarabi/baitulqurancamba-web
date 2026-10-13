@@ -434,67 +434,57 @@ body {
 }
 
 /* ==========================================================================
-   Hero Cards Fan & Straighten Scroll Effect (Matching Krackerz Desktop 1 -> Desktop 2)
+   Hero Cards Fan & Smooth Scroll Straighten Effect
+   Continuous Scroll-Linked Interpolation (Silky Smooth RAF + Damped Lerp)
    ========================================================================== */
 .hero-cards-track {
-  transition: gap 0.55s cubic-bezier(0.25, 1, 0.5, 1), margin 0.55s cubic-bezier(0.25, 1, 0.5, 1);
-  will-change: gap, transform;
+  --track-gap: 0px;
+  gap: var(--track-gap, 0px);
+  will-change: gap;
 }
 
 .hero-card-fan {
-  transition: transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
-  will-change: transform, box-shadow;
+  --card-rot: 0deg;
+  --card-y: 0px;
+  --card-overlap: 0px;
+  transform: translateY(var(--card-y, 0px)) rotate(var(--card-rot, 0deg));
+  margin-left: var(--card-overlap, 0px);
   transform-origin: center center;
+  will-change: transform, margin-left;
 }
 
-/* 1. Initial State: Playful Fanned Stack (Desktop 1) */
-.hero-cards-track:not(.is-straightened) .hero-card-1 {
-  transform: rotate(-6deg) translateY(24px);
-}
-.hero-cards-track:not(.is-straightened) .hero-card-2 {
-  transform: rotate(-4deg) translateY(0px);
-}
-.hero-cards-track:not(.is-straightened) .hero-card-3 {
-  transform: rotate(-2deg) translateY(10px);
-}
-.hero-cards-track:not(.is-straightened) .hero-card-4 {
-  transform: rotate(2deg) translateY(0px);
-}
-.hero-cards-track:not(.is-straightened) .hero-card-5 {
-  transform: rotate(4deg) translateY(28px);
-}
-.hero-cards-track:not(.is-straightened) .hero-card-6 {
-  transform: rotate(6deg) translateY(0px);
+/* Fallback static values for initial fanned state (Desktop reference) */
+.hero-card-1 { --card-rot: -6deg; --card-y: 24px; --card-overlap: 0px; }
+.hero-card-2 { --card-rot: -4deg; --card-y: 0px;  --card-overlap: -14px; }
+.hero-card-3 { --card-rot: -2deg; --card-y: 10px; --card-overlap: -14px; }
+.hero-card-4 { --card-rot: 2deg;  --card-y: 0px;  --card-overlap: -14px; }
+.hero-card-5 { --card-rot: 4deg;  --card-y: 26px; --card-overlap: -14px; }
+.hero-card-6 { --card-rot: 6deg;  --card-y: 0px;  --card-overlap: -14px; }
+
+/* Responsive initial overlap fallbacks for mobile / small screens */
+@media (max-width: 639px) {
+  .hero-card-1 { --card-rot: -3deg; --card-y: 12px; --card-overlap: 0px; }
+  .hero-card-2 { --card-rot: -2deg; --card-y: 0px;  --card-overlap: -8px; }
+  .hero-card-3 { --card-rot: -1deg; --card-y: 5px;  --card-overlap: -8px; }
+  .hero-card-4 { --card-rot: 1deg;  --card-y: 0px;  --card-overlap: -8px; }
+  .hero-card-5 { --card-rot: 2deg;  --card-y: 13px; --card-overlap: -8px; }
+  .hero-card-6 { --card-rot: 3deg;  --card-y: 0px;  --card-overlap: -8px; }
 }
 
-/* 2. Scrolled State: Straightened Row with Even Gap (Desktop 2 - Matching User Screenshot) */
-.hero-cards-track.is-straightened {
-  gap: 16px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
+/* Card inner handles hover lift & tactile elevation independently */
+.hero-card-inner {
+  transition: transform 0.28s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.28s ease;
+  transform-origin: center center;
+  will-change: transform, box-shadow;
 }
 
-@media (min-width: 640px) {
-  .hero-cards-track.is-straightened {
-    gap: 20px !important;
-  }
-}
-
-.hero-cards-track.is-straightened .hero-card-fan {
-  transform: rotate(0deg) translateY(0px) !important;
-  margin-left: 0 !important;
-}
-
-/* Tactile Hover Effects */
-.hero-cards-track:not(.is-straightened) .hero-card-fan:hover {
+.hero-card-fan:hover {
   z-index: 50 !important;
-  box-shadow: 6px 14px 0px 0px #121212 !important;
 }
 
-.hero-cards-track.is-straightened .hero-card-fan:hover {
-  z-index: 50 !important;
-  transform: rotate(0deg) translateY(-8px) scale(1.03) !important;
-  box-shadow: 6px 14px 0px 0px #121212 !important;
+.hero-card-fan:hover .hero-card-inner {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.18), 0 4px 10px rgba(0, 0, 0, 0.08) !important;
 }
 
 /* Hide scrollbar for clean horizontal swipe on mobile */

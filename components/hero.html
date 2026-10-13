@@ -42,17 +42,21 @@
     <!-- Hero Primary CTA: Signature Krackerz Double-Layer Button -->
     <div class="flex justify-center mb-5 sm:mb-6">
       <button data-open-modal="waitlist"
-        class="bg-white p-1 rounded-xl shadow-md inline-flex items-center transition-transform hover:scale-[1.02] active:scale-[0.98] cursor-pointer focus:outline-none">
+        class="hero-cta-btn group bg-white p-1 rounded-xl shadow-md inline-flex items-center transition-transform hover:scale-[1.02] active:scale-[0.98] cursor-pointer focus:outline-none">
         <div
           class="bg-lime text-[#121212] border-2 border-[#161616] rounded-lg px-6 py-2.5 sm:py-3 flex items-center gap-3 font-display font-black text-xs sm:text-sm uppercase tracking-wider">
           <span class="roll-link">
             <span class="roll-link-inner">
-              <span>DAFTAR SEKARANG</span>
-              <span class="text-[#121212]" aria-hidden="true">DAFTAR SEKARANG</span>
+              <span>REGISTER NOW</span>
+              <span class="text-[#121212]" aria-hidden="true">REGISTER NOW</span>
             </span>
           </span>
-          <span
-            class="w-6 h-6 rounded-full bg-[#E53935] text-white flex items-center justify-center text-xs font-black">➔</span>
+          <svg class="w-6 h-6 flex-shrink-0 transition-transform duration-500 group-hover:rotate-[45deg] drop-shadow-sm" viewBox="0 0 40 40" fill="none">
+            <path d="M 20 2 C 22.5 2, 24 4.5, 26 5 C 28 5.5, 30.5 4.5, 32 6 C 33.5 7.5, 32.5 10, 33 12 C 33.5 14, 36 15.5, 36 18 C 36 20.5, 34 22, 33.5 24 C 33 26, 34 28.5, 32.5 30 C 31 31.5, 28.5 30.5, 26.5 31 C 24.5 31.5, 23 34, 20.5 34 C 18 34, 16.5 31.5, 14.5 31 C 12.5 30.5, 10 31.5, 8.5 30 C 7 28.5, 8 26, 7.5 24 C 7 22, 5 20.5, 5 18 C 5 15.5, 7.5 14, 8 12 C 8.5 10, 7.5 7.5, 9 6 C 10.5 4.5, 13 5.5, 15 5 C 17 4.5, 18.5 2, 20 2 Z"
+                  fill="#F8330B" stroke="#161616" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M 14 18 L 26 18 M 21 13 L 26 18 L 21 23" 
+                  stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
         </div>
       </button>
     </div>
@@ -62,136 +66,154 @@
   <!-- 6 Krackerz Tactile Hero Cards (Cream & Cherry Alternating, Soft Shadows, Fanned -> Straightened on Scroll) -->
   <div class="relative w-full max-w-[1380px] mx-auto px-2 sm:px-4">
     <div id="hero-cards-track"
-      class="hero-cards-track flex items-center justify-start lg:justify-center -space-x-2.5 sm:-space-x-3.5 lg:-space-x-4 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory py-4 sm:py-5 px-3 sm:px-4">
+      class="hero-cards-track flex items-center justify-start lg:justify-center overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory py-4 sm:py-5 px-3 sm:px-4">
 
       <!-- Card 1 (Cream / Cherry Text) -->
       <div
-        class="hero-card-fan hero-card-1 relative flex-shrink-0 w-[145px] sm:w-[165px] lg:w-[185px] xl:w-[195px] rounded-2xl overflow-hidden bg-[#FAF7F0] border-2 border-white shadow-[0_8px_20px_rgba(0,0,0,0.1)] select-none z-10 snap-center cursor-pointer transition-transform">
-        <!-- Photo -->
-        <div class="h-[155px] sm:h-[175px] lg:h-[190px] xl:h-[205px] w-full bg-[#E5E0D5] overflow-hidden relative">
-          <img src="./assets/images/pondok/halaqah-tahfidz.jpg" alt="Hafalan Al-Qur'an 30 Juz"
-            class="w-full h-full object-cover pointer-events-none">
-        </div>
-        <!-- Scallop Cut & Footer -->
-        <div class="relative -mt-3 sm:-mt-3.5 z-10 text-[#FAF7F0] bg-[#FAF7F0]">
-          <svg viewBox="0 0 280 20" preserveAspectRatio="none" class="w-full h-3 sm:h-3.5 block -mb-[1px] fill-current">
-            <path
-              d="M 0,20 L 0,10 A 17.5 10 0 0,1 35,10 A 17.5 10 0 0,1 70,10 A 17.5 10 0 0,1 105,10 A 17.5 10 0 0,1 140,10 A 17.5 10 0 0,1 175,10 A 17.5 10 0 0,1 210,10 A 17.5 10 0 0,1 245,10 A 17.5 10 0 0,1 280,10 L 280,20 Z" />
-          </svg>
-          <div class="px-2.5 pt-0.5 pb-2.5 text-center">
-            <p class="font-display font-bold text-[11px] sm:text-xs leading-snug text-[#580D14]">
-              Hafalan Al-Qur'an 30 juz bersanad
-            </p>
+        class="hero-card-fan hero-card-1 relative flex-shrink-0 w-[145px] sm:w-[165px] lg:w-[185px] xl:w-[195px] select-none z-10 snap-center cursor-pointer">
+        <div
+          class="hero-card-inner w-full rounded-2xl overflow-hidden bg-[#FAF7F0] border-2 border-white shadow-[0_8px_20px_rgba(0,0,0,0.1)]">
+          <!-- Photo -->
+          <div class="h-[155px] sm:h-[175px] lg:h-[190px] xl:h-[205px] w-full bg-[#E5E0D5] overflow-hidden relative">
+            <img src="./assets/images/pondok/halaqah-tahfidz.jpg" alt="Hafalan Al-Qur'an 30 Juz"
+              class="w-full h-full object-cover pointer-events-none">
+          </div>
+          <!-- Scallop Cut & Footer -->
+          <div class="relative -mt-3 sm:-mt-3.5 z-10 text-[#FAF7F0] bg-[#FAF7F0]">
+            <svg viewBox="0 0 280 20" preserveAspectRatio="none" class="w-full h-3 sm:h-3.5 block -mb-[1px] fill-current">
+              <path
+                d="M 0,20 L 0,10 A 17.5 10 0 0,1 35,10 A 17.5 10 0 0,1 70,10 A 17.5 10 0 0,1 105,10 A 17.5 10 0 0,1 140,10 A 17.5 10 0 0,1 175,10 A 17.5 10 0 0,1 210,10 A 17.5 10 0 0,1 245,10 A 17.5 10 0 0,1 280,10 L 280,20 Z" />
+            </svg>
+            <div class="px-2.5 pt-0.5 pb-2.5 text-center">
+              <p class="font-display font-bold text-[11px] sm:text-xs leading-snug text-[#580D14]">
+                Hafalan Al-Qur'an 30 juz bersanad
+              </p>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Card 2 (Cherry / White Text) -->
       <div
-        class="hero-card-fan hero-card-2 relative flex-shrink-0 w-[145px] sm:w-[165px] lg:w-[185px] xl:w-[195px] rounded-2xl overflow-hidden bg-[#580D14] border-2 border-[#580D14] shadow-[0_8px_20px_rgba(0,0,0,0.15)] select-none z-20 snap-center cursor-pointer transition-transform">
-        <!-- Photo -->
-        <div class="h-[155px] sm:h-[175px] lg:h-[190px] xl:h-[205px] w-full bg-[#380810] overflow-hidden relative">
-          <img src="./assets/images/pondok/suasana-kelas.jpg" alt="Pendidikan Formal Terakreditasi"
-            class="w-full h-full object-cover pointer-events-none">
-        </div>
-        <!-- Scallop Cut & Footer -->
-        <div class="relative -mt-3 sm:-mt-3.5 z-10 text-[#580D14] bg-[#580D14]">
-          <svg viewBox="0 0 280 20" preserveAspectRatio="none" class="w-full h-3 sm:h-3.5 block -mb-[1px] fill-current">
-            <path
-              d="M 0,20 L 0,10 A 17.5 10 0 0,1 35,10 A 17.5 10 0 0,1 70,10 A 17.5 10 0 0,1 105,10 A 17.5 10 0 0,1 140,10 A 17.5 10 0 0,1 175,10 A 17.5 10 0 0,1 210,10 A 17.5 10 0 0,1 245,10 A 17.5 10 0 0,1 280,10 L 280,20 Z" />
-          </svg>
-          <div class="px-2.5 pt-0.5 pb-2.5 text-center">
-            <p class="font-display font-bold text-[11px] sm:text-xs leading-snug text-[#FAF7F0]">
-              Pendidikan formal berijazah resmi negara
-            </p>
+        class="hero-card-fan hero-card-2 relative flex-shrink-0 w-[145px] sm:w-[165px] lg:w-[185px] xl:w-[195px] select-none z-20 snap-center cursor-pointer">
+        <div
+          class="hero-card-inner w-full rounded-2xl overflow-hidden bg-[#580D14] border-2 border-[#580D14] shadow-[0_8px_20px_rgba(0,0,0,0.15)]">
+          <!-- Photo -->
+          <div class="h-[155px] sm:h-[175px] lg:h-[190px] xl:h-[205px] w-full bg-[#380810] overflow-hidden relative">
+            <img src="./assets/images/pondok/suasana-kelas.jpg" alt="Pendidikan Formal Terakreditasi"
+              class="w-full h-full object-cover pointer-events-none">
+          </div>
+          <!-- Scallop Cut & Footer -->
+          <div class="relative -mt-3 sm:-mt-3.5 z-10 text-[#580D14] bg-[#580D14]">
+            <svg viewBox="0 0 280 20" preserveAspectRatio="none" class="w-full h-3 sm:h-3.5 block -mb-[1px] fill-current">
+              <path
+                d="M 0,20 L 0,10 A 17.5 10 0 0,1 35,10 A 17.5 10 0 0,1 70,10 A 17.5 10 0 0,1 105,10 A 17.5 10 0 0,1 140,10 A 17.5 10 0 0,1 175,10 A 17.5 10 0 0,1 210,10 A 17.5 10 0 0,1 245,10 A 17.5 10 0 0,1 280,10 L 280,20 Z" />
+            </svg>
+            <div class="px-2.5 pt-0.5 pb-2.5 text-center">
+              <p class="font-display font-bold text-[11px] sm:text-xs leading-snug text-[#FAF7F0]">
+                Pendidikan formal berijazah resmi negara
+              </p>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Card 3 (Cream / Cherry Text) -->
       <div
-        class="hero-card-fan hero-card-3 relative flex-shrink-0 w-[145px] sm:w-[165px] lg:w-[185px] xl:w-[195px] rounded-2xl overflow-hidden bg-[#FAF7F0] border-2 border-white shadow-[0_8px_20px_rgba(0,0,0,0.1)] select-none z-10 snap-center cursor-pointer transition-transform">
-        <!-- Photo -->
-        <div class="h-[155px] sm:h-[175px] lg:h-[190px] xl:h-[205px] w-full bg-[#E5E0D5] overflow-hidden relative">
-          <img src="./assets/images/pondok/pidato-3-bahasa.jpg" alt="Pidato 3 Bahasa"
-            class="w-full h-full object-cover pointer-events-none">
-        </div>
-        <!-- Scallop Cut & Footer -->
-        <div class="relative -mt-3 sm:-mt-3.5 z-10 text-[#FAF7F0] bg-[#FAF7F0]">
-          <svg viewBox="0 0 280 20" preserveAspectRatio="none" class="w-full h-3 sm:h-3.5 block -mb-[1px] fill-current">
-            <path
-              d="M 0,20 L 0,10 A 17.5 10 0 0,1 35,10 A 17.5 10 0 0,1 70,10 A 17.5 10 0 0,1 105,10 A 17.5 10 0 0,1 140,10 A 17.5 10 0 0,1 175,10 A 17.5 10 0 0,1 210,10 A 17.5 10 0 0,1 245,10 A 17.5 10 0 0,1 280,10 L 280,20 Z" />
-          </svg>
-          <div class="px-2.5 pt-0.5 pb-2.5 text-center">
-            <p class="font-display font-bold text-[11px] sm:text-xs leading-snug text-[#580D14]">
-              Pidato 3 bahasa Arab & Inggris
-            </p>
+        class="hero-card-fan hero-card-3 relative flex-shrink-0 w-[145px] sm:w-[165px] lg:w-[185px] xl:w-[195px] select-none z-10 snap-center cursor-pointer">
+        <div
+          class="hero-card-inner w-full rounded-2xl overflow-hidden bg-[#FAF7F0] border-2 border-white shadow-[0_8px_20px_rgba(0,0,0,0.1)]">
+          <!-- Photo -->
+          <div class="h-[155px] sm:h-[175px] lg:h-[190px] xl:h-[205px] w-full bg-[#E5E0D5] overflow-hidden relative">
+            <img src="./assets/images/pondok/pidato-3-bahasa.jpg" alt="Pidato 3 Bahasa"
+              class="w-full h-full object-cover pointer-events-none">
+          </div>
+          <!-- Scallop Cut & Footer -->
+          <div class="relative -mt-3 sm:-mt-3.5 z-10 text-[#FAF7F0] bg-[#FAF7F0]">
+            <svg viewBox="0 0 280 20" preserveAspectRatio="none" class="w-full h-3 sm:h-3.5 block -mb-[1px] fill-current">
+              <path
+                d="M 0,20 L 0,10 A 17.5 10 0 0,1 35,10 A 17.5 10 0 0,1 70,10 A 17.5 10 0 0,1 105,10 A 17.5 10 0 0,1 140,10 A 17.5 10 0 0,1 175,10 A 17.5 10 0 0,1 210,10 A 17.5 10 0 0,1 245,10 A 17.5 10 0 0,1 280,10 L 280,20 Z" />
+            </svg>
+            <div class="px-2.5 pt-0.5 pb-2.5 text-center">
+              <p class="font-display font-bold text-[11px] sm:text-xs leading-snug text-[#580D14]">
+                Pidato 3 bahasa Arab & Inggris
+              </p>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Card 4 (Cherry / White Text) -->
       <div
-        class="hero-card-fan hero-card-4 relative flex-shrink-0 w-[145px] sm:w-[165px] lg:w-[185px] xl:w-[195px] rounded-2xl overflow-hidden bg-[#580D14] border-2 border-[#580D14] shadow-[0_8px_20px_rgba(0,0,0,0.15)] select-none z-20 snap-center cursor-pointer transition-transform">
-        <!-- Photo -->
-        <div class="h-[155px] sm:h-[175px] lg:h-[190px] xl:h-[205px] w-full bg-[#380810] overflow-hidden relative">
-          <img src="./assets/images/pondok/leadership.jpg" alt="Kepemimpinan Islami"
-            class="w-full h-full object-cover pointer-events-none">
-        </div>
-        <!-- Scallop Cut & Footer -->
-        <div class="relative -mt-3 sm:-mt-3.5 z-10 text-[#580D14] bg-[#580D14]">
-          <svg viewBox="0 0 280 20" preserveAspectRatio="none" class="w-full h-3 sm:h-3.5 block -mb-[1px] fill-current">
-            <path
-              d="M 0,20 L 0,10 A 17.5 10 0 0,1 35,10 A 17.5 10 0 0,1 70,10 A 17.5 10 0 0,1 105,10 A 17.5 10 0 0,1 140,10 A 17.5 10 0 0,1 175,10 A 17.5 10 0 0,1 210,10 A 17.5 10 0 0,1 245,10 A 17.5 10 0 0,1 280,10 L 280,20 Z" />
-          </svg>
-          <div class="px-2.5 pt-0.5 pb-2.5 text-center">
-            <p class="font-display font-bold text-[11px] sm:text-xs leading-snug text-[#FAF7F0]">
-              Pembinaan karakter & kepemimpinan
-            </p>
+        class="hero-card-fan hero-card-4 relative flex-shrink-0 w-[145px] sm:w-[165px] lg:w-[185px] xl:w-[195px] select-none z-20 snap-center cursor-pointer">
+        <div
+          class="hero-card-inner w-full rounded-2xl overflow-hidden bg-[#580D14] border-2 border-[#580D14] shadow-[0_8px_20px_rgba(0,0,0,0.15)]">
+          <!-- Photo -->
+          <div class="h-[155px] sm:h-[175px] lg:h-[190px] xl:h-[205px] w-full bg-[#380810] overflow-hidden relative">
+            <img src="./assets/images/pondok/leadership.jpg" alt="Kepemimpinan Islami"
+              class="w-full h-full object-cover pointer-events-none">
+          </div>
+          <!-- Scallop Cut & Footer -->
+          <div class="relative -mt-3 sm:-mt-3.5 z-10 text-[#580D14] bg-[#580D14]">
+            <svg viewBox="0 0 280 20" preserveAspectRatio="none" class="w-full h-3 sm:h-3.5 block -mb-[1px] fill-current">
+              <path
+                d="M 0,20 L 0,10 A 17.5 10 0 0,1 35,10 A 17.5 10 0 0,1 70,10 A 17.5 10 0 0,1 105,10 A 17.5 10 0 0,1 140,10 A 17.5 10 0 0,1 175,10 A 17.5 10 0 0,1 210,10 A 17.5 10 0 0,1 245,10 A 17.5 10 0 0,1 280,10 L 280,20 Z" />
+            </svg>
+            <div class="px-2.5 pt-0.5 pb-2.5 text-center">
+              <p class="font-display font-bold text-[11px] sm:text-xs leading-snug text-[#FAF7F0]">
+                Pembinaan karakter & kepemimpinan
+              </p>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Card 5 (Cream / Cherry Text) -->
       <div
-        class="hero-card-fan hero-card-5 relative flex-shrink-0 w-[145px] sm:w-[165px] lg:w-[185px] xl:w-[195px] rounded-2xl overflow-hidden bg-[#FAF7F0] border-2 border-white shadow-[0_8px_20px_rgba(0,0,0,0.1)] select-none z-10 snap-center cursor-pointer transition-transform">
-        <!-- Photo -->
-        <div class="h-[155px] sm:h-[175px] lg:h-[190px] xl:h-[205px] w-full bg-[#E5E0D5] overflow-hidden relative">
-          <img src="./assets/images/pondok/taklim-kitab-kuning.jpg" alt="Taklim Kitab Kuning"
-            class="w-full h-full object-cover pointer-events-none">
-        </div>
-        <!-- Scallop Cut & Footer -->
-        <div class="relative -mt-3 sm:-mt-3.5 z-10 text-[#FAF7F0] bg-[#FAF7F0]">
-          <svg viewBox="0 0 280 20" preserveAspectRatio="none" class="w-full h-3 sm:h-3.5 block -mb-[1px] fill-current">
-            <path
-              d="M 0,20 L 0,10 A 17.5 10 0 0,1 35,10 A 17.5 10 0 0,1 70,10 A 17.5 10 0 0,1 105,10 A 17.5 10 0 0,1 140,10 A 17.5 10 0 0,1 175,10 A 17.5 10 0 0,1 210,10 A 17.5 10 0 0,1 245,10 A 17.5 10 0 0,1 280,10 L 280,20 Z" />
-          </svg>
-          <div class="px-2.5 pt-0.5 pb-2.5 text-center">
-            <p class="font-display font-bold text-[11px] sm:text-xs leading-snug text-[#580D14]">
-              Kajian taklim kitab kuning klasik
-            </p>
+        class="hero-card-fan hero-card-5 relative flex-shrink-0 w-[145px] sm:w-[165px] lg:w-[185px] xl:w-[195px] select-none z-10 snap-center cursor-pointer">
+        <div
+          class="hero-card-inner w-full rounded-2xl overflow-hidden bg-[#FAF7F0] border-2 border-white shadow-[0_8px_20px_rgba(0,0,0,0.1)]">
+          <!-- Photo -->
+          <div class="h-[155px] sm:h-[175px] lg:h-[190px] xl:h-[205px] w-full bg-[#E5E0D5] overflow-hidden relative">
+            <img src="./assets/images/pondok/taklim-kitab-kuning.jpg" alt="Taklim Kitab Kuning"
+              class="w-full h-full object-cover pointer-events-none">
+          </div>
+          <!-- Scallop Cut & Footer -->
+          <div class="relative -mt-3 sm:-mt-3.5 z-10 text-[#FAF7F0] bg-[#FAF7F0]">
+            <svg viewBox="0 0 280 20" preserveAspectRatio="none" class="w-full h-3 sm:h-3.5 block -mb-[1px] fill-current">
+              <path
+                d="M 0,20 L 0,10 A 17.5 10 0 0,1 35,10 A 17.5 10 0 0,1 70,10 A 17.5 10 0 0,1 105,10 A 17.5 10 0 0,1 140,10 A 17.5 10 0 0,1 175,10 A 17.5 10 0 0,1 210,10 A 17.5 10 0 0,1 245,10 A 17.5 10 0 0,1 280,10 L 280,20 Z" />
+            </svg>
+            <div class="px-2.5 pt-0.5 pb-2.5 text-center">
+              <p class="font-display font-bold text-[11px] sm:text-xs leading-snug text-[#580D14]">
+                Kajian taklim kitab kuning klasik
+              </p>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Card 6 (Cherry / White Text) -->
       <div
-        class="hero-card-fan hero-card-6 relative flex-shrink-0 w-[145px] sm:w-[165px] lg:w-[185px] xl:w-[195px] rounded-2xl overflow-hidden bg-[#580D14] border-2 border-[#580D14] shadow-[0_8px_20px_rgba(0,0,0,0.15)] select-none z-20 snap-center cursor-pointer transition-transform">
-        <!-- Photo -->
-        <div class="h-[155px] sm:h-[175px] lg:h-[190px] xl:h-[205px] w-full bg-[#380810] overflow-hidden relative">
-          <img src="./assets/images/pondok/eskul-futsal.jpg" alt="Olahraga Santri"
-            class="w-full h-full object-cover pointer-events-none">
-        </div>
-        <!-- Scallop Cut & Footer -->
-        <div class="relative -mt-3 sm:-mt-3.5 z-10 text-[#580D14] bg-[#580D14]">
-          <svg viewBox="0 0 280 20" preserveAspectRatio="none" class="w-full h-3 sm:h-3.5 block -mb-[1px] fill-current">
-            <path
-              d="M 0,20 L 0,10 A 17.5 10 0 0,1 35,10 A 17.5 10 0 0,1 70,10 A 17.5 10 0 0,1 105,10 A 17.5 10 0 0,1 140,10 A 17.5 10 0 0,1 175,10 A 17.5 10 0 0,1 210,10 A 17.5 10 0 0,1 245,10 A 17.5 10 0 0,1 280,10 L 280,20 Z" />
-          </svg>
-          <div class="px-2.5 pt-0.5 pb-2.5 text-center">
-            <p class="font-display font-bold text-[11px] sm:text-xs leading-snug text-[#FAF7F0]">
-              Olahraga santri & ekstrakurikuler
-            </p>
+        class="hero-card-fan hero-card-6 relative flex-shrink-0 w-[145px] sm:w-[165px] lg:w-[185px] xl:w-[195px] select-none z-20 snap-center cursor-pointer">
+        <div
+          class="hero-card-inner w-full rounded-2xl overflow-hidden bg-[#580D14] border-2 border-[#580D14] shadow-[0_8px_20px_rgba(0,0,0,0.15)]">
+          <!-- Photo -->
+          <div class="h-[155px] sm:h-[175px] lg:h-[190px] xl:h-[205px] w-full bg-[#380810] overflow-hidden relative">
+            <img src="./assets/images/pondok/eskul-futsal.jpg" alt="Olahraga Santri"
+              class="w-full h-full object-cover pointer-events-none">
+          </div>
+          <!-- Scallop Cut & Footer -->
+          <div class="relative -mt-3 sm:-mt-3.5 z-10 text-[#580D14] bg-[#580D14]">
+            <svg viewBox="0 0 280 20" preserveAspectRatio="none" class="w-full h-3 sm:h-3.5 block -mb-[1px] fill-current">
+              <path
+                d="M 0,20 L 0,10 A 17.5 10 0 0,1 35,10 A 17.5 10 0 0,1 70,10 A 17.5 10 0 0,1 105,10 A 17.5 10 0 0,1 140,10 A 17.5 10 0 0,1 175,10 A 17.5 10 0 0,1 210,10 A 17.5 10 0 0,1 245,10 A 17.5 10 0 0,1 280,10 L 280,20 Z" />
+            </svg>
+            <div class="px-2.5 pt-0.5 pb-2.5 text-center">
+              <p class="font-display font-bold text-[11px] sm:text-xs leading-snug text-[#FAF7F0]">
+                Olahraga santri & ekstrakurikuler
+              </p>
+            </div>
           </div>
         </div>
       </div>

@@ -11,7 +11,7 @@ Garis batas hitam tebal (*heavy black outlines 2.5px-3px*) dan bayangan brutal k
 | Komponen | Penyesuaian Tombol "Daftar Sekarang" | Penyesuaian Kartu (*Cards*) Mengikuti Krackerz |
 | :--- | :--- | :--- |
 | **Navbar** (`components/navbar.html`) | **`Button + Link Wrapper` Krackerz**: Tombol CTA menyatu rapi dalam kapsul bersama menu navigasi. Menggunakan **Double-Layer Button** (wadah putih + tombol neon lime + lingkaran panah merah). | Header navbar kini menggunakan **Solid Pure White (`#FFFFFF` / `bg-white`)**, mengalir mulus dan menyatu sempurna dengan latar belakang awan SVG putih (`#FFFFFF`) tanpa garis/titik krem di atasnya. |
-| **Hero Section** (`components/hero.html`) | Tombol pill hijau lama digantikan dengan **Signature Krackerz Double-Layer Button** berlatar putih dengan tombol neon lime dan badge panah merah. | Area atas hero dan pembungkus gelombang awan kini berlatar putih murni (`#FFFFFF`), menyambung mulus dengan awan SVG dan navbar, sementara transisi krem (`#FAF7F0`) hanya muncul di bawah pada area kartu. |
+| **Hero Section** (`components/hero.html`) | Tombol pill hijau lama digantikan dengan **Signature Krackerz Double-Layer Button** berlatar putih dengan tombol neon lime dan badge panah merah. | **Continuous Smooth Scroll Interpolation**: Ke-6 kartu dirombak dari snap biner kasar menjadi animasi uncurl super halus via `requestAnimationFrame` + LERP damping. Kartu bertransisi mulus dari fanned ke straightened row, dengan hover lift independen via `.hero-card-inner`. |
 | **About** (`components/about.html`) | Tombol CTA diubah ke **Double-Layer Button** Krackerz (*Daftar Santri Baru ➔*). | Dihilangkan bentuk gigitan kartun (*bite-corner*) hitam. Digantikan dengan **2 Kartu Panel Solid** (**Vermilion Red** `#CF2B09` dan **Cherry Wine** `#580D14`) dengan bingkai billboard putih pekat 8px. |
 | **Kurikulum** (`components/curriculum.html`) | Tombol ganda pada tiap tab kurikulum. | **3 Tab Folder Asimetris SVG Otentik** (`#CF2B09`, `#A52207`, `#7C1A06`), badan kartu tanpa outline hitam menyatu dinamis mengikuti tab aktif, foto berbingkai putih 8px, dan stiker mobil van hijau Krackerz. |
 | **Testimoni** (`components/testimonials.html`) | Tombol CTA ganda Krackerz (*Bergabung Bersama Kami ➔*). | **OVERHAUL**: Dari lingkaran bulat lama menjadi **Kartu Tiket/Postcard Miring Krackerz** (`rotate(-2deg)` s/d `rotate(2deg)`) dalam palet hangat `#F95534`, `#CF2B09`, `#7C1A06` dengan kutipan teks besar dan tag wali/santri. |
@@ -39,25 +39,42 @@ Buka browser pada alamat lokal (misalnya `http://localhost:3000`).
 
 ---
 
-### Langkah 2: Verifikasi Navigasi Bar (Navbar Putih Bersih, Kompak & Tombol Double-Layer)
-1. **Latar Belakang Navbar Putih Murni (`#FFFFFF`) & Proporsi Kompak**:
-   - Header navbar menggunakan latar belakang putih solid (`bg-white` / `#FFFFFF`) dengan padding vertikal lebih ramping (`py-2 sm:py-2.5`), menyatu mulus dengan latar belakang SVG awan putih (`krackerz-wave-shape.svg`).
-2. **Kapsul Navigasi Kanan (Lebih Ramping & Proporsional)**:
-   - Kapsul nav kanan `Button + Link Wrapper` berukuran lebih kompak (`pl-4 pr-1 py-1`) dengan jarak link yang pas (`gap-4 lg:gap-5`, `text-xs`) sehingga tidak memanjang berlebihan.
-   - Tombol **DAFTAR SEKARANG**: berukuran mini-tactile presisi (`px-3 py-1.5`, `text-[11px]`, panah merah `w-4 h-4`) yang serasi dan proporsional.
-   - Arahkan kursor (*hover*): teks bergulir (*rolling text*) tetap aktif dan halus.
-3. **Hero Section Top**:
-   - Bagian atas hero dan wave wrapper memiliki latar putih murni (`#FFFFFF`) sehingga gelombang awan SVG berputar secara seamless tanpa patahan warna di bagian atas.
-   - Di bawah judul 3 baris, tombol utama hero **DAFTAR SEKARANG** tetap tampil dengan skala hero yang mantap.
+### Langkah 2: Verifikasi Navigasi Bar (Navbar Putih Bersih & Signature Krackerz Double-Layer Button)
+1. **Latar Belakang Navbar Putih Murni (`#FFFFFF`)**:
+   - Header navbar menggunakan latar belakang putih solid (`bg-white` / `#FFFFFF`), menyatu mulus dan bersih dengan latar belakang SVG awan putih (`krackerz-wave-shape.svg`).
+2. **Kapsul Navigasi Kanan & Tombol REGISTER NOW (Ukuran Tombol Lebih Besar dari Kapsul)**:
+   - Kapsul nav `Button + Link Wrapper` dirancang ramping dengan tinggi `h-[46px]` dan `overflow: visible`.
+   - **Tombol REGISTER NOW (Signature Double-Layer Pop-Out)**:
+     - **Dimensi Lebih Besar**: Tombol memiliki tinggi `h-[56px]` (10px lebih tinggi dari kapsul), sehingga secara visual **menembus dan meluap (*overflows*)** 5px ke atas garis atas kapsul, 5px ke bawah garis bawah kapsul, serta menggantung 6px ke kanan (`-mr-1.5`).
+     - **Wadah Luar**: Kartu putih solid dengan sudut membulat 12px dan bayangan jatuh lembut berlapis (`shadow-[0_5px_16px_rgba(0,0,0,0.14)]`) yang memberikan efek melayang (*floating*) nyata di atas kapsul.
+     - **Tombol Dalam**: Berwarna hijau neon lime (`#D4FF00` / `#C8FF2E`) dengan border hitam solid 2px `#161616` dan sudut membulat 8px.
+     - **Tipografi**: Font tebal display hitam pekat (`font-display font-black uppercase tracking-wider`) dengan efek teks bergulir (*rolling text*) saat di-hover.
+     - **Badge Panah**: **12-Point Scalloped Starburst Red Badge** berwarna merah oranye api Krackerz (`#F8330B`) dengan outline hitam 2px dan panah putih tajam (`➔`) yang berputar halus saat tombol diarahkan kursor (*hover*).
+3. **Hero Section Top & CTA Button**:
+   - Bagian atas hero dan wave wrapper memiliki latar putih murni (`#FFFFFF`) tanpa garis dot krem.
+   - Tombol utama hero juga mengadopsi styling double-layer identik dengan scalloped starburst arrow badge.
 
 ---
 
-### Langkah 3: Verifikasi 6 Kartu Hero (Cream & Cherry Soft Tactile)
-1. Periksa ke-6 kartu di bawah tombol hero:
-   - Tidak ada lagi garis hitam tebal 3px dan tidak ada bayangan hitam offset kaku.
-   - Kartu bergantian warna secara elegan: **Kartu 1, 3, 5 (Krem `#FAF7F0` teks merah tua)** dan **Kartu 2, 4, 6 (Cherry Wine `#580D14` teks krem)**.
-   - Sudut membulat 16px dengan bayangan lembut natural.
-2. Gulir (*scroll*) halaman ke bawah: ke-6 kartu melurus secara halus dari posisi mengipas (*fanned*) menjadi satu baris horizontal rapi.
+### Langkah 3: Verifikasi 6 Kartu Hero (Continuous Smooth Scroll Interpolation & Tactile Hover)
+1. **Posisi Awal di Paling Atas Halaman (`scrollY = 0`)**:
+   - Ke-6 kartu tertumpuk mengipas (*playful fanned stack*) dengan sudut rotasi dinamis (`-6°`, `-4°`, `-2°`, `+2°`, `+4°`, `+6°`), tinggi vertikal bergelombang (`translateY` hingga 24px - 26px), serta saling bertumpuk lembut (*negative overlap*).
+   - Kartu bergantian warna secara elegan: **Kartu 1, 3, 5 (Krem `#FAF7F0` teks merah tua)** dan **Kartu 2, 4, 6 (Cherry Wine `#580D14` teks krem)** dengan sudut membulat 16px dan bayangan lembut natural tanpa garis hitam kaku.
+2. **Pengujian Gulir Halus Perlahan (Slow Continuous Scrubbing)**:
+   - Gulir mouse wheel atau trackpad ke bawah secara perlahan dari 0px hingga ~200px.
+   - **Ekspektasi Kelancaran Visual**:
+     - Animasi **TIDAK melompat seketika (*no abrupt snapping/pop-in*)**.
+     - Setiap pixel guliran Anda menggerakkan rotasi sudut, pergeseran vertikal, dan jarak antar-kartu secara proporsional dan presisi mengikuti posisi scroll.
+     - Mesin animasi menggunakan **Continuous LERP Interpolation** (faktor redaman 0.18 via `requestAnimationFrame`), sehingga gerakan terasa sangat organik, empuk, dan luwes seperti benda fisik berbobot (*spring physics*).
+     - Pada kedalaman gulir ~200px, ke-6 kartu telah membuka lurus sempurna (*100% straightened*) dengan sudut `0°`, ketinggian rata, dan jarak celah (*gap*) seimbang 20px (16px pada tablet, 12px pada ponsel).
+3. **Pengujian Gulir Cepat & Kembali ke Atas (Fast Scroll & Reverse Scrubbing)**:
+   - Putar roda mouse ke bawah dengan cepat: perhatikan kartu meluncur melurus dengan mulus tanpa jeda atau sentakan layout reflow.
+   - Gulir kembali ke atas halaman (`scrollY` menuju 0): ke-6 kartu kembali mengipas (*fanned stack*) secara halus dan simetris ke posisi awal.
+4. **Pengujian Interaksi Arahkan Kursor (Hover Interaction)**:
+   - Arahkan kursor (*hover*) ke salah satu kartu, baik saat kartu sedang mengipas di atas maupun setelah melurus di bawah.
+   - **Ekspektasi Hover**:
+     - Kartu yang diarahkan langsung melonjak naik (`translateY(-8px) scale(1.03)`) dengan bayangan jatuh lembut yang dalam (`shadow-[0_16px_32px_rgba(0,0,0,0.18)]`) dan memprioritaskan lapisan paling atas (`z-index: 50`).
+     - Efek hover ditangani secara ortogonal oleh wadah terpisah (`.hero-card-inner`), sehingga **sama sekali tidak bertabrakan (*zero conflict*)** dengan transformasi rotasi scroll pada wadah luar (`.hero-card-fan`).
 
 ---
 
