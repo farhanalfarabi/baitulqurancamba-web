@@ -137,21 +137,35 @@ body {
   box-shadow: 8px 8px 0px 0px #121212;
 }
 
-/* Tilted Stickers */
+/* Tilted Badges, Containers & Stickers (Neo-brutalist tactile angles) */
 .tilt-left {
-  transform: rotate(-3deg);
+  --tw-rotate: -3deg !important;
+  transform: rotate(-3deg) !important;
 }
 
 .tilt-right {
-  transform: rotate(3deg);
+  --tw-rotate: 3deg !important;
+  transform: rotate(3deg) !important;
 }
 
 .tilt-left-sm {
-  transform: rotate(-1.5deg);
+  --tw-rotate: -1.5deg !important;
+  transform: rotate(-1.5deg) !important;
 }
 
 .tilt-right-sm {
-  transform: rotate(2deg);
+  --tw-rotate: 2deg !important;
+  transform: rotate(2deg) !important;
+}
+
+.tilt-left-lg {
+  --tw-rotate: -4.5deg !important;
+  transform: rotate(-4.5deg) !important;
+}
+
+.tilt-right-lg {
+  --tw-rotate: 4.5deg !important;
+  transform: rotate(4.5deg) !important;
 }
 
 .sticker-halo {
@@ -453,29 +467,33 @@ body {
   will-change: transform, margin-left;
 }
 
-/* Fallback static values for initial fanned state (Desktop reference) */
+/* Signature Krackerz Fanned Playing Card Hand (Organic, staggered, "tidak rapi") */
 .hero-card-1 { --card-rot: -6deg; --card-y: 24px; --card-overlap: 0px; }
-.hero-card-2 { --card-rot: -4deg; --card-y: 0px;  --card-overlap: -14px; }
+.hero-card-2 { --card-rot: -4deg; --card-y: 0px; --card-overlap: -14px; }
 .hero-card-3 { --card-rot: -2deg; --card-y: 10px; --card-overlap: -14px; }
-.hero-card-4 { --card-rot: 2deg;  --card-y: 0px;  --card-overlap: -14px; }
-.hero-card-5 { --card-rot: 4deg;  --card-y: 26px; --card-overlap: -14px; }
-.hero-card-6 { --card-rot: 6deg;  --card-y: 0px;  --card-overlap: -14px; }
+.hero-card-4 { --card-rot: 2deg; --card-y: 0px; --card-overlap: -14px; }
+.hero-card-5 { --card-rot: 4deg; --card-y: 26px; --card-overlap: -14px; }
+.hero-card-6 { --card-rot: 6deg; --card-y: 0px; --card-overlap: -14px; }
 
-/* Responsive initial overlap fallbacks for mobile / small screens */
+/* Responsive initial overlap for mobile / small screens */
 @media (max-width: 639px) {
   .hero-card-1 { --card-rot: -3deg; --card-y: 12px; --card-overlap: 0px; }
-  .hero-card-2 { --card-rot: -2deg; --card-y: 0px;  --card-overlap: -8px; }
-  .hero-card-3 { --card-rot: -1deg; --card-y: 5px;  --card-overlap: -8px; }
-  .hero-card-4 { --card-rot: 1deg;  --card-y: 0px;  --card-overlap: -8px; }
-  .hero-card-5 { --card-rot: 2deg;  --card-y: 13px; --card-overlap: -8px; }
-  .hero-card-6 { --card-rot: 3deg;  --card-y: 0px;  --card-overlap: -8px; }
+  .hero-card-2 { --card-rot: -2deg; --card-y: 0px; --card-overlap: -8px; }
+  .hero-card-3 { --card-rot: -1deg; --card-y: 5px; --card-overlap: -8px; }
+  .hero-card-4 { --card-rot: 1deg; --card-y: 0px; --card-overlap: -8px; }
+  .hero-card-5 { --card-rot: 2deg; --card-y: 13px; --card-overlap: -8px; }
+  .hero-card-6 { --card-rot: 3deg; --card-y: 0px; --card-overlap: -8px; }
 }
 
-/* Card inner handles hover lift & tactile elevation independently */
+/* Card inner handles playful hover rotation without scaling/lifting up (matching reference image) */
 .hero-card-inner {
-  transition: transform 0.28s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.28s ease;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
   transform-origin: center center;
   will-change: transform, box-shadow;
+}
+
+.hero-card-fan {
+  transition: z-index 0s;
 }
 
 .hero-card-fan:hover {
@@ -483,8 +501,41 @@ body {
 }
 
 .hero-card-fan:hover .hero-card-inner {
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.18), 0 4px 10px rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 20px 40px -4px rgba(0, 0, 0, 0.22), 0 8px 16px -2px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Rotate by several degrees on hover so the card shifts away from its initial position */
+.hero-card-1:hover .hero-card-inner {
+  transform: rotate(-6.5deg);
+}
+
+.hero-card-2:hover .hero-card-inner {
+  transform: rotate(7deg);
+}
+
+.hero-card-3:hover .hero-card-inner {
+  transform: rotate(-6deg);
+}
+
+.hero-card-4:hover .hero-card-inner {
+  transform: rotate(6.5deg);
+}
+
+.hero-card-5:hover .hero-card-inner {
+  transform: rotate(-6deg);
+}
+
+.hero-card-6:hover .hero-card-inner {
+  transform: rotate(7deg);
+}
+
+@media (max-width: 639px) {
+  .hero-card-1:hover .hero-card-inner { transform: rotate(-5deg); }
+  .hero-card-2:hover .hero-card-inner { transform: rotate(5deg); }
+  .hero-card-3:hover .hero-card-inner { transform: rotate(-4.5deg); }
+  .hero-card-4:hover .hero-card-inner { transform: rotate(5deg); }
+  .hero-card-5:hover .hero-card-inner { transform: rotate(-4.5deg); }
+  .hero-card-6:hover .hero-card-inner { transform: rotate(5deg); }
 }
 
 /* Hide scrollbar for clean horizontal swipe on mobile */

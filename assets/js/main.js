@@ -345,14 +345,14 @@ function initHeroCardsScrollStraighten() {
   const cards = cardsTrack.querySelectorAll('.hero-card-fan');
   if (!cards.length) return;
 
-  // Base fanned configurations for 6 cards (Desktop reference)
+  // Base configurations for 6 cards (Organic fanned & staggered "tidak rapi" layout)
   const baseCardConfigs = [
     { rot: -6, y: 24, overlap: 0 },
-    { rot: -4, y: 0,  overlap: -14 },
+    { rot: -4, y: 0, overlap: -14 },
     { rot: -2, y: 10, overlap: -14 },
-    { rot: 2,  y: 0,  overlap: -14 },
-    { rot: 4,  y: 26, overlap: -14 },
-    { rot: 6,  y: 0,  overlap: -14 }
+    { rot: 2, y: 0, overlap: -14 },
+    { rot: 4, y: 26, overlap: -14 },
+    { rot: 6, y: 0, overlap: -14 }
   ];
 
   let currentP = 0;

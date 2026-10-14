@@ -56,33 +56,42 @@ Buka browser pada alamat lokal (misalnya `http://localhost:3000`).
 
 ---
 
-### Langkah 3: Verifikasi 6 Kartu Hero (Continuous Smooth Scroll Interpolation & Tactile Hover)
-1. **Posisi Awal di Paling Atas Halaman (`scrollY = 0`)**:
-   - Ke-6 kartu tertumpuk mengipas (*playful fanned stack*) dengan sudut rotasi dinamis (`-6°`, `-4°`, `-2°`, `+2°`, `+4°`, `+6°`), tinggi vertikal bergelombang (`translateY` hingga 24px - 26px), serta saling bertumpuk lembut (*negative overlap*).
-   - Kartu bergantian warna secara elegan: **Kartu 1, 3, 5 (Krem `#FAF7F0` teks merah tua)** dan **Kartu 2, 4, 6 (Cherry Wine `#580D14` teks krem)** dengan sudut membulat 16px dan bayangan lembut natural tanpa garis hitam kaku.
-2. **Pengujian Gulir Halus Perlahan (Slow Continuous Scrubbing)**:
-   - Gulir mouse wheel atau trackpad ke bawah secara perlahan dari 0px hingga ~200px.
-   - **Ekspektasi Kelancaran Visual**:
-     - Animasi **TIDAK melompat seketika (*no abrupt snapping/pop-in*)**.
-     - Setiap pixel guliran Anda menggerakkan rotasi sudut, pergeseran vertikal, dan jarak antar-kartu secara proporsional dan presisi mengikuti posisi scroll.
-     - Mesin animasi menggunakan **Continuous LERP Interpolation** (faktor redaman 0.18 via `requestAnimationFrame`), sehingga gerakan terasa sangat organik, empuk, dan luwes seperti benda fisik berbobot (*spring physics*).
-     - Pada kedalaman gulir ~200px, ke-6 kartu telah membuka lurus sempurna (*100% straightened*) dengan sudut `0°`, ketinggian rata, dan jarak celah (*gap*) seimbang 20px (16px pada tablet, 12px pada ponsel).
-3. **Pengujian Gulir Cepat & Kembali ke Atas (Fast Scroll & Reverse Scrubbing)**:
-   - Putar roda mouse ke bawah dengan cepat: perhatikan kartu meluncur melurus dengan mulus tanpa jeda atau sentakan layout reflow.
-   - Gulir kembali ke atas halaman (`scrollY` menuju 0): ke-6 kartu kembali mengipas (*fanned stack*) secara halus dan simetris ke posisi awal.
-4. **Pengujian Interaksi Arahkan Kursor (Hover Interaction)**:
-   - Arahkan kursor (*hover*) ke salah satu kartu, baik saat kartu sedang mengipas di atas maupun setelah melurus di bawah.
-   - **Ekspektasi Hover**:
-     - Kartu yang diarahkan langsung melonjak naik (`translateY(-8px) scale(1.03)`) dengan bayangan jatuh lembut yang dalam (`shadow-[0_16px_32px_rgba(0,0,0,0.18)]`) dan memprioritaskan lapisan paling atas (`z-index: 50`).
-     - Efek hover ditangani secara ortogonal oleh wadah terpisah (`.hero-card-inner`), sehingga **sama sekali tidak bertabrakan (*zero conflict*)** dengan transformasi rotasi scroll pada wadah luar (`.hero-card-fan`).
+### Langkah 3: Verifikasi 6 Kartu Hero (Fanned Organic Stack & Pure Rotation Hover)
+1. **Tata Letak Awal di Paling Atas Halaman (`scrollY = 0`)**:
+   - Ke-6 kartu tertata secara organik dan mengipas (*organic fanned & staggered stack* - "tidak rapi" sesuai estetika asli Krackerz):
+     - **Kartu 1**: Rotasi `-6°`, offset vertikal `+24px`, overlap `0px`.
+     - **Kartu 2**: Rotasi `-4°`, offset vertikal `0px`, overlap `-14px` (berwarna Cherry Wine `#580D14`).
+     - **Kartu 3**: Rotasi `-2°`, offset vertikal `+10px`, overlap `-14px`.
+     - **Kartu 4**: Rotasi `+2°`, offset vertikal `0px`, overlap `-14px` (berwarna Cherry Wine `#580D14`).
+     - **Kartu 5**: Rotasi `+4°`, offset vertikal `+26px`, overlap `-14px`.
+     - **Kartu 6**: Rotasi `+6°`, offset vertikal `0px`, overlap `-14px` (berwarna Cherry Wine `#580D14`).
+   - Tampilan ini sengaja asimetris, bergelombang, dan berlapis seperti tangan yang memegang kartu remi terbuka.
+2. **Pengujian Gulir Halus Perlahan (Continuous Scrubbing)**:
+   - Gulir mouse wheel atau trackpad perlahan dari 0px hingga ~200px:
+     - Kartu melurus secara mulus (*smoothly straightens out*) dengan peredaman LERP dan celah (*gap*) seimbang tanpa hentakan kasar.
+   - Gulir kembali ke posisi paling atas: kartu kembali mengipas (*fanned stack*) ke formasi awal yang bergelombang.
+3. **Pengujian Interaksi Arahkan Kursor (Pure Rotation Hover - Tidak Naik, Tidak Membesar)**:
+   - Arahkan kursor (*hover*) pada salah satu kartu (misalnya Kartu 1 atau Kartu 2):
+     - **Tidak Naik & Tidak Membesar**: Ukuran kartu tetap `scale(1)` dan tidak melompat ke atas (`translateY` tetap `0px`).
+     - **Berputar Beberapa Derajat**: Kartu secara jelas berputar/bergoyang beberapa derajat (misal Kartu 2 berputar `+8°`, Kartu 1 berputar `-7°`) sehingga seluruh bagian kartu bergerak berpindah posisi sudutnya dari posisi awalnya.
+     - **Lapisan & Bayangan**: Kartu yang di-hover otomatis naik ke lapisan teratas (`z-index: 50 !important;`) dan memancarkan bayangan lembut yang lebih dalam (`box-shadow: 0 20px 40px -4px rgba(0,0,0,0.24)`).
+     - Saat kursor dijauhkan (*unhover*), kartu berayun halus kembali ke sudut awalnya.
 
 ---
 
-### Langkah 4: Verifikasi Bagian Tentang Kami & Kurikulum (Scroll-Stacking Sticky Cards)
-1. **About**:
-   - Foto billboard masjid memiliki bingkai putih tebal pekat 8px.
-   - 2 kartu di bawahnya tampil dalam warna solid pekat (**Vermilion Red** dan **Cherry Wine**) tanpa sudut terpotong kartun hitam.
-   - Tombol di bawahnya menggunakan double-layer button Krackerz.
+### Langkah 4: Verifikasi Elemen Miring / Angled Badges & Containers (Neo-Brutalist Tilted Elements)
+1. **Container Hitam pada Bagian About (`components/about.html`)**:
+   - Gulir ke section **Institutional Identity & Vision** / **Faith, Character & Al-Qur'an**.
+   - Perhatikan container hitam bertuliskan teks neon lime **`Pondok Pesantren Tahfizh Camba, Maros`**.
+   - **Ekspektasi**: Container hitam ini sekarang tampak **agak miring (*noticeably tilted* `+3°`)**, tidak datar/lurus horizontal lagi, memberikan nuansa dinamis dan tactile yang kuat.
+2. **Elemen Miring Lainnya di Seluruh Halaman**:
+   - **Curriculum**: Badge judul `Masa Depan Santri` miring `-3°` (`tilt-left`).
+   - **Pricing**: Badge judul `Investasi Pendidikan` miring `-3°` (`tilt-left`).
+   - **FAQ**: Badge judul `Pertanyaan Santri` miring `-3°` (`tilt-left`).
+   - **Founder**: Badge pimpinan `Pondok` miring `+3°` (`tilt-right`).
+   - **Interactive Laptop**: Badge `Santri` dan stiker-stiker aktivitas santri memiliki rotasi miring awal (`tilt-left` / `tilt-right`).
+   - **Footer**: Badge `2025 / 2026 Dibuka` miring `+3°` (`tilt-right`).
+   - **Gallery**: Banner-banner judul aktivitas berotasi dinamis `±3°` (`tilt-left` / `tilt-right`).
 2. **Kurikulum (Alur Stacking Kartu Berdasarkan Scroll - 1:1 Krackerz Original & Tinggi Kartu Seragam)**:
    - **Tinggi Seragam Semua Kartu (Uniform Height Matching)**:
      - Ketiga kartu (**Kartu 1: Tahfizh**, **Kartu 2: Sekolah**, dan **Kartu 3: Asrama**) kini memiliki **tinggi luar yang sama persis** (`height: 600px` pada layar desktop/laptop).
@@ -273,8 +282,18 @@ Buka browser pada `http://localhost:3000`.
 3. Perhatikan bagian kedua tepat di bawahnya: **3 Program Unggulan Pesantren** tampil berdampingan dalam 3 kartu warna solid (`#CF2B09`, `#A52207`, `#580D14`) lengkap dengan foto berbingkai putih, poin keunggulan, dan tombol pendaftaran.
 4. Pastikan **TIDAK ADA LAGI efek kartu bertumpuk/bergeser (*no sticky slides*)**, sehingga seluruh konten dapat langsung dibaca dengan mudah dan nyaman tanpa scroll yang membingungkan.
 
-
-
-
-
-
+### Langkah 4: Verifikasi Animasi Hover Kartu Diputar Beberapa Derajat (Pure Card Rotation on Hover)
+1. **Posisi Awal Kartu Sejajar Tegak Lurus (*Straight Resting Position*)**:
+   - Buka `http://localhost:3000/index.html` pada bagian Hero Section.
+   - Perhatikan seluruh 6 kartu santri berada dalam posisi **tegak lurus, rapi, dan sejajar rata** (`0deg`), persis seperti kartu sebelah kiri (*Card 5*) pada gambar referensi Anda.
+2. **Uji Efek Hover Kartu Diputar (Card Rotates on Hover)**:
+   - **Hover pada Kartu 2 atau Kartu 6 (Kartu Marun `#580D14`)**:
+     - **Ekspektasi**: Kartu **TIDAK naik membesar** (tanpa scale, tanpa translateY tinggi), melainkan **diputar miring ke kanan sebesar ~7°** (`rotate(7deg)`).
+     - Seluruh bagian tepi dan sudut kartu bergerak pindah dari posisi awalnya, persis seperti kartu marun sebelah kanan pada gambar referensi screenshot Anda!
+     - Kartu di sebelahnya tetap tegak lurus, menghasilkan kontras visual yang presisi.
+     - Kartu yang di-hover naik ke lapisan teratas (`z-50`) dengan bayangan jatuh lembut yang dalam (`box-shadow: 0 20px 40px -4px rgba(0,0,0,0.22)`).
+   - **Hover pada Kartu 1, 3, atau 5 (Kartu Krem `#FAF7F0`)**:
+     - **Ekspektasi**: Kartu diputar miring ke kiri sebesar `-6°` s/d `-6.5°` (`rotate(-6deg)` / `rotate(-6.5deg)`), memberikan ritme ayunan bergantian yang dinamis dan estetik.
+3. **Uji Transisi Keluar (*Unhover*)**:
+   - Geser kursor keluar dari kartu:
+     - **Ekspektasi**: Kartu berputar kembali secara mulus (*spring transition*) ke posisi awalnya yang tegak lurus (`0deg`) tanpa sentakan atau jitter.
