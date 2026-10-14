@@ -150,11 +150,32 @@ Buka browser pada alamat lokal (misalnya `http://localhost:3000`).
 
 ---
 
-### Langkah 7: Verifikasi Kartu FAQ & Pimpinan Pondok
-1. **Founder / Pimpinan**:
-   - Foto pengasuh tampil bersih dalam bingkai putih tanpa kotak bergaris hitam kaku.
-   - 4 kartu angka metrik berlatar solid merah dan wine dengan bayangan lembut.
-   - Tabel struktur pimpinan berupa kartu putih bersih minimalis.
+### Langkah 7: Verifikasi Overhaul Section Pimpinan Pondok (1:1 Krackerz "MEET PENNY" Layout) & FAQ
+1. **Section Pimpinan & Pengasuh (`#leadership`)**:
+   - Gulir ke section **Pimpinan & Pengasuh Pondok**:
+   - **Header Lockup (`MEET [LEADERSHIP ✓]`)**:
+     - Teks chunky display hitam **`MEET`** berdampingan dengan wadah hitam miring (`tilt-right`) bertuliskan teks neon lime **`LEADERSHIP`**.
+     - Di sudut kanan atas wadah terdapat badge lingkaran hijau cerah dengan tanda centang putih tajam (**`✓`**).
+     - Subtitle font cursive oranye-merah: **`the mentors & asatidz behind our pesantren`**.
+   - **Kolom Kiri (Scalloped Stamp Biscuit Photo Frame & Badges)**:
+     - **Balon Kata (*Speech Bubble*)**: Di bagian atas foto terdapat kapsul putih melayang dengan pointer segitiga ke bawah bertuliskan **`Now tell us about yourself`**.
+     - **Bingkai Foto Biskuit Scalloped**: Foto potret pimpinan tampil di dalam bingkai bergelombang biskuit (*scalloped cookie stamp shape*) dengan latar belakang peach lembut `#ffdecc`, outline hitam tegas 2.5px, dan bayangan jatuh lembut yang dalam (*deep elevation shadow*).
+     - **Stiker Megafon Lime**: Di sudut kanan bawah foto terdapat badge rosette bergelombang warna hijau neon lime dengan ikon megafon hitam Krackerz.
+   - **Kolom Kanan (4 Kartu Bitten Stats, Tabel Akreditasi & Strip Logo)**:
+     - **4 Kartu Metrik Baris Tunggal dengan Gigitan Sudut Kanan Bawah (*Bitten Corner Notch*)**:
+       - Ke-4 kartu berjejer rapi dalam 1 baris di layar desktop.
+       - Setiap kartu memiliki potongan sudut melingkar (*circular cracker-bite notch*) di pojok kanan bawahnya (`.bite-corner-br`).
+       - Warna kartu bergradasi hangat: Merah Vermilion (`#CF2B09`), Merah Karat (`#A52207`), Merah Anggur Gelap (`#7C1A06`), dan Cherry Wine (`#4A0E17`).
+       - Metrik angka display besar: **`8+`**, **`30`**, **`150+`**, dan **`14+`** dengan teks deskripsi informatif.
+     - **Tabel 4 Baris Akreditasi & Prestasi Resmi**:
+       - 4 baris elegan dengan garis pemisah tipis (*clean dividers*):
+         - `Ministry of Religious Affairs` | `Official Pesantren Tahfizh Operational Permit` | `2016`
+         - `Ministry of Education` | `Accredited Formal Wustha (SMP) & Ulya (SMA)` | `2018`
+         - `Authentic Qur'anic Sanad` | `Hafs 'an 'Ashim via Thariq Asy-Syathibiyyah` | `Mutqin`
+         - `Indonesian Ulema Council (MUI)` | `Trilingual Preaching & Da'wah Leadership` | `Active`
+       - Tiap baris memiliki efek interaktif halus saat kursor diarahkan (*hover tint*).
+     - **Strip Logo / Legalitas Resmi di Bagian Bawah**:
+       - Label: `Experience & credentials from:` diikuti 5 badge hitam berkilau: `KEMENAG RI`, `KEMENDIKBUD`, `MUI SULSEL`, `SANAD TAHFIZH`, dan `MAROS REGENCY`.
 2. **FAQ Accordion**:
    - Tiap baris pertanyaan berupa kartu putih bersih berbayang lembut tanpa border hitam tebal.
    - Klik pertanyaan; jawaban terbuka mulus dan ikon `+` berputar menjadi `×`.
