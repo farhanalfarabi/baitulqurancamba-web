@@ -208,5 +208,73 @@ Buka browser pada alamat lokal (misalnya `http://localhost:3000`).
    - Di bagian bawah, terdapat billboard marun `#580D14` dengan tombol **`SCHEDULE CAMPUS VISIT ➔`** yang membuka modal pendaftaran santri baru.
    - Bagian paling dasar menampilkan komponen Footer dengan latar belakang ombak awan berputar marun `#580D14` (*krackerz rotating cloud wave*).
 
+---
+
+## 3. Pembaruan Konten: Penataan Terbuka Visi-Misi & 9 Pilar Kurikulum (Tanpa Slide)
+
+Sesuai arahan, seluruh konten resmi dari `https://baitulqurancamba.com` kini ditampilkan **semuanya secara terbuka, statis, dan estetik (Open Tactile Grid)**, tanpa sistem geser bertumpuk (*sticky scroll stacking / slide-slide*):
+
+### A. Visi & Misi Resmi Pesantren (`components/about.html`)
+1. **Kartu Visi Utama (Generasi 3M - Cherry Wine `#580D14`)**:
+   - Menampilkan kutipan visi resmi: *"Mewujudkan Generasi Qur'ani yang Muhaffizh, Muballigh, & Mujaahid"*.
+   - Rincian 3 pilar utama:
+     - **Muhaffizh** (`30 JUZ MUTQIN & SANAD`): Target hafalan 30 juz mutqin dengan bimbingan talaqqi sanad bersambung.
+     - **Muballigh** (`TRILINGUAL PREACHING`): Melatih santri cakap berdakwah dan berpidato dalam 3 bahasa (Arab, Inggris, Indonesia).
+     - **Mujaahid** (`DISCIPLINE & LEADERSHIP`): Membentuk santri berakhlak disiplin, mandiri di asrama 24 jam, dan berjiwa pemimpin.
+2. **Empat Butir Misi Resmi (Grid 4 Kartu Taktil Putih Bersih)**:
+   - **Misi 01 (`QUR'ANIC MASTERY`)**: Mencetak generasi penghafal Al-Qur'an yang tangguh dan memiliki niat besar untuk membumikan Al-Qur'an.
+   - **Misi 02 (`DA'WAH EMPOWERMENT`)**: Melaksanakan kegiatan pembinaan yang mendorong dan membantu santri dalam mengembangkan keterampilan dakwah internal dan eksternal.
+   - **Misi 03 (`RELIGIOUS DISCIPLINE`)**: Menumbuhkan sikap kedisiplinan santri dalam menjalankan syariat Islam dengan membentuk lingkungan asrama religius.
+   - **Misi 04 (`TALENT & POTENTIAL`)**: Mengembangkan potensi santri melalui kegiatan islami, pelatihan, dan bimbingan kepemimpinan sesuai minat dan bakat individu.
+
+### B. Sembilan Pilar Kurikulum & 3 Program Terbuka (`components/curriculum.html`)
+Efek geser/tumpuk (*slide-slide scroll*) telah dihilangkan sepenuhnya, digantikan dengan penyajian visual yang terbuka dan langsung terlihat:
+1. **Sembilan Pilar Kurikulum Program (Grid 3x3 Terbuka)**:
+   - **01. Tahfizh, Tahsin, Tajwid** (`QUR'AN CORE`)
+   - **02. Pelatihan Muballigh** (`DA'WAH CADRE`)
+   - **03. Manajemen Dakwah** (`ORGANIZATIONAL SKILLS`)
+   - **04. Pengembangan Karakter** (`CHARACTER & ADAB`)
+   - **05. Sanadisasi Qur'an & Hadits** (`SANAD TRANSMISSION`)
+   - **06. Leadership (Kepemimpinan)** (`LEADERSHIP`)
+   - **07. Pidato Arab & Inggris** (`TRILINGUAL ORATORY`)
+   - **08. Dirosah Islamiyah** (`CLASSICAL SCHOLARSHIP`)
+   - **09. Kurikulum Pemerintah** (`OFFICIAL STATE DIPLOMA`)
+2. **Tiga Program Unggulan Pesantren (Grid 3 Kartu Berdampingan)**:
+   - **Kartu 1 (Tahfizh & Sanad 30 Juz - `#CF2B09`)**: Foto halaqah talaqqi, bimbingan hafalan 30 juz, sanad bersambung, dan tombol daftar.
+   - **Kartu 2 (Sekolah Formal & Karakter - `#A52207`)**: Foto kelas & pidato 3 bahasa, ijazah resmi negara SMP/SMA, dan pembinaan karakter.
+   - **Kartu 3 (Kehidupan Santri & Asrama - `#580D14`)**: Foto ekstrakurikuler santri, asrama 24 jam bebas gawai, dan olahraga mandiri.
+
+---
+
+## 4. Panduan Pengujian Manual (Manual Verification Guide)
+
+Ikuti langkah-langkah berikut untuk memverifikasi secara mandiri di web browser:
+
+### Langkah 1: Jalankan Web Server Lokal
+Jalankan perintah berikut di terminal:
+```powershell
+npx serve .
+# Atau
+python -m http.server 3000
+```
+Buka browser pada `http://localhost:3000`.
+
+### Langkah 2: Verifikasi Bagian Visi & Misi (`#about`)
+1. Gulir ke seksi **About** (`#about`).
+2. Periksa **Kartu Visi Generasi 3M** (`#580D14`):
+   - Kutipan: *"Mewujudkan Generasi Qur'ani yang Muhaffizh, Muballigh, & Mujaahid"*.
+   - 3 sub-kartu taktil: `1. Muhaffizh`, `2. Muballigh`, `3. Mujaahid`.
+3. Periksa **4 Kartu Misi Resmi**:
+   - Grid 4 kartu putih (`01` s/d `04`) dengan teks misi resmi lengkap dan efek elevasi saat di-hover.
+
+### Langkah 3: Verifikasi Seksi Kurikulum Bebas Slide (`#curriculum`)
+1. Gulir ke seksi **Kurikulum** (`#curriculum`).
+2. Perhatikan bagian pertama: **Sembilan Pilar Kurikulum Program** tampil terbuka dalam grid 3x3 (Pilar 01 s/d 09) dengan nomor taktil, judul, dan deskripsi.
+3. Perhatikan bagian kedua tepat di bawahnya: **3 Program Unggulan Pesantren** tampil berdampingan dalam 3 kartu warna solid (`#CF2B09`, `#A52207`, `#580D14`) lengkap dengan foto berbingkai putih, poin keunggulan, dan tombol pendaftaran.
+4. Pastikan **TIDAK ADA LAGI efek kartu bertumpuk/bergeser (*no sticky slides*)**, sehingga seluruh konten dapat langsung dibaca dengan mudah dan nyaman tanpa scroll yang membingungkan.
+
+
+
+
 
 

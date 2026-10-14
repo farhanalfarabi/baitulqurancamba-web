@@ -1,0 +1,359 @@
+Baitul Quran Camba | Pondok Pesantren Tahfizh Baitul Qur'an Camba
+---
+Pondok Pesantren Tahfizh Baitul Qur'an Camba di Maros yang fokus membina hafiz-hafizah Al-Qur'an, pendidikan adab, dan kepemimpinan santri.
+---
+pondok pesantren, pesantren tahfidz, baitul quran camba, pondok pesantren camba, santri maros, sekolah islam, tahfidzul quran, pendidikan islam maros
+---
+Module
+---
+children
+---
+$$slots
+---
+$$events
+---
+$$legacy
+---
+calendar
+---
+default
+---
+children
+---
+$$slots
+---
+$$events
+---
+$$legacy
+---
+circle
+---
+circle-help
+---
+default
+---
+children
+---
+$$slots
+---
+$$events
+---
+$$legacy
+---
+circle
+---
+circle
+---
+default
+---
+children
+---
+$$slots
+---
+$$events
+---
+$$legacy
+---
+layers
+---
+default
+---
+children
+---
+$$slots
+---
+$$events
+---
+$$legacy
+---
+default
+---
+children
+---
+$$slots
+---
+$$events
+---
+$$legacy
+---
+default
+---
+children
+---
+$$slots
+---
+$$events
+---
+$$legacy
+---
+sparkles
+---
+default
+---
+children
+---
+$$slots
+---
+$$events
+---
+$$legacy
+---
+polygon
+---
+12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2
+---
+default
+---
+children
+---
+$$slots
+---
+$$events
+---
+$$legacy
+---
+circle
+---
+default
+---
+children
+---
+$$slots
+---
+$$events
+---
+$$legacy
+---
+circle
+---
+default
+---
+children
+---
+$$slots
+---
+$$events
+---
+$$legacy
+---
+default
+---
+beranda
+---
+relative isolate overflow-hidden
+---
+badge sm:mb-4
+---
+Logo Baitul Qur'an Camba
+---
+mx-auto  w-56 sm:w-64 md:w-72 max-w-full h-auto lg:hidden
+---
+text-3xl font-[var(--font-display)] font-bold tracking-tight sm:text-5xl lg:text-6xl
+---
+https://forms.gle/wBK7PpPYVe6uyJqSA
+---
+_blank
+---
+noopener noreferrer
+---
+#program
+---
+btn-outline
+---
+relative hidden lg:block
+---
+Logo Baitul Qur'an Camba
+---
+h-full w-full object-contain p-6
+---
+profil
+---
+mx-auto max-w-5xl
+---
+mt-3 text-2xl font-[var(--font-display)] font-bold tracking-tight sm:text-4xl
+---
+space-y-6
+---
+relative
+---
+relative
+---
+relative
+---
+h-6 w-6
+---
+h-6 w-6
+---
+h-full w-full object-cover transition-transform group-hover:scale-105
+---
+relative mb-6
+---
+mt-3 text-2xl font-[var(--font-display)] font-bold tracking-tight sm:text-4xl
+---
+Ardiansyah, S.Pd.
+---
+Pimpinan Umum Pondok Ikhwan dan Akhwat
+---
+Muhammad Abdurrahman
+---
+Penanggung Jawab Pesantren Ikhwan
+---
+Aisyah Abdurrahman
+---
+Penanggung Jawab Pesantren Akhwat
+---
+Ridwan, S.Pd.I
+---
+Kepala Sekolah Ulya
+---
+Sumarni, S.Pd.
+---
+Kepala Sekolah Wustha
+---
+tenaga-pendidik
+---
+mt-3 text-2xl font-[var(--font-display)] font-bold tracking-tight sm:text-4xl
+---
+relative
+---
+space-y-4
+---
+relative
+---
+space-y-4
+---
+relative
+---
+relative
+---
+h-8 w-8
+---
+h-8 w-8
+---
+h-8 w-8
+---
+h-7 w-7
+---
+h-7 w-7
+---
+h-7 w-7
+---
+keunggulan
+---
+mt-3 text-2xl font-[var(--font-display)] font-bold tracking-tight sm:text-4xl
+---
+mx-auto max-w-5xl
+---
+prose prose-slate max-w-none
+---
+relative
+---
+h-6 w-6
+---
+h-6 w-6
+---
+h-6 w-6
+---
+h-7 w-7
+---
+h-5 w-5
+---
+h-5 w-5
+---
+h-5 w-5
+---
+h-7 w-7
+---
+h-7 w-7
+---
+visi-misi
+---
+lg:col-span-1
+---
+mt-3 text-2xl font-[var(--font-display)] font-bold tracking-tight sm:text-4xl
+---
+Mewujudkan Generasi Qur'ani yang Muhaffizh, Muballigh, Mujaahid
+---
+lg:col-span-2
+---
+mt-4 list-decimal space-y-4 pl-6
+---
+aspect-[16/9] overflow-hidden rounded-xl
+---
+h-full w-full object-cover transition-transform group-hover:scale-105
+---
+fasilitas
+---
+mt-3 text-2xl font-[var(--font-display)] font-bold tracking-tight sm:text-4xl
+---
+Masjid
+---
+Masjid
+---
+Asrama
+---
+Asrama
+---
+Rumah Tamu
+---
+Rumah Tamu
+---
+Kantor
+---
+Kantor
+---
+Program Unggulan
+---
+Tahfizh, Tahsin, Tarbiyah Islamiyah, Keterampilan Dakwah, Pidato 3 Bahasa, Taklim Kitab Kuning, Leadership (Kepemimpinan)
+---
+Program Unggulan
+---
+Ekstrakurikuler
+---
+Volly, Futsal, Bulu Tangkis, Takraw, Tenis Meja, Desain Grafis
+---
+Ekstrakurikuler
+---
+daftar
+---
+text-xl font-[var(--font-display)] font-bold tracking-tight sm:text-3xl
+---
+https://forms.gle/wBK7PpPYVe6uyJqSA
+---
+_blank
+---
+noopener noreferrer
+---
+https://wa.me/6282124880061
+---
+_blank
+---
+noopener noreferrer
+---
+btn-outline
+---
+lokasi
+---
+text-3xl font-[var(--font-display)] font-bold tracking-tight sm:text-4xl
+---
+mt-8 overflow-hidden rounded-2xl border border-border shadow-sm
+---
+aspect-[16/9]
+---
+Lokasi Pondok Pesantren Tahfizh Baitul Qur'an Camba
+---
+border:0
+---
+no-referrer-when-downgrade
+---
+h-full w-full
+---
+_blank
+---
+noopener noreferrer
+---
+Pondok Pesantren Tahfizh Baitul Qur'an Camba
+---
+<!> <main><!> <!> <!> <!> <!> <!> <!>  <!> <!></main> <!>
+---
+Tahfizh Baitul Qur'an Camba, Kab. Maros, Sulawesi Selatan
