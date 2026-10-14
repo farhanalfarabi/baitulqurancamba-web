@@ -515,6 +515,21 @@ body {
 .curriculum-card-body {
   box-shadow: 0 24px 50px -12px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.08);
   border-top-left-radius: 0 !important;
+  min-height: 680px;
+}
+
+@media (min-width: 640px) {
+  .curriculum-card-body {
+    min-height: 720px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .curriculum-card-body {
+    height: 600px;
+    min-height: 600px;
+    max-height: 600px;
+  }
 }
 
 .card-tabs-row {
@@ -576,3 +591,48 @@ body {
     transform: translateX(-50%) rotate(-360deg);
   }
 }
+
+/* ==========================================================================
+   Footer Rotating Cloud Wave Background Animation
+   Exact engine reverse-engineered from Krackerz (.framer-h4nTm .framer-reayh5)
+   and aligned with Hero Section (.krackerz-rotating-wave)
+   ========================================================================== */
+.footer-wave-wrapper {
+  background-color: #FAF7F0;
+  transition: transform 0.15s ease-out;
+  will-change: transform;
+}
+
+.footer-rotating-wave {
+  position: absolute;
+  left: 50%;
+  top: -50px;
+  width: 210%;
+  min-width: 2000px;
+  max-width: 4400px;
+  aspect-ratio: 1;
+  transform: translateX(-50%) rotate(0deg);
+  transform-origin: 50% 50%;
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform;
+  animation: krackerzWaveRotate 68s linear infinite;
+}
+
+@media (max-width: 1024px) {
+  .footer-rotating-wave {
+    top: -35px;
+    width: 240%;
+    min-width: 1700px;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-rotating-wave {
+    top: -20px;
+    width: 280%;
+    min-width: 1500px;
+  }
+}
+
+

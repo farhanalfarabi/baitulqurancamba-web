@@ -83,20 +83,22 @@ Buka browser pada alamat lokal (misalnya `http://localhost:3000`).
    - Foto billboard masjid memiliki bingkai putih tebal pekat 8px.
    - 2 kartu di bawahnya tampil dalam warna solid pekat (**Vermilion Red** dan **Cherry Wine**) tanpa sudut terpotong kartun hitam.
    - Tombol di bawahnya menggunakan double-layer button Krackerz.
-2. **Kurikulum (Alur Stacking Kartu Berdasarkan Scroll - 1:1 Krackerz Original)**:
+2. **Kurikulum (Alur Stacking Kartu Berdasarkan Scroll - 1:1 Krackerz Original & Tinggi Kartu Seragam)**:
+   - **Tinggi Seragam Semua Kartu (Uniform Height Matching)**:
+     - Ketiga kartu (**Kartu 1: Tahfizh**, **Kartu 2: Sekolah**, dan **Kartu 3: Asrama**) kini memiliki **tinggi luar yang sama persis** (`height: 600px` pada layar desktop/laptop).
+     - Judul di ketiga kartu diseragamkan ke format display chunky 3-baris (`text-4xl sm:text-5xl lg:text-6xl leading-[1.05]`):
+       - Kartu 1: `TAHFIZH <br> & SANAD <br> 30 JUZ`
+       - Kartu 2: `SEKOLAH <br> FORMAL & <br> KARAKTER`
+       - Kartu 3: `KEHIDUPAN <br> SANTRI & <br> ASRAMA`
+     - Kolom kiri menggunakan `h-full flex flex-col justify-between`, sehingga tombol **`REGISTER NOW ➔`** di ketiga kartu terkunci di posisi vertikal bawah yang sejajar dan presisi.
+     - Kolom kanan menggunakan `flex items-center justify-center` untuk menempatkan bingkai foto 4:3 tepat di tengah secara vertikal.
+     - **Hasil Stacking Saat Scroll**: Ketika Kartu 2 menumpuk di atas Kartu 1, bagian bawah Kartu 2 menutup badan Kartu 1 secara sempurna (*100% congruent, no bottom peek/spill*). Begitu pula saat Kartu 3 menumpuk di atas Kartu 2.
    - **Bentuk & Sisi Kiri Kartu 1 (Menyatu Mulus 1:1 Gambar Referensi 2 Krackerz)**:
      - Garis vertikal tepi kiri Tab 1 dan tepi kiri badan kartu kini **100% rata, lurus, dan menyatu sempurna (*seamless flush vertical line*)**:
        - Sudut atas Tab 1 melengkung halus (`rounded-tl-[24px]`).
        - Tepi kiri Tab 1 turun lurus vertikal ke bawah, dan langsung mengalir mulus ke tepi kiri badan kartu tanpa adanya lekukan bahu membulat (*no rounded shoulder*), tanpa celah (*no notch/gap*), dan tanpa tonjolan (*no overhang/step*).
        - Badan kartu diset `border-top-left-radius: 0 !important;` sehingga menempel rapat dan solid dengan Tab 1.
-       - Teks tab menggunakan Title Case bersih: **`Tahfizh & Sanad`** dengan ikon vektor buku Al-Qur'an putih rapi di sebelah kirinya (persis seperti gaya `Scenario Based Learning` pada Gambar Referensi 2 Krackerz).
-       - Judul di dalam Kartu 1 disusun dalam 3 baris huruf kapital tebal dinamis:
-         ```
-         TAHFIZH
-         & SANAD
-         30 JUZ
-         ```
-         persis seperti layout `SCENARIO / BASED / LEARNING` pada referensi asli.
+       - Teks tab menggunakan Title Case bersih: **`Tahfizh & Sanad`** dengan ikon vektor buku Al-Qur'an putih rapi di sebelah kirinya.
        - Poin kurikulum menggunakan ikon bintang 8-titik putih (*asterisk* `✱`) Krackerz.
    - **Kondisi Awal (Saat Masuk ke Section Kurikulum)**:
      - Hanya **Kartu 1 (Tahfizh & Sanad)** yang aktif di layar.
@@ -104,18 +106,18 @@ Buka browser pada alamat lokal (misalnya `http://localhost:3000`).
      - Tombol aksi di dalam kartu bertuliskan **`REGISTER NOW ➔`** (Bahasa Inggris murni).
    - **Gulir ke Bawah (Kartu 2 Meluncur dari Bawah & Menumpuk)**:
      - Putar roda mouse ke bawah secara perlahan.
-     - Perhatikan **Kartu 2 (Sekolah Formal)** meluncur naik dari bawah (*slides up from bottom*) dan menutupi badan Kartu 1.
+     - Perhatikan **Kartu 2 (Sekolah Formal & Karakter)** meluncur naik dari bawah (*slides up from bottom*) dan menutupi badan Kartu 1 dengan presisi tinggi yang sama persis.
      - Ketika Kartu 2 terkunci di posisi atas (*sticky*):
        - Tepi kiri kartu tetap rata dan solid tanpa lekukan aneh di bawah Tab 1.
        - Tab 2 (**`Sekolah`** berwarna merah bata `#A52207`) kini muncul tepat di samping Tab 1 dan menyatu ke badan Kartu 2.
-       - Di layar kini tampak **DUA TAB berdampingan** tanpa tabrakan teks atau ikon!
+       - Di layar kini tampak **DUA TAB berdampingan** tanpa tabrakan teks atau ikon.
    - **Gulir Lebih Lanjut (Kartu 3 Meluncur dari Bawah)**:
      - Gulir mouse lebih jauh ke bawah.
-     - **Kartu 3 (Kehidupan Santri)** meluncur naik dari bawah dan menutupi badan Kartu 2.
+     - **Kartu 3 (Kehidupan Santri & Asrama)** meluncur naik dari bawah dan menutupi badan Kartu 2 dengan ukuran tinggi yang sama persis.
      - Ketika Kartu 3 terkunci di posisi atas (*sticky*):
        - Tab 1 dan Tab 2 tetap terlihat utuh berdampingan.
        - Tab 3 (**`Asrama`** berwarna merah anggur pekat `#7C1A06`) kini muncul tepat di samping Tab 2 dengan stiker van hijau Krackerz.
-       - Di layar kini tampak **KETIGA TAB bersanding rapi** membentuk folder berundak yang simetris, lega, dan elegan, dengan garis kiri yang selalu rata dan solid!
+       - Di layar kini tampak **KETIGA TAB bersanding rapi** membentuk folder berundak yang simetris, lega, dan elegan, dengan garis kiri yang selalu rata dan solid serta bagian bawah kartu yang selalu menumpuk rata!
    - **Uji Navigasi Klik Tab**:
      - Saat berada di Kartu 3, klik Tab 1 atau Tab 2: halaman akan secara mulus bergulir (*smooth scroll*) kembali ke posisi kartu yang bersangkutan.
      - Gulir balik ke atas: kartu akan meluncur turun kembali secara alami mengungkap kartu di baliknya.
@@ -150,8 +152,19 @@ Buka browser pada alamat lokal (misalnya `http://localhost:3000`).
 
 ---
 
-### Langkah 8: Verifikasi Formulir Pendaftaran Modal & Footer
-1. Klik tombol **DAFTAR SEKARANG** di manapun pada halaman:
-   - Modal pendaftaran muncul dengan tampilan modern bersih dan tombol kirim double-layer Krackerz.
-   - Isi nama, WhatsApp, pilih jenjang, lalu kirim; periksa pesan konfirmasi sukses.
-2. Periksa form di footer: input bar berbentuk kapsul putih dengan tombol double-layer di dalamnya.
+### Langkah 8: Verifikasi Background Awan Berputar pada Footer (Rotating Cloud Wave #580D14 Sesuai Hero Section)
+1. **Background Awan Berputar Sesuai Hero Section (Rotating Cloud Wave #580D14)**:
+   - Gulir ke bagian paling bawah halaman web hingga mencapai section **Footer / Penerimaan Santri Baru**.
+   - Perhatikan latar belakang dan batas atas footer:
+     - **Bentuk & Mekanisme Serupa Hero Section**: Menggunakan file vektor organik lingkaran awan (`footer-wave-shape.svg`) berdimensi raksasa yang identik dengan Hero Section (`krackerz-wave-shape.svg`).
+     - **Animasi Berputar Halus (Continuous Rotation)**: Awan marun (`#580D14`) **berputar secara kontinu dan anggun** (`animation: krackerzWaveRotate 68s linear infinite;`), menciptakan efek gelombang ombak awan dinamis (*rolling organic wave*) pada batas transisi antara kanvas krem `#FAF7F0` dan footer marun `#580D14`.
+     - **Bebas Garis Datar / Tanpa Potongan Sisi (Zero Shelves / Pure Single Wave Layer)**: Tidak ada garis datar atau div tambahan (`.footer-solid-base` ditiadakan). Berkat diameter raksasa proporsional (`width: 210%`, `min-width: 2000px`), kontur awan melengkung alami dan menutup seluruh badan footer secara solid tanpa bocor di bagian bawah maupun samping.
+     - **Stiker Melayang & Tipografi**: Seluruh konten footer (judul *Penerimaan Santri Baru*, form input pendaftaran, stiker van, roket, pengeras suara, logo, dan tautan footer) berada pada `relative z-10` di atas lapisan awan yang berputar.
+2. **Formulir Pendaftaran & Tombol Kapsul Footer (Pure English UI)**:
+   - Periksa tombol pendaftaran di dalam form kapsul: bertuliskan murni **`REGISTER NOW ➔`**.
+   - Periksa placeholder input: bertuliskan murni **`Enter parent's email or WhatsApp...`**.
+   - Masukkan nomor WhatsApp atau email lalu submit; pesan sukses tampil dalam bahasa Inggris murni: **`🎉 Thank you! Our admissions team will contact you shortly.`**.
+3. **Modal Pendaftaran (Waitlist Modal)**:
+   - Klik tombol **`REGISTER NOW`** di navbar atau kartu; modal pendaftaran muncul dengan tampilan modern bersih dan tombol kirim double-layer Krackerz.
+   - Isi form, pilih jenjang, lalu kirim; periksa pesan konfirmasi sukses.
+
