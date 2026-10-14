@@ -168,3 +168,45 @@ Buka browser pada alamat lokal (misalnya `http://localhost:3000`).
    - Klik tombol **`REGISTER NOW`** di navbar atau kartu; modal pendaftaran muncul dengan tampilan modern bersih dan tombol kirim double-layer Krackerz.
    - Isi form, pilih jenjang, lalu kirim; periksa pesan konfirmasi sukses.
 
+---
+
+### Langkah 9: Verifikasi Halaman Galeri Foto Kolase Acak per Tahun (Scattered Photo Wall by Year)
+1. **Navigasi ke Halaman Galeri**:
+   - Klik menu **`Gallery`** pada Navbar atas (atau buka langsung `http://localhost:3000/gallery.html`).
+   - Perhatikan teks navigasi **`Gallery`** di navbar menyala aktif (merah `#CF2B09`).
+   - Logo pondok di kiri atas dapat diklik kapan saja untuk kembali ke `index.html`.
+2. **Tata Letak Kolase Masonry Rapat & Variasi Tinggi Alami (Tight Masonry "Dempetan" & Varied Heights)**:
+   - Perhatikan susunan kartu foto di setiap seksi tahun:
+     - **Tersusun Rapat ("Dempetan")**: Menggunakan sistem multi-kolom CSS Masonry (`columns-2 sm:columns-3 md:columns-4 lg:columns-5 gap-2.5 sm:gap-3`) dengan jarak antar-foto yang rapat dan presisi (`mb-2.5 sm:mb-3`), sehingga tidak ada celah baris kosong yang canggung.
+     - **Variasi Tinggi Berbeda ("Ada Panjang Ada Pendek")**: Foto-foto mempertahankan rasio aspek alaminya masing-masing (`w-full h-auto`):
+       - Foto vertikal/portrait (seperti *futsal*, *leadership bootcamp*, dan *upacara*) tampil memanjang dan tinggi.
+       - Foto panorama (seperti *gazebo taman*, *asrama*, *masjid*, dan *pidato 3 bahasa*) tampil melebar dan lebih ramping/pendek.
+       - Foto 4:3 dan 16:9 tampil dengan ketinggian proporsional di antara keduanya.
+     - **Murni Foto Saja (Zero Text / No Title & No Desc)**: Kartu foto bersih tanpa judul kartu, tanpa teks deskripsi, dan tanpa footer keterangan.
+     - **Bingkai Putih Taktil**: Tiap foto dibingkai kartu putih bersih (`p-1.5 sm:p-2 bg-white rounded-xl sm:rounded-2xl border-2 border-[#161616] brutal-shadow-sm`).
+     - **Efek Hover Taktil**: Arahkan kursor (*hover*) ke salah satu foto: foto akan membesar halus (`scale-[1.03]`), naik ke lapisan teratas (`z-20`), dan memancarkan bayangan lembut yang dalam (`shadow-2xl`).
+3. **Pengelompokan & Filter Berdasarkan Tahun (Grouped by Year: 2026, 2025, 2024)**:
+   - Galeri terbagi rapi ke dalam seksi per tahun dengan pita header khas Krackerz:
+     - **Year 2026**: 10 foto momentum santri Tahun Ajaran 2025/2026 (halaqah tahfizh, kelas, futsal, masjid, pidato 3 bahasa, gazebo, asrama putri, rumah tamu).
+     - **Year 2025**: 10 foto momentum santri Tahun Ajaran 2024/2025 (muraja'ah sanad, sepak takraw, forum kepemimpinan, asrama santri, tarbiyah, voli).
+     - **Year 2024**: 10 foto momentum santri Tahun Ajaran 2023/2024 (upacara bendera, takraw persahabatan, outbound pramuka, kelas, bengkel dakwah, UKS).
+   - **Uji Tab Filter Tahun (Year Filter Tabs)**:
+     - Klik tab **`Year 2026 (10)`**: Hanya seksi tahun 2026 yang tampil di layar dengan animasi halus.
+     - Klik tab **`Year 2025 (10)`**: Hanya seksi tahun 2025 yang tampil di layar.
+     - Klik tab **`Year 2024 (10)`**: Hanya seksi tahun 2024 yang tampil di layar.
+     - Klik tab **`All Years (30)`**: Seluruh 30 foto dari ketiga tahun kembali tampil lengkap secara berurutan.
+4. **Uji Modal Lightbox Layar Penuh (Pure Large Photo Lightbox)**:
+   - Klik salah satu foto:
+     - Modal Lightbox fullscreen terbuka dengan latar belakang gelap *backdrop-blur*.
+     - Foto beresolusi tinggi tampil jernih dan lega di dalam bingkai putih tebal.
+     - Bar atas menampilkan badge tahun (misal: `2026`), nomor urut foto (`X / 30`), dan tombol tutup `✕`.
+   - **Uji Navigasi Foto**:
+     - Klik tombol panah **`›`** di kanan atau tekan tombol panah kanan (`→`) pada keyboard: Foto berganti maju.
+     - Klik tombol panah **`‹`** di kiri atau tekan tombol panah kiri (`←`) pada keyboard: Foto berganti mundur.
+     - Tekan tombol **`Escape`** (`Esc`) atau klik tombol **`✕`** atau klik latar gelap di luar foto: Modal langsung tertutup seketika.
+5. **Billboard Ajakan Kunjungan & Footer Awan Berputar**:
+   - Di bagian bawah, terdapat billboard marun `#580D14` dengan tombol **`SCHEDULE CAMPUS VISIT ➔`** yang membuka modal pendaftaran santri baru.
+   - Bagian paling dasar menampilkan komponen Footer dengan latar belakang ombak awan berputar marun `#580D14` (*krackerz rotating cloud wave*).
+
+
+

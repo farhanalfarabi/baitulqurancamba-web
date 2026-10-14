@@ -11,6 +11,7 @@ window.initKrackerzApp = function() {
   initWaitlistModal();
   initHeroWaveParallax();
   initHeroCardsScrollStraighten();
+  initGalleryInteractivity();
 };
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -434,3 +435,158 @@ function initHeroCardsScrollStraighten() {
   currentP = targetP;
   applyProgress(currentP);
 }
+
+/* ==========================================================================
+   9. Gallery Interactivity (Year Filtering & Pure Photo Lightbox)
+   ========================================================================== */
+function initGalleryInteractivity() {
+  const yearFilterContainer = document.getElementById('gallery-year-filter');
+  const lightbox = document.getElementById('gallery-lightbox');
+
+  // Highlight active nav link on gallery page
+  const currentPath = window.location.pathname;
+  if (currentPath.includes('gallery.html')) {
+    const galleryLinks = document.querySelectorAll('a[href*="gallery.html"]');
+    galleryLinks.forEach(link => {
+      link.classList.add('text-[#CF2B09]', 'font-bold');
+    });
+  }
+
+  const photoCards = Array.from(document.querySelectorAll('.photo-card'));
+  const yearSections = Array.from(document.querySelectorAll('.gallery-year-section'));
+
+  // 1. Year Filtering Tabs
+  if (yearFilterContainer && yearSections.length > 0) {
+    const tabs = yearFilterContainer.querySelectorAll('.year-tab-btn');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const year = tab.getAttribute('data-year');
+
+        // Update active tab styles
+        tabs.forEach(t => {
+          t.classList.remove('active', 'bg-[#121212]', 'text-lime', 'brutal-shadow-sm');
+          t.classList.add('bg-white', 'text-[#121212]', 'border-transparent');
+        });
+        tab.classList.add('active', 'bg-[#121212]', 'text-lime', 'brutal-shadow-sm');
+        tab.classList.remove('bg-white', 'text-[#121212]', 'border-transparent');
+
+        // Filter Year Sections
+        yearSections.forEach(section => {
+          const sectionId = section.id; // e.g. section-2026
+          if (year === 'all' || sectionId === `section-${year}`) {
+            section.style.display = '';
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(12px)';
+            requestAnimationFrame(() => {
+              section.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+              section.style.opacity = '1';
+              section.style.transform = 'translateY(0)';
+            });
+          } else {
+            section.style.display = 'none';
+          }
+        });
+      });
+    });
+  }
+
+  // 2. Pure Photo Lightbox Viewer
+  if (!lightbox || photoCards.length === 0) return;
+
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxYear = document.getElementById('lightbox-year');
+  const lightboxCounter = document.getElementById('lightbox-counter');
+  const closeBtn = document.getElementById('lightbox-close-btn');
+  const prevBtn = document.getElementById('lightbox-prev-btn');
+  const nextBtn = document.getElementById('lightbox-next-btn');
+
+  let currentIndex = 0;
+  let visibleCards = photoCards;
+
+  function updateVisibleCards() {
+    visibleCards = photoCards.filter(card => {
+      const parentSection = card.closest('.gallery-year-section');
+      return !parentSection || parentSection.style.display !== 'none';
+    });
+  }
+
+  function openLightbox(index) {
+    updateVisibleCards();
+    if (!visibleCards.length) return;
+
+    currentIndex = (index + visibleCards.length) % visibleCards.length;
+    const currentCard = visibleCards[currentIndex];
+    const imgEl = currentCard.querySelector('img');
+    const yearVal = currentCard.getAttribute('data-year') || 'CAMPUS';
+
+    if (imgEl && lightboxImg) {
+      lightboxImg.src = imgEl.src;
+      lightboxImg.alt = imgEl.alt || 'Gallery photo';
+    }
+    if (lightboxYear) {
+      lightboxYear.textContent = yearVal;
+    }
+    if (lightboxCounter) {
+      lightboxCounter.textContent = `${currentIndex + 1} / ${visibleCards.length}`;
+    }
+
+    lightbox.classList.remove('hidden');
+    lightbox.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.add('hidden');
+    lightbox.classList.remove('flex');
+    document.body.style.overflow = '';
+  }
+
+  function showNext() {
+    updateVisibleCards();
+    if (visibleCards.length > 0) {
+      openLightbox((currentIndex + 1) % visibleCards.length);
+    }
+  }
+
+  function showPrev() {
+    updateVisibleCards();
+    if (visibleCards.length > 0) {
+      openLightbox((currentIndex - 1 + visibleCards.length) % visibleCards.length);
+    }
+  }
+
+  // Attach click listener to each scattered photo card
+  photoCards.forEach(card => {
+    card.addEventListener('click', () => {
+      updateVisibleCards();
+      const idx = visibleCards.indexOf(card);
+      if (idx !== -1) {
+        openLightbox(idx);
+      }
+    });
+  });
+
+  // Buttons event listeners
+  if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+  if (nextBtn) nextBtn.addEventListener('click', showNext);
+  if (prevBtn) prevBtn.addEventListener('click', showPrev);
+
+  // Close when clicking backdrop outside modal content
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  // Keyboard navigation support (Esc, Left arrow, Right arrow)
+  document.addEventListener('keydown', (e) => {
+    if (lightbox.classList.contains('flex')) {
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') showNext();
+      if (e.key === 'ArrowLeft') showPrev();
+    }
+  });
+}
+
+
