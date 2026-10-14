@@ -1,70 +1,71 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 100" fill="none">
-  <!-- BQC Camba Mobil Operasional Pesantren Sticker -->
-  <g filter="drop-shadow(3px 3px 0px #121212)">
-    <!-- Van Body Base -->
-    <path d="M15 65 L15 35 C15 25 25 18 45 16 L125 16 C140 16 150 24 150 40 L150 70 C150 75 145 76 140 76 L130 76 C130 68 122 62 114 62 C106 62 98 68 98 76 L62 76 C62 68 54 62 46 62 C38 62 30 68 30 76 L20 76 C15 76 15 70 15 65 Z" 
+  <!-- BQC Bespoke Sticker: Kuda Pacu Sunnah (Noble Sunnah Equestrian) -->
+  <defs>
+    <filter id="horseSunnahShadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="4" dy="4" stdDeviation="0" flood-color="#121212" />
+    </filter>
+  </defs>
+
+  <g filter="url(#horseSunnahShadow)">
+    <!-- Background Dynamic Speed / Aura Badge (Electric Lime #D4FF00) -->
+    <path d="M20 50 C20 26 40 10 75 10 L140 10 C148 10 152 16 150 24 L142 66 C140 76 130 84 120 84 L50 84 C30 84 20 70 20 50 Z" 
           fill="#D4FF00" stroke="#121212" stroke-width="4" stroke-linejoin="round"/>
-    
-    <!-- Van Roof Rack & Top Highlight -->
-    <rect x="35" y="10" width="90" height="4" rx="2" fill="#121212"/>
-    <line x1="50" y1="14" x2="50" y2="16" stroke="#121212" stroke-width="3"/>
-    <line x1="80" y1="14" x2="80" y2="16" stroke="#121212" stroke-width="3"/>
-    <line x1="110" y1="14" x2="110" y2="16" stroke="#121212" stroke-width="3"/>
 
-    <!-- Windows (Tinted Black with Gloss Highlights) -->
-    <!-- Front Windshield -->
-    <path d="M22 34 C25 24 35 22 46 22 L55 22 L55 42 L22 42 Z" fill="#121212"/>
-    <polygon points="26,38 34,26 38,26 30,38" fill="#FFFFFF" opacity="0.35"/>
+    <!-- Speed Dash Lines (Left Side) -->
+    <line x1="8" y1="36" x2="22" y2="36" stroke="#121212" stroke-width="3" stroke-linecap="round"/>
+    <line x1="12" y1="48" x2="26" y2="48" stroke="#121212" stroke-width="3.5" stroke-linecap="round"/>
+    <line x1="16" y1="60" x2="28" y2="60" stroke="#121212" stroke-width="3" stroke-linecap="round"/>
 
-    <!-- Side Window 1 -->
-    <rect x="62" y="22" width="24" height="20" rx="3" fill="#121212"/>
-    <polygon points="66,38 74,26 78,26 70,38" fill="#FFFFFF" opacity="0.35"/>
+    <!-- Noble Horse Head & Neck Silhouette (Crisp White #FFFFFF) -->
+    <g id="horse-head">
+      <!-- Neck Base -->
+      <path d="M125 80 C118 64 108 50 104 38 C102 32 98 22 96 16 L84 22 C84 22 86 14 82 14 C78 14 74 22 72 26 C68 28 58 32 50 42 C44 48 38 52 32 54 C28 56 30 62 36 62 C42 62 50 58 56 62 C58 70 66 78 78 80 Z" 
+            fill="#FFFFFF" stroke="#121212" stroke-width="3.5" stroke-linejoin="round"/>
 
-    <!-- Side Window 2 -->
-    <rect x="92" y="22" width="24" height="20" rx="3" fill="#121212"/>
-    <polygon points="96,38 104,26 108,26 100,38" fill="#FFFFFF" opacity="0.35"/>
+      <!-- Muzzle / Snout -->
+      <path d="M32 54 C30 56 30 60 36 62 C42 62 48 58 54 59" stroke="#121212" stroke-width="2.5" fill="none"/>
+      <!-- Nostril -->
+      <ellipse cx="38" cy="57" rx="2.5" ry="1.8" fill="#121212" transform="rotate(-15 38 57)"/>
 
-    <!-- Rear Window -->
-    <rect x="122" y="22" width="22" height="20" rx="3" fill="#121212"/>
-    <polygon points="126,38 134,26 138,26 130,38" fill="#FFFFFF" opacity="0.35"/>
+      <!-- Eye (Spirited, Focused, Proud) -->
+      <ellipse cx="60" cy="42" rx="4.5" ry="3.5" fill="#121212" transform="rotate(-10 60 42)"/>
+      <circle cx="61.5" cy="41" r="1.2" fill="#FFFFFF"/>
+      <path d="M55 38 C58 36 63 36 66 39" stroke="#121212" stroke-width="2" fill="none"/>
 
-    <!-- Side Fleet Stripe & Wordmark -->
-    <rect x="15" y="46" width="135" height="18" fill="#CF2B09" stroke="#121212" stroke-width="2"/>
-    
-    <!-- Crescent & Star Logo next to text -->
-    <circle cx="28" cy="55" r="5" fill="#FFFFFF"/>
-    <circle cx="29.5" cy="54" r="4.2" fill="#CF2B09"/>
-    <polygon points="31,52 31.8,53.5 33.5,53.8 32.2,55 32.5,56.5 31,55.8 29.5,56.5 29.8,55 28.5,53.8 30.2,53.5" fill="#D4FF00"/>
+      <!-- Horse Ears -->
+      <path d="M84 22 L86 12 C86 9 82 9 80 14 Z" fill="#FFFFFF" stroke="#121212" stroke-width="2.5"/>
+      <path d="M80 18 L76 10 C76 8 72 9 72 14 Z" fill="#F4F4F5" stroke="#121212" stroke-width="2.5"/>
 
-    <!-- Official Brand Text: BQC CAMBA -->
-    <text x="88" y="59" font-family="'Space Grotesk', sans-serif" font-weight="900" font-size="11" fill="#FFFFFF" text-anchor="middle" letter-spacing="2">
-      BQC CAMBA
-    </text>
+      <!-- Flowing Windblown Mane (Black & Lime Strands) -->
+      <path d="M86 16 C94 22 98 32 108 34 C100 36 94 36 92 40 C102 44 106 52 118 54 C110 56 104 56 102 62 C114 66 118 74 128 78 L124 80 C114 76 104 68 98 56 C94 48 90 38 88 28 Z" 
+            fill="#121212" stroke="#121212" stroke-width="2"/>
+      <!-- Mane Highlights -->
+      <path d="M96 26 C102 32 106 40 112 42" stroke="#D4FF00" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+      <path d="M102 48 C108 54 112 60 118 64" stroke="#D4FF00" stroke-width="2.5" stroke-linecap="round" fill="none"/>
 
-    <!-- Headlight & Front Grille -->
-    <circle cx="19" cy="55" r="4" fill="#FFFFFF" stroke="#121212" stroke-width="2"/>
-    <rect x="15" y="62" width="6" height="3" rx="1" fill="#F59E0B" stroke="#121212" stroke-width="1"/>
+      <!-- Ceremonial Islamic Bridle / Harness (Vermilion Crimson #CF2B09) -->
+      <!-- Crownpiece strap -->
+      <path d="M74 25 L68 46 L62 58" stroke="#CF2B09" stroke-width="3" stroke-linecap="round" fill="none"/>
+      <!-- Noseband strap -->
+      <path d="M48 52 L58 60" stroke="#CF2B09" stroke-width="3" stroke-linecap="round" fill="none"/>
+      <!-- Browband strap -->
+      <path d="M68 35 L76 34" stroke="#CF2B09" stroke-width="3" stroke-linecap="round" fill="none"/>
+      
+      <!-- Gold Harness Medallion (Islamic Star Stud) -->
+      <circle cx="68" cy="46" r="4.5" fill="#F59E0B" stroke="#121212" stroke-width="2"/>
+      <polygon points="68,43 69,45 71,46 69,47 68,49 67,47 65,46 67,45" fill="#121212"/>
+    </g>
 
-    <!-- Taillight -->
-    <rect x="146" y="50" width="4" height="8" rx="1.5" fill="#EF4444" stroke="#121212" stroke-width="1.5"/>
+    <!-- Sunnah Badge Stamp (Right Bottom) -->
+    <g transform="translate(94, 60)">
+      <rect x="0" y="0" width="46" height="18" rx="4" fill="#CF2B09" stroke="#121212" stroke-width="2"/>
+      <text x="23" y="13" font-family="'Space Grotesk', sans-serif" font-weight="900" font-size="9" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">
+        SUNNAH
+      </text>
+    </g>
 
-    <!-- Wheels -->
-    <!-- Front Wheel -->
-    <circle cx="46" cy="76" r="14" fill="#121212"/>
-    <circle cx="46" cy="76" r="8" fill="#FFFFFF" stroke="#121212" stroke-width="2"/>
-    <circle cx="46" cy="76" r="3" fill="#CF2B09"/>
-    <circle cx="46" cy="70" r="1" fill="#121212"/>
-    <circle cx="46" cy="82" r="1" fill="#121212"/>
-    <circle cx="40" cy="76" r="1" fill="#121212"/>
-    <circle cx="52" cy="76" r="1" fill="#121212"/>
-    
-    <!-- Rear Wheel -->
-    <circle cx="114" cy="76" r="14" fill="#121212"/>
-    <circle cx="114" cy="76" r="8" fill="#FFFFFF" stroke="#121212" stroke-width="2"/>
-    <circle cx="114" cy="76" r="3" fill="#CF2B09"/>
-    <circle cx="114" cy="70" r="1" fill="#121212"/>
-    <circle cx="114" cy="82" r="1" fill="#121212"/>
-    <circle cx="108" cy="76" r="1" fill="#121212"/>
-    <circle cx="120" cy="76" r="1" fill="#121212"/>
+    <!-- Sparkle Stars -->
+    <polygon points="138,20 139,23 142,24 139,25 138,28 137,25 134,24 137,23" fill="#F59E0B"/>
+    <polygon points="50,18 51,20 53,21 51,22 50,24 49,22 47,21 49,20" fill="#FFFFFF"/>
   </g>
 </svg>

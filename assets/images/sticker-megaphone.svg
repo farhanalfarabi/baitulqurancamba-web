@@ -1,34 +1,56 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 80" fill="none">
-  <!-- BQC Syiar & Muhadharah Megaphone Sticker -->
-  <g filter="drop-shadow(3px 3px 0px #121212)">
-    <!-- Sound Waves / Syiar Rays Emitting from Horn (Right Side) -->
-    <path d="M72 20 C76 26 78 34 78 40 C78 46 76 54 72 60" stroke="#CF2B09" stroke-width="3" stroke-linecap="round" fill="none"/>
-    <path d="M80 14 C85 22 88 31 88 40 C88 49 85 58 80 66" stroke="#D4FF00" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <!-- BQC Bespoke Sticker: Menara Azan & Kubah Masjid (Sacred Call to Prayer) -->
+  <defs>
+    <filter id="minaretMosqueShadow" x="-15%" y="-15%" width="135%" height="135%">
+      <feDropShadow dx="3" dy="3" stdDeviation="0" flood-color="#121212" />
+    </filter>
+  </defs>
 
-    <!-- Small Speech Sparkle -->
-    <polygon points="76,10 78,13 81,14 78,15 76,18 75,15 72,14 75,13" fill="#F59E0B"/>
+  <g filter="url(#minaretMosqueShadow)">
+    <!-- Expanding Azan Sound Waves (Sacred Proclamation to the Skies) -->
+    <path d="M48 18 C56 18 64 24 64 34 C64 44 56 50 48 50" stroke="#D4FF00" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <path d="M54 12 C66 12 76 22 76 34 C76 46 66 56 54 56" stroke="#CF2B09" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <path d="M60 6 C76 6 86 18 86 34 C86 50 76 62 60 62" stroke="#121212" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="3 3" fill="none"/>
 
-    <!-- Handle & Grip -->
-    <path d="M36 46 L30 68 C30 71 35 73 39 71 L43 49" fill="#121212" stroke="#121212" stroke-width="2"/>
-    <line x1="33" y1="56" x2="39" y2="58" stroke="#D4FF00" stroke-width="1.5"/>
-    <line x1="32" y1="62" x2="38" y2="64" stroke="#D4FF00" stroke-width="1.5"/>
+    <!-- Mosque Dome (Background Left) -->
+    <path d="M12 72 L12 56 C12 42 24 34 32 32 C40 34 52 42 52 56 L52 72 Z" 
+          fill="#CF2B09" stroke="#121212" stroke-width="3" stroke-linejoin="round"/>
+    <!-- Dome Base Trim -->
+    <rect x="10" y="68" width="44" height="6" fill="#F59E0B" stroke="#121212" stroke-width="2"/>
+    <!-- Small Crescent on Dome -->
+    <path d="M33 26 C31 26 29 27.5 29 29.5 C29 31.5 31 33 33 33 C34 33 35 32.5 35.5 32 C34 32.2 32.8 31.2 32.8 29.5 C32.8 27.8 34 26.8 35.5 27 C35 26.5 34 26 33 26 Z" fill="#D4FF00" stroke="#121212" stroke-width="1.5"/>
+    <line x1="32" y1="32" x2="32" y2="34" stroke="#121212" stroke-width="2"/>
 
-    <!-- Megaphone Cone (Body) -->
-    <polygon points="28,32 64,16 64,64 28,48" fill="#D4FF00" stroke="#121212" stroke-width="3.5" stroke-linejoin="round"/>
+    <!-- Main Minaret Tower (Foreground Center-Right) -->
+    <!-- Tower Shaft -->
+    <polygon points="34,74 38,28 48,28 52,74" fill="#FFFFFF" stroke="#121212" stroke-width="3.5" stroke-linejoin="round"/>
+    
+    <!-- Shaft Window Arches -->
+    <path d="M41 42 C41 38 45 38 45 42 L45 50 L41 50 Z" fill="#121212"/>
+    <path d="M41 58 C41 54 45 54 45 58 L45 66 L41 66 Z" fill="#121212"/>
 
-    <!-- Center Crimson Stripe on Cone with BQC Monogram -->
-    <polygon points="40,26 52,21 52,59 40,54" fill="#CF2B09" stroke="#121212" stroke-width="2"/>
-    <text x="46" y="44" font-family="'Space Grotesk', sans-serif" font-weight="900" font-size="8" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">BQC</text>
+    <!-- Mu'azzin Balcony / Gallery (Where Azan is Called) -->
+    <rect x="33" y="24" width="20" height="6" rx="1.5" fill="#D4FF00" stroke="#121212" stroke-width="2.5"/>
+    <!-- Balcony Railing Details -->
+    <line x1="37" y1="26" x2="37" y2="28" stroke="#121212" stroke-width="1.5"/>
+    <line x1="43" y1="26" x2="43" y2="28" stroke="#121212" stroke-width="1.5"/>
+    <line x1="49" y1="26" x2="49" y2="28" stroke="#121212" stroke-width="1.5"/>
 
-    <!-- Back Cylinder & Microphone Button -->
-    <ellipse cx="28" cy="40" rx="6" ry="8" fill="#FFFFFF" stroke="#121212" stroke-width="3"/>
-    <rect x="18" y="36" width="6" height="8" rx="2" fill="#121212" stroke="#121212" stroke-width="1.5"/>
+    <!-- Minaret Lantern / Upper Pavilion -->
+    <polygon points="37,24 39,14 47,14 49,24" fill="#CF2B09" stroke="#121212" stroke-width="2.5"/>
 
-    <!-- Horn Front Rim / Mouth Ring -->
-    <ellipse cx="64" cy="40" rx="4.5" ry="24" fill="#FFFFFF" stroke="#121212" stroke-width="3.5"/>
-    <ellipse cx="64" cy="40" rx="2" ry="16" fill="#121212"/>
+    <!-- Minaret Conical Spire (Roof Cone) -->
+    <polygon points="39,14 43,4 47,14" fill="#D4FF00" stroke="#121212" stroke-width="2.5" stroke-linejoin="round"/>
 
-    <!-- Top Hanging Loop / Strap -->
-    <path d="M32 30 C32 24 44 24 44 26" stroke="#121212" stroke-width="2" fill="none"/>
+    <!-- Golden Crescent Finial at Peak of Minaret -->
+    <path d="M44 0 C42 0 40 1.5 40 3.5 C40 5.5 42 7 44 7 C45 7 46 6.5 46.5 6 C45 6.2 43.8 5.2 43.8 3.5 C43.8 1.8 45 0.8 46.5 1 C46 0.5 45 0 44 0 Z" fill="#F59E0B" stroke="#121212" stroke-width="1.2"/>
+    <line x1="43" y1="4" x2="43" y2="5" stroke="#121212" stroke-width="1.5"/>
+
+    <!-- Mosque Wall Foundation -->
+    <rect x="8" y="72" width="70" height="6" rx="2" fill="#121212"/>
+
+    <!-- Sparkling Stars of Blessing -->
+    <polygon points="20,16 21,18 23,19 21,20 20,22 19,20 17,19 19,18" fill="#F59E0B"/>
+    <polygon points="78,38 79,40 81,41 79,42 78,44 77,42 75,41 77,40" fill="#D4FF00"/>
   </g>
 </svg>

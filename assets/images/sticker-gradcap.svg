@@ -1,39 +1,67 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 90" fill="none">
-  <!-- BQC Wisuda Santri & Ijazah Sanad Sticker -->
-  <g filter="drop-shadow(3px 3px 0px #121212)">
-    <!-- Rolled Diploma / Sanad Scroll (Back Layer) -->
-    <g transform="translate(14, 52) rotate(-14)">
-      <!-- Scroll Tube -->
-      <rect x="0" y="0" width="68" height="18" rx="4" fill="#FFFDF0" stroke="#121212" stroke-width="3"/>
-      <!-- Inner Scroll Ends -->
-      <ellipse cx="2" cy="9" rx="3" ry="8" fill="#F4E8C1" stroke="#121212" stroke-width="2"/>
-      <ellipse cx="68" cy="9" rx="3" ry="8" fill="#FFFDF0" stroke="#121212" stroke-width="2"/>
-      <!-- Crimson Ribbon Tie -->
-      <rect x="30" y="-1" width="10" height="20" fill="#CF2B09" stroke="#121212" stroke-width="2"/>
-      <!-- Ribbon Tails -->
-      <path d="M32 18 L28 30 L35 27 L40 31 L38 18" fill="#CF2B09" stroke="#121212" stroke-width="2"/>
-      <!-- Gold Wax Seal with Star -->
-      <circle cx="35" cy="10" r="5" fill="#F59E0B" stroke="#121212" stroke-width="1.5"/>
-      <polygon points="35,7 36,9 38,9.5 36.5,11 37,13 35,12 33,13 33.5,11 32,9.5 34,9" fill="#121212"/>
+  <!-- BQC Bespoke Sticker: Mahkota Kemuliaan Hafizh Al-Qur'an (Tajul Karomah) -->
+  <defs>
+    <filter id="crownKaromahShadow" x="-15%" y="-15%" width="135%" height="135%">
+      <feDropShadow dx="3" dy="3" stdDeviation="0" flood-color="#121212" />
+    </filter>
+  </defs>
+
+  <g filter="url(#crownKaromahShadow)">
+    <!-- Divine Radiant Aura / Sunburst beneath the Crown -->
+    <path d="M20 74 L14 84" stroke="#F59E0B" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="30" y1="78" x2="26" y2="88" stroke="#D4FF00" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="42" y1="80" x2="40" y2="90" stroke="#F59E0B" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="58" y1="80" x2="60" y2="90" stroke="#F59E0B" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="70" y1="78" x2="74" y2="88" stroke="#D4FF00" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="80" y1="74" x2="86" y2="84" stroke="#F59E0B" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- Velvet Ceremonial Cap / Inner Cushion (Crimson #CF2B09) -->
+    <path d="M22 66 C22 46 34 38 50 38 C66 38 78 46 78 66 Z" fill="#CF2B09" stroke="#121212" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M36 44 C42 41 58 41 64 44" stroke="#FFFFFF" stroke-width="1.5" opacity="0.4" fill="none"/>
+
+    <!-- Golden Crown Peaks & Arch Structure (Electric Lime #D4FF00 & Gold #F59E0B) -->
+    <!-- Crown Spires (5 Peaks) -->
+    <path d="
+      M 16 66 
+      L 18 36 L 28 48 
+      L 36 24 L 44 42 
+      L 50 14 
+      L 56 42 L 64 24 
+      L 72 48 L 82 36 
+      L 84 66 Z
+    " fill="#D4FF00" stroke="#121212" stroke-width="3.5" stroke-linejoin="round"/>
+
+    <!-- Central Scepter Crescent & Star on the Highest Peak -->
+    <g transform="translate(50, 8)">
+      <circle cx="0" cy="0" r="6" fill="#F59E0B" stroke="#121212" stroke-width="1.8"/>
+      <path d="M1 -4 C-2 -4 -4 -2 -4 0 C-4 2 -2 4 1 4 C2.5 4 3.5 3.3 4 2.5 C2 2.6 0.5 1.4 0.5 0 C0.5 -1.4 2 -2.6 4 -2.5 C3.5 -3.3 2.5 -4 1 -4 Z" fill="#121212"/>
     </g>
 
-    <!-- Graduation Toga Cap (Front Layer) -->
-    <!-- Skull Cap Base Underneath -->
-    <path d="M30 32 L30 48 C30 56 68 56 68 48 L68 32" fill="#121212" stroke="#121212" stroke-width="3.5"/>
-    <path d="M32 46 C36 50 62 50 66 46" stroke="#D4FF00" stroke-width="2.5" fill="none"/>
+    <!-- Side Jewels on the Spire Tips -->
+    <circle cx="18" cy="36" r="3" fill="#F59E0B" stroke="#121212" stroke-width="1.5"/>
+    <circle cx="36" cy="24" r="3.5" fill="#CF2B09" stroke="#121212" stroke-width="1.5"/>
+    <circle cx="64" cy="24" r="3.5" fill="#CF2B09" stroke="#121212" stroke-width="1.5"/>
+    <circle cx="82" cy="36" r="3" fill="#F59E0B" stroke="#121212" stroke-width="1.5"/>
 
-    <!-- Mortarboard Diamond -->
-    <polygon points="49,10 88,26 49,42 10,26" fill="#D4FF00" stroke="#121212" stroke-width="3.5" stroke-linejoin="round"/>
-    <!-- Mortarboard Center Button -->
-    <ellipse cx="49" cy="26" rx="4" ry="2.5" fill="#121212" stroke="#121212" stroke-width="1.5"/>
+    <!-- Lower Crown Circlet / Diadem Base -->
+    <rect x="14" y="64" width="72" height="14" rx="3" fill="#121212" stroke="#121212" stroke-width="2"/>
+    <rect x="16" y="66" width="68" height="10" rx="2" fill="#F59E0B" stroke="#121212" stroke-width="1.5"/>
 
-    <!-- Tassel Cord & Brush -->
-    <path d="M49 26 C36 28 26 36 24 48 L22 62" stroke="#F59E0B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-    <!-- Tassel Brush -->
-    <path d="M19 62 L25 62 L27 74 L17 74 Z" fill="#F59E0B" stroke="#121212" stroke-width="2"/>
-    <rect x="18" y="61" width="8" height="3" rx="1" fill="#121212"/>
+    <!-- Inset Precious Emeralds & Rubies on the Diadem Band -->
+    <!-- Emerald 1 (Green) -->
+    <polygon points="24,68 28,71 24,74 20,71" fill="#15803D" stroke="#121212" stroke-width="1"/>
+    <!-- Ruby (Red) -->
+    <circle cx="36" cy="71" r="2.5" fill="#CF2B09" stroke="#121212" stroke-width="1"/>
+    <!-- Center Grand Diamond / Star -->
+    <polygon points="50,67 53,71 50,75 47,71" fill="#FFFFFF" stroke="#121212" stroke-width="1.2"/>
+    <!-- Ruby (Red) -->
+    <circle cx="64" cy="71" r="2.5" fill="#CF2B09" stroke="#121212" stroke-width="1"/>
+    <!-- Emerald 2 (Green) -->
+    <polygon points="76,68 80,71 76,74 72,71" fill="#15803D" stroke="#121212" stroke-width="1"/>
 
-    <!-- Sparkle Stars -->
-    <polygon points="84,8 85,11 88,12 85,13 84,16 83,13 80,12 83,11" fill="#F59E0B"/>
+    <!-- Sparkles of Eternal Honor (Tajul Karomah) -->
+    <polygon points="12,18 13,20 15,21 13,22 12,24 11,22 9,21 11,20" fill="#F59E0B"/>
+    <polygon points="88,18 89,20 91,21 89,22 88,24 87,22 85,21 87,20" fill="#F59E0B"/>
+    <polygon points="50,26 51,28 53,29 51,30 50,32 49,30 47,29 49,28" fill="#FFFFFF"/>
   </g>
 </svg>

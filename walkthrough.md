@@ -491,24 +491,24 @@ Sesuai permintaan dan gambar referensi dari user (seksi `"YOU'RE not ALONE ⚡"`
 
 ---
 
-## 🎨 Redesain 10 Aset Maskot & Stiker Kustom Tematik Pondok Pesantren Baitul Qur'an Camba (BQC)
+## 🕌 Redesain Total 10 Aset Ikon: Simbol Otentik Pesantren Tahfizh Baitul Qur'an Camba (BQC)
 
-Sebagai tindak lanjut dari permintaan user untuk mendesain ulang seluruh 10 aset stiker dan maskot agar **tidak lagi menggunakan aset bawaan template Krackerz** dan menjadi **100% otentik, unik, dan identik dengan Pondok Pesantren Tahfizh Baitul Qur'an Camba (BQC)**, seluruh file SVG di direktori [`assets/images/`](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/assets/images/) telah dirombak total.
+Menanggapi permintaan user untuk **tidak hanya sekadar memodifikasi aset template lama (van, soda, petir, megafon, roket, trofi)**, melainkan menciptakan **ikon-ikon yang benar-benar BARU, BERBEDA, dan MELEKAT SEJALAN dengan identitas kepesantrenan Al-Qur'an**, seluruh 10 aset telah diganti dengan simbol-simbol sakral dan tradisi luhur Pesantren Tahfizh Baitul Qur'an Camba:
 
-### 📋 Ringkasan Transformasi 10 Aset Vektor (SVG)
+### 📋 Transformasi 10 Simbol Otentik Baru Pesantren BQC
 
-| No | File Asset | Transformasi dari Bawaan Lama | Desain Baru Otentik Pesantren BQC | Dimensi ViewBox |
+| No | File Asset | Konsep Lama | Simbol Baru Otentik Pesantren BQC | Makna Filosofis & Visual |
 |---|---|---|---|---|
-| 1 | [`mascot-cracker.svg`](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/assets/images/mascot-cracker.svg) | Biskuit cracker bulat berkacamata hitam & kumis | **Santri Cilik Hafizh BQC**: Maskot santri muda ramah berkopiah hitam (peci nasional) beraksen pin bintang emas, baju koko putih berkerah shanghai hijau, mengapit mushaf Al-Qur'an bersampul hijau-emas bertali pembatas merah, serta pose mengacungkan jempol penuh semangat. | `0 0 200 240` |
-| 2 | [`mascot-cracker-c.svg`](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/assets/images/mascot-cracker-c.svg) | Biskuit berlekuk huruf C generik | **Maskot Huruf "C" (Camba) Pesantren**: Huruf C tebal (*chunky vermilion*) yang mengenakan peci hitam miring bergaris neon lime di ujung atasnya, dengan ornamen bulan sabit dan bintang emas di rongga huruf, serta mata kartun ceria. | `0 0 160 170` |
-| 3 | [`sticker-gradcap.svg`](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/assets/images/sticker-gradcap.svg) | Topi toga wisuda sederhana | **Wisuda Santri & Ijazah Sanad**: Topi toga sarjana dipadukan dengan gulungan ijazah/sanad Al-Qur'an klasik (*rolled parchment diploma*) yang diikat pita merah tua berstempel segel bintang emas. | `0 0 100 90` |
-| 4 | [`sticker-lightning.svg`](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/assets/images/sticker-lightning.svg) | Poligon kilat kuning polos satu lapis | **Energetic Tahfizh Spark**: Kilat Neo-Brutalist Electric Lime bergradasi garis aksen merah vermilion dan kilau putih tajam, dikelilingi percikan bintang cahaya (*Nur Al-Qur'an*). | `0 0 100 120` |
-| 5 | [`sticker-megaphone.svg`](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/assets/images/sticker-megaphone.svg) | Megafon generik warna polos | **Megafon Syiar & Muhadharah 3 Bahasa**: Pengeras suara orasi dakwah bergaris merah bertuliskan **BQC** di badannya, dilengkapi gelombang suara orasi merdu dan bintang syiar. | `0 0 90 80` |
-| 6 | [`sticker-rocket.svg`](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/assets/images/sticker-rocket.svg) | Roket kartun dasar sederhana | **Roket Prestasi & Cita-Cita Santri**: Roket peluncur kemajuan santri dengan jendela kabin bergambar lambang bulan sabit & bintang emas, sayap aerodinamis merah, serta semburan api bertingkat. | `0 0 90 90` |
-| 7 | [`sticker-soda.svg`](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/assets/images/sticker-soda.svg) | Cup soda cepat saji berhuruf "K" (*Krakerz*) | **Tumbler Minum Santri / Botol Zam-zam BQC**: Botol minum stainless santri ramah lingkungan bertutup ulir dengan pengait pegangan, emblem tetesan air murni, dan cap tegas bertuliskan **BQC**. | `0 0 80 110` |
-| 8 | [`sticker-starburst.svg`](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/assets/images/sticker-starburst.svg) | Lencana bergerigi berteks *"BITE LEARN REPEAT"* | **Lencana Badge "30 JUZ MUTQIN SANAD"**: Lencana tactile starburst 16 titik berlatar Electric Lime dengan lingkaran stempel putih-merah dan teks tipografi tegas: `30 JUZ`, `MUTQIN`, `SANAD`. | `0 0 100 100` |
-| 9 | [`sticker-trophy.svg`](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/assets/images/sticker-trophy.svg) | Piala satu warna generik | **Piala Juara MTQ & Sains BQC**: Piala kejuaraan emas berukir ornamen bintang 8 sudut (*Rub el Hizb*) islami di bagian muka, dan plat nama bertuliskan **BQC** pada pedestal hitamnya. | `0 0 100 100` |
-| 10 | [`sticker-van.svg`](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/assets/images/sticker-van.svg) | Mobil van bertuliskan *"KRAKERZ"* | **Mobil Operasional Pesantren BQC Camba**: Minibus operasional pondok berwana putih & neon lime dengan rak bagasi atap (*roof rack*), garis merah di samping bertuliskan **"BQC CAMBA"** beserta logo bulan sabit, kaca berrefleksi, dan velg sporty. | `0 0 160 100` |
+| 1 | [`sticker-starburst.svg`](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/assets/images/sticker-starburst.svg) | Lencana bergerigi *"Bite Learn Repeat"* | **Mushaf Al-Qur'an di atas Rehal Kayu Ukir** | Rehal kayu lipat tradisional bersilang menopang Mushaf Al-Qur'an terbuka dengan iluminasi emas (*hilya*), garis ayat tartil, serta pita pembatas sutra merah menjuntai. Simbol inti dari program Tahfizh 30 Juz. |
+| 2 | [`sticker-trophy.svg`](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/assets/images/sticker-trophy.svg) | Piala olahraga generik | **Tumpukan Kitab Kuning Turath Klasik & Qalam** | Tiga jilid tebal kitab turath bersampul kulit marun, hijau zamrud, dan terakota dengan cetak timbul emas di punggung kitab, disilangkan dengan pena qalam buluh kaligrafi. Simbol Dirosah Islamiyah. |
+| 3 | [`sticker-van.svg`](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/assets/images/sticker-van.svg) | Mobil van *"KRAKERZ"* | **Kuda Pacu Sunnah / Sunnah Equestrian** | Profil siluet kepala kuda pacu gagah bersurai berkibar tertiup angin dengan tali kekang (*bridle*) berhias medali bintang emas, di atas emblem kecepatan bertuliskan stempel **SUNNAH**. Simbol olahraga berkuda sunnah. |
+| 4 | [`sticker-lightning.svg`](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/assets/images/sticker-lightning.svg) | Poligon petir kartun kuning | **Lentera Fanous Pelita Ilmu & Hidayah** | Lentera gantung klasik bermotif kubah ornamen bulan sabit, kaca berpanel lengkung memancarkan nyala api pelita lilin hangat dan pendaran sinar spiritual (*Nur Al-Qur'an*). |
+| 5 | [`sticker-megaphone.svg`](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/assets/images/sticker-megaphone.svg) | Megafon plastik generik | **Menara Azan & Kubah Masjid Pesantren** | Menara masjid menjulang dengan balkon mu'azzin berkanopi kubah kerucut dan bulan sabit emas, memancarkan gelombang suara kumandang Azan dan lantunan tilawah ke seluruh penjuru langit Camba. |
+| 6 | [`sticker-rocket.svg`](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/assets/images/sticker-rocket.svg) | Roket kartun dasar | **Busur & Anak Panah Sunnah (Horsebow)** | Busur panah tradisional recurve kayu berbalut tali busur kencang dengan anak panah bersayap bulu merah yang siap melesat tepat ke papan target lingkaran emas konsentris. Simbol olahraga panahan sunnah. |
+| 7 | [`sticker-soda.svg`](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/assets/images/sticker-soda.svg) | Cup soda cepat saji | **Tasbih Zikir Butir Kayu & Rumbai Sutra** | Untaian 33 butir tasbih kayu alami dengan butir pembatas emas (*marja'*), butir imam menjulang, dan rumbai sutra merah berkait medali bulan sabit. Simbol ketenangan wirid, zikir, dan qiyamul lail santri. |
+| 8 | [`sticker-gradcap.svg`](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/assets/images/sticker-gradcap.svg) | Topi wisuda toga biasa | **Mahkota Kemuliaan Hafizh (Tajul Karomah)** | Mahkota kehormatan emas bertatahkan permata zamrud dan ruby dengan puncak bulan sabit, melambangkan janji Rasulullah ﷺ bahwa orang tua penghafal Al-Qur'an akan dipakaikan mahkota cahaya di hari kiamat. |
+| 9 | [`mascot-cracker-c.svg`](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/assets/images/mascot-cracker-c.svg) | Biskuit berlekuk huruf C | **Gerbang Babussalam & Kubah Pesantren BQC** | Gapura gerbang tapal kuda monumental dengan kubah agung, dua menara pengapit, ornamen Rub el Hizb, plakat nama **BQC CAMBA**, serta panorama fajar keilmuan yang memancar hangat dari pintu gerbang. |
+| 10 | [`mascot-cracker.svg`](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/assets/images/mascot-cracker.svg) | Biskuit bintik bermata kumis | **Santri Cilik Hafizh BQC** | Maskot santri muda berkopiah hitam berpin bintang emas, berbusana koko putih rapi berkerah shanghai hijau, mendekap mushaf Al-Qur'an bersampul hijau-emas, dan mengacungkan jempol penuh keceriaan. |
 
 ---
 
@@ -517,7 +517,145 @@ Sebagai tindak lanjut dari permintaan user untuk mendesain ulang seluruh 10 aset
 Untuk memverifikasi tampilan aset-aset baru ini di antarmuka web, ikuti panduan langkah demi langkah berikut:
 
 ### 1. Menjalankan Server Lokal
-Pastikan server lokal berjalan di folder root:
+Pastikan web server lokal aktif di direktori proyek:
+```powershell
+npx serve . -p 3000
+# atau
+python -m http.server 3000
+```
+Buka peramban di alamat `http://localhost:3000`.
+
+### 2. Memeriksa Stiker di Seksi Kurikulum (`#curriculum`)
+- Gulir ke seksi **Kurikulum Terpadu Masa Depan Santri**:
+  - **Kartu 1 (Tahfizh & Sanad 30 Juz - Merah `#CF2B09`)**:
+    - Perhatikan stiker di bawah foto halaqah: kini tampil **Mushaf Al-Qur'an Terbuka di atas Rehal Kayu Ukir** bersilang dengan pita merah dan kilau cahaya emas.
+  - **Kartu 2 (Sekolah Formal - Merah Bata `#A52207`)**:
+    - Perhatikan stiker di bawah foto eskul: kini tampil **Tumpukan Kitab Kuning Turath Klasik** dengan pena qalam buluh kaligrafi.
+  - **Kartu 3 (Pelatihan Muballigh & Bahasa - Marun `#7C1A06`)**:
+    - Perhatikan stiker di bawah foto santri: kini tampil **Kuda Pacu Sunnah** (*Sunnah Equestrian*) bersurai berkibar dengan cap stempel `SUNNAH`.
+
+### 3. Memeriksa Lentera di Seksi Testimoni (`#testimonials`)
+- Gulir ke seksi testimoni:
+  - Perhatikan header ikonik **YOU'RE not ALONE**: di samping tulisan `ALONE`, kini bersanding **Lentera Fanous Pelita Ilmu** yang menyala memancarkan cahaya hidayah bagi para santri.
+
+### 4. Memeriksa Laptop Interaktif Showcase (`#interactive-laptop`)
+- Gulir ke area showcase laptop berstiker taktil:
+  - Periksa 6 stiker tematik pesantren yang dapat digeser (*draggable*):
+    1. **Mushaf Al-Qur'an di atas Rehal Kayu**
+    2. **Tumpukan Kitab Kuning Turath & Qalam**
+    3. **Kuda Pacu Sunnah**
+    4. **Lentera Fanous Pelita Ilmu**
+    5. **Tasbih Zikir Butir Kayu & Rumbai**
+    6. **Mahkota Kemuliaan Hafizh (Tajul Karomah)**
+
+### 5. Memeriksa Galeri & Footer (`#gallery`, `#footer`)
+- Gulir ke seksi galeri foto dan footer halaman:
+  - Perhatikan stiker melayang (*floating stickers*):
+    - **Busur & Anak Panah Sunnah** melesat ke papan target.
+    - **Menara Azan & Kubah Masjid** dengan gelombang suara azan.
+    - **Kuda Pacu Sunnah**.
+
+### 6. Memeriksa Maskot Utama di Tab Browser Baru
+Buka URL berikut langsung di tab peramban baru untuk melihat detail vektor resolusi tinggi:
+- `http://localhost:3000/assets/images/mascot-cracker.svg` (Maskot Santri Cilik Hafizh BQC)
+- `http://localhost:3000/assets/images/mascot-cracker-c.svg` (Gerbang Babussalam & Kubah Agung Pesantren)
+
+---
+
+# Walkthrough: Integrasi Komponen UI Baru (Cards & Marquee Ticker) Tanpa Mengubah Seksi yang Sudah Ada
+
+Sesuai instruksi *"tambahkan section ini tapi bukan ubah yang sudah ada ya"*, komponen baru dari 21st.dev / shadcn telah berhasil diintegrasikan ke dalam basis kode tanpa mengubah atau merusak satu pun seksi yang sudah ada sebelumnya.
+
+---
+
+## 1. Analisis Arsitektur Proyek & Penempatan Folder `/components/ui`
+
+### A. Kondisi Arsitektur Saat Ini
+- **Format Aktif**: Proyek ini berbasis **Modular Vanilla HTML + Tailwind CSS + Custom Design System (`assets/css/design-system.css`)**.
+- Komponen web aktif berada di direktori `components/*.html` dan dikompilasi secara otomatis ke `assets/js/components.js` menggunakan skrip Node.js `build.js` untuk pemuatan instan tanpa latensi / isu CORS.
+- Belum menggunakan bundler React/Next.js/Vite penuh secara default.
+
+### B. Urgensi & Alasan Pembentukan Folder `/components/ui` (Standar shadcn)
+- **Separation of Concerns**: Sesuai arsitektur `shadcn/ui`, direktori `/components/ui` dirancang khusus untuk menampung komponen dasar murni (*atomic headless UI primitives* seperti button, card, dialog, marquee, accordion) yang dapat digunakan berulang kali (*reusable* & *agnostic*) tanpa terikat langsung ke domain logika bisnis spesifik.
+- **Dukungan Dual-Stack**:
+  1. File React TypeScript murni telah ditempatkan di:
+     - [`components/ui/cards.tsx`](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/components/ui/cards.tsx) (Komponen Blog Cards dengan Unsplash images dan styling tipografi)
+     - [`components/ui/demo.tsx`](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/components/ui/demo.tsx) (Komponen Dual Marquee Ticker dengan lencana terverifikasi dan avatar Unsplash)
+     - [`lib/utils.ts`](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/lib/utils.ts) (Helper utilitas `cn()` berbasis `clsx` & `tailwind-merge`)
+  2. Implementasi antarmuka live web HTML/Tailwind telah ditempatkan di:
+     - [`components/blog.html`](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/components/blog.html) (Seksi **LATEST BLOG** / *Insights & Publications* dengan 3 kartu responsif)
+     - [`components/marquee.html`](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/components/marquee.html) (Seksi **COMMUNITY BUZZ & REVIEWS** dengan 2 baris gulir tak terhingga *forward & reverse*, pause on hover, dan fade gradasi)
+     - Terdaftar rapi di [`index.html`](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/index.html) dan terbundle sempurna di [`assets/js/components.js`](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/assets/js/components.js).
+
+---
+
+## 2. Panduan Setup Proyek (Jika Ingin Menjalankan Mode Penuh shadcn / React / TypeScript)
+
+Jika ingin memigrasikan atau menjalankan komponen React `.tsx` di lingkungan Next.js / Vite dengan dukungan penuh shadcn CLI, ikuti langkah berikut:
+
+### Opsi A: Setup pada Proyek Next.js (App Router)
+```bash
+# 1. Inisialisasi Next.js dengan TypeScript dan Tailwind CSS
+npx create-next-app@latest my-app --typescript --tailwind --eslint
+
+# 2. Masuk ke direktori
+cd my-app
+
+# 3. Inisialisasi shadcn CLI
+npx shadcn@latest init
+
+# 4. Install dependensi pendukung
+npm install clsx tailwind-merge lucide-react
+
+# 5. Salin komponen:
+# - lib/utils.ts -> my-app/lib/utils.ts
+# - components/ui/cards.tsx -> my-app/components/ui/cards.tsx
+# - components/ui/demo.tsx -> my-app/components/ui/demo.tsx
+```
+
+### Opsi B: Setup pada Proyek Vite React + TypeScript
+```bash
+# 1. Buat proyek Vite React TS
+npm create vite@latest my-app -- --template react-ts
+
+# 2. Install Tailwind CSS
+cd my-app
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+
+# 3. Install utility & icon
+npm install clsx tailwind-merge lucide-react
+
+# 4. Tambahkan path alias "@/*" pada tsconfig.json dan vite.config.ts
+```
+
+---
+
+## 3. Pertanyaan & Keputusan Desain (Questions Addressed)
+
+1. **What data/props will be passed to this component?**
+   - `cards.tsx`: Menerima array `posts?: BlogPost[]` dengan field `title`, `category`, `imageUrl`, dan `link`. Dilengkapi dengan default data 3 artikel.
+   - `demo.tsx`: Menerima `row1?: CardT[]` dan `row2?: CardT[]` dengan field `image`, `name`, `handle`, dan `comment`.
+2. **Are there any specific state management requirements?**
+   - Komponen bersifat *stateless presentational*; animasi marquee dikendalikan sepenuhnya oleh GPU-accelerated CSS keyframes (`transform: translateX()`) untuk performa 60fps tanpa re-render React berlebih.
+3. **Are there any required assets (images, icons, etc.)?**
+   - Telah diisi menggunakan Unsplash stock images resolusi tinggi terverifikasi untuk foto cover artikel maupun foto profil avatar.
+   - Ikon centang biru terverifikasi diintegrasikan via SVG polygon mandiri tanpa ketergantungan library luar.
+4. **What is the expected responsive behavior?**
+   - `cards.tsx` & `blog.html`: Tata letak 1 kolom pada ponsel (*mobile*), 2 kolom pada tablet (*md*), dan 3 kolom pada desktop (*lg*).
+   - `demo.tsx` & `marquee.html`: Lebar tak terbatas dengan `overflow-hidden` dan masker gradasi di tepi kiri-kanan untuk estetika mulus di semua ukuran layar.
+5. **What is the best place to use this component in the app?**
+   - **Marquee Ticker**: Diletakkan tepat setelah seksi `testimonials` sebagai bukti sosial (*social proof*) dinamis.
+   - **Latest Blog**: Diletakkan setelah seksi `partner` dan sebelum `faq` untuk memperkaya wawasan pengunjung sebelum membaca tanya-jawab.
+
+---
+
+## 4. 🧪 Panduan Pengujian Manual (Manual Verification Guide)
+
+Ikuti langkah-langkah berikut untuk menguji seksi baru secara mandiri di web browser:
+
+### Langkah 1: Akses Server Lokal
+Buka terminal PowerShell pada direktori proyek:
 ```powershell
 npx serve . -p 3000
 # atau
@@ -525,38 +663,45 @@ python -m http.server 3000
 ```
 Buka browser pada alamat `http://localhost:3000`.
 
-### 2. Memeriksa Stiker di Seksi Kurikulum & Stacking Cards (`#curriculum`)
-- Gulir ke seksi **Kurikulum Terpadu Masa Depan Santri**:
-  - Pada **Kartu 1 (Tahfizh & Sanad 30 Juz - Merah `#CF2B09`)**:
-    - Perhatikan stiker di bagian bawah bingkai foto: kini menampilkan lencana **`30 JUZ / MUTQIN / SANAD`** menggantikan teks lama "Bite Learn Repeat".
-  - Pada **Kartu 2 (Sekolah Formal - Merah Bata `#A52207`)**:
-    - Perhatikan stiker di bawah foto eskul/formal: menampilkan **Piala MTQ BQC** dengan ukiran bintang 8 sudut (*Rub el Hizb*) dan plat nama **BQC**.
-  - Pada **Kartu 3 (Pelatihan Muballigh & Bahasa - Marun `#7C1A06`)**:
-    - Perhatikan stiker mobil di bawah foto kegiatan santri: kini menampilkan **Mobil Operasional BQC CAMBA** dengan tulisan resmi **`BQC CAMBA`** menggantikan tulisan lama "Krakerz".
+### Langkah 2: Verifikasi Seksi Marquee Ticker (`#community-buzz`)
+1. **Navigasi**: Gulir halaman ke bawah melewati seksi Testimoni (*Cerita & Kesan Wali Santri*).
+2. **Visual Check**:
+   - Tampil seksi baru berstempel neon lime: **`COMMUNITY BUZZ & REVIEWS`** dengan judul **`WHAT PEOPLE ARE SAYING`**.
+   - Perhatikan tepi kiri dan kanan: terdapat efek masker gradasi lembut (*fade-out gradient*) yang membuat kartu masuk dan keluar secara mulus.
+3. **Pengujian Animasi Dua Arah**:
+   - **Baris 1**: Bergerak mengalir ke arah kiri secara konstan dan halus.
+   - **Baris 2**: Bergerak mengalir ke arah berlawanan (kanan) secara konstan dan halus.
+4. **Pengujian Interaksi Pause on Hover**:
+   - Arahkan kursor mouse (*hover*) ke salah satu kartu di dalam marquee.
+   - **Ekspektasi**: Kedua baris animasi otomatis berhenti (*pause*), memudahkan pengunjung membaca isi ulasan.
+   - Jauhkan kursor (*unhover*): animasi kembali berjalan secara mulus.
+5. **Bahasa UI**: Pastikan semua teks nama, handle (@), dan kutipan ulasan menggunakan **Pure English**.
 
-### 3. Memeriksa Stiker di Interactive Laptop Showcase (`#interactive-laptop`)
-- Gulir ke seksi laptop interaktif:
-  - Periksa deretan stiker taktil yang menghiasi bodi laptop:
-    - Stiker **Mobil Operasional BQC CAMBA** (sudah bebas dari teks Krakerz).
-    - Stiker **Piala MTQ & Prestasi BQC**.
-    - Stiker **Badge 30 JUZ MUTQIN SANAD**.
-    - Stiker **Petir Semangat Tahfizh** (*Tahfizh Energy Spark*).
-    - Stiker **Tumbler Minum Santri BQC** (sudah bebas dari cup soda dan huruf "K").
-    - Stiker **Wisuda & Sanad Diploma** (topi toga dengan gulungan ijazah bersanad).
+### Langkah 3: Verifikasi Seksi Blog Cards (`#blog`)
+1. **Navigasi**: Gulir lebih jauh ke bawah melewati seksi Kemitraan (*Partner*).
+2. **Visual Check**:
+   - Tampil seksi baru berstempel: **`INSIGHTS & PUBLICATIONS`** dengan judul **`LATEST BLOG`**.
+   - Tampil **3 kartu artikel elegan**:
+     1. *Color Psychology in UI: How to Choose the Right Palette* (`UI/UX design`)
+     2. *Understanding Typography: Crafting a Visual Voice for Your Brand* (`Branding`)
+     3. *Design Thinking in Practice: How to Solve Real User Problems* (`Product Design`)
+3. **Pengujian Interaksi Hover**:
+   - Arahkan kursor ke masing-masing kartu:
+     - Kartu terangkat halus ke atas (`translateY(-6px)`).
+     - Bayangan kartu membesar secara lembut (`shadow-xl`).
+     - Gambar di dalam bingkai mengalami sedikit *zoom in* halus (`scale-105`).
+4. **Tombol CTA**:
+   - Terdapat Signature Krackerz Double-Layer Button: **`EXPLORE ALL ARTICLES ➔`**.
+   - Klik tombol tersebut: dialog modal pendaftaran / waitlist akan terbuka secara responsif.
 
-### 4. Memeriksa Stiker di Galeri Santri & Footer (`#gallery`, `#footer`)
-- Gulir ke seksi **Galeri Kehidupan Kampus & Footer**:
-  - Periksa stiker dekoratif mengambang (*floating stickers*):
-    - Stiker **Megafon Syiar BQC** dengan gelombang suara dakwah.
-    - Stiker **Roket Prestasi Santri** dengan jendela berlogo bulan sabit & bintang.
-    - Stiker **Mobil Operasional BQC Camba**.
+### Langkah 4: Memastikan Keutuhan Seksi Lama (*Zero Breaking Changes*)
+- Periksa seksi-seksi sebelumnya:
+  - Hero (6 fanned cards & scroll animation) tetap utuh.
+  - About tetap utuh.
+  - Kurikulum (3 sticky stacking cards) tetap utuh.
+  - Testimoni (4 scalloped hanging cards) tetap utuh.
+  - Founder, Pricing, Partner, FAQ, Interactive Laptop, dan Footer semuanya tetap utuh tanpa perubahan desain maupun struktur data.
 
-### 5. Memeriksa Maskot Utama di Folder Assets
-- Buka langsung file maskot di tab browser baru untuk melihat detail vektor resolusi tinggi:
-  - `http://localhost:3000/assets/images/mascot-cracker.svg`
-    - Verifikasi: Karakter Santri Cilik Hafizh BQC tersenyum ramah memakai peci hitam, baju koko putih berkerah shanghai, memegang mushaf Al-Qur'an hijau, dan mengacungkan jempol.
-  - `http://localhost:3000/assets/images/mascot-cracker-c.svg`
-    - Verifikasi: Huruf "C" (Camba) berpeci hitam dengan ornamen bulan bintang di dalamnya.
 
 
 

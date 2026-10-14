@@ -1,31 +1,62 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" fill="none">
-  <!-- BQC Tahfizh Energy & Spark Sticker -->
-  <g filter="drop-shadow(3px 3px 0px #121212)">
-    <!-- Main Bolt Body -->
-    <polygon points="60,6 20,62 48,62 38,114 84,52 54,52" 
-             fill="#D4FF00" stroke="#121212" stroke-width="4.5" stroke-linejoin="round"/>
-    
-    <!-- Dynamic Inner Shadow / Facet (Crimson Accent) -->
-    <polygon points="54,52 84,52 64,80 50,68" fill="#CF2B09" opacity="0.9"/>
-    
-    <!-- Dynamic Inner Highlight Stripe -->
-    <polygon points="54,16 28,58 42,58 48,22" fill="#FFFFFF" opacity="0.65"/>
+  <!-- BQC Bespoke Sticker: Lentera Fanous Pelita Ilmu & Hidayah -->
+  <defs>
+    <filter id="lanternFanousShadow" x="-15%" y="-15%" width="135%" height="135%">
+      <feDropShadow dx="3" dy="3" stdDeviation="0" flood-color="#121212" />
+    </filter>
+  </defs>
 
-    <!-- Center Energy Core Accent -->
-    <circle cx="50" cy="57" r="3.5" fill="#121212"/>
+  <g filter="url(#lanternFanousShadow)">
+    <!-- Top Hanging Loop Ring -->
+    <circle cx="50" cy="12" r="7" fill="none" stroke="#121212" stroke-width="3"/>
+    <rect x="47" y="18" width="6" height="5" fill="#121212"/>
 
-    <!-- Islamic Starburst / Sparkle 1 (Top Right) -->
-    <g transform="translate(74, 12)">
-      <polygon points="6,0 7,4 11,5 7,6 6,10 5,6 1,5 5,4" fill="#CF2B09" stroke="#121212" stroke-width="1.5"/>
-    </g>
+    <!-- Crescent Moon Finial on Top of Lantern Dome -->
+    <path d="M51 22 C49 22 47 23 47 25 C47 27 49 28 51 28 C52 28 53 27.5 53.5 27 C52 27.2 50.8 26.2 50.8 25 C50.8 23.8 52 22.8 53.5 23 C53 22.5 52 22 51 22 Z" fill="#D4FF00" stroke="#121212" stroke-width="1.5"/>
 
-    <!-- Sparkle 2 (Bottom Left) -->
-    <g transform="translate(14, 82)">
-      <polygon points="6,0 7,4 11,5 7,6 6,10 5,6 1,5 5,4" fill="#CF2B09" stroke="#121212" stroke-width="1.5"/>
-    </g>
+    <!-- Lantern Top Dome / Cap (Vermilion Crimson & Gold) -->
+    <path d="M36 34 C36 26 44 24 50 24 C56 24 64 26 64 34 Z" fill="#CF2B09" stroke="#121212" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M26 42 L34 34 L66 34 L74 42 Z" fill="#F59E0B" stroke="#121212" stroke-width="3" stroke-linejoin="round"/>
+    <!-- Ventilation Cutout Holes -->
+    <circle cx="42" cy="38" r="2" fill="#121212"/>
+    <circle cx="50" cy="38" r="2" fill="#121212"/>
+    <circle cx="58" cy="38" r="2" fill="#121212"/>
 
-    <!-- Sparkle 3 (Floating Dot) -->
-    <circle cx="20" cy="38" r="3" fill="#D4FF00" stroke="#121212" stroke-width="1.5"/>
-    <circle cx="78" cy="94" r="2.5" fill="#FFFFFF" stroke="#121212" stroke-width="1.5"/>
+    <!-- Glass Chamber (Faceted Lantern Body) -->
+    <!-- Main Radiant Chamber -->
+    <path d="M26 42 L33 90 L67 90 L74 42 Z" fill="#D4FF00" stroke="#121212" stroke-width="3.5" stroke-linejoin="round"/>
+
+    <!-- Arched Glass Panels -->
+    <!-- Left Panel -->
+    <path d="M30 46 L35 86 L44 86 L41 46 Z" fill="#FFFDF0" stroke="#121212" stroke-width="2"/>
+    <!-- Right Panel -->
+    <path d="M70 46 L65 86 L56 86 L59 46 Z" fill="#FFFDF0" stroke="#121212" stroke-width="2"/>
+    <!-- Center Main Panel (Illuminated Flame Chamber) -->
+    <path d="M43 45 C43 45 47 43 50 43 C53 43 57 45 57 45 L55 87 L45 87 Z" fill="#FFFFFF" stroke="#121212" stroke-width="2.5"/>
+
+    <!-- Inner Sacred Candle Flame (Glowing Nur) -->
+    <path d="M50 58 C50 58 44 68 44 74 C44 78 46.5 81 50 81 C53.5 81 56 78 56 74 C56 68 50 58 50 58 Z" fill="#F59E0B" stroke="#121212" stroke-width="2"/>
+    <!-- Inner Flame Core (Crisp White) -->
+    <path d="M50 66 C50 66 47 72 47 75 C47 77 48.3 78.5 50 78.5 C51.7 78.5 53 77 53 75 C53 72 50 66 50 66 Z" fill="#FFFFFF"/>
+    <!-- Candle Base -->
+    <rect x="46" y="81" width="8" height="5" rx="1" fill="#CF2B09" stroke="#121212" stroke-width="1.5"/>
+
+    <!-- Lantern Base / Bottom Pedestal -->
+    <path d="M31 90 L26 98 L74 98 L69 90 Z" fill="#F59E0B" stroke="#121212" stroke-width="3" stroke-linejoin="round"/>
+    <rect x="34" y="98" width="32" height="6" rx="2" fill="#CF2B09" stroke="#121212" stroke-width="2.5"/>
+    <circle cx="50" cy="101" r="2" fill="#D4FF00"/>
+
+    <!-- Radiant Rays of Spiritual Light (Nur) Emitting from Glass -->
+    <line x1="16" y1="56" x2="22" y2="60" stroke="#F59E0B" stroke-width="3" stroke-linecap="round"/>
+    <line x1="12" y1="72" x2="20" y2="72" stroke="#D4FF00" stroke-width="3.5" stroke-linecap="round"/>
+    <line x1="16" y1="88" x2="24" y2="84" stroke="#F59E0B" stroke-width="3" stroke-linecap="round"/>
+
+    <line x1="84" y1="56" x2="78" y2="60" stroke="#F59E0B" stroke-width="3" stroke-linecap="round"/>
+    <line x1="88" y1="72" x2="80" y2="72" stroke="#D4FF00" stroke-width="3.5" stroke-linecap="round"/>
+    <line x1="84" y1="88" x2="76" y2="84" stroke="#F59E0B" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Sparkle Stars -->
+    <polygon points="20,32 21,35 24,36 21,37 20,40 19,37 16,36 19,35" fill="#D4FF00"/>
+    <polygon points="80,32 81,35 84,36 81,37 80,40 79,37 76,36 79,35" fill="#D4FF00"/>
   </g>
 </svg>

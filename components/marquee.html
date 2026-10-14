@@ -1,0 +1,270 @@
+<!-- Marquee Social Proof & Community Voices Section -->
+<section id="community-buzz" class="py-16 sm:py-20 bg-[#FAF7F0] relative overflow-hidden border-b border-[#121212]/10">
+  
+  <style>
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-track-forward {
+      animation: marqueeScroll 28s linear infinite;
+    }
+    .marquee-track-reverse {
+      animation: marqueeScroll 28s linear infinite reverse;
+    }
+    .marquee-container:hover .marquee-track-forward,
+    .marquee-container:hover .marquee-track-reverse {
+      animation-play-state: paused;
+    }
+  </style>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-10">
+    <!-- Stamp Badge -->
+    <div class="stamp-badge stamp-badge-lime mb-3 tilt-left inline-block">
+      COMMUNITY BUZZ & REVIEWS
+    </div>
+    <h2 class="font-display font-black text-3xl sm:text-5xl text-[#121212] uppercase tracking-tight">
+      WHAT PEOPLE ARE SAYING
+    </h2>
+    <p class="font-body text-sm sm:text-base text-slate-600 mt-2 max-w-xl mx-auto">
+      Continuous reflections and experiences shared by students, parents, and community partners.
+    </p>
+  </div>
+
+  <!-- Dual Marquee Streams -->
+  <div class="marquee-container flex flex-col gap-5 relative isolation-isolate w-full overflow-hidden select-none">
+    
+    <!-- Left & Right Gradient Fade Edges -->
+    <div class="pointer-events-none absolute left-0 top-0 h-full w-20 sm:w-36 z-20 bg-gradient-to-r from-[#FAF7F0] via-[#FAF7F0]/90 to-transparent"></div>
+    <div class="pointer-events-none absolute right-0 top-0 h-full w-20 sm:w-36 z-20 bg-gradient-to-l from-[#FAF7F0] via-[#FAF7F0]/90 to-transparent"></div>
+
+    <!-- Row 1 (Forward Direction) -->
+    <div class="flex transform-gpu min-w-[200%] marquee-track-forward py-2">
+      
+      <!-- Card Item 1 -->
+      <div class="p-4 rounded-xl mx-3 shadow-[0_4px_16px_rgba(0,0,0,0.06)] hover:shadow-xl transition-all duration-300 w-72 shrink-0 bg-white border border-[#121212]/10 hover:-translate-y-1">
+        <div class="flex items-center gap-3">
+          <img class="w-11 h-11 rounded-full object-cover border border-[#121212]/15" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&h=150&q=80" alt="Briar Martin" />
+          <div class="flex flex-col text-left">
+            <div class="flex items-center gap-1.5">
+              <span class="font-display font-bold text-sm text-[#121212]">Briar Martin</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 48 48" class="inline-block shrink-0">
+                <polygon fill="#42a5f5" points="29.62,3 33.053,8.308 39.367,8.624 39.686,14.937 44.997,18.367 42.116,23.995 45,29.62 39.692,33.053 39.376,39.367 33.063,39.686 29.633,44.997 24.005,42.116 18.38,45 14.947,39.692 8.633,39.376 8.314,33.063 3.003,29.633 5.884,24.005 3,18.38 8.308,14.947 8.624,8.633 14.937,8.314 18.367,3.003 23.995,5.884"></polygon>
+                <polygon fill="#fff" points="21.396,31.255 14.899,24.76 17.021,22.639 21.428,27.046 30.996,17.772 33.084,19.926"></polygon>
+              </svg>
+            </div>
+            <span class="text-xs text-slate-500 font-label">@neilstellar</span>
+          </div>
+        </div>
+        <p class="text-xs sm:text-sm pt-3.5 text-slate-700 text-left font-body leading-relaxed">
+          The accelerated tahfizh system combined with strong academic foundations delivered remarkable progress for our child.
+        </p>
+      </div>
+
+      <!-- Card Item 2 -->
+      <div class="p-4 rounded-xl mx-3 shadow-[0_4px_16px_rgba(0,0,0,0.06)] hover:shadow-xl transition-all duration-300 w-72 shrink-0 bg-white border border-[#121212]/10 hover:-translate-y-1">
+        <div class="flex items-center gap-3">
+          <img class="w-11 h-11 rounded-full object-cover border border-[#121212]/15" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&h=150&q=80" alt="Avery Johnson" />
+          <div class="flex flex-col text-left">
+            <div class="flex items-center gap-1.5">
+              <span class="font-display font-bold text-sm text-[#121212]">Avery Johnson</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 48 48" class="inline-block shrink-0">
+                <polygon fill="#42a5f5" points="29.62,3 33.053,8.308 39.367,8.624 39.686,14.937 44.997,18.367 42.116,23.995 45,29.62 39.692,33.053 39.376,39.367 33.063,39.686 29.633,44.997 24.005,42.116 18.38,45 14.947,39.692 8.633,39.376 8.314,33.063 3.003,29.633 5.884,24.005 3,18.38 8.308,14.947 8.624,8.633 14.937,8.314 18.367,3.003 23.995,5.884"></polygon>
+                <polygon fill="#fff" points="21.396,31.255 14.899,24.76 17.021,22.639 21.428,27.046 30.996,17.772 33.084,19.926"></polygon>
+              </svg>
+            </div>
+            <span class="text-xs text-slate-500 font-label">@averywrites</span>
+          </div>
+        </div>
+        <p class="text-xs sm:text-sm pt-3.5 text-slate-700 text-left font-body leading-relaxed">
+          The discipline and adab taught here are unmatched. Caring mentors create an inspiring, warm second home.
+        </p>
+      </div>
+
+      <!-- Card Item 3 -->
+      <div class="p-4 rounded-xl mx-3 shadow-[0_4px_16px_rgba(0,0,0,0.06)] hover:shadow-xl transition-all duration-300 w-72 shrink-0 bg-white border border-[#121212]/10 hover:-translate-y-1">
+        <div class="flex items-center gap-3">
+          <img class="w-11 h-11 rounded-full object-cover border border-[#121212]/15" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&h=150&q=80" alt="Jordan Lee" />
+          <div class="flex flex-col text-left">
+            <div class="flex items-center gap-1.5">
+              <span class="font-display font-bold text-sm text-[#121212]">Jordan Lee</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 48 48" class="inline-block shrink-0">
+                <polygon fill="#42a5f5" points="29.62,3 33.053,8.308 39.367,8.624 39.686,14.937 44.997,18.367 42.116,23.995 45,29.62 39.692,33.053 39.376,39.367 33.063,39.686 29.633,44.997 24.005,42.116 18.38,45 14.947,39.692 8.633,39.376 8.314,33.063 3.003,29.633 5.884,24.005 3,18.38 8.308,14.947 8.624,8.633 14.937,8.314 18.367,3.003 23.995,5.884"></polygon>
+                <polygon fill="#fff" points="21.396,31.255 14.899,24.76 17.021,22.639 21.428,27.046 30.996,17.772 33.084,19.926"></polygon>
+              </svg>
+            </div>
+            <span class="text-xs text-slate-500 font-label">@jordantalks</span>
+          </div>
+        </div>
+        <p class="text-xs sm:text-sm pt-3.5 text-slate-700 text-left font-body leading-relaxed">
+          Clear milestones for each juz with certified sanad testing. The campus atmosphere in Camba is serene and scenic.
+        </p>
+      </div>
+
+      <!-- Card Item 4 -->
+      <div class="p-4 rounded-xl mx-3 shadow-[0_4px_16px_rgba(0,0,0,0.06)] hover:shadow-xl transition-all duration-300 w-72 shrink-0 bg-white border border-[#121212]/10 hover:-translate-y-1">
+        <div class="flex items-center gap-3">
+          <img class="w-11 h-11 rounded-full object-cover border border-[#121212]/15" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&h=150&q=80" alt="Marcus Vance" />
+          <div class="flex flex-col text-left">
+            <div class="flex items-center gap-1.5">
+              <span class="font-display font-bold text-sm text-[#121212]">Marcus Vance</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 48 48" class="inline-block shrink-0">
+                <polygon fill="#42a5f5" points="29.62,3 33.053,8.308 39.367,8.624 39.686,14.937 44.997,18.367 42.116,23.995 45,29.62 39.692,33.053 39.376,39.367 33.063,39.686 29.633,44.997 24.005,42.116 18.38,45 14.947,39.692 8.633,39.376 8.314,33.063 3.003,29.633 5.884,24.005 3,18.38 8.308,14.947 8.624,8.633 14.937,8.314 18.367,3.003 23.995,5.884"></polygon>
+                <polygon fill="#fff" points="21.396,31.255 14.899,24.76 17.021,22.639 21.428,27.046 30.996,17.772 33.084,19.926"></polygon>
+              </svg>
+            </div>
+            <span class="text-xs text-slate-500 font-label">@marcusbuilds</span>
+          </div>
+        </div>
+        <p class="text-xs sm:text-sm pt-3.5 text-slate-700 text-left font-body leading-relaxed">
+          Radiant community values made fostering leadership and religious character an absolute breeze for our family.
+        </p>
+      </div>
+
+      <!-- Duplicate Set for Seamless Loop -->
+      <div class="p-4 rounded-xl mx-3 shadow-[0_4px_16px_rgba(0,0,0,0.06)] hover:shadow-xl transition-all duration-300 w-72 shrink-0 bg-white border border-[#121212]/10 hover:-translate-y-1">
+        <div class="flex items-center gap-3">
+          <img class="w-11 h-11 rounded-full object-cover border border-[#121212]/15" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&h=150&q=80" alt="Briar Martin" />
+          <div class="flex flex-col text-left">
+            <div class="flex items-center gap-1.5">
+              <span class="font-display font-bold text-sm text-[#121212]">Briar Martin</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 48 48" class="inline-block shrink-0">
+                <polygon fill="#42a5f5" points="29.62,3 33.053,8.308 39.367,8.624 39.686,14.937 44.997,18.367 42.116,23.995 45,29.62 39.692,33.053 39.376,39.367 33.063,39.686 29.633,44.997 24.005,42.116 18.38,45 14.947,39.692 8.633,39.376 8.314,33.063 3.003,29.633 5.884,24.005 3,18.38 8.308,14.947 8.624,8.633 14.937,8.314 18.367,3.003 23.995,5.884"></polygon>
+                <polygon fill="#fff" points="21.396,31.255 14.899,24.76 17.021,22.639 21.428,27.046 30.996,17.772 33.084,19.926"></polygon>
+              </svg>
+            </div>
+            <span class="text-xs text-slate-500 font-label">@neilstellar</span>
+          </div>
+        </div>
+        <p class="text-xs sm:text-sm pt-3.5 text-slate-700 text-left font-body leading-relaxed">
+          The accelerated tahfizh system combined with strong academic foundations delivered remarkable progress for our child.
+        </p>
+      </div>
+
+      <div class="p-4 rounded-xl mx-3 shadow-[0_4px_16px_rgba(0,0,0,0.06)] hover:shadow-xl transition-all duration-300 w-72 shrink-0 bg-white border border-[#121212]/10 hover:-translate-y-1">
+        <div class="flex items-center gap-3">
+          <img class="w-11 h-11 rounded-full object-cover border border-[#121212]/15" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&h=150&q=80" alt="Avery Johnson" />
+          <div class="flex flex-col text-left">
+            <div class="flex items-center gap-1.5">
+              <span class="font-display font-bold text-sm text-[#121212]">Avery Johnson</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 48 48" class="inline-block shrink-0">
+                <polygon fill="#42a5f5" points="29.62,3 33.053,8.308 39.367,8.624 39.686,14.937 44.997,18.367 42.116,23.995 45,29.62 39.692,33.053 39.376,39.367 33.063,39.686 29.633,44.997 24.005,42.116 18.38,45 14.947,39.692 8.633,39.376 8.314,33.063 3.003,29.633 5.884,24.005 3,18.38 8.308,14.947 8.624,8.633 14.937,8.314 18.367,3.003 23.995,5.884"></polygon>
+                <polygon fill="#fff" points="21.396,31.255 14.899,24.76 17.021,22.639 21.428,27.046 30.996,17.772 33.084,19.926"></polygon>
+              </svg>
+            </div>
+            <span class="text-xs text-slate-500 font-label">@averywrites</span>
+          </div>
+        </div>
+        <p class="text-xs sm:text-sm pt-3.5 text-slate-700 text-left font-body leading-relaxed">
+          The discipline and adab taught here are unmatched. Caring mentors create an inspiring, warm second home.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Row 2 (Reverse Direction) -->
+    <div class="flex transform-gpu min-w-[200%] marquee-track-reverse py-2">
+      
+      <!-- Card Item 5 -->
+      <div class="p-4 rounded-xl mx-3 shadow-[0_4px_16px_rgba(0,0,0,0.06)] hover:shadow-xl transition-all duration-300 w-72 shrink-0 bg-white border border-[#121212]/10 hover:-translate-y-1">
+        <div class="flex items-center gap-3">
+          <img class="w-11 h-11 rounded-full object-cover border border-[#121212]/15" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&h=150&q=80" alt="Dr. Sarah Jenkins" />
+          <div class="flex flex-col text-left">
+            <div class="flex items-center gap-1.5">
+              <span class="font-display font-bold text-sm text-[#121212]">Dr. Sarah Jenkins</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 48 48" class="inline-block shrink-0">
+                <polygon fill="#42a5f5" points="29.62,3 33.053,8.308 39.367,8.624 39.686,14.937 44.997,18.367 42.116,23.995 45,29.62 39.692,33.053 39.376,39.367 33.063,39.686 29.633,44.997 24.005,42.116 18.38,45 14.947,39.692 8.633,39.376 8.314,33.063 3.003,29.633 5.884,24.005 3,18.38 8.308,14.947 8.624,8.633 14.937,8.314 18.367,3.003 23.995,5.884"></polygon>
+                <polygon fill="#fff" points="21.396,31.255 14.899,24.76 17.021,22.639 21.428,27.046 30.996,17.772 33.084,19.926"></polygon>
+              </svg>
+            </div>
+            <span class="text-xs text-slate-500 font-label">@sarahcurates</span>
+          </div>
+        </div>
+        <p class="text-xs sm:text-sm pt-3.5 text-slate-700 text-left font-body leading-relaxed">
+          The balanced curriculum between Islamic studies and national diplomas empowers youth for top university admissions.
+        </p>
+      </div>
+
+      <!-- Card Item 6 -->
+      <div class="p-4 rounded-xl mx-3 shadow-[0_4px_16px_rgba(0,0,0,0.06)] hover:shadow-xl transition-all duration-300 w-72 shrink-0 bg-white border border-[#121212]/10 hover:-translate-y-1">
+        <div class="flex items-center gap-3">
+          <img class="w-11 h-11 rounded-full object-cover border border-[#121212]/15" src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=150&h=150&q=80" alt="Tariq Al-Mansoor" />
+          <div class="flex flex-col text-left">
+            <div class="flex items-center gap-1.5">
+              <span class="font-display font-bold text-sm text-[#121212]">Tariq Al-Mansoor</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 48 48" class="inline-block shrink-0">
+                <polygon fill="#42a5f5" points="29.62,3 33.053,8.308 39.367,8.624 39.686,14.937 44.997,18.367 42.116,23.995 45,29.62 39.692,33.053 39.376,39.367 33.063,39.686 29.633,44.997 24.005,42.116 18.38,45 14.947,39.692 8.633,39.376 8.314,33.063 3.003,29.633 5.884,24.005 3,18.38 8.308,14.947 8.624,8.633 14.937,8.314 18.367,3.003 23.995,5.884"></polygon>
+                <polygon fill="#fff" points="21.396,31.255 14.899,24.76 17.021,22.639 21.428,27.046 30.996,17.772 33.084,19.926"></polygon>
+              </svg>
+            </div>
+            <span class="text-xs text-slate-500 font-label">@tariqreads</span>
+          </div>
+        </div>
+        <p class="text-xs sm:text-sm pt-3.5 text-slate-700 text-left font-body leading-relaxed">
+          Public speaking drills in Arabic, English, and Indonesian develop genuine confidence in every santri.
+        </p>
+      </div>
+
+      <!-- Card Item 7 -->
+      <div class="p-4 rounded-xl mx-3 shadow-[0_4px_16px_rgba(0,0,0,0.06)] hover:shadow-xl transition-all duration-300 w-72 shrink-0 bg-white border border-[#121212]/10 hover:-translate-y-1">
+        <div class="flex items-center gap-3">
+          <img class="w-11 h-11 rounded-full object-cover border border-[#121212]/15" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&h=150&q=80" alt="Elena Rostova" />
+          <div class="flex flex-col text-left">
+            <div class="flex items-center gap-1.5">
+              <span class="font-display font-bold text-sm text-[#121212]">Elena Rostova</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 48 48" class="inline-block shrink-0">
+                <polygon fill="#42a5f5" points="29.62,3 33.053,8.308 39.367,8.624 39.686,14.937 44.997,18.367 42.116,23.995 45,29.62 39.692,33.053 39.376,39.367 33.063,39.686 29.633,44.997 24.005,42.116 18.38,45 14.947,39.692 8.633,39.376 8.314,33.063 3.003,29.633 5.884,24.005 3,18.38 8.308,14.947 8.624,8.633 14.937,8.314 18.367,3.003 23.995,5.884"></polygon>
+                <polygon fill="#fff" points="21.396,31.255 14.899,24.76 17.021,22.639 21.428,27.046 30.996,17.772 33.084,19.926"></polygon>
+              </svg>
+            </div>
+            <span class="text-xs text-slate-500 font-label">@elenawrites</span>
+          </div>
+        </div>
+        <p class="text-xs sm:text-sm pt-3.5 text-slate-700 text-left font-body leading-relaxed">
+          Clean, hygienic dormitories and mountain fresh air make it the ideal sanctuary for focused memorization.
+        </p>
+      </div>
+
+      <!-- Duplicate Set for Seamless Loop -->
+      <div class="p-4 rounded-xl mx-3 shadow-[0_4px_16px_rgba(0,0,0,0.06)] hover:shadow-xl transition-all duration-300 w-72 shrink-0 bg-white border border-[#121212]/10 hover:-translate-y-1">
+        <div class="flex items-center gap-3">
+          <img class="w-11 h-11 rounded-full object-cover border border-[#121212]/15" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&h=150&q=80" alt="Dr. Sarah Jenkins" />
+          <div class="flex flex-col text-left">
+            <div class="flex items-center gap-1.5">
+              <span class="font-display font-bold text-sm text-[#121212]">Dr. Sarah Jenkins</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 48 48" class="inline-block shrink-0">
+                <polygon fill="#42a5f5" points="29.62,3 33.053,8.308 39.367,8.624 39.686,14.937 44.997,18.367 42.116,23.995 45,29.62 39.692,33.053 39.376,39.367 33.063,39.686 29.633,44.997 24.005,42.116 18.38,45 14.947,39.692 8.633,39.376 8.314,33.063 3.003,29.633 5.884,24.005 3,18.38 8.308,14.947 8.624,8.633 14.937,8.314 18.367,3.003 23.995,5.884"></polygon>
+                <polygon fill="#fff" points="21.396,31.255 14.899,24.76 17.021,22.639 21.428,27.046 30.996,17.772 33.084,19.926"></polygon>
+              </svg>
+            </div>
+            <span class="text-xs text-slate-500 font-label">@sarahcurates</span>
+          </div>
+        </div>
+        <p class="text-xs sm:text-sm pt-3.5 text-slate-700 text-left font-body leading-relaxed">
+          The balanced curriculum between Islamic studies and national diplomas empowers youth for top university admissions.
+        </p>
+      </div>
+
+      <div class="p-4 rounded-xl mx-3 shadow-[0_4px_16px_rgba(0,0,0,0.06)] hover:shadow-xl transition-all duration-300 w-72 shrink-0 bg-white border border-[#121212]/10 hover:-translate-y-1">
+        <div class="flex items-center gap-3">
+          <img class="w-11 h-11 rounded-full object-cover border border-[#121212]/15" src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=150&h=150&q=80" alt="Tariq Al-Mansoor" />
+          <div class="flex flex-col text-left">
+            <div class="flex items-center gap-1.5">
+              <span class="font-display font-bold text-sm text-[#121212]">Tariq Al-Mansoor</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 48 48" class="inline-block shrink-0">
+                <polygon fill="#42a5f5" points="29.62,3 33.053,8.308 39.367,8.624 39.686,14.937 44.997,18.367 42.116,23.995 45,29.62 39.692,33.053 39.376,39.367 33.063,39.686 29.633,44.997 24.005,42.116 18.38,45 14.947,39.692 8.633,39.376 8.314,33.063 3.003,29.633 5.884,24.005 3,18.38 8.308,14.947 8.624,8.633 14.937,8.314 18.367,3.003 23.995,5.884"></polygon>
+                <polygon fill="#fff" points="21.396,31.255 14.899,24.76 17.021,22.639 21.428,27.046 30.996,17.772 33.084,19.926"></polygon>
+              </svg>
+            </div>
+            <span class="text-xs text-slate-500 font-label">@tariqreads</span>
+          </div>
+        </div>
+        <p class="text-xs sm:text-sm pt-3.5 text-slate-700 text-left font-body leading-relaxed">
+          Public speaking drills in Arabic, English, and Indonesian develop genuine confidence in every santri.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
