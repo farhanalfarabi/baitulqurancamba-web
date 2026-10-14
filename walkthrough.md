@@ -133,7 +133,35 @@ Buka browser pada alamat lokal (misalnya `http://localhost:3000`).
 
 ---
 
-### Langkah 5: Verifikasi Rombakan Kartu Testimoni (Postcard/Ticket Style)
+### Langkah 5: Verifikasi Section Prestasi Santri (Juara Lomba Nasional & Tasmi' Hafalan 10–15 Juz)
+1. **Navigasi ke Section Prestasi / Student Excellence (`#achievements`)**:
+   - Gulir ke bawah tepat setelah section **Kurikulum Terpadu**, atau klik menu **`Honors`** pada navbar atas.
+   - **Header**:
+     - Stamp badge: `HONOR ROLL & STUDENT ACCOLADES`.
+     - Judul: `STUDENT EXCELLENCE & HONORS` dengan container hitam miring (`tilt-right`) bertuliskan teks neon lime.
+     - Cursive script subtitle: `national olympiad champions & mutqin tasmi' hafalan`.
+2. **Periksa 4 Kartu Mini-Statistik**:
+   - `9+ Medals` (National Olympiad), `38+ Juz` (One-Sitting Tasmi'), `Jayyid Jiddan` (Very Good Grade), `Sanad Talaqqi` (Authentic Lineage).
+3. **Uji Filter Tab Kategori (Filter Switcher)**:
+   - **Tab Default: `All Accolades (6)`**: Ke-6 kartu tampil secara lengkap (3 juara lomba & 3 setoran tasmi').
+   - **Klik Tab `🏆 National Champions (3)`**:
+     - Kartu setoran tasmi' menghilang halus (*smooth fade-out*).
+     - Hanya 3 kartu juara olimpiade yang aktif: **Zjilzian Amarung** (2 Emas 1 Perak), **Ibrahim Abdurrahman** (1 Emas 2 Perak), dan **Muh. Alif Iwan** (3 Perak SMP).
+   - **Klik Tab `📖 Qur'anic Tasmi' 10–15 Juz (3)`**:
+     - Kartu juara olimpiade berganti menjadi 3 kartu capaian tasmi': **Abbas** (15 Juz), **Muh. Fiqih** (13 Juz), dan **Zjilzian Amarung** (10 Juz).
+   - **Klik Kembali `All Accolades (6)`**: Seluruh 6 kartu kembali tampil secara serentak.
+4. **Uji Fitur Pembesaran Poster (*Lightbox Modal Zoom*)**:
+   - Klik kartu apa saja (atau klik tombol **`Enlarge ➔`** di pojok kanan bawah kartu).
+   - **Ekspektasi Lightbox**:
+     - Layar menggelap dengan backdrop blur transparan (`backdrop-blur-md`).
+     - Muncul modal popup berbingkai putih tebal dengan poster resolusi penuh (`juara (1).webp`, `tasmi (2).webp`, dsb.) yang sangat tajam dan jelas dibaca.
+     - Di bawah poster terdapat judul nama santri dan keterangan lengkap capaian medali / juz hafalan.
+   - **Menutup Modal**:
+     - Klik tombol silang **`✕`** di pojok kanan atas modal, atau klik area di luar modal (backdrop), atau tekan tombol **`ESC`** pada keyboard: modal tertutup kembali dengan animasi memudar halus.
+
+---
+
+### Langkah 6: Verifikasi Rombakan Kartu Testimoni (Postcard/Ticket Style)
 1. Gulir ke section **Kisah Santri & Keluarga Besar**:
    - Perhatikan bahwa kartu **BUKAN lagi lingkaran bulat**, melainkan **kartu tiket/pos persegi panjang yang miring santai** (`-rotate-2` dan `rotate-2`).
    - Warna kartu hangat cerah: oranye-merah `#F95534`, vermilion `#CF2B09`, dan wine `#7C1A06`.

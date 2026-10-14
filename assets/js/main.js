@@ -12,6 +12,7 @@ window.initKrackerzApp = function() {
   initHeroWaveParallax();
   initHeroCardsScrollStraighten();
   initGalleryInteractivity();
+  initPrestasiInteractivity();
 };
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -585,6 +586,119 @@ function initGalleryInteractivity() {
       if (e.key === 'Escape') closeLightbox();
       if (e.key === 'ArrowRight') showNext();
       if (e.key === 'ArrowLeft') showPrev();
+    }
+  });
+}
+
+/* ==========================================================================
+   10. Prestasi / Student Achievements (Filtering & Poster Lightbox)
+   ========================================================================== */
+function initPrestasiInteractivity() {
+  const filterBtns = document.querySelectorAll('.prestasi-filter-btn');
+  const cards = document.querySelectorAll('.prestasi-card');
+  const lightbox = document.getElementById('prestasi-lightbox-modal');
+  const lightboxImg = document.getElementById('prestasi-lightbox-img');
+  const lightboxTitle = document.getElementById('prestasi-lightbox-title');
+  const lightboxDesc = document.getElementById('prestasi-lightbox-desc');
+  const closeBtn = document.getElementById('prestasi-lightbox-close');
+
+  if (!cards.length) return;
+
+  // Filter tabs handling
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.getAttribute('data-prestasi-filter');
+
+      // Update button styling
+      filterBtns.forEach(b => {
+        b.classList.remove('bg-[#121212]', 'text-lime', 'border-2', 'border-[#121212]', 'active-tab');
+        b.classList.add('bg-white', 'text-[#121212]', 'border', 'border-[#161616]/20');
+      });
+      btn.classList.remove('bg-white', 'text-[#121212]', 'border', 'border-[#161616]/20');
+      btn.classList.add('bg-[#121212]', 'text-lime', 'border-2', 'border-[#121212]', 'active-tab');
+
+      // Filter cards with smooth fade
+      cards.forEach(card => {
+        const cat = card.getAttribute('data-category');
+        if (filter === 'all' || cat === filter) {
+          card.style.display = 'flex';
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0) scale(1)';
+          }, 10);
+        } else {
+          card.style.opacity = '0';
+          card.style.transform = 'scale(0.95)';
+          setTimeout(() => {
+            card.style.display = 'none';
+          }, 200);
+        }
+      });
+    });
+  });
+
+  // Lightbox Modal for Full Poster
+  if (!lightbox || !lightboxImg) return;
+
+  function openLightbox(card) {
+    const src = card.getAttribute('data-poster-src');
+    const title = card.getAttribute('data-poster-title');
+    const desc = card.getAttribute('data-poster-desc');
+
+    if (!src) return;
+
+    lightboxImg.src = src;
+    if (lightboxTitle) lightboxTitle.textContent = title || '';
+    if (lightboxDesc) lightboxDesc.textContent = desc || '';
+
+    lightbox.classList.remove('hidden');
+    lightbox.classList.add('flex');
+    requestAnimationFrame(() => {
+      lightbox.classList.remove('opacity-0');
+      lightbox.classList.add('opacity-100');
+      const dialog = lightbox.querySelector('.transform');
+      if (dialog) {
+        dialog.classList.remove('scale-95');
+        dialog.classList.add('scale-100');
+      }
+    });
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('opacity-100');
+    lightbox.classList.add('opacity-0');
+    const dialog = lightbox.querySelector('.transform');
+    if (dialog) {
+      dialog.classList.remove('scale-100');
+      dialog.classList.add('scale-95');
+    }
+    setTimeout(() => {
+      lightbox.classList.remove('flex');
+      lightbox.classList.add('hidden');
+      document.body.style.overflow = '';
+      lightboxImg.src = '';
+    }, 250);
+  }
+
+  // Open modal on card click
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      openLightbox(card);
+    });
+  });
+
+  if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (lightbox.classList.contains('flex') && e.key === 'Escape') {
+      closeLightbox();
     }
   });
 }
