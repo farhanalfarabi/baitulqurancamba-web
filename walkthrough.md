@@ -346,3 +346,147 @@ Buka browser pada `http://localhost:3000`.
 3. **Uji Transisi Keluar (*Unhover*)**:
    - Geser kursor keluar dari kartu:
      - **Ekspektasi**: Kartu berputar kembali secara mulus (*spring transition*) ke posisi awalnya yang tegak lurus (`0deg`) tanpa sentakan atau jitter.
+
+---
+
+## 5. Lokalisasi Bahasa Indonesia Penuh (Full Indonesian Translation)
+
+Seluruh teks antarmuka dan konten di seluruh website telah diubah menjadi **Bahasa Indonesia murni dan alami** tanpa ada lagi istilah bahasa Inggris yang tercampur:
+
+### Ringkasan Perubahan Bahasa per Komponen:
+1. **Navbar (`components/navbar.html`)**:
+   - `Programs` ➔ `Program`
+   - `Honors` ➔ `Prestasi`
+   - `Gallery` ➔ `Galeri`
+   - `About Us` ➔ `Tentang Kami`
+   - `Tuition & Fees` ➔ `Biaya Pendidikan`
+   - `REGISTER NOW` ➔ `DAFTAR SEKARANG`
+2. **Hero Section (`components/hero.html`)**:
+   - Tombol CTA utama: `REGISTER NOW` ➔ `DAFTAR SEKARANG`
+3. **About Section (`components/about.html`)**:
+   - `Institutional Identity & Vision` ➔ `Identitas & Visi Pesantren`
+   - `Faith, Character & Al-Qur'an` ➔ `Iman, Karakter & Al-Qur'an`
+   - `ESTABLISHED 2016` ➔ `BERDIRI SEJAK 2016`
+   - `Official Institutional Vision` ➔ `Visi Resmi Pesantren`
+   - `TRILINGUAL PREACHING` ➔ `DAKWAH 3 BAHASA`
+   - `DISCIPLINE & LEADERSHIP` ➔ `DISIPLIN & KEPEMIMPINAN`
+   - `Strategic Roadmap` ➔ `Arah Strategis Pesantren`
+   - `4 Core Missions` ➔ `4 Misi Utama`
+   - `QUR'ANIC MASTERY` ➔ `PENGUASAAN AL-QUR'AN`
+   - `DA'WAH EMPOWERMENT` ➔ `PENGEMBANGAN DAKWAH`
+   - `RELIGIOUS DISCIPLINE` ➔ `KEDISIPLINAN SYARIAT`
+   - `TALENT & POTENTIAL` ➔ `MINAT & POTENSI`
+   - `Enroll New Student` ➔ `Daftar Santri Baru`
+4. **Kurikulum (`components/curriculum.html`)**:
+   - `Academic Excellence & Curriculum` ➔ `Keunggulan Akademik & Kurikulum`
+   - `9 Core Educational Pillars` ➔ `9 Pilar Pendidikan Pesantren`
+   - Badge Pilar 1 s/d 9: `INTI AL-QUR'AN`, `KADER DAKWAH`, `KETERAMPILAN ORGANISASI`, `KARAKTER & ADAB`, `SANAD QIRA'AH`, `KEPEMIMPINAN`, `ORASI 3 BAHASA`, `KITAB KUNING`, `IJAZAH RESMI NEGARA`
+   - `Core Learning Tracks` ➔ `Jalur Pembelajaran Unggulan`
+   - Tab Sticky Stacking: `Formal School` ➔ `Sekolah Formal`, `Boarding Life` ➔ `Asrama Santri`
+   - Seluruh tombol CTA: `REGISTER NOW` / `Enroll New Student` ➔ `DAFTAR SEKARANG` / `Daftar Santri Baru`
+5. **Prestasi (`components/prestasi.html`)**:
+   - `Honor Roll & Student Accolades` ➔ `Prestasi & Penghargaan Santri`
+   - `Student Excellence & Honors` ➔ `Prestasi & Kebanggaan Santri`
+   - Subtitle & deskripsi: `juara olimpiade nasional & tasmi' hafalan mutqin` (Bahasa Indonesia)
+   - Metrik: `9+ Medali (Olimpiade Nasional)`, `38+ Juz (Tasmi' Sekali Duduk)`, `Predikat Amat Baik`, `Bersambung Sanad`
+   - Filter tabs: `Semua Prestasi (6)`, `🏆 Juara Nasional (3)`, `📖 Tasmi' 10–15 Juz (3)`
+   - Badge kartu & jenjang: `🏆 2 EMAS & 1 PERAK`, `🏆 1 EMAS & 2 PERAK`, `🥈 3 MEDALI PERAK`, `Kelas XII`
+   - Tombol interaksi: `Lihat Poster Lengkap`, `Perbesar`, `Daftar Santri Baru`
+6. **Pimpinan & Pengasuh (`components/founder.html`)**:
+   - `MEET LEADERSHIP` ➔ `PROFIL PENGASUH`
+   - `the mentors & asatidz behind our pesantren` ➔ `pimpinan & asatidz pembina pondok pesantren`
+   - Gelembung percakapan: `Now tell us about yourself` ➔ `Membina santri sepenuh hati`
+   - Kartu metrik: `tahun membina pendidikan formal & islami`, `juz kurikulum talaqqi bersanad`, `santri aktif & alumni hafizh`, `asatidz & pembina bersertifikat`
+   - Tabel legalitas: `Kementerian Agama RI`, `Kementerian Pendidikan`, `Sanad Al-Qur'an Mu'tabar`, `Majelis Ulama Indonesia (MUI)`, `Aktif`
+   - Strip kredensial: `Legalitas & Kemitraan Resmi:`, `KAB. MAROS`
+7. **Footer (`components/footer.html`)**:
+   - Form placeholder: `Masukkan email atau nomor WhatsApp wali santri...`
+   - Tombol submit: `DAFTAR SEKARANG`
+   - Pesan sukses: `🎉 Terima kasih! Tim pendaftaran kami akan segera menghubungi Anda.`
+   - Menu navigasi & hak cipta: `Program`, `Galeri`, `Tentang Kami`, `Biaya Pendidikan`, `FAQ`, `© 2026 Baitul Qur'an Camba. Seluruh Hak Cipta Dilindungi.`
+8. **Galeri (`gallery.html` & `components/gallery-content.html`)**:
+   - Title tag: `<title>Galeri Santri & Kampus | ...</title>`
+   - Pill badge: `ARSIP KEHIDUPAN SANTRI & KAMPUS · KOLEKSI FOTO`
+   - Filter tahun: `Semua Tahun (30)`, `Tahun 2026 (10)`, `Tahun 2025 (10)`, `Tahun 2024 (10)`
+   - Label section: `TAHUN AJARAN ... · 10 FOTO`
+   - Billboard CTA: `KUNJUNGAN KAMPUS`, `JADWALKAN KUNJUNGAN KAMPUS`
+
+---
+
+### Panduan Pengujian Manual Lokalisasi Bahasa (Manual Verification Guide):
+1. **Buka Halaman Utama (`index.html`)**:
+   - Periksa header navigasi: Pastikan teks menu bertuliskan `Program`, `Prestasi`, `Galeri`, `Tentang Kami`, `Biaya Pendidikan`, `FAQ` dan tombol bertuliskan `DAFTAR SEKARANG`.
+   - Periksa tombol hero: Pastikan tombol bertuliskan `DAFTAR SEKARANG`.
+   - Gulir ke seksi About: Pastikan badge bertuliskan `Identitas & Visi Pesantren`, `BERDIRI SEJAK 2016`, `DAKWAH 3 BAHASA`, `DISIPLIN & KEPEMIMPINAN`, `4 Misi Utama`, `PENGUASAAN AL-QUR'AN`, dan tombol `Daftar Santri Baru`.
+   - Gulir ke seksi Kurikulum: Pastikan badge pilar berbahasa Indonesia (`INTI AL-QUR'AN`, `KADER DAKWAH`, `KETERAMPILAN ORGANISASI`, dsb.), tab folder bertuliskan `Tahfizh & Sanad`, `Sekolah Formal`, `Asrama Santri`, dan tombol `DAFTAR SEKARANG`.
+   - Gulir ke seksi Prestasi: Pastikan kartu metrik (`9+ Medali`, `38+ Juz`, `Tasmi' Sekali Duduk`, `Predikat Amat Baik`), filter tab (`Semua Prestasi`, `Juara Nasional`, `Tasmi' 10–15 Juz`), tag kartu (`2 EMAS & 1 PERAK`, `Kelas XII`), dan tombol `Perbesar` / `Lihat Poster Lengkap`.
+   - Gulir ke seksi Profil Pengasuh: Pastikan judul `PROFIL PENGASUH`, percakapan `Membina santri sepenuh hati`, 4 kartu metrik, serta tabel legalitas Kementerian Agama & Pendidikan dalam Bahasa Indonesia.
+   - Gulir ke Footer: Pastikan placeholder input formulir bertuliskan `Masukkan email atau nomor WhatsApp wali santri...`, tombol `DAFTAR SEKARANG`, dan tautan footer dalam Bahasa Indonesia.
+2. **Buka Halaman Galeri (`gallery.html`)**:
+   - Periksa tab filter tahun: `Semua Tahun`, `Tahun 2026`, `Tahun 2025`, `Tahun 2024`.
+   - Periksa judul section: `TAHUN AJARAN 2025 / 2026 · 10 FOTO`.
+   - Periksa tombol billboard kunjungan: `JADWALKAN KUNJUNGAN KAMPUS`.
+
+---
+
+## 3. Pembaruan Kartu Testimoni: Krackerz 24-Point Scalloped Rosette Cards (`components/testimonials.html`)
+
+Sesuai permintaan dan gambar referensi dari user (seksi `"YOU'RE not ALONE ⚡"` pada Krackerz), kartu testimoni pada seksi **Cerita & Kesan Wali Santri** telah dirombak total dari kartu persegi membulat standar menjadi **Kartu Roset Bergigi 24 Titik (24-Point Scalloped Rosette Cards)** yang saling bertumpuk (*horizontal overlapping cascade*) dengan latar belakang gelap artistik Krackerz:
+
+### Fitur Desain & Visual:
+1. **Bentuk Geometri Kartu Roset Bergigi 24 Titik**:
+   - Bentuk roset/biskuit bergerigi melengkung 24 lekukan diekstraksi secara presisi 1:1 dari SVG mask asli Krackerz dan diimplementasikan via CSS mask `data:image/svg+xml` di `.scallop-card-mask` tanpa dependensi eksternal atau masalah CORS.
+   - Rasio aspek 1:1 berbentuk roset melingkar berdimensi `w-[300px] h-[300px]` pada layar ponsel hingga `w-[390px] h-[390px]` pada layar desktop lebar.
+2. **Palet Warna Hangat Bergradasi (Warm Terracotta / Rust Palette)**:
+   - **Kartu 1 (Hj. Nurhayati)**: Warna *Bright Orange-Red* (`#F95534`), kemiringan `rotate(-11deg)`, lapisan `z-10`.
+   - **Kartu 2 (Drs. H. Syamsuddin)**: Warna *Vermilion Red* (`#CF2B09`), kemiringan `rotate(8deg)`, lapisan `z-20`.
+   - **Kartu 3 (Ahmad Fauzan)**: Warna *Burnt Brick Red* (`#A52207`), kemiringan `rotate(-10deg)`, lapisan `z-30`.
+   - **Kartu 4 (Umm Maryam)**: Warna *Deep Wine Burgundy* (`#7C1A06`), kemiringan `rotate(12deg)`, lapisan `z-40`.
+3. **Efek Menggantung & Ayunan Bandul Saat Di-Hover (*Hanging Pendulum Sway Effect*)**:
+   - Kartu dirancang dengan mekanika fisika seperti plang/lencana yang digantung dari titik poros atas tengah (`transform-origin: 50% 14px`).
+   - Di bagian atas tengah kartu terdapat lubang pin penggantung (*eyelet pin hole*) dekoratif yang memperkuat ilusi fisik gantungan.
+   - Saat kursor diarahkan ke salah satu kartu (*hover*):
+     - Kartu otomatis melayang ke lapisan teratas (`z-index: 50`).
+     - Kartu mengayun ke kiri dan kanan secara halus dan berirama (*pendulum swing*) mengikuti kurva harmonik `@keyframes hangingSwing` (`-7deg` ke `+7deg` dengan durasi 2.2s `cubic-bezier(0.445, 0.05, 0.55, 0.95)`).
+     - Bayangan jatuh (*drop-shadow*) meluas dramatis (`drop-shadow(0 26px 36px rgba(0,0,0,0.72))`) memberikan efek kedalaman realistis saat kartu berayun.
+     - Saat kursor dijauhkan (*mouse leave*), kartu kembali tenang secara mulus (*smooth deceleration*).
+4. **Tipografi & Elemen Detail 1:1**:
+   - Ikon tanda kutip pembuka ganda (`”`) berwarna *Dark Burgundy* (`#580D14`) di kiri atas.
+   - Teks kutipan testimoni putih bersih dengan leading nyaman.
+   - Nama penutur dengan huruf display tebal kapital (*Bold Display All-Caps*).
+   - Label peran dan kota dengan titik pemisah burgundy bulat (*Parent • Makassar*, *Alumni • 30 Juz Hafizh*).
+5. **Latar Belakang & Header**:
+   - Foto suasana santap bersama temaram Krackerz (`assets/images/testimonials-bg.png`) dengan overlay gradien anggur gelap `#2D060B`.
+   - Header tipografi ikonik Krackerz: `YOU'RE not ALONE` dengan teks `"not"` tulisan tangan miring bersambung (*font-cursive lowercase*) dan stiker kilat neon lime (`assets/images/sticker-lightning.svg`).
+   - Tombol CTA ganda Krackerz di bawah kartu: `JOIN WAITLIST ➔` yang langsung memicu modal pendaftaran santri baru.
+
+---
+
+### Panduan Pengujian Manual Kartu Testimoni (Manual Verification Guide):
+1. **Jalankan Web Server Lokal**:
+   ```powershell
+   npx serve .
+   ```
+   Buka URL di browser (misal `http://localhost:3000` atau `http://localhost:5000`).
+2. **Navigasi ke Seksi Testimoni**:
+   - Gulir ke bawah halaman hingga menemukan seksi dengan judul besar **YOU'RE not ALONE** dan badge hijau lime **Cerita & Kesan Wali Santri**.
+3. **Verifikasi Visual Bentuk Kartu & Lubang Gantungan**:
+   - Pastikan kartu berbentuk **roset/stempel bergerigi bulat (24-point scalloped cookie)**.
+   - Perhatikan lubang/pin gantungan kecil di bagian atas tengah setiap kartu yang menandai titik tumpuan ayunan.
+   - Pastikan warna keempat kartu mengalir indah dari kiri ke kanan: *Bright Orange-Red* (`#F95534`) ➔ *Vermilion* (`#CF2B09`) ➔ *Burnt Red* (`#A52207`) ➔ *Deep Wine* (`#7C1A06`).
+   - Pastikan keempat kartu saling bertumpuk sebagian secara miring (`-11°`, `+8°`, `-10°`, `+12°`).
+4. **Verifikasi Efek Ayunan Menggantung (*Hanging Swing on Hover*)**:
+   - Arahkan kursor (*hover*) ke salah satu kartu (misal Kartu 1 Hj. Nurhayati atau Kartu 2 Drs. H. Syamsuddin).
+   - **Ekspektasi**:
+     - Kartu langsung naik ke lapisan paling depan (`z-index: 50`) tanpa tertutup kartu lain.
+     - Bagian atas kartu tetap bertengger di tempatnya, sementara bagian bawah kartu **berayun ke kiri dan ke kanan secara halus dan natural (*pendulum swing*)** layaknya plang/papan yang digantung dari tali di bagian atas.
+     - Bayangan kartu ikut mengembang lembut ke bawah.
+   - Jauhkan kursor dari kartu: kartu akan berhenti mengayun dan kembali ke posisi awalnya secara mulus.
+5. **Verifikasi Responsivitas Mobile & Tablet**:
+   - Buka DevTools (`F12`), pilih mode perangkat bergerak (misal iPhone / iPad / Android).
+   - Ekspektasi: Deretan kartu dapat digeser/di-swipe secara horizontal (*smooth horizontal scroll*) dengan nyaman tanpa merusak tata letak halaman.
+6. **Verifikasi Tombol CTA**:
+   - Klik tombol **JOIN WAITLIST ➔** di bagian bawah seksi testimoni.
+   - Ekspektasi: Modal formulir pendaftaran santri baru (*waitlist modal*) akan terbuka seketika.
+
+
