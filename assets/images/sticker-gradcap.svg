@@ -1,11 +1,39 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 90" fill="none">
+  <!-- BQC Wisuda Santri & Ijazah Sanad Sticker -->
   <g filter="drop-shadow(3px 3px 0px #121212)">
-    <!-- Cap Diamond -->
-    <polygon points="50,15 90,32 50,48 10,32" fill="#D4FF00" stroke="#121212" stroke-width="3.5" stroke-linejoin="round"/>
-    <!-- Skull Cap Base -->
-    <path d="M28 39 L28 58 C28 68 72 68 72 58 L72 39" fill="#D4FF00" stroke="#121212" stroke-width="3.5"/>
-    <!-- Tassel -->
-    <path d="M50 32 C40 32 32 40 32 52 L32 64" stroke="#121212" stroke-width="2.5" fill="none"/>
-    <rect x="29" y="64" width="6" height="10" rx="1" fill="#E53935" stroke="#121212" stroke-width="1.5"/>
+    <!-- Rolled Diploma / Sanad Scroll (Back Layer) -->
+    <g transform="translate(14, 52) rotate(-14)">
+      <!-- Scroll Tube -->
+      <rect x="0" y="0" width="68" height="18" rx="4" fill="#FFFDF0" stroke="#121212" stroke-width="3"/>
+      <!-- Inner Scroll Ends -->
+      <ellipse cx="2" cy="9" rx="3" ry="8" fill="#F4E8C1" stroke="#121212" stroke-width="2"/>
+      <ellipse cx="68" cy="9" rx="3" ry="8" fill="#FFFDF0" stroke="#121212" stroke-width="2"/>
+      <!-- Crimson Ribbon Tie -->
+      <rect x="30" y="-1" width="10" height="20" fill="#CF2B09" stroke="#121212" stroke-width="2"/>
+      <!-- Ribbon Tails -->
+      <path d="M32 18 L28 30 L35 27 L40 31 L38 18" fill="#CF2B09" stroke="#121212" stroke-width="2"/>
+      <!-- Gold Wax Seal with Star -->
+      <circle cx="35" cy="10" r="5" fill="#F59E0B" stroke="#121212" stroke-width="1.5"/>
+      <polygon points="35,7 36,9 38,9.5 36.5,11 37,13 35,12 33,13 33.5,11 32,9.5 34,9" fill="#121212"/>
+    </g>
+
+    <!-- Graduation Toga Cap (Front Layer) -->
+    <!-- Skull Cap Base Underneath -->
+    <path d="M30 32 L30 48 C30 56 68 56 68 48 L68 32" fill="#121212" stroke="#121212" stroke-width="3.5"/>
+    <path d="M32 46 C36 50 62 50 66 46" stroke="#D4FF00" stroke-width="2.5" fill="none"/>
+
+    <!-- Mortarboard Diamond -->
+    <polygon points="49,10 88,26 49,42 10,26" fill="#D4FF00" stroke="#121212" stroke-width="3.5" stroke-linejoin="round"/>
+    <!-- Mortarboard Center Button -->
+    <ellipse cx="49" cy="26" rx="4" ry="2.5" fill="#121212" stroke="#121212" stroke-width="1.5"/>
+
+    <!-- Tassel Cord & Brush -->
+    <path d="M49 26 C36 28 26 36 24 48 L22 62" stroke="#F59E0B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <!-- Tassel Brush -->
+    <path d="M19 62 L25 62 L27 74 L17 74 Z" fill="#F59E0B" stroke="#121212" stroke-width="2"/>
+    <rect x="18" y="61" width="8" height="3" rx="1" fill="#121212"/>
+
+    <!-- Sparkle Stars -->
+    <polygon points="84,8 85,11 88,12 85,13 84,16 83,13 80,12 83,11" fill="#F59E0B"/>
   </g>
 </svg>

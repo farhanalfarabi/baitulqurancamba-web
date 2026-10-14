@@ -1,9 +1,33 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- BQC 30 Juz Mutqin Sanad Starburst Badge -->
   <g filter="drop-shadow(3px 3px 0px #121212)">
-    <!-- 12-point scalloped/starburst badge -->
-    <path d="M50 4 L57 14 L70 11 L73 24 L86 26 L84 39 L95 45 L89 57 L96 68 L84 74 L84 87 L71 88 L66 100 L53 96 L44 104 L37 94 L24 97 L21 84 L8 82 L10 69 L0 62 L6 50 L0 38 L11 32 L12 19 L25 18 L30 6 L43 10 Z" fill="#D4FF00" stroke="#121212" stroke-width="3"/>
-    <text x="50" y="38" font-family="'Space Grotesk', sans-serif" font-weight="900" font-size="9" fill="#121212" text-anchor="middle">BITE</text>
-    <text x="50" y="52" font-family="'Space Grotesk', sans-serif" font-weight="900" font-size="9" fill="#121212" text-anchor="middle">LEARN</text>
-    <text x="50" y="66" font-family="'Space Grotesk', sans-serif" font-weight="900" font-size="9" fill="#121212" text-anchor="middle">REPEAT</text>
+    <!-- 16-Point Tactile Scalloped Starburst Base -->
+    <path d="
+      M 50 2 
+      L 58 11 L 69 7 L 73 19 L 85 19 L 85 31 L 96 35 L 92 47 L 100 54 L 92 61 L 96 73 L 84 76 L 84 88 L 72 88 L 68 100 
+      L 56 95 L 48 102 L 42 93 L 30 96 L 27 84 L 15 83 L 16 71 L 5 64 L 11 53 L 4 44 L 13 36 L 12 24 L 24 22 L 27 10 L 39 12 Z
+    " fill="#D4FF00" stroke="#121212" stroke-width="3.5" stroke-linejoin="round"/>
+
+    <!-- Inner Circle Stamp Border -->
+    <circle cx="50" cy="52" r="33" fill="#FFFFFF" stroke="#121212" stroke-width="2.5"/>
+    <circle cx="50" cy="52" r="30" fill="none" stroke="#CF2B09" stroke-width="1.5" stroke-dasharray="3 2"/>
+
+    <!-- Small Star at Top of Circle -->
+    <polygon points="50,26 51.5,29 55,29.5 52.5,31.5 53,35 50,33 47,35 47.5,31.5 45,29.5 48.5,29" fill="#F59E0B"/>
+
+    <!-- Typography: 30 JUZ / MUTQIN / SANAD -->
+    <text x="50" y="44" font-family="'Space Grotesk', sans-serif" font-weight="900" font-size="10" fill="#121212" text-anchor="middle" letter-spacing="1">
+      30 JUZ
+    </text>
+    <text x="50" y="57" font-family="'Space Grotesk', sans-serif" font-weight="900" font-size="10" fill="#CF2B09" text-anchor="middle" letter-spacing="0.5">
+      MUTQIN
+    </text>
+    <text x="50" y="70" font-family="'Space Grotesk', sans-serif" font-weight="900" font-size="9" fill="#121212" text-anchor="middle" letter-spacing="1.5">
+      SANAD
+    </text>
+
+    <!-- Small Decorative Diamonds on Left and Right -->
+    <polygon points="26,52 28,50 30,52 28,54" fill="#121212"/>
+    <polygon points="70,52 72,50 74,52 72,54" fill="#121212"/>
   </g>
 </svg>

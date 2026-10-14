@@ -1,17 +1,50 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
-  <!-- White halo outline -->
+  <!-- BQC Piala MTQ & Prestasi Santri Sticker -->
   <g filter="drop-shadow(3px 3px 0px #121212)">
-    <!-- Base -->
-    <rect x="30" y="80" width="40" height="12" rx="3" fill="#121212" stroke="#FFFFFF" stroke-width="2"/>
-    <rect x="38" y="68" width="24" height="14" fill="#D4FF00" stroke="#121212" stroke-width="3"/>
-    <!-- Cup Stem -->
-    <path d="M42 52 L58 52 L54 68 L46 68 Z" fill="#121212"/>
-    <!-- Cup Bowl -->
-    <path d="M25 22 C25 48 38 54 50 54 C62 54 75 48 75 22 Z" fill="#D4FF00" stroke="#121212" stroke-width="3.5"/>
-    <!-- Handles -->
-    <path d="M25 26 C12 26 12 42 27 44" stroke="#121212" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-    <path d="M75 26 C88 26 88 42 73 44" stroke="#121212" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-    <!-- Star on cup -->
-    <polygon points="50,30 52,36 58,36 53,40 55,46 50,42 45,46 47,40 42,36 48,36" fill="#121212"/>
+    <!-- Pedestal Base (Bottom Tier) -->
+    <rect x="28" y="80" width="44" height="14" rx="3" fill="#121212" stroke="#121212" stroke-width="2"/>
+    <!-- Engraved Gold Nameplate -->
+    <rect x="34" y="83" width="32" height="8" rx="1.5" fill="#D4FF00" stroke="#121212" stroke-width="1.5"/>
+    <text x="50" y="90" font-family="'Space Grotesk', sans-serif" font-weight="900" font-size="7" fill="#121212" text-anchor="middle" letter-spacing="1">
+      BQC
+    </text>
+
+    <!-- Upper Pedestal Riser -->
+    <polygon points="36,80 40,68 60,68 64,80" fill="#FFFFFF" stroke="#121212" stroke-width="2.5"/>
+
+    <!-- Stem Column -->
+    <rect x="46" y="54" width="8" height="14" fill="#CF2B09" stroke="#121212" stroke-width="2.5"/>
+    <circle cx="50" cy="61" r="3" fill="#D4FF00" stroke="#121212" stroke-width="1.5"/>
+
+    <!-- Left Handle -->
+    <path d="M25 24 C10 24 10 44 26 48" stroke="#121212" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <path d="M25 24 C13 24 13 44 26 48" stroke="#D4FF00" stroke-width="2" stroke-linecap="round" fill="none"/>
+
+    <!-- Right Handle -->
+    <path d="M75 24 C90 24 90 44 74 48" stroke="#121212" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <path d="M75 24 C87 24 87 44 74 48" stroke="#D4FF00" stroke-width="2" stroke-linecap="round" fill="none"/>
+
+    <!-- Trophy Cup Bowl -->
+    <path d="M24 18 L76 18 C76 46 64 54 50 54 C36 54 24 46 24 18 Z" 
+          fill="#D4FF00" stroke="#121212" stroke-width="3.5" stroke-linejoin="round"/>
+
+    <!-- Top Rim Oval -->
+    <ellipse cx="50" cy="18" rx="26" ry="6" fill="#FFFFFF" stroke="#121212" stroke-width="3"/>
+    <ellipse cx="50" cy="18" rx="20" ry="3.5" fill="#CF2B09"/>
+
+    <!-- Front Medallion: Rub el Hizb (Islamic 8-Point Star) -->
+    <g transform="translate(50, 36)">
+      <!-- Outer Square 1 -->
+      <rect x="-8" y="-8" width="16" height="16" rx="1.5" fill="#CF2B09" stroke="#121212" stroke-width="1.5"/>
+      <!-- Outer Square 2 (rotated 45 deg) -->
+      <rect x="-8" y="-8" width="16" height="16" rx="1.5" fill="#CF2B09" stroke="#121212" stroke-width="1.5" transform="rotate(45)"/>
+      <!-- Inner Gold Star Circle -->
+      <circle cx="0" cy="0" r="4.5" fill="#F59E0B"/>
+      <circle cx="0" cy="0" r="2" fill="#FFFFFF"/>
+    </g>
+
+    <!-- Victory Radiance Sparkles -->
+    <polygon points="18,10 19,13 22,14 19,15 18,18 17,15 14,14 17,13" fill="#F59E0B"/>
+    <polygon points="82,10 83,13 86,14 83,15 82,18 81,15 78,14 81,13" fill="#F59E0B"/>
   </g>
 </svg>

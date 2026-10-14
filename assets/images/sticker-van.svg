@@ -1,36 +1,70 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 100" fill="none">
-  <!-- Outer Sticker White Halo -->
+  <!-- BQC Camba Mobil Operasional Pesantren Sticker -->
   <g filter="drop-shadow(3px 3px 0px #121212)">
     <!-- Van Body Base -->
-    <path d="M15 65 L15 35 C15 25 25 18 45 16 L125 16 C140 16 150 24 150 40 L150 70 C150 75 145 76 140 76 L130 76 C130 68 122 62 114 62 C106 62 98 68 98 76 L62 76 C62 68 54 62 46 62 C38 62 30 68 30 76 L20 76 C15 76 15 70 15 65 Z" fill="#D4FF00" stroke="#121212" stroke-width="4"/>
+    <path d="M15 65 L15 35 C15 25 25 18 45 16 L125 16 C140 16 150 24 150 40 L150 70 C150 75 145 76 140 76 L130 76 C130 68 122 62 114 62 C106 62 98 68 98 76 L62 76 C62 68 54 62 46 62 C38 62 30 68 30 76 L20 76 C15 76 15 70 15 65 Z" 
+          fill="#D4FF00" stroke="#121212" stroke-width="4" stroke-linejoin="round"/>
     
     <!-- Van Roof Rack & Top Highlight -->
     <rect x="35" y="10" width="90" height="4" rx="2" fill="#121212"/>
     <line x1="50" y1="14" x2="50" y2="16" stroke="#121212" stroke-width="3"/>
+    <line x1="80" y1="14" x2="80" y2="16" stroke="#121212" stroke-width="3"/>
     <line x1="110" y1="14" x2="110" y2="16" stroke="#121212" stroke-width="3"/>
 
-    <!-- Windows -->
+    <!-- Windows (Tinted Black with Gloss Highlights) -->
     <!-- Front Windshield -->
     <path d="M22 34 C25 24 35 22 46 22 L55 22 L55 42 L22 42 Z" fill="#121212"/>
-    <!-- Side Windows -->
-    <rect x="62" y="22" width="24" height="20" rx="3" fill="#121212"/>
-    <rect x="92" y="22" width="24" height="20" rx="3" fill="#121212"/>
-    <rect x="122" y="22" width="22" height="20" rx="3" fill="#121212"/>
+    <polygon points="26,38 34,26 38,26 30,38" fill="#FFFFFF" opacity="0.35"/>
 
-    <!-- Stripe & Wordmark -->
-    <rect x="15" y="46" width="135" height="18" fill="#E53935" stroke="#121212" stroke-width="2"/>
-    <text x="32" y="59" font-family="'Space Grotesk', sans-serif" font-weight="900" font-size="11" fill="#FFFFFF" letter-spacing="1.5">
-      KRAKERZ
+    <!-- Side Window 1 -->
+    <rect x="62" y="22" width="24" height="20" rx="3" fill="#121212"/>
+    <polygon points="66,38 74,26 78,26 70,38" fill="#FFFFFF" opacity="0.35"/>
+
+    <!-- Side Window 2 -->
+    <rect x="92" y="22" width="24" height="20" rx="3" fill="#121212"/>
+    <polygon points="96,38 104,26 108,26 100,38" fill="#FFFFFF" opacity="0.35"/>
+
+    <!-- Rear Window -->
+    <rect x="122" y="22" width="22" height="20" rx="3" fill="#121212"/>
+    <polygon points="126,38 134,26 138,26 130,38" fill="#FFFFFF" opacity="0.35"/>
+
+    <!-- Side Fleet Stripe & Wordmark -->
+    <rect x="15" y="46" width="135" height="18" fill="#CF2B09" stroke="#121212" stroke-width="2"/>
+    
+    <!-- Crescent & Star Logo next to text -->
+    <circle cx="28" cy="55" r="5" fill="#FFFFFF"/>
+    <circle cx="29.5" cy="54" r="4.2" fill="#CF2B09"/>
+    <polygon points="31,52 31.8,53.5 33.5,53.8 32.2,55 32.5,56.5 31,55.8 29.5,56.5 29.8,55 28.5,53.8 30.2,53.5" fill="#D4FF00"/>
+
+    <!-- Official Brand Text: BQC CAMBA -->
+    <text x="88" y="59" font-family="'Space Grotesk', sans-serif" font-weight="900" font-size="11" fill="#FFFFFF" text-anchor="middle" letter-spacing="2">
+      BQC CAMBA
     </text>
 
-    <!-- Headlight -->
-    <circle cx="20" cy="54" r="4" fill="#FFFFFF" stroke="#121212" stroke-width="2"/>
+    <!-- Headlight & Front Grille -->
+    <circle cx="19" cy="55" r="4" fill="#FFFFFF" stroke="#121212" stroke-width="2"/>
+    <rect x="15" y="62" width="6" height="3" rx="1" fill="#F59E0B" stroke="#121212" stroke-width="1"/>
+
+    <!-- Taillight -->
+    <rect x="146" y="50" width="4" height="8" rx="1.5" fill="#EF4444" stroke="#121212" stroke-width="1.5"/>
 
     <!-- Wheels -->
+    <!-- Front Wheel -->
     <circle cx="46" cy="76" r="14" fill="#121212"/>
-    <circle cx="46" cy="76" r="6" fill="#FFFFFF" stroke="#121212" stroke-width="2"/>
+    <circle cx="46" cy="76" r="8" fill="#FFFFFF" stroke="#121212" stroke-width="2"/>
+    <circle cx="46" cy="76" r="3" fill="#CF2B09"/>
+    <circle cx="46" cy="70" r="1" fill="#121212"/>
+    <circle cx="46" cy="82" r="1" fill="#121212"/>
+    <circle cx="40" cy="76" r="1" fill="#121212"/>
+    <circle cx="52" cy="76" r="1" fill="#121212"/>
     
+    <!-- Rear Wheel -->
     <circle cx="114" cy="76" r="14" fill="#121212"/>
-    <circle cx="114" cy="76" r="6" fill="#FFFFFF" stroke="#121212" stroke-width="2"/>
+    <circle cx="114" cy="76" r="8" fill="#FFFFFF" stroke="#121212" stroke-width="2"/>
+    <circle cx="114" cy="76" r="3" fill="#CF2B09"/>
+    <circle cx="114" cy="70" r="1" fill="#121212"/>
+    <circle cx="114" cy="82" r="1" fill="#121212"/>
+    <circle cx="108" cy="76" r="1" fill="#121212"/>
+    <circle cx="120" cy="76" r="1" fill="#121212"/>
   </g>
 </svg>

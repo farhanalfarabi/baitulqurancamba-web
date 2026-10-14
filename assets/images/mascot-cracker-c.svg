@@ -1,100 +1,92 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 170" fill="none">
-  <!-- Mascot Filter / Shadow -->
+  <!-- Mascot Letter C for Camba (Baitul Qur'an Camba) -->
   <defs>
-    <filter id="crackerCShadow" x="-15%" y="-15%" width="135%" height="135%">
-      <feDropShadow dx="3" dy="3" stdDeviation="0" flood-color="#121212" />
+    <filter id="bqcCShadow" x="-15%" y="-15%" width="135%" height="135%">
+      <feDropShadow dx="4" dy="4" stdDeviation="0" flood-color="#121212" />
     </filter>
   </defs>
 
-  <g filter="url(#crackerCShadow)">
-    <!-- Scalloped 'C' Shaped Biscuit Body -->
+  <g filter="url(#bqcCShadow)">
+    <!-- Main Chunky 'C' Body -->
     <path d="
-      M 118 42
-      C 114 36, 108 30, 102 26
-      C 94 22, 86 18, 76 18
-      C 66 18, 56 22, 48 27
-      C 40 32, 32 40, 27 50
-      C 22 60, 20 72, 21 84
-      C 22 96, 26 108, 33 118
-      C 40 128, 50 136, 61 141
-      C 72 146, 84 147, 96 144
-      C 106 141, 114 135, 120 128
-      C 123 124, 120 118, 114 116
-      C 107 114, 102 118, 96 122
-      C 87 127, 76 127, 67 122
-      C 58 117, 51 108, 48 98
-      C 46 90, 48 82, 53 75
-      C 58 68, 66 63, 75 62
-      C 84 61, 93 64, 101 69
-      C 106 72, 113 70, 116 64
-      C 120 56, 121 48, 118 42 Z
-    " fill="#E53935" stroke="#121212" stroke-width="4.5" stroke-linejoin="round"/>
+      M 122 46
+      C 114 36, 102 28, 88 26
+      C 66 23, 44 32, 32 48
+      C 18 66, 18 96, 32 116
+      C 46 134, 70 142, 92 138
+      C 106 135, 118 126, 126 114
+      C 128 110, 124 104, 118 102
+      C 112 100, 107 104, 102 109
+      C 90 119, 72 121, 58 112
+      C 46 104, 42 88, 44 76
+      C 46 64, 54 50, 68 44
+      C 80 39, 96 42, 106 50
+      C 111 54, 118 53, 122 48
+      C 124 46, 124 45, 122 46 Z
+    " fill="#CF2B09" stroke="#121212" stroke-width="4.5" stroke-linejoin="round"/>
 
-    <!-- Scallop Outer Bumps -->
-    <circle cx="106" cy="27" r="6.5" fill="#E53935" stroke="#121212" stroke-width="3.5"/>
-    <circle cx="88" cy="20" r="6.5" fill="#E53935" stroke="#121212" stroke-width="3.5"/>
-    <circle cx="69" cy="19" r="6.5" fill="#E53935" stroke="#121212" stroke-width="3.5"/>
-    <circle cx="50" cy="23" r="6.5" fill="#E53935" stroke="#121212" stroke-width="3.5"/>
-    <circle cx="34" cy="34" r="6.5" fill="#E53935" stroke="#121212" stroke-width="3.5"/>
-    <circle cx="23" cy="50" r="6.5" fill="#E53935" stroke="#121212" stroke-width="3.5"/>
-    <circle cx="18" cy="68" r="6.5" fill="#E53935" stroke="#121212" stroke-width="3.5"/>
-    <circle cx="18" cy="88" r="6.5" fill="#E53935" stroke="#121212" stroke-width="3.5"/>
-    <circle cx="23" cy="107" r="6.5" fill="#E53935" stroke="#121212" stroke-width="3.5"/>
-    <circle cx="34" cy="123" r="6.5" fill="#E53935" stroke="#121212" stroke-width="3.5"/>
-    <circle cx="50" cy="136" r="6.5" fill="#E53935" stroke="#121212" stroke-width="3.5"/>
-    <circle cx="69" cy="144" r="6.5" fill="#E53935" stroke="#121212" stroke-width="3.5"/>
-    <circle cx="89" cy="145" r="6.5" fill="#E53935" stroke="#121212" stroke-width="3.5"/>
-    <circle cx="108" cy="138" r="6.5" fill="#E53935" stroke="#121212" stroke-width="3.5"/>
-    <circle cx="120" cy="125" r="6.5" fill="#E53935" stroke="#121212" stroke-width="3.5"/>
-    <circle cx="118" cy="42" r="6.5" fill="#E53935" stroke="#121212" stroke-width="3.5"/>
+    <!-- Subtle Islamic Star Pattern Dots on Body -->
+    <circle cx="56" cy="38" r="3" fill="#FFE082" stroke="#121212" stroke-width="1.5"/>
+    <circle cx="34" cy="62" r="3" fill="#FFE082" stroke="#121212" stroke-width="1.5"/>
+    <circle cx="30" cy="98" r="3" fill="#FFE082" stroke="#121212" stroke-width="1.5"/>
+    <circle cx="50" cy="128" r="3" fill="#FFE082" stroke="#121212" stroke-width="1.5"/>
+    <circle cx="84" cy="134" r="3" fill="#FFE082" stroke="#121212" stroke-width="1.5"/>
+    <circle cx="112" cy="122" r="3" fill="#FFE082" stroke="#121212" stroke-width="1.5"/>
 
-    <!-- Biscuit Interior Fill -->
-    <path d="
-      M 115 42
-      C 98 22, 60 20, 36 44
-      C 18 64, 18 100, 36 122
-      C 56 144, 96 144, 116 125
-      C 106 115, 96 120, 80 120
-      C 55 120, 44 95, 45 82
-      C 46 68, 58 55, 80 55
-      C 96 55, 106 60, 115 42 Z
-    " fill="#E53935"/>
+    <!-- Crescent Moon & Star inside the 'C' cavity -->
+    <g transform="translate(86, 70)">
+      <!-- Golden Crescent Moon -->
+      <path d="M14 0 C6 0 0 7 0 16 C0 25 7 32 16 32 C21 32 25 30 28 26 C21 27 14 23 12 16 C10 9 15 3 22 1 C19 0.3 16 0 14 0 Z" 
+            fill="#D4FF00" stroke="#121212" stroke-width="2.5"/>
+      <!-- Golden 8-Point Rub el Hizb Star -->
+      <g transform="translate(24, 6)">
+        <polygon points="6,0 8,4 12,6 8,8 6,12 4,8 0,6 4,4" fill="#F59E0B" stroke="#121212" stroke-width="1.5"/>
+      </g>
+    </g>
 
-    <!-- Cracker Dots -->
-    <circle cx="48" cy="46" r="2.5" fill="#B71C1C"/>
-    <circle cx="34" cy="74" r="2.5" fill="#B71C1C"/>
-    <circle cx="34" cy="95" r="2.5" fill="#B71C1C"/>
-    <circle cx="48" cy="122" r="2.5" fill="#B71C1C"/>
-    <circle cx="75" cy="135" r="2.5" fill="#B71C1C"/>
-    <circle cx="98" cy="132" r="2.5" fill="#B71C1C"/>
-    <circle cx="95" cy="35" r="2.5" fill="#B71C1C"/>
-    <circle cx="72" cy="30" r="2.5" fill="#B71C1C"/>
-
-    <!-- Big Cartoon Eyes -->
+    <!-- Big Cartoon Santri Eyes -->
     <!-- Left Eye -->
-    <circle cx="64" cy="52" r="12" fill="#FFFFFF" stroke="#121212" stroke-width="3.5"/>
-    <circle cx="62" cy="52" r="6.5" fill="#121212"/>
-    <circle cx="64" cy="50" r="2.2" fill="#FFFFFF"/>
+    <circle cx="68" cy="58" r="11" fill="#FFFFFF" stroke="#121212" stroke-width="3.5"/>
+    <circle cx="66" cy="58" r="6" fill="#121212"/>
+    <circle cx="68" cy="56" r="2" fill="#FFFFFF"/>
 
     <!-- Right Eye -->
-    <circle cx="93" cy="54" r="12" fill="#FFFFFF" stroke="#121212" stroke-width="3.5"/>
-    <circle cx="91" cy="54" r="6.5" fill="#121212"/>
-    <circle cx="93" cy="52" r="2.2" fill="#FFFFFF"/>
+    <circle cx="94" cy="58" r="11" fill="#FFFFFF" stroke="#121212" stroke-width="3.5"/>
+    <circle cx="92" cy="58" r="6" fill="#121212"/>
+    <circle cx="94" cy="56" r="2" fill="#FFFFFF"/>
 
-    <!-- Thick Angry / Determined Eyebrows -->
-    <polygon points="48,36 74,45 72,50 46,42" fill="#121212"/>
-    <polygon points="84,46 110,37 112,43 86,51" fill="#121212"/>
+    <!-- Eyebrows (Dynamic & Determined) -->
+    <polygon points="56,44 78,50 76,54 54,48" fill="#121212"/>
+    <polygon points="86,50 108,44 110,48 88,54" fill="#121212"/>
 
-    <!-- Gentleman Mustache with curled ends -->
-    <path d="
-      M 78 84
-      C 73 77, 60 79, 54 86
-      C 63 92, 74 90, 80 86
-      C 86 90, 97 92, 106 86
-      C 100 79, 87 77, 82 84
-      Z
-    " fill="#121212" stroke="#121212" stroke-width="2"/>
-    <ellipse cx="58" cy="85" rx="5.5" ry="3.5" fill="#121212" transform="rotate(-15 58 85)"/>
-    <ellipse cx="102" cy="85" rx="5.5" ry="3.5" fill="#121212" transform="rotate(15 102 85)"/>
+    <!-- Cheerful Blushing Cheeks -->
+    <ellipse cx="54" cy="68" rx="6" ry="3.5" fill="#FCA5A5" opacity="0.7"/>
+    <ellipse cx="106" cy="68" rx="6" ry="3.5" fill="#FCA5A5" opacity="0.7"/>
+
+    <!-- Cheerful Smiling Mouth -->
+    <path d="M68 76 C68 88 92 88 92 76 Z" fill="#121212" stroke="#121212" stroke-width="2.5"/>
+    <path d="M72 76 L88 76 C86 80 74 80 72 76 Z" fill="#FFFFFF"/>
+    <path d="M75 82 C78 80 82 80 85 82 C83 85 77 85 75 82 Z" fill="#F472B6"/>
+
+    <!-- Santri Black Peci / Songkok tilted on top of the 'C' -->
+    <g transform="translate(68, 4) rotate(-8)">
+      <!-- Main Peci body -->
+      <path d="M0 24 C2 10 12 2 34 2 C56 2 64 10 66 24 Z" fill="#121212" stroke="#121212" stroke-width="3.5" stroke-linejoin="round"/>
+      <!-- Peci top crown highlight -->
+      <path d="M8 8 C18 4 48 4 58 8" stroke="#3F3F46" stroke-width="2" fill="none"/>
+      <!-- Gold / Lime bottom band -->
+      <path d="M-1 22 C18 26 48 26 67 22" stroke="#D4FF00" stroke-width="3" stroke-linecap="round" fill="none"/>
+      <!-- Small crescent emblem on Peci -->
+      <circle cx="34" cy="11" r="3.5" fill="#F59E0B"/>
+      <circle cx="35.5" cy="10.5" r="2.8" fill="#121212"/>
+    </g>
+
+    <!-- Floating Sparkles (Barakah) -->
+    <g transform="translate(14, 28)">
+      <polygon points="6,0 7,4 11,5 7,6 6,10 5,6 1,5 5,4" fill="#D4FF00" stroke="#121212" stroke-width="1.5"/>
+    </g>
+    <g transform="translate(136, 102)">
+      <polygon points="6,0 7,4 11,5 7,6 6,10 5,6 1,5 5,4" fill="#D4FF00" stroke="#121212" stroke-width="1.5"/>
+    </g>
   </g>
 </svg>

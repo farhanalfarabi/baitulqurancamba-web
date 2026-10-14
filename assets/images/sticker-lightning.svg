@@ -1,5 +1,31 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" fill="none">
+  <!-- BQC Tahfizh Energy & Spark Sticker -->
   <g filter="drop-shadow(3px 3px 0px #121212)">
-    <polygon points="58,6 18,62 48,62 38,114 82,50 52,50" fill="#D4FF00" stroke="#121212" stroke-width="4.5" stroke-linejoin="round"/>
+    <!-- Main Bolt Body -->
+    <polygon points="60,6 20,62 48,62 38,114 84,52 54,52" 
+             fill="#D4FF00" stroke="#121212" stroke-width="4.5" stroke-linejoin="round"/>
+    
+    <!-- Dynamic Inner Shadow / Facet (Crimson Accent) -->
+    <polygon points="54,52 84,52 64,80 50,68" fill="#CF2B09" opacity="0.9"/>
+    
+    <!-- Dynamic Inner Highlight Stripe -->
+    <polygon points="54,16 28,58 42,58 48,22" fill="#FFFFFF" opacity="0.65"/>
+
+    <!-- Center Energy Core Accent -->
+    <circle cx="50" cy="57" r="3.5" fill="#121212"/>
+
+    <!-- Islamic Starburst / Sparkle 1 (Top Right) -->
+    <g transform="translate(74, 12)">
+      <polygon points="6,0 7,4 11,5 7,6 6,10 5,6 1,5 5,4" fill="#CF2B09" stroke="#121212" stroke-width="1.5"/>
+    </g>
+
+    <!-- Sparkle 2 (Bottom Left) -->
+    <g transform="translate(14, 82)">
+      <polygon points="6,0 7,4 11,5 7,6 6,10 5,6 1,5 5,4" fill="#CF2B09" stroke="#121212" stroke-width="1.5"/>
+    </g>
+
+    <!-- Sparkle 3 (Floating Dot) -->
+    <circle cx="20" cy="38" r="3" fill="#D4FF00" stroke="#121212" stroke-width="1.5"/>
+    <circle cx="78" cy="94" r="2.5" fill="#FFFFFF" stroke="#121212" stroke-width="1.5"/>
   </g>
 </svg>

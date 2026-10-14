@@ -12,7 +12,7 @@ Garis batas hitam tebal (*heavy black outlines 2.5px-3px*) dan bayangan brutal k
 | :--- | :--- | :--- |
 | **Navbar** (`components/navbar.html`) | **`Button + Link Wrapper` Krackerz**: Tombol CTA menyatu rapi dalam kapsul bersama menu navigasi. Menggunakan **Double-Layer Button** (wadah putih + tombol neon lime + lingkaran panah merah). | Header navbar kini menggunakan **Solid Pure White (`#FFFFFF` / `bg-white`)**, mengalir mulus dan menyatu sempurna dengan latar belakang awan SVG putih (`#FFFFFF`) tanpa garis/titik krem di atasnya. |
 | **Hero Section** (`components/hero.html`) | Tombol pill hijau lama digantikan dengan **Signature Krackerz Double-Layer Button** berlatar putih dengan tombol neon lime dan badge panah merah. | **Continuous Smooth Scroll Interpolation**: Ke-6 kartu dirombak dari snap biner kasar menjadi animasi uncurl super halus via `requestAnimationFrame` + LERP damping. Kartu bertransisi mulus dari fanned ke straightened row, dengan hover lift independen via `.hero-card-inner`. |
-| **About** (`components/about.html`) | Tombol CTA diubah ke **Double-Layer Button** Krackerz (*Daftar Santri Baru ➔*). | Dihilangkan bentuk gigitan kartun (*bite-corner*) hitam. Digantikan dengan **2 Kartu Panel Solid** (**Vermilion Red** `#CF2B09` dan **Cherry Wine** `#580D14`) dengan bingkai billboard putih pekat 8px. |
+| **About** (`components/about.html`) | Tombol CTA diubah ke **Double-Layer Button** Krackerz (*Daftar Santri Baru ➔*). | Dihilangkan bentuk gigitan kartun (*bite-corner*) hitam. Digantikan dengan **2 Kartu Panel Solid** (**Vermilion Red** `#CF2B09` dan **Cherry Wine** `#580D14`) dengan bingkai billboard putih pekat 8px berlatar foto kedisiplinan upacara santri ([`upacara-2.jpg`](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/assets/images/pondok/upacara-2.jpg)). |
 | **Kurikulum** (`components/curriculum.html`) | Tombol ganda **Double-Layer Button** Krackerz (*REGISTER NOW ➔*). | **Krackerz Sticky Stacking Cards on Scroll (1:1 Asli)**: Dirombak dari tab klik statis menjadi 3 kartu tumpuk bergulir (*sticky stacking*). Awalnya hanya muncul Tab 1; saat discroll ke bawah, Kartu 2 meluncur dari bawah dan menumpuk di atas Kartu 1 sehingga Tab 1 & Tab 2 berdampingan; discroll lagi, Kartu 3 menumpuk sehingga ke-3 tab menyatu rapi. |
 | **Testimoni** (`components/testimonials.html`) | Tombol CTA ganda Krackerz (*Bergabung Bersama Kami ➔*). | **OVERHAUL**: Dari lingkaran bulat lama menjadi **Kartu Tiket/Postcard Miring Krackerz** (`rotate(-2deg)` s/d `rotate(2deg)`) dalam palet hangat `#F95534`, `#CF2B09`, `#7C1A06` dengan kutipan teks besar dan tag wali/santri. |
 | **Pricing** (`components/pricing.html`) | Kartu utama (Jenjang Ulya) dilengkapi tombol ganda **Double-Layer Button** Krackerz. | Dihilangkan border hitam 3px. Tier 1 & 3 (*Secondary*) menggunakan **kartu putih bersih `#FFFFFF`** bersudut 24px dengan bayangan lembut; Tier 2 (*Primary*) menggunakan **kartu Cherry Wine `#580D14` mewah** berstempel *Paling Diminati*. |
@@ -456,7 +456,7 @@ Sesuai permintaan dan gambar referensi dari user (seksi `"YOU'RE not ALONE ⚡"`
    - Nama penutur dengan huruf display tebal kapital (*Bold Display All-Caps*).
    - Label peran dan kota dengan titik pemisah burgundy bulat (*Parent • Makassar*, *Alumni • 30 Juz Hafizh*).
 5. **Latar Belakang & Header**:
-   - Foto suasana santap bersama temaram Krackerz (`assets/images/testimonials-bg.png`) dengan overlay gradien anggur gelap `#2D060B`.
+   - Foto para santri berprestasi Baitul Qur'an Camba (`assets/images/hero-bqc.png`) dengan overlay gradien anggur gelap `#1E0508` yang dramatis dan elegan, berpadu sempurna dengan figur para santri yang berdiri di belakang judul "YOU'RE not ALONE".
    - Header tipografi ikonik Krackerz: `YOU'RE not ALONE` dengan teks `"not"` tulisan tangan miring bersambung (*font-cursive lowercase*) dan stiker kilat neon lime (`assets/images/sticker-lightning.svg`).
    - Tombol CTA ganda Krackerz di bawah kartu: `JOIN WAITLIST ➔` yang langsung memicu modal pendaftaran santri baru.
 
@@ -488,5 +488,75 @@ Sesuai permintaan dan gambar referensi dari user (seksi `"YOU'RE not ALONE ⚡"`
 6. **Verifikasi Tombol CTA**:
    - Klik tombol **JOIN WAITLIST ➔** di bagian bawah seksi testimoni.
    - Ekspektasi: Modal formulir pendaftaran santri baru (*waitlist modal*) akan terbuka seketika.
+
+---
+
+## 🎨 Redesain 10 Aset Maskot & Stiker Kustom Tematik Pondok Pesantren Baitul Qur'an Camba (BQC)
+
+Sebagai tindak lanjut dari permintaan user untuk mendesain ulang seluruh 10 aset stiker dan maskot agar **tidak lagi menggunakan aset bawaan template Krackerz** dan menjadi **100% otentik, unik, dan identik dengan Pondok Pesantren Tahfizh Baitul Qur'an Camba (BQC)**, seluruh file SVG di direktori [`assets/images/`](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/assets/images/) telah dirombak total.
+
+### 📋 Ringkasan Transformasi 10 Aset Vektor (SVG)
+
+| No | File Asset | Transformasi dari Bawaan Lama | Desain Baru Otentik Pesantren BQC | Dimensi ViewBox |
+|---|---|---|---|---|
+| 1 | [`mascot-cracker.svg`](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/assets/images/mascot-cracker.svg) | Biskuit cracker bulat berkacamata hitam & kumis | **Santri Cilik Hafizh BQC**: Maskot santri muda ramah berkopiah hitam (peci nasional) beraksen pin bintang emas, baju koko putih berkerah shanghai hijau, mengapit mushaf Al-Qur'an bersampul hijau-emas bertali pembatas merah, serta pose mengacungkan jempol penuh semangat. | `0 0 200 240` |
+| 2 | [`mascot-cracker-c.svg`](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/assets/images/mascot-cracker-c.svg) | Biskuit berlekuk huruf C generik | **Maskot Huruf "C" (Camba) Pesantren**: Huruf C tebal (*chunky vermilion*) yang mengenakan peci hitam miring bergaris neon lime di ujung atasnya, dengan ornamen bulan sabit dan bintang emas di rongga huruf, serta mata kartun ceria. | `0 0 160 170` |
+| 3 | [`sticker-gradcap.svg`](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/assets/images/sticker-gradcap.svg) | Topi toga wisuda sederhana | **Wisuda Santri & Ijazah Sanad**: Topi toga sarjana dipadukan dengan gulungan ijazah/sanad Al-Qur'an klasik (*rolled parchment diploma*) yang diikat pita merah tua berstempel segel bintang emas. | `0 0 100 90` |
+| 4 | [`sticker-lightning.svg`](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/assets/images/sticker-lightning.svg) | Poligon kilat kuning polos satu lapis | **Energetic Tahfizh Spark**: Kilat Neo-Brutalist Electric Lime bergradasi garis aksen merah vermilion dan kilau putih tajam, dikelilingi percikan bintang cahaya (*Nur Al-Qur'an*). | `0 0 100 120` |
+| 5 | [`sticker-megaphone.svg`](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/assets/images/sticker-megaphone.svg) | Megafon generik warna polos | **Megafon Syiar & Muhadharah 3 Bahasa**: Pengeras suara orasi dakwah bergaris merah bertuliskan **BQC** di badannya, dilengkapi gelombang suara orasi merdu dan bintang syiar. | `0 0 90 80` |
+| 6 | [`sticker-rocket.svg`](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/assets/images/sticker-rocket.svg) | Roket kartun dasar sederhana | **Roket Prestasi & Cita-Cita Santri**: Roket peluncur kemajuan santri dengan jendela kabin bergambar lambang bulan sabit & bintang emas, sayap aerodinamis merah, serta semburan api bertingkat. | `0 0 90 90` |
+| 7 | [`sticker-soda.svg`](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/assets/images/sticker-soda.svg) | Cup soda cepat saji berhuruf "K" (*Krakerz*) | **Tumbler Minum Santri / Botol Zam-zam BQC**: Botol minum stainless santri ramah lingkungan bertutup ulir dengan pengait pegangan, emblem tetesan air murni, dan cap tegas bertuliskan **BQC**. | `0 0 80 110` |
+| 8 | [`sticker-starburst.svg`](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/assets/images/sticker-starburst.svg) | Lencana bergerigi berteks *"BITE LEARN REPEAT"* | **Lencana Badge "30 JUZ MUTQIN SANAD"**: Lencana tactile starburst 16 titik berlatar Electric Lime dengan lingkaran stempel putih-merah dan teks tipografi tegas: `30 JUZ`, `MUTQIN`, `SANAD`. | `0 0 100 100` |
+| 9 | [`sticker-trophy.svg`](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/assets/images/sticker-trophy.svg) | Piala satu warna generik | **Piala Juara MTQ & Sains BQC**: Piala kejuaraan emas berukir ornamen bintang 8 sudut (*Rub el Hizb*) islami di bagian muka, dan plat nama bertuliskan **BQC** pada pedestal hitamnya. | `0 0 100 100` |
+| 10 | [`sticker-van.svg`](file:///d:/Testing%20Claude%20code/pondok-baitulquran-camba/assets/images/sticker-van.svg) | Mobil van bertuliskan *"KRAKERZ"* | **Mobil Operasional Pesantren BQC Camba**: Minibus operasional pondok berwana putih & neon lime dengan rak bagasi atap (*roof rack*), garis merah di samping bertuliskan **"BQC CAMBA"** beserta logo bulan sabit, kaca berrefleksi, dan velg sporty. | `0 0 160 100` |
+
+---
+
+## 🧪 Manual Verification Guide (Panduan Pengujian Manual)
+
+Untuk memverifikasi tampilan aset-aset baru ini di antarmuka web, ikuti panduan langkah demi langkah berikut:
+
+### 1. Menjalankan Server Lokal
+Pastikan server lokal berjalan di folder root:
+```powershell
+npx serve . -p 3000
+# atau
+python -m http.server 3000
+```
+Buka browser pada alamat `http://localhost:3000`.
+
+### 2. Memeriksa Stiker di Seksi Kurikulum & Stacking Cards (`#curriculum`)
+- Gulir ke seksi **Kurikulum Terpadu Masa Depan Santri**:
+  - Pada **Kartu 1 (Tahfizh & Sanad 30 Juz - Merah `#CF2B09`)**:
+    - Perhatikan stiker di bagian bawah bingkai foto: kini menampilkan lencana **`30 JUZ / MUTQIN / SANAD`** menggantikan teks lama "Bite Learn Repeat".
+  - Pada **Kartu 2 (Sekolah Formal - Merah Bata `#A52207`)**:
+    - Perhatikan stiker di bawah foto eskul/formal: menampilkan **Piala MTQ BQC** dengan ukiran bintang 8 sudut (*Rub el Hizb*) dan plat nama **BQC**.
+  - Pada **Kartu 3 (Pelatihan Muballigh & Bahasa - Marun `#7C1A06`)**:
+    - Perhatikan stiker mobil di bawah foto kegiatan santri: kini menampilkan **Mobil Operasional BQC CAMBA** dengan tulisan resmi **`BQC CAMBA`** menggantikan tulisan lama "Krakerz".
+
+### 3. Memeriksa Stiker di Interactive Laptop Showcase (`#interactive-laptop`)
+- Gulir ke seksi laptop interaktif:
+  - Periksa deretan stiker taktil yang menghiasi bodi laptop:
+    - Stiker **Mobil Operasional BQC CAMBA** (sudah bebas dari teks Krakerz).
+    - Stiker **Piala MTQ & Prestasi BQC**.
+    - Stiker **Badge 30 JUZ MUTQIN SANAD**.
+    - Stiker **Petir Semangat Tahfizh** (*Tahfizh Energy Spark*).
+    - Stiker **Tumbler Minum Santri BQC** (sudah bebas dari cup soda dan huruf "K").
+    - Stiker **Wisuda & Sanad Diploma** (topi toga dengan gulungan ijazah bersanad).
+
+### 4. Memeriksa Stiker di Galeri Santri & Footer (`#gallery`, `#footer`)
+- Gulir ke seksi **Galeri Kehidupan Kampus & Footer**:
+  - Periksa stiker dekoratif mengambang (*floating stickers*):
+    - Stiker **Megafon Syiar BQC** dengan gelombang suara dakwah.
+    - Stiker **Roket Prestasi Santri** dengan jendela berlogo bulan sabit & bintang.
+    - Stiker **Mobil Operasional BQC Camba**.
+
+### 5. Memeriksa Maskot Utama di Folder Assets
+- Buka langsung file maskot di tab browser baru untuk melihat detail vektor resolusi tinggi:
+  - `http://localhost:3000/assets/images/mascot-cracker.svg`
+    - Verifikasi: Karakter Santri Cilik Hafizh BQC tersenyum ramah memakai peci hitam, baju koko putih berkerah shanghai, memegang mushaf Al-Qur'an hijau, dan mengacungkan jempol.
+  - `http://localhost:3000/assets/images/mascot-cracker-c.svg`
+    - Verifikasi: Huruf "C" (Camba) berpeci hitam dengan ornamen bulan bintang di dalamnya.
+
 
 
