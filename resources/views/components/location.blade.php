@@ -3,10 +3,10 @@
   
   <!-- Decorative Floating Stickers -->
   <div class="hidden lg:block absolute top-12 left-10 w-24 h-auto tilt-left opacity-90 pointer-events-none z-10">
-    <img src="/assets/images/sticker-van.svg" alt="Campus Travel Van Sticker" class="w-full h-auto drop-shadow-lg">
+    <img src="/assets/images/sticker-van.svg" alt="Stiker Perjalanan Pondok" class="w-full h-auto drop-shadow-lg">
   </div>
   <div class="hidden lg:block absolute top-20 right-12 w-20 h-auto tilt-right opacity-90 pointer-events-none z-10">
-    <img src="/assets/images/sticker-starburst.svg" alt="Compass Starburst Sticker" class="w-full h-auto drop-shadow-lg">
+    <img src="/assets/images/sticker-starburst.svg" alt="Stiker Kompas Penunjuk Arah" class="w-full h-auto drop-shadow-lg">
   </div>
 
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -14,16 +14,16 @@
     <!-- Section Header -->
     <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
       <div class="stamp-badge stamp-badge-red mb-4 inline-block">
-        CAMPUS RADAR & GPS NAVIGATION
+        RADAR & NAVIGASI PONDOK
       </div>
       <h2 class="font-display font-black text-4xl sm:text-6xl text-[#121212] uppercase tracking-tight leading-none">
-        FIND OUR CAMPUS<br>
+        LOKASI PONDOK<br>
         <span class="inline-block mt-2 px-5 py-2 bg-[#121212] text-lime rounded-xl border-2 border-[#161616] tilt-right transform text-3xl sm:text-5xl">
-          CAMBA, SOUTH SULAWESI
+          CAMBA, SULAWESI SELATAN
         </span>
       </h2>
       <p class="font-body text-base sm:text-lg text-[#555555] font-medium mt-6 leading-relaxed">
-        Nestled in the pristine mountain highlands of Maros Regency. A serene, cool, and focused sanctuary dedicated to Tahfizh Al-Qur'an and character excellence.
+        Terletak di dataran tinggi pegunungan asri Kabupaten Maros. Suasana tenang, sejuk, dan kondusif yang didedikasikan untuk kenyamanan tahfizh Al-Qur'an dan pembinaan akhlak mulia.
       </p>
     </div>
 
@@ -50,7 +50,7 @@
               <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-lime"></span>
             </span>
             <span class="font-mono text-[11px] sm:text-xs uppercase tracking-wider text-lime font-bold">
-              LIVE GPS RADAR
+              RADAR GPS AKTIF
             </span>
           </div>
         </div>
@@ -58,24 +58,24 @@
         <!-- Center: Interactive Filter Modes (Normal / High Contrast / Night Radar) -->
         <div class="flex items-center gap-1.5 bg-[#1e1e1e] p-1 rounded-xl border border-white/10 text-[11px] font-label font-bold">
           <button type="button" id="map-mode-default" class="map-mode-btn px-2.5 py-1 rounded-lg bg-lime text-[#121212] transition-colors cursor-pointer" data-filter="none">
-            Default
+            Standar
           </button>
           <button type="button" id="map-mode-vibrant" class="map-mode-btn px-2.5 py-1 rounded-lg text-white/80 hover:text-white transition-colors cursor-pointer" data-filter="contrast(1.15) saturate(1.25)">
-            Vibrant
+            Cerah
           </button>
           <button type="button" id="map-mode-night" class="map-mode-btn px-2.5 py-1 rounded-lg text-white/80 hover:text-white transition-colors cursor-pointer" data-filter="invert(90%) hue-rotate(180deg) contrast(1.15)">
-            Night Radar
+            Mode Malam
           </button>
         </div>
 
         <!-- Right: Monospace Coordinates Badge + Copy Action -->
         <div class="flex items-center gap-2">
-          <button type="button" id="btn-copy-coordinates" class="font-mono text-[11px] sm:text-xs font-bold text-white bg-[#1e1e1e] hover:bg-[#2a2a2a] px-3 py-1.5 rounded-lg border border-white/20 transition-all flex items-center gap-2 cursor-pointer group" title="Click to copy coordinates">
+          <button type="button" id="btn-copy-coordinates" class="font-mono text-[11px] sm:text-xs font-bold text-white bg-[#1e1e1e] hover:bg-[#2a2a2a] px-3 py-1.5 rounded-lg border border-white/20 transition-all flex items-center gap-2 cursor-pointer group" title="Klik untuk menyalin koordinat">
             <span id="coords-text">LAT -4.91386° · LNG 119.84656°</span>
             <svg id="copy-icon" class="w-3.5 h-3.5 text-lime group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
             </svg>
-            <span id="copy-success-badge" class="hidden text-lime font-label font-bold text-[10px] uppercase">COPIED!</span>
+            <span id="copy-success-badge" class="hidden text-lime font-label font-bold text-[10px] uppercase">TERSALIN!</span>
           </button>
         </div>
 
@@ -104,7 +104,7 @@
           <!-- Verified Pin Badge -->
           <div class="flex items-center justify-between gap-2 mb-3">
             <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#121212] text-lime font-mono text-[10px] font-bold tracking-wider uppercase">
-              <span>📍 VERIFIED CAMPUS PIN</span>
+              <span>📍 LOKASI RESMI TERVERIFIKASI</span>
             </div>
             <div class="flex items-center gap-1 font-label text-xs font-bold text-[#121212]">
               <span class="text-amber-500">★★★★★</span>
@@ -125,10 +125,10 @@
           <!-- Transit Highlights Chips -->
           <div class="flex flex-wrap gap-1.5 mb-5 text-[11px] font-label font-bold text-[#121212]">
             <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-[#FAF7F0] border border-[#121212]/20">
-              ✈️ ~90 Mins from Hasanuddin Airport (UPG)
+              ✈️ ±90 Menit dari Bandara Internasional Sultan Hasanuddin (UPG)
             </span>
             <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-[#FAF7F0] border border-[#121212]/20">
-              🛣️ Maros – Bone Highway Route
+              🛣️ Jalur Poros Maros – Bone
             </span>
           </div>
 
@@ -142,7 +142,7 @@
               rel="noopener noreferrer"
               class="btn-tactile flex-1 bg-lime text-[#121212] border-2 border-[#121212] rounded-xl px-4 py-2.5 font-display font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer brutal-shadow-sm text-center"
             >
-              <span>GET DIRECTIONS</span>
+              <span>PETUNJUK ARAH</span>
               <span class="text-xs">➔</span>
             </a>
 
@@ -152,12 +152,12 @@
               target="_blank"
               rel="noopener noreferrer"
               class="btn-tactile bg-white text-[#121212] border-2 border-[#121212] rounded-xl px-3.5 py-2.5 font-label font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 cursor-pointer brutal-shadow-sm"
-              title="Open full Google Maps page"
+              title="Buka halaman Google Maps"
             >
               <svg class="w-3.5 h-3.5 text-[#121212]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
               </svg>
-              <span>OPEN MAPS</span>
+              <span>BUKA PETA</span>
             </a>
 
             <!-- Share Button -->
@@ -165,7 +165,7 @@
               type="button"
               id="btn-share-location"
               class="btn-tactile bg-[#FAF7F0] hover:bg-white text-[#121212] border-2 border-[#121212] rounded-xl px-3 py-2.5 font-label font-bold text-xs uppercase tracking-wider flex items-center justify-center cursor-pointer brutal-shadow-sm"
-              title="Share or copy campus location link"
+              title="Bagikan atau salin tautan lokasi pondok"
             >
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path>
@@ -192,8 +192,8 @@
       ✓
     </div>
     <div class="text-xs font-label">
-      <span class="font-bold text-lime block" id="toast-title">COPIED TO CLIPBOARD</span>
-      <span class="text-white/80" id="toast-message">Campus coordinates copied successfully.</span>
+      <span class="font-bold text-lime block" id="toast-title">TERSALIN KE PAPAN KLIP</span>
+      <span class="text-white/80" id="toast-message">Koordinat pondok berhasil disalin.</span>
     </div>
   </div>
 
@@ -234,14 +234,14 @@
           if (copyBadge) copyBadge.classList.remove('hidden');
           if (coordsText) coordsText.classList.add('hidden');
 
-          showLocationToast("COORDINATES COPIED", coordsString);
+          showLocationToast("KOORDINAT TERSALIN", coordsString);
 
           setTimeout(() => {
             if (copyBadge) copyBadge.classList.add('hidden');
             if (coordsText) coordsText.classList.remove('hidden');
           }, 2500);
         } catch (err) {
-          showLocationToast("COORDINATES", coordsString);
+          showLocationToast("KOORDINAT", coordsString);
         }
       });
     }
@@ -254,7 +254,7 @@
           try {
             await navigator.share({
               title: "Pondok Pesantren Tahfizh Baitul Qur'an Camba",
-              text: "Campus Location of Pondok Pesantren Tahfizh Baitul Qur'an Camba, Maros, South Sulawesi",
+              text: "Lokasi Pondok Pesantren Tahfizh Baitul Qur'an Camba, Maros, Sulawesi Selatan",
               url: mapsShareUrl
             });
           } catch (e) {
@@ -263,7 +263,7 @@
         } else {
           try {
             await navigator.clipboard.writeText(mapsShareUrl);
-            showLocationToast("LINK COPIED", "Google Maps location link copied to clipboard.");
+            showLocationToast("TAUTAN TERSALIN", "Tautan lokasi Google Maps berhasil disalin ke papan klip.");
           } catch (e) {
             window.open(mapsShareUrl, '_blank');
           }

@@ -15,13 +15,13 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-10 sm:mb-14">
     <!-- Stamp Badge -->
     <div class="stamp-badge stamp-badge-lime mb-3 tilt-left inline-block">
-      VISUAL MOMENTS & 3D ARCHIVE
+      DOKUMENTASI VISUAL & ARSIP 3D
     </div>
     <h2 class="font-display font-black text-3xl sm:text-5xl text-[#121212] uppercase tracking-tight">
-      CAMPUS LIFE IN PERSPECTIVE
+      POTRET KEHIDUPAN PESANTREN
     </h2>
     <p class="font-body text-sm sm:text-base text-slate-600 mt-2 max-w-xl mx-auto">
-      Explore the daily rhythm, memorization milestones, and serene mountain sanctuary of Baitul Qur'an Camba in an interactive 3D showcase.
+      Jelajahi ritme keseharian santri, capaian hafalan Al-Qur'an, dan ketenangan alam pegunungan Camba dalam etalase 3D interaktif.
     </p>
   </div>
 
@@ -40,59 +40,59 @@
       <!-- Card 1 -->
       <div class="coverflow-card absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] h-[220px] sm:w-[270px] sm:h-[270px] md:w-[310px] md:h-[310px] rounded-[24px] sm:rounded-[28px] overflow-hidden cursor-pointer transition-all duration-500 ease-out coverflow-reflection"
            data-index="1">
-        <img src="/assets/images/pondok/pidato-3-bahasa.jpg" alt="Multilingual Oratory" class="w-full h-full object-cover pointer-events-none" draggable="false" />
+        <img src="/assets/images/pondok/pidato-3-bahasa.jpg" alt="Pidato 3 Bahasa" class="w-full h-full object-cover pointer-events-none" draggable="false" />
       </div>
 
       <!-- Card 2 -->
       <div class="coverflow-card absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] h-[220px] sm:w-[270px] sm:h-[270px] md:w-[310px] md:h-[310px] rounded-[24px] sm:rounded-[28px] overflow-hidden cursor-pointer transition-all duration-500 ease-out coverflow-reflection"
            data-index="2">
-        <img src="/assets/images/pondok/taklim-kitab-kuning.jpg" alt="Classical Islamic Studies" class="w-full h-full object-cover pointer-events-none" draggable="false" />
+        <img src="/assets/images/pondok/taklim-kitab-kuning.jpg" alt="Kajian Kitab Kuning Klasik" class="w-full h-full object-cover pointer-events-none" draggable="false" />
       </div>
 
       <!-- Card 3 (Default Center) -->
       <div class="coverflow-card absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] h-[220px] sm:w-[270px] sm:h-[270px] md:w-[310px] md:h-[310px] rounded-[24px] sm:rounded-[28px] overflow-hidden cursor-pointer transition-all duration-500 ease-out coverflow-reflection"
            data-index="3">
-        <img src="/assets/images/pondok/leadership.jpg" alt="Leadership Camp" class="w-full h-full object-cover pointer-events-none" draggable="false" />
+        <img src="/assets/images/pondok/leadership.jpg" alt="Kepemimpinan Santri" class="w-full h-full object-cover pointer-events-none" draggable="false" />
       </div>
 
       <!-- Card 4 -->
       <div class="coverflow-card absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] h-[220px] sm:w-[270px] sm:h-[270px] md:w-[310px] md:h-[310px] rounded-[24px] sm:rounded-[28px] overflow-hidden cursor-pointer transition-all duration-500 ease-out coverflow-reflection"
            data-index="4">
-        <img src="/assets/images/pondok/upacara.jpg" alt="National Discipline" class="w-full h-full object-cover pointer-events-none" draggable="false" />
+        <img src="/assets/images/pondok/upacara.jpg" alt="Kedisiplinan & Upacara Bendera" class="w-full h-full object-cover pointer-events-none" draggable="false" />
       </div>
 
       <!-- Card 5 -->
       <div class="coverflow-card absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] h-[220px] sm:w-[270px] sm:h-[270px] md:w-[310px] md:h-[310px] rounded-[24px] sm:rounded-[28px] overflow-hidden cursor-pointer transition-all duration-500 ease-out coverflow-reflection"
            data-index="5">
-        <img src="/assets/images/pondok/eskul-futsal.jpg" alt="Sunnah Athletics" class="w-full h-full object-cover pointer-events-none" draggable="false" />
+        <img src="/assets/images/pondok/eskul-futsal.jpg" alt="Olahraga Sunnah" class="w-full h-full object-cover pointer-events-none" draggable="false" />
       </div>
 
       <!-- Card 6 -->
       <div class="coverflow-card absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] h-[220px] sm:w-[270px] sm:h-[270px] md:w-[310px] md:h-[310px] rounded-[24px] sm:rounded-[28px] overflow-hidden cursor-pointer transition-all duration-500 ease-out coverflow-reflection"
            data-index="6">
-        <img src="/assets/images/pondok/gazebo.jpg" alt="Open-Air Pine Forest Study" class="w-full h-full object-cover pointer-events-none" draggable="false" />
+        <img src="/assets/images/pondok/gazebo.jpg" alt="Belajar di Hutan Pinus" class="w-full h-full object-cover pointer-events-none" draggable="false" />
       </div>
 
       <!-- Card 7 -->
       <div class="coverflow-card absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] h-[220px] sm:w-[270px] sm:h-[270px] md:w-[310px] md:h-[310px] rounded-[24px] sm:rounded-[28px] overflow-hidden cursor-pointer transition-all duration-500 ease-out coverflow-reflection"
            data-index="7">
-        <img src="/assets/images/pondok/masjid.jpg" alt="Al-Qur'an Tasmi' Examination" class="w-full h-full object-cover pointer-events-none" draggable="false" />
+        <img src="/assets/images/pondok/masjid.jpg" alt="Ujian Tasmi' Al-Qur'an" class="w-full h-full object-cover pointer-events-none" draggable="false" />
       </div>
 
       <!-- Card 8 -->
       <div class="coverflow-card absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] h-[220px] sm:w-[270px] sm:h-[270px] md:w-[310px] md:h-[310px] rounded-[24px] sm:rounded-[28px] overflow-hidden cursor-pointer transition-all duration-500 ease-out coverflow-reflection"
            data-index="8">
-        <img src="/assets/images/pondok/asrama.jpg" alt="Boarding Sanctuary" class="w-full h-full object-cover pointer-events-none" draggable="false" />
+        <img src="/assets/images/pondok/asrama.jpg" alt="Asrama Santri" class="w-full h-full object-cover pointer-events-none" draggable="false" />
       </div>
 
     </div>
 
     <!-- Navigation Arrow Buttons -->
-    <button id="coverflow-btn-prev" aria-label="Previous Slide"
+    <button id="coverflow-btn-prev" aria-label="Slide Sebelumnya"
       class="absolute left-1 sm:left-4 md:left-8 top-1/2 -translate-y-1/2 z-40 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-white/95 hover:bg-white border-2 border-[#121212] shadow-[0_4px_16px_rgba(0,0,0,0.15)] flex items-center justify-center text-[#121212] font-display font-black text-lg transition-transform hover:scale-110 active:scale-95 cursor-pointer">
       ←
     </button>
-    <button id="coverflow-btn-next" aria-label="Next Slide"
+    <button id="coverflow-btn-next" aria-label="Slide Berikutnya"
       class="absolute right-1 sm:right-4 md:right-8 top-1/2 -translate-y-1/2 z-40 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-white/95 hover:bg-white border-2 border-[#121212] shadow-[0_4px_16px_rgba(0,0,0,0.15)] flex items-center justify-center text-[#121212] font-display font-black text-lg transition-transform hover:scale-110 active:scale-95 cursor-pointer">
       →
     </button>
@@ -103,27 +103,27 @@
     
     <!-- Title -->
     <h3 id="coverflow-title" class="font-display font-bold text-xl sm:text-2xl text-[#121212] tracking-tight">
-      Student Leadership Camp
+      Perkemahan Kepemimpinan Santri
     </h3>
     
     <!-- Subtitle -->
     <p id="coverflow-subtitle" class="font-body text-xs sm:text-sm text-slate-500 mt-1">
-      Character, Discipline & Resilience
+      Karakter, Kedisiplinan & Ketangguhan
     </p>
 
     <!-- Key-Value Metadata List -->
     <div class="mt-5 max-w-[280px] sm:max-w-[320px] mx-auto text-xs sm:text-sm font-body border-t border-slate-200/90 pt-3 flex flex-col gap-2">
       <div class="flex justify-between items-center text-slate-500">
-        <span class="font-normal">Year</span>
+        <span class="font-normal">Tahun</span>
         <span id="coverflow-year" class="font-bold text-[#121212] font-label">2025</span>
       </div>
       <div class="flex justify-between items-center text-slate-500">
         <span id="coverflow-meta-key-1" class="font-normal">Program</span>
-        <span id="coverflow-meta-val-1" class="font-bold text-[#121212]">Santri Leadership</span>
+        <span id="coverflow-meta-val-1" class="font-bold text-[#121212]">Kepemimpinan Santri</span>
       </div>
       <div class="flex justify-between items-center text-slate-500">
-        <span id="coverflow-meta-key-2" class="font-normal">Focus</span>
-        <span id="coverflow-meta-val-2" class="font-bold text-[#121212]">Organizational Maturity</span>
+        <span id="coverflow-meta-key-2" class="font-normal">Fokus</span>
+        <span id="coverflow-meta-val-2" class="font-bold text-[#121212]">Kematangan Organisasi</span>
       </div>
     </div>
 
@@ -139,84 +139,84 @@
       const COVERFLOW_DATA = [
         {
           title: "Halaqah Fajar Al-Qur'an",
-          subtitle: "Sanctuary of 30 Juz Memorization",
+          subtitle: "Pusat Hafalan 30 Juz Mutqin",
           year: "2025",
           key1: "Program",
           val1: "Tahfizh 30 Juz",
-          key2: "Location",
+          key2: "Lokasi",
           val2: "Masjid Utama Camba"
         },
         {
-          title: "Multilingual Oratory",
-          subtitle: "Arabic, English & Indonesian Speech",
+          title: "Pidato 3 Bahasa",
+          subtitle: "Pidato Bahasa Arab, Inggris & Indonesia",
           year: "2025",
           key1: "Program",
-          val1: "Public Speaking",
-          key2: "Schedule",
-          val2: "Weekly Stage Routine"
+          val1: "Muhadharah & Retorika",
+          key2: "Jadwal",
+          val2: "Pentas Rutin Mingguan"
         },
         {
-          title: "Dirasah Islamiyyah Turath",
-          subtitle: "Classical Islamic Jurisprudence & Adab",
+          title: "Dirosah Islamiyah Turats",
+          subtitle: "Kajian Fiqih, Hadits & Adab Klasik",
           year: "2024",
           key1: "Program",
-          val1: "Fiqh & Hadith Study",
-          key2: "Mentorship",
-          val2: "Middle East Alumnus"
+          val1: "Kajian Fiqih & Hadits",
+          key2: "Pembimbing",
+          val2: "Alumni Timur Tengah"
         },
         {
-          title: "Student Leadership Camp",
-          subtitle: "Character, Discipline & Resilience",
+          title: "Perkemahan Kepemimpinan Santri",
+          subtitle: "Karakter, Kedisiplinan & Ketangguhan",
           year: "2025",
           key1: "Program",
-          val1: "Santri Leadership",
-          key2: "Focus",
-          val2: "Organizational Maturity"
+          val1: "Kepemimpinan Santri",
+          key2: "Fokus",
+          val2: "Kematangan Organisasi"
         },
         {
-          title: "National Discipline Ceremony",
-          subtitle: "Patriotism, Focus & Composure",
+          title: "Upacara & Kedisiplinan Santri",
+          subtitle: "Jiwa Patriotisme, Fokus & Ketertiban",
           year: "2025",
           key1: "Program",
-          val1: "Formal Education",
-          key2: "Curriculum",
-          val2: "Wustha & Ulya Diploma"
+          val1: "Pendidikan Formal",
+          key2: "Kurikulum",
+          val2: "Ijazah Resmi Wustha & Ulya"
         },
         {
-          title: "Sunnah Sports & Vitality",
-          subtitle: "Physical Agility & Sportsmanship",
+          title: "Olahraga Sunnah & Kebugaran",
+          subtitle: "Ketangkasan Fisik & Sportivitas",
           year: "2024",
           key1: "Program",
-          val1: "Sunnah Athletics",
-          key2: "Schedule",
-          val2: "Afternoon Eskul"
+          val1: "Ekstrakurikuler Olahraga",
+          key2: "Jadwal",
+          val2: "Sore Hari"
         },
         {
-          title: "Open-Air Pine Forest Study",
-          subtitle: "Serene Mountain Gazebo Sanctuary",
+          title: "Kajian Alam Terbuka Hutan Pinus",
+          subtitle: "Gazebo Belajar Sejuk di Pegunungan",
           year: "2025",
           key1: "Program",
-          val1: "Outdoor Muraja'ah",
-          key2: "Location",
-          val2: "Pine Hill Sanctuary"
+          val1: "Muraja'ah Luar Ruangan",
+          key2: "Lokasi",
+          val2: "Kawasan Hutan Pinus"
         },
         {
-          title: "Al-Qur'an Tasmi' Examination",
-          subtitle: "Live Memorization & Recitation Assessment",
+          title: "Ujian Tasmi' Al-Qur'an",
+          subtitle: "Setoran Hafalan Bil Ghaib Sekali Duduk",
           year: "2025",
           key1: "Program",
           val1: "Tasmi' & Munaqasyah",
-          key2: "Evaluation",
-          val2: "Live Examiner Panel"
+          key2: "Penguji",
+          val2: "Dewan Asatidz Penguji"
         },
         {
-          title: "Boarding Sanctuary Quarters",
-          subtitle: "Clean, Hygienic & Brotherhood Living",
+          title: "Asrama & Hunian Santri",
+          subtitle: "Kamar Asrama Bersih & Penuh Kekeluargaan",
           year: "2024",
           key1: "Program",
-          val1: "Residential Life",
-          key2: "Supervision",
-          val2: "Resident Mentors"
+          val1: "Kehidupan Asrama 24 Jam",
+          key2: "Pendampingan",
+          val2: "Pembina Asrama 24 Jam"
         }
       ];
 
@@ -247,7 +247,7 @@
           for (let i = 0; i < total; i++) {
             const dot = document.createElement('button');
             dot.className = 'w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full transition-all duration-300 cursor-pointer focus:outline-none';
-            dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+            dot.setAttribute('aria-label', 'Menuju slide ' + (i + 1));
             dot.addEventListener('click', () => {
               goTo(i);
             });

@@ -45,17 +45,17 @@
 
         <!-- DRAGGABLE STICKER 2: Sunnah Equestrian Horse -->
         <div class="draggable-sticker w-36 h-auto bottom-8 left-12 tilt-right cursor-grab" style="z-index: 11;">
-          <img src="/assets/images/sticker-van.svg" alt="Sunnah Equestrian Horse Sticker" class="w-full h-auto pointer-events-none drop-shadow-[3px_3px_0px_#121212]">
+          <img src="/assets/images/sticker-van.svg" alt="Stiker Kuda Sunnah" class="w-full h-auto pointer-events-none drop-shadow-[3px_3px_0px_#121212]">
         </div>
 
         <!-- DRAGGABLE STICKER 3: Classical Kitab Turath & Qalam -->
         <div class="draggable-sticker w-16 h-auto top-28 left-48 tilt-left cursor-grab" style="z-index: 8;">
-          <img src="/assets/images/sticker-trophy.svg" alt="Classical Islamic Kitab & Qalam Sticker" class="w-full h-auto pointer-events-none drop-shadow-[3px_3px_0px_#121212]">
+          <img src="/assets/images/sticker-trophy.svg" alt="Stiker Kitab Klasik & Pena" class="w-full h-auto pointer-events-none drop-shadow-[3px_3px_0px_#121212]">
         </div>
 
         <!-- DRAGGABLE STICKER 4: Holy Qur'an on Rehal Stand -->
         <div class="draggable-sticker w-24 h-auto top-12 right-40 tilt-right cursor-grab" style="z-index: 9;">
-          <img src="/assets/images/sticker-starburst.svg" alt="Holy Qur'an on Rehal Stand Sticker" class="w-full h-auto pointer-events-none drop-shadow-[3px_3px_0px_#121212]">
+          <img src="/assets/images/sticker-starburst.svg" alt="Stiker Mushaf Al-Qur'an" class="w-full h-auto pointer-events-none drop-shadow-[3px_3px_0px_#121212]">
         </div>
 
         <!-- DRAGGABLE STICKER 5: "TAHFIZH AL-QUR'AN" Badge -->
@@ -65,17 +65,17 @@
 
         <!-- DRAGGABLE STICKER 6: Islamic Fanous Lantern of Light -->
         <div class="draggable-sticker w-14 h-auto bottom-20 right-48 tilt-left cursor-grab" style="z-index: 7;">
-          <img src="/assets/images/sticker-lightning.svg" alt="Islamic Fanous Lantern Sticker" class="w-full h-auto pointer-events-none drop-shadow-[3px_3px_0px_#121212]">
+          <img src="/assets/images/sticker-lightning.svg" alt="Stiker Lentera Fanous Islami" class="w-full h-auto pointer-events-none drop-shadow-[3px_3px_0px_#121212]">
         </div>
 
         <!-- DRAGGABLE STICKER 7: Sacred Tasbih Prayer Beads -->
         <div class="draggable-sticker w-14 h-auto bottom-8 right-24 tilt-right cursor-grab" style="z-index: 13;">
-          <img src="/assets/images/sticker-soda.svg" alt="Sacred Tasbih Prayer Beads Sticker" class="w-full h-auto pointer-events-none drop-shadow-[3px_3px_0px_#121212]">
+          <img src="/assets/images/sticker-soda.svg" alt="Stiker Tasbih Doa" class="w-full h-auto pointer-events-none drop-shadow-[3px_3px_0px_#121212]">
         </div>
 
         <!-- DRAGGABLE STICKER 8: Tajul Karomah Hafizh Crown -->
         <div class="draggable-sticker w-16 h-auto bottom-24 left-64 tilt-left cursor-grab" style="z-index: 6;">
-          <img src="/assets/images/sticker-gradcap.svg" alt="Tajul Karomah Hafizh Crown Sticker" class="w-full h-auto pointer-events-none drop-shadow-[3px_3px_0px_#121212]">
+          <img src="/assets/images/sticker-gradcap.svg" alt="Stiker Mahkota Kemuliaan Hafizh" class="w-full h-auto pointer-events-none drop-shadow-[3px_3px_0px_#121212]">
         </div>
 
       </div>

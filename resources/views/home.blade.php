@@ -7,7 +7,7 @@
     <x-marquee />
     <x-coverflow />
     <x-founder />
-    <x-pricing />
+    {{-- <x-pricing /> --}}
     <x-partner />
     <x-faq />
     <x-interactive-laptop />

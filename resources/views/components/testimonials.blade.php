@@ -16,10 +16,10 @@
         Cerita & Kesan Wali Santri
       </div>
       <h2 class="font-display font-black text-4xl sm:text-6xl lg:text-7xl uppercase tracking-tight text-white leading-tight flex items-center justify-center flex-wrap gap-x-3 gap-y-1">
-        <span>YOU'RE</span>
-        <span class="font-cursive lowercase text-white italic text-5xl sm:text-7xl lg:text-8xl -rotate-6 inline-block font-normal">not</span>
-        <span>ALONE</span>
-        <img src="/assets/images/sticker-lightning.svg" alt="Islamic Lantern of Light" class="w-8 sm:w-12 h-auto tilt-right inline-block -mt-2 drop-shadow-[0_4px_12px_rgba(212,255,0,0.4)]">
+        <span>ANDA</span>
+        <span class="font-cursive lowercase text-white italic text-5xl sm:text-7xl lg:text-8xl -rotate-6 inline-block font-normal">tidak</span>
+        <span>SENDIRIAN</span>
+        <img src="/assets/images/sticker-lightning.svg" alt="Lentera Islami" class="w-8 sm:w-12 h-auto tilt-right inline-block -mt-2 drop-shadow-[0_4px_12px_rgba(212,255,0,0.4)]">
       </h2>
     </div>
 
@@ -34,7 +34,7 @@
             
             <!-- Hanging Eyelet Pin Hole -->
             <div class="flex justify-center -mt-2 sm:-mt-3 mb-1">
-              <div class="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-[#121212]/50 border-2 border-white/40 shadow-inner flex items-center justify-center pointer-events-none" title="Hanging Pin">
+              <div class="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-[#121212]/50 border-2 border-white/40 shadow-inner flex items-center justify-center pointer-events-none" title="Gantungan Pin">
                 <div class="w-1 h-1 rounded-full bg-white/70"></div>
               </div>
             </div>
@@ -53,7 +53,7 @@
             <div class="pt-2 sm:pt-3">
               <h4 class="font-display font-black text-sm sm:text-base uppercase tracking-wider text-white">HJ. NURHAYATI</h4>
               <div class="flex items-center gap-1.5 mt-1 text-[11px] sm:text-xs font-label font-bold text-white/80 uppercase tracking-wider">
-                <span>Parent</span>
+                <span>Wali Santri</span>
                 <span class="w-1.5 h-1.5 rounded-full bg-[#580D14] inline-block"></span>
                 <span>Makassar</span>
               </div>
@@ -71,7 +71,7 @@
             
             <!-- Hanging Eyelet Pin Hole -->
             <div class="flex justify-center -mt-2 sm:-mt-3 mb-1">
-              <div class="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-[#121212]/50 border-2 border-white/40 shadow-inner flex items-center justify-center pointer-events-none" title="Hanging Pin">
+              <div class="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-[#121212]/50 border-2 border-white/40 shadow-inner flex items-center justify-center pointer-events-none" title="Gantungan Pin">
                 <div class="w-1 h-1 rounded-full bg-white/70"></div>
               </div>
             </div>
@@ -90,7 +90,7 @@
             <div class="pt-2 sm:pt-3">
               <h4 class="font-display font-black text-sm sm:text-base uppercase tracking-wider text-white">DRS. H. SYAMSUDDIN</h4>
               <div class="flex items-center gap-1.5 mt-1 text-[11px] sm:text-xs font-label font-bold text-white/80 uppercase tracking-wider">
-                <span>Parent</span>
+                <span>Wali Santri</span>
                 <span class="w-1.5 h-1.5 rounded-full bg-[#580D14] inline-block"></span>
                 <span>Maros</span>
               </div>
@@ -108,7 +108,7 @@
             
             <!-- Hanging Eyelet Pin Hole -->
             <div class="flex justify-center -mt-2 sm:-mt-3 mb-1">
-              <div class="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-[#121212]/50 border-2 border-white/40 shadow-inner flex items-center justify-center pointer-events-none" title="Hanging Pin">
+              <div class="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-[#121212]/50 border-2 border-white/40 shadow-inner flex items-center justify-center pointer-events-none" title="Gantungan Pin">
                 <div class="w-1 h-1 rounded-full bg-white/70"></div>
               </div>
             </div>
@@ -119,7 +119,7 @@
                 <path d="M 2.973 7.504 L 0.425 7.504 L 0.425 0 L 7.929 0 L 7.929 6.726 L 3.611 16 L 0 16 Z M 13.451 7.504 L 10.903 7.504 L 10.903 0 L 18.407 0 L 18.407 6.726 L 14.09 16 L 10.479 16 Z"></path>
               </svg>
               <p class="font-body text-xs sm:text-[13px] md:text-sm lg:text-[14px] font-medium text-white/95 leading-relaxed">
-                Latihan pidato 3 bahasa Arab, Inggris, dan Indonesia setiap pekan memberi bekal kepercayaan diri tinggi saat melanjutkan studi ke kampus.
+                Latihan pidato 3 bahasa Arab, Inggris, dan Indonesia setiap pekan memberi bekal kepercayaan diri tinggi saat melanjutkan studi ke perguruan tinggi.
               </p>
             </div>
 
@@ -129,7 +129,7 @@
               <div class="flex items-center gap-1.5 mt-1 text-[11px] sm:text-xs font-label font-bold text-white/80 uppercase tracking-wider">
                 <span>Alumni</span>
                 <span class="w-1.5 h-1.5 rounded-full bg-[#580D14] inline-block"></span>
-                <span>30 Juz Hafizh</span>
+                <span>Hafizh 30 Juz</span>
               </div>
             </div>
 
@@ -145,7 +145,7 @@
             
             <!-- Hanging Eyelet Pin Hole -->
             <div class="flex justify-center -mt-2 sm:-mt-3 mb-1">
-              <div class="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-[#121212]/50 border-2 border-white/40 shadow-inner flex items-center justify-center pointer-events-none" title="Hanging Pin">
+              <div class="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-[#121212]/50 border-2 border-white/40 shadow-inner flex items-center justify-center pointer-events-none" title="Gantungan Pin">
                 <div class="w-1 h-1 rounded-full bg-white/70"></div>
               </div>
             </div>
@@ -164,7 +164,7 @@
             <div class="pt-2 sm:pt-3">
               <h4 class="font-display font-black text-sm sm:text-base uppercase tracking-wider text-white">UMM MARYAM</h4>
               <div class="flex items-center gap-1.5 mt-1 text-[11px] sm:text-xs font-label font-bold text-white/80 uppercase tracking-wider">
-                <span>Parent</span>
+                <span>Wali Santri</span>
                 <span class="w-1.5 h-1.5 rounded-full bg-[#580D14] inline-block"></span>
                 <span>Bone</span>
               </div>

@@ -3,16 +3,16 @@
 
   <!-- Floating Decorative Stickers -->
   <div class="hidden xl:block absolute top-12 left-10 w-24 h-auto tilt-left opacity-90 pointer-events-none z-10">
-    <img src="/assets/images/sticker-rocket.svg" alt="Sunnah Archery Bow & Arrow" class="w-full h-auto drop-shadow-md">
+    <img src="/assets/images/sticker-rocket.svg" alt="Busur Panah Sunnah" class="w-full h-auto drop-shadow-md">
   </div>
   <div class="hidden xl:block absolute top-16 right-12 w-28 h-auto tilt-right opacity-90 pointer-events-none z-10">
-    <img src="/assets/images/sticker-trophy.svg" alt="Classical Islamic Kitab & Qalam" class="w-full h-auto drop-shadow-md">
+    <img src="/assets/images/sticker-trophy.svg" alt="Kitab Turats & Pena" class="w-full h-auto drop-shadow-md">
   </div>
   <div class="hidden lg:block absolute bottom-32 left-12 w-28 h-auto tilt-left opacity-80 pointer-events-none z-10">
-    <img src="/assets/images/sticker-van.svg" alt="Sunnah Equestrian Horse" class="w-full h-auto drop-shadow-md">
+    <img src="/assets/images/sticker-van.svg" alt="Kuda Sunnah" class="w-full h-auto drop-shadow-md">
   </div>
   <div class="hidden lg:block absolute bottom-40 right-14 w-20 h-auto tilt-right opacity-80 pointer-events-none z-10">
-    <img src="/assets/images/sticker-megaphone.svg" alt="Mosque Minaret & Call to Prayer" class="w-full h-auto drop-shadow-md">
+    <img src="/assets/images/sticker-megaphone.svg" alt="Menara Masjid & Adzan" class="w-full h-auto drop-shadow-md">
   </div>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -24,7 +24,7 @@
       <div class="inline-flex items-center gap-2 pl-2 pr-4 py-1.5 rounded-full bg-[#121212] text-lime border-[2px] border-[#121212] brutal-shadow-sm mb-4">
         <span class="w-2.5 h-2.5 rounded-full bg-lime animate-pulse"></span>
         <span class="font-label font-bold text-[10px] sm:text-xs tracking-wider uppercase text-lime">
-          ARSIP KEHIDUPAN SANTRI & KAMPUS · KOLEKSI FOTO
+          ARSIP KEHIDUPAN SANTRI & PONDOK · KOLEKSI FOTO
         </span>
       </div>
 
@@ -355,16 +355,16 @@
 
       <div class="relative z-10 max-w-3xl">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-lime text-[#121212] font-label font-bold text-[10px] uppercase tracking-wider mb-4 border border-[#161616]">
-          <span>KUNJUNGAN KAMPUS</span>
+          <span>KUNJUNGAN PONDOK</span>
           <span>·</span>
           <span>CAMBA, MAROS</span>
         </div>
         <h2 class="font-display font-black text-3xl sm:text-5xl uppercase tracking-tight leading-tight mb-4">
           INGIN MELIHAT LANGSUNG <br>
-          <span class="font-cursive lowercase text-lime text-4xl sm:text-6xl font-bold inline-block transform -rotate-2">suasana</span> KAMPUS KAMI?
+          <span class="font-cursive lowercase text-lime text-4xl sm:text-6xl font-bold inline-block transform -rotate-2">suasana</span> PONDOK KAMI?
         </h2>
         <p class="font-body text-sm sm:text-base text-white/90 font-medium leading-relaxed mb-8 max-w-2xl">
-          Kami menyambut hangat kedatangan calon santri dan orang tua untuk berkunjung, berkeliling kampus, berkonsultasi mengenai program 30 Juz & formal, serta menikmati sejuknya alam pesantren di Camba.
+          Kami menyambut hangat kedatangan calon santri dan orang tua untuk berkunjung, berkeliling pondok, berkonsultasi mengenai program 30 Juz & formal, serta menikmati sejuknya alam pesantren di Camba.
         </p>
 
         <div class="flex flex-col sm:flex-row items-center gap-4">
@@ -395,7 +395,7 @@
         
         <div class="flex items-center gap-3">
           <span id="lightbox-counter" class="font-label text-xs font-bold text-gray-500">1 / 30</span>
-          <button id="lightbox-close-btn" class="w-9 h-9 rounded-full bg-gray-100 hover:bg-[#E53935] hover:text-white border-2 border-[#161616] flex items-center justify-center font-black text-sm transition-colors cursor-pointer" aria-label="Close modal">
+          <button id="lightbox-close-btn" class="w-9 h-9 rounded-full bg-gray-100 hover:bg-[#E53935] hover:text-white border-2 border-[#161616] flex items-center justify-center font-black text-sm transition-colors cursor-pointer" aria-label="Tutup modal">
             ✕
           </button>
         </div>
@@ -403,13 +403,13 @@
 
       <!-- Pure Large Image Frame -->
       <div class="relative flex-1 overflow-hidden rounded-2xl bg-[#161616] flex items-center justify-center min-h-[300px] sm:min-h-[460px] max-h-[75vh]">
-        <img id="lightbox-img" src="" alt="Gallery Photo" class="max-w-full max-h-full object-contain select-none">
+        <img id="lightbox-img" src="" alt="Foto Dokumentasi Pondok" class="max-w-full max-h-full object-contain select-none">
         
         <!-- Prev & Next Overlay Buttons -->
-        <button id="lightbox-prev-btn" class="absolute left-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 hover:bg-lime text-[#121212] border-2 border-[#161616] flex items-center justify-center font-black text-lg transition-transform hover:scale-110 active:scale-95 brutal-shadow-sm cursor-pointer" aria-label="Previous image">
+        <button id="lightbox-prev-btn" class="absolute left-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 hover:bg-lime text-[#121212] border-2 border-[#161616] flex items-center justify-center font-black text-lg transition-transform hover:scale-110 active:scale-95 brutal-shadow-sm cursor-pointer" aria-label="Foto sebelumnya">
           ‹
         </button>
-        <button id="lightbox-next-btn" class="absolute right-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 hover:bg-lime text-[#121212] border-2 border-[#161616] flex items-center justify-center font-black text-lg transition-transform hover:scale-110 active:scale-95 brutal-shadow-sm cursor-pointer" aria-label="Next image">
+        <button id="lightbox-next-btn" class="absolute right-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 hover:bg-lime text-[#121212] border-2 border-[#161616] flex items-center justify-center font-black text-lg transition-transform hover:scale-110 active:scale-95 brutal-shadow-sm cursor-pointer" aria-label="Foto berikutnya">
           ›
         </button>
       </div>

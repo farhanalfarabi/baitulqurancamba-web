@@ -3,20 +3,20 @@
   
   <!-- Rotating Cloud Wave Background -->
   <div class="footer-wave-wrapper absolute inset-0 w-full h-full pointer-events-none -z-0 overflow-hidden">
-    <img src="/assets/svg/footer-wave-shape.svg" alt="Footer Rotating Cloud Wave"
+    <img src="/assets/svg/footer-wave-shape.svg" alt="Gelombang Awan Berputar"
       class="footer-rotating-wave pointer-events-none select-none" aria-hidden="true">
   </div>
 
 
   <!-- Floating decorative stickers -->
   <div class="hidden lg:block absolute top-20 sm:top-24 left-12 w-28 h-auto tilt-left opacity-90 pointer-events-none z-10">
-    <img src="/assets/images/sticker-van.svg" alt="Sunnah Equestrian Horse" class="w-full h-auto drop-shadow-lg">
+    <img src="/assets/images/sticker-van.svg" alt="Kuda Sunnah" class="w-full h-auto drop-shadow-lg">
   </div>
   <div class="hidden lg:block absolute top-24 sm:top-28 right-16 w-16 h-auto tilt-right opacity-90 pointer-events-none z-10">
-    <img src="/assets/images/sticker-rocket.svg" alt="Sunnah Archery Bow & Arrow" class="w-full h-auto drop-shadow-lg">
+    <img src="/assets/images/sticker-rocket.svg" alt="Busur Panah Sunnah" class="w-full h-auto drop-shadow-lg">
   </div>
   <div class="hidden lg:block absolute bottom-36 left-20 w-16 h-auto tilt-right opacity-90 pointer-events-none z-10">
-    <img src="/assets/images/sticker-megaphone.svg" alt="Mosque Minaret & Call to Prayer" class="w-full h-auto drop-shadow-lg">
+    <img src="/assets/images/sticker-megaphone.svg" alt="Menara Masjid & Adzan" class="w-full h-auto drop-shadow-lg">
   </div>
 
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
@@ -68,9 +68,9 @@
           <a href="{{ url('/') }}#curriculum" class="hover:text-lime transition-colors">Program</a>
           <a href="{{ route('gallery') }}" class="hover:text-lime transition-colors">Galeri</a>
           <a href="{{ url('/') }}#about" class="hover:text-lime transition-colors">Tentang Kami</a>
-          <a href="{{ url('/') }}#pricing" class="hover:text-lime transition-colors">Biaya Pendidikan</a>
+          {{-- <a href="{{ url('/') }}#pricing" class="hover:text-lime transition-colors">Biaya Pendidikan</a> --}}
           <a href="{{ url('/') }}#faq" class="hover:text-lime transition-colors">FAQ</a>
-          <a href="{{ url('/') }}#location" class="hover:text-lime transition-colors">Location</a>
+          <a href="{{ url('/') }}#location" class="hover:text-lime transition-colors">Lokasi</a>
         </div>
         <p>© 2026 Baitul Qur'an Camba. Seluruh Hak Cipta Dilindungi.</p>
       </div>

@@ -4,7 +4,7 @@
   <!-- Rotating Cloud Wave Background -->
   <div class="hero-wave-wrapper absolute inset-0 w-full h-full pointer-events-none -z-0 overflow-hidden">
     <!-- Giant Rotating Scalloped Wave Shape (100% Pure SVG with organic tapering curve) -->
-    <img src="/assets/svg/wave-shape.svg" alt="Rotating Cloud Wave"
+    <img src="/assets/svg/wave-shape.svg" alt="Gelombang Awan Berputar"
       class="hero-rotating-wave pointer-events-none select-none" aria-hidden="true">
   </div>
 

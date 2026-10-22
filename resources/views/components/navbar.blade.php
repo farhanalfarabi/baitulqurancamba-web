@@ -3,8 +3,8 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-2.5 flex items-center justify-between">
 
     <!-- Logo & Identity -->
-    <a href="{{ url('/') }}" class="flex items-center gap-2.5 group focus:outline-none" aria-label="Baitul Qur'an Camba Home">
-      <img src="/assets/images/logo.png" alt="Baitul Qur'an Camba Logo"
+    <a href="{{ url('/') }}" class="flex items-center gap-2.5 group focus:outline-none" aria-label="Beranda Baitul Qur'an Camba">
+      <img src="/assets/images/logo.png" alt="Logo Baitul Qur'an Camba"
         class="h-8 sm:h-9 w-auto group-hover:scale-105 transition-transform">
       <div class="hidden sm:flex flex-col text-left">
         <span class="font-display font-black text-xs sm:text-sm leading-none text-[#121212] uppercase tracking-tight">
@@ -44,12 +44,12 @@
             <span class="text-[#E53935]" aria-hidden="true">Tentang Kami</span>
           </span>
         </a>
-        <a href="{{ url('/') }}#pricing" class="roll-link">
+        {{-- <a href="{{ url('/') }}#pricing" class="roll-link">
           <span class="roll-link-inner">
             <span>Biaya Pendidikan</span>
             <span class="text-[#E53935]" aria-hidden="true">Biaya Pendidikan</span>
           </span>
-        </a>
+        </a> --}}
         <a href="{{ url('/') }}#faq" class="roll-link">
           <span class="roll-link-inner">
             <span>FAQ</span>
@@ -58,8 +58,8 @@
         </a>
         <a href="{{ url('/') }}#location" class="roll-link">
           <span class="roll-link-inner">
-            <span>Location</span>
-            <span class="text-[#E53935]" aria-hidden="true">Location</span>
+            <span>Lokasi</span>
+            <span class="text-[#E53935]" aria-hidden="true">Lokasi</span>
           </span>
         </a>
       </nav>
@@ -87,7 +87,7 @@
     </div>
 
     <!-- Mobile Menu Hamburger Button -->
-    <button id="btn-mobile-menu" aria-label="Toggle navigation menu" aria-expanded="false"
+    <button id="btn-mobile-menu" aria-label="Buka tutup menu navigasi" aria-expanded="false"
       class="lg:hidden p-1.5 rounded-lg border border-[#161616] bg-white shadow-sm btn-tactile">
       <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -122,12 +122,12 @@
         <span class="text-[#E53935]" aria-hidden="true">Tentang Kami</span>
       </span>
     </a>
-    <a href="{{ url('/') }}#pricing" class="roll-link block font-body font-semibold text-base text-[#121212]">
+    {{-- <a href="{{ url('/') }}#pricing" class="roll-link block font-body font-semibold text-base text-[#121212]">
       <span class="roll-link-inner">
         <span>Biaya Pendidikan</span>
         <span class="text-[#E53935]" aria-hidden="true">Biaya Pendidikan</span>
       </span>
-    </a>
+    </a> --}}
     <a href="{{ url('/') }}#faq" class="roll-link block font-body font-semibold text-base text-[#121212]">
       <span class="roll-link-inner">
         <span>FAQ</span>
@@ -136,8 +136,8 @@
     </a>
     <a href="{{ url('/') }}#location" class="roll-link block font-body font-semibold text-base text-[#121212]">
       <span class="roll-link-inner">
-        <span>Location</span>
-        <span class="text-[#E53935]" aria-hidden="true">Location</span>
+        <span>Lokasi</span>
+        <span class="text-[#E53935]" aria-hidden="true">Lokasi</span>
       </span>
     </a>
 

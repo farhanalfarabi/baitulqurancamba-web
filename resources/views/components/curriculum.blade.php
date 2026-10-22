@@ -173,7 +173,7 @@
               </span>
             </div>
             <h4 class="font-display font-black text-lg sm:text-xl uppercase tracking-tight text-[#121212] mb-2 leading-snug">
-              Leadership (Kepemimpinan)
+              Kepemimpinan Santri
             </h4>
             <p class="font-body text-xs sm:text-sm text-slate-muted font-medium leading-relaxed mb-4">
               Pelatihan kepemimpinan santri, tata kelola organisasi internal santri, musyawarah santri, serta tanggung jawab sosial dan keumatan.
@@ -294,7 +294,7 @@
             <button type="button" 
                     class="curriculum-tab-trigger relative flex-shrink-0 flex items-center justify-start gap-2.5 text-white font-medium text-sm sm:text-base h-[54px] w-[215px] sm:w-[265px] pl-5 sm:pl-7 pr-8 cursor-pointer focus:outline-none"
                     data-target-card="1"
-                    aria-label="View Tahfizh Track">
+                    aria-label="Lihat Program Tahfizh">
               <img src="/assets/svg/tab-1.svg" alt="" class="absolute inset-0 w-full h-full -z-10 object-fill pointer-events-none">
               <svg class="w-5 h-5 text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
@@ -355,7 +355,7 @@
                   <img src="/assets/images/pondok/halaqah-tahfidz.jpg" alt="Halaqah Tahfizh Baitul Qur'an Camba" class="w-full h-full object-cover">
                 </div>
                 <div class="absolute -bottom-6 sm:-bottom-7 left-1/2 -translate-x-1/2 w-24 sm:w-28 z-20 pointer-events-none drop-shadow-[2px_4px_8px_rgba(0,0,0,0.35)]">
-                  <img src="/assets/images/sticker-starburst.svg" alt="Holy Qur'an on Rehal Stand sticker" class="w-full h-auto">
+                  <img src="/assets/images/sticker-starburst.svg" alt="Stiker Mushaf Al-Qur'an" class="w-full h-auto">
                 </div>
               </div>
             </div>
@@ -374,7 +374,7 @@
             <button type="button" 
                     class="curriculum-tab-trigger relative flex-shrink-0 h-[54px] w-[215px] sm:w-[265px] cursor-pointer opacity-0 pointer-events-auto focus:outline-none"
                     data-target-card="1"
-                    aria-label="Scroll to Tahfizh">
+                    aria-label="Gulir ke Tahfizh">
               <span class="sr-only">Tahfizh & Sanad</span>
             </button>
 
@@ -382,7 +382,7 @@
             <button type="button" 
                     class="curriculum-tab-trigger -ml-4 sm:-ml-5 relative flex-shrink-0 flex items-center justify-center gap-2 text-white font-display font-black text-xs sm:text-sm uppercase tracking-wider h-[54px] w-[125px] sm:w-[192px] pl-6 sm:pl-7 pr-4 sm:pr-5 cursor-pointer focus:outline-none"
                     data-target-card="2"
-                    aria-label="View School Track">
+                    aria-label="Lihat Sekolah Formal">
               <img src="/assets/svg/tab-2.svg" alt="" class="absolute inset-0 w-full h-full -z-10 object-fill pointer-events-none">
               <svg class="w-4 h-4 sm:w-5 sm:h-5 text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
@@ -441,7 +441,7 @@
                   <img src="/assets/images/pondok/pidato-3-bahasa.jpg" alt="Pendidikan Formal dan Pidato 3 Bahasa" class="w-full h-full object-cover">
                 </div>
                 <div class="absolute -bottom-6 sm:-bottom-7 left-1/2 -translate-x-1/2 w-20 sm:w-24 z-20 pointer-events-none drop-shadow-[2px_4px_8px_rgba(0,0,0,0.35)]">
-                  <img src="/assets/images/sticker-trophy.svg" alt="Classical Islamic Kitab & Qalam sticker" class="w-full h-auto">
+                  <img src="/assets/images/sticker-trophy.svg" alt="Stiker Kitab Turats & Pena" class="w-full h-auto">
                 </div>
               </div>
             </div>
@@ -460,7 +460,7 @@
             <button type="button" 
                     class="curriculum-tab-trigger relative flex-shrink-0 h-[54px] w-[215px] sm:w-[265px] cursor-pointer opacity-0 pointer-events-auto focus:outline-none"
                     data-target-card="1"
-                    aria-label="Scroll to Tahfizh">
+                    aria-label="Gulir ke Tahfizh">
               <span class="sr-only">Tahfizh & Sanad</span>
             </button>
 
@@ -468,15 +468,15 @@
             <button type="button" 
                     class="curriculum-tab-trigger -ml-4 sm:-ml-5 relative flex-shrink-0 h-[54px] w-[125px] sm:w-[192px] cursor-pointer opacity-0 pointer-events-auto focus:outline-none"
                     data-target-card="2"
-                    aria-label="Scroll to School">
-              <span class="sr-only">Formal School</span>
+                    aria-label="Gulir ke Sekolah Formal">
+              <span class="sr-only">Sekolah Formal</span>
             </button>
 
             <!-- Tab 3 (Active on Card 3, Wine Rust #7C1A06) -->
             <button type="button" 
                     class="curriculum-tab-trigger -ml-4 sm:-ml-5 relative flex-shrink-0 flex items-center justify-center gap-2 text-white font-display font-black text-xs sm:text-sm uppercase tracking-wider h-[54px] w-[115px] sm:w-[170px] pl-6 sm:pl-7 pr-4 sm:pr-5 cursor-pointer focus:outline-none"
                     data-target-card="3"
-                    aria-label="View Boarding Track">
+                    aria-label="Lihat Asrama Santri">
               <img src="/assets/svg/tab-3.svg" alt="" class="absolute inset-0 w-full h-full -z-10 object-fill pointer-events-none">
               <svg class="w-4 h-4 sm:w-5 sm:h-5 text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
@@ -535,7 +535,7 @@
                   <img src="/assets/images/pondok/eskul-futsal.jpg" alt="Ekstrakurikuler dan Persaudaraan Santri" class="w-full h-full object-cover">
                 </div>
                 <div class="absolute -bottom-7 sm:-bottom-8 left-1/2 -translate-x-1/2 w-28 sm:w-34 z-20 pointer-events-none drop-shadow-[2px_4px_8px_rgba(0,0,0,0.35)]">
-                  <img src="/assets/images/sticker-van.svg" alt="Sunnah Equestrian Horse sticker" class="w-full h-auto">
+                  <img src="/assets/images/sticker-van.svg" alt="Stiker Kuda Sunnah" class="w-full h-auto">
                 </div>
               </div>
             </div>

@@ -81,14 +81,14 @@
            =================================================================== -->
       <div class="prestasi-card rounded-3xl bg-white border border-gray-100 shadow-xl p-5 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between group overflow-hidden relative"
         data-category="champions"
-        data-poster-title="Zjilzian Amarung — 2x Gold & 1x Silver Medalist"
+        data-poster-title="Zjilzian Amarung — Peraih 2 Emas & 1 Perak"
         data-poster-desc="Olimpiade Islam Nasional 2025: Medali Emas Bahasa Arab & Aqidah Akhlak, Medali Perak Al-Qur'an Hadits (Diselenggarakan oleh Lingkar Studi Cendekia)."
         data-poster-src="/assets/images/prestasi/juara (2).webp">
         
         <div>
           <!-- White Framed Billboard Poster Thumbnail -->
           <div class="aspect-[3/4] rounded-2xl overflow-hidden bg-black/5 relative mb-5 border-4 border-white shadow-md">
-            <img src="/assets/images/prestasi/juara (2).webp" alt="Zjilzian Amarung - 2x Gold 1x Silver Medalist"
+            <img src="/assets/images/prestasi/juara (2).webp" alt="Zjilzian Amarung - Peraih 2 Emas 1 Perak"
               class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
             
             <!-- Floating Category Badge -->
@@ -156,14 +156,14 @@
            =================================================================== -->
       <div class="prestasi-card rounded-3xl bg-white border border-gray-100 shadow-xl p-5 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between group overflow-hidden relative"
         data-category="champions"
-        data-poster-title="Ibrahim Abdurrahman — 1x Gold & 2x Silver Medalist"
+        data-poster-title="Ibrahim Abdurrahman — Peraih 1 Emas & 2 Perak"
         data-poster-desc="Olimpiade Islam Nasional 2025: Medali Emas Bahasa Arab, Medali Perak Aqidah Akhlak & Al-Qur'an Hadits (Diselenggarakan oleh Lingkar Studi Cendekia)."
         data-poster-src="/assets/images/prestasi/juara (3).webp">
         
         <div>
           <!-- White Framed Billboard Poster Thumbnail -->
           <div class="aspect-[3/4] rounded-2xl overflow-hidden bg-black/5 relative mb-5 border-4 border-white shadow-md">
-            <img src="/assets/images/prestasi/juara (3).webp" alt="Ibrahim Abdurrahman - 1x Gold 2x Silver Medalist"
+            <img src="/assets/images/prestasi/juara (3).webp" alt="Ibrahim Abdurrahman - Peraih 1 Emas 2 Perak"
               class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
             
             <!-- Floating Category Badge -->
@@ -231,14 +231,14 @@
            =================================================================== -->
       <div class="prestasi-card rounded-3xl bg-white border border-gray-100 shadow-xl p-5 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between group overflow-hidden relative"
         data-category="champions"
-        data-poster-title="Muh. Alif Iwan — 3x Silver Medalist (SMP / MTs)"
+        data-poster-title="Muh. Alif Iwan — Peraih 3 Medali Perak (SMP / MTs)"
         data-poster-desc="Olimpiade Islam Nasional 2025: Peraih 3 Medali Perak Tingkat SMP cabang Bahasa Arab, Aqidah Akhlak, dan Al-Qur'an Hadits."
         data-poster-src="/assets/images/prestasi/juara (1).webp">
         
         <div>
           <!-- White Framed Billboard Poster Thumbnail -->
           <div class="aspect-[3/4] rounded-2xl overflow-hidden bg-black/5 relative mb-5 border-4 border-white shadow-md">
-            <img src="/assets/images/prestasi/juara (1).webp" alt="Muh. Alif Iwan - 3x Silver Medalist SMP"
+            <img src="/assets/images/prestasi/juara (1).webp" alt="Muh. Alif Iwan - Peraih 3 Medali Perak SMP"
               class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
             
             <!-- Floating Category Badge -->
@@ -555,7 +555,7 @@
     <div class="relative max-w-xl w-full bg-white rounded-3xl overflow-hidden shadow-2xl border-4 border-white transform scale-95 transition-transform duration-300">
       
       <!-- Close Button -->
-      <button id="prestasi-lightbox-close" aria-label="Close modal"
+      <button id="prestasi-lightbox-close" aria-label="Tutup modal"
         class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-[#121212] text-white hover:bg-[#CF2B09] flex items-center justify-center text-lg font-bold shadow-md transition-colors cursor-pointer">
         ✕
       </button>
@@ -568,10 +568,10 @@
       <!-- Caption & Details -->
       <div class="p-5 sm:p-6 bg-[#FAF7F0] border-t border-gray-200 text-left">
         <h4 id="prestasi-lightbox-title" class="font-display font-black text-lg sm:text-xl text-[#121212] uppercase tracking-tight mb-1">
-          Poster Title
+          Judul Prestasi
         </h4>
         <p id="prestasi-lightbox-desc" class="font-body text-xs sm:text-sm text-slate-muted font-medium leading-relaxed">
-          Poster Description
+          Keterangan Prestasi
         </p>
       </div>
 
