@@ -1,0 +1,243 @@
+<!-- About Section Component: Faith, Discipline & Knowledge -->
+<section id="about" class="py-20 bg-[#FAF7F0] relative overflow-hidden">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+    <!-- Section Header -->
+    <div class="mb-12">
+      <div class="stamp-badge stamp-badge-red mb-4">
+        Identitas & Visi Pesantren
+      </div>
+      <h2 class="font-display font-black text-4xl sm:text-6xl text-[#121212] uppercase tracking-tight">
+        Iman, Karakter & Al-Qur'an<br class="hidden sm:inline">
+        <span
+          class="inline-block mt-2 px-5 py-2 bg-[#121212] text-lime rounded-xl border border-[#161616] tilt-right transform">
+          Pondok Pesantren Tahfizh Camba, Maros
+        </span>
+      </h2>
+    </div>
+
+    <!-- Campus Billboard Frame with Solid White Border -->
+    <div
+      class="relative max-w-4xl mx-auto mb-16 rounded-3xl overflow-hidden shadow-2xl border-4 sm:border-8 border-white bg-white">
+      <div class="relative aspect-video sm:aspect-[21/9] overflow-hidden">
+        <img src="/assets/images/pondok/upacara-2.jpg" alt="Upacara dan Kedisiplinan Santri Baitul Qur'an Camba"
+          class="w-full h-full object-cover brightness-90">
+
+        <!-- Poster Overlay inside Billboard -->
+        <div class="absolute inset-0 flex items-center justify-center p-4">
+          <div
+            class="bg-[#121212]/90 backdrop-blur-md text-white p-6 sm:p-10 rounded-2xl border border-lime/50 shadow-2xl max-w-lg text-center transform -rotate-1">
+            <div
+              class="inline-block px-3 py-1 bg-lime text-[#121212] font-label font-bold text-xs uppercase rounded mb-3">
+              BERDIRI SEJAK 2016 · SULAWESI SELATAN
+            </div>
+            <h3 class="font-display font-black text-2xl sm:text-4xl uppercase leading-tight mb-2">
+              Pondok Pencetak Generasi<br>
+              <span class="font-cursive lowercase text-lime text-3xl sm:text-4xl">penghafal al-qur'an</span>
+            </h3>
+            <p class="font-body text-xs sm:text-sm text-gray-300 font-medium mb-4">
+              Lembaga pendidikan resmi dengan izin operasional negara, memadukan hafalan 30 juz talaqqi bersanad dengan ijazah resmi SMP (Wustha) & SMA (Ulya).
+            </p>
+            <div
+              class="inline-block font-mono text-xs font-bold text-lime tracking-widest border border-lime/40 px-3 py-1 rounded">
+              CAMBA · MAROS · SULAWESI SELATAN
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- =========================================================================
+         OFFICIAL INSTITUTIONAL VISION: GENERASI 3M (Deep Cherry Wine Card #580D14)
+         ========================================================================= -->
+    <div class="rounded-2xl sm:rounded-3xl bg-[#580D14] text-white p-8 sm:p-12 shadow-2xl mb-14 relative overflow-hidden border-2 border-white/15">
+      <!-- Glow effect -->
+      <div class="absolute -right-24 -top-24 w-72 h-72 rounded-full bg-lime/10 blur-3xl pointer-events-none"></div>
+
+      <!-- Top Vision Stamp Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-lime font-label font-bold text-xs uppercase tracking-widest mb-6">
+        <span>★</span>
+        <span>Visi Resmi Pesantren</span>
+      </div>
+
+      <!-- Main Vision Quote Lockup -->
+      <blockquote class="font-display font-black text-3xl sm:text-5xl lg:text-6xl uppercase tracking-tight text-white leading-tight mb-4 max-w-3xl mx-auto">
+        "Mewujudkan Generasi Qur'ani yang <br class="hidden sm:inline">
+        <span class="text-lime">Muhaffizh</span>, 
+        <span class="text-lime">Muballigh</span>, & 
+        <span class="text-lime">Mujaahid</span>"
+      </blockquote>
+
+      <p class="font-body text-sm sm:text-base text-white/80 font-medium max-w-2xl mx-auto mb-10 leading-relaxed">
+        Pondok Pesantren Tahfizh Baitul Qur'an Camba berlandaskan Al-Qur'an dan As-Sunnah, bertekad mencetak kader umat yang menguasai ilmu agama, cakap berdakwah, serta siap mengabdi untuk bangsa.
+      </p>
+
+      <!-- 3 Pillars of Vision (The "3M" Tactile Grid) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 text-left">
+        
+        <!-- Pillar 1: Muhaffizh -->
+        <div class="rounded-2xl bg-white/10 hover:bg-white/15 backdrop-blur-sm border border-white/20 p-6 sm:p-7 transition-all duration-300 transform hover:-translate-y-1">
+          <div class="inline-block px-3 py-1 bg-lime text-[#121212] font-label font-black text-[10px] uppercase tracking-wider rounded-lg mb-4">
+            30 JUZ MUTQIN & SANAD
+          </div>
+          <h4 class="font-display font-black text-2xl uppercase tracking-tight text-white mb-2">
+            1. Muhaffizh
+          </h4>
+          <p class="font-label text-xs uppercase tracking-wider text-lime font-bold mb-3">
+            Generasi Penghafal Al-Qur'an
+          </p>
+          <p class="font-body text-xs sm:text-sm text-white/90 leading-relaxed font-medium">
+            Mencetak santri hafizh 30 Juz mutqin dengan talaqqi tajwid bersanad dan tekad kuat membumikan Al-Qur'an dalam kehidupan sehari-hari.
+          </p>
+        </div>
+
+        <!-- Pillar 2: Muballigh -->
+        <div class="rounded-2xl bg-white/10 hover:bg-white/15 backdrop-blur-sm border border-white/20 p-6 sm:p-7 transition-all duration-300 transform hover:-translate-y-1">
+          <div class="inline-block px-3 py-1 bg-lime text-[#121212] font-label font-black text-[10px] uppercase tracking-wider rounded-lg mb-4">
+            DAKWAH 3 BAHASA
+          </div>
+          <h4 class="font-display font-black text-2xl uppercase tracking-tight text-white mb-2">
+            2. Muballigh
+          </h4>
+          <p class="font-label text-xs uppercase tracking-wider text-lime font-bold mb-3">
+            Kader Da'i & Retorika Dakwah
+          </p>
+          <p class="font-body text-xs sm:text-sm text-white/90 leading-relaxed font-medium">
+            Menggembleng santri berkemampuan dakwah praktis dan mahir berpidato 3 bahasa (Arab, Inggris, Indonesia) dengan hikmah dan adab mulia.
+          </p>
+        </div>
+
+        <!-- Pillar 3: Mujaahid -->
+        <div class="rounded-2xl bg-white/10 hover:bg-white/15 backdrop-blur-sm border border-white/20 p-6 sm:p-7 transition-all duration-300 transform hover:-translate-y-1">
+          <div class="inline-block px-3 py-1 bg-lime text-[#121212] font-label font-black text-[10px] uppercase tracking-wider rounded-lg mb-4">
+            DISIPLIN & KEPEMIMPINAN
+          </div>
+          <h4 class="font-display font-black text-2xl uppercase tracking-tight text-white mb-2">
+            3. Mujaahid
+          </h4>
+          <p class="font-label text-xs uppercase tracking-wider text-lime font-bold mb-3">
+            Pejuang Tangguh & Berakhlak
+          </p>
+          <p class="font-body text-xs sm:text-sm text-white/90 leading-relaxed font-medium">
+            Membentuk pribadi santri yang disiplin beribadah, berjiwa pemimpin, mandiri dalam asrama 24 jam, dan siap mengabdi untuk kemaslahatan umat.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- =========================================================================
+         OFFICIAL INSTITUTIONAL MISSIONS: 4 CORE MISSIONS (Tactile Cards Grid)
+         ========================================================================= -->
+    <div class="mb-14">
+      
+      <!-- Sub-header -->
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <div class="stamp-badge stamp-badge-red mb-3">
+          Arah Strategis Pesantren
+        </div>
+        <h3 class="font-display font-black text-3xl sm:text-5xl text-[#121212] uppercase tracking-tight leading-none">
+          4 Misi Utama <span class="font-cursive lowercase text-[#CF2B09] text-3xl sm:text-5xl font-bold ml-1">pesantren</span>
+        </h3>
+        <p class="font-body text-xs sm:text-sm text-slate-muted font-medium max-w-lg mx-auto mt-3">
+          Empat pilar komitmen resmi Pondok Pesantren Tahfizh Baitul Qur'an Camba dalam membentuk generasi unggul dan berakhlak mulia.
+        </p>
+      </div>
+
+      <!-- 4 Missions Grid (2x2 on Desktop, 1 Col on Mobile) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+
+        <!-- Mission 01 -->
+        <div class="rounded-2xl sm:rounded-3xl bg-white border border-gray-100 shadow-xl p-7 sm:p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 relative group overflow-hidden">
+          <div class="flex items-center justify-between mb-4">
+            <span class="w-10 h-10 rounded-xl bg-[#121212] text-lime font-mono font-black text-sm flex items-center justify-center shadow-md">
+              01
+            </span>
+            <span class="px-3 py-1 rounded-full bg-[#FAF7F0] border border-gray-200 text-[#121212] font-label font-bold text-[10px] uppercase tracking-wider">
+              PENGUASAAN AL-QUR'AN
+            </span>
+          </div>
+          <h4 class="font-display font-black text-xl sm:text-2xl uppercase tracking-tight text-[#121212] mb-3">
+            Mencetak Generasi Penghafal Al-Qur'an
+          </h4>
+          <p class="font-body text-sm text-slate-muted font-medium leading-relaxed">
+            Mencetak generasi penghafal Al-Qur'an yang tangguh dan memiliki niat besar untuk membumikan Al-Qur'an dalam kehidupan sehari-hari.
+          </p>
+        </div>
+
+        <!-- Mission 02 -->
+        <div class="rounded-2xl sm:rounded-3xl bg-white border border-gray-100 shadow-xl p-7 sm:p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 relative group overflow-hidden">
+          <div class="flex items-center justify-between mb-4">
+            <span class="w-10 h-10 rounded-xl bg-[#121212] text-lime font-mono font-black text-sm flex items-center justify-center shadow-md">
+              02
+            </span>
+            <span class="px-3 py-1 rounded-full bg-[#FAF7F0] border border-gray-200 text-[#121212] font-label font-bold text-[10px] uppercase tracking-wider">
+              PENGEMBANGAN DAKWAH
+            </span>
+          </div>
+          <h4 class="font-display font-black text-xl sm:text-2xl uppercase tracking-tight text-[#121212] mb-3">
+            Pengembangan Keterampilan Dakwah
+          </h4>
+          <p class="font-body text-sm text-slate-muted font-medium leading-relaxed">
+            Melaksanakan kegiatan yang mendorong dan membantu santri dalam mengembangkan keterampilan dakwah, di internal maupun eksternal pondok pesantren.
+          </p>
+        </div>
+
+        <!-- Mission 03 -->
+        <div class="rounded-2xl sm:rounded-3xl bg-white border border-gray-100 shadow-xl p-7 sm:p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 relative group overflow-hidden">
+          <div class="flex items-center justify-between mb-4">
+            <span class="w-10 h-10 rounded-xl bg-[#121212] text-lime font-mono font-black text-sm flex items-center justify-center shadow-md">
+              03
+            </span>
+            <span class="px-3 py-1 rounded-full bg-[#FAF7F0] border border-gray-200 text-[#121212] font-label font-bold text-[10px] uppercase tracking-wider">
+              KEDISIPLINAN SYARIAT
+            </span>
+          </div>
+          <h4 class="font-display font-black text-xl sm:text-2xl uppercase tracking-tight text-[#121212] mb-3">
+            Kedisiplinan Syariat & Lingkungan Religius
+          </h4>
+          <p class="font-body text-sm text-slate-muted font-medium leading-relaxed">
+            Menumbuhkan sikap kedisiplinan santri dalam menjalankan ajaran agama Islam dengan membentuk lingkungan asrama yang religius dan kondusif.
+          </p>
+        </div>
+
+        <!-- Mission 04 -->
+        <div class="rounded-2xl sm:rounded-3xl bg-white border border-gray-100 shadow-xl p-7 sm:p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 relative group overflow-hidden">
+          <div class="flex items-center justify-between mb-4">
+            <span class="w-10 h-10 rounded-xl bg-[#121212] text-lime font-mono font-black text-sm flex items-center justify-center shadow-md">
+              04
+            </span>
+            <span class="px-3 py-1 rounded-full bg-[#FAF7F0] border border-gray-200 text-[#121212] font-label font-bold text-[10px] uppercase tracking-wider">
+              MINAT & POTENSI
+            </span>
+          </div>
+          <h4 class="font-display font-black text-xl sm:text-2xl uppercase tracking-tight text-[#121212] mb-3">
+            Bimbingan Minat & Potensi Santri
+          </h4>
+          <p class="font-body text-sm text-slate-muted font-medium leading-relaxed">
+            Mengembangkan potensi santri dengan mengadakan kegiatan-kegiatan islami yang berisi pelatihan dan bimbingan terhadap para santri berdasarkan potensi masing-masing.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CTA: Signature Double-Layer Button -->
+    <div class="flex justify-center">
+      <a href="https://forms.gle/dUHmyuv98pgXiPcS7" target="_blank" rel="noopener noreferrer"
+        class="group bg-white p-1 rounded-xl shadow-md inline-flex items-center transition-transform hover:scale-[1.02] active:scale-[0.98] cursor-pointer focus:outline-none">
+        <div
+          class="bg-lime text-[#121212] border-2 border-[#161616] rounded-lg px-6 py-3 flex items-center gap-3 font-display font-black text-xs sm:text-sm uppercase tracking-wider">
+          <span>Daftar Santri Baru</span>
+          <svg class="w-6 h-6 flex-shrink-0 transition-transform duration-500 group-hover:rotate-[45deg] drop-shadow-sm" viewBox="0 0 40 40" fill="none">
+            <path d="M 20 2 C 22.5 2, 24 4.5, 26 5 C 28 5.5, 30.5 4.5, 32 6 C 33.5 7.5, 32.5 10, 33 12 C 33.5 14, 36 15.5, 36 18 C 36 20.5, 34 22, 33.5 24 C 33 26, 34 28.5, 32.5 30 C 31 31.5, 28.5 30.5, 26.5 31 C 24.5 31.5, 23 34, 20.5 34 C 18 34, 16.5 31.5, 14.5 31 C 12.5 30.5, 10 31.5, 8.5 30 C 7 28.5, 8 26, 7.5 24 C 7 22, 5 20.5, 5 18 C 5 15.5, 7.5 14, 8 12 C 8.5 10, 7.5 7.5, 9 6 C 10.5 4.5, 13 5.5, 15 5 C 17 4.5, 18.5 2, 20 2 Z"
+                  fill="#F8330B" stroke="#161616" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M 14 18 L 26 18 M 21 13 L 26 18 L 21 23" 
+                  stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>

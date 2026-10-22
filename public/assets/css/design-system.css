@@ -1,0 +1,763 @@
+/* ==========================================================================
+   Tactile Neo-Brutalist Design System CSS
+   Pondok Pesantren Tahfizh Baitul Qur'an Camba
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800;12..96,900&family=Caveat:wght@600;700&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap');
+
+:root {
+  /* Colors */
+  --color-canvas: #FAF7F0;
+  --color-canvas-light: #FCF9F2;
+  --color-surface-white: #FFFFFF;
+  --color-electric-lime: #D4FF00;
+  --color-vintage-wine: #4A0E17;
+  --color-biscuit-red: #E53935;
+  --color-burnt-biscuit: #C83D2D;
+  --color-jet-charcoal: #121212;
+  --color-muted-slate: #555555;
+  --color-border-dark: #121212;
+  --color-border-soft: #E0DBD0;
+
+  /* Typography */
+  --font-display: 'Bricolage Grotesque', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-label: 'Space Grotesk', sans-serif;
+  --font-cursive: 'Caveat', cursive;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Elevation Shadows */
+  --shadow-brutal-sm: 2px 2px 0px 0px #121212;
+  --shadow-brutal: 4px 4px 0px 0px #121212;
+  --shadow-brutal-lg: 6px 6px 0px 0px #121212;
+  --shadow-brutal-xl: 8px 8px 0px 0px #121212;
+  --shadow-brutal-lime: 4px 4px 0px 0px #D4FF00;
+  --shadow-brutal-white: 4px 4px 0px 0px #FFFFFF;
+}
+
+/* Global Reset & Base */
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-canvas);
+  color: var(--color-jet-charcoal);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Dot Grid Canvas Background */
+.bg-dot-matrix {
+  background-color: var(--color-canvas);
+  background-image: radial-gradient(rgba(18, 18, 18, 0.12) 1.2px, transparent 1.2px);
+  background-size: 20px 20px;
+}
+
+.bg-dot-matrix-light {
+  background-color: var(--color-canvas-light);
+  background-image: radial-gradient(rgba(18, 18, 18, 0.08) 1.2px, transparent 1.2px);
+  background-size: 20px 20px;
+}
+
+.bg-dot-matrix-dark {
+  background-color: var(--color-vintage-wine);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1.2px, transparent 1.2px);
+  background-size: 20px 20px;
+}
+
+/* Fonts */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-label {
+  font-family: var(--font-label);
+}
+
+.font-cursive {
+  font-family: var(--font-cursive);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Hard Drop Shadows */
+.brutal-shadow-sm {
+  box-shadow: var(--shadow-brutal-sm);
+}
+
+.brutal-shadow {
+  box-shadow: var(--shadow-brutal);
+}
+
+.brutal-shadow-lg {
+  box-shadow: var(--shadow-brutal-lg);
+}
+
+.brutal-shadow-xl {
+  box-shadow: var(--shadow-brutal-xl);
+}
+
+.brutal-shadow-lime {
+  box-shadow: var(--shadow-brutal-lime);
+}
+
+/* Tactile Physics */
+.btn-tactile {
+  transition: transform 0.12s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.12s cubic-bezier(0.2, 0, 0, 1);
+  will-change: transform, box-shadow;
+}
+
+.btn-tactile:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px 0px #121212;
+}
+
+.btn-tactile:active {
+  transform: translate(3px, 3px);
+  box-shadow: 1px 1px 0px 0px #121212;
+}
+
+/* Secondary Button Hover */
+.btn-tactile-wine:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px 0px #D4FF00;
+}
+
+.btn-tactile-wine:active {
+  transform: translate(3px, 3px);
+  box-shadow: 1px 1px 0px 0px #D4FF00;
+}
+
+/* Tactile Card Hover */
+.card-hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 8px 8px 0px 0px #121212;
+}
+
+/* Tilted Badges, Containers & Stickers (Neo-brutalist tactile angles) */
+.tilt-left {
+  --tw-rotate: -3deg !important;
+  transform: rotate(-3deg) !important;
+}
+
+.tilt-right {
+  --tw-rotate: 3deg !important;
+  transform: rotate(3deg) !important;
+}
+
+.tilt-left-sm {
+  --tw-rotate: -1.5deg !important;
+  transform: rotate(-1.5deg) !important;
+}
+
+.tilt-right-sm {
+  --tw-rotate: 2deg !important;
+  transform: rotate(2deg) !important;
+}
+
+.tilt-left-lg {
+  --tw-rotate: -4.5deg !important;
+  transform: rotate(-4.5deg) !important;
+}
+
+.tilt-right-lg {
+  --tw-rotate: 4.5deg !important;
+  transform: rotate(4.5deg) !important;
+}
+
+.sticker-halo {
+  border: 3px solid #FFFFFF;
+  box-shadow: 3px 3px 0px 0px #121212;
+}
+
+/* Cracker Bite Mask Geometry */
+.cracker-bite-card {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Notched Cracker Bite Top-Right */
+.bite-corner-tr {
+  position: relative;
+}
+
+.bite-corner-tr::after {
+  content: '';
+  position: absolute;
+  top: -24px;
+  right: -24px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: var(--color-canvas);
+  border: 2.5px solid #121212;
+  box-sizing: border-box;
+}
+
+/* For dark background parent */
+.bite-corner-tr-dark::after {
+  background-color: var(--color-vintage-wine);
+}
+
+/* Notched Corner Bite Bottom-Right (Stat Cards) */
+.bite-corner-br {
+  position: relative;
+  border-radius: 18px 18px 0 18px;
+  -webkit-mask-image: radial-gradient(circle 22px at 100% 100%, transparent 20px, black 21px);
+  mask-image: radial-gradient(circle 22px at 100% 100%, transparent 20px, black 21px);
+  will-change: transform;
+}
+
+/* Scalloped Wavy Edge Dividers */
+.scallop-divider-top {
+  position: relative;
+}
+
+.scallop-divider-top::before {
+  content: '';
+  position: absolute;
+  top: -16px;
+  left: 0;
+  width: 100%;
+  height: 18px;
+  background-repeat: repeat-x;
+  background-size: 32px 18px;
+  background-image: radial-gradient(circle at 16px 18px, var(--color-vintage-wine) 15px, transparent 16px);
+}
+
+.scallop-divider-bottom {
+  position: relative;
+}
+
+.scallop-divider-bottom::after {
+  content: '';
+  position: absolute;
+  bottom: -16px;
+  left: 0;
+  width: 100%;
+  height: 18px;
+  background-repeat: repeat-x;
+  background-size: 32px 18px;
+  background-image: radial-gradient(circle at 16px 0px, var(--color-vintage-wine) 15px, transparent 16px);
+}
+
+/* Circular Scallop Quote Card (Cracker biscuit circular border) */
+.scallop-circle {
+  border-radius: 50%;
+  border: 2.5px solid #121212;
+  box-shadow: 4px 4px 0px 0px #121212;
+  position: relative;
+  background-image: radial-gradient(#121212 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+/* Stamp / Ticket Badge */
+.stamp-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 14px;
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: 2px solid #121212;
+  border-radius: 6px;
+  position: relative;
+}
+
+.stamp-badge-red {
+  background-color: var(--color-biscuit-red);
+  color: #FFFFFF;
+}
+
+.stamp-badge-lime {
+  background-color: var(--color-electric-lime);
+  color: #121212;
+}
+
+/* Folder Tabs */
+.folder-tab {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border: 2.5px solid #121212;
+  border-bottom: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.folder-tab.active {
+  background-color: var(--color-biscuit-red);
+  color: #FFFFFF;
+  transform: translateY(2px);
+}
+
+.folder-tab.inactive {
+  background-color: #E8E2D5;
+  color: #121212;
+  opacity: 0.85;
+}
+
+.folder-tab.inactive:hover {
+  opacity: 1;
+  background-color: #DDD5C4;
+}
+
+/* Interactive Laptop Deck */
+.laptop-lid {
+  background: linear-gradient(145deg, #E6E8EC 0%, #D8DCE2 100%);
+  border: 3px solid #121212;
+  border-radius: 20px;
+  box-shadow: 8px 8px 0px 0px #121212;
+  position: relative;
+  min-height: 400px;
+  overflow: hidden;
+  user-select: none;
+}
+
+.laptop-notch {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 10px;
+  background: #C4C8D0;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border: 2px solid #121212;
+  border-bottom: none;
+}
+
+.draggable-sticker {
+  position: absolute;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  transition: transform 0.1s ease, filter 0.15s ease;
+}
+
+.draggable-sticker:hover {
+  filter: drop-shadow(4px 4px 0px #121212);
+  transform: scale(1.06);
+}
+
+.draggable-sticker.is-dragging {
+  cursor: grabbing;
+  z-index: 100 !important;
+  transform: scale(1.12);
+  filter: drop-shadow(8px 8px 0px #121212);
+}
+
+/* Accordion Transitions */
+.faq-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease;
+  opacity: 0;
+}
+
+.faq-item.active .faq-content {
+  max-height: 300px;
+  opacity: 1;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(45deg);
+  background-color: var(--color-biscuit-red);
+  color: #FFFFFF;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-canvas);
+  border-left: 2px solid #121212;
+}
+::-webkit-scrollbar-thumb {
+  background: #121212;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-biscuit-red);
+}
+
+/* Waitlist Modal Animations */
+.modal-overlay {
+  background-color: rgba(18, 18, 18, 0.7);
+  backdrop-filter: blur(4px);
+}
+
+.modal-enter {
+  animation: brutalPop 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes brutalPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* ==========================================================================
+   Rolling Text Hover Animation (Cylinder / Slot Machine Roll Effect)
+   ========================================================================== */
+.roll-link {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: middle;
+  height: 1.25em;
+  line-height: 1.25em;
+  position: relative;
+  text-decoration: none;
+}
+
+.roll-link-inner {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s cubic-bezier(0.76, 0, 0.24, 1);
+  will-change: transform;
+}
+
+.roll-link-inner > span {
+  display: block;
+  height: 1.25em;
+  line-height: 1.25em;
+  white-space: nowrap;
+}
+
+.roll-link:hover .roll-link-inner,
+.roll-link:focus-visible .roll-link-inner {
+  transform: translateY(-50%);
+}
+
+/* ==========================================================================
+   Scallop Badge Border Spin Animation (Icon Spin on Button Hover)
+   ========================================================================== */
+.badge-spin-border {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform;
+}
+
+.group:hover .badge-spin-border,
+.group:focus-visible .badge-spin-border {
+  transform: rotate(360deg);
+}
+
+/* ==========================================================================
+   Hero Cards Fan & Smooth Scroll Straighten Effect
+   Continuous Scroll-Linked Interpolation (Silky Smooth RAF + Damped Lerp)
+   ========================================================================== */
+.hero-cards-track {
+  --track-gap: 0px;
+  gap: var(--track-gap, 0px);
+  will-change: gap;
+}
+
+.hero-card-fan {
+  --card-rot: 0deg;
+  --card-y: 0px;
+  --card-overlap: 0px;
+  transform: translateY(var(--card-y, 0px)) rotate(var(--card-rot, 0deg));
+  margin-left: var(--card-overlap, 0px);
+  transform-origin: center center;
+  will-change: transform, margin-left;
+}
+
+/* Signature Fanned Playing Card Hand (Organic, staggered, "tidak rapi") */
+.hero-card-1 { --card-rot: -6deg; --card-y: 24px; --card-overlap: 0px; }
+.hero-card-2 { --card-rot: -4deg; --card-y: 0px; --card-overlap: -14px; }
+.hero-card-3 { --card-rot: -2deg; --card-y: 10px; --card-overlap: -14px; }
+.hero-card-4 { --card-rot: 2deg; --card-y: 0px; --card-overlap: -14px; }
+.hero-card-5 { --card-rot: 4deg; --card-y: 26px; --card-overlap: -14px; }
+.hero-card-6 { --card-rot: 6deg; --card-y: 0px; --card-overlap: -14px; }
+
+/* Responsive initial overlap for mobile / small screens */
+@media (max-width: 639px) {
+  .hero-card-1 { --card-rot: -3deg; --card-y: 12px; --card-overlap: 0px; }
+  .hero-card-2 { --card-rot: -2deg; --card-y: 0px; --card-overlap: -8px; }
+  .hero-card-3 { --card-rot: -1deg; --card-y: 5px; --card-overlap: -8px; }
+  .hero-card-4 { --card-rot: 1deg; --card-y: 0px; --card-overlap: -8px; }
+  .hero-card-5 { --card-rot: 2deg; --card-y: 13px; --card-overlap: -8px; }
+  .hero-card-6 { --card-rot: 3deg; --card-y: 0px; --card-overlap: -8px; }
+}
+
+/* Card inner handles playful hover rotation without scaling/lifting up (matching reference image) */
+.hero-card-inner {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  transform-origin: center center;
+  will-change: transform, box-shadow;
+}
+
+.hero-card-fan {
+  transition: z-index 0s;
+}
+
+.hero-card-fan:hover {
+  z-index: 50 !important;
+}
+
+.hero-card-fan:hover .hero-card-inner {
+  box-shadow: 0 20px 40px -4px rgba(0, 0, 0, 0.22), 0 8px 16px -2px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Rotate by several degrees on hover so the card shifts away from its initial position */
+.hero-card-1:hover .hero-card-inner {
+  transform: rotate(-6.5deg);
+}
+
+.hero-card-2:hover .hero-card-inner {
+  transform: rotate(7deg);
+}
+
+.hero-card-3:hover .hero-card-inner {
+  transform: rotate(-6deg);
+}
+
+.hero-card-4:hover .hero-card-inner {
+  transform: rotate(6.5deg);
+}
+
+.hero-card-5:hover .hero-card-inner {
+  transform: rotate(-6deg);
+}
+
+.hero-card-6:hover .hero-card-inner {
+  transform: rotate(7deg);
+}
+
+@media (max-width: 639px) {
+  .hero-card-1:hover .hero-card-inner { transform: rotate(-5deg); }
+  .hero-card-2:hover .hero-card-inner { transform: rotate(5deg); }
+  .hero-card-3:hover .hero-card-inner { transform: rotate(-4.5deg); }
+  .hero-card-4:hover .hero-card-inner { transform: rotate(5deg); }
+  .hero-card-5:hover .hero-card-inner { transform: rotate(-4.5deg); }
+  .hero-card-6:hover .hero-card-inner { transform: rotate(5deg); }
+}
+
+/* Hide scrollbar for clean horizontal swipe on mobile */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ==========================================================================
+   Curriculum Stacking Scroll Cards (Sticky Folder Tabs on Scroll)
+   ========================================================================== */
+.curriculum-card-sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 88px;
+  will-change: transform;
+}
+
+@media (min-width: 640px) {
+  .curriculum-card-sticky {
+    top: 98px;
+  }
+}
+
+.curriculum-card-body {
+  box-shadow: 0 24px 50px -12px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  border-top-left-radius: 0 !important;
+  min-height: 680px;
+}
+
+@media (min-width: 640px) {
+  .curriculum-card-body {
+    min-height: 720px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .curriculum-card-body {
+    height: 600px;
+    min-height: 600px;
+    max-height: 600px;
+  }
+}
+
+.card-tabs-row {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.card-tabs-row::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* ==========================================================================
+   Hero Rotating Cloud Wave Background Animation
+   ========================================================================== */
+.hero-wave-wrapper {
+  background: linear-gradient(to bottom, #ffffff 0%, #ffffff 200px, #FAF7F0 260px, #FAF7F0 100%);
+  transition: transform 0.15s ease-out;
+  will-change: transform;
+}
+
+.hero-rotating-wave {
+  position: absolute;
+  left: 50%;
+  bottom: 275px;
+  width: 185%;
+  min-width: 1450px;
+  max-width: 3200px;
+  aspect-ratio: 1;
+  transform: translateX(-50%) rotate(0deg);
+  transform-origin: 50% 50%;
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform;
+  animation: heroWaveRotate 68s linear infinite;
+}
+
+@media (max-width: 1024px) {
+  .hero-rotating-wave {
+    bottom: 295px;
+    width: 230%;
+    min-width: 1050px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-rotating-wave {
+    bottom: 280px;
+    width: 280%;
+    min-width: 900px;
+  }
+}
+
+@keyframes heroWaveRotate {
+  from {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateX(-50%) rotate(-360deg);
+  }
+}
+
+/* ==========================================================================
+   Footer Rotating Cloud Wave Background Animation
+   Aligned with Hero Section (.hero-rotating-wave)
+   ========================================================================== */
+.footer-wave-wrapper {
+  background-color: #FAF7F0;
+  transition: transform 0.15s ease-out;
+  will-change: transform;
+}
+
+.footer-rotating-wave {
+  position: absolute;
+  left: 50%;
+  top: -50px;
+  width: 210%;
+  min-width: 2000px;
+  max-width: 4400px;
+  aspect-ratio: 1;
+  transform: translateX(-50%) rotate(0deg);
+  transform-origin: 50% 50%;
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform;
+  animation: heroWaveRotate 68s linear infinite;
+}
+
+@media (max-width: 1024px) {
+  .footer-rotating-wave {
+    top: -35px;
+    width: 240%;
+    min-width: 1700px;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-rotating-wave {
+    top: -20px;
+    width: 280%;
+    min-width: 1500px;
+  }
+}
+
+/* ==========================================================================
+   Scalloped Testimonial Cards
+   Exact 24-point rosette stamp geometry
+   ========================================================================== */
+.scallop-card-mask {
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 1200' fill='none'%3E%3Cpath fill='%23000' d='M537.104.391c25.283-.169 40.233 9.051 57.946 26.229 6.566 6.529 15.634-3.008 20.572-7.798 27.536-26.722 71.785-24.77 96.797 4.45 3.656 4.268 7.726 12.132 11.933 15.343 3.806 1.18 16.576-7.2 21.242-9.226 16.825-7.725 35.588-7.798 52.571-1.31 21.062 8.05 34.902 23.475 42.478 44.435.527 1.606 3.399 6.081 5.427 5.642 20.722-4.481 33.258-9.223 54.749-1.47 21.891 7.668 38.573 25.769 44.506 48.305 1.673 6.403 2.254 16.3 4.817 21.752 3.399 1.927 7.168 1.761 10.93 1.238 22.757-3.166 42.748 3.05 59.438 19.898 11.49 11.765 18.18 27.42 18.79 43.895.12 4.036-2.21 22.364 1.74 23.296 19.45 4.584 33.54 5.418 49.22 19.963 16.92 15.713 24.91 38.883 21.3 61.755-1.14 7.016-4.01 14.1-4.07 21.259-.05 4.333 9.11 6.39 12.72 7.48 40.57 12.177 60.64 61.803 39.27 98.82-8.39 14.535-4.9 13.233 7.1 21.589 15.18 10.37 25.56 26.466 28.77 44.638a68 68 0 0 1-10.27 50.057c-1.54 2.262-14.17 17.15-12.73 19.1 5.07 6.642 11.07 12.146 15.91 19.052 18.2 25.751 14.94 63.138-7.73 84.894-12.55 12.045-19.43 10.545-8.77 26.63 21 31.732 9.35 76.905-22.67 96.553-18.28 11.219-22.57 2.995-14.88 26.722a68.2 68.2 0 0 1-4.16 51.797c-12.23 23.78-31.05 34.408-56.28 39.881-7.63 1.653-4.46 9.491-3.67 15.563a65.1 65.1 0 0 1-5.89 37.433c-10.19 21.142-30.62 35.404-53.88 37.604-5.59.51-15.337-.61-19.528.82-2.533 6.88-2.276 17.78-4.869 26.78-8.835 30.76-35.347 49.99-67.195 47.97-5.895-.37-20.187-5.22-23.278-3.31-4.319 2.68-7.116 18.56-10.81 25.22a71.7 71.7 0 0 1-28.012 27.93c-15.596 8.55-34.019 10.84-51.116 5.76-3.038-.9-19.569-8.57-21.325-6.6-5.94 6.64-9.468 15.1-15.566 22.15a73.2 73.2 0 0 1-19.456 15.94c-21.047 11.89-48.455 10.81-68.952-1.85-7.9-4.88-12.264-14.12-21.687-7.75a73.74 73.74 0 0 1-29.376 24.94c-22.765 10.76-56.055 7.26-73.494-9.63-23.078-22.34-12.086-22.52-39.996-5.74-27.789 14.32-62.108 6.68-83.116-15.4-14.162-14.88-10.814-32.22-32.162-20.02-2.422 1.39-8.637 2.85-11.483 3.36a68.3 68.3 0 0 1-33.03-2.38c-19.093-6.3-34.585-20.53-42.555-39.09-1.23-2.87-4.58-17.47-7.379-17.14-16.097 1.87-25.899 5.67-42.583 1.85-25.388-5.89-44.734-26.6-49.007-52.45-.966-5.79-.53-16.06-3.253-20.35-4.012-1.08-13.833-.61-17.988-.93-43.292-3.31-68.613-43.104-59.354-84.623 1.274-6.254-11.531-7.868-15.747-8.778-37.788-8.179-60.343-46.097-51.338-83.598 1.213-5.056 5.858-13.88 5.827-18.496-3.114-4.526-14.576-8.559-20.095-11.826-15.861-9.392-26.478-23.909-31.138-41.716a67.1 67.1 0 0 1 5.525-48.136c2.591-4.957 12.415-16.912 8.405-20.46-15.901-14.054-27.206-21.18-33.042-43.716-5.21-20.127-.866-41.549 11.765-58.022 4.804-6.216 10.76-11.08 14.748-17.834-.285-3.253-4.16-7.363-6.448-9.673C-8.991 537.558.38 484.866 37.84 462.961c11.147-6.519 8.071-8.685 2.395-18.642-19.104-33.515-4.427-79.587 30.439-95.76 5.772-2.689 14.484-5.148 19.704-8.722 1.367-3.425-.438-8.539-1.588-11.901-14.218-40.977 15.319-87.962 58.884-90.612 20.177-1.227 12.134-9.784 12.77-25.782 1.192-31.511 24.111-57.903 54.999-63.336 6.674-1.224 27.231.289 32.842-2.176 1.101-.484 1.91-10.561 2.283-13.742 4.512-38.636 43.228-65.71 80.646-56.547 19.07 4.67 21.413 11.915 28.833-8.079 13.531-36.458 57.848-54.26 92.981-38.563 5.515 2.464 16.019 10.173 22.1 10.226 5.776-1.975 10.14-11.017 14.733-16.186C503.278 8.038 517.633 2.045 537.104.39z'%3E%3C/path%3E%3C/svg%3E") no-repeat center / 100% 100%;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 1200' fill='none'%3E%3Cpath fill='%23000' d='M537.104.391c25.283-.169 40.233 9.051 57.946 26.229 6.566 6.529 15.634-3.008 20.572-7.798 27.536-26.722 71.785-24.77 96.797 4.45 3.656 4.268 7.726 12.132 11.933 15.343 3.806 1.18 16.576-7.2 21.242-9.226 16.825-7.725 35.588-7.798 52.571-1.31 21.062 8.05 34.902 23.475 42.478 44.435.527 1.606 3.399 6.081 5.427 5.642 20.722-4.481 33.258-9.223 54.749-1.47 21.891 7.668 38.573 25.769 44.506 48.305 1.673 6.403 2.254 16.3 4.817 21.752 3.399 1.927 7.168 1.761 10.93 1.238 22.757-3.166 42.748 3.05 59.438 19.898 11.49 11.765 18.18 27.42 18.79 43.895.12 4.036-2.21 22.364 1.74 23.296 19.45 4.584 33.54 5.418 49.22 19.963 16.92 15.713 24.91 38.883 21.3 61.755-1.14 7.016-4.01 14.1-4.07 21.259-.05 4.333 9.11 6.39 12.72 7.48 40.57 12.177 60.64 61.803 39.27 98.82-8.39 14.535-4.9 13.233 7.1 21.589 15.18 10.37 25.56 26.466 28.77 44.638a68 68 0 0 1-10.27 50.057c-1.54 2.262-14.17 17.15-12.73 19.1 5.07 6.642 11.07 12.146 15.91 19.052 18.2 25.751 14.94 63.138-7.73 84.894-12.55 12.045-19.43 10.545-8.77 26.63 21 31.732 9.35 76.905-22.67 96.553-18.28 11.219-22.57 2.995-14.88 26.722a68.2 68.2 0 0 1-4.16 51.797c-12.23 23.78-31.05 34.408-56.28 39.881-7.63 1.653-4.46 9.491-3.67 15.563a65.1 65.1 0 0 1-5.89 37.433c-10.19 21.142-30.62 35.404-53.88 37.604-5.59.51-15.337-.61-19.528.82-2.533 6.88-2.276 17.78-4.869 26.78-8.835 30.76-35.347 49.99-67.195 47.97-5.895-.37-20.187-5.22-23.278-3.31-4.319 2.68-7.116 18.56-10.81 25.22a71.7 71.7 0 0 1-28.012 27.93c-15.596 8.55-34.019 10.84-51.116 5.76-3.038-.9-19.569-8.57-21.325-6.6-5.94 6.64-9.468 15.1-15.566 22.15a73.2 73.2 0 0 1-19.456 15.94c-21.047 11.89-48.455 10.81-68.952-1.85-7.9-4.88-12.264-14.12-21.687-7.75a73.74 73.74 0 0 1-29.376 24.94c-22.765 10.76-56.055 7.26-73.494-9.63-23.078-22.34-12.086-22.52-39.996-5.74-27.789 14.32-62.108 6.68-83.116-15.4-14.162-14.88-10.814-32.22-32.162-20.02-2.422 1.39-8.637 2.85-11.483 3.36a68.3 68.3 0 0 1-33.03-2.38c-19.093-6.3-34.585-20.53-42.555-39.09-1.23-2.87-4.58-17.47-7.379-17.14-16.097 1.87-25.899 5.67-42.583 1.85-25.388-5.89-44.734-26.6-49.007-52.45-.966-5.79-.53-16.06-3.253-20.35-4.012-1.08-13.833-.61-17.988-.93-43.292-3.31-68.613-43.104-59.354-84.623 1.274-6.254-11.531-7.868-15.747-8.778-37.788-8.179-60.343-46.097-51.338-83.598 1.213-5.056 5.858-13.88 5.827-18.496-3.114-4.526-14.576-8.559-20.095-11.826-15.861-9.392-26.478-23.909-31.138-41.716a67.1 67.1 0 0 1 5.525-48.136c2.591-4.957 12.415-16.912 8.405-20.46-15.901-14.054-27.206-21.18-33.042-43.716-5.21-20.127-.866-41.549 11.765-58.022 4.804-6.216 10.76-11.08 14.748-17.834-.285-3.253-4.16-7.363-6.448-9.673C-8.991 537.558.38 484.866 37.84 462.961c11.147-6.519 8.071-8.685 2.395-18.642-19.104-33.515-4.427-79.587 30.439-95.76 5.772-2.689 14.484-5.148 19.704-8.722 1.367-3.425-.438-8.539-1.588-11.901-14.218-40.977 15.319-87.962 58.884-90.612 20.177-1.227 12.134-9.784 12.77-25.782 1.192-31.511 24.111-57.903 54.999-63.336 6.674-1.224 27.231.289 32.842-2.176 1.101-.484 1.91-10.561 2.283-13.742 4.512-38.636 43.228-65.71 80.646-56.547 19.07 4.67 21.413 11.915 28.833-8.079 13.531-36.458 57.848-54.26 92.981-38.563 5.515 2.464 16.019 10.173 22.1 10.226 5.776-1.975 10.14-11.017 14.733-16.186C503.278 8.038 517.633 2.045 537.104.39z'%3E%3C/path%3E%3C/svg%3E") no-repeat center / 100% 100%;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+.scallop-card-wrapper {
+  position: relative;
+  transition: z-index 0.3s ease;
+  will-change: transform, filter;
+}
+
+.scallop-card-wrapper:hover {
+  z-index: 50 !important;
+}
+
+/* The Hanging Element with Top-Center Pivot (Pendulum physics) */
+.scallop-card-hanger {
+  transform-origin: 50% 14px;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), filter 0.45s ease;
+  filter: drop-shadow(0 14px 22px rgba(0, 0, 0, 0.45));
+  will-change: transform, filter;
+}
+
+.scallop-card-wrapper:hover .scallop-card-hanger {
+  filter: drop-shadow(0 26px 36px rgba(0, 0, 0, 0.72));
+  animation: hangingSwing 2.2s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+}
+
+/* Rhythmic pendulum sway back and forth as if suspended from top */
+@keyframes hangingSwing {
+  0% {
+    transform: rotate(0deg) scale(1.04);
+  }
+  25% {
+    transform: rotate(7deg) scale(1.04);
+  }
+  50% {
+    transform: rotate(0deg) scale(1.04);
+  }
+  75% {
+    transform: rotate(-7deg) scale(1.04);
+  }
+  100% {
+    transform: rotate(0deg) scale(1.04);
+  }
+}
+
+.testimonials-track {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.testimonials-track::-webkit-scrollbar {
+  display: none;
+}
+
+
+
+
+
