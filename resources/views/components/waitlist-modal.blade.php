@@ -20,20 +20,15 @@
 
     <div class="space-y-4">
       <p class="font-body text-xs sm:text-sm text-[#121212]/80 leading-relaxed font-medium">
-        Pendaftaran calon santri baru kini dapat diisi langsung melalui formulir digital di website resmi atau melalui Google Form.
+        Pendaftaran calon santri baru kini dapat diisi langsung melalui formulir digital di website resmi kami.
       </p>
 
-      <div class="pt-2 space-y-2.5">
+      <div class="pt-2">
         <a href="{{ route('pendaftaran') }}" class="w-full bg-white p-1 rounded-xl shadow-md flex items-center justify-center transition-transform hover:scale-[1.02] active:scale-[0.98] cursor-pointer">
           <div class="w-full bg-lime text-[#121212] border-2 border-[#161616] rounded-lg py-3 flex items-center justify-center gap-2.5 font-display font-black text-xs sm:text-[13px] uppercase tracking-wider">
             <span>Isi Formulir Pendaftaran</span>
             <span class="w-5 h-5 rounded-full bg-[#E53935] text-white flex items-center justify-center text-[10px] font-black">➔</span>
           </div>
-        </a>
-
-        <a href="https://forms.gle/dUHmyuv98pgXiPcS7" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 rounded-lg border border-[#161616]/30 text-center font-label font-bold text-xs uppercase tracking-wider text-slate-muted hover:text-[#121212] hover:bg-gray-50 flex items-center justify-center gap-1.5 transition-colors">
-          <span>Atau buka lewat Google Form</span>
-          <span>↗</span>
         </a>
       </div>
     </div>

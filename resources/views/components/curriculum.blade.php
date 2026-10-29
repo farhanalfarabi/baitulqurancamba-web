@@ -290,9 +290,9 @@
              ========================================== -->
         <div id="curriculum-card-1" class="curriculum-card-sticky sticky top-[88px] sm:top-[98px] z-10 w-full">
           <!-- Tabs Row: Tab 1 Visible (Seamless flush left edge) -->
-          <div class="card-tabs-row flex items-end h-[54px] relative z-20 overflow-x-auto no-scrollbar">
+          <div class="card-tabs-row flex items-end h-[54px] relative z-20">
             <button type="button" 
-                    class="curriculum-tab-trigger relative flex-shrink-0 flex items-center justify-center text-white font-display font-black text-xs sm:text-sm uppercase tracking-wider h-[54px] w-[130px] sm:w-[190px] lg:w-[240px] pl-5 sm:pl-7 pr-6 cursor-pointer focus:outline-none"
+                    class="curriculum-tab-trigger relative flex-shrink-0 flex items-center justify-center text-white font-display font-black text-xs sm:text-sm uppercase tracking-wider h-[54px] w-[125px] sm:w-[170px] lg:w-[220px] pl-4 sm:pl-7 pr-4 sm:pr-6 cursor-pointer focus:outline-none"
                     data-target-card="1"
                     aria-label="View Tahfizh Track">
               <img src="/assets/svg/tab-1.svg" alt="" class="absolute inset-0 w-full h-full -z-10 object-fill pointer-events-none">
@@ -363,10 +363,10 @@
              ========================================== -->
         <div id="curriculum-card-2" class="curriculum-card-sticky sticky top-[88px] sm:top-[98px] z-20 w-full">
           <!-- Tabs Row: Tab 1 (Spacer) + Tab 2 (Visible) -->
-          <div class="card-tabs-row flex items-end h-[54px] relative z-20 overflow-x-auto no-scrollbar">
+          <div class="card-tabs-row flex items-end h-[54px] relative z-20">
             <!-- Tab 1 Transparent Spacer Button (Clicking it scrolls to Card 1) -->
             <button type="button" 
-                    class="curriculum-tab-trigger relative flex-shrink-0 h-[54px] w-[130px] sm:w-[190px] lg:w-[240px] cursor-pointer opacity-0 pointer-events-auto focus:outline-none"
+                    class="curriculum-tab-trigger relative flex-shrink-0 h-[54px] w-[125px] sm:w-[170px] lg:w-[220px] cursor-pointer opacity-0 pointer-events-auto focus:outline-none"
                     data-target-card="1"
                     aria-label="Scroll to Tahfizh">
               <span class="sr-only">Tahfizh</span>
@@ -374,7 +374,7 @@
 
             <!-- Tab 2 (Active on Card 2, Rust Red #A52207) -->
             <button type="button" 
-                    class="curriculum-tab-trigger -ml-4 sm:-ml-5 relative flex-shrink-0 flex items-center justify-center text-white font-display font-black text-xs sm:text-sm uppercase tracking-wider h-[54px] w-[115px] sm:w-[160px] lg:w-[192px] pl-6 sm:pl-7 pr-4 sm:pr-5 cursor-pointer focus:outline-none"
+                    class="curriculum-tab-trigger -ml-3 sm:-ml-4 relative flex-shrink-0 flex items-center justify-center text-white font-display font-black text-xs sm:text-sm uppercase tracking-wider h-[54px] w-[110px] sm:w-[150px] lg:w-[190px] pl-4 sm:pl-7 pr-4 sm:pr-5 cursor-pointer focus:outline-none"
                     data-target-card="2"
                     aria-label="View School Track">
               <img src="/assets/svg/tab-2.svg" alt="" class="absolute inset-0 w-full h-full -z-10 object-fill pointer-events-none">
@@ -445,34 +445,30 @@
              ========================================== -->
         <div id="curriculum-card-3" class="curriculum-card-sticky sticky top-[88px] sm:top-[98px] z-30 w-full">
           <!-- Tabs Row: Tab 1 (Spacer) + Tab 2 (Spacer) + Tab 3 (Visible) -->
-          <div class="card-tabs-row flex items-end h-[54px] relative z-20 overflow-x-auto no-scrollbar">
+          <div class="card-tabs-row flex items-end h-[54px] relative z-20">
             <!-- Tab 1 Transparent Spacer Button (Clicking it scrolls to Card 1) -->
             <button type="button" 
-                    class="curriculum-tab-trigger relative flex-shrink-0 h-[54px] w-[215px] sm:w-[265px] cursor-pointer opacity-0 pointer-events-auto focus:outline-none"
+                    class="curriculum-tab-trigger relative flex-shrink-0 h-[54px] w-[125px] sm:w-[170px] lg:w-[220px] cursor-pointer opacity-0 pointer-events-auto focus:outline-none"
                     data-target-card="1"
                     aria-label="Scroll to Tahfizh">
-              <span class="sr-only">Tahfizh & Sanad</span>
+              <span class="sr-only">Tahfizh</span>
             </button>
 
             <!-- Tab 2 Transparent Spacer Button (Clicking it scrolls to Card 2) -->
             <button type="button" 
-                    class="curriculum-tab-trigger -ml-4 sm:-ml-5 relative flex-shrink-0 h-[54px] w-[125px] sm:w-[192px] cursor-pointer opacity-0 pointer-events-auto focus:outline-none"
+                    class="curriculum-tab-trigger -ml-3 sm:-ml-4 relative flex-shrink-0 h-[54px] w-[110px] sm:w-[150px] lg:w-[190px] cursor-pointer opacity-0 pointer-events-auto focus:outline-none"
                     data-target-card="2"
-                    aria-label="Scroll to School">
-              <span class="sr-only">Formal School</span>
+                    aria-label="Scroll to Formal">
+              <span class="sr-only">Formal</span>
             </button>
 
             <!-- Tab 3 (Active on Card 3, Wine Rust #7C1A06) -->
             <button type="button" 
-                    class="curriculum-tab-trigger -ml-4 sm:-ml-5 relative flex-shrink-0 flex items-center justify-center gap-2 text-white font-display font-black text-xs sm:text-sm uppercase tracking-wider h-[54px] w-[115px] sm:w-[170px] pl-6 sm:pl-7 pr-4 sm:pr-5 cursor-pointer focus:outline-none"
+                    class="curriculum-tab-trigger -ml-3 sm:-ml-4 relative flex-shrink-0 flex items-center justify-center text-white font-display font-black text-xs sm:text-sm uppercase tracking-wider h-[54px] w-[110px] sm:w-[150px] lg:w-[190px] pl-4 sm:pl-7 pr-4 sm:pr-5 cursor-pointer focus:outline-none"
                     data-target-card="3"
                     aria-label="View Boarding Track">
               <img src="/assets/svg/tab-3.svg" alt="" class="absolute inset-0 w-full h-full -z-10 object-fill pointer-events-none">
-              <svg class="w-4 h-4 sm:w-5 sm:h-5 text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                <polyline points="9 22 9 12 15 12 15 22"></polyline>
-              </svg>
-              <span class="relative z-10 whitespace-nowrap">Asrama Santri</span>
+              <span class="relative z-10 whitespace-nowrap">Asrama</span>
             </button>
           </div>
 

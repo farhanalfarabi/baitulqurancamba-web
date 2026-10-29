@@ -44,10 +44,10 @@
     {{ $head ?? '' }}
 </head>
 
-<body class="bg-dot-matrix text-[#121212] font-body selection:bg-lime selection:text-[#121212] overflow-x-hidden">
+<body class="bg-dot-matrix text-[#121212] font-body selection:bg-lime selection:text-[#121212]">
     <x-navbar />
 
-    <main class="overflow-x-hidden">
+    <main>
         {{ $slot }}
     </main>
 

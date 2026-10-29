@@ -40,7 +40,7 @@ body {
   font-family: var(--font-body);
   background-color: var(--color-canvas);
   color: var(--color-jet-charcoal);
-  overflow-x: hidden;
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -580,6 +580,13 @@ body {
   flex-direction: column;
   justify-content: center;
   box-sizing: border-box;
+  min-height: 680px;
+}
+
+@media (min-width: 640px) {
+  .curriculum-card-body {
+    min-height: 720px;
+  }
 }
 
 @media (min-width: 1024px) {

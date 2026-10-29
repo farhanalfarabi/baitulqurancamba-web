@@ -86,6 +86,10 @@ function initCurriculumScrollStack() {
 
     if (window.innerWidth >= 1024) {
       maxHeight = Math.max(maxHeight, 580);
+    } else if (window.innerWidth >= 640) {
+      maxHeight = Math.max(maxHeight, 720);
+    } else {
+      maxHeight = Math.max(maxHeight, 680);
     }
 
     // Apply exact same height to all card bodies
