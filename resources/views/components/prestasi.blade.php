@@ -71,10 +71,10 @@
               Kelas XII
             </div>
 
-            <!-- Hover Preview Overlay -->
-            <div class="absolute inset-0 bg-[#121212]/50 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4">
-              <span class="px-4 py-2 rounded-xl bg-lime text-[#121212] font-display font-black text-xs uppercase tracking-wider shadow-lg flex items-center gap-2 transform translate-y-2 group-hover:translate-y-0 transition-transform">
-                <span>Lihat Poster Lengkap</span>
+            <!-- Hover Preview Overlay (Tanpa Blur & Tanpa Gelap) -->
+            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-3 p-2 pointer-events-none">
+              <span class="px-3.5 py-1.5 rounded-xl bg-lime text-[#121212] border-2 border-[#161616] font-display font-black text-[11px] sm:text-xs uppercase tracking-wider shadow-xl flex items-center gap-1.5 transform translate-y-2 group-hover:translate-y-0 transition-transform">
+                <span>Lihat Poster</span>
                 <span>🔍</span>
               </span>
             </div>
@@ -139,10 +139,10 @@
               Kelas XII
             </div>
 
-            <!-- Hover Preview Overlay -->
-            <div class="absolute inset-0 bg-[#121212]/50 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4">
-              <span class="px-4 py-2 rounded-xl bg-lime text-[#121212] font-display font-black text-xs uppercase tracking-wider shadow-lg flex items-center gap-2 transform translate-y-2 group-hover:translate-y-0 transition-transform">
-                <span>Lihat Poster Lengkap</span>
+            <!-- Hover Preview Overlay (Tanpa Blur & Tanpa Gelap) -->
+            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-3 p-2 pointer-events-none">
+              <span class="px-3.5 py-1.5 rounded-xl bg-lime text-[#121212] border-2 border-[#161616] font-display font-black text-[11px] sm:text-xs uppercase tracking-wider shadow-xl flex items-center gap-1.5 transform translate-y-2 group-hover:translate-y-0 transition-transform">
+                <span>Lihat Poster</span>
                 <span>🔍</span>
               </span>
             </div>
@@ -207,10 +207,10 @@
               SMP / MTs
             </div>
 
-            <!-- Hover Preview Overlay -->
-            <div class="absolute inset-0 bg-[#121212]/50 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4">
-              <span class="px-4 py-2 rounded-xl bg-lime text-[#121212] font-display font-black text-xs uppercase tracking-wider shadow-lg flex items-center gap-2 transform translate-y-2 group-hover:translate-y-0 transition-transform">
-                <span>Lihat Poster Lengkap</span>
+            <!-- Hover Preview Overlay (Tanpa Blur & Tanpa Gelap) -->
+            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-3 p-2 pointer-events-none">
+              <span class="px-3.5 py-1.5 rounded-xl bg-lime text-[#121212] border-2 border-[#161616] font-display font-black text-[11px] sm:text-xs uppercase tracking-wider shadow-xl flex items-center gap-1.5 transform translate-y-2 group-hover:translate-y-0 transition-transform">
+                <span>Lihat Poster</span>
                 <span>🔍</span>
               </span>
             </div>
@@ -297,10 +297,10 @@
               JAYYID JIDDAN
             </div>
 
-            <!-- Hover Preview Overlay -->
-            <div class="absolute inset-0 bg-[#121212]/50 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4">
-              <span class="px-4 py-2 rounded-xl bg-lime text-[#121212] font-display font-black text-xs uppercase tracking-wider shadow-lg flex items-center gap-2 transform translate-y-2 group-hover:translate-y-0 transition-transform">
-                <span>Lihat Poster Lengkap</span>
+            <!-- Hover Preview Overlay (Tanpa Blur & Tanpa Gelap) -->
+            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-3 p-2 pointer-events-none">
+              <span class="px-3.5 py-1.5 rounded-xl bg-lime text-[#121212] border-2 border-[#161616] font-display font-black text-[11px] sm:text-xs uppercase tracking-wider shadow-xl flex items-center gap-1.5 transform translate-y-2 group-hover:translate-y-0 transition-transform">
+                <span>Lihat Poster</span>
                 <span>🔍</span>
               </span>
             </div>
@@ -365,10 +365,10 @@
               JAYYID JIDDAN
             </div>
 
-            <!-- Hover Preview Overlay -->
-            <div class="absolute inset-0 bg-[#121212]/50 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4">
-              <span class="px-4 py-2 rounded-xl bg-lime text-[#121212] font-display font-black text-xs uppercase tracking-wider shadow-lg flex items-center gap-2 transform translate-y-2 group-hover:translate-y-0 transition-transform">
-                <span>Lihat Poster Lengkap</span>
+            <!-- Hover Preview Overlay (Tanpa Blur & Tanpa Gelap) -->
+            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-3 p-2 pointer-events-none">
+              <span class="px-3.5 py-1.5 rounded-xl bg-lime text-[#121212] border-2 border-[#161616] font-display font-black text-[11px] sm:text-xs uppercase tracking-wider shadow-xl flex items-center gap-1.5 transform translate-y-2 group-hover:translate-y-0 transition-transform">
+                <span>Lihat Poster</span>
                 <span>🔍</span>
               </span>
             </div>
@@ -433,10 +433,10 @@
               JAYYID JIDDAN
             </div>
 
-            <!-- Hover Preview Overlay -->
-            <div class="absolute inset-0 bg-[#121212]/50 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4">
-              <span class="px-4 py-2 rounded-xl bg-lime text-[#121212] font-display font-black text-xs uppercase tracking-wider shadow-lg flex items-center gap-2 transform translate-y-2 group-hover:translate-y-0 transition-transform">
-                <span>Lihat Poster Lengkap</span>
+            <!-- Hover Preview Overlay (Tanpa Blur & Tanpa Gelap) -->
+            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-3 p-2 pointer-events-none">
+              <span class="px-3.5 py-1.5 rounded-xl bg-lime text-[#121212] border-2 border-[#161616] font-display font-black text-[11px] sm:text-xs uppercase tracking-wider shadow-xl flex items-center gap-1.5 transform translate-y-2 group-hover:translate-y-0 transition-transform">
+                <span>Lihat Poster</span>
                 <span>🔍</span>
               </span>
             </div>
