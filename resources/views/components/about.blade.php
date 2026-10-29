@@ -144,77 +144,53 @@
         </p>
       </div>
 
-      <!-- 4 Missions Grid (2x2 on Desktop, 1 Col on Mobile) -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+      <!-- 4 Missions Grid (2x2 on Desktop, 1 Col on Mobile) — Styled Cards with Scallop Notch -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 text-left">
 
-        <!-- Mission 01 -->
-        <div class="rounded-2xl sm:rounded-3xl bg-white border border-gray-100 shadow-xl p-7 sm:p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 relative group overflow-hidden">
-          <div class="flex items-center justify-between mb-4">
-            <span class="w-10 h-10 rounded-xl bg-[#121212] text-lime font-mono font-black text-sm flex items-center justify-center shadow-md">
-              01
-            </span>
-            <span class="px-3 py-1 rounded-full bg-[#FAF7F0] border border-gray-200 text-[#121212] font-label font-bold text-[10px] uppercase tracking-wider">
-              PENGUASAAN AL-QUR'AN
-            </span>
-          </div>
-          <h4 class="font-display font-black text-xl sm:text-2xl uppercase tracking-tight text-[#121212] mb-3">
-            Mencetak Generasi Penghafal Al-Qur'an
+        <!-- Mission 01 — Burnt Orange (scallop top-right) -->
+        <div class="rounded-[20px] sm:rounded-[28px] bg-[#C53618] p-7 sm:p-9 relative overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 group min-h-[220px]">
+          <!-- Scallop notch top-right -->
+          <div class="absolute -top-5 -right-5 w-12 h-12 rounded-full bg-[#FAF7F0]"></div>
+          <h4 class="font-display font-black text-2xl sm:text-[28px] uppercase tracking-tight text-white leading-[1.15] mb-1">
+            PENGUASAAN <span class="font-cursive lowercase text-white text-2xl sm:text-3xl font-bold">al-qur'an</span>
           </h4>
-          <p class="font-body text-sm text-slate-muted font-medium leading-relaxed">
+          <p class="font-body text-[13px] sm:text-sm text-white/85 font-medium leading-relaxed mt-4 max-w-sm">
             Mencetak generasi penghafal Al-Qur'an yang tangguh dan memiliki niat besar untuk membumikan Al-Qur'an dalam kehidupan sehari-hari.
           </p>
         </div>
 
-        <!-- Mission 02 -->
-        <div class="rounded-2xl sm:rounded-3xl bg-white border border-gray-100 shadow-xl p-7 sm:p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 relative group overflow-hidden">
-          <div class="flex items-center justify-between mb-4">
-            <span class="w-10 h-10 rounded-xl bg-[#121212] text-lime font-mono font-black text-sm flex items-center justify-center shadow-md">
-              02
-            </span>
-            <span class="px-3 py-1 rounded-full bg-[#FAF7F0] border border-gray-200 text-[#121212] font-label font-bold text-[10px] uppercase tracking-wider">
-              PENGEMBANGAN DAKWAH
-            </span>
-          </div>
-          <h4 class="font-display font-black text-xl sm:text-2xl uppercase tracking-tight text-[#121212] mb-3">
-            Pengembangan Keterampilan Dakwah
+        <!-- Mission 02 — Cherry Dark (scallop top-left) -->
+        <div class="rounded-[20px] sm:rounded-[28px] bg-[#3D0A12] p-7 sm:p-9 relative overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 group min-h-[220px]">
+          <!-- Scallop notch top-left -->
+          <div class="absolute -top-5 -left-5 w-12 h-12 rounded-full bg-[#FAF7F0]"></div>
+          <h4 class="font-display font-black text-2xl sm:text-[28px] uppercase tracking-tight text-white leading-[1.15] mb-1">
+            KETERAMPILAN <span class="font-cursive lowercase text-lime text-2xl sm:text-3xl font-bold">dakwah</span> SANTRI
           </h4>
-          <p class="font-body text-sm text-slate-muted font-medium leading-relaxed">
+          <p class="font-body text-[13px] sm:text-sm text-white/80 font-medium leading-relaxed mt-4 max-w-sm">
             Melaksanakan kegiatan yang mendorong dan membantu santri dalam mengembangkan keterampilan dakwah, di internal maupun eksternal pondok pesantren.
           </p>
         </div>
 
-        <!-- Mission 03 -->
-        <div class="rounded-2xl sm:rounded-3xl bg-white border border-gray-100 shadow-xl p-7 sm:p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 relative group overflow-hidden">
-          <div class="flex items-center justify-between mb-4">
-            <span class="w-10 h-10 rounded-xl bg-[#121212] text-lime font-mono font-black text-sm flex items-center justify-center shadow-md">
-              03
-            </span>
-            <span class="px-3 py-1 rounded-full bg-[#FAF7F0] border border-gray-200 text-[#121212] font-label font-bold text-[10px] uppercase tracking-wider">
-              KEDISIPLINAN SYARIAT
-            </span>
-          </div>
-          <h4 class="font-display font-black text-xl sm:text-2xl uppercase tracking-tight text-[#121212] mb-3">
-            Kedisiplinan Syariat & Lingkungan Religius
+        <!-- Mission 03 — Burnt Orange (scallop top-right) -->
+        <div class="rounded-[20px] sm:rounded-[28px] bg-[#C53618] p-7 sm:p-9 relative overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 group min-h-[220px]">
+          <!-- Scallop notch top-right -->
+          <div class="absolute -top-5 -right-5 w-12 h-12 rounded-full bg-[#FAF7F0]"></div>
+          <h4 class="font-display font-black text-2xl sm:text-[28px] uppercase tracking-tight text-white leading-[1.15] mb-1">
+            KEDISIPLINAN <span class="font-cursive lowercase text-white text-2xl sm:text-3xl font-bold">syariat</span>
           </h4>
-          <p class="font-body text-sm text-slate-muted font-medium leading-relaxed">
+          <p class="font-body text-[13px] sm:text-sm text-white/85 font-medium leading-relaxed mt-4 max-w-sm">
             Menumbuhkan sikap kedisiplinan santri dalam menjalankan ajaran agama Islam dengan membentuk lingkungan asrama yang religius dan kondusif.
           </p>
         </div>
 
-        <!-- Mission 04 -->
-        <div class="rounded-2xl sm:rounded-3xl bg-white border border-gray-100 shadow-xl p-7 sm:p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 relative group overflow-hidden">
-          <div class="flex items-center justify-between mb-4">
-            <span class="w-10 h-10 rounded-xl bg-[#121212] text-lime font-mono font-black text-sm flex items-center justify-center shadow-md">
-              04
-            </span>
-            <span class="px-3 py-1 rounded-full bg-[#FAF7F0] border border-gray-200 text-[#121212] font-label font-bold text-[10px] uppercase tracking-wider">
-              MINAT & POTENSI
-            </span>
-          </div>
-          <h4 class="font-display font-black text-xl sm:text-2xl uppercase tracking-tight text-[#121212] mb-3">
-            Bimbingan Minat & Potensi Santri
+        <!-- Mission 04 — Cherry Dark (scallop top-left) -->
+        <div class="rounded-[20px] sm:rounded-[28px] bg-[#3D0A12] p-7 sm:p-9 relative overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 group min-h-[220px]">
+          <!-- Scallop notch top-left -->
+          <div class="absolute -top-5 -left-5 w-12 h-12 rounded-full bg-[#FAF7F0]"></div>
+          <h4 class="font-display font-black text-2xl sm:text-[28px] uppercase tracking-tight text-white leading-[1.15] mb-1">
+            BIMBINGAN <span class="font-cursive lowercase text-lime text-2xl sm:text-3xl font-bold">minat</span> & POTENSI
           </h4>
-          <p class="font-body text-sm text-slate-muted font-medium leading-relaxed">
+          <p class="font-body text-[13px] sm:text-sm text-white/80 font-medium leading-relaxed mt-4 max-w-sm">
             Mengembangkan potensi santri dengan mengadakan kegiatan-kegiatan islami yang berisi pelatihan dan bimbingan terhadap para santri berdasarkan potensi masing-masing.
           </p>
         </div>
