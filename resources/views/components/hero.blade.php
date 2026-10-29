@@ -1,5 +1,5 @@
 <!-- Hero Section Component -->
-<section class="relative pt-3 sm:pt-5 pb-4 sm:pb-6 overflow-hidden bg-white">
+<section class="relative pt-10 sm:pt-16 pb-4 sm:pb-6 overflow-hidden bg-white">
 
   <!-- Rotating Cloud Wave Background -->
   <div class="hero-wave-wrapper absolute inset-0 w-full h-full pointer-events-none -z-0 overflow-hidden">
@@ -22,20 +22,26 @@
     <!-- Main Hero Title (3-Line Lockup) -->
     <div class="relative max-w-4xl mx-auto mb-3 sm:mb-4">
       <h1
-        class="font-display font-black text-3xl sm:text-5xl lg:text-6xl xl:text-[66px] tracking-tight text-[#121212] uppercase leading-[0.98] sm:leading-[1.02] flex flex-col items-center justify-center gap-1 sm:gap-2">
+        class="font-display font-black text-[2.5rem] sm:text-5xl lg:text-6xl xl:text-[66px] tracking-tight text-[#121212] uppercase leading-[1.05] sm:leading-[1.02] flex flex-col items-center justify-center gap-1.5 sm:gap-2">
         <!-- Line 1 -->
         <span class="block">MEMBINA GENERASI</span>
 
-        <!-- Line 2: PENGHAFAL + al-qur'an + YANG -->
-        <span class="inline-flex items-center justify-center flex-wrap gap-x-2 sm:gap-x-3">
+        <!-- Line 2: Mobile (PENGHAFAL al-qur'an) / Desktop (PENGHAFAL al-qur'an YANG) -->
+        <span class="inline-flex items-center justify-center gap-x-2 sm:gap-x-3 lg:hidden">
           <span>PENGHAFAL</span>
           <span
             class="font-cursive italic font-bold lowercase text-[1.1em] sm:text-[1.2em] text-[#4A0E17] -rotate-3 inline-block">al-qur'an</span>
+        </span>
+        <span class="hidden lg:inline-flex items-center justify-center gap-x-3">
+          <span>PENGHAFAL</span>
+          <span
+            class="font-cursive italic font-bold lowercase text-[1.2em] text-[#4A0E17] -rotate-3 inline-block">al-qur'an</span>
           <span>YANG</span>
         </span>
 
-        <!-- Line 3 -->
-        <span class="block">TANGGUH & BERAKHLAK</span>
+        <!-- Line 3: Mobile (YANG TANGGUH & BERAKHLAK) / Desktop (TANGGUH & BERAKHLAK) -->
+        <span class="block lg:hidden">YANG TANGGUH & BERAKHLAK</span>
+        <span class="hidden lg:block">TANGGUH & BERAKHLAK</span>
       </h1>
     </div>
 
@@ -105,7 +111,7 @@
   @endphp
 
   <!-- Mobile Hero Cards: Seamless Infinite Marquee (Tersusun Rapi, Infinite Loop Berjalan Terus) -->
-  <div class="block lg:hidden relative w-full overflow-hidden py-2 sm:py-3 select-none hero-mobile-marquee-container">
+  <div class="block lg:hidden relative w-full overflow-hidden py-2 sm:py-3 mt-16 sm:mt-20 select-none hero-mobile-marquee-container">
     <style>
       @keyframes heroMarqueeRight {
         0% {

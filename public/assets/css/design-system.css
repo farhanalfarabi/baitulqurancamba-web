@@ -636,7 +636,7 @@ body {
     background: linear-gradient(to bottom, #ffffff 0%, #ffffff 70px, #FAF7F0 130px, #FAF7F0 100%);
   }
   .hero-rotating-wave {
-    bottom: 160px;
+    bottom: 240px;
     width: 160%;
     min-width: 800px;
     filter: drop-shadow(0 8px 24px rgba(74, 14, 23, 0.08));
@@ -648,7 +648,7 @@ body {
     background: linear-gradient(to bottom, #ffffff 0%, #ffffff 45px, #FAF7F0 95px, #FAF7F0 100%);
   }
   .hero-rotating-wave {
-    bottom: 160px;
+    bottom: 260px;
     width: 160%;
     min-width: 580px;
     filter: drop-shadow(0 6px 20px rgba(74, 14, 23, 0.08));
