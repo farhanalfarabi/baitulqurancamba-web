@@ -17,8 +17,8 @@
       </div>
       <h2 class="font-display font-black text-4xl sm:text-6xl lg:text-7xl uppercase tracking-tight text-white leading-tight flex items-center justify-center flex-wrap gap-x-3 gap-y-1">
         <span>EMPAT</span>
-        <span class="font-cursive lowercase text-white italic text-5xl sm:text-7xl lg:text-8xl -rotate-6 inline-block font-normal">output</span>
-        <span>SANTRI</span>
+        <span class="font-cursive lowercase text-white italic text-5xl sm:text-7xl lg:text-8xl -rotate-6 inline-block font-normal">target</span>
+        <span>LULUSAN</span>
         <img src="/assets/images/sticker-lightning.svg" alt="Islamic Lantern of Light" class="w-8 sm:w-12 h-auto tilt-right inline-block -mt-2 drop-shadow-[0_4px_12px_rgba(212,255,0,0.4)]">
       </h2>
       <p class="font-body text-xs sm:text-sm md:text-base text-white/85 max-w-2xl mx-auto mt-4 font-medium leading-relaxed">
@@ -46,7 +46,7 @@
             <div>
               <div class="flex items-center justify-between gap-2 mb-2 sm:mb-2.5">
                 <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-black/25 text-lime border border-lime/30 font-mono font-bold text-[10px] sm:text-xs tracking-wider">
-                  OUTPUT 01
+                  TARGET 01
                 </span>
                 <span class="text-[10px] sm:text-[11px] font-label font-bold text-white/80 uppercase tracking-widest">
                   TAHFIDZ AL-QUR'AN
@@ -100,7 +100,7 @@
             <div>
               <div class="flex items-center justify-between gap-2 mb-2 sm:mb-2.5">
                 <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-black/25 text-lime border border-lime/30 font-mono font-bold text-[10px] sm:text-xs tracking-wider">
-                  OUTPUT 02
+                  TARGET 02
                 </span>
                 <span class="text-[10px] sm:text-[11px] font-label font-bold text-white/80 uppercase tracking-widest">
                   FORMAL TERAKREDITASI
@@ -155,7 +155,7 @@
             <div>
               <div class="flex items-center justify-between gap-2 mb-2 sm:mb-2.5">
                 <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-black/25 text-lime border border-lime/30 font-mono font-bold text-[10px] sm:text-xs tracking-wider">
-                  OUTPUT 03
+                  TARGET 03
                 </span>
                 <span class="text-[10px] sm:text-[11px] font-label font-bold text-white/80 uppercase tracking-widest">
                   KOMPETENSI GLOBAL
@@ -209,7 +209,7 @@
             <div>
               <div class="flex items-center justify-between gap-2 mb-2 sm:mb-2.5">
                 <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-black/25 text-lime border border-lime/30 font-mono font-bold text-[10px] sm:text-xs tracking-wider">
-                  OUTPUT 04
+                  TARGET 04
                 </span>
                 <span class="text-[10px] sm:text-[11px] font-label font-bold text-white/80 uppercase tracking-widest">
                   KARAKTER & DAKWAH

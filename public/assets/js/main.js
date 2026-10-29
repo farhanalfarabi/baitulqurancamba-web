@@ -567,7 +567,7 @@ function initGalleryInteractivity() {
     currentIndex = (index + visibleCards.length) % visibleCards.length;
     const currentCard = visibleCards[currentIndex];
     const imgEl = currentCard.querySelector('img');
-    const yearVal = currentCard.getAttribute('data-year') || 'CAMPUS';
+    const yearVal = currentCard.getAttribute('data-year') || 'KAMPUS';
 
     if (imgEl && lightboxImg) {
       lightboxImg.src = imgEl.src;
@@ -767,84 +767,84 @@ function init3DCoverflow() {
   const COVERFLOW_DATA = [
     {
       title: "Halaqah Fajar Al-Qur'an",
-      subtitle: "Sanctuary of 30 Juz Memorization",
+      subtitle: "Pusat Bimbingan Hafalan 30 Juz Mutqin",
       year: "2025",
       key1: "Program",
       val1: "Tahfizh 30 Juz",
-      key2: "Location",
+      key2: "Lokasi",
       val2: "Masjid Utama Camba"
     },
     {
-      title: "Multilingual Oratory",
-      subtitle: "Arabic, English & Indonesian Speech",
+      title: "Latihan Pidato Tiga Bahasa",
+      subtitle: "Latihan Bahasa Arab, Inggris & Indonesia",
       year: "2025",
       key1: "Program",
-      val1: "Public Speaking",
-      key2: "Schedule",
-      val2: "Weekly Stage Routine"
+      val1: "Muhadharah Mingguan",
+      key2: "Jadwal",
+      val2: "Pentas Rutin Santri"
     },
     {
-      title: "Dirasah Islamiyyah Turath",
-      subtitle: "Classical Islamic Jurisprudence & Adab",
+      title: "Dirasah Islamiyyah Turats",
+      subtitle: "Kajian Fikih, Hadits & Adab Islami",
       year: "2024",
       key1: "Program",
-      val1: "Fiqh & Hadith Study",
-      key2: "Mentorship",
-      val2: "Middle East Alumnus"
+      val1: "Kajian Kitab Kuning",
+      key2: "Pembimbing",
+      val2: "Asatidz Alumni Timur Tengah"
     },
     {
-      title: "Student Leadership Camp",
-      subtitle: "Character, Discipline & Resilience",
+      title: "Latihan Kepemimpinan Santri",
+      subtitle: "Kemandirian, Disiplin & Ketangguhan Mental",
       year: "2025",
       key1: "Program",
-      val1: "Santri Leadership",
-      key2: "Focus",
-      val2: "Organizational Maturity"
+      val1: "Kepemimpinan Santri",
+      key2: "Fokus",
+      val2: "Kematangan Karakter"
     },
     {
-      title: "National Discipline Ceremony",
-      subtitle: "Patriotism, Focus & Composure",
+      title: "Upacara Kedisiplinan Nasional",
+      subtitle: "Nasionalisme & Pembiasaan Disiplin Diri",
       year: "2025",
       key1: "Program",
-      val1: "Formal Education",
-      key2: "Curriculum",
-      val2: "Wustha & Ulya Diploma"
+      val1: "Pendidikan Formal",
+      key2: "Kurikulum",
+      val2: "Ijazah Wustha & Ulya"
     },
     {
-      title: "Sunnah Sports & Vitality",
-      subtitle: "Physical Agility & Sportsmanship",
+      title: "Olahraga Sunnah & Kebugaran",
+      subtitle: "Ketangkasan Fisik & Sportivitas Santri",
       year: "2024",
       key1: "Program",
-      val1: "Sunnah Athletics",
-      key2: "Schedule",
-      val2: "Afternoon Eskul"
+      val1: "Olahraga Santri",
+      key2: "Jadwal",
+      val2: "Ekstrakurikuler Sore"
     },
     {
-      title: "Open-Air Pine Forest Study",
-      subtitle: "Serene Mountain Gazebo Sanctuary",
+      title: "Belajar di Alam Asri Pegunungan",
+      subtitle: "Gazebo Hutan Pinus Berhawa Sejuk",
       year: "2025",
       key1: "Program",
-      val1: "Outdoor Muraja'ah",
-      key2: "Location",
-      val2: "Pine Hill Sanctuary"
+      val1: "Muraja'ah Luar Ruangan",
+      key2: "Lokasi",
+      val2: "Area Gazebo Camba"
     },
     {
-      title: "Al-Qur'an Tasmi' Examination",
-      subtitle: "Live Memorization & Recitation Assessment",
+      title: "Ujian Tasmi' Al-Qur'an",
+      subtitle: "Ujian Hafalan Sekali Duduk & Standar Sanad",
       year: "2025",
       key1: "Program",
       val1: "Tasmi' & Munaqasyah",
-      key2: "Evaluation",
-      val2: "Live Examiner Panel"
+      key2: "Penguji",
+      val2: "Dewan Asatidz Muhaffizh"
     },
     {
-      title: "Boarding Sanctuary Quarters",
-      subtitle: "Clean, Hygienic & Brotherhood Living",
+      title: "Asrama & Lingkungan Pesantren",
+      subtitle: "Hunian Bersih, Rapi & Terbimbing 24 Jam",
       year: "2024",
       key1: "Program",
-      val1: "Residential Life",
-      key2: "Supervision",
-      val2: "Resident Mentors"
+      val1: "Kehidupan Asrama",
+      key2: "Pengasuhan",
+      val2: "Musyrif Pendamping 24 Jam"
     }
   ];
 
@@ -856,7 +856,7 @@ function init3DCoverflow() {
     for (let i = 0; i < total; i++) {
       const dot = document.createElement('button');
       dot.className = 'w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full transition-all duration-300 cursor-pointer focus:outline-none';
-      dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+      dot.setAttribute('aria-label', 'Ke slide ' + (i + 1));
       dot.addEventListener('click', () => {
         goTo(i);
       });

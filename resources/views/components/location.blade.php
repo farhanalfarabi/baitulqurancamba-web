@@ -27,55 +27,55 @@
       </p>
     </div>
 
-    <!-- Retro GPS Navigator Console Window -->
-    <div class="rounded-3xl bg-white border-[3px] border-[#121212] brutal-shadow-xl overflow-hidden">
+    <!-- Clean Navigator Console Window -->
+    <div class="rounded-3xl bg-white border border-stone-200/90 shadow-2xl overflow-hidden">
       
       <!-- Top Console Header Bar -->
-      <div class="bg-[#121212] text-white px-3.5 sm:px-6 py-3 sm:py-3.5 flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 border-b-[3px] border-[#121212]">
+      <div class="bg-stone-900 text-white px-4 sm:px-6 py-3 sm:py-3.5 flex flex-wrap items-center justify-between gap-3 border-b border-stone-800">
         
         <!-- Left: Window Controls & Live Signal -->
         <div class="flex items-center gap-2.5 sm:gap-3">
           <div class="flex items-center gap-1.5" aria-hidden="true">
-            <span class="w-3 h-3 rounded-full bg-[#E53935] inline-block border border-black/30"></span>
-            <span class="w-3 h-3 rounded-full bg-amber-400 inline-block border border-black/30"></span>
-            <span class="w-3 h-3 rounded-full bg-lime inline-block border border-black/30"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-rose-500 inline-block"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-amber-400 inline-block"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block"></span>
           </div>
 
-          <div class="h-4 w-[1px] bg-white/20 mx-1 hidden sm:block"></div>
+          <div class="h-3.5 w-[1px] bg-white/20 mx-0.5 hidden sm:block"></div>
 
           <!-- Pulsing Live Radar Indicator -->
           <div class="flex items-center gap-2">
-            <span class="relative flex h-2.5 w-2.5">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-lime opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-lime"></span>
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
             </span>
-            <span class="font-mono text-[11px] sm:text-xs uppercase tracking-wider text-lime font-bold">
-              RADAR GPS AKTIF
+            <span class="font-sans text-xs uppercase tracking-wider text-stone-200 font-semibold">
+              Peta Lokasi Interaktif
             </span>
           </div>
         </div>
 
         <!-- Center: Interactive Filter Modes (Normal / High Contrast / Night Radar) -->
-        <div class="flex items-center gap-1 bg-[#1e1e1e] p-1 rounded-xl border border-white/10 text-[10px] sm:text-[11px] font-label font-bold">
-          <button type="button" id="map-mode-default" class="map-mode-btn px-2 sm:px-2.5 py-1 rounded-lg bg-lime text-[#121212] transition-colors cursor-pointer" data-filter="none">
+        <div class="flex items-center gap-1 bg-stone-800/80 p-1 rounded-xl text-xs font-medium">
+          <button type="button" id="map-mode-default" class="map-mode-btn px-2.5 py-1 rounded-lg bg-white text-stone-900 shadow-sm font-semibold transition-all cursor-pointer" data-filter="none">
             Standar
           </button>
-          <button type="button" id="map-mode-vibrant" class="map-mode-btn px-2 sm:px-2.5 py-1 rounded-lg text-white/80 hover:text-white transition-colors cursor-pointer" data-filter="contrast(1.15) saturate(1.25)">
-            Terang
+          <button type="button" id="map-mode-vibrant" class="map-mode-btn px-2.5 py-1 rounded-lg text-stone-300 hover:text-white transition-all cursor-pointer font-medium" data-filter="contrast(1.15) saturate(1.25)">
+            Satelit
           </button>
-          <button type="button" id="map-mode-night" class="map-mode-btn px-2 sm:px-2.5 py-1 rounded-lg text-white/80 hover:text-white transition-colors cursor-pointer" data-filter="invert(90%) hue-rotate(180deg) contrast(1.15)">
-            Mode Malam
+          <button type="button" id="map-mode-night" class="map-mode-btn px-2.5 py-1 rounded-lg text-stone-300 hover:text-white transition-all cursor-pointer font-medium" data-filter="invert(90%) hue-rotate(180deg) contrast(1.15)">
+            Malam
           </button>
         </div>
 
-        <!-- Right: Monospace Coordinates Badge + Copy Action -->
+        <!-- Right: Coordinates Badge + Copy Action -->
         <div class="flex items-center gap-2 w-full sm:w-auto justify-end sm:justify-start">
-          <button type="button" id="btn-copy-coordinates" class="font-mono text-[10px] sm:text-xs font-bold text-white bg-[#1e1e1e] hover:bg-[#2a2a2a] px-2.5 sm:px-3 py-1.5 rounded-lg border border-white/20 transition-all flex items-center gap-2 cursor-pointer group" title="Klik untuk menyalin koordinat">
-            <span id="coords-text">LAT -4.91386° · LNG 119.84656°</span>
-            <svg id="copy-icon" class="w-3.5 h-3.5 text-lime group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <button type="button" id="btn-copy-coordinates" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-stone-800/80 hover:bg-stone-800 text-stone-300 hover:text-white text-xs font-mono transition-all cursor-pointer" title="Klik untuk menyalin koordinat">
+            <span id="coords-text">-4.91386°, 119.84656°</span>
+            <svg id="copy-icon" class="w-3.5 h-3.5 text-stone-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
             </svg>
-            <span id="copy-success-badge" class="hidden text-lime font-label font-bold text-[10px] uppercase">TERSALIN!</span>
+            <span id="copy-success-badge" class="hidden text-emerald-400 font-bold text-[11px]">Tersalin!</span>
           </button>
         </div>
 
@@ -85,7 +85,7 @@
       <div class="relative flex flex-col sm:block">
         
         <!-- Map Viewport -->
-        <div class="relative w-full h-[340px] sm:h-[560px] bg-[#E5E3DF] overflow-hidden">
+        <div class="relative w-full h-[360px] sm:h-[580px] bg-[#E5E3DF] overflow-hidden">
           <!-- Google Maps Embed Iframe -->
           <iframe
             id="google-maps-frame"
@@ -97,55 +97,61 @@
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
             title="Google Maps - Pondok Pesantren Tahfizh Baitul Qur'an Camba"
-            class="w-full h-full min-h-[340px] sm:min-h-[560px] transition-all duration-500 ease-in-out"
+            class="w-full h-full min-h-[360px] sm:min-h-[580px] transition-all duration-500 ease-in-out"
           ></iframe>
         </div>
 
-        <!-- Campus Info & Actions Card: Below map on mobile, Floating HUD on desktop -->
-        <div class="p-5 sm:p-6 bg-white sm:bg-white/95 sm:backdrop-blur-md sm:rounded-2xl border-t-[3px] sm:border-2 border-[#121212] sm:brutal-shadow-lg z-20 sm:absolute sm:bottom-6 sm:left-6 sm:right-auto sm:max-w-md transition-all text-left">
+        <!-- Campus Info & Actions Card: Clean Glassmorphic HUD -->
+        <div class="p-5 sm:p-6 bg-white sm:bg-white/95 sm:backdrop-blur-md sm:rounded-2xl border-t border-stone-200 sm:border sm:border-stone-200/90 sm:shadow-2xl z-20 sm:absolute sm:bottom-6 sm:left-6 sm:right-auto sm:max-w-md transition-all text-left">
           
-          <!-- Verified Pin Badge -->
+          <!-- Verified Pin Badge & Rating -->
           <div class="flex items-center justify-between gap-2 mb-3">
-            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#121212] text-lime font-mono text-[10px] font-bold tracking-wider uppercase">
-              <span>📍 TITIK LOKASI RESMI KAMPUS</span>
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 font-medium text-xs">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span>Kampus Resmi Terverifikasi</span>
             </div>
-            <div class="flex items-center gap-1 font-label text-xs font-bold text-[#121212]">
-              <span class="text-amber-500">★★★★★</span>
+            <div class="flex items-center gap-1 text-xs font-semibold text-stone-700">
+              <span class="text-amber-400 text-sm">★</span>
               <span>5.0</span>
+              <span class="text-stone-400 font-normal text-[11px]">(Google Maps)</span>
             </div>
           </div>
 
           <!-- Institution Name -->
-          <h3 class="font-display font-black text-lg sm:text-xl text-[#121212] uppercase tracking-tight leading-snug mb-2">
+          <h3 class="font-display font-bold text-lg sm:text-xl text-stone-900 leading-snug mb-2">
             Pondok Pesantren Tahfizh Baitul Qur'an Camba
           </h3>
 
           <!-- Address -->
-          <p class="font-body text-xs text-[#555555] leading-relaxed mb-4">
-            Jumpulu, Link. Mallisu, Kel. Cempaniga, Kec. Camba, Kab. Maros, Sulawesi Selatan 90562, Indonesia
+          <p class="text-xs sm:text-sm text-stone-600 leading-relaxed mb-4 flex items-start gap-2">
+            <svg class="w-4 h-4 text-[#CF2B09] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <span>Jumpulu, Link. Mallisu, Kel. Cempaniga, Kec. Camba, Kab. Maros, Sulawesi Selatan 90562, Indonesia</span>
           </p>
 
           <!-- Transit Highlights Chips -->
-          <div class="flex flex-wrap gap-1.5 mb-5 text-[11px] font-label font-bold text-[#121212]">
-            <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-[#FAF7F0] border border-[#121212]/20">
-              ✈️ ~90 Menit dari Bandara Sultan Hasanuddin (UPG)
+          <div class="flex flex-wrap gap-2 mb-5 text-xs text-stone-600 font-medium">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-stone-50 border border-stone-200/70">
+              ✈️ ~90 Menit dari Bandara UPG
             </span>
-            <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-[#FAF7F0] border border-[#121212]/20">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-stone-50 border border-stone-200/70">
               🛣️ Jalur Poros Maros – Bone
             </span>
           </div>
 
           <!-- Action Buttons -->
-          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5">
             
             <!-- Get Directions CTA -->
             <a
               href="https://www.google.com/maps/dir/?api=1&destination=-4.91386,119.8465672"
               target="_blank"
               rel="noopener noreferrer"
-              class="btn-tactile flex-1 bg-lime text-[#121212] border-2 border-[#121212] rounded-xl px-4 py-2.5 font-display font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer brutal-shadow-sm text-center"
+              class="flex-1 bg-[#CF2B09] hover:bg-[#b02407] text-white rounded-xl px-4 py-3 font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-sm hover:shadow-md transition-all text-center cursor-pointer"
             >
-              <span>PETUNJUK ARAH</span>
+              <span>Petunjuk Arah</span>
               <span class="text-xs">➔</span>
             </a>
 
@@ -154,23 +160,23 @@
               href="https://www.google.com/maps/place/Pondok+Pesantren+Tahfizh+Baitul+Qur'an+Camba/@-4.91386,119.8465672,17z"
               target="_blank"
               rel="noopener noreferrer"
-              class="btn-tactile bg-white text-[#121212] border-2 border-[#121212] rounded-xl px-3.5 py-2.5 font-label font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 cursor-pointer brutal-shadow-sm"
+              class="bg-white hover:bg-stone-50 text-stone-800 border border-stone-200 rounded-xl px-4 py-3 font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-sm hover:shadow transition-all cursor-pointer"
               title="Buka halaman Google Maps lengkap"
             >
-              <svg class="w-3.5 h-3.5 text-[#121212]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-3.5 h-3.5 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
               </svg>
-              <span>BUKA PETA</span>
+              <span>Buka Peta</span>
             </a>
 
             <!-- Share Button -->
             <button
               type="button"
               id="btn-share-location"
-              class="btn-tactile bg-[#FAF7F0] hover:bg-white text-[#121212] border-2 border-[#121212] rounded-xl px-3 py-2.5 font-label font-bold text-xs uppercase tracking-wider flex items-center justify-center cursor-pointer brutal-shadow-sm"
+              class="bg-stone-50 hover:bg-stone-100 text-stone-700 border border-stone-200 rounded-xl p-3 flex items-center justify-center transition-colors cursor-pointer"
               title="Bagikan atau salin tautan lokasi kampus"
             >
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path>
               </svg>
             </button>
@@ -188,15 +194,15 @@
   <!-- Coordinates Copied Toast Notification -->
   <div
     id="location-toast"
-    class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 pointer-events-none transition-all duration-300 flex items-center gap-3 bg-[#121212] text-white px-5 py-3.5 rounded-2xl border-2 border-lime brutal-shadow-lg"
+    class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 pointer-events-none transition-all duration-300 flex items-center gap-3 bg-stone-900 text-white px-5 py-3.5 rounded-2xl shadow-2xl border border-stone-800"
     role="alert"
   >
-    <div class="w-6 h-6 rounded-full bg-lime text-[#121212] flex items-center justify-center font-black text-xs">
+    <div class="w-6 h-6 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold text-xs">
       ✓
     </div>
-    <div class="text-xs font-label">
-      <span class="font-bold text-lime block" id="toast-title">TERSALIN KE PAPAN KLIP</span>
-      <span class="text-white/80" id="toast-message">Koordinat kampus berhasil disalin.</span>
+    <div class="text-xs">
+      <span class="font-semibold text-emerald-400 block" id="toast-title">Koordinat Tersalin</span>
+      <span class="text-stone-300" id="toast-message">Koordinat kampus berhasil disalin ke papan klip.</span>
     </div>
   </div>
 
@@ -274,7 +280,7 @@
       });
     }
 
-    // 3. Map View Filter Modes (Standar, Terang, Mode Malam)
+    // 3. Map View Filter Modes (Standar, Satelit, Malam)
     const modeButtons = document.querySelectorAll('.map-mode-btn');
     const mapFrame = document.getElementById('google-maps-frame');
 
@@ -284,11 +290,11 @@
         
         // Update active button styling
         modeButtons.forEach(b => {
-          b.classList.remove('bg-lime', 'text-[#121212]');
-          b.classList.add('text-white/80');
+          b.classList.remove('bg-white', 'text-stone-900', 'shadow-sm', 'font-semibold');
+          b.classList.add('text-stone-300', 'font-medium');
         });
-        btn.classList.add('bg-lime', 'text-[#121212]');
-        btn.classList.remove('text-white/80');
+        btn.classList.add('bg-white', 'text-stone-900', 'shadow-sm', 'font-semibold');
+        btn.classList.remove('text-stone-300', 'font-medium');
 
         // Apply CSS filter smoothly to iframe
         if (mapFrame) {
