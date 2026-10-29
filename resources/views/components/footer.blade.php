@@ -35,7 +35,7 @@
 
     <!-- Admissions CTA Button Bar -->
     <div class="max-w-xl mx-auto flex flex-col sm:flex-row gap-2 items-center justify-center mb-16">
-      <a href="https://forms.gle/dUHmyuv98pgXiPcS7" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto bg-lime text-[#121212] border-2 border-[#161616] rounded-xl sm:rounded-full px-8 py-3.5 font-display font-black text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2.5 transition-transform hover:scale-[1.03] active:scale-[0.98] cursor-pointer shadow-lg flex-shrink-0">
+      <a href="{{ route('pendaftaran') }}" class="w-full sm:w-auto bg-lime text-[#121212] border-2 border-[#161616] rounded-xl sm:rounded-full px-8 py-3.5 font-display font-black text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2.5 transition-transform hover:scale-[1.03] active:scale-[0.98] cursor-pointer shadow-lg flex-shrink-0">
         <span>DAFTAR SEKARANG</span>
         <span class="w-5 h-5 rounded-full bg-[#E53935] text-white flex items-center justify-center text-[10px] font-black">➔</span>
       </a>

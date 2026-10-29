@@ -11,7 +11,7 @@
         sarana belajar & kehidupan santri
       </p>
       <div class="mt-6 flex justify-center">
-        <a href="https://forms.gle/dUHmyuv98pgXiPcS7" target="_blank" rel="noopener noreferrer" class="btn-tactile inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-lime text-[#121212] font-label font-bold text-xs uppercase tracking-wider border-[2px] border-[#121212] brutal-shadow-sm">
+        <a href="{{ route('pendaftaran') }}" class="btn-tactile inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-lime text-[#121212] font-label font-bold text-xs uppercase tracking-wider border-[2px] border-[#121212] brutal-shadow-sm">
           <span>Daftar Santri Baru</span>
           <span class="text-xs">➔</span>
         </a>

@@ -42,7 +42,7 @@
             <span id="price-ready" class="font-display font-black text-4xl uppercase text-[#121212]">Rp 350rb</span>
             <span id="period-ready" class="font-label text-xs uppercase tracking-wider text-slate-muted block mt-1">/ Bulan (Termasuk Asrama & Makan)</span>
           </div>
-          <a href="https://forms.gle/dUHmyuv98pgXiPcS7" target="_blank" rel="noopener noreferrer" class="w-full mb-8 py-3 rounded-xl bg-[#FAF7F0] border border-[#161616]/30 hover:bg-lime transition-colors font-display font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 text-[#121212]">
+          <a href="{{ route('pendaftaran') }}" class="w-full mb-8 py-3 rounded-xl bg-[#FAF7F0] border border-[#161616]/30 hover:bg-lime transition-colors font-display font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 text-[#121212]">
             <span>Daftar Jenjang Wustha</span>
             <span class="text-xs">➔</span>
           </a>
@@ -86,7 +86,7 @@
 
           <!-- Signature Double-Layer Button for Featured Tier -->
           <div class="mb-8">
-            <a href="https://forms.gle/dUHmyuv98pgXiPcS7" target="_blank" rel="noopener noreferrer" class="w-full bg-white p-1 rounded-xl shadow-md flex items-center justify-center transition-transform hover:scale-[1.02] active:scale-[0.98] cursor-pointer">
+            <a href="{{ route('pendaftaran') }}" class="w-full bg-white p-1 rounded-xl shadow-md flex items-center justify-center transition-transform hover:scale-[1.02] active:scale-[0.98] cursor-pointer">
               <div class="w-full bg-lime text-[#121212] border-2 border-[#161616] rounded-lg py-2.5 flex items-center justify-center gap-2 font-display font-black text-xs uppercase tracking-wider">
                 <span>Daftar Jenjang Ulya</span>
                 <span class="w-5 h-5 rounded-full bg-[#E53935] text-white flex items-center justify-center text-[10px] font-black">➔</span>
@@ -130,7 +130,7 @@
             <span id="price-students" class="font-display font-black text-4xl uppercase text-[#121212]">Rp 250rb</span>
             <span id="period-students" class="font-label text-xs uppercase tracking-wider text-slate-muted block mt-1">/ Bulan (Tersedia Jalur Beasiswa)</span>
           </div>
-          <a href="https://forms.gle/dUHmyuv98pgXiPcS7" target="_blank" rel="noopener noreferrer" class="w-full mb-8 py-3 rounded-xl bg-[#FAF7F0] border border-[#161616]/30 hover:bg-lime transition-colors font-display font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 text-[#121212]">
+          <a href="{{ route('pendaftaran') }}" class="w-full mb-8 py-3 rounded-xl bg-[#FAF7F0] border border-[#161616]/30 hover:bg-lime transition-colors font-display font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 text-[#121212]">
             <span>Daftar Tahfizh Khusus</span>
             <span class="text-xs">➔</span>
           </a>

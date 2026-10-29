@@ -224,7 +224,7 @@
 
     <!-- CTA: Signature Double-Layer Button -->
     <div class="flex justify-center">
-      <a href="https://forms.gle/dUHmyuv98pgXiPcS7" target="_blank" rel="noopener noreferrer"
+      <a href="{{ route('pendaftaran') }}"
         class="group bg-white p-1 rounded-xl shadow-md inline-flex items-center transition-transform hover:scale-[1.02] active:scale-[0.98] cursor-pointer focus:outline-none">
         <div
           class="bg-lime text-[#121212] border-2 border-[#161616] rounded-lg px-6 py-3 flex items-center gap-3 font-display font-black text-xs sm:text-sm uppercase tracking-wider">

@@ -290,46 +290,40 @@
              ========================================== -->
         <div id="curriculum-card-1" class="curriculum-card-sticky sticky top-[88px] sm:top-[98px] z-10 w-full">
           <!-- Tabs Row: Tab 1 Visible (Seamless flush left edge) -->
-          <div class="card-tabs-row flex items-end h-[54px] relative z-20">
+          <div class="card-tabs-row flex items-end h-[54px] relative z-20 overflow-x-auto no-scrollbar">
             <button type="button" 
-                    class="curriculum-tab-trigger relative flex-shrink-0 flex items-center justify-start gap-2.5 text-white font-medium text-sm sm:text-base h-[54px] w-[215px] sm:w-[265px] pl-5 sm:pl-7 pr-8 cursor-pointer focus:outline-none"
+                    class="curriculum-tab-trigger relative flex-shrink-0 flex items-center justify-center text-white font-display font-black text-xs sm:text-sm uppercase tracking-wider h-[54px] w-[130px] sm:w-[190px] lg:w-[240px] pl-5 sm:pl-7 pr-6 cursor-pointer focus:outline-none"
                     data-target-card="1"
                     aria-label="View Tahfizh Track">
               <img src="/assets/svg/tab-1.svg" alt="" class="absolute inset-0 w-full h-full -z-10 object-fill pointer-events-none">
-              <svg class="w-5 h-5 text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-              </svg>
-              <span class="relative z-10 whitespace-nowrap font-medium text-sm sm:text-base tracking-normal">Tahfizh & Sanad</span>
+              <span class="relative z-10 whitespace-nowrap">Tahfizh</span>
             </button>
           </div>
 
           <!-- Card Body 1 (border-top-left-radius: 0 so Tab 1 merges 100% seamlessly into the left border) -->
           <div class="curriculum-card-body rounded-[28px] sm:rounded-[36px] rounded-tl-none sm:rounded-tl-none text-white p-6 sm:p-10 lg:p-12 relative -mt-[1px] shadow-2xl" 
                style="background-color: #CF2B09; border-top-left-radius: 0 !important;">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-              <!-- Left Column: 3-Line Chunky Title, Asterisk Bullets & Tactile Button -->
-              <div class="lg:col-span-6 flex flex-col justify-between space-y-6 sm:space-y-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-center w-full my-auto">
+              <!-- Left Column: Title, Asterisk Bullets & Tactile Button -->
+              <div class="lg:col-span-6 flex flex-col justify-between space-y-5 sm:space-y-6">
                 <div>
-                  <h3 class="font-display font-black text-4xl sm:text-5xl lg:text-6xl uppercase tracking-tight text-white mb-6 leading-[1.05]">
-                    Tahfizh <br>
-                    & Sanad <br>
-                    30 Juz
+                  <h3 class="font-display font-black text-3xl sm:text-4xl lg:text-5xl uppercase tracking-tight text-white mb-4 sm:mb-6 leading-tight">
+                    Tahfizh & Sanad 30 Juz
                   </h3>
-                  <ul class="space-y-4 sm:space-y-5">
-                    <li class="flex items-start gap-3.5 text-white/95 text-base sm:text-lg font-medium leading-snug">
+                  <ul class="space-y-3.5 sm:space-y-4">
+                    <li class="flex items-start gap-3 text-white/95 text-sm sm:text-base lg:text-lg font-medium leading-snug">
                       <svg class="w-4 h-4 flex-shrink-0 mt-1 text-white" viewBox="0 0 14 14" fill="currentColor">
                         <path d="M 5.6 13.84 C 5.324 13.84 5.1 13.616 5.1 13.34 L 5.1 10.303 C 5.101 10.124 5.006 9.959 4.851 9.869 C 4.696 9.78 4.505 9.78 4.35 9.869 L 1.695 11.39 C 1.58 11.456 1.443 11.474 1.315 11.439 C 1.187 11.404 1.078 11.319 1.012 11.204 L 0.066 9.552 C -0.071 9.313 0.011 9.008 0.25 8.87 L 2.872 7.352 C 3.027 7.263 3.122 7.098 3.122 6.919 C 3.122 6.74 3.027 6.575 2.872 6.486 L 0.25 4.97 C 0.013 4.832 -0.069 4.529 0.066 4.29 L 1.011 2.636 C 1.077 2.521 1.186 2.436 1.314 2.401 C 1.442 2.366 1.579 2.384 1.694 2.45 L 4.35 3.97 C 4.505 4.058 4.695 4.058 4.849 3.968 C 5.003 3.879 5.098 3.714 5.098 3.536 L 5.098 0.5 C 5.098 0.224 5.322 0 5.598 0 L 7.518 0 C 7.795 0 8.018 0.224 8.018 0.5 L 8.018 3.533 C 8.019 3.711 8.114 3.876 8.269 3.965 C 8.423 4.054 8.614 4.054 8.768 3.965 L 11.383 2.452 C 11.499 2.385 11.636 2.367 11.764 2.402 C 11.893 2.437 12.002 2.521 12.068 2.637 L 13.012 4.288 C 13.149 4.527 13.067 4.831 12.828 4.969 L 10.206 6.487 C 10.052 6.576 9.956 6.741 9.956 6.92 C 9.956 7.099 10.052 7.264 10.206 7.353 L 12.828 8.871 C 13.066 9.009 13.148 9.312 13.012 9.551 L 12.068 11.203 C 12.002 11.319 11.893 11.403 11.764 11.438 C 11.636 11.473 11.499 11.455 11.383 11.388 L 8.77 9.875 C 8.616 9.786 8.425 9.786 8.271 9.875 C 8.116 9.964 8.021 10.129 8.02 10.307 L 8.02 13.34 C 8.02 13.616 7.797 13.84 7.52 13.84 Z"/>
                       </svg>
                       <span>Hafalan 30 Juz Al-Qur'an intensif dibimbing langsung oleh Asatidz Hafidz 30 Juz</span>
                     </li>
-                    <li class="flex items-start gap-3.5 text-white/95 text-base sm:text-lg font-medium leading-snug">
+                    <li class="flex items-start gap-3 text-white/95 text-sm sm:text-base lg:text-lg font-medium leading-snug">
                       <svg class="w-4 h-4 flex-shrink-0 mt-1 text-white" viewBox="0 0 14 14" fill="currentColor">
                         <path d="M 5.6 13.84 C 5.324 13.84 5.1 13.616 5.1 13.34 L 5.1 10.303 C 5.101 10.124 5.006 9.959 4.851 9.869 C 4.696 9.78 4.505 9.78 4.35 9.869 L 1.695 11.39 C 1.58 11.456 1.443 11.474 1.315 11.439 C 1.187 11.404 1.078 11.319 1.012 11.204 L 0.066 9.552 C -0.071 9.313 0.011 9.008 0.25 8.87 L 2.872 7.352 C 3.027 7.263 3.122 7.098 3.122 6.919 C 3.122 6.74 3.027 6.575 2.872 6.486 L 0.25 4.97 C 0.013 4.832 -0.069 4.529 0.066 4.29 L 1.011 2.636 C 1.077 2.521 1.186 2.436 1.314 2.401 C 1.442 2.366 1.579 2.384 1.694 2.45 L 4.35 3.97 C 4.505 4.058 4.695 4.058 4.849 3.968 C 5.003 3.879 5.098 3.714 5.098 3.536 L 5.098 0.5 C 5.098 0.224 5.322 0 5.598 0 L 7.518 0 C 7.795 0 8.018 0.224 8.018 0.5 L 8.018 3.533 C 8.019 3.711 8.114 3.876 8.269 3.965 C 8.423 4.054 8.614 4.054 8.768 3.965 L 11.383 2.452 C 11.499 2.385 11.636 2.367 11.764 2.402 C 11.893 2.437 12.002 2.521 12.068 2.637 L 13.012 4.288 C 13.149 4.527 13.067 4.831 12.828 4.969 L 10.206 6.487 C 10.052 6.576 9.956 6.741 9.956 6.92 C 9.956 7.099 10.052 7.264 10.206 7.353 L 12.828 8.871 C 13.066 9.009 13.148 9.312 13.012 9.551 L 12.068 11.203 C 12.002 11.319 11.893 11.403 11.764 11.438 C 11.636 11.473 11.499 11.455 11.383 11.388 L 8.77 9.875 C 8.616 9.786 8.425 9.786 8.271 9.875 C 8.116 9.964 8.021 10.129 8.02 10.307 L 8.02 13.34 C 8.02 13.616 7.797 13.84 7.52 13.84 Z"/>
                       </svg>
                       <span>Metode Talaqqi & Sanad Qira'ah bersambung ke Rasulullah ﷺ</span>
                     </li>
-                    <li class="flex items-start gap-3.5 text-white/95 text-base sm:text-lg font-medium leading-snug">
+                    <li class="flex items-start gap-3 text-white/95 text-sm sm:text-base lg:text-lg font-medium leading-snug">
                       <svg class="w-4 h-4 flex-shrink-0 mt-1 text-white" viewBox="0 0 14 14" fill="currentColor">
                         <path d="M 5.6 13.84 C 5.324 13.84 5.1 13.616 5.1 13.34 L 5.1 10.303 C 5.101 10.124 5.006 9.959 4.851 9.869 C 4.696 9.78 4.505 9.78 4.35 9.869 L 1.695 11.39 C 1.58 11.456 1.443 11.474 1.315 11.439 C 1.187 11.404 1.078 11.319 1.012 11.204 L 0.066 9.552 C -0.071 9.313 0.011 9.008 0.25 8.87 L 2.872 7.352 C 3.027 7.263 3.122 7.098 3.122 6.919 C 3.122 6.74 3.027 6.575 2.872 6.486 L 0.25 4.97 C 0.013 4.832 -0.069 4.529 0.066 4.29 L 1.011 2.636 C 1.077 2.521 1.186 2.436 1.314 2.401 C 1.442 2.366 1.579 2.384 1.694 2.45 L 4.35 3.97 C 4.505 4.058 4.695 4.058 4.849 3.968 C 5.003 3.879 5.098 3.714 5.098 3.536 L 5.098 0.5 C 5.098 0.224 5.322 0 5.598 0 L 7.518 0 C 7.795 0 8.018 0.224 8.018 0.5 L 8.018 3.533 C 8.019 3.711 8.114 3.876 8.269 3.965 C 8.423 4.054 8.614 4.054 8.768 3.965 L 11.383 2.452 C 11.499 2.385 11.636 2.367 11.764 2.402 C 11.893 2.437 12.002 2.521 12.068 2.637 L 13.012 4.288 C 13.149 4.527 13.067 4.831 12.828 4.969 L 10.206 6.487 C 10.052 6.576 9.956 6.741 9.956 6.92 C 9.956 7.099 10.052 7.264 10.206 7.353 L 12.828 8.871 C 13.066 9.009 13.148 9.312 13.012 9.551 L 12.068 11.203 C 12.002 11.319 11.893 11.403 11.764 11.438 C 11.636 11.473 11.499 11.455 11.383 11.388 L 8.77 9.875 C 8.616 9.786 8.425 9.786 8.271 9.875 C 8.116 9.964 8.021 10.129 8.02 10.307 L 8.02 13.34 C 8.02 13.616 7.797 13.84 7.52 13.84 Z"/>
                       </svg>
@@ -340,7 +334,7 @@
 
                 <!-- Double-Layer Button -->
                 <div class="pt-2">
-                  <a href="https://forms.gle/dUHmyuv98pgXiPcS7" target="_blank" rel="noopener noreferrer" class="bg-white p-1 rounded-xl shadow-md inline-flex items-center transition-transform hover:scale-[1.02] active:scale-[0.98] cursor-pointer">
+                  <a href="{{ route('pendaftaran') }}" class="bg-white p-1 rounded-xl shadow-md inline-flex items-center transition-transform hover:scale-[1.02] active:scale-[0.98] cursor-pointer">
                     <div class="bg-lime text-[#121212] border-2 border-[#121212] rounded-lg px-5 py-2.5 flex items-center gap-3 font-display font-black text-sm uppercase tracking-wider">
                       <span>DAFTAR SEKARANG</span>
                       <span class="w-6 h-6 rounded-full bg-[#CF2B09] text-white flex items-center justify-center text-xs font-black">➔</span>
@@ -369,53 +363,49 @@
              ========================================== -->
         <div id="curriculum-card-2" class="curriculum-card-sticky sticky top-[88px] sm:top-[98px] z-20 w-full">
           <!-- Tabs Row: Tab 1 (Spacer) + Tab 2 (Visible) -->
-          <div class="card-tabs-row flex items-end h-[54px] relative z-20">
+          <div class="card-tabs-row flex items-end h-[54px] relative z-20 overflow-x-auto no-scrollbar">
             <!-- Tab 1 Transparent Spacer Button (Clicking it scrolls to Card 1) -->
             <button type="button" 
-                    class="curriculum-tab-trigger relative flex-shrink-0 h-[54px] w-[215px] sm:w-[265px] cursor-pointer opacity-0 pointer-events-auto focus:outline-none"
+                    class="curriculum-tab-trigger relative flex-shrink-0 h-[54px] w-[130px] sm:w-[190px] lg:w-[240px] cursor-pointer opacity-0 pointer-events-auto focus:outline-none"
                     data-target-card="1"
                     aria-label="Scroll to Tahfizh">
-              <span class="sr-only">Tahfizh & Sanad</span>
+              <span class="sr-only">Tahfizh</span>
             </button>
 
             <!-- Tab 2 (Active on Card 2, Rust Red #A52207) -->
             <button type="button" 
-                    class="curriculum-tab-trigger -ml-4 sm:-ml-5 relative flex-shrink-0 flex items-center justify-center gap-2 text-white font-display font-black text-xs sm:text-sm uppercase tracking-wider h-[54px] w-[125px] sm:w-[192px] pl-6 sm:pl-7 pr-4 sm:pr-5 cursor-pointer focus:outline-none"
+                    class="curriculum-tab-trigger -ml-4 sm:-ml-5 relative flex-shrink-0 flex items-center justify-center text-white font-display font-black text-xs sm:text-sm uppercase tracking-wider h-[54px] w-[115px] sm:w-[160px] lg:w-[192px] pl-6 sm:pl-7 pr-4 sm:pr-5 cursor-pointer focus:outline-none"
                     data-target-card="2"
                     aria-label="View School Track">
               <img src="/assets/svg/tab-2.svg" alt="" class="absolute inset-0 w-full h-full -z-10 object-fill pointer-events-none">
-              <svg class="w-4 h-4 sm:w-5 sm:h-5 text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
-              </svg>
-              <span class="relative z-10 whitespace-nowrap">Sekolah Formal</span>
+              <span class="relative z-10 whitespace-nowrap">Formal</span>
             </button>
           </div>
 
           <!-- Card Body 2 -->
           <div class="curriculum-card-body rounded-[28px] sm:rounded-[36px] rounded-tl-none sm:rounded-tl-none text-white p-6 sm:p-10 lg:p-12 relative -mt-[1px] shadow-2xl" 
                style="background-color: #A52207; border-top-left-radius: 0 !important;">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-center w-full my-auto">
               <!-- Left Column -->
-              <div class="lg:col-span-6 flex flex-col justify-between space-y-6 sm:space-y-8">
+              <div class="lg:col-span-6 flex flex-col justify-between space-y-5 sm:space-y-6">
                 <div>
-                  <h3 class="font-display font-black text-3xl sm:text-4xl lg:text-5xl uppercase tracking-tight text-white mb-6">
+                  <h3 class="font-display font-black text-3xl sm:text-4xl lg:text-5xl uppercase tracking-tight text-white mb-4 sm:mb-6 leading-tight">
                     Sekolah Formal
                   </h3>
-                  <ul class="space-y-4 sm:space-y-5">
-                    <li class="flex items-start gap-3.5 text-white/95 text-base sm:text-lg font-medium leading-snug">
+                  <ul class="space-y-3.5 sm:space-y-4">
+                    <li class="flex items-start gap-3 text-white/95 text-sm sm:text-base lg:text-lg font-medium leading-snug">
                       <svg class="w-4 h-4 flex-shrink-0 mt-1 text-white" viewBox="0 0 14 14" fill="currentColor">
                         <path d="M 5.6 13.84 C 5.324 13.84 5.1 13.616 5.1 13.34 L 5.1 10.303 C 5.101 10.124 5.006 9.959 4.851 9.869 C 4.696 9.78 4.505 9.78 4.35 9.869 L 1.695 11.39 C 1.58 11.456 1.443 11.474 1.315 11.439 C 1.187 11.404 1.078 11.319 1.012 11.204 L 0.066 9.552 C -0.071 9.313 0.011 9.008 0.25 8.87 L 2.872 7.352 C 3.027 7.263 3.122 7.098 3.122 6.919 C 3.122 6.74 3.027 6.575 2.872 6.486 L 0.25 4.97 C 0.013 4.832 -0.069 4.529 0.066 4.29 L 1.011 2.636 C 1.077 2.521 1.186 2.436 1.314 2.401 C 1.442 2.366 1.579 2.384 1.694 2.45 L 4.35 3.97 C 4.505 4.058 4.695 4.058 4.849 3.968 C 5.003 3.879 5.098 3.714 5.098 3.536 L 5.098 0.5 C 5.098 0.224 5.322 0 5.598 0 L 7.518 0 C 7.795 0 8.018 0.224 8.018 0.5 L 8.018 3.533 C 8.019 3.711 8.114 3.876 8.269 3.965 C 8.423 4.054 8.614 4.054 8.768 3.965 L 11.383 2.452 C 11.499 2.385 11.636 2.367 11.764 2.402 C 11.893 2.437 12.002 2.521 12.068 2.637 L 13.012 4.288 C 13.149 4.527 13.067 4.831 12.828 4.969 L 10.206 6.487 C 10.052 6.576 9.956 6.741 9.956 6.92 C 9.956 7.099 10.052 7.264 10.206 7.353 L 12.828 8.871 C 13.066 9.009 13.148 9.312 13.012 9.551 L 12.068 11.203 C 12.002 11.319 11.893 11.403 11.764 11.438 C 11.636 11.473 11.499 11.455 11.383 11.388 L 8.77 9.875 C 8.616 9.786 8.425 9.786 8.271 9.875 C 8.116 9.964 8.021 10.129 8.02 10.307 L 8.02 13.34 C 8.02 13.616 7.797 13.84 7.52 13.84 Z"/>
                       </svg>
                       <span>Ijazah resmi terakreditasi negara (jenjang Wustha setara SMP & Ulya setara SMA)</span>
                     </li>
-                    <li class="flex items-start gap-3.5 text-white/95 text-base sm:text-lg font-medium leading-snug">
+                    <li class="flex items-start gap-3 text-white/95 text-sm sm:text-base lg:text-lg font-medium leading-snug">
                       <svg class="w-4 h-4 flex-shrink-0 mt-1 text-white" viewBox="0 0 14 14" fill="currentColor">
                         <path d="M 5.6 13.84 C 5.324 13.84 5.1 13.616 5.1 13.34 L 5.1 10.303 C 5.101 10.124 5.006 9.959 4.851 9.869 C 4.696 9.78 4.505 9.78 4.35 9.869 L 1.695 11.39 C 1.58 11.456 1.443 11.474 1.315 11.439 C 1.187 11.404 1.078 11.319 1.012 11.204 L 0.066 9.552 C -0.071 9.313 0.011 9.008 0.25 8.87 L 2.872 7.352 C 3.027 7.263 3.122 7.098 3.122 6.919 C 3.122 6.74 3.027 6.575 2.872 6.486 L 0.25 4.97 C 0.013 4.832 -0.069 4.529 0.066 4.29 L 1.011 2.636 C 1.077 2.521 1.186 2.436 1.314 2.401 C 1.442 2.366 1.579 2.384 1.694 2.45 L 4.35 3.97 C 4.505 4.058 4.695 4.058 4.849 3.968 C 5.003 3.879 5.098 3.714 5.098 3.536 L 5.098 0.5 C 5.098 0.224 5.322 0 5.598 0 L 7.518 0 C 7.795 0 8.018 0.224 8.018 0.5 L 8.018 3.533 C 8.019 3.711 8.114 3.876 8.269 3.965 C 8.423 4.054 8.614 4.054 8.768 3.965 L 11.383 2.452 C 11.499 2.385 11.636 2.367 11.764 2.402 C 11.893 2.437 12.002 2.521 12.068 2.637 L 13.012 4.288 C 13.149 4.527 13.067 4.831 12.828 4.969 L 10.206 6.487 C 10.052 6.576 9.956 6.741 9.956 6.92 C 9.956 7.099 10.052 7.264 10.206 7.353 L 12.828 8.871 C 13.066 9.009 13.148 9.312 13.012 9.551 L 12.068 11.203 C 12.002 11.319 11.893 11.403 11.764 11.438 C 11.636 11.473 11.499 11.455 11.383 11.388 L 8.77 9.875 C 8.616 9.786 8.425 9.786 8.271 9.875 C 8.116 9.964 8.021 10.129 8.02 10.307 L 8.02 13.34 C 8.02 13.616 7.797 13.84 7.52 13.84 Z"/>
                       </svg>
                       <span>Pelatihan pidato (muhadharah) 3 bahasa: Bahasa Arab, Inggris, dan Indonesia</span>
                     </li>
-                    <li class="flex items-start gap-3.5 text-white/95 text-base sm:text-lg font-medium leading-snug">
+                    <li class="flex items-start gap-3 text-white/95 text-sm sm:text-base lg:text-lg font-medium leading-snug">
                       <svg class="w-4 h-4 flex-shrink-0 mt-1 text-white" viewBox="0 0 14 14" fill="currentColor">
                         <path d="M 5.6 13.84 C 5.324 13.84 5.1 13.616 5.1 13.34 L 5.1 10.303 C 5.101 10.124 5.006 9.959 4.851 9.869 C 4.696 9.78 4.505 9.78 4.35 9.869 L 1.695 11.39 C 1.58 11.456 1.443 11.474 1.315 11.439 C 1.187 11.404 1.078 11.319 1.012 11.204 L 0.066 9.552 C -0.071 9.313 0.011 9.008 0.25 8.87 L 2.872 7.352 C 3.027 7.263 3.122 7.098 3.122 6.919 C 3.122 6.74 3.027 6.575 2.872 6.486 L 0.25 4.97 C 0.013 4.832 -0.069 4.529 0.066 4.29 L 1.011 2.636 C 1.077 2.521 1.186 2.436 1.314 2.401 C 1.442 2.366 1.579 2.384 1.694 2.45 L 4.35 3.97 C 4.505 4.058 4.695 4.058 4.849 3.968 C 5.003 3.879 5.098 3.714 5.098 3.536 L 5.098 0.5 C 5.098 0.224 5.322 0 5.598 0 L 7.518 0 C 7.795 0 8.018 0.224 8.018 0.5 L 8.018 3.533 C 8.019 3.711 8.114 3.876 8.269 3.965 C 8.423 4.054 8.614 4.054 8.768 3.965 L 11.383 2.452 C 11.499 2.385 11.636 2.367 11.764 2.402 C 11.893 2.437 12.002 2.521 12.068 2.637 L 13.012 4.288 C 13.149 4.527 13.067 4.831 12.828 4.969 L 10.206 6.487 C 10.052 6.576 9.956 6.741 9.956 6.92 C 9.956 7.099 10.052 7.264 10.206 7.353 L 12.828 8.871 C 13.066 9.009 13.148 9.312 13.012 9.551 L 12.068 11.203 C 12.002 11.319 11.893 11.403 11.764 11.438 C 11.636 11.473 11.499 11.455 11.383 11.388 L 8.77 9.875 C 8.616 9.786 8.425 9.786 8.271 9.875 C 8.116 9.964 8.021 10.129 8.02 10.307 L 8.02 13.34 C 8.02 13.616 7.797 13.84 7.52 13.84 Z"/>
                       </svg>
@@ -426,7 +416,7 @@
 
                 <!-- Double-Layer Button -->
                 <div class="pt-2">
-                  <a href="https://forms.gle/dUHmyuv98pgXiPcS7" target="_blank" rel="noopener noreferrer" class="bg-white p-1 rounded-xl shadow-md inline-flex items-center transition-transform hover:scale-[1.02] active:scale-[0.98] cursor-pointer">
+                  <a href="{{ route('pendaftaran') }}" class="bg-white p-1 rounded-xl shadow-md inline-flex items-center transition-transform hover:scale-[1.02] active:scale-[0.98] cursor-pointer">
                     <div class="bg-lime text-[#121212] border-2 border-[#121212] rounded-lg px-5 py-2.5 flex items-center gap-3 font-display font-black text-sm uppercase tracking-wider">
                       <span>DAFTAR SEKARANG</span>
                       <span class="w-6 h-6 rounded-full bg-[#A52207] text-white flex items-center justify-center text-xs font-black">➔</span>
@@ -455,7 +445,7 @@
              ========================================== -->
         <div id="curriculum-card-3" class="curriculum-card-sticky sticky top-[88px] sm:top-[98px] z-30 w-full">
           <!-- Tabs Row: Tab 1 (Spacer) + Tab 2 (Spacer) + Tab 3 (Visible) -->
-          <div class="card-tabs-row flex items-end h-[54px] relative z-20">
+          <div class="card-tabs-row flex items-end h-[54px] relative z-20 overflow-x-auto no-scrollbar">
             <!-- Tab 1 Transparent Spacer Button (Clicking it scrolls to Card 1) -->
             <button type="button" 
                     class="curriculum-tab-trigger relative flex-shrink-0 h-[54px] w-[215px] sm:w-[265px] cursor-pointer opacity-0 pointer-events-auto focus:outline-none"
@@ -489,27 +479,27 @@
           <!-- Card Body 3 -->
           <div class="curriculum-card-body rounded-[28px] sm:rounded-[36px] rounded-tl-none sm:rounded-tl-none text-white p-6 sm:p-10 lg:p-12 relative -mt-[1px] shadow-2xl" 
                style="background-color: #7C1A06; border-top-left-radius: 0 !important;">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-center w-full my-auto">
               <!-- Left Column -->
-              <div class="lg:col-span-6 flex flex-col justify-between space-y-6 sm:space-y-8">
+              <div class="lg:col-span-6 flex flex-col justify-between space-y-5 sm:space-y-6">
                 <div>
-                  <h3 class="font-display font-black text-3xl sm:text-4xl lg:text-5xl uppercase tracking-tight text-white mb-6">
+                  <h3 class="font-display font-black text-3xl sm:text-4xl lg:text-5xl uppercase tracking-tight text-white mb-4 sm:mb-6 leading-tight">
                     Kehidupan Santri
                   </h3>
-                  <ul class="space-y-4 sm:space-y-5">
-                    <li class="flex items-start gap-3.5 text-white/95 text-base sm:text-lg font-medium leading-snug">
+                  <ul class="space-y-3.5 sm:space-y-4">
+                    <li class="flex items-start gap-3 text-white/95 text-sm sm:text-base lg:text-lg font-medium leading-snug">
                       <svg class="w-4 h-4 flex-shrink-0 mt-1 text-white" viewBox="0 0 14 14" fill="currentColor">
                         <path d="M 5.6 13.84 C 5.324 13.84 5.1 13.616 5.1 13.34 L 5.1 10.303 C 5.101 10.124 5.006 9.959 4.851 9.869 C 4.696 9.78 4.505 9.78 4.35 9.869 L 1.695 11.39 C 1.58 11.456 1.443 11.474 1.315 11.439 C 1.187 11.404 1.078 11.319 1.012 11.204 L 0.066 9.552 C -0.071 9.313 0.011 9.008 0.25 8.87 L 2.872 7.352 C 3.027 7.263 3.122 7.098 3.122 6.919 C 3.122 6.74 3.027 6.575 2.872 6.486 L 0.25 4.97 C 0.013 4.832 -0.069 4.529 0.066 4.29 L 1.011 2.636 C 1.077 2.521 1.186 2.436 1.314 2.401 C 1.442 2.366 1.579 2.384 1.694 2.45 L 4.35 3.97 C 4.505 4.058 4.695 4.058 4.849 3.968 C 5.003 3.879 5.098 3.714 5.098 3.536 L 5.098 0.5 C 5.098 0.224 5.322 0 5.598 0 L 7.518 0 C 7.795 0 8.018 0.224 8.018 0.5 L 8.018 3.533 C 8.019 3.711 8.114 3.876 8.269 3.965 C 8.423 4.054 8.614 4.054 8.768 3.965 L 11.383 2.452 C 11.499 2.385 11.636 2.367 11.764 2.402 C 11.893 2.437 12.002 2.521 12.068 2.637 L 13.012 4.288 C 13.149 4.527 13.067 4.831 12.828 4.969 L 10.206 6.487 C 10.052 6.576 9.956 6.741 9.956 6.92 C 9.956 7.099 10.052 7.264 10.206 7.353 L 12.828 8.871 C 13.066 9.009 13.148 9.312 13.012 9.551 L 12.068 11.203 C 12.002 11.319 11.893 11.403 11.764 11.438 C 11.636 11.473 11.499 11.455 11.383 11.388 L 8.77 9.875 C 8.616 9.786 8.425 9.786 8.271 9.875 C 8.116 9.964 8.021 10.129 8.02 10.307 L 8.02 13.34 C 8.02 13.616 7.797 13.84 7.52 13.84 Z"/>
                       </svg>
                       <span>Lingkungan asrama 24 jam bebas gawai di kawasan pegunungan Camba yang sejuk</span>
                     </li>
-                    <li class="flex items-start gap-3.5 text-white/95 text-base sm:text-lg font-medium leading-snug">
+                    <li class="flex items-start gap-3 text-white/95 text-sm sm:text-base lg:text-lg font-medium leading-snug">
                       <svg class="w-4 h-4 flex-shrink-0 mt-1 text-white" viewBox="0 0 14 14" fill="currentColor">
                         <path d="M 5.6 13.84 C 5.324 13.84 5.1 13.616 5.1 13.34 L 5.1 10.303 C 5.101 10.124 5.006 9.959 4.851 9.869 C 4.696 9.78 4.505 9.78 4.35 9.869 L 1.695 11.39 C 1.58 11.456 1.443 11.474 1.315 11.439 C 1.187 11.404 1.078 11.319 1.012 11.204 L 0.066 9.552 C -0.071 9.313 0.011 9.008 0.25 8.87 L 2.872 7.352 C 3.027 7.263 3.122 7.098 3.122 6.919 C 3.122 6.74 3.027 6.575 2.872 6.486 L 0.25 4.97 C 0.013 4.832 -0.069 4.529 0.066 4.29 L 1.011 2.636 C 1.077 2.521 1.186 2.436 1.314 2.401 C 1.442 2.366 1.579 2.384 1.694 2.45 L 4.35 3.97 C 4.505 4.058 4.695 4.058 4.849 3.968 C 5.003 3.879 5.098 3.714 5.098 3.536 L 5.098 0.5 C 5.098 0.224 5.322 0 5.598 0 L 7.518 0 C 7.795 0 8.018 0.224 8.018 0.5 L 8.018 3.533 C 8.019 3.711 8.114 3.876 8.269 3.965 C 8.423 4.054 8.614 4.054 8.768 3.965 L 11.383 2.452 C 11.499 2.385 11.636 2.367 11.764 2.402 C 11.893 2.437 12.002 2.521 12.068 2.637 L 13.012 4.288 C 13.149 4.527 13.067 4.831 12.828 4.969 L 10.206 6.487 C 10.052 6.576 9.956 6.741 9.956 6.92 C 9.956 7.099 10.052 7.264 10.206 7.353 L 12.828 8.871 C 13.066 9.009 13.148 9.312 13.012 9.551 L 12.068 11.203 C 12.002 11.319 11.893 11.403 11.764 11.438 C 11.636 11.473 11.499 11.455 11.383 11.388 L 8.77 9.875 C 8.616 9.786 8.425 9.786 8.271 9.875 C 8.116 9.964 8.021 10.129 8.02 10.307 L 8.02 13.34 C 8.02 13.616 7.797 13.84 7.52 13.84 Z"/>
                       </svg>
                       <span>Ekstrakurikuler olahraga: Futsal, Sepak Takraw, Bola Voli, dan Kepramukaan</span>
                     </li>
-                    <li class="flex items-start gap-3.5 text-white/95 text-base sm:text-lg font-medium leading-snug">
+                    <li class="flex items-start gap-3 text-white/95 text-sm sm:text-base lg:text-lg font-medium leading-snug">
                       <svg class="w-4 h-4 flex-shrink-0 mt-1 text-white" viewBox="0 0 14 14" fill="currentColor">
                         <path d="M 5.6 13.84 C 5.324 13.84 5.1 13.616 5.1 13.34 L 5.1 10.303 C 5.101 10.124 5.006 9.959 4.851 9.869 C 4.696 9.78 4.505 9.78 4.35 9.869 L 1.695 11.39 C 1.58 11.456 1.443 11.474 1.315 11.439 C 1.187 11.404 1.078 11.319 1.012 11.204 L 0.066 9.552 C -0.071 9.313 0.011 9.008 0.25 8.87 L 2.872 7.352 C 3.027 7.263 3.122 7.098 3.122 6.919 C 3.122 6.74 3.027 6.575 2.872 6.486 L 0.25 4.97 C 0.013 4.832 -0.069 4.529 0.066 4.29 L 1.011 2.636 C 1.077 2.521 1.186 2.436 1.314 2.401 C 1.442 2.366 1.579 2.384 1.694 2.45 L 4.35 3.97 C 4.505 4.058 4.695 4.058 4.849 3.968 C 5.003 3.879 5.098 3.714 5.098 3.536 L 5.098 0.5 C 5.098 0.224 5.322 0 5.598 0 L 7.518 0 C 7.795 0 8.018 0.224 8.018 0.5 L 8.018 3.533 C 8.019 3.711 8.114 3.876 8.269 3.965 C 8.423 4.054 8.614 4.054 8.768 3.965 L 11.383 2.452 C 11.499 2.385 11.636 2.367 11.764 2.402 C 11.893 2.437 12.002 2.521 12.068 2.637 L 13.012 4.288 C 13.149 4.527 13.067 4.831 12.828 4.969 L 10.206 6.487 C 10.052 6.576 9.956 6.741 9.956 6.92 C 9.956 7.099 10.052 7.264 10.206 7.353 L 12.828 8.871 C 13.066 9.009 13.148 9.312 13.012 9.551 L 12.068 11.203 C 12.002 11.319 11.893 11.403 11.764 11.438 C 11.636 11.473 11.499 11.455 11.383 11.388 L 8.77 9.875 C 8.616 9.786 8.425 9.786 8.271 9.875 C 8.116 9.964 8.021 10.129 8.02 10.307 L 8.02 13.34 C 8.02 13.616 7.797 13.84 7.52 13.84 Z"/>
                       </svg>
@@ -520,7 +510,7 @@
 
                 <!-- Double-Layer Button -->
                 <div class="pt-2">
-                  <a href="https://forms.gle/dUHmyuv98pgXiPcS7" target="_blank" rel="noopener noreferrer" class="bg-white p-1 rounded-xl shadow-md inline-flex items-center transition-transform hover:scale-[1.02] active:scale-[0.98] cursor-pointer">
+                  <a href="{{ route('pendaftaran') }}" class="bg-white p-1 rounded-xl shadow-md inline-flex items-center transition-transform hover:scale-[1.02] active:scale-[0.98] cursor-pointer">
                     <div class="bg-lime text-[#121212] border-2 border-[#121212] rounded-lg px-5 py-2.5 flex items-center gap-3 font-display font-black text-sm uppercase tracking-wider">
                       <span>DAFTAR SEKARANG</span>
                       <span class="w-6 h-6 rounded-full bg-[#7C1A06] text-white flex items-center justify-center text-xs font-black">➔</span>
@@ -548,7 +538,7 @@
 
     <!-- Bottom CTA: Signature Double-Layer Button -->
     <div class="flex justify-center">
-      <a href="https://forms.gle/dUHmyuv98pgXiPcS7" target="_blank" rel="noopener noreferrer"
+      <a href="{{ route('pendaftaran') }}"
         class="group bg-white p-1 rounded-xl shadow-md inline-flex items-center transition-transform hover:scale-[1.02] active:scale-[0.98] cursor-pointer focus:outline-none">
         <div
           class="bg-lime text-[#121212] border-2 border-[#161616] rounded-lg px-6 py-3 flex items-center gap-3 font-display font-black text-xs sm:text-sm uppercase tracking-wider">

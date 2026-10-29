@@ -65,7 +65,7 @@
       </nav>
 
       <!-- Signature Double-Layer Button (Larger than Capsule Container) -->
-      <a href="https://forms.gle/dUHmyuv98pgXiPcS7" target="_blank" rel="noopener noreferrer"
+      <a href="{{ route('pendaftaran') }}"
         class="group bg-white p-1 rounded-xl h-[56px] -mr-1.5 shadow-[0_5px_16px_rgba(0,0,0,0.14)] inline-flex items-center transition-transform hover:scale-[1.03] active:scale-[0.98] cursor-pointer focus:outline-none flex-shrink-0 z-10">
         <div
           class="bg-lime text-[#121212] border-2 border-[#161616] rounded-[8px] h-full px-4 flex items-center gap-2.5 font-display font-black text-xs sm:text-[13px] uppercase tracking-wider">
@@ -142,7 +142,7 @@
     </a>
 
     <div class="pt-2">
-      <a href="https://forms.gle/dUHmyuv98pgXiPcS7" target="_blank" rel="noopener noreferrer"
+      <a href="{{ route('pendaftaran') }}"
         class="group w-full bg-white p-1 rounded-xl shadow-sm flex items-center justify-center transition-transform hover:scale-[1.02] active:scale-[0.98] cursor-pointer focus:outline-none">
         <div
           class="w-full bg-lime text-[#121212] border-2 border-[#161616] rounded-lg px-4 py-2.5 flex items-center justify-center gap-2.5 font-display font-black text-xs uppercase tracking-wider">

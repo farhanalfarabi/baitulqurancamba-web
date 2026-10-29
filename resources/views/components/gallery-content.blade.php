@@ -368,7 +368,7 @@
         </p>
 
         <div class="flex flex-col sm:flex-row items-center gap-4">
-          <a href="https://forms.gle/dUHmyuv98pgXiPcS7" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto bg-lime text-[#121212] border-2 border-[#161616] rounded-xl px-7 py-3.5 font-display font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2.5 transition-transform hover:scale-[1.03] active:scale-[0.98] cursor-pointer shadow-lg">
+          <a href="{{ route('pendaftaran') }}" class="w-full sm:w-auto bg-lime text-[#121212] border-2 border-[#161616] rounded-xl px-7 py-3.5 font-display font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2.5 transition-transform hover:scale-[1.03] active:scale-[0.98] cursor-pointer shadow-lg">
             <span>DAFTAR SANTRI BARU</span>
             <span class="w-5 h-5 rounded-full bg-[#E53935] text-white flex items-center justify-center text-[10px] font-black">➔</span>
           </a>

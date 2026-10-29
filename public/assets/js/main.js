@@ -66,6 +66,48 @@ function initCurriculumScrollStack() {
     document.getElementById('curriculum-card-3')
   ];
 
+  // Dynamic Height Equalizer: ensures all 3 card bodies have identical height
+  // so stacked cards cover each other completely without peeking bottom edges
+  const cardBodies = container.querySelectorAll('.curriculum-card-body');
+  const syncCardsHeight = () => {
+    if (!cardBodies.length) return;
+
+    // Reset heights first to measure true natural content height
+    cardBodies.forEach(body => {
+      body.style.height = 'auto';
+      body.style.minHeight = '0px';
+    });
+
+    let maxHeight = 0;
+    cardBodies.forEach(body => {
+      const h = body.offsetHeight;
+      if (h > maxHeight) maxHeight = h;
+    });
+
+    if (window.innerWidth >= 1024) {
+      maxHeight = Math.max(maxHeight, 580);
+    }
+
+    // Apply exact same height to all card bodies
+    cardBodies.forEach(body => {
+      body.style.height = `${maxHeight}px`;
+      body.style.minHeight = `${maxHeight}px`;
+    });
+  };
+
+  syncCardsHeight();
+  window.addEventListener('resize', syncCardsHeight, { passive: true });
+  window.addEventListener('load', syncCardsHeight, { passive: true });
+
+  const cardImages = container.querySelectorAll('img');
+  cardImages.forEach(img => {
+    if (img.complete) {
+      syncCardsHeight();
+    } else {
+      img.addEventListener('load', syncCardsHeight, { passive: true });
+    }
+  });
+
   const triggers = container.querySelectorAll('.curriculum-tab-trigger');
   triggers.forEach(btn => {
     btn.addEventListener('click', (e) => {

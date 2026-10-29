@@ -576,20 +576,17 @@ body {
 .curriculum-card-body {
   box-shadow: 0 24px 50px -12px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.08);
   border-top-left-radius: 0 !important;
-  min-height: 680px;
-}
-
-@media (min-width: 640px) {
-  .curriculum-card-body {
-    min-height: 720px;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
 }
 
 @media (min-width: 1024px) {
   .curriculum-card-body {
-    height: 600px;
-    min-height: 600px;
-    max-height: 600px;
+    height: 580px;
+    min-height: 580px;
+    max-height: 580px;
   }
 }
 
