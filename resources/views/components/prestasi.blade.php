@@ -22,7 +22,7 @@
       </p>
     </div>
 
-    <!-- 6 Achievement Cards: 2 Horizontal Scroll Rows (3 Cards Each) on Mobile, 3 cols Grid on Desktop -->
+    <!-- 6 Achievement Cards: 2 Rows (3 Cards Each) — Burnt Orange & Cherry Dark Alternating with Scallop Notch -->
     <div id="prestasi-cards-container" class="space-y-10 sm:space-y-12 text-left">
 
       <!-- ===================================================================
@@ -42,23 +42,25 @@
           </span>
         </div>
 
-        <div id="prestasi-row-champions" class="flex overflow-x-auto no-scrollbar gap-4 sm:gap-6 py-4 px-1 -mx-1 snap-x snap-mandatory lg:grid lg:grid-cols-3 lg:gap-8 lg:overflow-visible lg:py-0 lg:px-0 lg:mx-0">
+        <div id="prestasi-row-champions" class="flex overflow-x-auto no-scrollbar gap-4 sm:gap-6 py-4 px-1 -mx-1 snap-x snap-mandatory lg:grid lg:grid-cols-3 lg:gap-6 lg:overflow-visible lg:py-0 lg:px-0 lg:mx-0">
 
           <!-- ===================================================================
-               CARD 1: Zjilzian Amarung (Olimpiade 2x Gold + 1x Silver)
+               CARD 1: Zjilzian Amarung — Burnt Orange (scallop top-right)
                =================================================================== -->
-          <div class="prestasi-card w-[82vw] max-w-[320px] sm:w-[330px] lg:w-auto shrink-0 snap-start rounded-3xl bg-white border border-gray-100 shadow-xl p-5 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between group overflow-hidden relative cursor-pointer"
+          <div class="prestasi-card w-[82vw] max-w-[320px] sm:w-[330px] lg:w-auto shrink-0 snap-start rounded-[20px] sm:rounded-[28px] bg-[#C53618] p-5 sm:p-7 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between group overflow-hidden relative cursor-pointer"
         data-category="champions"
         data-poster-title="Zjilzian Amarung — 2x Gold & 1x Silver Medalist"
         data-poster-desc="Olimpiade Islam Nasional 2025: Medali Emas Bahasa Arab & Aqidah Akhlak, Medali Perak Al-Qur'an Hadits (Diselenggarakan oleh Lingkar Studi Cendekia)."
         data-poster-src="/assets/images/prestasi/juara (2).webp">
-        
+            <!-- Scallop notch top-right -->
+            <div class="absolute -top-5 -right-5 w-12 h-12 rounded-full bg-[#FAF7F0]"></div>
+
         <div>
-          <!-- White Framed Billboard Poster Thumbnail -->
-          <div class="aspect-[3/4] rounded-2xl overflow-hidden bg-black/5 relative mb-5 border-4 border-white shadow-md">
+          <!-- Poster Thumbnail -->
+          <div class="aspect-[3/4] rounded-2xl overflow-hidden bg-black/10 relative mb-5 border-4 border-white/20 shadow-md">
             <img src="/assets/images/prestasi/juara (2).webp" alt="Zjilzian Amarung - 2x Gold 1x Silver Medalist"
               class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
-            
+
             <!-- Floating Category Badge -->
             <div class="absolute top-3 left-3 px-3 py-1 bg-[#121212] text-lime rounded-full border border-lime/40 font-mono font-bold text-[10px] uppercase tracking-wider shadow-md">
               🏆 2 EMAS & 1 PERAK
@@ -78,40 +80,31 @@
             </div>
           </div>
 
-          <!-- Card Header & Metadata -->
-          <div class="mb-4">
-            <div class="flex items-center gap-2 mb-1">
-              <span class="px-2.5 py-0.5 rounded-full bg-[#FAF7F0] border border-gray-200 text-[#CF2B09] font-label font-bold text-[10px] uppercase tracking-wider">
-                Olimpiade Nasional
-              </span>
-              <span class="font-mono text-xs text-gray-400 font-bold">2025</span>
-            </div>
-
-            <h3 class="font-display font-black text-xl sm:text-2xl text-[#121212] uppercase tracking-tight leading-snug">
-              Zjilzian Amarung
-            </h3>
-            <p class="font-label font-bold text-xs uppercase tracking-wider text-[#CF2B09] mt-0.5">
-              2 Medali Emas & 1 Medali Perak
-            </p>
-          </div>
+          <!-- Card Header -->
+          <h3 class="font-display font-black text-xl sm:text-2xl uppercase tracking-tight text-white leading-[1.15] mb-1">
+            ZJILZIAN <span class="font-cursive lowercase text-white text-xl sm:text-2xl font-bold">amarung</span>
+          </h3>
+          <p class="font-label font-bold text-xs uppercase tracking-wider text-white/70 mt-0.5 mb-3">
+            2 Medali Emas & 1 Medali Perak
+          </p>
 
           <!-- Description -->
-          <p class="font-body text-xs sm:text-sm text-slate-muted font-medium leading-relaxed mb-4">
+          <p class="font-body text-xs sm:text-sm text-white/80 font-medium leading-relaxed mb-4">
             Meraih 2 medali emas pada cabang Bahasa Arab & Aqidah Akhlak, serta 1 medali perak Al-Qur'an Hadits pada ajang Olimpiade Islam Nasional 2025.
           </p>
 
           <!-- Badges Strip -->
           <div class="flex flex-wrap gap-1.5 mb-5">
-            <span class="px-2.5 py-1 rounded-md bg-amber-50 text-amber-800 border border-amber-200 font-label font-bold text-[10px] uppercase tracking-wider">🥇 Emas Bahasa Arab</span>
-            <span class="px-2.5 py-1 rounded-md bg-amber-50 text-amber-800 border border-amber-200 font-label font-bold text-[10px] uppercase tracking-wider">🥇 Emas Aqidah</span>
-            <span class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 border border-slate-200 font-label font-bold text-[10px] uppercase tracking-wider">🥈 Perak Hadits</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/15 text-white border border-white/20 font-label font-bold text-[10px] uppercase tracking-wider">🥇 Emas Bahasa Arab</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/15 text-white border border-white/20 font-label font-bold text-[10px] uppercase tracking-wider">🥇 Emas Aqidah</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/10 text-white/80 border border-white/15 font-label font-bold text-[10px] uppercase tracking-wider">🥈 Perak Hadits</span>
           </div>
         </div>
 
         <!-- Card Footer Action -->
-        <div class="pt-3 border-t border-gray-100 flex items-center justify-between">
-          <span class="font-mono font-bold text-[11px] text-gray-400">Lingkar Studi Cendekia</span>
-          <button type="button" class="btn-open-lightbox text-[#CF2B09] hover:text-[#580D14] font-label font-bold text-xs uppercase tracking-wider flex items-center gap-1 group-hover:underline cursor-pointer">
+        <div class="pt-3 border-t border-white/20 flex items-center justify-between">
+          <span class="font-mono font-bold text-[11px] text-white/50">Lingkar Studi Cendekia</span>
+          <button type="button" class="btn-open-lightbox text-white hover:text-lime font-label font-bold text-xs uppercase tracking-wider flex items-center gap-1 group-hover:underline cursor-pointer">
             <span>Perbesar</span>
             <span>➔</span>
           </button>
@@ -120,20 +113,22 @@
       </div>
 
       <!-- ===================================================================
-           CARD 2: Ibrahim Abdurrahman (Olimpiade 1x Gold + 2x Silver)
+           CARD 2: Ibrahim Abdurrahman — Cherry Dark (scallop top-left)
            =================================================================== -->
-      <div class="prestasi-card w-[82vw] max-w-[320px] sm:w-[330px] lg:w-auto shrink-0 snap-start rounded-3xl bg-white border border-gray-100 shadow-xl p-5 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between group overflow-hidden relative cursor-pointer"
+      <div class="prestasi-card w-[82vw] max-w-[320px] sm:w-[330px] lg:w-auto shrink-0 snap-start rounded-[20px] sm:rounded-[28px] bg-[#3D0A12] p-5 sm:p-7 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between group overflow-hidden relative cursor-pointer"
         data-category="champions"
         data-poster-title="Ibrahim Abdurrahman — 1x Gold & 2x Silver Medalist"
         data-poster-desc="Olimpiade Islam Nasional 2025: Medali Emas Bahasa Arab, Medali Perak Aqidah Akhlak & Al-Qur'an Hadits (Diselenggarakan oleh Lingkar Studi Cendekia)."
         data-poster-src="/assets/images/prestasi/juara (3).webp">
-        
+            <!-- Scallop notch top-left -->
+            <div class="absolute -top-5 -left-5 w-12 h-12 rounded-full bg-[#FAF7F0]"></div>
+
         <div>
-          <!-- White Framed Billboard Poster Thumbnail -->
-          <div class="aspect-[3/4] rounded-2xl overflow-hidden bg-black/5 relative mb-5 border-4 border-white shadow-md">
+          <!-- Poster Thumbnail -->
+          <div class="aspect-[3/4] rounded-2xl overflow-hidden bg-black/10 relative mb-5 border-4 border-white/10 shadow-md">
             <img src="/assets/images/prestasi/juara (3).webp" alt="Ibrahim Abdurrahman - 1x Gold 2x Silver Medalist"
               class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
-            
+
             <!-- Floating Category Badge -->
             <div class="absolute top-3 left-3 px-3 py-1 bg-[#121212] text-lime rounded-full border border-lime/40 font-mono font-bold text-[10px] uppercase tracking-wider shadow-md">
               🏆 1 EMAS & 2 PERAK
@@ -153,40 +148,31 @@
             </div>
           </div>
 
-          <!-- Card Header & Metadata -->
-          <div class="mb-4">
-            <div class="flex items-center gap-2 mb-1">
-              <span class="px-2.5 py-0.5 rounded-full bg-[#FAF7F0] border border-gray-200 text-[#CF2B09] font-label font-bold text-[10px] uppercase tracking-wider">
-                Olimpiade Nasional
-              </span>
-              <span class="font-mono text-xs text-gray-400 font-bold">2025</span>
-            </div>
-
-            <h3 class="font-display font-black text-xl sm:text-2xl text-[#121212] uppercase tracking-tight leading-snug">
-              Ibrahim Abdurrahman
-            </h3>
-            <p class="font-label font-bold text-xs uppercase tracking-wider text-[#CF2B09] mt-0.5">
-              1 Medali Emas & 2 Medali Perak
-            </p>
-          </div>
+          <!-- Card Header -->
+          <h3 class="font-display font-black text-xl sm:text-2xl uppercase tracking-tight text-white leading-[1.15] mb-1">
+            IBRAHIM <span class="font-cursive lowercase text-lime text-xl sm:text-2xl font-bold">abdurrahman</span>
+          </h3>
+          <p class="font-label font-bold text-xs uppercase tracking-wider text-white/60 mt-0.5 mb-3">
+            1 Medali Emas & 2 Medali Perak
+          </p>
 
           <!-- Description -->
-          <p class="font-body text-xs sm:text-sm text-slate-muted font-medium leading-relaxed mb-4">
+          <p class="font-body text-xs sm:text-sm text-white/75 font-medium leading-relaxed mb-4">
             Berhasil meraih 1 medali emas dan 2 medali perak pada kompetisi Olimpiade Islam Nasional 2025 cabang Bahasa Arab, Aqidah, dan Al-Qur'an Hadits.
           </p>
 
           <!-- Badges Strip -->
           <div class="flex flex-wrap gap-1.5 mb-5">
-            <span class="px-2.5 py-1 rounded-md bg-amber-50 text-amber-800 border border-amber-200 font-label font-bold text-[10px] uppercase tracking-wider">🥇 Emas Nasional</span>
-            <span class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 border border-slate-200 font-label font-bold text-[10px] uppercase tracking-wider">🥈 Perak Aqidah</span>
-            <span class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 border border-slate-200 font-label font-bold text-[10px] uppercase tracking-wider">🥈 Perak Hadits</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/10 text-white border border-white/15 font-label font-bold text-[10px] uppercase tracking-wider">🥇 Emas Nasional</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/10 text-white/80 border border-white/10 font-label font-bold text-[10px] uppercase tracking-wider">🥈 Perak Aqidah</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/10 text-white/80 border border-white/10 font-label font-bold text-[10px] uppercase tracking-wider">🥈 Perak Hadits</span>
           </div>
         </div>
 
         <!-- Card Footer Action -->
-        <div class="pt-3 border-t border-gray-100 flex items-center justify-between">
-          <span class="font-mono font-bold text-[11px] text-gray-400">Lingkar Studi Cendekia</span>
-          <button type="button" class="btn-open-lightbox text-[#CF2B09] hover:text-[#580D14] font-label font-bold text-xs uppercase tracking-wider flex items-center gap-1 group-hover:underline cursor-pointer">
+        <div class="pt-3 border-t border-white/15 flex items-center justify-between">
+          <span class="font-mono font-bold text-[11px] text-white/40">Lingkar Studi Cendekia</span>
+          <button type="button" class="btn-open-lightbox text-white hover:text-lime font-label font-bold text-xs uppercase tracking-wider flex items-center gap-1 group-hover:underline cursor-pointer">
             <span>Perbesar</span>
             <span>➔</span>
           </button>
@@ -195,20 +181,22 @@
       </div>
 
       <!-- ===================================================================
-           CARD 3: Muh. Alif Iwan (Olimpiade 3x Silver - SMP Tingkat)
+           CARD 3: Muh. Alif Iwan — Burnt Orange (scallop top-right)
            =================================================================== -->
-      <div class="prestasi-card w-[82vw] max-w-[320px] sm:w-[330px] lg:w-auto shrink-0 snap-start rounded-3xl bg-white border border-gray-100 shadow-xl p-5 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between group overflow-hidden relative cursor-pointer"
+      <div class="prestasi-card w-[82vw] max-w-[320px] sm:w-[330px] lg:w-auto shrink-0 snap-start rounded-[20px] sm:rounded-[28px] bg-[#C53618] p-5 sm:p-7 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between group overflow-hidden relative cursor-pointer"
         data-category="champions"
         data-poster-title="Muh. Alif Iwan — 3x Silver Medalist (SMP / MTs)"
         data-poster-desc="Olimpiade Islam Nasional 2025: Peraih 3 Medali Perak Tingkat SMP cabang Bahasa Arab, Aqidah Akhlak, dan Al-Qur'an Hadits."
         data-poster-src="/assets/images/prestasi/juara (1).webp">
-        
+            <!-- Scallop notch top-right -->
+            <div class="absolute -top-5 -right-5 w-12 h-12 rounded-full bg-[#FAF7F0]"></div>
+
         <div>
-          <!-- White Framed Billboard Poster Thumbnail -->
-          <div class="aspect-[3/4] rounded-2xl overflow-hidden bg-black/5 relative mb-5 border-4 border-white shadow-md">
+          <!-- Poster Thumbnail -->
+          <div class="aspect-[3/4] rounded-2xl overflow-hidden bg-black/10 relative mb-5 border-4 border-white/20 shadow-md">
             <img src="/assets/images/prestasi/juara (1).webp" alt="Muh. Alif Iwan - 3x Silver Medalist SMP"
               class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
-            
+
             <!-- Floating Category Badge -->
             <div class="absolute top-3 left-3 px-3 py-1 bg-[#121212] text-lime rounded-full border border-lime/40 font-mono font-bold text-[10px] uppercase tracking-wider shadow-md">
               🥈 3 MEDALI PERAK
@@ -228,40 +216,31 @@
             </div>
           </div>
 
-          <!-- Card Header & Metadata -->
-          <div class="mb-4">
-            <div class="flex items-center gap-2 mb-1">
-              <span class="px-2.5 py-0.5 rounded-full bg-[#FAF7F0] border border-gray-200 text-[#CF2B09] font-label font-bold text-[10px] uppercase tracking-wider">
-                Olimpiade Nasional
-              </span>
-              <span class="font-mono text-xs text-gray-400 font-bold">2025</span>
-            </div>
-
-            <h3 class="font-display font-black text-xl sm:text-2xl text-[#121212] uppercase tracking-tight leading-snug">
-              Muh. Alif Iwan
-            </h3>
-            <p class="font-label font-bold text-xs uppercase tracking-wider text-[#CF2B09] mt-0.5">
-              3 Medali Perak Tingkat SMP
-            </p>
-          </div>
+          <!-- Card Header -->
+          <h3 class="font-display font-black text-xl sm:text-2xl uppercase tracking-tight text-white leading-[1.15] mb-1">
+            MUH. ALIF <span class="font-cursive lowercase text-white text-xl sm:text-2xl font-bold">iwan</span>
+          </h3>
+          <p class="font-label font-bold text-xs uppercase tracking-wider text-white/70 mt-0.5 mb-3">
+            3 Medali Perak Tingkat SMP
+          </p>
 
           <!-- Description -->
-          <p class="font-body text-xs sm:text-sm text-slate-muted font-medium leading-relaxed mb-4">
+          <p class="font-body text-xs sm:text-sm text-white/80 font-medium leading-relaxed mb-4">
             Prestasi membanggakan di tingkat SMP/Wustha dengan menyabet 3 medali perak sekaligus pada cabang Bahasa Arab, Aqidah, dan Al-Qur'an Hadits.
           </p>
 
           <!-- Badges Strip -->
           <div class="flex flex-wrap gap-1.5 mb-5">
-            <span class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 border border-slate-200 font-label font-bold text-[10px] uppercase tracking-wider">🥈 Perak SMP Bahasa Arab</span>
-            <span class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 border border-slate-200 font-label font-bold text-[10px] uppercase tracking-wider">🥈 Perak Aqidah</span>
-            <span class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 border border-slate-200 font-label font-bold text-[10px] uppercase tracking-wider">🥈 Perak Hadits</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/15 text-white/80 border border-white/20 font-label font-bold text-[10px] uppercase tracking-wider">🥈 Perak Bahasa Arab</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/15 text-white/80 border border-white/20 font-label font-bold text-[10px] uppercase tracking-wider">🥈 Perak Aqidah</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/15 text-white/80 border border-white/20 font-label font-bold text-[10px] uppercase tracking-wider">🥈 Perak Hadits</span>
           </div>
         </div>
 
         <!-- Card Footer Action -->
-        <div class="pt-3 border-t border-gray-100 flex items-center justify-between">
-          <span class="font-mono font-bold text-[11px] text-gray-400">Lingkar Studi Cendekia</span>
-          <button type="button" class="btn-open-lightbox text-[#CF2B09] hover:text-[#580D14] font-label font-bold text-xs uppercase tracking-wider flex items-center gap-1 group-hover:underline cursor-pointer">
+        <div class="pt-3 border-t border-white/20 flex items-center justify-between">
+          <span class="font-mono font-bold text-[11px] text-white/50">Lingkar Studi Cendekia</span>
+          <button type="button" class="btn-open-lightbox text-white hover:text-lime font-label font-bold text-xs uppercase tracking-wider flex items-center gap-1 group-hover:underline cursor-pointer">
             <span>Perbesar</span>
             <span>➔</span>
           </button>
@@ -289,23 +268,25 @@
           </span>
         </div>
 
-        <div id="prestasi-row-tasmi" class="flex overflow-x-auto no-scrollbar gap-4 sm:gap-6 py-4 px-1 -mx-1 snap-x snap-mandatory lg:grid lg:grid-cols-3 lg:gap-8 lg:overflow-visible lg:py-0 lg:px-0 lg:mx-0">
+        <div id="prestasi-row-tasmi" class="flex overflow-x-auto no-scrollbar gap-4 sm:gap-6 py-4 px-1 -mx-1 snap-x snap-mandatory lg:grid lg:grid-cols-3 lg:gap-6 lg:overflow-visible lg:py-0 lg:px-0 lg:mx-0">
 
           <!-- ===================================================================
-               CARD 4: Abbas (Tasmi' 15 Juz Bil Ghaib Sekali Duduk)
+               CARD 4: Abbas — Cherry Dark (scallop top-left)
                =================================================================== -->
-          <div class="prestasi-card w-[82vw] max-w-[320px] sm:w-[330px] lg:w-auto shrink-0 snap-start rounded-3xl bg-white border border-gray-100 shadow-xl p-5 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between group overflow-hidden relative cursor-pointer"
+          <div class="prestasi-card w-[82vw] max-w-[320px] sm:w-[330px] lg:w-auto shrink-0 snap-start rounded-[20px] sm:rounded-[28px] bg-[#3D0A12] p-5 sm:p-7 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between group overflow-hidden relative cursor-pointer"
         data-category="tasmi"
         data-poster-title="Ananda Abbas — Tasmi' Hafalan 15 Juz Sekali Duduk"
         data-poster-desc="Santri Kelas XII: Ujian Tasmi' Bil Ghaib 15 Juz Al-Qur'an (Juz 1-11 & 27-30) dengan Predikat Jayyid Jiddan (Amat Baik) di hadapan asatidz pembina."
         data-poster-src="/assets/images/prestasi/tasmi (2).webp">
-        
+            <!-- Scallop notch top-left -->
+            <div class="absolute -top-5 -left-5 w-12 h-12 rounded-full bg-[#FAF7F0]"></div>
+
         <div>
-          <!-- White Framed Billboard Poster Thumbnail -->
-          <div class="aspect-[3/4] rounded-2xl overflow-hidden bg-black/5 relative mb-5 border-4 border-white shadow-md">
+          <!-- Poster Thumbnail -->
+          <div class="aspect-[3/4] rounded-2xl overflow-hidden bg-black/10 relative mb-5 border-4 border-white/10 shadow-md">
             <img src="/assets/images/prestasi/tasmi (2).webp" alt="Abbas - Tasmi' Hafalan Al-Qur'an 15 Juz"
               class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
-            
+
             <!-- Floating Category Badge -->
             <div class="absolute top-3 left-3 px-3 py-1 bg-[#580D14] text-lime rounded-full border border-lime/40 font-mono font-bold text-[10px] uppercase tracking-wider shadow-md">
               📖 TASMI' 15 JUZ MUTQIN
@@ -325,40 +306,31 @@
             </div>
           </div>
 
-          <!-- Card Header & Metadata -->
-          <div class="mb-4">
-            <div class="flex items-center gap-2 mb-1">
-              <span class="px-2.5 py-0.5 rounded-full bg-[#FAF7F0] border border-gray-200 text-[#580D14] font-label font-bold text-[10px] uppercase tracking-wider">
-                Tasmi' Sekali Duduk
-              </span>
-              <span class="font-mono text-xs text-gray-400 font-bold">Kelas XII</span>
-            </div>
-
-            <h3 class="font-display font-black text-xl sm:text-2xl text-[#121212] uppercase tracking-tight leading-snug">
-              Ananda Abbas
-            </h3>
-            <p class="font-label font-bold text-xs uppercase tracking-wider text-[#580D14] mt-0.5">
-              Tasmi' Hafalan 15 Juz (Juz 1–11, 27–30)
-            </p>
-          </div>
+          <!-- Card Header -->
+          <h3 class="font-display font-black text-xl sm:text-2xl uppercase tracking-tight text-white leading-[1.15] mb-1">
+            ANANDA <span class="font-cursive lowercase text-lime text-xl sm:text-2xl font-bold">abbas</span>
+          </h3>
+          <p class="font-label font-bold text-xs uppercase tracking-wider text-white/60 mt-0.5 mb-3">
+            Tasmi' Hafalan 15 Juz (Juz 1–11, 27–30)
+          </p>
 
           <!-- Description -->
-          <p class="font-body text-xs sm:text-sm text-slate-muted font-medium leading-relaxed mb-4">
+          <p class="font-body text-xs sm:text-sm text-white/75 font-medium leading-relaxed mb-4">
             Setoran hafalan Al-Qur'an 15 juz bil ghaib (tanpa melihat mushaf) sekali duduk dengan predikat Jayyid Jiddan (Amat Baik) di hadapan asatidz muhaffizh.
           </p>
 
           <!-- Badges Strip -->
           <div class="flex flex-wrap gap-1.5 mb-5">
-            <span class="px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200 font-label font-bold text-[10px] uppercase tracking-wider">15 Juz Sekali Duduk</span>
-            <span class="px-2.5 py-1 rounded-md bg-lime/20 text-[#2e5b00] border border-lime/50 font-label font-bold text-[10px] uppercase tracking-wider">Jayyid Jiddan</span>
-            <span class="px-2.5 py-1 rounded-md bg-amber-50 text-amber-800 border border-amber-200 font-label font-bold text-[10px] uppercase tracking-wider">Talaqqi Sanad</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/10 text-white border border-white/15 font-label font-bold text-[10px] uppercase tracking-wider">15 Juz Sekali Duduk</span>
+            <span class="px-2.5 py-1 rounded-md bg-lime/20 text-lime border border-lime/30 font-label font-bold text-[10px] uppercase tracking-wider">Jayyid Jiddan</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/10 text-white/80 border border-white/10 font-label font-bold text-[10px] uppercase tracking-wider">Talaqqi Sanad</span>
           </div>
         </div>
 
         <!-- Card Footer Action -->
-        <div class="pt-3 border-t border-gray-100 flex items-center justify-between">
-          <span class="font-mono font-bold text-[11px] text-gray-400">Dewan Penguji Tahfizh BQC</span>
-          <button type="button" class="btn-open-lightbox text-[#580D14] hover:text-[#CF2B09] font-label font-bold text-xs uppercase tracking-wider flex items-center gap-1 group-hover:underline cursor-pointer">
+        <div class="pt-3 border-t border-white/15 flex items-center justify-between">
+          <span class="font-mono font-bold text-[11px] text-white/40">Dewan Penguji Tahfizh BQC</span>
+          <button type="button" class="btn-open-lightbox text-white hover:text-lime font-label font-bold text-xs uppercase tracking-wider flex items-center gap-1 group-hover:underline cursor-pointer">
             <span>Perbesar</span>
             <span>➔</span>
           </button>
@@ -367,20 +339,22 @@
       </div>
 
       <!-- ===================================================================
-           CARD 5: Muh. Fiqih (Tasmi' 13 Juz Bil Ghaib Sekali Duduk)
+           CARD 5: Muh. Fiqih — Burnt Orange (scallop top-right)
            =================================================================== -->
-      <div class="prestasi-card w-[82vw] max-w-[320px] sm:w-[330px] lg:w-auto shrink-0 snap-start rounded-3xl bg-white border border-gray-100 shadow-xl p-5 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between group overflow-hidden relative cursor-pointer"
+      <div class="prestasi-card w-[82vw] max-w-[320px] sm:w-[330px] lg:w-auto shrink-0 snap-start rounded-[20px] sm:rounded-[28px] bg-[#C53618] p-5 sm:p-7 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between group overflow-hidden relative cursor-pointer"
         data-category="tasmi"
         data-poster-title="Ananda Muh. Fiqih — Tasmi' Hafalan 13 Juz Sekali Duduk"
         data-poster-desc="Santri Kelas XII: Ujian Tasmi' Bil Ghaib 13 Juz Al-Qur'an (Juz 1-11 & 29-30) dengan Predikat Jayyid Jiddan (Amat Baik) di hadapan asatidz pembina."
         data-poster-src="/assets/images/prestasi/tasmi (3).webp">
-        
+            <!-- Scallop notch top-right -->
+            <div class="absolute -top-5 -right-5 w-12 h-12 rounded-full bg-[#FAF7F0]"></div>
+
         <div>
-          <!-- White Framed Billboard Poster Thumbnail -->
-          <div class="aspect-[3/4] rounded-2xl overflow-hidden bg-black/5 relative mb-5 border-4 border-white shadow-md">
+          <!-- Poster Thumbnail -->
+          <div class="aspect-[3/4] rounded-2xl overflow-hidden bg-black/10 relative mb-5 border-4 border-white/20 shadow-md">
             <img src="/assets/images/prestasi/tasmi (3).webp" alt="Muh. Fiqih - Tasmi' Hafalan Al-Qur'an 13 Juz"
               class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
-            
+
             <!-- Floating Category Badge -->
             <div class="absolute top-3 left-3 px-3 py-1 bg-[#580D14] text-lime rounded-full border border-lime/40 font-mono font-bold text-[10px] uppercase tracking-wider shadow-md">
               📖 TASMI' 13 JUZ MUTQIN
@@ -400,40 +374,31 @@
             </div>
           </div>
 
-          <!-- Card Header & Metadata -->
-          <div class="mb-4">
-            <div class="flex items-center gap-2 mb-1">
-              <span class="px-2.5 py-0.5 rounded-full bg-[#FAF7F0] border border-gray-200 text-[#580D14] font-label font-bold text-[10px] uppercase tracking-wider">
-                Tasmi' Sekali Duduk
-              </span>
-              <span class="font-mono text-xs text-gray-400 font-bold">Kelas XII</span>
-            </div>
-
-            <h3 class="font-display font-black text-xl sm:text-2xl text-[#121212] uppercase tracking-tight leading-snug">
-              Ananda Muh. Fiqih
-            </h3>
-            <p class="font-label font-bold text-xs uppercase tracking-wider text-[#580D14] mt-0.5">
-              Tasmi' Hafalan 13 Juz (Juz 1–11, 29–30)
-            </p>
-          </div>
+          <!-- Card Header -->
+          <h3 class="font-display font-black text-xl sm:text-2xl uppercase tracking-tight text-white leading-[1.15] mb-1">
+            MUH. <span class="font-cursive lowercase text-white text-xl sm:text-2xl font-bold">fiqih</span>
+          </h3>
+          <p class="font-label font-bold text-xs uppercase tracking-wider text-white/70 mt-0.5 mb-3">
+            Tasmi' Hafalan 13 Juz (Juz 1–11, 29–30)
+          </p>
 
           <!-- Description -->
-          <p class="font-body text-xs sm:text-sm text-slate-muted font-medium leading-relaxed mb-4">
+          <p class="font-body text-xs sm:text-sm text-white/80 font-medium leading-relaxed mb-4">
             Kelancaran tartil hafalan 13 juz bil ghaib sekali duduk dengan artikulasi makharijul huruf fasih dan hafalan mutqin bersanad.
           </p>
 
           <!-- Badges Strip -->
           <div class="flex flex-wrap gap-1.5 mb-5">
-            <span class="px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200 font-label font-bold text-[10px] uppercase tracking-wider">13 Juz Sekali Duduk</span>
-            <span class="px-2.5 py-1 rounded-md bg-lime/20 text-[#2e5b00] border border-lime/50 font-label font-bold text-[10px] uppercase tracking-wider">Jayyid Jiddan</span>
-            <span class="px-2.5 py-1 rounded-md bg-amber-50 text-amber-800 border border-amber-200 font-label font-bold text-[10px] uppercase tracking-wider">Talaqqi Sanad</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/15 text-white border border-white/20 font-label font-bold text-[10px] uppercase tracking-wider">13 Juz Sekali Duduk</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/15 text-white border border-white/20 font-label font-bold text-[10px] uppercase tracking-wider">Jayyid Jiddan</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/15 text-white/80 border border-white/20 font-label font-bold text-[10px] uppercase tracking-wider">Talaqqi Sanad</span>
           </div>
         </div>
 
         <!-- Card Footer Action -->
-        <div class="pt-3 border-t border-gray-100 flex items-center justify-between">
-          <span class="font-mono font-bold text-[11px] text-gray-400">Dewan Penguji Tahfizh BQC</span>
-          <button type="button" class="btn-open-lightbox text-[#580D14] hover:text-[#CF2B09] font-label font-bold text-xs uppercase tracking-wider flex items-center gap-1 group-hover:underline cursor-pointer">
+        <div class="pt-3 border-t border-white/20 flex items-center justify-between">
+          <span class="font-mono font-bold text-[11px] text-white/50">Dewan Penguji Tahfizh BQC</span>
+          <button type="button" class="btn-open-lightbox text-white hover:text-lime font-label font-bold text-xs uppercase tracking-wider flex items-center gap-1 group-hover:underline cursor-pointer">
             <span>Perbesar</span>
             <span>➔</span>
           </button>
@@ -442,20 +407,22 @@
       </div>
 
       <!-- ===================================================================
-           CARD 6: Zjilzian Amarung (Tasmi' 10 Juz Bil Ghaib Sekali Duduk)
+           CARD 6: Zjilzian Amarung — Cherry Dark (scallop top-left)
            =================================================================== -->
-      <div class="prestasi-card w-[82vw] max-w-[320px] sm:w-[330px] lg:w-auto shrink-0 snap-start rounded-3xl bg-white border border-gray-100 shadow-xl p-5 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between group overflow-hidden relative cursor-pointer"
+      <div class="prestasi-card w-[82vw] max-w-[320px] sm:w-[330px] lg:w-auto shrink-0 snap-start rounded-[20px] sm:rounded-[28px] bg-[#3D0A12] p-5 sm:p-7 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between group overflow-hidden relative cursor-pointer"
         data-category="tasmi"
         data-poster-title="Ananda Zjilzian Amarung — Tasmi' Hafalan 10 Juz Sekali Duduk"
         data-poster-desc="Santri Kelas XII: Ujian Tasmi' Bil Ghaib 10 Juz Al-Qur'an (Juz 1-5 & 26-30) dengan Predikat Jayyid Jiddan (Amat Baik) di hadapan asatidz pembina."
         data-poster-src="/assets/images/prestasi/tasmi (1).webp">
-        
+            <!-- Scallop notch top-left -->
+            <div class="absolute -top-5 -left-5 w-12 h-12 rounded-full bg-[#FAF7F0]"></div>
+
         <div>
-          <!-- White Framed Billboard Poster Thumbnail -->
-          <div class="aspect-[3/4] rounded-2xl overflow-hidden bg-black/5 relative mb-5 border-4 border-white shadow-md">
+          <!-- Poster Thumbnail -->
+          <div class="aspect-[3/4] rounded-2xl overflow-hidden bg-black/10 relative mb-5 border-4 border-white/10 shadow-md">
             <img src="/assets/images/prestasi/tasmi (1).webp" alt="Zjilzian Amarung - Tasmi' Hafalan Al-Qur'an 10 Juz"
               class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
-            
+
             <!-- Floating Category Badge -->
             <div class="absolute top-3 left-3 px-3 py-1 bg-[#580D14] text-lime rounded-full border border-lime/40 font-mono font-bold text-[10px] uppercase tracking-wider shadow-md">
               📖 TASMI' 10 JUZ MUTQIN
@@ -475,40 +442,31 @@
             </div>
           </div>
 
-          <!-- Card Header & Metadata -->
-          <div class="mb-4">
-            <div class="flex items-center gap-2 mb-1">
-              <span class="px-2.5 py-0.5 rounded-full bg-[#FAF7F0] border border-gray-200 text-[#580D14] font-label font-bold text-[10px] uppercase tracking-wider">
-                Tasmi' Sekali Duduk
-              </span>
-              <span class="font-mono text-xs text-gray-400 font-bold">Kelas XII</span>
-            </div>
-
-            <h3 class="font-display font-black text-xl sm:text-2xl text-[#121212] uppercase tracking-tight leading-snug">
-              Ananda Zjilzian Amarung
-            </h3>
-            <p class="font-label font-bold text-xs uppercase tracking-wider text-[#580D14] mt-0.5">
-              Tasmi' Hafalan 10 Juz (Juz 1–5, 26–30)
-            </p>
-          </div>
+          <!-- Card Header -->
+          <h3 class="font-display font-black text-xl sm:text-2xl uppercase tracking-tight text-white leading-[1.15] mb-1">
+            ZJILZIAN <span class="font-cursive lowercase text-lime text-xl sm:text-2xl font-bold">amarung</span>
+          </h3>
+          <p class="font-label font-bold text-xs uppercase tracking-wider text-white/60 mt-0.5 mb-3">
+            Tasmi' Hafalan 10 Juz (Juz 1–5, 26–30)
+          </p>
 
           <!-- Description -->
-          <p class="font-body text-xs sm:text-sm text-slate-muted font-medium leading-relaxed mb-4">
+          <p class="font-body text-xs sm:text-sm text-white/75 font-medium leading-relaxed mb-4">
             Ujian tasmi' hafalan 10 juz bil ghaib sekali duduk dengan predikat Jayyid Jiddan, melengkapi prestasinya sebagai peraih medali emas olimpiade.
           </p>
 
           <!-- Badges Strip -->
           <div class="flex flex-wrap gap-1.5 mb-5">
-            <span class="px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200 font-label font-bold text-[10px] uppercase tracking-wider">10 Juz Sekali Duduk</span>
-            <span class="px-2.5 py-1 rounded-md bg-lime/20 text-[#2e5b00] border border-lime/50 font-label font-bold text-[10px] uppercase tracking-wider">Jayyid Jiddan</span>
-            <span class="px-2.5 py-1 rounded-md bg-amber-50 text-amber-800 border border-amber-200 font-label font-bold text-[10px] uppercase tracking-wider">Talaqqi Sanad</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/10 text-white border border-white/15 font-label font-bold text-[10px] uppercase tracking-wider">10 Juz Sekali Duduk</span>
+            <span class="px-2.5 py-1 rounded-md bg-lime/20 text-lime border border-lime/30 font-label font-bold text-[10px] uppercase tracking-wider">Jayyid Jiddan</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/10 text-white/80 border border-white/10 font-label font-bold text-[10px] uppercase tracking-wider">Talaqqi Sanad</span>
           </div>
         </div>
 
         <!-- Card Footer Action -->
-        <div class="pt-3 border-t border-gray-100 flex items-center justify-between">
-          <span class="font-mono font-bold text-[11px] text-gray-400">Dewan Penguji Tahfizh BQC</span>
-          <button type="button" class="btn-open-lightbox text-[#580D14] hover:text-[#CF2B09] font-label font-bold text-xs uppercase tracking-wider flex items-center gap-1 group-hover:underline cursor-pointer">
+        <div class="pt-3 border-t border-white/15 flex items-center justify-between">
+          <span class="font-mono font-bold text-[11px] text-white/40">Dewan Penguji Tahfizh BQC</span>
+          <button type="button" class="btn-open-lightbox text-white hover:text-lime font-label font-bold text-xs uppercase tracking-wider flex items-center gap-1 group-hover:underline cursor-pointer">
             <span>Perbesar</span>
             <span>➔</span>
           </button>
