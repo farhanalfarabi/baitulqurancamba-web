@@ -22,64 +22,32 @@
       </p>
     </div>
 
-    <!-- Quick Stats Metric Pills (Mini Counters) -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-10 max-w-4xl mx-auto text-left">
-      <div class="bg-white rounded-2xl p-4 border border-gray-100 shadow-md flex items-center gap-3">
-        <span class="w-10 h-10 rounded-xl bg-[#121212] text-lime flex items-center justify-center font-display font-black text-lg flex-shrink-0 shadow-sm">🏆</span>
-        <div>
-          <span class="font-display font-black text-lg sm:text-xl text-[#121212] leading-none block">9+ Medali</span>
-          <span class="font-label font-bold text-[10px] text-gray-500 uppercase tracking-wider">Olimpiade Nasional</span>
-        </div>
-      </div>
-
-      <div class="bg-white rounded-2xl p-4 border border-gray-100 shadow-md flex items-center gap-3">
-        <span class="w-10 h-10 rounded-xl bg-[#580D14] text-lime flex items-center justify-center font-display font-black text-lg flex-shrink-0 shadow-sm">📖</span>
-        <div>
-          <span class="font-display font-black text-lg sm:text-xl text-[#121212] leading-none block">38+ Juz</span>
-          <span class="font-label font-bold text-[10px] text-gray-500 uppercase tracking-wider">Tasmi' Sekali Duduk</span>
-        </div>
-      </div>
-
-      <div class="bg-white rounded-2xl p-4 border border-gray-100 shadow-md flex items-center gap-3">
-        <span class="w-10 h-10 rounded-xl bg-lime text-[#121212] flex items-center justify-center font-display font-black text-lg flex-shrink-0 shadow-sm">⭐</span>
-        <div>
-          <span class="font-display font-black text-lg sm:text-xl text-[#121212] leading-none block">Jayyid Jiddan</span>
-          <span class="font-label font-bold text-[10px] text-gray-500 uppercase tracking-wider">Predikat Amat Baik</span>
-        </div>
-      </div>
-
-      <div class="bg-white rounded-2xl p-4 border border-gray-100 shadow-md flex items-center gap-3">
-        <span class="w-10 h-10 rounded-xl bg-[#CF2B09] text-white flex items-center justify-center font-display font-black text-lg flex-shrink-0 shadow-sm">🎖️</span>
-        <div>
-          <span class="font-display font-black text-lg sm:text-xl text-[#121212] leading-none block">Sanad Talaqqi</span>
-          <span class="font-label font-bold text-[10px] text-gray-500 uppercase tracking-wider">Bersambung Sanad</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Category Filter Pill Switcher -->
-    <div class="flex items-center justify-center gap-2 sm:gap-3 flex-wrap mb-12">
-      <button type="button" data-prestasi-filter="all"
-        class="prestasi-filter-btn px-5 py-2 rounded-full font-display font-black text-xs sm:text-[13px] uppercase tracking-wider transition-all cursor-pointer bg-[#121212] text-lime border-2 border-[#121212] shadow-sm active-tab">
-        Semua Prestasi (6)
-      </button>
-      <button type="button" data-prestasi-filter="champions"
-        class="prestasi-filter-btn px-5 py-2 rounded-full font-display font-black text-xs sm:text-[13px] uppercase tracking-wider transition-all cursor-pointer bg-white text-[#121212] border border-[#161616]/20 shadow-sm hover:border-[#121212]">
-        🏆 Juara Nasional (3)
-      </button>
-      <button type="button" data-prestasi-filter="tasmi"
-        class="prestasi-filter-btn px-5 py-2 rounded-full font-display font-black text-xs sm:text-[13px] uppercase tracking-wider transition-all cursor-pointer bg-white text-[#121212] border border-[#161616]/20 shadow-sm hover:border-[#121212]">
-        📖 Tasmi' 10–15 Juz (3)
-      </button>
-    </div>
-
-    <!-- 6 Achievement Cards Tactile Grid -->
-    <div id="prestasi-cards-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 text-left">
+    <!-- 6 Achievement Cards: 2 Horizontal Scroll Rows (3 Cards Each) on Mobile, 3 cols Grid on Desktop -->
+    <div id="prestasi-cards-container" class="space-y-10 sm:space-y-12 text-left">
 
       <!-- ===================================================================
-           CARD 1: Zjilzian Amarung (Olimpiade 2x Gold + 1x Silver)
+           ROW 1: Olimpiade Nasional (Top 3 Cards)
            =================================================================== -->
-      <div class="prestasi-card rounded-3xl bg-white border border-gray-100 shadow-xl p-5 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between group overflow-hidden relative"
+      <div id="prestasi-section-champions" class="prestasi-section">
+        <div class="flex items-center justify-between mb-4 px-1">
+          <div class="flex items-center gap-2.5">
+            <span class="w-3 h-3 rounded-full bg-[#CF2B09] shadow-sm"></span>
+            <h3 class="font-display font-black text-sm sm:text-base uppercase tracking-wider text-[#121212]">
+              🏆 Juara Olimpiade Nasional (3)
+            </h3>
+          </div>
+          <span class="text-[11px] font-label font-bold text-slate-muted uppercase tracking-wider flex items-center gap-1 lg:hidden">
+            <span>Geser</span>
+            <span>➔</span>
+          </span>
+        </div>
+
+        <div id="prestasi-row-champions" class="flex overflow-x-auto no-scrollbar gap-4 sm:gap-6 py-4 px-1 -mx-1 snap-x snap-mandatory lg:grid lg:grid-cols-3 lg:gap-8 lg:overflow-visible lg:py-0 lg:px-0 lg:mx-0">
+
+          <!-- ===================================================================
+               CARD 1: Zjilzian Amarung (Olimpiade 2x Gold + 1x Silver)
+               =================================================================== -->
+          <div class="prestasi-card w-[82vw] max-w-[320px] sm:w-[330px] lg:w-auto shrink-0 snap-start rounded-3xl bg-white border border-gray-100 shadow-xl p-5 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between group overflow-hidden relative cursor-pointer"
         data-category="champions"
         data-poster-title="Zjilzian Amarung — 2x Gold & 1x Silver Medalist"
         data-poster-desc="Olimpiade Islam Nasional 2025: Medali Emas Bahasa Arab & Aqidah Akhlak, Medali Perak Al-Qur'an Hadits (Diselenggarakan oleh Lingkar Studi Cendekia)."
@@ -154,7 +122,7 @@
       <!-- ===================================================================
            CARD 2: Ibrahim Abdurrahman (Olimpiade 1x Gold + 2x Silver)
            =================================================================== -->
-      <div class="prestasi-card rounded-3xl bg-white border border-gray-100 shadow-xl p-5 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between group overflow-hidden relative"
+      <div class="prestasi-card w-[82vw] max-w-[320px] sm:w-[330px] lg:w-auto shrink-0 snap-start rounded-3xl bg-white border border-gray-100 shadow-xl p-5 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between group overflow-hidden relative cursor-pointer"
         data-category="champions"
         data-poster-title="Ibrahim Abdurrahman — 1x Gold & 2x Silver Medalist"
         data-poster-desc="Olimpiade Islam Nasional 2025: Medali Emas Bahasa Arab, Medali Perak Aqidah Akhlak & Al-Qur'an Hadits (Diselenggarakan oleh Lingkar Studi Cendekia)."
@@ -229,7 +197,7 @@
       <!-- ===================================================================
            CARD 3: Muh. Alif Iwan (Olimpiade 3x Silver - SMP Tingkat)
            =================================================================== -->
-      <div class="prestasi-card rounded-3xl bg-white border border-gray-100 shadow-xl p-5 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between group overflow-hidden relative"
+      <div class="prestasi-card w-[82vw] max-w-[320px] sm:w-[330px] lg:w-auto shrink-0 snap-start rounded-3xl bg-white border border-gray-100 shadow-xl p-5 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between group overflow-hidden relative cursor-pointer"
         data-category="champions"
         data-poster-title="Muh. Alif Iwan — 3x Silver Medalist (SMP / MTs)"
         data-poster-desc="Olimpiade Islam Nasional 2025: Peraih 3 Medali Perak Tingkat SMP cabang Bahasa Arab, Aqidah Akhlak, dan Al-Qur'an Hadits."
@@ -301,10 +269,32 @@
 
       </div>
 
+        </div>
+      </div>
+
       <!-- ===================================================================
-           CARD 4: Abbas (Tasmi' 15 Juz Bil Ghaib Sekali Duduk)
+           ROW 2: Tasmi' Hafalan Al-Qur'an (Bottom 3 Cards)
            =================================================================== -->
-      <div class="prestasi-card rounded-3xl bg-white border border-gray-100 shadow-xl p-5 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between group overflow-hidden relative"
+      <div id="prestasi-section-tasmi" class="prestasi-section">
+        <div class="flex items-center justify-between mb-4 px-1">
+          <div class="flex items-center gap-2.5">
+            <span class="w-3 h-3 rounded-full bg-[#580D14] shadow-sm"></span>
+            <h3 class="font-display font-black text-sm sm:text-base uppercase tracking-wider text-[#121212]">
+              📖 Ujian Tasmi' 10–15 Juz Mutqin (3)
+            </h3>
+          </div>
+          <span class="text-[11px] font-label font-bold text-slate-muted uppercase tracking-wider flex items-center gap-1 lg:hidden">
+            <span>Geser</span>
+            <span>➔</span>
+          </span>
+        </div>
+
+        <div id="prestasi-row-tasmi" class="flex overflow-x-auto no-scrollbar gap-4 sm:gap-6 py-4 px-1 -mx-1 snap-x snap-mandatory lg:grid lg:grid-cols-3 lg:gap-8 lg:overflow-visible lg:py-0 lg:px-0 lg:mx-0">
+
+          <!-- ===================================================================
+               CARD 4: Abbas (Tasmi' 15 Juz Bil Ghaib Sekali Duduk)
+               =================================================================== -->
+          <div class="prestasi-card w-[82vw] max-w-[320px] sm:w-[330px] lg:w-auto shrink-0 snap-start rounded-3xl bg-white border border-gray-100 shadow-xl p-5 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between group overflow-hidden relative cursor-pointer"
         data-category="tasmi"
         data-poster-title="Ananda Abbas — Tasmi' Hafalan 15 Juz Sekali Duduk"
         data-poster-desc="Santri Kelas XII: Ujian Tasmi' Bil Ghaib 15 Juz Al-Qur'an (Juz 1-11 & 27-30) dengan Predikat Jayyid Jiddan (Amat Baik) di hadapan asatidz pembina."
@@ -379,7 +369,7 @@
       <!-- ===================================================================
            CARD 5: Muh. Fiqih (Tasmi' 13 Juz Bil Ghaib Sekali Duduk)
            =================================================================== -->
-      <div class="prestasi-card rounded-3xl bg-white border border-gray-100 shadow-xl p-5 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between group overflow-hidden relative"
+      <div class="prestasi-card w-[82vw] max-w-[320px] sm:w-[330px] lg:w-auto shrink-0 snap-start rounded-3xl bg-white border border-gray-100 shadow-xl p-5 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between group overflow-hidden relative cursor-pointer"
         data-category="tasmi"
         data-poster-title="Ananda Muh. Fiqih — Tasmi' Hafalan 13 Juz Sekali Duduk"
         data-poster-desc="Santri Kelas XII: Ujian Tasmi' Bil Ghaib 13 Juz Al-Qur'an (Juz 1-11 & 29-30) dengan Predikat Jayyid Jiddan (Amat Baik) di hadapan asatidz pembina."
@@ -454,7 +444,7 @@
       <!-- ===================================================================
            CARD 6: Zjilzian Amarung (Tasmi' 10 Juz Bil Ghaib Sekali Duduk)
            =================================================================== -->
-      <div class="prestasi-card rounded-3xl bg-white border border-gray-100 shadow-xl p-5 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between group overflow-hidden relative"
+      <div class="prestasi-card w-[82vw] max-w-[320px] sm:w-[330px] lg:w-auto shrink-0 snap-start rounded-3xl bg-white border border-gray-100 shadow-xl p-5 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between group overflow-hidden relative cursor-pointer"
         data-category="tasmi"
         data-poster-title="Ananda Zjilzian Amarung — Tasmi' Hafalan 10 Juz Sekali Duduk"
         data-poster-desc="Santri Kelas XII: Ujian Tasmi' Bil Ghaib 10 Juz Al-Qur'an (Juz 1-5 & 26-30) dengan Predikat Jayyid Jiddan (Amat Baik) di hadapan asatidz pembina."
@@ -524,6 +514,9 @@
           </button>
         </div>
 
+      </div>
+
+        </div>
       </div>
 
     </div>

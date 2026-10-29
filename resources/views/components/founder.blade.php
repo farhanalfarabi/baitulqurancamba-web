@@ -1,13 +1,13 @@
-<!-- Founder & Leadership Section -->
-<section id="leadership" class="py-20 sm:py-24 bg-[#FAF7F0] bg-dot-matrix relative overflow-hidden">
+<!-- School & Pesantren Profile Section -->
+<section id="profil-sekolah" class="py-20 sm:py-24 bg-[#FAF7F0] bg-dot-matrix relative overflow-hidden">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-    <!-- Header Lockup: 'MEET [LEADERSHIP ✓]' + Cursive Subtitle -->
+    <!-- Header Lockup: 'PROFIL [SEKOLAH ✓]' + Cursive Subtitle -->
     <div class="text-center mb-12 sm:mb-16">
       <h2 class="font-display font-black text-4xl sm:text-6xl text-[#121212] uppercase tracking-tight flex items-center justify-center flex-wrap gap-2.5 sm:gap-3">
         <span>PROFIL</span>
         <span class="inline-block relative px-5 sm:px-6 py-1.5 sm:py-2 bg-[#121212] text-lime rounded-2xl border border-[#161616] tilt-right transform shadow-sm">
-          <span>PENGASUH</span>
+          <span>SEKOLAH</span>
           <!-- Green Circle Checkmark Badge -->
           <span class="absolute -top-3 -right-3 w-7 h-7 rounded-full bg-[#82E600] border-2 border-[#121212] flex items-center justify-center text-white text-xs font-black shadow-sm">
             ✓
@@ -15,7 +15,7 @@
         </span>
       </h2>
       <p class="font-cursive text-3xl sm:text-5xl text-[#CF2B09] font-bold mt-2 sm:mt-3">
-        pimpinan & asatidz pembina pondok pesantren
+        pondok pesantren tahfizh baitul qur'an camba
       </p>
     </div>
 
@@ -27,8 +27,9 @@
 
         <!-- Speech Bubble (Centered Top with Downward Tail Pointer) -->
         <div class="absolute -top-5 left-1/2 -translate-x-1/2 z-20 whitespace-nowrap">
-          <div class="relative bg-white border border-[#161616] shadow-md px-5 py-1.5 rounded-full font-label font-bold text-xs sm:text-[13px] text-[#121212]">
-            <span>Membina santri sepenuh hati</span>
+          <div class="relative bg-white border border-[#161616] shadow-md px-5 py-1.5 rounded-full font-label font-bold text-xs sm:text-[13px] text-[#121212] flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-[#82E600] animate-pulse"></span>
+            <span>Kampus Tahfizh & Sekolah Formal</span>
             <!-- Speech pointer -->
             <div class="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-white border-b border-r border-[#161616] rotate-45"></div>
           </div>
@@ -44,8 +45,8 @@
             </defs>
             <!-- Biscuit Inner Canvas Fill -->
             <path d="M 14 14 A 17.98 17.98 0 0 0 45.00 14 A 17.98 17.98 0 0 0 76.00 14 A 17.98 17.98 0 0 0 107.00 14 A 17.98 17.98 0 0 0 138.00 14 A 17.98 17.98 0 0 0 169.00 14 A 17.98 17.98 0 0 0 200.00 14 A 17.98 17.98 0 0 0 231.00 14 A 17.98 17.98 0 0 0 262.00 14 A 17.98 17.98 0 0 0 293.00 14 A 17.98 17.98 0 0 0 324.00 14 A 17.98 17.98 0 0 0 355.00 14 A 17.98 17.98 0 0 0 386.00 14 A 18.38 18.38 0 0 0 386 45.69 A 18.38 18.38 0 0 0 386 77.38 A 18.38 18.38 0 0 0 386 109.08 A 18.38 18.38 0 0 0 386 140.77 A 18.38 18.38 0 0 0 386 172.46 A 18.38 18.38 0 0 0 386 204.15 A 18.38 18.38 0 0 0 386 235.85 A 18.38 18.38 0 0 0 386 267.54 A 18.38 18.38 0 0 0 386 299.23 A 18.38 18.38 0 0 0 386 330.92 A 18.38 18.38 0 0 0 386 362.62 A 18.38 18.38 0 0 0 386 394.31 A 18.38 18.38 0 0 0 386 426.00 A 17.98 17.98 0 0 0 355.00 426 A 17.98 17.98 0 0 0 324.00 426 A 17.98 17.98 0 0 0 293.00 426 A 17.98 17.98 0 0 0 262.00 426 A 17.98 17.98 0 0 0 231.00 426 A 17.98 17.98 0 0 0 200.00 426 A 17.98 17.98 0 0 0 169.00 426 A 17.98 17.98 0 0 0 138.00 426 A 17.98 17.98 0 0 0 107.00 426 A 17.98 17.98 0 0 0 76.00 426 A 17.98 17.98 0 0 0 45.00 426 A 17.98 17.98 0 0 0 14.00 426 A 18.38 18.38 0 0 0 14 394.31 A 18.38 18.38 0 0 0 14 362.62 A 18.38 18.38 0 0 0 14 330.92 A 18.38 18.38 0 0 0 14 299.23 A 18.38 18.38 0 0 0 14 267.54 A 18.38 18.38 0 0 0 14 235.85 A 18.38 18.38 0 0 0 14 204.15 A 18.38 18.38 0 0 0 14 172.46 A 18.38 18.38 0 0 0 14 140.77 A 18.38 18.38 0 0 0 14 109.08 A 18.38 18.38 0 0 0 14 77.38 A 18.38 18.38 0 0 0 14 45.69 A 18.38 18.38 0 0 0 14 14.00 Z" fill="#ffdecc" />
-            <!-- Leadership Photo Clipped to Scalloped Frame -->
-            <image href="/assets/images/ikhwan.png" x="15" y="25" width="370" height="395" preserveAspectRatio="xMidYMid meet" clip-path="url(#scallop-founder-clip)" />
+            <!-- School Campus Landmark Clipped to Scalloped Frame -->
+            <image href="/assets/images/pondok/masjid.jpg" x="14" y="14" width="372" height="412" preserveAspectRatio="xMidYMid slice" clip-path="url(#scallop-founder-clip)" />
             <!-- Crisp Outer Cookie Stroke -->
             <path d="M 14 14 A 17.98 17.98 0 0 0 45.00 14 A 17.98 17.98 0 0 0 76.00 14 A 17.98 17.98 0 0 0 107.00 14 A 17.98 17.98 0 0 0 138.00 14 A 17.98 17.98 0 0 0 169.00 14 A 17.98 17.98 0 0 0 200.00 14 A 17.98 17.98 0 0 0 231.00 14 A 17.98 17.98 0 0 0 262.00 14 A 17.98 17.98 0 0 0 293.00 14 A 17.98 17.98 0 0 0 324.00 14 A 17.98 17.98 0 0 0 355.00 14 A 17.98 17.98 0 0 0 386.00 14 A 18.38 18.38 0 0 0 386 45.69 A 18.38 18.38 0 0 0 386 77.38 A 18.38 18.38 0 0 0 386 109.08 A 18.38 18.38 0 0 0 386 140.77 A 18.38 18.38 0 0 0 386 172.46 A 18.38 18.38 0 0 0 386 204.15 A 18.38 18.38 0 0 0 386 235.85 A 18.38 18.38 0 0 0 386 267.54 A 18.38 18.38 0 0 0 386 299.23 A 18.38 18.38 0 0 0 386 330.92 A 18.38 18.38 0 0 0 386 362.62 A 18.38 18.38 0 0 0 386 394.31 A 18.38 18.38 0 0 0 386 426.00 A 17.98 17.98 0 0 0 355.00 426 A 17.98 17.98 0 0 0 324.00 426 A 17.98 17.98 0 0 0 293.00 426 A 17.98 17.98 0 0 0 262.00 426 A 17.98 17.98 0 0 0 231.00 426 A 17.98 17.98 0 0 0 200.00 426 A 17.98 17.98 0 0 0 169.00 426 A 17.98 17.98 0 0 0 138.00 426 A 17.98 17.98 0 0 0 107.00 426 A 17.98 17.98 0 0 0 76.00 426 A 17.98 17.98 0 0 0 45.00 426 A 17.98 17.98 0 0 0 14.00 426 A 18.38 18.38 0 0 0 14 394.31 A 18.38 18.38 0 0 0 14 362.62 A 18.38 18.38 0 0 0 14 330.92 A 18.38 18.38 0 0 0 14 299.23 A 18.38 18.38 0 0 0 14 267.54 A 18.38 18.38 0 0 0 14 235.85 A 18.38 18.38 0 0 0 14 204.15 A 18.38 18.38 0 0 0 14 172.46 A 18.38 18.38 0 0 0 14 140.77 A 18.38 18.38 0 0 0 14 109.08 A 18.38 18.38 0 0 0 14 77.38 A 18.38 18.38 0 0 0 14 45.69 A 18.38 18.38 0 0 0 14 14.00 Z" fill="none" stroke="#121212" stroke-width="2.5" />
           </svg>
@@ -84,7 +85,7 @@
           <div class="bite-corner-br bg-[#A52207] text-white p-5 sm:p-5 lg:p-6 shadow-md hover:shadow-xl transition-all transform hover:-translate-y-1 flex flex-col justify-between min-h-[145px] sm:min-h-[160px]">
             <span class="font-display font-black text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-none">30</span>
             <p class="font-body text-xs sm:text-[13px] text-white/95 font-medium leading-snug mt-3">
-              juz kurikulum talaqqi bersanad
+              juz standar tahfidz talaqqi bersanad
             </p>
           </div>
 
@@ -92,15 +93,15 @@
           <div class="bite-corner-br bg-[#7C1A06] text-white p-5 sm:p-5 lg:p-6 shadow-md hover:shadow-xl transition-all transform hover:-translate-y-1 flex flex-col justify-between min-h-[145px] sm:min-h-[160px]">
             <span class="font-display font-black text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-none">150+</span>
             <p class="font-body text-xs sm:text-[13px] text-white/95 font-medium leading-snug mt-3">
-              santri aktif & alumni hafizh
+              santri aktif & jejaring alumni berkarya
             </p>
           </div>
 
           <!-- Stat Card 4 (Deep Cherry Wine #4A0E17) -->
           <div class="bite-corner-br bg-[#4A0E17] text-white p-5 sm:p-5 lg:p-6 shadow-md hover:shadow-xl transition-all transform hover:-translate-y-1 flex flex-col justify-between min-h-[145px] sm:min-h-[160px]">
-            <span class="font-display font-black text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-none">14+</span>
+            <span class="font-display font-black text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-none">100%</span>
             <p class="font-body text-xs sm:text-[13px] text-white/95 font-medium leading-snug mt-3">
-              asatidz & pembina bersertifikat
+              lulusan berijazah resmi formal negara
             </p>
           </div>
 
@@ -112,7 +113,7 @@
           <!-- Row 1 -->
           <div class="py-3.5 sm:py-4 flex items-center justify-between gap-3 sm:gap-4 hover:bg-black/[0.02] transition-colors">
             <span class="font-semibold text-xs sm:text-sm text-[#121212] w-[38%]">Kementerian Agama RI</span>
-            <span class="font-medium text-xs sm:text-sm text-[#555555] w-[47%]">Izin Operasional Resmi Pesantren Tahfizh</span>
+            <span class="font-medium text-xs sm:text-sm text-[#555555] w-[47%]">Izin Operasional Resmi Pesantren Tahfizh (NSPP)</span>
             <span class="font-mono font-bold text-xs sm:text-sm text-[#121212] text-right w-[15%]">2016</span>
           </div>
 
@@ -120,13 +121,13 @@
           <div class="py-3.5 sm:py-4 flex items-center justify-between gap-3 sm:gap-4 hover:bg-black/[0.02] transition-colors">
             <span class="font-semibold text-xs sm:text-sm text-[#121212] w-[38%]">Kementerian Pendidikan</span>
             <span class="font-medium text-xs sm:text-sm text-[#555555] w-[47%]">Terakreditasi Formal Wustha (SMP) & Ulya (SMA)</span>
-            <span class="font-mono font-bold text-xs sm:text-sm text-[#121212] text-right w-[15%]">2018</span>
+            <span class="font-mono font-bold text-xs sm:text-sm text-[#121212] text-right w-[15%]">Resmi</span>
           </div>
 
           <!-- Row 3 -->
           <div class="py-3.5 sm:py-4 flex items-center justify-between gap-3 sm:gap-4 hover:bg-black/[0.02] transition-colors">
             <span class="font-semibold text-xs sm:text-sm text-[#121212] w-[38%]">Sanad Al-Qur'an Mu'tabar</span>
-            <span class="font-medium text-xs sm:text-sm text-[#555555] w-[47%]">Riwayat Hafs 'an 'Ashim Thariq Asy-Syathibiyyah</span>
+            <span class="font-medium text-xs sm:text-sm text-[#555555] w-[47%]">Riwayat Hafsh 'an 'Ashim Thariq Asy-Syathibiyyah</span>
             <span class="font-mono font-bold text-xs sm:text-sm text-[#121212] text-right w-[15%]">Mutqin</span>
           </div>
 

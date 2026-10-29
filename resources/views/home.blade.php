@@ -7,9 +7,9 @@
     <x-marquee />
     <x-coverflow />
     <x-founder />
-    <x-pricing />
+    {{-- <x-pricing /> --}}
     <x-partner />
     <x-faq />
-    <x-interactive-laptop />
+    {{-- <x-interactive-laptop /> --}}
     <x-location />
 </x-layouts.app>

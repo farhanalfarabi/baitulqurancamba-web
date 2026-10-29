@@ -1,29 +1,55 @@
-<!-- Partner Banner Component -->
-<section id="partner" class="py-16 bg-[#FAF7F0]">
+<!-- Islamic Motivation Banner Component: Kemuliaan Menuntut Ilmu -->
+<section id="partner" class="py-16 sm:py-20 bg-[#FAF7F0] relative overflow-hidden">
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="rounded-2xl sm:rounded-3xl bg-[#580D14] text-white p-8 sm:p-14 shadow-2xl text-center relative overflow-hidden border-2 border-white/10">
       
-      <div class="stamp-badge stamp-badge-lime mb-6">
-        Kemitraan & Sinergi Umat
+      <!-- Ambient Glow Accents -->
+      <div class="absolute -right-24 -top-24 w-72 h-72 rounded-full bg-lime/10 blur-3xl pointer-events-none"></div>
+      <div class="absolute -left-24 -bottom-24 w-72 h-72 rounded-full bg-white/5 blur-3xl pointer-events-none"></div>
+
+      <!-- Stamp Badge -->
+      <div class="stamp-badge stamp-badge-lime mb-5 inline-block">
+        Kemuliaan Menuntut Ilmu
       </div>
       
-      <h2 class="font-display font-black text-2xl sm:text-4xl uppercase tracking-tight max-w-3xl mx-auto mb-8 leading-snug">
-        <span class="font-cursive lowercase text-lime text-3xl sm:text-5xl font-bold">untuk</span> Para Donatur, Lembaga Dakwah & Sinergi Umat
+      <!-- Main Motivational Title -->
+      <h2 class="font-display font-black text-2xl sm:text-4xl lg:text-5xl uppercase tracking-tight max-w-3xl mx-auto mb-6 leading-tight">
+        Menuntut Ilmu Adalah <br class="hidden sm:inline">
+        <span class="font-cursive lowercase text-lime text-3xl sm:text-5xl lg:text-6xl font-bold">jihad mulia</span>
+        <span>Di Jalan Allah</span>
       </h2>
 
-      <p class="font-body text-sm sm:text-base text-white/80 max-w-2xl mx-auto mb-8 font-medium">
-        Bersama melahirkan generasi penghafal Al-Qur'an dan pemimpin umat melalui program wakaf, orang tua asuh, dan kemitraan strategis.
+      <!-- Hadits Quote Highlight Card with Arabic Script -->
+      <div class="max-w-3xl mx-auto mb-6 p-6 sm:p-8 rounded-2xl bg-white/5 border border-white/15 backdrop-blur-sm text-center">
+        <!-- Arabic Text -->
+        <p class="font-serif text-xl sm:text-2xl lg:text-3xl text-lime mb-4 leading-loose tracking-wide" dir="rtl">
+          مَنْ خَرَجَ فِي طَلَبِ الْعِلْمِ فَهُوَ فِي سَبِيلِ اللَّهِ حَتَّى يَرْجِعَ
+        </p>
+        <!-- Translation -->
+        <p class="font-body text-sm sm:text-base md:text-lg text-white font-medium leading-relaxed italic">
+          "Barangsiapa yang keluar dari rumahnya untuk menuntut ilmu, maka ia berada di jalan Allah (fii sabilillah) hingga ia kembali pulang."
+        </p>
+        <span class="inline-block mt-3 font-label font-bold text-xs uppercase tracking-wider text-lime">
+          — HR. At-Tirmidzi No. 2647
+        </span>
+      </div>
+
+      <!-- Motivational Reflection Message for Santri & Parents -->
+      <p class="font-body text-xs sm:text-sm md:text-base text-white/90 max-w-2xl mx-auto font-medium leading-relaxed mb-6">
+        Setiap langkah santri yang meninggalkan rumah untuk belajar, setiap lelah melafalkan ayat suci, serta setiap kerelaan orang tua yang melepas buah hatinya ke pondok, bernilai jihad yang luhur di sisi Allah Ta'ala. Semoga Allah meridhai setiap ikhtiar kita.
       </p>
 
-      <!-- Signature Double-Layer Button -->
-      <div class="flex justify-center">
-        <a href="https://forms.gle/dUHmyuv98pgXiPcS7" target="_blank" rel="noopener noreferrer"
-          class="bg-white p-1 rounded-xl shadow-md inline-flex items-center transition-transform hover:scale-[1.02] active:scale-[0.98] cursor-pointer focus:outline-none">
-          <div class="bg-lime text-[#121212] border-2 border-[#161616] rounded-lg px-6 py-3 flex items-center gap-3 font-display font-black text-xs sm:text-sm uppercase tracking-wider">
-            <span>Sinergi Bersama Kami</span>
-            <span class="w-6 h-6 rounded-full bg-[#E53935] text-white flex items-center justify-center text-xs font-black">➔</span>
-          </div>
-        </a>
+      <!-- 3 Virtues of Seeking Knowledge (No Button) -->
+      <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+        <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-xs font-semibold text-lime shadow-sm">
+          <span>✦</span> Jihad Fii Sabilillah
+        </span>
+        <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-xs font-semibold text-white/95 shadow-sm">
+          <span>✦</span> Dimudahkan Jalan Menuju Surga
+        </span>
+        <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-xs font-semibold text-white/95 shadow-sm">
+          <span>✦</span> Didoakan Para Malaikat
+        </span>
       </div>
 
     </div>

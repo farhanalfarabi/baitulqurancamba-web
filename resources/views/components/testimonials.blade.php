@@ -1,5 +1,5 @@
-<!-- Testimonials Section Component: Voices of Our Community (Scalloped Rosette Style with Hanging Swing) -->
-<section id="testimonials" class="py-24 sm:py-32 bg-[#2D060B] text-white relative overflow-hidden">
+<!-- Graduate Competency & Target Output Component (Scalloped Rosette Style with Hanging Swing) -->
+<section id="target-lulusan" class="py-24 sm:py-32 bg-[#2D060B] text-white relative overflow-hidden">
   
   <!-- Atmospheric Santri Background (hero-bqc.png) -->
   <div class="absolute inset-0 w-full h-full pointer-events-none select-none z-0 overflow-hidden">
@@ -13,17 +13,20 @@
     <!-- Header -->
     <div class="relative inline-block mb-12 sm:mb-16">
       <div class="stamp-badge stamp-badge-lime mb-4">
-        Cerita & Kesan Wali Santri
+        Standar Mutu & Target Kelulusan
       </div>
       <h2 class="font-display font-black text-4xl sm:text-6xl lg:text-7xl uppercase tracking-tight text-white leading-tight flex items-center justify-center flex-wrap gap-x-3 gap-y-1">
-        <span>YOU'RE</span>
-        <span class="font-cursive lowercase text-white italic text-5xl sm:text-7xl lg:text-8xl -rotate-6 inline-block font-normal">not</span>
-        <span>ALONE</span>
+        <span>EMPAT</span>
+        <span class="font-cursive lowercase text-white italic text-5xl sm:text-7xl lg:text-8xl -rotate-6 inline-block font-normal">output</span>
+        <span>SANTRI</span>
         <img src="/assets/images/sticker-lightning.svg" alt="Islamic Lantern of Light" class="w-8 sm:w-12 h-auto tilt-right inline-block -mt-2 drop-shadow-[0_4px_12px_rgba(212,255,0,0.4)]">
       </h2>
+      <p class="font-body text-xs sm:text-sm md:text-base text-white/85 max-w-2xl mx-auto mt-4 font-medium leading-relaxed">
+        Komitmen nyata pembinaan Pondok Pesantren Baitul Qur'an Camba dalam mencetak generasi Muhaffizh Al-Qur'an, akademisi berijazah formal, dan da'i muda berakhlak mulia.
+      </p>
     </div>
 
-    <!-- 4 Overlapping Scalloped Rosette Review Cards Track with Hanging Swing -->
+    <!-- 4 Overlapping Scalloped Rosette Cards Track with Hanging Swing -->
     <div class="testimonials-track flex items-center justify-start lg:justify-center -space-x-12 sm:-space-x-14 md:-space-x-16 lg:-space-x-16 xl:-space-x-20 overflow-x-auto lg:overflow-visible py-8 sm:py-12 px-4 mb-14 scrollbar-none select-none">
       
       <!-- Card 1 (Orange-Red #F95534 | Tilt -11deg | z-10) -->
@@ -39,23 +42,40 @@
               </div>
             </div>
 
-            <!-- Top Quote & Content -->
+            <!-- Content -->
             <div>
-              <svg viewBox="0 0 18.407 16" class="w-5 h-4 mb-2 text-[#580D14]" fill="currentColor" aria-hidden="true">
-                <path d="M 2.973 7.504 L 0.425 7.504 L 0.425 0 L 7.929 0 L 7.929 6.726 L 3.611 16 L 0 16 Z M 13.451 7.504 L 10.903 7.504 L 10.903 0 L 18.407 0 L 18.407 6.726 L 14.09 16 L 10.479 16 Z"></path>
-              </svg>
-              <p class="font-body text-xs sm:text-[13px] md:text-sm lg:text-[14px] font-medium text-white/95 leading-relaxed">
-                Alhamdulillah, ananda berhasil menghafal 15 juz di tahun kedua dengan adab dan akhlak santun yang sangat membanggakan keluarga.
+              <div class="flex items-center justify-between gap-2 mb-2 sm:mb-2.5">
+                <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-black/25 text-lime border border-lime/30 font-mono font-bold text-[10px] sm:text-xs tracking-wider">
+                  OUTPUT 01
+                </span>
+                <span class="text-[10px] sm:text-[11px] font-label font-bold text-white/80 uppercase tracking-widest">
+                  TAHFIDZ AL-QUR'AN
+                </span>
+              </div>
+
+              <!-- Icon & Heading -->
+              <div class="flex items-start gap-2.5 mb-2">
+                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-lime flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                </svg>
+                <h3 class="font-display font-black text-sm sm:text-base md:text-lg uppercase tracking-tight text-white leading-tight">
+                  Hafizh 30 Juz Bersanad
+                </h3>
+              </div>
+
+              <p class="font-body text-xs sm:text-[13px] md:text-sm font-medium text-white/95 leading-relaxed">
+                Hafalan 30 juz mutqin melalui metode talaqqi bersanad riwayat Hafsh 'an 'Ashim, siap menjadi imam rawatib & penjaga kalam Ilahi.
               </p>
             </div>
 
-            <!-- Bottom Author Block -->
-            <div class="pt-2 sm:pt-3">
-              <h4 class="font-display font-black text-sm sm:text-base uppercase tracking-wider text-white">HJ. NURHAYATI</h4>
-              <div class="flex items-center gap-1.5 mt-1 text-[11px] sm:text-xs font-label font-bold text-white/80 uppercase tracking-wider">
-                <span>Parent</span>
-                <span class="w-1.5 h-1.5 rounded-full bg-[#580D14] inline-block"></span>
-                <span>Makassar</span>
+            <!-- Bottom Pillar Badge -->
+            <div class="pt-2 sm:pt-3 border-t border-white/20">
+              <div class="flex items-center justify-between">
+                <span class="font-label text-[10px] sm:text-xs font-bold text-white/80 uppercase tracking-wider">Target Lulusan</span>
+                <span class="inline-flex items-center gap-1 font-display font-black text-[11px] sm:text-xs text-lime uppercase tracking-wider">
+                  <span>30 JUZ MUTQIN</span>
+                  <span>✓</span>
+                </span>
               </div>
             </div>
 
@@ -76,23 +96,41 @@
               </div>
             </div>
 
-            <!-- Top Quote & Content -->
+            <!-- Content -->
             <div>
-              <svg viewBox="0 0 18.407 16" class="w-5 h-4 mb-2 text-[#580D14]" fill="currentColor" aria-hidden="true">
-                <path d="M 2.973 7.504 L 0.425 7.504 L 0.425 0 L 7.929 0 L 7.929 6.726 L 3.611 16 L 0 16 Z M 13.451 7.504 L 10.903 7.504 L 10.903 0 L 18.407 0 L 18.407 6.726 L 14.09 16 L 10.479 16 Z"></path>
-              </svg>
-              <p class="font-body text-xs sm:text-[13px] md:text-sm lg:text-[14px] font-medium text-white/95 leading-relaxed">
-                Keseimbangan antara ujian sekolah formal dan hafalan Al-Qur'an membuat ananda kami percaya diri dan berprestasi hingga lulus.
+              <div class="flex items-center justify-between gap-2 mb-2 sm:mb-2.5">
+                <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-black/25 text-lime border border-lime/30 font-mono font-bold text-[10px] sm:text-xs tracking-wider">
+                  OUTPUT 02
+                </span>
+                <span class="text-[10px] sm:text-[11px] font-label font-bold text-white/80 uppercase tracking-widest">
+                  FORMAL TERAKREDITASI
+                </span>
+              </div>
+
+              <!-- Icon & Heading -->
+              <div class="flex items-start gap-2.5 mb-2">
+                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-lime flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                </svg>
+                <h3 class="font-display font-black text-sm sm:text-base md:text-lg uppercase tracking-tight text-white leading-tight">
+                  Ijazah Wustha & Ulya
+                </h3>
+              </div>
+
+              <p class="font-body text-xs sm:text-[13px] md:text-sm font-medium text-white/95 leading-relaxed">
+                Ijazah formal negara resmi (setara SMP & SMA). Lulusan siap menembus seleksi PTN, PTKIN, kedinasan, maupun beasiswa universitas luar negeri.
               </p>
             </div>
 
-            <!-- Bottom Author Block -->
-            <div class="pt-2 sm:pt-3">
-              <h4 class="font-display font-black text-sm sm:text-base uppercase tracking-wider text-white">DRS. H. SYAMSUDDIN</h4>
-              <div class="flex items-center gap-1.5 mt-1 text-[11px] sm:text-xs font-label font-bold text-white/80 uppercase tracking-wider">
-                <span>Parent</span>
-                <span class="w-1.5 h-1.5 rounded-full bg-[#580D14] inline-block"></span>
-                <span>Maros</span>
+            <!-- Bottom Pillar Badge -->
+            <div class="pt-2 sm:pt-3 border-t border-white/20">
+              <div class="flex items-center justify-between">
+                <span class="font-label text-[10px] sm:text-xs font-bold text-white/80 uppercase tracking-wider">Legalitas Negara</span>
+                <span class="inline-flex items-center gap-1 font-display font-black text-[11px] sm:text-xs text-lime uppercase tracking-wider">
+                  <span>SMP & SMA RESMI</span>
+                  <span>✓</span>
+                </span>
               </div>
             </div>
 
@@ -113,23 +151,40 @@
               </div>
             </div>
 
-            <!-- Top Quote & Content -->
+            <!-- Content -->
             <div>
-              <svg viewBox="0 0 18.407 16" class="w-5 h-4 mb-2 text-[#580D14]" fill="currentColor" aria-hidden="true">
-                <path d="M 2.973 7.504 L 0.425 7.504 L 0.425 0 L 7.929 0 L 7.929 6.726 L 3.611 16 L 0 16 Z M 13.451 7.504 L 10.903 7.504 L 10.903 0 L 18.407 0 L 18.407 6.726 L 14.09 16 L 10.479 16 Z"></path>
-              </svg>
-              <p class="font-body text-xs sm:text-[13px] md:text-sm lg:text-[14px] font-medium text-white/95 leading-relaxed">
-                Latihan pidato 3 bahasa Arab, Inggris, dan Indonesia setiap pekan memberi bekal kepercayaan diri tinggi saat melanjutkan studi ke kampus.
+              <div class="flex items-center justify-between gap-2 mb-2 sm:mb-2.5">
+                <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-black/25 text-lime border border-lime/30 font-mono font-bold text-[10px] sm:text-xs tracking-wider">
+                  OUTPUT 03
+                </span>
+                <span class="text-[10px] sm:text-[11px] font-label font-bold text-white/80 uppercase tracking-widest">
+                  KOMPETENSI GLOBAL
+                </span>
+              </div>
+
+              <!-- Icon & Heading -->
+              <div class="flex items-start gap-2.5 mb-2">
+                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-lime flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+                </svg>
+                <h3 class="font-display font-black text-sm sm:text-base md:text-lg uppercase tracking-tight text-white leading-tight">
+                  Fasih Arab & Inggris
+                </h3>
+              </div>
+
+              <p class="font-body text-xs sm:text-[13px] md:text-sm font-medium text-white/95 leading-relaxed">
+                Penguasaan bahasa Arab untuk memahami kitab turats serta kefasihan bahasa Inggris praktis melalui latihan oratori pidato 3 bahasa mingguan.
               </p>
             </div>
 
-            <!-- Bottom Author Block -->
-            <div class="pt-2 sm:pt-3">
-              <h4 class="font-display font-black text-sm sm:text-base uppercase tracking-wider text-white">AHMAD FAUZAN</h4>
-              <div class="flex items-center gap-1.5 mt-1 text-[11px] sm:text-xs font-label font-bold text-white/80 uppercase tracking-wider">
-                <span>Alumni</span>
-                <span class="w-1.5 h-1.5 rounded-full bg-[#580D14] inline-block"></span>
-                <span>30 Juz Hafizh</span>
+            <!-- Bottom Pillar Badge -->
+            <div class="pt-2 sm:pt-3 border-t border-white/20">
+              <div class="flex items-center justify-between">
+                <span class="font-label text-[10px] sm:text-xs font-bold text-white/80 uppercase tracking-wider">Kecakapan Bahasa</span>
+                <span class="inline-flex items-center gap-1 font-display font-black text-[11px] sm:text-xs text-lime uppercase tracking-wider">
+                  <span>BILINGUAL AKTIF</span>
+                  <span>✓</span>
+                </span>
               </div>
             </div>
 
@@ -150,23 +205,40 @@
               </div>
             </div>
 
-            <!-- Top Quote & Content -->
+            <!-- Content -->
             <div>
-              <svg viewBox="0 0 18.407 16" class="w-5 h-4 mb-2 text-[#580D14]" fill="currentColor" aria-hidden="true">
-                <path d="M 2.973 7.504 L 0.425 7.504 L 0.425 0 L 7.929 0 L 7.929 6.726 L 3.611 16 L 0 16 Z M 13.451 7.504 L 10.903 7.504 L 10.903 0 L 18.407 0 L 18.407 6.726 L 14.09 16 L 10.479 16 Z"></path>
-              </svg>
-              <p class="font-body text-xs sm:text-[13px] md:text-sm lg:text-[14px] font-medium text-white/95 leading-relaxed">
-                Para asatidz mengasuh santri dengan penuh kasih sayang layaknya keluarga. Hawa sejuk pegunungan Camba membuat belajar sangat tenang.
+              <div class="flex items-center justify-between gap-2 mb-2 sm:mb-2.5">
+                <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-black/25 text-lime border border-lime/30 font-mono font-bold text-[10px] sm:text-xs tracking-wider">
+                  OUTPUT 04
+                </span>
+                <span class="text-[10px] sm:text-[11px] font-label font-bold text-white/80 uppercase tracking-widest">
+                  KARAKTER & DAKWAH
+                </span>
+              </div>
+
+              <!-- Icon & Heading -->
+              <div class="flex items-start gap-2.5 mb-2">
+                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-lime flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+                <h3 class="font-display font-black text-sm sm:text-base md:text-lg uppercase tracking-tight text-white leading-tight">
+                  Adab & Muballigh Muda
+                </h3>
+              </div>
+
+              <p class="font-body text-xs sm:text-[13px] md:text-sm font-medium text-white/95 leading-relaxed">
+                Pribadi beradab santun kepada orang tua, mandiri tanpa ketergantungan gadget, dan memiliki keterampilan tabligh khutbah di masyarakat.
               </p>
             </div>
 
-            <!-- Bottom Author Block -->
-            <div class="pt-2 sm:pt-3">
-              <h4 class="font-display font-black text-sm sm:text-base uppercase tracking-wider text-white">UMM MARYAM</h4>
-              <div class="flex items-center gap-1.5 mt-1 text-[11px] sm:text-xs font-label font-bold text-white/80 uppercase tracking-wider">
-                <span>Parent</span>
-                <span class="w-1.5 h-1.5 rounded-full bg-[#580D14] inline-block"></span>
-                <span>Bone</span>
+            <!-- Bottom Pillar Badge -->
+            <div class="pt-2 sm:pt-3 border-t border-white/20">
+              <div class="flex items-center justify-between">
+                <span class="font-label text-[10px] sm:text-xs font-bold text-white/80 uppercase tracking-wider">Karakter Santri</span>
+                <span class="inline-flex items-center gap-1 font-display font-black text-[11px] sm:text-xs text-lime uppercase tracking-wider">
+                  <span>SIAP TABLIGH & ADAB</span>
+                  <span>✓</span>
+                </span>
               </div>
             </div>
 
@@ -177,14 +249,17 @@
     </div>
 
     <!-- CTA: Signature Double-Layer Button -->
-    <div class="flex justify-center">
+    <div class="flex flex-col items-center justify-center gap-3">
       <a href="{{ route('pendaftaran') }}"
         class="group bg-white p-1 rounded-xl shadow-md inline-flex items-center transition-transform hover:scale-[1.02] active:scale-[0.98] cursor-pointer focus:outline-none">
         <div class="bg-lime text-[#121212] border-2 border-[#161616] rounded-lg px-6 py-3 flex items-center gap-3 font-display font-black text-xs sm:text-sm uppercase tracking-wider">
-          <span>DAFTAR SEKARANG</span>
+          <span>DAFTARKAN ANANDA SEKARANG</span>
           <span class="w-6 h-6 rounded-full bg-[#E53935] text-white flex items-center justify-center text-xs font-black shadow-sm">➔</span>
         </div>
       </a>
+      <p class="font-body text-xs text-white/60 font-medium">
+        Tahun Ajaran 2027/2028 • Kuota Asrama Terbatas untuk Kualitas Bimbingan Intensif
+      </p>
     </div>
 
   </div>

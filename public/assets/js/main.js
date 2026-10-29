@@ -639,10 +639,9 @@ function initGalleryInteractivity() {
 }
 
 /* ==========================================================================
-   10. Prestasi / Student Achievements (Filtering & Poster Lightbox)
+   10. Prestasi / Student Achievements (Poster Lightbox)
    ========================================================================== */
 function initPrestasiInteractivity() {
-  const filterBtns = document.querySelectorAll('.prestasi-filter-btn');
   const cards = document.querySelectorAll('.prestasi-card');
   const lightbox = document.getElementById('prestasi-lightbox-modal');
   const lightboxImg = document.getElementById('prestasi-lightbox-img');
@@ -651,39 +650,6 @@ function initPrestasiInteractivity() {
   const closeBtn = document.getElementById('prestasi-lightbox-close');
 
   if (!cards.length) return;
-
-  // Filter tabs handling
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const filter = btn.getAttribute('data-prestasi-filter');
-
-      // Update button styling
-      filterBtns.forEach(b => {
-        b.classList.remove('bg-[#121212]', 'text-lime', 'border-2', 'border-[#121212]', 'active-tab');
-        b.classList.add('bg-white', 'text-[#121212]', 'border', 'border-[#161616]/20');
-      });
-      btn.classList.remove('bg-white', 'text-[#121212]', 'border', 'border-[#161616]/20');
-      btn.classList.add('bg-[#121212]', 'text-lime', 'border-2', 'border-[#121212]', 'active-tab');
-
-      // Filter cards with smooth fade
-      cards.forEach(card => {
-        const cat = card.getAttribute('data-category');
-        if (filter === 'all' || cat === filter) {
-          card.style.display = 'flex';
-          setTimeout(() => {
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0) scale(1)';
-          }, 10);
-        } else {
-          card.style.opacity = '0';
-          card.style.transform = 'scale(0.95)';
-          setTimeout(() => {
-            card.style.display = 'none';
-          }, 200);
-        }
-      });
-    });
-  });
 
   // Lightbox Modal for Full Poster
   if (!lightbox || !lightboxImg) return;
@@ -729,9 +695,35 @@ function initPrestasiInteractivity() {
     }, 250);
   }
 
-  // Open modal on card click
+  // Open modal on card click with touch-drag guard (so swiping horizontally doesn't open modal)
   cards.forEach(card => {
-    card.addEventListener('click', () => {
+    let isTouchMove = false;
+    let startX = 0;
+    let startY = 0;
+
+    card.addEventListener('touchstart', (e) => {
+      isTouchMove = false;
+      if (e.touches && e.touches[0]) {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+      }
+    }, { passive: true });
+
+    card.addEventListener('touchmove', (e) => {
+      if (e.touches && e.touches[0]) {
+        const diffX = Math.abs(e.touches[0].clientX - startX);
+        const diffY = Math.abs(e.touches[0].clientY - startY);
+        if (diffX > 8 || diffY > 8) {
+          isTouchMove = true;
+        }
+      }
+    }, { passive: true });
+
+    card.addEventListener('click', (e) => {
+      if (isTouchMove) {
+        isTouchMove = false;
+        return;
+      }
       openLightbox(card);
     });
   });

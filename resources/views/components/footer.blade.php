@@ -68,9 +68,9 @@
           <a href="{{ url('/') }}#curriculum" class="hover:text-lime transition-colors">Program</a>
           <a href="{{ route('gallery') }}" class="hover:text-lime transition-colors">Galeri</a>
           <a href="{{ url('/') }}#about" class="hover:text-lime transition-colors">Tentang Kami</a>
-          <a href="{{ url('/') }}#pricing" class="hover:text-lime transition-colors">Biaya Pendidikan</a>
+          {{-- <a href="{{ url('/') }}#pricing" class="hover:text-lime transition-colors">Biaya Pendidikan</a> --}}
           <a href="{{ url('/') }}#faq" class="hover:text-lime transition-colors">FAQ</a>
-          <a href="{{ url('/') }}#location" class="hover:text-lime transition-colors">Location</a>
+          <a href="{{ url('/') }}#location" class="hover:text-lime transition-colors">Lokasi</a>
         </div>
         <p>© 2026 Baitul Qur'an Camba. Seluruh Hak Cipta Dilindungi.</p>
       </div>

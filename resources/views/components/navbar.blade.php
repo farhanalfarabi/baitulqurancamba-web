@@ -44,12 +44,12 @@
             <span class="text-[#E53935]" aria-hidden="true">Tentang Kami</span>
           </span>
         </a>
-        <a href="{{ url('/') }}#pricing" class="roll-link">
+        {{-- <a href="{{ url('/') }}#pricing" class="roll-link">
           <span class="roll-link-inner">
             <span>Biaya Pendidikan</span>
             <span class="text-[#E53935]" aria-hidden="true">Biaya Pendidikan</span>
           </span>
-        </a>
+        </a> --}}
         <a href="{{ url('/') }}#faq" class="roll-link">
           <span class="roll-link-inner">
             <span>FAQ</span>
@@ -58,8 +58,8 @@
         </a>
         <a href="{{ url('/') }}#location" class="roll-link">
           <span class="roll-link-inner">
-            <span>Location</span>
-            <span class="text-[#E53935]" aria-hidden="true">Location</span>
+            <span>Lokasi</span>
+            <span class="text-[#E53935]" aria-hidden="true">Lokasi</span>
           </span>
         </a>
       </nav>
@@ -122,12 +122,12 @@
         <span class="text-[#E53935]" aria-hidden="true">Tentang Kami</span>
       </span>
     </a>
-    <a href="{{ url('/') }}#pricing" class="roll-link block font-body font-semibold text-base text-[#121212]">
+    {{-- <a href="{{ url('/') }}#pricing" class="roll-link block font-body font-semibold text-base text-[#121212]">
       <span class="roll-link-inner">
         <span>Biaya Pendidikan</span>
         <span class="text-[#E53935]" aria-hidden="true">Biaya Pendidikan</span>
       </span>
-    </a>
+    </a> --}}
     <a href="{{ url('/') }}#faq" class="roll-link block font-body font-semibold text-base text-[#121212]">
       <span class="roll-link-inner">
         <span>FAQ</span>
@@ -136,8 +136,8 @@
     </a>
     <a href="{{ url('/') }}#location" class="roll-link block font-body font-semibold text-base text-[#121212]">
       <span class="roll-link-inner">
-        <span>Location</span>
-        <span class="text-[#E53935]" aria-hidden="true">Location</span>
+        <span>Lokasi</span>
+        <span class="text-[#E53935]" aria-hidden="true">Lokasi</span>
       </span>
     </a>
 

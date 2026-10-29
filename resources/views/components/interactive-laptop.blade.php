@@ -1,5 +1,5 @@
 <!-- Interactive Laptop Component: Digital Learning & Campus Life -->
-<section id="shop" class="py-24 bg-[#FAF7F0] relative overflow-hidden">
+<section id="shop" class="hidden py-24 bg-[#FAF7F0] relative overflow-hidden">
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
     
     <!-- Header -->

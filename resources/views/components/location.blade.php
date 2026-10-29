@@ -14,16 +14,16 @@
     <!-- Section Header -->
     <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
       <div class="stamp-badge stamp-badge-red mb-4 inline-block">
-        CAMPUS RADAR & GPS NAVIGATION
+        PETA & PANDUAN LOKASI KAMPUS
       </div>
       <h2 class="font-display font-black text-4xl sm:text-6xl text-[#121212] uppercase tracking-tight leading-none">
-        FIND OUR CAMPUS<br>
+        LOKASI KAMPUS KAMI<br>
         <span class="inline-block mt-2 px-5 py-2 bg-[#121212] text-lime rounded-xl border-2 border-[#161616] tilt-right transform text-3xl sm:text-5xl">
-          CAMBA, SOUTH SULAWESI
+          CAMBA, SULAWESI SELATAN
         </span>
       </h2>
       <p class="font-body text-base sm:text-lg text-[#555555] font-medium mt-6 leading-relaxed">
-        Nestled in the pristine mountain highlands of Maros Regency. A serene, cool, and focused sanctuary dedicated to Tahfizh Al-Qur'an and character excellence.
+        Terletak di kawasan pegunungan asri dan sejuk Kabupaten Maros. Lingkungan belajar yang tenang, nyaman, dan bebas polusi, sangat kondusif untuk konsentrasi hafalan Al-Qur'an dan pembinaan karakter santri.
       </p>
     </div>
 
@@ -31,10 +31,10 @@
     <div class="rounded-3xl bg-white border-[3px] border-[#121212] brutal-shadow-xl overflow-hidden">
       
       <!-- Top Console Header Bar -->
-      <div class="bg-[#121212] text-white px-4 sm:px-6 py-3.5 flex flex-wrap items-center justify-between gap-3 border-b-[3px] border-[#121212]">
+      <div class="bg-[#121212] text-white px-3.5 sm:px-6 py-3 sm:py-3.5 flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 border-b-[3px] border-[#121212]">
         
         <!-- Left: Window Controls & Live Signal -->
-        <div class="flex items-center gap-3">
+        <div class="flex items-center gap-2.5 sm:gap-3">
           <div class="flex items-center gap-1.5" aria-hidden="true">
             <span class="w-3 h-3 rounded-full bg-[#E53935] inline-block border border-black/30"></span>
             <span class="w-3 h-3 rounded-full bg-amber-400 inline-block border border-black/30"></span>
@@ -50,61 +50,64 @@
               <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-lime"></span>
             </span>
             <span class="font-mono text-[11px] sm:text-xs uppercase tracking-wider text-lime font-bold">
-              LIVE GPS RADAR
+              RADAR GPS AKTIF
             </span>
           </div>
         </div>
 
         <!-- Center: Interactive Filter Modes (Normal / High Contrast / Night Radar) -->
-        <div class="flex items-center gap-1.5 bg-[#1e1e1e] p-1 rounded-xl border border-white/10 text-[11px] font-label font-bold">
-          <button type="button" id="map-mode-default" class="map-mode-btn px-2.5 py-1 rounded-lg bg-lime text-[#121212] transition-colors cursor-pointer" data-filter="none">
-            Default
+        <div class="flex items-center gap-1 bg-[#1e1e1e] p-1 rounded-xl border border-white/10 text-[10px] sm:text-[11px] font-label font-bold">
+          <button type="button" id="map-mode-default" class="map-mode-btn px-2 sm:px-2.5 py-1 rounded-lg bg-lime text-[#121212] transition-colors cursor-pointer" data-filter="none">
+            Standar
           </button>
-          <button type="button" id="map-mode-vibrant" class="map-mode-btn px-2.5 py-1 rounded-lg text-white/80 hover:text-white transition-colors cursor-pointer" data-filter="contrast(1.15) saturate(1.25)">
-            Vibrant
+          <button type="button" id="map-mode-vibrant" class="map-mode-btn px-2 sm:px-2.5 py-1 rounded-lg text-white/80 hover:text-white transition-colors cursor-pointer" data-filter="contrast(1.15) saturate(1.25)">
+            Terang
           </button>
-          <button type="button" id="map-mode-night" class="map-mode-btn px-2.5 py-1 rounded-lg text-white/80 hover:text-white transition-colors cursor-pointer" data-filter="invert(90%) hue-rotate(180deg) contrast(1.15)">
-            Night Radar
+          <button type="button" id="map-mode-night" class="map-mode-btn px-2 sm:px-2.5 py-1 rounded-lg text-white/80 hover:text-white transition-colors cursor-pointer" data-filter="invert(90%) hue-rotate(180deg) contrast(1.15)">
+            Mode Malam
           </button>
         </div>
 
         <!-- Right: Monospace Coordinates Badge + Copy Action -->
-        <div class="flex items-center gap-2">
-          <button type="button" id="btn-copy-coordinates" class="font-mono text-[11px] sm:text-xs font-bold text-white bg-[#1e1e1e] hover:bg-[#2a2a2a] px-3 py-1.5 rounded-lg border border-white/20 transition-all flex items-center gap-2 cursor-pointer group" title="Click to copy coordinates">
+        <div class="flex items-center gap-2 w-full sm:w-auto justify-end sm:justify-start">
+          <button type="button" id="btn-copy-coordinates" class="font-mono text-[10px] sm:text-xs font-bold text-white bg-[#1e1e1e] hover:bg-[#2a2a2a] px-2.5 sm:px-3 py-1.5 rounded-lg border border-white/20 transition-all flex items-center gap-2 cursor-pointer group" title="Klik untuk menyalin koordinat">
             <span id="coords-text">LAT -4.91386° · LNG 119.84656°</span>
             <svg id="copy-icon" class="w-3.5 h-3.5 text-lime group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
             </svg>
-            <span id="copy-success-badge" class="hidden text-lime font-label font-bold text-[10px] uppercase">COPIED!</span>
+            <span id="copy-success-badge" class="hidden text-lime font-label font-bold text-[10px] uppercase">TERSALIN!</span>
           </button>
         </div>
 
       </div>
 
-      <!-- Map Viewport & Interactive HUD -->
-      <div class="relative w-full h-[460px] sm:h-[560px] bg-[#E5E3DF] overflow-hidden">
+      <!-- Console Body: Stacked on Mobile, Floating HUD on Desktop -->
+      <div class="relative flex flex-col sm:block">
         
-        <!-- Google Maps Embed Iframe -->
-        <iframe
-          id="google-maps-frame"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.242982885935!2d119.84399227585507!3d-4.913859949791484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dbe61712cc6b2f7%3A0xfce6c0fd433a7e6d!2sPondok%20Pesantren%20Tahfizh%20Baitul%20Qur'an%20Camba!5e0!3m2!1sen!2sid!4v1729567000000!5m2!1sen!2sid"
-          width="100%"
-          height="100%"
-          style="border:0;"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title="Google Maps - Pondok Pesantren Tahfizh Baitul Qur'an Camba"
-          class="w-full h-full min-h-[460px] sm:min-h-[560px] transition-all duration-500 ease-in-out"
-        ></iframe>
+        <!-- Map Viewport -->
+        <div class="relative w-full h-[340px] sm:h-[560px] bg-[#E5E3DF] overflow-hidden">
+          <!-- Google Maps Embed Iframe -->
+          <iframe
+            id="google-maps-frame"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.242982885935!2d119.84399227585507!3d-4.913859949791484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dbe61712cc6b2f7%3A0xfce6c0fd433a7e6d!2sPondok%20Pesantren%20Tahfizh%20Baitul%20Qur'an%20Camba!5e0!3m2!1sen!2sid!4v1729567000000!5m2!1sen!2sid"
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Google Maps - Pondok Pesantren Tahfizh Baitul Qur'an Camba"
+            class="w-full h-full min-h-[340px] sm:min-h-[560px] transition-all duration-500 ease-in-out"
+          ></iframe>
+        </div>
 
-        <!-- Floating Tactile HUD Card Overlay -->
-        <div class="absolute bottom-4 left-4 right-4 sm:right-auto sm:left-6 sm:bottom-6 sm:max-w-md bg-white/95 backdrop-blur-md rounded-2xl border-2 border-[#121212] brutal-shadow-lg p-5 z-20 transition-all">
+        <!-- Campus Info & Actions Card: Below map on mobile, Floating HUD on desktop -->
+        <div class="p-5 sm:p-6 bg-white sm:bg-white/95 sm:backdrop-blur-md sm:rounded-2xl border-t-[3px] sm:border-2 border-[#121212] sm:brutal-shadow-lg z-20 sm:absolute sm:bottom-6 sm:left-6 sm:right-auto sm:max-w-md transition-all text-left">
           
           <!-- Verified Pin Badge -->
           <div class="flex items-center justify-between gap-2 mb-3">
             <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#121212] text-lime font-mono text-[10px] font-bold tracking-wider uppercase">
-              <span>📍 VERIFIED CAMPUS PIN</span>
+              <span>📍 TITIK LOKASI RESMI KAMPUS</span>
             </div>
             <div class="flex items-center gap-1 font-label text-xs font-bold text-[#121212]">
               <span class="text-amber-500">★★★★★</span>
@@ -125,10 +128,10 @@
           <!-- Transit Highlights Chips -->
           <div class="flex flex-wrap gap-1.5 mb-5 text-[11px] font-label font-bold text-[#121212]">
             <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-[#FAF7F0] border border-[#121212]/20">
-              ✈️ ~90 Mins from Hasanuddin Airport (UPG)
+              ✈️ ~90 Menit dari Bandara Sultan Hasanuddin (UPG)
             </span>
             <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-[#FAF7F0] border border-[#121212]/20">
-              🛣️ Maros – Bone Highway Route
+              🛣️ Jalur Poros Maros – Bone
             </span>
           </div>
 
@@ -142,7 +145,7 @@
               rel="noopener noreferrer"
               class="btn-tactile flex-1 bg-lime text-[#121212] border-2 border-[#121212] rounded-xl px-4 py-2.5 font-display font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer brutal-shadow-sm text-center"
             >
-              <span>GET DIRECTIONS</span>
+              <span>PETUNJUK ARAH</span>
               <span class="text-xs">➔</span>
             </a>
 
@@ -152,12 +155,12 @@
               target="_blank"
               rel="noopener noreferrer"
               class="btn-tactile bg-white text-[#121212] border-2 border-[#121212] rounded-xl px-3.5 py-2.5 font-label font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 cursor-pointer brutal-shadow-sm"
-              title="Open full Google Maps page"
+              title="Buka halaman Google Maps lengkap"
             >
               <svg class="w-3.5 h-3.5 text-[#121212]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
               </svg>
-              <span>OPEN MAPS</span>
+              <span>BUKA PETA</span>
             </a>
 
             <!-- Share Button -->
@@ -165,7 +168,7 @@
               type="button"
               id="btn-share-location"
               class="btn-tactile bg-[#FAF7F0] hover:bg-white text-[#121212] border-2 border-[#121212] rounded-xl px-3 py-2.5 font-label font-bold text-xs uppercase tracking-wider flex items-center justify-center cursor-pointer brutal-shadow-sm"
-              title="Share or copy campus location link"
+              title="Bagikan atau salin tautan lokasi kampus"
             >
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path>
@@ -192,8 +195,8 @@
       ✓
     </div>
     <div class="text-xs font-label">
-      <span class="font-bold text-lime block" id="toast-title">COPIED TO CLIPBOARD</span>
-      <span class="text-white/80" id="toast-message">Campus coordinates copied successfully.</span>
+      <span class="font-bold text-lime block" id="toast-title">TERSALIN KE PAPAN KLIP</span>
+      <span class="text-white/80" id="toast-message">Koordinat kampus berhasil disalin.</span>
     </div>
   </div>
 
@@ -234,14 +237,14 @@
           if (copyBadge) copyBadge.classList.remove('hidden');
           if (coordsText) coordsText.classList.add('hidden');
 
-          showLocationToast("COORDINATES COPIED", coordsString);
+          showLocationToast("KOORDINAT TERSALIN", coordsString);
 
           setTimeout(() => {
             if (copyBadge) copyBadge.classList.add('hidden');
             if (coordsText) coordsText.classList.remove('hidden');
           }, 2500);
         } catch (err) {
-          showLocationToast("COORDINATES", coordsString);
+          showLocationToast("KOORDINAT", coordsString);
         }
       });
     }
@@ -254,7 +257,7 @@
           try {
             await navigator.share({
               title: "Pondok Pesantren Tahfizh Baitul Qur'an Camba",
-              text: "Campus Location of Pondok Pesantren Tahfizh Baitul Qur'an Camba, Maros, South Sulawesi",
+              text: "Lokasi Kampus Pondok Pesantren Tahfizh Baitul Qur'an Camba, Maros, Sulawesi Selatan",
               url: mapsShareUrl
             });
           } catch (e) {
@@ -263,7 +266,7 @@
         } else {
           try {
             await navigator.clipboard.writeText(mapsShareUrl);
-            showLocationToast("LINK COPIED", "Google Maps location link copied to clipboard.");
+            showLocationToast("TAUTAN TERSALIN", "Tautan lokasi Google Maps berhasil disalin ke papan klip.");
           } catch (e) {
             window.open(mapsShareUrl, '_blank');
           }
@@ -271,7 +274,7 @@
       });
     }
 
-    // 3. Map View Filter Modes (Default, Vibrant, Night Radar)
+    // 3. Map View Filter Modes (Standar, Terang, Mode Malam)
     const modeButtons = document.querySelectorAll('.map-mode-btn');
     const mapFrame = document.getElementById('google-maps-frame');
 
