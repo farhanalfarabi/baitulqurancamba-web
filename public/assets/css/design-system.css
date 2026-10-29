@@ -618,7 +618,7 @@ body {
 .hero-rotating-wave {
   position: absolute;
   left: 50%;
-  bottom: 275px;
+  bottom: 180px;
   width: 185%;
   min-width: 1450px;
   max-width: 3200px;
