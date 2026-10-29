@@ -15,7 +15,7 @@
       class="inline-flex items-center gap-2 pl-1.5 pr-3.5 sm:pr-4 py-1 rounded-full bg-[#121212] text-lime border-[2px] border-[#121212] brutal-shadow-sm mb-3 sm:mb-4">
       <img src="/assets/images/badge-scallop-trophy.svg" alt="Prestasi" class="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0">
       <span class="font-label font-bold text-[10px] sm:text-xs tracking-wider uppercase text-lime">
-        PONDOK PESANTREN TAHFIZH & FORMAL SEJAK 2016
+        PONDOK PESANTREN BAITUL QUR'AN
       </span>
     </div>
 
@@ -158,8 +158,8 @@
     </style>
 
     <!-- Left & Right Gradient Fade Edges -->
-    <div class="pointer-events-none absolute left-0 top-0 h-full w-8 sm:w-16 z-20 bg-gradient-to-r from-white via-white/80 to-transparent"></div>
-    <div class="pointer-events-none absolute right-0 top-0 h-full w-8 sm:w-16 z-20 bg-gradient-to-l from-white via-white/80 to-transparent"></div>
+    <div class="pointer-events-none absolute left-0 top-0 h-full w-8 sm:w-16 z-20 bg-gradient-to-r from-[#FAF7F0] via-[#FAF7F0]/80 to-transparent"></div>
+    <div class="pointer-events-none absolute right-0 top-0 h-full w-8 sm:w-16 z-20 bg-gradient-to-l from-[#FAF7F0] via-[#FAF7F0]/80 to-transparent"></div>
 
     <div class="hero-marquee-track-right py-2">
       <!-- Set A -->

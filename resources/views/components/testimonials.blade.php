@@ -248,19 +248,7 @@
 
     </div>
 
-    <!-- CTA: Signature Double-Layer Button -->
-    <div class="flex flex-col items-center justify-center gap-3">
-      <a href="{{ route('pendaftaran') }}"
-        class="group bg-white p-1 rounded-xl shadow-md inline-flex items-center transition-transform hover:scale-[1.02] active:scale-[0.98] cursor-pointer focus:outline-none">
-        <div class="bg-lime text-[#121212] border-2 border-[#161616] rounded-lg px-6 py-3 flex items-center gap-3 font-display font-black text-xs sm:text-sm uppercase tracking-wider">
-          <span>DAFTARKAN ANANDA SEKARANG</span>
-          <span class="w-6 h-6 rounded-full bg-[#E53935] text-white flex items-center justify-center text-xs font-black shadow-sm">➔</span>
-        </div>
-      </a>
-      <p class="font-body text-xs text-white/60 font-medium">
-        Tahun Ajaran 2027/2028 • Kuota Asrama Terbatas untuk Kualitas Bimbingan Intensif
-      </p>
-    </div>
+
 
   </div>
 </section>

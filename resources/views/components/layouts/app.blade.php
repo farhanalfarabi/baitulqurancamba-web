@@ -38,7 +38,7 @@
     </script>
 
     <!-- Design System CSS -->
-    <link rel="stylesheet" href="{{ asset('assets/css/design-system.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/design-system.css') }}?v={{ filemtime(public_path('assets/css/design-system.css')) }}">
     <link rel="icon" type="image/png" href="{{ asset('assets/images/logo.png') }}">
 
     {{ $head ?? '' }}
