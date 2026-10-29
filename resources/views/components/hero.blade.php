@@ -12,7 +12,7 @@
 
     <!-- Top Pill Badge -->
     <div
-      class="inline-flex items-center gap-2 pl-1.5 pr-3.5 sm:pr-4 py-1 rounded-full bg-[#121212] text-lime border-[2px] border-[#121212] brutal-shadow-sm mb-3 sm:mb-4">
+      class="inline-flex items-center gap-2 pl-1.5 pr-3.5 sm:pr-4 py-1 rounded-full bg-[#121212] text-lime border-[2px] border-[#121212] brutal-shadow-sm mb-5 sm:mb-4">
       <img src="/assets/images/badge-scallop-trophy.svg" alt="Prestasi" class="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0">
       <span class="font-label font-bold text-[10px] sm:text-xs tracking-wider uppercase text-lime">
         PONDOK PESANTREN BAITUL QUR'AN
@@ -20,7 +20,7 @@
     </div>
 
     <!-- Main Hero Title (3-Line Lockup) -->
-    <div class="relative max-w-4xl mx-auto mb-3 sm:mb-4">
+    <div class="relative max-w-4xl mx-auto mb-6 sm:mb-4">
       <h1
         class="font-display font-black text-[2.5rem] sm:text-5xl lg:text-6xl xl:text-[66px] tracking-tight text-[#121212] uppercase leading-[1.05] sm:leading-[1.02] flex flex-col items-center justify-center gap-1.5 sm:gap-2">
         <!-- Line 1 -->
