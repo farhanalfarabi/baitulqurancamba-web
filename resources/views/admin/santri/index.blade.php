@@ -314,21 +314,21 @@
                                     <button type="button" 
                                             onclick='openSantriDrawer(@json($s), "detail")'
                                             title="Lihat Detail Kartu Induk Santri"
-                                            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-forest-50 text-forest-900 hover:bg-[#0B3B2C] hover:text-white transition-all shadow-2xs">
-                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            class="table-action-btn inline-flex flex-row items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-forest-50 text-forest-900 border border-forest-200/60 hover:bg-[#0B3B2C] hover:text-white hover:border-[#0B3B2C] transition-all shadow-xs whitespace-nowrap shrink-0 cursor-pointer">
+                                        <svg class="w-3.5 h-3.5 shrink-0 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
                                         </svg>
-                                        <span>Detail</span>
+                                        <span class="whitespace-nowrap">Detail</span>
                                     </button>
                                     <button type="button" 
                                             onclick='openSantriDrawer(@json($s), "edit")'
                                             title="Edit Data Santri di Drawer"
-                                            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-50 text-amber-900 border border-amber-200/80 hover:bg-amber-500 hover:text-white hover:border-amber-500 transition-all shadow-2xs">
-                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            class="table-action-btn inline-flex flex-row items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-50 text-amber-900 border border-amber-200/80 hover:bg-amber-500 hover:text-white hover:border-amber-500 transition-all shadow-xs whitespace-nowrap shrink-0 cursor-pointer">
+                                        <svg class="w-3.5 h-3.5 shrink-0 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
                                         </svg>
-                                        <span>Edit</span>
+                                        <span class="whitespace-nowrap">Edit</span>
                                     </button>
                                 </div>
                             </td>
@@ -1667,21 +1667,21 @@
                                 <button type="button" 
                                         onclick='openSantriDrawer(${jsonEscaped}, "detail")'
                                         title="Lihat Detail Kartu Induk Santri"
-                                        class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-forest-50 text-forest-900 hover:bg-[#0B3B2C] hover:text-white transition-all shadow-2xs">
-                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        class="table-action-btn inline-flex flex-row items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-forest-50 text-forest-900 border border-forest-200/60 hover:bg-[#0B3B2C] hover:text-white hover:border-[#0B3B2C] transition-all shadow-xs whitespace-nowrap shrink-0 cursor-pointer">
+                                    <svg class="w-3.5 h-3.5 shrink-0 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
                                     </svg>
-                                    <span>Detail</span>
+                                    <span class="whitespace-nowrap">Detail</span>
                                 </button>
                                 <button type="button" 
                                         onclick='openSantriDrawer(${jsonEscaped}, "edit")'
                                         title="Edit Data Santri di Drawer"
-                                        class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-50 text-amber-900 border border-amber-200/80 hover:bg-amber-500 hover:text-white hover:border-amber-500 transition-all shadow-2xs">
-                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        class="table-action-btn inline-flex flex-row items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-50 text-amber-900 border border-amber-200/80 hover:bg-amber-500 hover:text-white hover:border-amber-500 transition-all shadow-xs whitespace-nowrap shrink-0 cursor-pointer">
+                                    <svg class="w-3.5 h-3.5 shrink-0 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
                                     </svg>
-                                    <span>Edit</span>
+                                    <span class="whitespace-nowrap">Edit</span>
                                 </button>
                             </div>
                         `;
@@ -1754,21 +1754,21 @@
                                     <button type="button" 
                                             onclick='openSantriDrawer(${jsonEscaped}, "detail")'
                                             title="Lihat Detail Kartu Induk Santri"
-                                            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-forest-50 text-forest-900 hover:bg-[#0B3B2C] hover:text-white transition-all shadow-2xs">
-                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            class="table-action-btn inline-flex flex-row items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-forest-50 text-forest-900 border border-forest-200/60 hover:bg-[#0B3B2C] hover:text-white hover:border-[#0B3B2C] transition-all shadow-xs whitespace-nowrap shrink-0 cursor-pointer">
+                                        <svg class="w-3.5 h-3.5 shrink-0 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
                                         </svg>
-                                        <span>Detail</span>
+                                        <span class="whitespace-nowrap">Detail</span>
                                     </button>
                                     <button type="button" 
                                             onclick='openSantriDrawer(${jsonEscaped}, "edit")'
                                             title="Edit Data Santri di Drawer"
-                                            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-50 text-amber-900 border border-amber-200/80 hover:bg-amber-500 hover:text-white hover:border-amber-500 transition-all shadow-2xs">
-                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            class="table-action-btn inline-flex flex-row items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-50 text-amber-900 border border-amber-200/80 hover:bg-amber-500 hover:text-white hover:border-amber-500 transition-all shadow-xs whitespace-nowrap shrink-0 cursor-pointer">
+                                        <svg class="w-3.5 h-3.5 shrink-0 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
                                         </svg>
-                                        <span>Edit</span>
+                                        <span class="whitespace-nowrap">Edit</span>
                                     </button>
                                 </div>
                             `;
@@ -1944,21 +1944,21 @@
                             <button type="button" 
                                     onclick='openSantriDrawer(${jsonEscaped}, "detail")'
                                     title="Lihat Detail Kartu Induk Santri"
-                                    class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-forest-50 text-forest-900 hover:bg-[#0B3B2C] hover:text-white transition-all shadow-2xs">
-                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    class="table-action-btn inline-flex flex-row items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-forest-50 text-forest-900 border border-forest-200/60 hover:bg-[#0B3B2C] hover:text-white hover:border-[#0B3B2C] transition-all shadow-xs whitespace-nowrap shrink-0 cursor-pointer">
+                                <svg class="w-3.5 h-3.5 shrink-0 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
                                 </svg>
-                                <span>Detail</span>
+                                <span class="whitespace-nowrap">Detail</span>
                             </button>
                             <button type="button" 
                                     onclick='openSantriDrawer(${jsonEscaped}, "edit")'
                                     title="Edit Data Santri di Drawer"
-                                    class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-50 text-amber-900 border border-amber-200/80 hover:bg-amber-500 hover:text-white hover:border-amber-500 transition-all shadow-2xs">
-                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    class="table-action-btn inline-flex flex-row items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-50 text-amber-900 border border-amber-200/80 hover:bg-amber-500 hover:text-white hover:border-amber-500 transition-all shadow-xs whitespace-nowrap shrink-0 cursor-pointer">
+                                <svg class="w-3.5 h-3.5 shrink-0 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
                                 </svg>
-                                <span>Edit</span>
+                                <span class="whitespace-nowrap">Edit</span>
                             </button>
                         </div>
                     </td>

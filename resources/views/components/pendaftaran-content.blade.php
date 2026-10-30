@@ -357,15 +357,25 @@
                   </div>
 
                   <!-- File Selected State Preview -->
-                  <div id="preview-pas-foto" class="hidden text-left bg-white p-3 rounded-xl border border-gray-200 shadow-sm flex items-center justify-between gap-3">
-                    <div class="flex items-center gap-2.5 min-w-0">
-                      <span class="text-xl">✅</span>
+                  <div id="preview-pas-foto" class="hidden text-left bg-white p-3 rounded-xl border border-emerald-300 shadow-sm flex items-center justify-between gap-3">
+                    <div class="flex items-center gap-3 min-w-0">
+                      <!-- 3x4 Pas Foto Live Thumbnail Preview -->
+                      <div class="relative w-12 h-16 sm:w-14 sm:h-18 rounded-lg overflow-hidden bg-stone-100 border-2 border-amber-400/80 shadow-xs shrink-0 flex items-center justify-center">
+                        <img class="file-img-preview w-full h-full object-cover object-top hidden" alt="Preview Pas Foto">
+                        <span class="file-icon-preview text-xl">📸</span>
+                      </div>
                       <div class="min-w-0">
-                        <p class="font-display font-black text-xs text-gray-900 truncate file-name">foto-santri.jpg</p>
-                        <p class="font-mono text-[10px] text-gray-400 file-size">1.2 MB</p>
+                        <div class="flex items-center gap-1.5">
+                          <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 shrink-0"></span>
+                          <p class="font-display font-black text-xs text-gray-900 truncate file-name">foto-santri.jpg</p>
+                        </div>
+                        <p class="font-mono text-[10px] text-gray-400 file-size mt-0.5">1.2 MB</p>
+                        <span class="inline-block text-[9px] font-bold text-emerald-800 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200 mt-1">
+                          Pas Foto Terpilih
+                        </span>
                       </div>
                     </div>
-                    <button type="button" class="btn-remove-file text-xs text-red-500 font-bold p-1 hover:bg-red-50 rounded" title="Hapus berkas">✕</button>
+                    <button type="button" class="btn-remove-file text-xs text-red-500 hover:text-red-700 font-bold p-1.5 hover:bg-red-50 rounded-lg transition-colors" title="Hapus / ganti berkas">✕</button>
                   </div>
                 </div>
               </div>
@@ -391,15 +401,24 @@
                   </div>
 
                   <!-- File Selected State Preview -->
-                  <div id="preview-kk" class="hidden text-left bg-white p-3 rounded-xl border border-gray-200 shadow-sm flex items-center justify-between gap-3">
-                    <div class="flex items-center gap-2.5 min-w-0">
-                      <span class="text-xl">✅</span>
+                  <div id="preview-kk" class="hidden text-left bg-white p-3 rounded-xl border border-emerald-300 shadow-sm flex items-center justify-between gap-3">
+                    <div class="flex items-center gap-3 min-w-0">
+                      <div class="relative w-12 h-14 rounded-lg overflow-hidden bg-stone-100 border border-slate-200 shadow-xs shrink-0 flex items-center justify-center">
+                        <img class="file-img-preview w-full h-full object-contain p-0.5 hidden" alt="Preview KK">
+                        <span class="file-icon-preview text-xl">📄</span>
+                      </div>
                       <div class="min-w-0">
-                        <p class="font-display font-black text-xs text-gray-900 truncate file-name">kk-santri.pdf</p>
-                        <p class="font-mono text-[10px] text-gray-400 file-size">2.4 MB</p>
+                        <div class="flex items-center gap-1.5">
+                          <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 shrink-0"></span>
+                          <p class="font-display font-black text-xs text-gray-900 truncate file-name">kk-santri.pdf</p>
+                        </div>
+                        <p class="font-mono text-[10px] text-gray-400 file-size mt-0.5">2.4 MB</p>
+                        <span class="inline-block text-[9px] font-bold text-emerald-800 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200 mt-1">
+                          Berkas Terpilih
+                        </span>
                       </div>
                     </div>
-                    <button type="button" class="btn-remove-file text-xs text-red-500 font-bold p-1 hover:bg-red-50 rounded" title="Hapus berkas">✕</button>
+                    <button type="button" class="btn-remove-file text-xs text-red-500 hover:text-red-700 font-bold p-1.5 hover:bg-red-50 rounded-lg transition-colors" title="Hapus / ganti berkas">✕</button>
                   </div>
                 </div>
               </div>
@@ -425,15 +444,24 @@
                   </div>
 
                   <!-- File Selected State Preview -->
-                  <div id="preview-raport" class="hidden text-left bg-white p-3 rounded-xl border border-gray-200 shadow-sm flex items-center justify-between gap-3">
-                    <div class="flex items-center gap-2.5 min-w-0">
-                      <span class="text-xl">✅</span>
+                  <div id="preview-raport" class="hidden text-left bg-white p-3 rounded-xl border border-emerald-300 shadow-sm flex items-center justify-between gap-3">
+                    <div class="flex items-center gap-3 min-w-0">
+                      <div class="relative w-12 h-14 rounded-lg overflow-hidden bg-stone-100 border border-slate-200 shadow-xs shrink-0 flex items-center justify-center">
+                        <img class="file-img-preview w-full h-full object-contain p-0.5 hidden" alt="Preview Raport">
+                        <span class="file-icon-preview text-xl">📊</span>
+                      </div>
                       <div class="min-w-0">
-                        <p class="font-display font-black text-xs text-gray-900 truncate file-name">raport-akhir.pdf</p>
-                        <p class="font-mono text-[10px] text-gray-400 file-size">3.1 MB</p>
+                        <div class="flex items-center gap-1.5">
+                          <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 shrink-0"></span>
+                          <p class="font-display font-black text-xs text-gray-900 truncate file-name">raport-akhir.pdf</p>
+                        </div>
+                        <p class="font-mono text-[10px] text-gray-400 file-size mt-0.5">3.1 MB</p>
+                        <span class="inline-block text-[9px] font-bold text-emerald-800 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200 mt-1">
+                          Berkas Terpilih
+                        </span>
                       </div>
                     </div>
-                    <button type="button" class="btn-remove-file text-xs text-red-500 font-bold p-1 hover:bg-red-50 rounded" title="Hapus berkas">✕</button>
+                    <button type="button" class="btn-remove-file text-xs text-red-500 hover:text-red-700 font-bold p-1.5 hover:bg-red-50 rounded-lg transition-colors" title="Hapus / ganti berkas">✕</button>
                   </div>
                 </div>
               </div>
@@ -815,6 +843,15 @@ document.addEventListener('DOMContentLoaded', function() {
       removeBtn.addEventListener('click', (e) => {
         e.stopPropagation();
         input.value = '';
+        const imgPreview = previewState.querySelector('.file-img-preview');
+        const iconPreview = previewState.querySelector('.file-icon-preview');
+        if (imgPreview) {
+          imgPreview.src = '';
+          imgPreview.classList.add('hidden');
+        }
+        if (iconPreview) {
+          iconPreview.classList.remove('hidden');
+        }
         emptyState.classList.remove('hidden');
         previewState.classList.add('hidden');
       });
@@ -826,8 +863,36 @@ document.addEventListener('DOMContentLoaded', function() {
       const file = input.files[0];
       const nameEl = previewEl.querySelector('.file-name');
       const sizeEl = previewEl.querySelector('.file-size');
+      const imgPreview = previewEl.querySelector('.file-img-preview');
+      const iconPreview = previewEl.querySelector('.file-icon-preview');
+
       if (nameEl) nameEl.textContent = file.name;
       if (sizeEl) sizeEl.textContent = (file.size / (1024 * 1024)).toFixed(2) + ' MB';
+
+      // Live Image Preview (FileReader)
+      if (file.type && file.type.startsWith('image/')) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          if (imgPreview) {
+            imgPreview.src = e.target.result;
+            imgPreview.classList.remove('hidden');
+          }
+          if (iconPreview) {
+            iconPreview.classList.add('hidden');
+          }
+        };
+        reader.readAsDataURL(file);
+      } else {
+        if (imgPreview) {
+          imgPreview.src = '';
+          imgPreview.classList.add('hidden');
+        }
+        if (iconPreview) {
+          iconPreview.textContent = '📄';
+          iconPreview.classList.remove('hidden');
+        }
+      }
+
       emptyEl.classList.add('hidden');
       previewEl.classList.remove('hidden');
     }
@@ -938,8 +1003,17 @@ document.addEventListener('DOMContentLoaded', function() {
       // Reset form and file inputs
       form.reset();
       document.querySelectorAll('.file-dropzone').forEach(zone => {
+        const input = zone.querySelector('.file-input');
+        if (input) input.value = '';
         const emptyState = zone.querySelector('[id^="empty-"]');
         const previewState = zone.querySelector('[id^="preview-"]');
+        const imgPreview = zone.querySelector('.file-img-preview');
+        const iconPreview = zone.querySelector('.file-icon-preview');
+        if (imgPreview) {
+          imgPreview.src = '';
+          imgPreview.classList.add('hidden');
+        }
+        if (iconPreview) iconPreview.classList.remove('hidden');
         if (emptyState) emptyState.classList.remove('hidden');
         if (previewState) previewState.classList.add('hidden');
       });

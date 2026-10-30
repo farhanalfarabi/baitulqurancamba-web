@@ -74,6 +74,25 @@
         .space-y-8 > [class*="fixed"] {
             margin-top: 0 !important;
         }
+
+        /* Table Action Buttons: Guarantee strictly horizontal layout */
+        .table-action-btn {
+            display: inline-flex !important;
+            flex-direction: row !important;
+            align-items: center !important;
+            justify-content: center !important;
+            white-space: nowrap !important;
+            flex-shrink: 0 !important;
+        }
+        .table-action-btn svg {
+            display: inline-block !important;
+            flex-shrink: 0 !important;
+            vertical-align: middle;
+        }
+        .table-action-btn span {
+            white-space: nowrap !important;
+            display: inline-block !important;
+        }
     </style>
 
     {{ $head ?? '' }}

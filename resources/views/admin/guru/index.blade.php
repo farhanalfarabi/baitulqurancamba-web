@@ -243,8 +243,8 @@
                                     </a>
                                     <button type="button" 
                                             onclick='openGuruDrawer(@json($g))'
-                                            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-forest-50 text-forest-900 hover:bg-[#0B3B2C] hover:text-white transition-all shadow-2xs">
-                                        <span>Detail</span>
+                                            class="table-action-btn inline-flex flex-row items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-forest-50 text-forest-900 border border-forest-200/60 hover:bg-[#0B3B2C] hover:text-white hover:border-[#0B3B2C] transition-all shadow-xs whitespace-nowrap shrink-0 cursor-pointer">
+                                        <span class="whitespace-nowrap">Detail</span>
                                     </button>
                                 </div>
                             </td>
@@ -1011,6 +1011,82 @@
                 }
             }
 
+            // Live Preview Pas Foto di Form Edit
+            function previewEditGuruPhoto(input) {
+                if (!input.files || !input.files[0]) return;
+                const file = input.files[0];
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const preview = document.getElementById('editGuruPhotoPreview');
+                    const placeholder = document.getElementById('editGuruPhotoPlaceholder');
+                    const resetBtn = document.getElementById('editGuruPhotoResetBtn');
+                    const info = document.getElementById('editGuruPhotoSelectedInfo');
+                    const headerPhoto = document.getElementById('detailHeaderPhoto');
+                    const headerFallback = document.getElementById('detailAvatarFallback');
+
+                    if (preview) {
+                        preview.src = e.target.result;
+                        preview.classList.remove('hidden');
+                    }
+                    if (placeholder) placeholder.classList.add('hidden');
+                    if (resetBtn) resetBtn.classList.remove('hidden');
+                    if (info) {
+                        info.textContent = 'Foto baru terpilih: ' + file.name + ' (' + (file.size / (1024 * 1024)).toFixed(2) + ' MB)';
+                        info.classList.remove('hidden');
+                    }
+
+                    // Live update drawer header foto juga
+                    if (headerPhoto) {
+                        headerPhoto.src = e.target.result;
+                        headerPhoto.classList.remove('hidden');
+                    }
+                    if (headerFallback) headerFallback.classList.add('hidden');
+                };
+                reader.readAsDataURL(file);
+            }
+
+            function resetEditGuruPhoto() {
+                const input = document.getElementById('editGuruFotoInput');
+                if (input) input.value = '';
+                const resetBtn = document.getElementById('editGuruPhotoResetBtn');
+                const info = document.getElementById('editGuruPhotoSelectedInfo');
+                if (resetBtn) resetBtn.classList.add('hidden');
+                if (info) {
+                    info.textContent = '';
+                    info.classList.add('hidden');
+                }
+
+                const origUrl = activeDetailGuru ? resolveFileUrl(activeDetailGuru.foto_path) : '';
+                const preview = document.getElementById('editGuruPhotoPreview');
+                const placeholder = document.getElementById('editGuruPhotoPlaceholder');
+                const headerPhoto = document.getElementById('detailHeaderPhoto');
+                const headerFallback = document.getElementById('detailAvatarFallback');
+
+                if (origUrl) {
+                    if (preview) {
+                        preview.src = origUrl;
+                        preview.classList.remove('hidden');
+                    }
+                    if (placeholder) placeholder.classList.add('hidden');
+                    if (headerPhoto) {
+                        headerPhoto.src = origUrl;
+                        headerPhoto.classList.remove('hidden');
+                    }
+                    if (headerFallback) headerFallback.classList.add('hidden');
+                } else {
+                    if (preview) {
+                        preview.src = '';
+                        preview.classList.add('hidden');
+                    }
+                    if (placeholder) placeholder.classList.remove('hidden');
+                    if (headerPhoto) {
+                        headerPhoto.src = '';
+                        headerPhoto.classList.add('hidden');
+                    }
+                    if (headerFallback) headerFallback.classList.remove('hidden');
+                }
+            }
+
             // ====================================================
             // 3. Save Edited Guru (Sync Backend via PUT)
             // ====================================================
@@ -1160,11 +1236,57 @@
             // ====================================================
             // 5. Modal Add Asatidz (Sync Backend via POST)
             // ====================================================
+            function previewAddGuruPhoto(input) {
+                if (!input.files || !input.files[0]) return;
+                const file = input.files[0];
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const preview = document.getElementById('addGuruPhotoPreview');
+                    const placeholder = document.getElementById('addGuruPhotoPlaceholder');
+                    const clearBtn = document.getElementById('addGuruPhotoClearBtn');
+                    const info = document.getElementById('addGuruPhotoSelectedInfo');
+
+                    if (preview) {
+                        preview.src = e.target.result;
+                        preview.classList.remove('hidden');
+                    }
+                    if (placeholder) placeholder.classList.add('hidden');
+                    if (clearBtn) clearBtn.classList.remove('hidden');
+                    if (info) {
+                        info.textContent = 'Foto terpilih: ' + file.name + ' (' + (file.size / (1024 * 1024)).toFixed(2) + ' MB)';
+                        info.classList.remove('hidden');
+                    }
+                };
+                reader.readAsDataURL(file);
+            }
+
+            function clearAddGuruPhoto() {
+                const input = document.getElementById('addGuruFotoInput');
+                if (input) input.value = '';
+                const preview = document.getElementById('addGuruPhotoPreview');
+                const placeholder = document.getElementById('addGuruPhotoPlaceholder');
+                const clearBtn = document.getElementById('addGuruPhotoClearBtn');
+                const info = document.getElementById('addGuruPhotoSelectedInfo');
+
+                if (preview) {
+                    preview.src = '';
+                    preview.classList.add('hidden');
+                }
+                if (placeholder) placeholder.classList.remove('hidden');
+                if (clearBtn) clearBtn.classList.add('hidden');
+                if (info) {
+                    info.textContent = '';
+                    info.classList.add('hidden');
+                }
+            }
+
             function openAddGuruModal() {
+                clearAddGuruPhoto();
                 document.getElementById('addGuruModal').classList.remove('hidden');
             }
 
             function closeAddGuruModal() {
+                clearAddGuruPhoto();
                 document.getElementById('addGuruModal').classList.add('hidden');
             }
 
