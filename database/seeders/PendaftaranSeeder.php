@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Pendaftaran;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 
 class PendaftaranSeeder extends Seeder
@@ -224,6 +225,12 @@ class PendaftaranSeeder extends Seeder
         ];
 
         foreach ($samples as $data) {
+            if (! empty($data['tanggal_lahir'])) {
+                $data['umur'] = Carbon::parse($data['tanggal_lahir'])->age;
+            }
+            if (! empty($data['tanggal_lahir'])) {
+                $data['umur'] = Carbon::parse($data['tanggal_lahir'])->age;
+            }
             Pendaftaran::updateOrCreate(
                 ['registration_number' => $data['registration_number']],
                 $data

@@ -24,7 +24,7 @@
         <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-subtle flex items-center justify-between group hover:shadow-card transition-all">
             <div>
                 <span class="block text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Putra (Ikhwan)</span>
-                <span class="text-2xl sm:text-3xl font-black text-emerald-800 mt-1 block">6</span>
+                <span class="text-2xl sm:text-3xl font-black text-emerald-800 mt-1 block" id="kpiTotalPutra">{{ $totalPutra }}</span>
                 <span class="text-[11px] text-emerald-600 font-semibold mt-0.5 block">Asrama Putra Camba</span>
             </div>
             <div class="w-11 h-11 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
@@ -38,7 +38,7 @@
         <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-subtle flex items-center justify-between group hover:shadow-card transition-all">
             <div>
                 <span class="block text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Putri (Akhwat)</span>
-                <span class="text-2xl sm:text-3xl font-black text-purple-700 mt-1 block">2</span>
+                <span class="text-2xl sm:text-3xl font-black text-purple-700 mt-1 block" id="kpiTotalPutri">{{ $totalPutri }}</span>
                 <span class="text-[11px] text-purple-600 font-semibold mt-0.5 block">Asrama Putri Kampus 2</span>
             </div>
             <div class="w-11 h-11 rounded-xl bg-purple-50 text-purple-700 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
@@ -52,7 +52,7 @@
         <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-subtle flex items-center justify-between group hover:shadow-card transition-all">
             <div>
                 <span class="block text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Menunggu Review</span>
-                <span class="text-2xl sm:text-3xl font-black text-amber-600 mt-1 block">3</span>
+                <span class="text-2xl sm:text-3xl font-black text-amber-600 mt-1 block" id="kpiTotalPending">{{ $totalPending }}</span>
                 <span class="text-[11px] text-amber-700 font-semibold mt-0.5 block">Perlu Verifikasi Berkas</span>
             </div>
             <div class="w-11 h-11 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
@@ -61,7 +61,6 @@
                 </svg>
             </div>
         </div>
-
     </div>
 
     <!-- 2. Clean Action, Filter & Search Toolbar -->
@@ -83,14 +82,14 @@
 
             <!-- Action buttons -->
             <div class="flex items-center gap-2.5">
-                <button type="button" 
-                        onclick="showExportToast()"
-                        class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all">
+                <a href="{{ route('admin.pendaftaran.export') }}" 
+                   title="Unduh Rekap Data Pendaftar (CSV / Excel)"
+                   class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all">
                     <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                     </svg>
                     <span>Ekspor Excel</span>
-                </button>
+                </a>
                 <button type="button" 
                         onclick="openManualAddModal()"
                         class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold bg-[#0B3B2C] hover:bg-[#07261C] text-white transition-all shadow-xs">
@@ -375,6 +374,9 @@
                             <span class="inline-block px-2.5 py-0.5 rounded text-[10px] font-bold bg-emerald-400/25 text-emerald-200 border border-emerald-400/30" id="detailHeaderJenjang">
                                 MTs
                             </span>
+                            <span class="inline-block px-2.5 py-0.5 rounded text-[10px] font-bold bg-teal-400/25 text-teal-200 border border-teal-400/30" id="detailHeaderAge">
+                                -
+                            </span>
                         </div>
                         <h3 class="text-base sm:text-lg font-bold leading-tight truncate text-white" id="detailStudentName">
                             Muhammad Fatih Azzam
@@ -467,31 +469,34 @@
                         <div class="grid grid-cols-2 gap-3">
                             <div>
                                 <span class="text-slate-400 block text-[11px]">Jenjang Pilihan</span>
-                                <strong class="text-slate-900 text-xs" id="detailJenjang">-</strong>
+                                <strong class="text-slate-900 text-xs block mt-0.5" id="detailJenjang">-</strong>
                             </div>
                             <div>
                                 <span class="text-slate-400 block text-[11px]">Tinggal Bersama</span>
-                                <strong class="text-slate-900 text-xs" id="detailLivingWith">-</strong>
+                                <strong class="text-slate-900 text-xs block mt-0.5" id="detailLivingWith">-</strong>
                             </div>
                         </div>
                         <div class="grid grid-cols-2 gap-3 pt-2.5 border-t border-slate-200/60">
                             <div>
                                 <span class="text-slate-400 block text-[11px]">Tempat, Tgl Lahir & Usia</span>
-                                <strong class="text-slate-900 text-xs block mt-0.5 leading-snug" id="detailBirth">-</strong>
+                                <div class="flex items-center gap-2 mt-0.5 flex-wrap">
+                                    <strong class="text-slate-900 text-xs leading-snug" id="detailBirth">-</strong>
+                                    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200" id="detailAgeDisplay">-</span>
+                                </div>
                             </div>
                             <div>
                                 <span class="text-slate-400 block text-[11px]">Nomor HP Santri</span>
-                                <strong class="text-slate-900 text-xs block mt-0.5" id="detailStudentPhone">-</strong>
+                                <strong class="text-slate-900 text-xs block mt-0.5 font-mono" id="detailStudentPhone">-</strong>
                             </div>
                         </div>
-                        <div class="pt-2.5 border-t border-slate-200/60 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div class="grid grid-cols-2 gap-3 pt-2.5 border-t border-slate-200/60">
                             <div>
                                 <span class="text-slate-400 block text-[11px]">Email Calon Santri</span>
                                 <strong class="text-slate-900 text-xs block mt-0.5 truncate" id="detailEmail">-</strong>
                             </div>
                             <div>
                                 <span class="text-slate-400 block text-[11px]">Asal Sekolah</span>
-                                <strong class="text-slate-900 text-xs block mt-0.5" id="detailSchool">-</strong>
+                                <strong class="text-slate-900 text-xs block mt-0.5 truncate" id="detailSchool">-</strong>
                             </div>
                         </div>
                         <div class="pt-2.5 border-t border-slate-200/60">
@@ -752,9 +757,6 @@
                             <select id="editPendaftaranJenjang" class="w-full px-3 py-2 rounded-xl border border-slate-200 outline-hidden focus:border-forest-500 text-xs bg-white font-semibold">
                                 <option value="MTs">MTs (Madrasah Tsanawiyah)</option>
                                 <option value="MA">MA (Madrasah Aliyah)</option>
-                                <option value="Wustha (SMP)">Wustha (SMP)</option>
-                                <option value="Ulya (SMA)">Ulya (SMA)</option>
-                                <option value="Tahfizh Khusus">Tahfizh Khusus</option>
                             </select>
                         </div>
                     </div>
@@ -798,6 +800,13 @@
                             <input type="text" id="editPendaftaranHp" placeholder="08xxxxxxxxxx" class="w-full px-3 py-2 rounded-xl border border-slate-200 outline-hidden focus:border-forest-500 text-xs bg-white font-mono">
                         </div>
                         <div>
+                            <label class="block font-semibold text-slate-700 mb-1 text-[11px]">Email Calon Santri</label>
+                            <input type="email" id="editPendaftaranEmail" placeholder="santri@gmail.com" class="w-full px-3 py-2 rounded-xl border border-slate-200 outline-hidden focus:border-forest-500 text-xs bg-white font-mono">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
                             <label class="block font-semibold text-slate-700 mb-1 text-[11px]">Status Tinggal Bersama</label>
                             <select id="editPendaftaranTinggal" class="w-full px-3 py-2 rounded-xl border border-slate-200 outline-hidden focus:border-forest-500 text-xs bg-white">
                                 <option value="Orang Tua">Orang Tua</option>
@@ -806,11 +815,10 @@
                                 <option value="Asrama Pondok">Asrama Pondok</option>
                             </select>
                         </div>
-                    </div>
-
-                    <div>
-                        <label class="block font-semibold text-slate-700 mb-1 text-[11px]">Asal Sekolah SD/MI/SMP/MTs</label>
-                        <input type="text" id="editPendaftaranAsalSekolah" placeholder="Nama sekolah asal" class="w-full px-3 py-2 rounded-xl border border-slate-200 outline-hidden focus:border-forest-500 text-xs bg-white">
+                        <div>
+                            <label class="block font-semibold text-slate-700 mb-1 text-[11px]">Asal Sekolah SD/MI/SMP/MTs</label>
+                            <input type="text" id="editPendaftaranAsalSekolah" placeholder="Nama sekolah asal" class="w-full px-3 py-2 rounded-xl border border-slate-200 outline-hidden focus:border-forest-500 text-xs bg-white">
+                        </div>
                     </div>
 
                     <div>
@@ -981,11 +989,19 @@
         <!-- 1. Drawer Footer: Mode Detail -->
         <div id="pendaftaranDetailFooter" class="p-4 border-t border-slate-200 bg-slate-50 flex items-center justify-between gap-2">
             <button type="button" 
-                    onclick="closePendaftaranDrawer()"
-                    class="px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-200 transition-colors">
-                Tutup Panel
+                    onclick="deleteCurrentPendaftaran()"
+                    class="px-3 py-2 rounded-xl text-xs font-semibold text-rose-600 hover:bg-rose-50 hover:text-rose-700 transition-colors flex items-center gap-1.5 border border-rose-200">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                </svg>
+                <span>Hapus Data</span>
             </button>
             <div class="flex items-center gap-2">
+                <button type="button" 
+                        onclick="closePendaftaranDrawer()"
+                        class="px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-200 transition-colors">
+                    Tutup Panel
+                </button>
                 <button type="button" 
                         onclick="switchPendaftaranDrawerMode('edit')"
                         class="px-3.5 py-2 rounded-xl text-xs font-bold bg-amber-500 hover:bg-amber-600 text-white transition-all flex items-center gap-1.5 shadow-xs">
@@ -1111,9 +1127,8 @@
                     <div>
                         <label class="block font-semibold text-slate-700 mb-1">Jenjang Pilihan *</label>
                         <select id="manualJenjang" class="w-full px-3 py-2 rounded-xl border border-slate-200 outline-hidden focus:border-forest-500">
-                            <option>Wustha (SMP)</option>
-                            <option>Ulya (SMA)</option>
-                            <option>Tahfizh Khusus</option>
+                            <option value="MTs">MTs (Madrasah Tsanawiyah)</option>
+                            <option value="MA">MA (Madrasah Aliyah)</option>
                         </select>
                     </div>
                 </div>
@@ -1140,9 +1155,15 @@
                     </div>
                 </div>
 
-                <div>
-                    <label class="block font-semibold text-slate-700 mb-1">Asal Sekolah SD/MI/SMP</label>
-                    <input type="text" id="manualAsalSekolah" placeholder="Nama sekolah asal" class="w-full px-3 py-2 rounded-xl border border-slate-200 outline-hidden focus:border-forest-500">
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-semibold text-slate-700 mb-1">Asal Sekolah SD/MI/SMP</label>
+                        <input type="text" id="manualAsalSekolah" placeholder="Nama sekolah asal" class="w-full px-3 py-2 rounded-xl border border-slate-200 outline-hidden focus:border-forest-500">
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-slate-700 mb-1">Email Calon Santri (Opsional)</label>
+                        <input type="email" id="manualEmail" placeholder="santri@gmail.com" class="w-full px-3 py-2 rounded-xl border border-slate-200 outline-hidden focus:border-forest-500">
+                    </div>
                 </div>
             </div>
 
@@ -1384,8 +1405,23 @@
                 const headerSchool = document.getElementById('detailHeaderAsalSekolah');
                 if (headerSchool) headerSchool.innerText = student.asal_sekolah || '-';
 
-                // Birth & Age
-                let ageText = '12 Tahun';
+                // Birth & Age (Otomatis dari DB atau kalkulasi)
+                let ageText = '-';
+                if (student.umur !== undefined && student.umur !== null) {
+                    ageText = student.umur + ' Tahun';
+                } else if (student.tanggal_lahir) {
+                    const birthDate = new Date(student.tanggal_lahir);
+                    if (!isNaN(birthDate.getTime())) {
+                        const today = new Date();
+                        let age = today.getFullYear() - birthDate.getFullYear();
+                        const m = today.getMonth() - birthDate.getMonth();
+                        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+                            age--;
+                        }
+                        ageText = Math.max(0, age) + ' Tahun';
+                    }
+                }
+
                 let birthFormatted = '-';
                 if (student.tanggal_lahir) {
                     const parts = String(student.tanggal_lahir).split('T')[0].split('-');
@@ -1395,18 +1431,25 @@
                         const birthDay = parseInt(parts[2], 10);
                         const months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
                         const monthName = months[birthMonth] || parts[1];
-                        
-                        const currentYear = 2026;
-                        ageText = (currentYear - birthYear) + ' Tahun';
-                        birthFormatted = (student.tempat_lahir || '-') + ', ' + birthDay + ' ' + monthName + ' ' + birthYear + ' (' + ageText + ')';
+                        birthFormatted = (student.tempat_lahir || '-') + ', ' + birthDay + ' ' + monthName + ' ' + birthYear;
                     } else {
                         birthFormatted = (student.tempat_lahir || '-') + ', ' + student.tanggal_lahir;
                     }
                 } else if (student.tempat_lahir) {
                     birthFormatted = student.tempat_lahir;
                 }
+
+                const headerAge = document.getElementById('detailHeaderAge');
+                if (headerAge) headerAge.innerText = ageText;
                 const ageEl = document.getElementById('detailAgeDisplay');
-                if (ageEl) ageEl.innerText = ageText;
+                if (ageEl) {
+                    if (ageText && ageText !== '-') {
+                        ageEl.innerText = ageText;
+                        ageEl.classList.remove('hidden');
+                    } else {
+                        ageEl.classList.add('hidden');
+                    }
+                }
                 document.getElementById('detailJenjang').innerText = student.jenjang || '-';
                 document.getElementById('detailLivingWith').innerText = student.tinggal_bersama || 'Orang Tua';
                 document.getElementById('detailBirth').innerText = birthFormatted;
@@ -1559,20 +1602,11 @@
             function populatePendaftaranEditForm(student) {
                 document.getElementById('editPendaftaranStatus').value = student.status || 'pending';
 
-                // Jenjang dropdown match
-                const jenjangVal = student.jenjang || 'Wustha (SMP)';
+                // Jenjang dropdown match (MTs or MA)
+                const jenjangVal = (student.jenjang || 'MTs').toUpperCase();
                 const jenjangSelect = document.getElementById('editPendaftaranJenjang');
-                let foundJenjang = false;
-                for (let i = 0; i < jenjangSelect.options.length; i++) {
-                    if (jenjangSelect.options[i].value.toLowerCase() === jenjangVal.toLowerCase() ||
-                        jenjangVal.toLowerCase().includes(jenjangSelect.options[i].value.toLowerCase())) {
-                        jenjangSelect.selectedIndex = i;
-                        foundJenjang = true;
-                        break;
-                    }
-                }
-                if (!foundJenjang) {
-                    jenjangSelect.value = 'Wustha (SMP)';
+                if (jenjangSelect) {
+                    jenjangSelect.value = (jenjangVal.includes('MA') || jenjangVal.includes('ULYA')) ? 'MA' : 'MTs';
                 }
 
                 document.getElementById('editPendaftaranNama').value = student.nama_santri || '';
@@ -1582,6 +1616,11 @@
                 document.getElementById('editPendaftaranTempatLahir').value = student.tempat_lahir || '';
                 document.getElementById('editPendaftaranTglLahir').value = student.tanggal_lahir ? String(student.tanggal_lahir).split('T')[0] : '';
                 document.getElementById('editPendaftaranHp').value = student.no_hp_santri || '';
+
+                const emailInput = document.getElementById('editPendaftaranEmail');
+                if (emailInput) {
+                    emailInput.value = student.email || '';
+                }
                 document.getElementById('editPendaftaranTinggal').value = student.tinggal_bersama || 'Orang Tua';
                 document.getElementById('editPendaftaranAsalSekolah').value = student.asal_sekolah || '';
                 document.getElementById('editPendaftaranAlamat').value = student.alamat_lengkap || '';
@@ -1720,10 +1759,14 @@
                 const pekerjaanIbu = document.getElementById('editPendaftaranJobIbu').value.trim();
                 const penghasilanIbu = document.getElementById('editPendaftaranIncomeIbu').value;
 
+                const emailInput = document.getElementById('editPendaftaranEmail');
+                const email = emailInput ? emailInput.value.trim() : '';
+
                 const updatedData = {
                     nama_santri: nama,
                     jenis_kelamin: gender,
                     jenjang: jenjang,
+                    email: email,
                     status: status,
                     tempat_lahir: tempatLahir,
                     tanggal_lahir: tglLahir,
@@ -1822,21 +1865,46 @@
                     }
                 }
 
-                // Server Sync via fetch PUT
+                // Server Sync via FormData with _method=PUT to support both text data & file uploads
                 const token = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
                 if (token && studentId) {
+                    const formData = new FormData();
+                    formData.append('_method', 'PUT');
+                    for (const key in updatedData) {
+                        formData.append(key, updatedData[key] !== null && updatedData[key] !== undefined ? updatedData[key] : '');
+                    }
+
+                    const fotoInput = document.getElementById('editFotoInput');
+                    if (fotoInput && fotoInput.files && fotoInput.files[0]) {
+                        formData.append('pas_foto', fotoInput.files[0]);
+                    }
+                    const kkInput = document.getElementById('editKkInput');
+                    if (kkInput && kkInput.files && kkInput.files[0]) {
+                        formData.append('foto_kk', kkInput.files[0]);
+                    }
+                    const raportInput = document.getElementById('editRaportInput');
+                    if (raportInput && raportInput.files && raportInput.files[0]) {
+                        formData.append('foto_raport', raportInput.files[0]);
+                    }
+
                     fetch('/admin/pendaftaran/' + studentId, {
-                        method: 'PUT',
+                        method: 'POST',
                         headers: {
-                            'Content-Type': 'application/json',
                             'Accept': 'application/json',
                             'X-CSRF-TOKEN': token
                         },
-                        body: JSON.stringify(updatedData)
+                        body: formData
                     }).then(res => res.json()).then(res => {
                         console.log('Update success:', res);
+                        if (res.data) {
+                            if (res.data.umur !== undefined) activeDetailStudent.umur = res.data.umur;
+                            if (res.data.pas_foto_path) activeDetailStudent.pas_foto_path = res.data.pas_foto_path;
+                            if (res.data.foto_kk_path) activeDetailStudent.foto_kk_path = res.data.foto_kk_path;
+                            if (res.data.foto_raport_path) activeDetailStudent.foto_raport_path = res.data.foto_raport_path;
+                            renderPendaftaranDetailView(activeDetailStudent);
+                        }
                     }).catch(err => {
-                        console.log('Update offline/notice:', err);
+                        console.log('Update notice:', err);
                     });
                 }
 
@@ -1983,6 +2051,42 @@
                 }
             }
 
+            function deleteCurrentPendaftaran() {
+                if (!activeDetailStudent) return;
+                const nama = activeDetailStudent.nama_santri;
+                const studentId = activeDetailStudent.id;
+                if (!confirm('Apakah Anda yakin ingin menghapus data pendaftaran ananda ' + nama + '? Tindakan ini tidak dapat dibatalkan.')) {
+                    return;
+                }
+
+                const token = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+                if (token && studentId) {
+                    fetch('/admin/pendaftaran/' + studentId, {
+                        method: 'DELETE',
+                        headers: {
+                            'Accept': 'application/json',
+                            'X-CSRF-TOKEN': token
+                        }
+                    }).then(async res => {
+                        if (!res.ok) {
+                            const err = await res.json().catch(() => ({}));
+                            throw new Error(err.message || 'Gagal menghapus data.');
+                        }
+                        return res.json();
+                    }).then(res => {
+                        closePendaftaranDrawer();
+                        const row = document.getElementById('pendaftaran-row-' + studentId);
+                        if (row) {
+                            row.remove();
+                        }
+                        showPendaftaranToast('Data pendaftaran ' + nama + ' berhasil dihapus.');
+                        applyRegistrationFilter();
+                    }).catch(err => {
+                        alert('Error: ' + err.message);
+                    });
+                }
+            }
+
             // ====================================================
             // 4. Manual Student Add Modal (Offline)
             // ====================================================
@@ -1996,16 +2100,64 @@
 
             function saveManualStudent() {
                 const nama = document.getElementById('manualNama').value.trim();
+                const gender = document.getElementById('manualGender').value;
+                const jenjang = document.getElementById('manualJenjang').value;
+                const tempatLahir = document.getElementById('manualTempatLahir').value.trim();
+                const tglLahir = document.getElementById('manualTglLahir').value;
+                const namaAyah = document.getElementById('manualAyah').value.trim();
+                const noHpAyah = document.getElementById('manualHpAyah').value.trim();
+                const asalSekolah = document.getElementById('manualAsalSekolah').value.trim();
+                const emailInput = document.getElementById('manualEmail');
+                const email = emailInput ? emailInput.value.trim() : '';
+
                 if (!nama) {
                     alert('Mohon isi nama lengkap calon santri.');
                     return;
                 }
-                closeManualAddModal();
-                showPendaftaranToast('Data santri ' + nama + ' berhasil didaftarkan secara manual!');
-            }
+                if (!namaAyah) {
+                    alert('Mohon isi nama ayah kandung.');
+                    return;
+                }
+                if (!noHpAyah) {
+                    alert('Mohon isi nomor WhatsApp ayah.');
+                    return;
+                }
 
-            function showExportToast() {
-                showPendaftaranToast('Mempersiapkan data rekap Excel calon santri...');
+                const token = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+                fetch('/admin/pendaftaran', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                        'X-CSRF-TOKEN': token
+                    },
+                    body: JSON.stringify({
+                        nama_santri: nama,
+                        jenis_kelamin: gender,
+                        jenjang: jenjang,
+                        tempat_lahir: tempatLahir,
+                        tanggal_lahir: tglLahir,
+                        nama_ayah: namaAyah,
+                        no_hp_ayah: noHpAyah,
+                        asal_sekolah: asalSekolah,
+                        email: email,
+                        status: 'pending'
+                    })
+                }).then(async res => {
+                    if (!res.ok) {
+                        const err = await res.json().catch(() => ({}));
+                        throw new Error(err.message || 'Gagal menyimpan data.');
+                    }
+                    return res.json();
+                }).then(res => {
+                    closeManualAddModal();
+                    showPendaftaranToast('Data santri ' + nama + ' berhasil didaftarkan! Memuat data...');
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 1000);
+                }).catch(err => {
+                    alert('Gagal: ' + err.message);
+                });
             }
 
             function showPendaftaranToast(message) {

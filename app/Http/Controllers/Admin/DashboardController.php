@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Guru;
 use App\Models\Pendaftaran;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class DashboardController extends Controller
 {
@@ -32,9 +34,9 @@ class DashboardController extends Controller
             'santri_aktif' => 148,
             'santri_wustha' => 84,
             'santri_ulya' => 64,
-            'dewan_guru' => 18,
-            'guru_tahfizh' => 8,
-            'guru_formal' => 10,
+            'dewan_guru' => Guru::count(),
+            'guru_tahfizh' => Guru::where('kategori', 'tahfizh')->count(),
+            'guru_formal' => Guru::where('kategori', 'formal')->count(),
             'total_galeri' => 32,
             'galeri_coverflow' => 6,
             'kapasitas_asrama_persen' => 84,
@@ -84,8 +86,52 @@ class DashboardController extends Controller
     public function pendaftaranIndex(): View
     {
         $pendaftarans = Pendaftaran::latest()->paginate(10);
+        $totalPutra = Pendaftaran::where('jenis_kelamin', 'Putra')->count();
+        $totalPutri = Pendaftaran::where('jenis_kelamin', 'Putri')->count();
+        $totalPending = Pendaftaran::where('status', 'pending')->count();
 
-        return view('admin.pendaftaran.index', compact('pendaftarans'));
+        return view('admin.pendaftaran.index', compact('pendaftarans', 'totalPutra', 'totalPutri', 'totalPending'));
+    }
+
+    /**
+     * Simpan data pendaftaran baru secara manual dari admin.
+     */
+    public function pendaftaranStore(Request $request): JsonResponse
+    {
+        $validated = $request->validate([
+            'nama_santri' => ['required', 'string', 'max:255'],
+            'jenis_kelamin' => ['required', 'string', 'in:Putra,Putri'],
+            'jenjang' => ['required', 'string', 'in:MTs,MA'],
+            'tempat_lahir' => ['nullable', 'string', 'max:100'],
+            'tanggal_lahir' => ['nullable', 'date'],
+            'alamat_lengkap' => ['nullable', 'string'],
+            'asal_sekolah' => ['nullable', 'string', 'max:255'],
+            'email' => ['nullable', 'email', 'max:255'],
+            'no_hp_santri' => ['nullable', 'string', 'max:30'],
+            'tinggal_bersama' => ['nullable', 'string', 'max:100'],
+            'nama_ayah' => ['required', 'string', 'max:255'],
+            'no_hp_ayah' => ['required', 'string', 'max:30'],
+            'pekerjaan_ayah' => ['nullable', 'string', 'max:100'],
+            'penghasilan_ayah' => ['nullable', 'string', 'max:100'],
+            'nama_ibu' => ['nullable', 'string', 'max:255'],
+            'no_hp_ibu' => ['nullable', 'string', 'max:30'],
+            'pekerjaan_ibu' => ['nullable', 'string', 'max:100'],
+            'penghasilan_ibu' => ['nullable', 'string', 'max:100'],
+            'status' => ['nullable', 'string', 'in:pending,terverifikasi,diterima,berkas_belum_lengkap'],
+        ]);
+
+        $year = date('Y');
+        $nextNumber = (Pendaftaran::max('id') ?? 0) + 1;
+        $validated['registration_number'] = 'PSB-'.($year + 1).'-'.str_pad((string) $nextNumber, 3, '0', STR_PAD_LEFT);
+        $validated['status'] = $validated['status'] ?? 'pending';
+
+        $pendaftaran = Pendaftaran::create($validated);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Data pendaftaran calon santri berhasil ditambahkan.',
+            'data' => $pendaftaran,
+        ], 201);
     }
 
     /**
@@ -96,9 +142,9 @@ class DashboardController extends Controller
         $pendaftaran = Pendaftaran::findOrFail($id);
 
         $validated = $request->validate([
-            'nama_santri' => ['required', 'string', 'max:255'],
-            'jenis_kelamin' => ['required', 'string', 'in:Putra,Putri'],
-            'jenjang' => ['required', 'string', 'max:100'],
+            'nama_santri' => ['sometimes', 'required', 'string', 'max:255'],
+            'jenis_kelamin' => ['sometimes', 'required', 'string', 'in:Putra,Putri'],
+            'jenjang' => ['sometimes', 'required', 'string', 'max:100'],
             'tempat_lahir' => ['nullable', 'string', 'max:100'],
             'tanggal_lahir' => ['nullable', 'date'],
             'alamat_lengkap' => ['nullable', 'string'],
@@ -114,8 +160,21 @@ class DashboardController extends Controller
             'no_hp_ibu' => ['nullable', 'string', 'max:30'],
             'pekerjaan_ibu' => ['nullable', 'string', 'max:100'],
             'penghasilan_ibu' => ['nullable', 'string', 'max:100'],
-            'status' => ['required', 'string', 'in:pending,terverifikasi,diterima,berkas_belum_lengkap'],
+            'status' => ['sometimes', 'required', 'string', 'in:pending,terverifikasi,diterima,berkas_belum_lengkap'],
+            'pas_foto' => ['nullable', 'image', 'mimes:jpeg,png,jpg', 'max:2048'],
+            'foto_kk' => ['nullable', 'file', 'mimes:jpeg,png,jpg,pdf', 'max:3072'],
+            'foto_raport' => ['nullable', 'file', 'mimes:jpeg,png,jpg,pdf', 'max:3072'],
         ]);
+
+        if ($request->hasFile('pas_foto')) {
+            $validated['pas_foto_path'] = $request->file('pas_foto')->store('pendaftaran', 'public');
+        }
+        if ($request->hasFile('foto_kk')) {
+            $validated['foto_kk_path'] = $request->file('foto_kk')->store('pendaftaran', 'public');
+        }
+        if ($request->hasFile('foto_raport')) {
+            $validated['foto_raport_path'] = $request->file('foto_raport')->store('pendaftaran', 'public');
+        }
 
         $pendaftaran->update($validated);
 
@@ -123,6 +182,92 @@ class DashboardController extends Controller
             'success' => true,
             'message' => 'Data pendaftaran calon santri berhasil diperbarui.',
             'data' => $pendaftaran,
+        ]);
+    }
+
+    /**
+     * Hapus data pendaftaran calon santri.
+     */
+    public function pendaftaranDestroy(int|string $id): JsonResponse
+    {
+        $pendaftaran = Pendaftaran::findOrFail($id);
+        $pendaftaran->delete();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Data pendaftaran calon santri berhasil dihapus.',
+        ]);
+    }
+
+    /**
+     * Ekspor data pendaftaran calon santri ke format CSV (Excel compatible).
+     */
+    public function pendaftaranExport(): StreamedResponse
+    {
+        return response()->streamDownload(function () {
+            $handle = fopen('php://output', 'w');
+            fwrite($handle, "\xEF\xBB\xBF");
+            fputcsv($handle, [
+                'No',
+                'No Registrasi',
+                'Nama Calon Santri',
+                'Jenis Kelamin',
+                'Jenjang',
+                'Email',
+                'No HP Santri',
+                'Tempat Lahir',
+                'Tanggal Lahir',
+                'Umur',
+                'Alamat Lengkap',
+                'Asal Sekolah',
+                'Tinggal Bersama',
+                'Nama Ayah',
+                'No WA Ayah',
+                'Pekerjaan Ayah',
+                'Penghasilan Ayah',
+                'Nama Ibu',
+                'No WA Ibu',
+                'Pekerjaan Ibu',
+                'Penghasilan Ibu',
+                'Status Pendaftaran',
+                'Waktu Mendaftar',
+            ]);
+
+            $no = 1;
+            Pendaftaran::latest()->chunk(200, function ($pendaftarans) use ($handle, &$no) {
+                foreach ($pendaftarans as $p) {
+                    fputcsv($handle, [
+                        $no++,
+                        $p->registration_number,
+                        $p->nama_santri,
+                        $p->jenis_kelamin,
+                        $p->jenjang,
+                        $p->email ?? '-',
+                        $p->no_hp_santri ?? '-',
+                        $p->tempat_lahir ?? '-',
+                        $p->tanggal_lahir ? $p->tanggal_lahir->format('d/m/Y') : '-',
+                        $p->umur !== null ? $p->umur.' Tahun' : ($p->tanggal_lahir ? $p->tanggal_lahir->age.' Tahun' : '-'),
+                        $p->umur !== null ? $p->umur.' Tahun' : ($p->tanggal_lahir ? $p->tanggal_lahir->age.' Tahun' : '-'),
+                        $p->alamat_lengkap ?? '-',
+                        $p->asal_sekolah ?? '-',
+                        $p->tinggal_bersama ?? '-',
+                        $p->nama_ayah ?? '-',
+                        $p->no_hp_ayah ?? '-',
+                        $p->pekerjaan_ayah ?? '-',
+                        $p->penghasilan_ayah ?? '-',
+                        $p->nama_ibu ?? '-',
+                        $p->no_hp_ibu ?? '-',
+                        $p->pekerjaan_ibu ?? '-',
+                        $p->penghasilan_ibu ?? '-',
+                        $p->status,
+                        $p->created_at ? $p->created_at->format('d/m/Y H:i') : '-',
+                    ]);
+                }
+            });
+
+            fclose($handle);
+        }, 'rekap_pendaftaran_santri_psb_'.date('Ymd_His').'.csv', [
+            'Content-Type' => 'text/csv; charset=UTF-8',
         ]);
     }
 
@@ -456,331 +601,9 @@ class DashboardController extends Controller
     /**
      * Halaman data guru & asatidz.
      */
-    public function guruIndex(): View
+    public function guruIndex(Request $request): View|JsonResponse
     {
-        $sampleAsatidz = [
-            (object) [
-                'id' => 1,
-                'nip' => 'AS-2018-001',
-                'nama' => 'Ust. Syahrir, S.Pd.I, M.Ag.',
-                'jenis_kelamin' => 'Ustadz',
-                'jabatan' => 'Kepala Bidang Tahfizh & Mutqin Al-Qur\'an',
-                'kategori' => 'tahfizh',
-                'kategori_label' => 'Tahfizh Al-Qur\'an',
-                'spesialisasi' => 'Tahfizh 30 Juz Bersanad, Riwayat Hafs & Syu\'bah',
-                'almamater' => 'PTIQ Jakarta & UIN Alauddin Makassar',
-                'beban_tugas' => '4 Halaqah Fajar & Maghrib',
-                'status_kepegawaian' => 'Mukim (Tetap)',
-                'no_hp' => '081234567801',
-                'email' => 'syahrir@baitulquran.sch.id',
-                'alamat' => 'Komp. Asrama Asatidz Baitul Qur\'an Camba',
-                'tahun_bergabung' => 2018,
-            ],
-            (object) [
-                'id' => 2,
-                'nip' => 'AS-2019-002',
-                'nama' => 'Ust. Mansyur, Lc., M.H.',
-                'jenis_kelamin' => 'Ustadz',
-                'jabatan' => 'Koordinator Kitab Kuning & Dirasah Islamiyah',
-                'kategori' => 'diniyah',
-                'kategori_label' => 'Dirasah Islamiyah & Kitab',
-                'spesialisasi' => 'Fiqih Turats, Ushul Fiqih & Bahasa Arab',
-                'almamater' => 'Univ. Al-Azhar Kairo Mesir (Syari\'ah wal Qanun)',
-                'beban_tugas' => 'Kelas Wustha & Ulya (Kitab Turats)',
-                'status_kepegawaian' => 'Mukim (Tetap)',
-                'no_hp' => '081234567802',
-                'email' => 'mansyur@baitulquran.sch.id',
-                'alamat' => 'Jl. Poros Camba No. 14, Kab. Maros',
-                'tahun_bergabung' => 2019,
-            ],
-            (object) [
-                'id' => 3,
-                'nip' => 'AS-2020-003',
-                'nama' => 'Ustadzah Nurjannah, S.Th.I, M.Pd.',
-                'jenis_kelamin' => 'Ustadzah',
-                'jabatan' => 'Koordinator Tahfizh Putri (Kampus 2)',
-                'kategori' => 'tahfizh',
-                'kategori_label' => 'Tahfizh Al-Qur\'an',
-                'spesialisasi' => 'Hafizhah 30 Juz Bersanad & Ilmu Tajwid',
-                'almamater' => 'Fakultas Ushuluddin UIN Alauddin Makassar',
-                'beban_tugas' => '3 Halaqah Tahfizh Santriwati',
-                'status_kepegawaian' => 'Mukim (Tetap)',
-                'no_hp' => '081234567803',
-                'email' => 'nurjannah@baitulquran.sch.id',
-                'alamat' => 'Asrama Putri Kampus 2 Camba, Maros',
-                'tahun_bergabung' => 2020,
-            ],
-            (object) [
-                'id' => 4,
-                'nip' => 'AS-2021-004',
-                'nama' => 'Ust. Farhan Rahmatullah, S.Pd.',
-                'jenis_kelamin' => 'Ustadz',
-                'jabatan' => 'Musyrif Asrama Putra & Pembina Halaqah',
-                'kategori' => 'pengasuhan',
-                'kategori_label' => 'Tahfizh & Pengasuhan',
-                'spesialisasi' => 'Tahfizh Al-Qur\'an & Tarbiyah Karakter Santri',
-                'almamater' => 'Universitas Negeri Makassar (UNM)',
-                'beban_tugas' => '2 Halaqah & Asrama Umar bin Khattab',
-                'status_kepegawaian' => 'Mukim (Tetap)',
-                'no_hp' => '081234567804',
-                'email' => 'farhan@baitulquran.sch.id',
-                'alamat' => 'Asrama Santri Camba, Kab. Maros',
-                'tahun_bergabung' => 2021,
-            ],
-            (object) [
-                'id' => 5,
-                'nip' => 'AS-2017-005',
-                'nama' => 'Ust. Drs. H. Bachtiar Nur',
-                'jenis_kelamin' => 'Ustadz',
-                'jabatan' => 'Dewan Pembina & Pengajar Senior Nahwu Sharaf',
-                'kategori' => 'diniyah',
-                'kategori_label' => 'Dirasah Islamiyah & Kitab',
-                'spesialisasi' => 'Nahwu Wadhih, Alfiyah Ibnu Malik & Balaghah',
-                'almamater' => 'Pondok Modern Darussalam Gontor & IAIN',
-                'beban_tugas' => 'Kelas Ulya & Halaqah Asatidz',
-                'status_kepegawaian' => 'Guru Pengajar',
-                'no_hp' => '081234567805',
-                'email' => 'bachtiar@baitulquran.sch.id',
-                'alamat' => 'Komp. Turikale, Maros Kota',
-                'tahun_bergabung' => 2017,
-            ],
-            (object) [
-                'id' => 6,
-                'nip' => 'AS-2021-006',
-                'nama' => 'Ust. Ahmad Fauzi, S.Si., Gr.',
-                'jenis_kelamin' => 'Ustadz',
-                'jabatan' => 'Guru Matematika & Sains Terpadu Wustha',
-                'kategori' => 'formal',
-                'kategori_label' => 'Pendidikan Formal & Sains',
-                'spesialisasi' => 'Pembinaan Kompetisi Sains Madrasah (KSM)',
-                'almamater' => 'FMIPA Universitas Hasanuddin (UNHAS)',
-                'beban_tugas' => 'Kelas 7, 8, 9 Wustha (SMP)',
-                'status_kepegawaian' => 'Guru Tetap',
-                'no_hp' => '081234567806',
-                'email' => 'fauzi@baitulquran.sch.id',
-                'alamat' => 'Cempaniga, Camba, Maros',
-                'tahun_bergabung' => 2021,
-            ],
-            (object) [
-                'id' => 7,
-                'nip' => 'AS-2022-007',
-                'nama' => 'Ust. Ridwan Hakiki, S.Hum.',
-                'jenis_kelamin' => 'Ustadz',
-                'jabatan' => 'Koordinator Bahasa & Muhadharah Tiga Bahasa',
-                'kategori' => 'formal',
-                'kategori_label' => 'Bahasa & Kepemimpinan',
-                'spesialisasi' => 'English Public Speaking & Public Relations',
-                'almamater' => 'Fakultas Ilmu Budaya UNHAS Makassar',
-                'beban_tugas' => 'Kelas 7-11 Wustha & Ulya',
-                'status_kepegawaian' => 'Guru Tetap',
-                'no_hp' => '081234567807',
-                'email' => 'ridwan@baitulquran.sch.id',
-                'alamat' => 'Bantimurung, Maros',
-                'tahun_bergabung' => 2022,
-            ],
-            (object) [
-                'id' => 8,
-                'nip' => 'AS-2022-008',
-                'nama' => 'Ustadzah Khadijah Azzahra, S.Pd.',
-                'jenis_kelamin' => 'Ustadzah',
-                'jabatan' => 'Guru Bahasa Indonesia & Literasi Santriwati',
-                'kategori' => 'formal',
-                'kategori_label' => 'Pendidikan Formal & Sains',
-                'spesialisasi' => 'Penulisan Kreatif & Jurnalistik Pesantren',
-                'almamater' => 'FBS Universitas Negeri Makassar (UNM)',
-                'beban_tugas' => 'Kelas Wustha & Ulya Putri',
-                'status_kepegawaian' => 'Guru Tetap',
-                'no_hp' => '081234567808',
-                'email' => 'khadijah@baitulquran.sch.id',
-                'alamat' => 'Komp. Pasar Camba, Maros',
-                'tahun_bergabung' => 2022,
-            ],
-            (object) [
-                'id' => 9,
-                'nip' => 'AS-2019-009',
-                'nama' => 'Ust. Dr. Luqmanul Hakim, Lc., M.A.',
-                'jenis_kelamin' => 'Ustadz',
-                'jabatan' => 'Pengajar Tafsir Al-Qur\'an & Hadits Tematik',
-                'kategori' => 'diniyah',
-                'kategori_label' => 'Dirasah Islamiyah & Kitab',
-                'spesialisasi' => 'Ulumul Hadits & Tafsir Tematik Ibnu Katsir',
-                'almamater' => 'Universitas Islam Madinah KSA',
-                'beban_tugas' => 'Kuliah Fajar Santri & Ulya',
-                'status_kepegawaian' => 'Asatidz Tamu / Pembina',
-                'no_hp' => '081234567809',
-                'email' => 'luqman@baitulquran.sch.id',
-                'alamat' => 'Makassar / Pengabdian Camba',
-                'tahun_bergabung' => 2019,
-            ],
-            (object) [
-                'id' => 10,
-                'nip' => 'AS-2023-010',
-                'nama' => 'Ust. Muhammad Dzulkifli, S.Kom.',
-                'jenis_kelamin' => 'Ustadz',
-                'jabatan' => 'Kepala Lab Komputer & Guru Informatika',
-                'kategori' => 'formal',
-                'kategori_label' => 'Pendidikan Formal & Sains',
-                'spesialisasi' => 'Coding Dasar, Web & Literasi Digital Santri',
-                'almamater' => 'Teknik Informatika Universitas Hasanuddin',
-                'beban_tugas' => 'Laboratorium Komputer Wustha & Ulya',
-                'status_kepegawaian' => 'Guru Tetap',
-                'no_hp' => '081234567810',
-                'email' => 'dzulkifli@baitulquran.sch.id',
-                'alamat' => 'Camba, Kab. Maros',
-                'tahun_bergabung' => 2023,
-            ],
-            (object) [
-                'id' => 11,
-                'nip' => 'AS-2023-011',
-                'nama' => 'Ustadzah Maryam Salsabila, S.Ked.',
-                'jenis_kelamin' => 'Ustadzah',
-                'jabatan' => 'Penanggung Jawab Poskestren & Guru IPA',
-                'kategori' => 'pengasuhan',
-                'kategori_label' => 'Tahfizh & Pengasuhan',
-                'spesialisasi' => 'Kesehatan Santri, Biologi & Fiqih Thaharah',
-                'almamater' => 'Fakultas Kedokteran UNHAS Makassar',
-                'beban_tugas' => 'Poskestren & Kelas Putri',
-                'status_kepegawaian' => 'Mukim (Tetap)',
-                'no_hp' => '081234567811',
-                'email' => 'maryam@baitulquran.sch.id',
-                'alamat' => 'Kampus 2 Putri Camba, Maros',
-                'tahun_bergabung' => 2023,
-            ],
-            (object) [
-                'id' => 12,
-                'nip' => 'AS-2022-012',
-                'nama' => 'Ust. Salman Al-Bantani, S.Pd.I',
-                'jenis_kelamin' => 'Ustadz',
-                'jabatan' => 'Pembina Seni Kaligrafi Islam & Musyrif',
-                'kategori' => 'pengasuhan',
-                'kategori_label' => 'Tahfizh & Pengasuhan',
-                'spesialisasi' => 'Khat Naskhi/Tsuluts & Tahfizh Al-Qur\'an',
-                'almamater' => 'Lembaga Kaligrafi Al-Qur\'an (LEMKA)',
-                'beban_tugas' => 'Ekskul Kaligrafi & 2 Halaqah',
-                'status_kepegawaian' => 'Mukim (Tetap)',
-                'no_hp' => '081234567812',
-                'email' => 'salman@baitulquran.sch.id',
-                'alamat' => 'Komp. Asatidz Camba, Maros',
-                'tahun_bergabung' => 2022,
-            ],
-            (object) [
-                'id' => 13,
-                'nip' => 'AS-2020-013',
-                'nama' => 'Ust. Fadhlurrahman, S.Ag.',
-                'jenis_kelamin' => 'Ustadz',
-                'jabatan' => 'Penguji Tahsin & Muraja\'ah Akbar Santri',
-                'kategori' => 'tahfizh',
-                'kategori_label' => 'Tahfizh Al-Qur\'an',
-                'spesialisasi' => 'Matan Jazariyah & Ujian Mutqin Santri',
-                'almamater' => 'Ma\'had Tahfizh Darul Arqam Gombara',
-                'beban_tugas' => '3 Halaqah Santri Ulya',
-                'status_kepegawaian' => 'Mukim (Tetap)',
-                'no_hp' => '081234567813',
-                'email' => 'fadhlurrahman@baitulquran.sch.id',
-                'alamat' => 'Camba, Kab. Maros',
-                'tahun_bergabung' => 2020,
-            ],
-            (object) [
-                'id' => 14,
-                'nip' => 'AS-2021-014',
-                'nama' => 'Ustadzah Aisyah Wardani, S.Pd.',
-                'jenis_kelamin' => 'Ustadzah',
-                'jabatan' => 'Pembina Halaqah Putri & Qashash Al-Qur\'an',
-                'kategori' => 'tahfizh',
-                'kategori_label' => 'Tahfizh Al-Qur\'an',
-                'spesialisasi' => 'Tahfizh Juz 20-30 Mutqin & Tajwid Aplikatif',
-                'almamater' => 'STIBA Makassar & Ponpes Tahfizh',
-                'beban_tugas' => '2 Halaqah Santriwati Wustha',
-                'status_kepegawaian' => 'Mukim (Tetap)',
-                'no_hp' => '081234567814',
-                'email' => 'aisyah@baitulquran.sch.id',
-                'alamat' => 'Kampus 2 Putri Camba, Maros',
-                'tahun_bergabung' => 2021,
-            ],
-            (object) [
-                'id' => 15,
-                'nip' => 'AS-2022-015',
-                'nama' => 'Ust. Wahyudi Pratama, S.Pd.',
-                'jenis_kelamin' => 'Ustadz',
-                'jabatan' => 'Guru PPKn & Sejarah Kebudayaan Islam (SKI)',
-                'kategori' => 'formal',
-                'kategori_label' => 'Pendidikan Formal & Sains',
-                'spesialisasi' => 'Wawasan Kebangsaan & Sejarah Dinasti Islam',
-                'almamater' => 'Universitas Negeri Makassar (UNM)',
-                'beban_tugas' => 'Kelas Wustha & Ulya',
-                'status_kepegawaian' => 'Guru Tetap',
-                'no_hp' => '081234567815',
-                'email' => 'wahyudi@baitulquran.sch.id',
-                'alamat' => 'Camba, Kab. Maros',
-                'tahun_bergabung' => 2022,
-            ],
-            (object) [
-                'id' => 16,
-                'nip' => 'AS-2022-016',
-                'nama' => 'Ustadzah Fatimah Azzahro, Lc.',
-                'jenis_kelamin' => 'Ustadzah',
-                'jabatan' => 'Pengajar Muhadatsah Arabiyah & Tarbiyah Putri',
-                'kategori' => 'diniyah',
-                'kategori_label' => 'Dirasah Islamiyah & Kitab',
-                'spesialisasi' => 'Percakapan Bahasa Arab Fush-ha & Akhlak',
-                'almamater' => 'Universitas Al-Ahgaff Tarim Hadramaut Yaman',
-                'beban_tugas' => 'Santriwati Kampus 2 Putri',
-                'status_kepegawaian' => 'Mukim (Tetap)',
-                'no_hp' => '081234567816',
-                'email' => 'fatimah@baitulquran.sch.id',
-                'alamat' => 'Asrama Putri Kampus 2 Camba',
-                'tahun_bergabung' => 2022,
-            ],
-            (object) [
-                'id' => 17,
-                'nip' => 'AS-2023-017',
-                'nama' => 'Ust. Arif Munandar, S.Pd.',
-                'jenis_kelamin' => 'Ustadz',
-                'jabatan' => 'Guru PJOK & Pelatih Panahan / Bela Diri Santri',
-                'kategori' => 'formal',
-                'kategori_label' => 'Pendidikan Formal & Sains',
-                'spesialisasi' => 'Kebugaran Santri & Sunnah Archery',
-                'almamater' => 'FIK Universitas Negeri Makassar (UNM)',
-                'beban_tugas' => 'Seluruh Kelas Wustha & Ulya',
-                'status_kepegawaian' => 'Guru Tetap',
-                'no_hp' => '081234567817',
-                'email' => 'arif@baitulquran.sch.id',
-                'alamat' => 'Camba, Kab. Maros',
-                'tahun_bergabung' => 2023,
-            ],
-            (object) [
-                'id' => 18,
-                'nip' => 'AS-2020-018',
-                'nama' => 'Ust. Muhammad Ilham, S.E.I',
-                'jenis_kelamin' => 'Ustadz',
-                'jabatan' => 'Bendahara Pondok & Pengajar Fiqih Muamalah',
-                'kategori' => 'pengasuhan',
-                'kategori_label' => 'Tahfizh & Pengasuhan',
-                'spesialisasi' => 'Ekonomi Islam & Manajemen Finansial Santri',
-                'almamater' => 'STEI SEBI Jakarta & UIN Alauddin',
-                'beban_tugas' => 'Kajian Muamalah Santri Ulya',
-                'status_kepegawaian' => 'Mukim (Tetap)',
-                'no_hp' => '081234567818',
-                'email' => 'ilham@baitulquran.sch.id',
-                'alamat' => 'Komp. Asatidz Camba, Maros',
-                'tahun_bergabung' => 2020,
-            ],
-        ];
-
-        $guruStats = [
-            'total_guru' => 18,
-            'guru_tahfizh' => 8,
-            'guru_formal' => 10,
-            'guru_diniyah' => 5,
-            'asatidz_mukim' => 14,
-            'guru_ikhwan' => 13,
-            'guru_akhwat' => 5,
-        ];
-
-        return view('admin.guru.index', [
-            'asatidz' => collect($sampleAsatidz),
-            'stats' => $guruStats,
-        ]);
+        return app(GuruController::class)->index($request);
     }
 
     /**

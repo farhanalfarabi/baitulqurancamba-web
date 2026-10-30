@@ -115,6 +115,160 @@ class AdminDashboardTest extends TestCase
     }
 
     /**
+     * Test admin pendaftaran status can be updated partially (quick status change).
+     */
+    public function test_admin_pendaftaran_status_can_be_updated_partially(): void
+    {
+        $pendaftaran = Pendaftaran::create([
+            'registration_number' => 'PSB-TEST-PARTIAL',
+            'jenjang' => 'MTs',
+            'nama_santri' => 'Santri Partial Status',
+            'jenis_kelamin' => 'Putra',
+            'nama_ayah' => 'Ayah Partial',
+            'no_hp_ayah' => '08123456789',
+            'status' => 'pending',
+        ]);
+
+        $response = $this->putJson(route('admin.pendaftaran.update', $pendaftaran->id), [
+            'status' => 'diterima',
+        ]);
+
+        $response->assertStatus(200)
+            ->assertJson([
+                'success' => true,
+                'data' => [
+                    'id' => $pendaftaran->id,
+                    'status' => 'diterima',
+                ],
+            ]);
+
+        $this->assertDatabaseHas('pendaftarans', [
+            'id' => $pendaftaran->id,
+            'status' => 'diterima',
+        ]);
+    }
+
+    /**
+     * Test admin can create a new registration manually.
+     */
+    public function test_admin_pendaftaran_can_be_created_manually(): void
+    {
+        $payload = [
+            'nama_santri' => 'Santri Manual Baru',
+            'jenis_kelamin' => 'Putri',
+            'jenjang' => 'MTs',
+            'tempat_lahir' => 'Camba',
+            'tanggal_lahir' => '2014-03-15',
+            'nama_ayah' => 'Ayah Manual',
+            'no_hp_ayah' => '081200001111',
+            'asal_sekolah' => 'SD Negeri 1 Camba',
+            'email' => 'manual.santri@gmail.com',
+            'status' => 'pending',
+        ];
+
+        $response = $this->postJson(route('admin.pendaftaran.store'), $payload);
+
+        $response->assertStatus(201)
+            ->assertJson([
+                'success' => true,
+                'data' => [
+                    'nama_santri' => 'Santri Manual Baru',
+                    'jenjang' => 'MTs',
+                    'jenis_kelamin' => 'Putri',
+                ],
+            ]);
+
+        $this->assertDatabaseHas('pendaftarans', [
+            'nama_santri' => 'Santri Manual Baru',
+            'email' => 'manual.santri@gmail.com',
+        ]);
+    }
+
+    /**
+     * Test admin can delete a registration.
+     */
+    public function test_admin_pendaftaran_can_be_deleted(): void
+    {
+        $pendaftaran = Pendaftaran::create([
+            'registration_number' => 'PSB-TEST-DELETE',
+            'jenjang' => 'MA',
+            'nama_santri' => 'Santri Akan Dihapus',
+            'jenis_kelamin' => 'Putra',
+            'nama_ayah' => 'Ayah Delete',
+            'no_hp_ayah' => '081299990000',
+            'status' => 'pending',
+        ]);
+
+        $response = $this->deleteJson(route('admin.pendaftaran.destroy', $pendaftaran->id));
+
+        $response->assertStatus(200)
+            ->assertJson([
+                'success' => true,
+            ]);
+
+        $this->assertDatabaseMissing('pendaftarans', [
+            'id' => $pendaftaran->id,
+        ]);
+    }
+
+    /**
+     * Test admin can export pendaftarans to CSV.
+     */
+    public function test_admin_pendaftaran_can_be_exported_to_csv(): void
+    {
+        $birthDate = now()->subYears(13)->format('Y-m-d');
+        Pendaftaran::create([
+            'registration_number' => 'PSB-TEST-EXPORT',
+            'jenjang' => 'MTs',
+            'nama_santri' => 'Santri Export CSV',
+            'jenis_kelamin' => 'Putra',
+            'tanggal_lahir' => $birthDate,
+            'nama_ayah' => 'Ayah Export',
+            'no_hp_ayah' => '081255554444',
+            'status' => 'terverifikasi',
+        ]);
+
+        $response = $this->get(route('admin.pendaftaran.export'));
+
+        $response->assertStatus(200);
+        $response->assertHeader('Content-Type', 'text/csv; charset=UTF-8');
+        $content = $response->streamedContent();
+        $this->assertStringContainsString('Umur', $content);
+        $this->assertStringContainsString('13 Tahun', $content);
+    }
+
+    /**
+     * Test umur is calculated automatically from tanggal_lahir on save.
+     */
+    public function test_pendaftaran_umur_is_calculated_automatically_from_birth_date(): void
+    {
+        $tenYearsAgo = now()->subYears(10)->format('Y-m-d');
+
+        $pendaftaran = Pendaftaran::create([
+            'registration_number' => 'PSB-TEST-UMUR',
+            'jenjang' => 'MTs',
+            'nama_santri' => 'Santri Hitung Umur',
+            'jenis_kelamin' => 'Putra',
+            'tanggal_lahir' => $tenYearsAgo,
+            'nama_ayah' => 'Ayah Umur',
+            'no_hp_ayah' => '081234567890',
+            'status' => 'pending',
+        ]);
+
+        $this->assertEquals(10, $pendaftaran->umur);
+        $this->assertDatabaseHas('pendaftarans', [
+            'id' => $pendaftaran->id,
+            'umur' => 10,
+        ]);
+
+        // When updated with a new birth date
+        $twelveYearsAgo = now()->subYears(12)->format('Y-m-d');
+        $pendaftaran->update(['tanggal_lahir' => $twelveYearsAgo]);
+
+        $this->assertEquals(12, $pendaftaran->fresh()->umur);
+    }
+
+    /**
      * Test admin santri index loads successfully with drawer edit features.
      */
     public function test_admin_santri_page_can_be_rendered(): void

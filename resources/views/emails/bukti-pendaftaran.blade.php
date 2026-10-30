@@ -183,10 +183,13 @@
           <td class="value">{{ $pendaftaran->jenis_kelamin }}</td>
         </tr>
         <tr>
-          <td class="label">Tempat, Tanggal Lahir</td>
+          <td class="label">Tempat, Tanggal Lahir & Usia</td>
           <td class="value">
             {{ $pendaftaran->tempat_lahir }}, 
             {{ $pendaftaran->tanggal_lahir ? $pendaftaran->tanggal_lahir->format('d F Y') : '-' }}
+            @if($pendaftaran->umur)
+              ({{ $pendaftaran->umur }} Tahun)
+            @endif
           </td>
         </tr>
         <tr>
