@@ -2,7 +2,9 @@
 
 namespace Tests\Feature;
 
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
 
 class AuthLoginTest extends TestCase
@@ -24,7 +26,7 @@ class AuthLoginTest extends TestCase
     }
 
     /**
-     * Test /admin/login redirects to /login.
+     * Test /admin/login redirects to /login for guest.
      */
     public function test_admin_login_route_redirects_to_login(): void
     {
@@ -51,6 +53,11 @@ class AuthLoginTest extends TestCase
      */
     public function test_login_submission_redirects_to_admin_dashboard(): void
     {
+        User::factory()->create([
+            'email' => 'admin@baitulquran.id',
+            'password' => Hash::make('password'),
+        ]);
+
         $response = $this->post('/login', [
             'email' => 'admin@baitulquran.id',
             'password' => 'password',
@@ -58,6 +65,48 @@ class AuthLoginTest extends TestCase
 
         $response->assertRedirect(route('admin.pendaftaran.index'));
         $response->assertSessionHas('success');
+        $this->assertAuthenticated();
+    }
+
+    /**
+     * Test failed login submission with invalid password.
+     */
+    public function test_login_fails_with_invalid_credentials(): void
+    {
+        User::factory()->create([
+            'email' => 'admin@baitulquran.id',
+            'password' => Hash::make('password'),
+        ]);
+
+        $response = $this->post('/login', [
+            'email' => 'admin@baitulquran.id',
+            'password' => 'wrong-password',
+        ]);
+
+        $response->assertSessionHasErrors(['email']);
+        $this->assertGuest();
+    }
+
+    /**
+     * Test unauthenticated guest cannot access admin portal.
+     */
+    public function test_unauthenticated_user_cannot_access_admin_portal(): void
+    {
+        $response = $this->get('/admin/pendaftaran');
+
+        $response->assertRedirect('/login');
+    }
+
+    /**
+     * Test authenticated user accessing login page is redirected to admin dashboard.
+     */
+    public function test_authenticated_user_is_redirected_from_login_page(): void
+    {
+        $user = User::factory()->create();
+
+        $response = $this->actingAs($user)->get('/login');
+
+        $response->assertRedirect(route('admin.pendaftaran.index'));
     }
 
     /**
@@ -65,9 +114,12 @@ class AuthLoginTest extends TestCase
      */
     public function test_logout_redirects_to_login(): void
     {
-        $response = $this->post('/logout');
+        $user = User::factory()->create();
+
+        $response = $this->actingAs($user)->post('/logout');
 
         $response->assertRedirect(route('login'));
         $response->assertSessionHas('status');
+        $this->assertGuest();
     }
 }

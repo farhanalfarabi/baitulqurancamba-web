@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('image_path');
             $table->unsignedSmallInteger('year')->index();
-            $table->string('caption')->nullable();
             $table->integer('sort_order')->default(0);
             $table->timestamps();
         });

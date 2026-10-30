@@ -463,6 +463,18 @@
                     </div>
                 </div>
 
+                <!-- Banner Informasi Saat Calon Santri Diterima -->
+                <div id="acceptedSantriBanner" class="hidden p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-900 flex items-center justify-between text-xs">
+                    <div class="flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0"></span>
+                        <span class="font-semibold text-[11px]">Calon santri ini telah <strong>Diterima</strong> & otomatis terdaftar di Data Santri.</span>
+                    </div>
+                    <a href="{{ route('admin.santri.index') }}" class="font-bold text-emerald-800 hover:text-emerald-950 underline flex items-center gap-1 shrink-0 ml-2 text-[11px]">
+                        <span>Buka Data Santri</span>
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
+
                 <!-- Bagian 1: Data Pribadi Lengkap Calon Santri (Dari Form) -->
                 <div class="space-y-2">
                     <h4 class="font-bold text-slate-900 uppercase tracking-wider text-[11px] pb-1 border-b border-slate-100">
@@ -1759,6 +1771,16 @@
                         btnPending.title = 'Tandai berkas belum lengkap';
                     }
                 }
+
+                // Toggle Accepted Santri Banner
+                const acceptedBanner = document.getElementById('acceptedSantriBanner');
+                if (acceptedBanner) {
+                    if (status === 'diterima') {
+                        acceptedBanner.classList.remove('hidden');
+                    } else {
+                        acceptedBanner.classList.add('hidden');
+                    }
+                }
             }
 
             function changeDetailStatus(newStatus) {
@@ -1800,7 +1822,11 @@
                     }).catch(err => console.log('Status update sync error:', err));
                 }
 
-                showPendaftaranToast('Status ' + activeDetailStudent.nama_santri + ' diubah: ' + newStatus.toUpperCase());
+                if (newStatus === 'diterima') {
+                    showPendaftaranToast(activeDetailStudent.nama_santri + ' diterima & otomatis diterbitkan ke Data Santri!');
+                } else {
+                    showPendaftaranToast('Status ' + activeDetailStudent.nama_santri + ' diubah: ' + newStatus.toUpperCase());
+                }
             }
 
             // ====================================================

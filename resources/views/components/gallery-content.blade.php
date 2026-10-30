@@ -120,11 +120,10 @@
           @foreach($photos as $photo)
             <div class="break-inside-avoid mb-2.5 sm:mb-3 photo-card p-1.5 sm:p-2 bg-white rounded-xl sm:rounded-2xl border-2 border-[#161616] brutal-shadow-sm hover:scale-[1.03] hover:z-20 hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden group" 
                  data-year="{{ $year }}"
-                 data-src="{{ $photo->image_url }}"
-                 data-caption="{{ $photo->caption ?? '' }}">
+                 data-src="{{ $photo->image_url }}">
               <div class="rounded-lg sm:rounded-xl overflow-hidden bg-gray-100">
                 <img src="{{ $photo->image_url }}" 
-                     alt="{{ $photo->caption ?? 'Baitul Qur\'an Camba '.$year }}" 
+                     alt="Baitul Qur'an Camba {{ $year }}" 
                      class="w-full h-auto object-cover block group-hover:scale-105 transition-transform duration-500" 
                      loading="lazy">
               </div>

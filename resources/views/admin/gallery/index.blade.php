@@ -87,12 +87,11 @@
                      data-id="{{ $item->id }}"
                      data-src="{{ $item->image_url }}"
                      data-year="{{ $item->year }}"
-                     data-caption="{{ $item->caption ?? '' }}"
                      onclick="openLightbox({{ $index }})">
                     
                     <!-- The Pure Photo -->
                     <img src="{{ $item->image_url }}" 
-                         alt="{{ $item->caption ?? 'Dokumentasi Pondok Camba' }}" 
+                         alt="Dokumentasi Pondok Camba {{ $item->year }}" 
                          loading="lazy" 
                          class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-108">
 

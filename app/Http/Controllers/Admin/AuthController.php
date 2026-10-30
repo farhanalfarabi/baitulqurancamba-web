@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Support\Str;
 use Illuminate\View\View;
 
 class AuthController extends Controller
@@ -32,19 +33,36 @@ class AuthController extends Controller
             'password.required' => 'Kata sandi wajib diisi.',
         ]);
 
-        $remember = $request->boolean('remember');
+        $throttleKey = Str::transliterate(Str::lower($credentials['email']).'|'.$request->ip());
 
-        // Check authenticating with database if user exists
-        if (Auth::attempt(['email' => $credentials['email'], 'password' => $credentials['password']], $remember)) {
+        if (RateLimiter::tooManyAttempts($throttleKey, 5)) {
+            $seconds = RateLimiter::availableIn($throttleKey);
+
+            return back()
+                ->withInput($request->only('email', 'remember'))
+                ->withErrors([
+                    'email' => "Terlalu banyak percobaan masuk. Silakan coba lagi dalam {$seconds} detik.",
+                ]);
+        }
+
+        $remember = $request->boolean('remember');
+        $loginField = filter_var($credentials['email'], FILTER_VALIDATE_EMAIL) ? 'email' : 'name';
+
+        if (Auth::attempt([$loginField => $credentials['email'], 'password' => $credentials['password']], $remember)) {
+            RateLimiter::clear($throttleKey);
             $request->session()->regenerate();
 
             return redirect()->intended(route('admin.pendaftaran.index'))
                 ->with('success', 'Selamat datang kembali di Admin Portal Baitul Qur\'an Camba.');
         }
 
-        // In UI preview phase: allow smooth navigation
-        return redirect()->route('admin.pendaftaran.index')
-            ->with('success', 'Berhasil masuk ke Admin Portal Baitul Qur\'an Camba.');
+        RateLimiter::hit($throttleKey, 60);
+
+        return back()
+            ->withInput($request->only('email', 'remember'))
+            ->withErrors([
+                'email' => 'Email atau kata sandi yang Anda masukkan tidak sesuai.',
+            ]);
     }
 
     /**

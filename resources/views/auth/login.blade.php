@@ -280,7 +280,7 @@
                                 <input type="text" 
                                        id="email" 
                                        name="email" 
-                                       value="{{ old('email', 'admin@baitulquran.id') }}" 
+                                       value="{{ old('email') }}" 
                                        required 
                                        autofocus
                                        placeholder="admin@baitulquran.id" 
@@ -312,7 +312,6 @@
                                 <input type="password" 
                                        id="password" 
                                        name="password" 
-                                       value="password"
                                        required 
                                        placeholder="••••••••" 
                                        class="w-full pl-11 pr-12 py-3 bg-slate-50 hover:bg-slate-100/70 focus:bg-white text-sm text-slate-900 rounded-xl border {{ $errors->has('password') ? 'border-rose-400 focus:ring-rose-200' : 'border-slate-200 focus:border-forest-600 focus:ring-forest-100' }} focus:ring-4 transition-all outline-hidden font-medium">
@@ -362,29 +361,6 @@
                             </button>
                         </div>
                     </form>
-
-                    <!-- UI Mode / Demo Quick Access Box -->
-                    <div class="mt-8 pt-6 border-t border-slate-100">
-                        <div class="rounded-2xl bg-amber-50/80 border border-amber-200/80 p-4 text-xs text-amber-900">
-                            <div class="flex items-start gap-2.5">
-                                <span class="text-amber-600 font-bold text-base leading-none">💡</span>
-                                <div class="flex-1">
-                                    <p class="font-bold text-amber-950">Pratinjau Antarmuka (UI Mode)</p>
-                                    <p class="text-amber-800/90 mt-1 leading-relaxed">
-                                        Kredensial simulasi default telah disiapkan:
-                                    </p>
-                                    <div class="mt-2 flex flex-wrap items-center gap-2 text-[11px] font-mono bg-white/80 p-2 rounded-lg border border-amber-200">
-                                        <span class="text-slate-600">Email: <strong class="text-slate-900">admin@baitulquran.id</strong></span>
-                                        <span class="text-slate-300">|</span>
-                                        <span class="text-slate-600">Sandi: <strong class="text-slate-900">password</strong></span>
-                                    </div>
-                                    <p class="mt-2 text-[11px] text-amber-700">
-                                        Klik langsung tombol <strong>Masuk ke Dashboard</strong> di atas untuk mencoba alur login.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
                 </div>
 

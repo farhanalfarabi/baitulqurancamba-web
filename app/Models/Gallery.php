@@ -17,7 +17,6 @@ class Gallery extends Model
     protected $fillable = [
         'image_path',
         'year',
-        'caption',
         'sort_order',
     ];
 

@@ -3,12 +3,20 @@
 namespace Tests\Feature;
 
 use App\Models\Pendaftaran;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class AdminDashboardTest extends TestCase
 {
     use RefreshDatabase;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->actingAs(User::factory()->create());
+    }
 
     /**
      * Test admin index route redirects to pendaftaran page when dashboard is hidden.
@@ -271,7 +279,7 @@ class AdminDashboardTest extends TestCase
         $response = $this->get('/admin/santri');
 
         $response->assertStatus(200);
-        $response->assertSee('Database Santri Mukim Aktif');
+        $response->assertSee('Data Santri Mukim');
         $response->assertSee('Edit Data Santri');
         $response->assertSee('santriEditView');
         $response->assertSee('Simpan Perubahan');
@@ -299,5 +307,19 @@ class AdminDashboardTest extends TestCase
 
         $response->assertStatus(200);
         $response->assertSee('Koleksi Foto');
+    }
+
+    /**
+     * Test admin layout contains custom logout confirmation modal.
+     */
+    public function test_admin_layout_contains_custom_logout_modal(): void
+    {
+        $response = $this->get('/admin/pendaftaran');
+
+        $response->assertStatus(200);
+        $response->assertSee('logoutConfirmModal');
+        $response->assertSee('openLogoutModal');
+        $response->assertSee('Konfirmasi Keluar Sistem');
+        $response->assertDontSee("confirm('Apakah Anda yakin");
     }
 }

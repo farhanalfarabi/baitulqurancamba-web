@@ -1,0 +1,211 @@
+<?php
+
+namespace Database\Seeders;
+
+use App\Models\Pendaftaran;
+use App\Models\Santri;
+use Illuminate\Database\Seeder;
+
+class SantriSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        // 1. Sinkronisasi data santri dari pendaftaran yang berstatus 'diterima'
+        $acceptedPendaftarans = Pendaftaran::where('status', 'diterima')->get();
+        foreach ($acceptedPendaftarans as $p) {
+            Santri::firstOrCreate(
+                ['registration_number' => $p->registration_number],
+                [
+                    'pendaftaran_id' => $p->id,
+                    'jenjang' => $p->jenjang,
+                    'nama_santri' => $p->nama_santri,
+                    'jenis_kelamin' => $p->jenis_kelamin,
+                    'tempat_lahir' => $p->tempat_lahir,
+                    'tanggal_lahir' => $p->tanggal_lahir,
+                    'umur' => $p->umur,
+                    'alamat_lengkap' => $p->alamat_lengkap,
+                    'asal_sekolah' => $p->asal_sekolah,
+                    'email' => $p->email,
+                    'no_hp_santri' => $p->no_hp_santri,
+                    'tinggal_bersama' => $p->tinggal_bersama,
+                    'pas_foto_path' => $p->pas_foto_path,
+                    'foto_kk_path' => $p->foto_kk_path,
+                    'foto_raport_path' => $p->foto_raport_path,
+                    'nama_ayah' => $p->nama_ayah,
+                    'no_hp_ayah' => $p->no_hp_ayah,
+                    'pekerjaan_ayah' => $p->pekerjaan_ayah,
+                    'penghasilan_ayah' => $p->penghasilan_ayah,
+                    'nama_ibu' => $p->nama_ibu,
+                    'no_hp_ibu' => $p->no_hp_ibu,
+                    'pekerjaan_ibu' => $p->pekerjaan_ibu,
+                    'penghasilan_ibu' => $p->penghasilan_ibu,
+                    'status_santri' => 'aktif',
+                ]
+            );
+        }
+
+        // 2. Data santri pondok dengan variasi status keaktifan (aktif, izin, alumni, keluar)
+        $samples = [
+            [
+                'registration_number' => 'STR-2025-012',
+                'jenjang' => 'MTs',
+                'nama_santri' => 'Abdullah Dzaki M.',
+                'jenis_kelamin' => 'Putra',
+                'tempat_lahir' => 'Makassar',
+                'tanggal_lahir' => '2012-05-14',
+                'alamat_lengkap' => 'Jl. Poros Maros-Camba KM 12, Kel. Cempaniga, Kec. Camba, Kab. Maros',
+                'asal_sekolah' => 'SDIT Al-Fityan Gowa',
+                'email' => 'dzaki.maros@gmail.com',
+                'no_hp_santri' => '081234567891',
+                'tinggal_bersama' => 'Asrama Pondok',
+                'pas_foto_path' => 'dokumen/pas_foto_default.jpg',
+                'foto_kk_path' => 'dokumen/kk_sample.pdf',
+                'foto_raport_path' => 'dokumen/raport_sample.pdf',
+                'nama_ayah' => 'H. Muhammad Arifin',
+                'no_hp_ayah' => '08114422331',
+                'pekerjaan_ayah' => 'Wiraswasta Perdagangan',
+                'penghasilan_ayah' => 'Rp 5.000.000 ke atas',
+                'nama_ibu' => 'Hj. Nur Asma, S.Pd.',
+                'no_hp_ibu' => '08114422332',
+                'pekerjaan_ibu' => 'Guru Madrasah',
+                'penghasilan_ibu' => 'Rp 3.000.000 - Rp 4.000.000',
+                'status_santri' => 'aktif',
+            ],
+            [
+                'registration_number' => 'STR-2025-031',
+                'jenjang' => 'MTs',
+                'nama_santri' => 'Hasan Al-Banna',
+                'jenis_kelamin' => 'Putra',
+                'tempat_lahir' => 'Gowa',
+                'tanggal_lahir' => '2013-11-05',
+                'alamat_lengkap' => 'Jl. Sultan Hasanuddin No. 45, Sungguminasa, Gowa',
+                'asal_sekolah' => 'MI Al-Ikhlas Gowa',
+                'email' => 'hasan.banna@gmail.com',
+                'no_hp_santri' => '082155443322',
+                'tinggal_bersama' => 'Asrama Pondok',
+                'pas_foto_path' => 'dokumen/pas_foto_default.jpg',
+                'foto_kk_path' => 'dokumen/kk_sample.pdf',
+                'foto_raport_path' => 'dokumen/raport_sample.pdf',
+                'nama_ayah' => 'Drs. H. Bachtiar',
+                'no_hp_ayah' => '081233445566',
+                'pekerjaan_ayah' => 'Dosen Perguruan Tinggi',
+                'penghasilan_ayah' => 'Rp 5.000.000 ke atas',
+                'nama_ibu' => 'Dra. Hj. Fatimah',
+                'no_hp_ibu' => '081233445567',
+                'pekerjaan_ibu' => 'PNS Dinas Pendidikan',
+                'penghasilan_ibu' => 'Rp 4.000.000 - Rp 5.000.000',
+                'status_santri' => 'aktif',
+            ],
+            [
+                'registration_number' => 'STR-2024-088',
+                'jenjang' => 'MTs',
+                'nama_santri' => 'Aisyah Putri Humaira',
+                'jenis_kelamin' => 'Putri',
+                'tempat_lahir' => 'Makassar',
+                'tanggal_lahir' => '2012-07-15',
+                'alamat_lengkap' => 'Komp. Antang Permai Blok C No. 12, Manggala, Makassar',
+                'asal_sekolah' => 'SDIT Wahdah Islamiyah 01',
+                'email' => 'aisyah.humaira@gmail.com',
+                'no_hp_santri' => '082188776655',
+                'tinggal_bersama' => 'Asrama Pondok',
+                'pas_foto_path' => 'dokumen/pas_foto_default.jpg',
+                'foto_kk_path' => 'dokumen/kk_sample.pdf',
+                'foto_raport_path' => 'dokumen/raport_sample.pdf',
+                'nama_ayah' => 'Ir. Muhammad Ridwan',
+                'no_hp_ayah' => '082199881122',
+                'pekerjaan_ayah' => 'Konsultan Pertanian',
+                'penghasilan_ayah' => 'Rp 5.000.000 ke atas',
+                'nama_ibu' => 'dr. Nurlaila, Sp.A',
+                'no_hp_ibu' => '082199881123',
+                'pekerjaan_ibu' => 'Dokter Spesialis Anak',
+                'penghasilan_ibu' => 'Rp 5.000.000 ke atas',
+                'status_santri' => 'aktif',
+            ],
+            [
+                'registration_number' => 'STR-2024-045',
+                'jenjang' => 'MTs',
+                'nama_santri' => 'Muhammad Farhan Kamil',
+                'jenis_kelamin' => 'Putra',
+                'tempat_lahir' => 'Maros',
+                'tanggal_lahir' => '2012-03-25',
+                'alamat_lengkap' => 'Desa Samangki, Kec. Simbang, Kab. Maros',
+                'asal_sekolah' => 'SD Inpres Samangki',
+                'email' => 'farhan.kamil@gmail.com',
+                'no_hp_santri' => '085799112233',
+                'tinggal_bersama' => 'Orang Tua (Izin Medis)',
+                'pas_foto_path' => 'dokumen/pas_foto_default.jpg',
+                'foto_kk_path' => 'dokumen/kk_sample.pdf',
+                'foto_raport_path' => 'dokumen/raport_sample.pdf',
+                'nama_ayah' => 'Usman Jaya',
+                'no_hp_ayah' => '085244556677',
+                'pekerjaan_ayah' => 'Petani Modern',
+                'penghasilan_ayah' => 'Rp 3.000.000 - Rp 4.000.000',
+                'nama_ibu' => 'Hasnah',
+                'no_hp_ibu' => '085244556678',
+                'pekerjaan_ibu' => 'Ibu Rumah Tangga',
+                'penghasilan_ibu' => 'Rp 1.000.000 - Rp 2.000.000',
+                'status_santri' => 'izin',
+            ],
+            [
+                'registration_number' => 'STR-2023-019',
+                'jenjang' => 'MA',
+                'nama_santri' => 'Maryam Az-Zahra',
+                'jenis_kelamin' => 'Putri',
+                'tempat_lahir' => 'Bone',
+                'tanggal_lahir' => '2008-04-10',
+                'alamat_lengkap' => 'Jl. Ahmad Yani No. 10, Tanete Riattang, Watampone, Bone',
+                'asal_sekolah' => 'MTs Negeri 1 Bone',
+                'email' => 'maryam.zahra@gmail.com',
+                'no_hp_santri' => '085311224455',
+                'tinggal_bersama' => 'Asrama Pondok',
+                'pas_foto_path' => 'dokumen/pas_foto_default.jpg',
+                'foto_kk_path' => 'dokumen/kk_sample.pdf',
+                'foto_raport_path' => 'dokumen/raport_sample.pdf',
+                'nama_ayah' => 'H. Syamsuddin',
+                'no_hp_ayah' => '085233669900',
+                'pekerjaan_ayah' => 'Pedagang Hasil Bumi',
+                'penghasilan_ayah' => 'Rp 5.000.000 ke atas',
+                'nama_ibu' => 'Hj. Sitti Halimah',
+                'no_hp_ibu' => '085233669901',
+                'pekerjaan_ibu' => 'Ibu Rumah Tangga',
+                'penghasilan_ibu' => 'Rp 2.000.000 - Rp 3.000.000',
+                'status_santri' => 'alumni',
+            ],
+            [
+                'registration_number' => 'STR-2023-051',
+                'jenjang' => 'MTs',
+                'nama_santri' => 'Reyhan Pratama',
+                'jenis_kelamin' => 'Putra',
+                'tempat_lahir' => 'Makassar',
+                'tanggal_lahir' => '2011-01-30',
+                'alamat_lengkap' => 'Jl. Hertasning Baru No. 88, Rappocini, Makassar',
+                'asal_sekolah' => 'SD Islam Athirah Makassar',
+                'email' => 'reyhan.pratama@gmail.com',
+                'no_hp_santri' => '081299001122',
+                'tinggal_bersama' => 'Orang Tua',
+                'pas_foto_path' => 'dokumen/pas_foto_default.jpg',
+                'foto_kk_path' => 'dokumen/kk_sample.pdf',
+                'foto_raport_path' => 'dokumen/raport_sample.pdf',
+                'nama_ayah' => 'Hendra Pratama, S.E.',
+                'no_hp_ayah' => '081277665544',
+                'pekerjaan_ayah' => 'Karyawan Swasta',
+                'penghasilan_ayah' => 'Rp 5.000.000 ke atas',
+                'nama_ibu' => 'Maya Sartika, S.E.',
+                'no_hp_ibu' => '081277665545',
+                'pekerjaan_ibu' => 'Wiraswasta Kuliner',
+                'penghasilan_ibu' => 'Rp 4.000.000 - Rp 5.000.000',
+                'status_santri' => 'keluar',
+            ],
+        ];
+
+        foreach ($samples as $sample) {
+            Santri::firstOrCreate(
+                ['registration_number' => $sample['registration_number']],
+                $sample
+            );
+        }
+    }
+}

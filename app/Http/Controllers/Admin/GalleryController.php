@@ -81,14 +81,12 @@ class GalleryController extends Controller
 
         $request->validate([
             'year' => ['required', 'integer', 'min:2000', 'max:'.($currentYear + 2)],
-            'caption' => ['nullable', 'string', 'max:255'],
             'photo' => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp,gif', 'max:10240'],
             'photos' => ['nullable', 'array'],
             'photos.*' => ['image', 'mimes:jpeg,png,jpg,webp,gif', 'max:10240'],
         ]);
 
         $year = (int) $request->input('year', $currentYear);
-        $caption = $request->input('caption');
 
         $uploadedPhotos = [];
 
@@ -101,7 +99,6 @@ class GalleryController extends Controller
                 $gallery = Gallery::create([
                     'image_path' => $path,
                     'year' => $year,
-                    'caption' => $caption,
                     'sort_order' => 0,
                 ]);
                 $uploadedPhotos[] = $gallery;
@@ -115,7 +112,6 @@ class GalleryController extends Controller
             $gallery = Gallery::create([
                 'image_path' => $path,
                 'year' => $year,
-                'caption' => $caption,
                 'sort_order' => 0,
             ]);
             $uploadedPhotos[] = $gallery;
@@ -153,16 +149,11 @@ class GalleryController extends Controller
 
         $validated = $request->validate([
             'year' => ['nullable', 'integer', 'min:2000', 'max:'.($currentYear + 2)],
-            'caption' => ['nullable', 'string', 'max:255'],
             'photo' => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp,gif', 'max:10240'],
         ]);
 
         if (isset($validated['year'])) {
             $gallery->year = (int) $validated['year'];
-        }
-
-        if (array_key_exists('caption', $validated)) {
-            $gallery->caption = $validated['caption'];
         }
 
         // Jika ada pergantian file foto

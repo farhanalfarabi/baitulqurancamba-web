@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Models\Gallery;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
@@ -12,6 +13,13 @@ class GalleryFeatureTest extends TestCase
 {
     use RefreshDatabase;
 
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->actingAs(User::factory()->create());
+    }
+
     /**
      * Test public gallery page displays database photos and filters by year dynamically.
      */
@@ -20,13 +28,11 @@ class GalleryFeatureTest extends TestCase
         Gallery::create([
             'image_path' => '/assets/images/pondok/halaqah-tahfidz.jpg',
             'year' => 2026,
-            'caption' => 'Halaqah Tahfizh Pagi',
         ]);
 
         Gallery::create([
             'image_path' => '/assets/images/pondok/asrama.jpg',
             'year' => 2025,
-            'caption' => 'Gedung Asrama Santri',
         ]);
 
         $response = $this->get('/gallery');
@@ -34,8 +40,8 @@ class GalleryFeatureTest extends TestCase
         $response->assertStatus(200);
         $response->assertSee('Tahun 2026');
         $response->assertSee('Tahun 2025');
-        $response->assertSee('Halaqah Tahfizh Pagi');
-        $response->assertSee('Gedung Asrama Santri');
+        $response->assertSee('halaqah-tahfidz.jpg');
+        $response->assertSee('asrama.jpg');
     }
 
     /**
@@ -46,7 +52,6 @@ class GalleryFeatureTest extends TestCase
         Gallery::create([
             'image_path' => '/assets/images/pondok/halaqah-tahfidz.jpg',
             'year' => 2026,
-            'caption' => 'Halaqah Tahfizh Pagi',
         ]);
 
         $response = $this->get('/admin/gallery');
@@ -64,13 +69,11 @@ class GalleryFeatureTest extends TestCase
         Gallery::create([
             'image_path' => '/assets/images/pondok/halaqah-tahfidz.jpg',
             'year' => 2026,
-            'caption' => 'Foto 2026',
         ]);
 
         Gallery::create([
             'image_path' => '/assets/images/pondok/asrama.jpg',
             'year' => 2025,
-            'caption' => 'Foto 2025',
         ]);
 
         $response = $this->getJson('/admin/gallery?year=2026');
@@ -81,7 +84,7 @@ class GalleryFeatureTest extends TestCase
                 'selected_year' => '2026',
             ])
             ->assertJsonCount(1, 'data')
-            ->assertJsonFragment(['caption' => 'Foto 2026']);
+            ->assertJsonFragment(['year' => 2026]);
     }
 
     /**
@@ -95,7 +98,6 @@ class GalleryFeatureTest extends TestCase
 
         $response = $this->postJson('/admin/gallery', [
             'year' => 2026,
-            'caption' => 'Dokumentasi Eskul Baru',
             'photo' => $file,
         ]);
 
@@ -107,10 +109,9 @@ class GalleryFeatureTest extends TestCase
 
         $this->assertDatabaseHas('galleries', [
             'year' => 2026,
-            'caption' => 'Dokumentasi Eskul Baru',
         ]);
 
-        $gallery = Gallery::where('caption', 'Dokumentasi Eskul Baru')->first();
+        $gallery = Gallery::where('year', 2026)->first();
         $this->assertNotNull($gallery);
         $this->assertStringStartsWith('/storage/gallery/', $gallery->image_path);
 
@@ -133,7 +134,6 @@ class GalleryFeatureTest extends TestCase
 
         $response = $this->postJson('/admin/gallery', [
             'year' => 2027,
-            'caption' => 'Batch Santri Baru',
             'photos' => $files,
         ]);
 
@@ -160,14 +160,12 @@ class GalleryFeatureTest extends TestCase
         $gallery = Gallery::create([
             'image_path' => $oldPath,
             'year' => 2025,
-            'caption' => 'Foto Lama',
         ]);
 
         $newFile = UploadedFile::fake()->image('new-pic.jpg');
 
         $response = $this->postJson("/admin/gallery/{$gallery->id}", [
             'year' => 2026,
-            'caption' => 'Foto Baru',
             'photo' => $newFile,
         ]);
 
@@ -178,7 +176,6 @@ class GalleryFeatureTest extends TestCase
 
         $gallery->refresh();
         $this->assertEquals(2026, $gallery->year);
-        $this->assertEquals('Foto Baru', $gallery->caption);
         $this->assertNotEquals($oldPath, $gallery->image_path);
 
         // Old file deleted, new file exists
@@ -199,7 +196,6 @@ class GalleryFeatureTest extends TestCase
         $gallery = Gallery::create([
             'image_path' => $path,
             'year' => 2026,
-            'caption' => 'Akan Dihapus',
         ]);
 
         $response = $this->deleteJson("/admin/gallery/{$gallery->id}");

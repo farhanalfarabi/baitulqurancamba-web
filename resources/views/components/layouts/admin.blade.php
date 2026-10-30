@@ -236,11 +236,11 @@
                 <div class="flex items-center justify-between gap-3 px-2 py-1.5">
                     <div class="flex items-center gap-3 min-w-0">
                         <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-amber-400 to-amber-200 text-forest-950 font-black flex items-center justify-center text-sm shadow-md shrink-0">
-                            BA
+                            {{ strtoupper(substr(auth()->user()->name ?? 'AD', 0, 2)) }}
                         </div>
                         <div class="flex-1 min-w-0">
-                            <p class="text-xs font-bold text-white truncate">
-                                Ust. Farhan R., S.Pd.
+                            <p class="text-xs font-bold text-white truncate" title="{{ auth()->user()->name ?? 'Admin Pesantren' }}">
+                                {{ auth()->user()->name ?? 'Ust. Farhan R., S.Pd.' }}
                             </p>
                             <p class="text-[11px] text-emerald-200/80 truncate flex items-center gap-1.5 mt-0.5">
                                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block"></span>
@@ -248,17 +248,15 @@
                             </p>
                         </div>
                     </div>
-                    <form action="{{ route('logout') }}" method="POST" class="inline">
-                        @csrf
-                        <button type="submit" 
-                                title="Keluar / Logout" 
-                                class="p-2 rounded-xl text-white/60 hover:text-rose-300 hover:bg-white/10 transition-colors focus:outline-hidden"
-                                onclick="return confirm('Apakah Anda yakin ingin keluar dari sistem?')">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
-                            </svg>
-                        </button>
-                    </form>
+                    <button type="button" 
+                            onclick="openLogoutModal()" 
+                            title="Keluar / Logout" 
+                            class="p-2 rounded-xl text-white/60 hover:text-rose-300 hover:bg-white/10 transition-colors focus:outline-hidden cursor-pointer"
+                            aria-label="Keluar / Logout">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
+                        </svg>
+                    </button>
                 </div>
             </div>
         </aside>
@@ -266,79 +264,30 @@
         <!-- Main Content Wrapper -->
         <div class="lg:pl-72 flex flex-col min-h-screen">
             
-            <!-- Top Sticky Navigation Bar -->
-            <header class="sticky top-0 z-20 h-20 bg-white/95 backdrop-blur-md border-b border-slate-200/80 px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-                
-                <!-- Left: Hamburger toggle & Breadcrumb -->
-                <div class="flex items-center gap-4">
-                    <button type="button" 
-                            onclick="toggleMobileSidebar()" 
-                            class="p-2 -ml-2 text-slate-600 hover:text-slate-900 rounded-xl hover:bg-slate-100 lg:hidden focus:outline-hidden"
-                            aria-label="Buka Menu">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                    </button>
-
-                    <div class="hidden sm:block">
-                        <div class="flex items-center gap-2 text-xs font-medium text-slate-400">
-                            <span>Admin Portal</span>
-                            <svg class="w-3.5 h-3.5 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                            </svg>
-                            <span class="text-slate-700 font-semibold">{{ $breadcrumb ?? 'Dashboard' }}</span>
-                        </div>
-                        <h1 class="text-lg font-bold text-slate-900 tracking-tight">
-                            {{ $pageTitle ?? 'Ringkasan & Metrik Pesantren' }}
-                        </h1>
-                    </div>
+            <!-- Mobile-only compact top bar for hamburger menu -->
+            <div class="lg:hidden sticky top-0 z-20 flex items-center justify-between h-14 px-4 bg-white/95 backdrop-blur-md border-b border-slate-200/80">
+                <button type="button" 
+                        onclick="toggleMobileSidebar()" 
+                        class="p-2 -ml-2 text-slate-600 hover:text-slate-900 rounded-xl hover:bg-slate-100 focus:outline-hidden"
+                        aria-label="Buka Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+                <div class="flex items-center gap-2">
+                    <img src="{{ asset('assets/images/logo.png') }}" alt="Logo Baitul Qur'an Camba" class="w-7 h-7 object-contain">
+                    <span class="font-bold text-sm text-slate-900">Admin Baitul Qur'an</span>
                 </div>
-
-                <!-- Right: Search, Notification & Action Buttons -->
-                <div class="flex items-center gap-3">
-                    
-                    <!-- Search Input (Desktop) -->
-                    <div class="relative hidden md:block w-64 lg:w-80">
-                        <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-slate-400">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                            </svg>
-                        </span>
-                        <input type="text" 
-                               placeholder="Cari santri, no. reg, wali..." 
-                               class="w-full pl-10 pr-4 py-2 text-xs bg-slate-100/80 hover:bg-slate-100 focus:bg-white text-slate-800 rounded-xl border border-transparent focus:border-forest-400 focus:ring-2 focus:ring-forest-100 transition-all outline-hidden">
-                    </div>
-
-                    <!-- Notification Button -->
-                    <div class="relative">
-                        <button type="button" 
-                                class="relative p-2.5 text-slate-500 hover:text-slate-800 rounded-xl hover:bg-slate-100 transition-colors focus:outline-hidden"
-                                title="Notifikasi Baru">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
-                            </svg>
-                            <span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-emerald-500 ring-2 ring-white"></span>
-                        </button>
-                    </div>
-
-                    <!-- Button Quick Link to Landing Page -->
-                    <a href="{{ route('home') }}" 
-                       target="_blank" 
-                       class="hidden sm:inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold bg-white border border-slate-200 text-slate-700 hover:bg-forest-50 hover:text-forest-900 transition-all shadow-xs">
-                        <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                        </svg>
-                        <span>Kunjungi Web</span>
-                    </a>
-
-                    <!-- User Avatar (Dominan Hijau Tua) -->
-                    <div class="pl-2 border-l border-slate-200">
-                        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-[#0B3B2C] to-[#1C7357] text-white flex items-center justify-center font-bold text-xs shadow-xs cursor-pointer ring-2 ring-slate-100 hover:ring-forest-300 transition-all">
-                            FR
-                        </div>
-                    </div>
-                </div>
-            </header>
+                <button type="button" 
+                        onclick="openLogoutModal()" 
+                        title="Keluar / Logout" 
+                        class="p-2 -mr-2 text-slate-500 hover:text-rose-600 rounded-xl hover:bg-rose-50 transition-colors focus:outline-hidden cursor-pointer"
+                        aria-label="Keluar">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
+                    </svg>
+                </button>
+            </div>
 
             <!-- Main Content Body -->
             <main class="flex-1 px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
@@ -381,7 +330,70 @@
         </div>
     </div>
 
-    <!-- Toggle Drawer Script -->
+    <!-- Modal Konfirmasi Logout Kustom -->
+    <div id="logoutConfirmModal" 
+         class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs hidden flex items-center justify-center p-4 select-none"
+         onclick="closeLogoutModalOnBackdrop(event)"
+         aria-modal="true" 
+         role="dialog">
+        <div class="bg-white rounded-3xl max-w-sm w-full p-6 sm:p-7 shadow-2xl border border-slate-100 text-center space-y-4 animate-in fade-in zoom-in-95 duration-200"
+             onclick="event.stopPropagation()">
+            
+            <!-- Warning / Door Icon Badge -->
+            <div class="w-14 h-14 rounded-2xl bg-rose-50 border border-rose-100 text-rose-600 mx-auto flex items-center justify-center shadow-xs">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
+                </svg>
+            </div>
+
+            <!-- Header Titles -->
+            <div>
+                <h3 class="text-base sm:text-lg font-bold text-slate-900">
+                    Konfirmasi Keluar Sistem
+                </h3>
+                <p class="text-xs text-slate-500 mt-1 leading-relaxed">
+                    Apakah Anda yakin ingin mengakhiri sesi administrasi ini?
+                </p>
+            </div>
+
+            <!-- Active User Info Pill -->
+            <div class="p-3 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center gap-3 text-left">
+                <div class="w-9 h-9 rounded-xl bg-forest-900 text-amber-300 font-bold flex items-center justify-center text-xs shrink-0">
+                    {{ strtoupper(substr(auth()->user()->name ?? 'AD', 0, 2)) }}
+                </div>
+                <div class="min-w-0 flex-1">
+                    <p class="text-xs font-bold text-slate-900 truncate">
+                        {{ auth()->user()->name ?? 'Ust. Farhan R., S.Pd.' }}
+                    </p>
+                    <p class="text-[11px] text-slate-500 truncate">
+                        {{ auth()->user()->email ?? 'admin@baitulquran.id' }}
+                    </p>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="grid grid-cols-2 gap-3 pt-2">
+                <button type="button" 
+                        onclick="closeLogoutModal()" 
+                        class="w-full py-2.5 px-4 rounded-xl border border-slate-200 text-xs font-bold text-slate-600 hover:text-slate-800 hover:bg-slate-100 transition cursor-pointer">
+                    Batal
+                </button>
+                <form action="{{ route('logout') }}" method="POST" id="globalLogoutForm" class="w-full">
+                    @csrf
+                    <button type="submit" 
+                            class="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-rose-600 to-rose-700 hover:from-rose-700 hover:to-rose-800 text-white text-xs font-bold shadow-md shadow-rose-900/20 hover:shadow-lg transition flex items-center justify-center gap-1.5 cursor-pointer">
+                        <span>Ya, Keluar</span>
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Toggle Drawer & Logout Modal Scripts -->
     <script>
         function toggleMobileSidebar() {
             const sidebar = document.getElementById('main-sidebar');
@@ -395,6 +407,35 @@
                 backdrop.classList.add('hidden');
             }
         }
+
+        function openLogoutModal() {
+            const modal = document.getElementById('logoutConfirmModal');
+            if (modal) {
+                modal.classList.remove('hidden');
+                document.body.classList.add('overflow-hidden');
+            }
+        }
+
+        function closeLogoutModal() {
+            const modal = document.getElementById('logoutConfirmModal');
+            if (modal) {
+                modal.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            }
+        }
+
+        function closeLogoutModalOnBackdrop(event) {
+            if (event.target.id === 'logoutConfirmModal') {
+                closeLogoutModal();
+            }
+        }
+
+        // Close logout modal on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLogoutModal();
+            }
+        });
     </script>
 
     {{ $scripts ?? '' }}
