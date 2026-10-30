@@ -761,22 +761,11 @@
       </div>
 
       <!-- Action Buttons in Modal -->
-      <div class="space-y-3">
-        <!-- Direct WhatsApp Confirmation Button -->
-        <a id="btn-wa-confirm" href="#" target="_blank" rel="noopener noreferrer"
-           class="w-full bg-emerald-600 hover:bg-emerald-700 text-white rounded-2xl py-3.5 px-4 font-display font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all cursor-pointer">
-          <span>💬 Konfirmasi via WhatsApp Panitia</span>
-          <span class="text-xs">➔</span>
+      <div class="mt-6">
+        <a href="{{ url('/') }}"
+           class="w-full py-4 text-center rounded-2xl bg-lime hover:bg-[#c4ed00] text-[#121212] font-display font-black text-xs uppercase tracking-wider transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer">
+          <span>Kembali</span>
         </a>
-
-        <div class="flex gap-2">
-          <button onclick="window.print()" class="flex-1 py-3 rounded-2xl bg-stone-100 hover:bg-stone-200 text-gray-700 font-label font-bold text-xs uppercase tracking-wider transition-colors">
-            🖨️ Cetak Bukti
-          </button>
-          <a href="{{ url('/') }}" class="flex-1 py-3 text-center rounded-2xl bg-lime hover:bg-[#c4ed00] text-[#121212] font-label font-bold text-xs uppercase tracking-wider transition-colors shadow-sm">
-            Kembali ke Beranda
-          </a>
-        </div>
       </div>
 
     </div>
@@ -941,22 +930,6 @@ document.addEventListener('DOMContentLoaded', function() {
       document.getElementById('summary-email').textContent = data.email || '-';
       document.getElementById('summary-email-row').textContent = data.email || '-';
       document.getElementById('summary-kontak').textContent = data.no_hp_ayah || data.no_hp_ibu || '-';
-
-      // WhatsApp Confirmation link with registration number and jenjang
-      const targetPhone = data.jenis_kelamin === 'Putri' ? '6282195682105' : '6282124880061';
-      const waText = encodeURIComponent(
-        `Assalamu'alaikum Warahmatullahi Wabarakatuh Panitia PSB Baitul Qur'an Camba.\n\n` +
-        `Saya telah mengisi formulir digital pendaftaran calon santri baru di website resmi:\n` +
-        `• No. Registrasi: ${regNumber}\n` +
-        `• Jenjang Pilihan: ${data.jenjang}\n` +
-        `• Nama Calon Santri: ${data.nama_santri}\n` +
-        `• Email Terdaftar: ${data.email}\n` +
-        `• Jenis Kelamin: ${data.jenis_kelamin}\n` +
-        `• Asal Sekolah: ${data.asal_sekolah}\n` +
-        `• No. Kontak Wali: ${data.no_hp_ayah || data.no_hp_ibu}\n\n` +
-        `Mohon informasi tindak lanjut verifikasi berkas dan jadwal tes seleksi. Syukran wa jazakumullah khairan.`
-      );
-      document.getElementById('btn-wa-confirm').href = `https://wa.me/${targetPhone}?text=${waText}`;
 
       // Show modal
       const modal = document.getElementById('modal-success-pendaftaran');

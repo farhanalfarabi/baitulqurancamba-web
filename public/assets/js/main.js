@@ -811,7 +811,7 @@ function init3DCoverflow() {
       val2: "Ijazah Wustha & Ulya"
     },
     {
-      title: "Olahraga Sunnah & Kebugaran",
+      title: "Olahraga & Kebugaran",
       subtitle: "Ketangkasan Fisik & Sportivitas Santri",
       year: "2024",
       key1: "Program",

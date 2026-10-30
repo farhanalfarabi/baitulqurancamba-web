@@ -64,7 +64,7 @@
       <!-- Card 5 -->
       <div class="coverflow-card absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] h-[220px] sm:w-[270px] sm:h-[270px] md:w-[310px] md:h-[310px] rounded-[24px] sm:rounded-[28px] overflow-hidden cursor-pointer transition-all duration-500 ease-out coverflow-reflection"
            data-index="5">
-        <img src="/assets/images/pondok/eskul-futsal.jpg" alt="Olahraga Sunnah & Kebugaran" class="w-full h-full object-cover pointer-events-none" draggable="false" />
+        <img src="/assets/images/pondok/eskul-futsal.jpg" alt="Olahraga & Kebugaran" class="w-full h-full object-cover pointer-events-none" draggable="false" />
       </div>
 
       <!-- Card 6 -->
@@ -183,7 +183,7 @@
           val2: "Ijazah Wustha & Ulya"
         },
         {
-          title: "Olahraga Sunnah & Kebugaran",
+          title: "Olahraga & Kebugaran",
           subtitle: "Ketangkasan Fisik & Sportivitas Santri",
           year: "2024",
           key1: "Program",

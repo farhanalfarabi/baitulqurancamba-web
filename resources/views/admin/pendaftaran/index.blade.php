@@ -342,14 +342,27 @@
 
     <div id="pendaftaranDrawer" 
          style="margin-top: 0 !important;"
-         class="!mt-0 fixed inset-y-0 right-0 z-50 w-full max-w-2xl bg-white shadow-2xl flex flex-col transition-transform duration-300 ease-in-out translate-x-full">
+         class="!mt-0 fixed inset-y-0 right-0 z-50 w-full max-w-2xl sm:max-w-3xl bg-white shadow-2xl flex flex-col transition-transform duration-300 ease-in-out translate-x-full">
         
         <!-- Drawer Header (Hijau Tua Islami & Tab Mode Switcher) -->
         <div class="p-5 sm:p-6 bg-gradient-to-r from-[#0B3B2C] via-[#0E4836] to-[#145742] text-white">
             <div class="flex items-center justify-between">
                 <div class="flex items-center gap-3.5 min-w-0">
-                    <div class="w-12 h-12 sm:w-13 sm:h-13 rounded-2xl bg-white/10 text-amber-300 font-black text-xl flex items-center justify-center border border-white/20 shadow-sm shrink-0" id="detailAvatar">
-                        FA
+                    <!-- Pas Foto Calon Santri di Header -->
+                    <div class="relative w-14 h-18 sm:w-16 sm:h-20 rounded-2xl overflow-hidden bg-white/10 border-2 border-amber-400/80 shadow-md shrink-0 flex items-center justify-center group cursor-pointer"
+                         title="Pas Foto Calon Santri (Klik untuk perbesar)"
+                         onclick="openDocPreview('pas_foto')">
+                        <img id="detailHeaderPhoto" 
+                             src="" 
+                             alt="Pas Foto Calon Santri" 
+                             class="w-full h-full object-cover object-top hidden transition-transform duration-300 group-hover:scale-105"
+                             onerror="onHeaderPhotoError()" />
+                        <div id="detailAvatarFallback" class="text-amber-300 font-black text-xl flex items-center justify-center w-full h-full bg-forest-900/60">
+                            FA
+                        </div>
+                        <span class="absolute bottom-0 inset-x-0 bg-black/60 backdrop-blur-2xs py-0.5 text-[9px] font-bold text-center text-amber-200 tracking-wider">
+                            3×4
+                        </span>
                     </div>
                     <div class="min-w-0">
                         <div class="flex items-center gap-2 mb-1 flex-wrap">
@@ -359,10 +372,16 @@
                             <span class="inline-block px-2.5 py-0.5 rounded text-[10px] font-bold bg-white/20 text-white" id="detailGenderBadge">
                                 Putra (Ikhwan)
                             </span>
+                            <span class="inline-block px-2.5 py-0.5 rounded text-[10px] font-bold bg-emerald-400/25 text-emerald-200 border border-emerald-400/30" id="detailHeaderJenjang">
+                                MTs
+                            </span>
                         </div>
-                        <h3 class="text-base sm:text-lg font-bold leading-tight truncate" id="detailStudentName">
+                        <h3 class="text-base sm:text-lg font-bold leading-tight truncate text-white" id="detailStudentName">
                             Muhammad Fatih Azzam
                         </h3>
+                        <p class="text-[11px] text-white/70 truncate mt-0.5" id="detailHeaderAsalSekolah">
+                            SDIT Al-Fityan School Gowa
+                        </p>
                     </div>
                 </div>
                 <button type="button" 
@@ -535,59 +554,158 @@
                     </div>
                 </div>
 
-                <!-- Bagian 3: Dokumen Berkas yang Diunggah (KK & Rapor) -->
+                <!-- Bagian 3: Dokumen Berkas yang Diunggah Langsung Diperlihatkan -->
                 <div class="space-y-3">
                     <h4 class="font-bold text-slate-900 uppercase tracking-wider text-[11px] pb-1 border-b border-slate-100 flex items-center justify-between">
-                        <span>3. Berkas Dokumen Terunggah</span>
+                        <span class="flex items-center gap-1.5">
+                            <svg class="w-3.5 h-3.5 text-forest-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                            <span>3. Berkas Dokumen Terunggah (Pratinjau Langsung)</span>
+                        </span>
                         <span class="text-[11px] font-bold text-emerald-700" id="detailDocBadge">3/3 Berkas Lengkap</span>
                     </h4>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                        <!-- Pas Foto 3x4 -->
-                        <div class="p-3 rounded-xl border border-slate-200 bg-white flex items-center justify-between">
-                            <div class="flex items-center gap-2.5 min-w-0">
-                                <div class="w-9 h-9 rounded-lg bg-amber-50 text-amber-700 flex items-center justify-center shrink-0">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                                    </svg>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+                        <!-- 1. Pas Foto 3x4 (Tampil Langsung) -->
+                        <div class="p-3.5 rounded-2xl border border-slate-200/90 bg-white shadow-2xs hover:shadow-xs transition-shadow flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-2">
+                                    <div class="flex items-center gap-1.5">
+                                        <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+                                        <strong class="text-slate-900 text-xs font-bold">Pas Foto 3×4</strong>
+                                    </div>
+                                    <span class="text-[10px] text-emerald-600 font-bold bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-100" id="fotoStatusText">Tersedia</span>
                                 </div>
-                                <div class="min-w-0">
-                                    <strong class="block text-slate-800 text-xs truncate">Pas Foto (3x4)</strong>
-                                    <span class="text-[10px] text-emerald-600 font-semibold" id="fotoStatusText">Tersedia (JPG)</span>
+                                <div class="relative w-full h-44 rounded-xl overflow-hidden bg-slate-100 border border-slate-200/80 flex items-center justify-center group">
+                                    <img id="detailFotoImg" 
+                                         src="" 
+                                         alt="Pas Foto Calon Santri" 
+                                         class="w-full h-full object-cover object-top cursor-pointer group-hover:scale-105 transition-transform duration-300"
+                                         onclick="openDocPreview('pas_foto')"
+                                         onerror="this.classList.add('hidden'); document.getElementById('detailFotoFallback').classList.remove('hidden');" />
+                                    <div id="detailFotoFallback" class="hidden flex flex-col items-center justify-center text-slate-400 p-3 text-center">
+                                        <svg class="w-8 h-8 text-slate-300 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                        <span class="text-[10px] font-medium">Foto Belum Tersedia</span>
+                                    </div>
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                                        <span class="text-[10px] font-bold text-white flex items-center gap-1">
+                                            <svg class="w-3 h-3 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+                                            Klik untuk Perbesar
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
-                            <button type="button" onclick="openDocPreview('Pas Foto Calon Santri (3x4)')" class="px-2.5 py-1 text-xs font-bold text-forest-900 bg-forest-50 hover:bg-forest-100 rounded-lg shrink-0">Buka</button>
+                            <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between gap-1 text-[11px]">
+                                <button type="button" 
+                                        onclick="openDocPreview('pas_foto')"
+                                        class="px-2.5 py-1 rounded-lg bg-forest-50 hover:bg-forest-100 text-forest-900 font-bold transition-colors">
+                                    Perbesar
+                                </button>
+                                <a id="detailFotoLink" 
+                                   href="#" 
+                                   target="_blank" 
+                                   class="px-2 py-1 text-slate-500 hover:text-slate-800 font-medium transition-colors flex items-center gap-0.5">
+                                    <span>Buka</span>
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                </a>
+                            </div>
                         </div>
 
-                        <!-- Kartu Keluarga -->
-                        <div class="p-3 rounded-xl border border-slate-200 bg-white flex items-center justify-between">
-                            <div class="flex items-center gap-2.5 min-w-0">
-                                <div class="w-9 h-9 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center shrink-0">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                                    </svg>
+                        <!-- 2. Kartu Keluarga (Tampil Langsung) -->
+                        <div class="p-3.5 rounded-2xl border border-slate-200/90 bg-white shadow-2xs hover:shadow-xs transition-shadow flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-2">
+                                    <div class="flex items-center gap-1.5">
+                                        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                                        <strong class="text-slate-900 text-xs font-bold">Kartu Keluarga</strong>
+                                    </div>
+                                    <span class="text-[10px] text-emerald-600 font-bold bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-100" id="kkStatusText">Tersedia</span>
                                 </div>
-                                <div class="min-w-0">
-                                    <strong class="block text-slate-800 text-xs truncate">Kartu Keluarga</strong>
-                                    <span class="text-[10px] text-emerald-600 font-semibold" id="kkStatusText">Tersedia (PDF)</span>
+                                <div class="relative w-full h-44 rounded-xl overflow-hidden bg-slate-100 border border-slate-200/80 flex items-center justify-center group cursor-pointer" onclick="openDocPreview('kk')">
+                                    <!-- Image Preview (jika format foto) -->
+                                    <img id="detailKkImg" 
+                                         src="" 
+                                         alt="Kartu Keluarga" 
+                                         class="w-full h-full object-contain p-1 hidden group-hover:scale-105 transition-transform duration-300"
+                                         onerror="this.classList.add('hidden'); document.getElementById('detailKkPdfBox').classList.remove('hidden');" />
+                                    <!-- PDF / Document Preview Box (jika format PDF) -->
+                                    <div id="detailKkPdfBox" class="flex flex-col items-center justify-center text-center p-3 w-full h-full bg-gradient-to-b from-slate-50 to-slate-100">
+                                        <div class="w-11 h-11 rounded-xl bg-rose-50 text-rose-600 border border-rose-200 flex items-center justify-center mb-1.5 shadow-2xs group-hover:scale-110 transition-transform">
+                                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"></path></svg>
+                                        </div>
+                                        <span class="text-[10px] font-bold text-slate-800 line-clamp-1 break-all" id="detailKkFileName">kartu_keluarga.pdf</span>
+                                        <span class="text-[9px] text-emerald-700 font-semibold mt-0.5">Dokumen Resmi Terverifikasi</span>
+                                    </div>
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                                        <span class="text-[10px] font-bold text-white flex items-center gap-1">
+                                            <svg class="w-3 h-3 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+                                            Klik Pratinjau Dokumen
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
-                            <button type="button" onclick="openDocPreview('Kartu Keluarga (KK)')" class="px-2.5 py-1 text-xs font-bold text-forest-900 bg-forest-50 hover:bg-forest-100 rounded-lg shrink-0">Buka</button>
+                            <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between gap-1 text-[11px]">
+                                <button type="button" 
+                                        onclick="openDocPreview('kk')"
+                                        class="px-2.5 py-1 rounded-lg bg-forest-50 hover:bg-forest-100 text-forest-900 font-bold transition-colors">
+                                    Pratinjau
+                                </button>
+                                <a id="detailKkLink" 
+                                   href="#" 
+                                   target="_blank" 
+                                   class="px-2 py-1 text-slate-500 hover:text-slate-800 font-medium transition-colors flex items-center gap-0.5">
+                                    <span>Buka File</span>
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                </a>
+                            </div>
                         </div>
 
-                        <!-- Buku Raport -->
-                        <div class="p-3 rounded-xl border border-slate-200 bg-white flex items-center justify-between">
-                            <div class="flex items-center gap-2.5 min-w-0">
-                                <div class="w-9 h-9 rounded-lg bg-teal-50 text-teal-700 flex items-center justify-center shrink-0">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                                    </svg>
+                        <!-- 3. Buku Raport (Tampil Langsung) -->
+                        <div class="p-3.5 rounded-2xl border border-slate-200/90 bg-white shadow-2xs hover:shadow-xs transition-shadow flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-2">
+                                    <div class="flex items-center gap-1.5">
+                                        <span class="w-2 h-2 rounded-full bg-teal-500"></span>
+                                        <strong class="text-slate-900 text-xs font-bold">Buku Rapor</strong>
+                                    </div>
+                                    <span class="text-[10px] text-emerald-600 font-bold bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-100" id="raportStatusText">Tersedia</span>
                                 </div>
-                                <div class="min-w-0">
-                                    <strong class="block text-slate-800 text-xs truncate">Buku Rapor</strong>
-                                    <span class="text-[10px] text-emerald-600 font-semibold" id="raportStatusText">Tersedia (PDF)</span>
+                                <div class="relative w-full h-44 rounded-xl overflow-hidden bg-slate-100 border border-slate-200/80 flex items-center justify-center group cursor-pointer" onclick="openDocPreview('raport')">
+                                    <!-- Image Preview -->
+                                    <img id="detailRaportImg" 
+                                         src="" 
+                                         alt="Buku Rapor" 
+                                         class="w-full h-full object-contain p-1 hidden group-hover:scale-105 transition-transform duration-300"
+                                         onerror="this.classList.add('hidden'); document.getElementById('detailRaportPdfBox').classList.remove('hidden');" />
+                                    <!-- PDF Preview Box -->
+                                    <div id="detailRaportPdfBox" class="flex flex-col items-center justify-center text-center p-3 w-full h-full bg-gradient-to-b from-slate-50 to-slate-100">
+                                        <div class="w-11 h-11 rounded-xl bg-teal-50 text-teal-700 border border-teal-200 flex items-center justify-center mb-1.5 shadow-2xs group-hover:scale-110 transition-transform">
+                                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"></path></svg>
+                                        </div>
+                                        <span class="text-[10px] font-bold text-slate-800 line-clamp-1 break-all" id="detailRaportFileName">raport_santri.pdf</span>
+                                        <span class="text-[9px] text-teal-700 font-semibold mt-0.5">Transkrip Nilai Santri</span>
+                                    </div>
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                                        <span class="text-[10px] font-bold text-white flex items-center gap-1">
+                                            <svg class="w-3 h-3 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+                                            Klik Pratinjau Dokumen
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
-                            <button type="button" id="raportPreviewBtn" onclick="openDocPreview('Transkrip / Nilai Rapor')" class="px-2.5 py-1 text-xs font-bold text-forest-900 bg-forest-50 hover:bg-forest-100 rounded-lg shrink-0">Buka</button>
+                            <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between gap-1 text-[11px]">
+                                <button type="button" 
+                                        onclick="openDocPreview('raport')"
+                                        class="px-2.5 py-1 rounded-lg bg-forest-50 hover:bg-forest-100 text-forest-900 font-bold transition-colors">
+                                    Pratinjau
+                                </button>
+                                <a id="detailRaportLink" 
+                                   href="#" 
+                                   target="_blank" 
+                                   class="px-2 py-1 text-slate-500 hover:text-slate-800 font-medium transition-colors flex items-center gap-0.5">
+                                    <span>Buka File</span>
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -777,39 +895,79 @@
                     </div>
                 </div>
 
-                <!-- Kelompok 4: Berkas Dokumen PSB -->
+                <!-- Kelompok 4: Berkas Dokumen PSB (Lihat & Edit) -->
                 <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80 space-y-3">
                     <h5 class="font-bold text-slate-900 uppercase text-[10px] tracking-wider text-forest-800 flex items-center justify-between">
                         <span class="flex items-center gap-1.5">
                             <span class="w-2 h-2 rounded-full bg-forest-600"></span>
-                            <span>4. Berkas Digital PSB</span>
+                            <span>4. Berkas Digital PSB (Lihat & Ganti)</span>
                         </span>
                         <span class="text-[10px] text-emerald-700 font-semibold">Tersimpan di Cloud</span>
                     </h5>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <div class="p-3 rounded-xl border border-slate-200 bg-white space-y-2">
-                            <div class="flex items-center justify-between">
-                                <span class="font-bold text-xs text-slate-800">Kartu Keluarga (KK)</span>
-                                <span class="text-[10px] text-emerald-600 font-bold" id="editKkStatusText">PDF / Tersedia</span>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <!-- 1. Pas Foto 3x4 (Edit) -->
+                        <div class="p-3 rounded-xl border border-slate-200 bg-white space-y-2 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-1.5">
+                                    <span class="font-bold text-xs text-slate-800">Pas Foto (3×4)</span>
+                                    <span class="text-[10px] text-emerald-600 font-bold" id="editFotoStatusText">Tersedia</span>
+                                </div>
+                                <div class="w-20 h-24 mx-auto rounded-lg overflow-hidden border border-slate-200 bg-slate-50 relative group flex items-center justify-center">
+                                    <img id="editFotoImgPreview" src="" alt="Preview Foto" class="w-full h-full object-cover object-top" onerror="this.classList.add('hidden'); document.getElementById('editFotoFallback').classList.remove('hidden');" />
+                                    <div id="editFotoFallback" class="hidden text-[10px] text-slate-400 text-center p-1">Tanpa Foto</div>
+                                </div>
                             </div>
-                            <div class="flex items-center gap-2">
-                                <button type="button" onclick="openDocPreview('Kartu Keluarga (KK)')" class="px-2.5 py-1 text-[11px] font-semibold text-forest-900 bg-forest-50 hover:bg-forest-100 rounded-lg">Pratinjau</button>
-                                <label class="px-2.5 py-1 text-[11px] font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-lg cursor-pointer">
-                                    <span>Ganti Berkas</span>
-                                    <input type="file" accept=".pdf,.jpg,.png" class="hidden" onchange="showPendaftaranToast('File KK baru siap diunggah')">
+                            <div class="pt-2 border-t border-slate-100 flex items-center justify-center gap-1.5">
+                                <button type="button" onclick="openDocPreview('pas_foto')" class="px-2 py-1 text-[11px] font-semibold text-forest-900 bg-forest-50 hover:bg-forest-100 rounded-lg">Lihat</button>
+                                <label class="px-2 py-1 text-[11px] font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-lg cursor-pointer flex items-center gap-1">
+                                    <svg class="w-3 h-3 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+                                    <span>Ganti</span>
+                                    <input type="file" id="editFotoInput" accept="image/*" class="hidden" onchange="handleEditFotoChange(this)">
                                 </label>
                             </div>
                         </div>
-                        <div class="p-3 rounded-xl border border-slate-200 bg-white space-y-2">
-                            <div class="flex items-center justify-between">
-                                <span class="font-bold text-xs text-slate-800">Buku Rapor</span>
-                                <span class="text-[10px] text-emerald-600 font-bold" id="editRaportStatusText">PDF / Tersedia</span>
+
+                        <!-- 2. Kartu Keluarga (Edit) -->
+                        <div class="p-3 rounded-xl border border-slate-200 bg-white space-y-2 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-1.5">
+                                    <span class="font-bold text-xs text-slate-800">Kartu Keluarga</span>
+                                    <span class="text-[10px] text-emerald-600 font-bold" id="editKkStatusText">Tersedia</span>
+                                </div>
+                                <div class="h-24 rounded-lg border border-dashed border-slate-200 bg-slate-50 flex flex-col items-center justify-center p-2 text-center">
+                                    <svg class="w-7 h-7 text-rose-500 mb-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"></path></svg>
+                                    <span class="text-[10px] font-medium text-slate-700 truncate max-w-[130px]" id="editKkFileName">kartu_keluarga.pdf</span>
+                                </div>
                             </div>
-                            <div class="flex items-center gap-2">
-                                <button type="button" onclick="openDocPreview('Transkrip / Nilai Rapor')" class="px-2.5 py-1 text-[11px] font-semibold text-forest-900 bg-forest-50 hover:bg-forest-100 rounded-lg">Pratinjau</button>
-                                <label class="px-2.5 py-1 text-[11px] font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-lg cursor-pointer">
-                                    <span>Ganti Berkas</span>
-                                    <input type="file" accept=".pdf,.jpg,.png" class="hidden" onchange="showPendaftaranToast('File Rapor baru siap diunggah')">
+                            <div class="pt-2 border-t border-slate-100 flex items-center justify-center gap-1.5">
+                                <button type="button" onclick="openDocPreview('kk')" class="px-2 py-1 text-[11px] font-semibold text-forest-900 bg-forest-50 hover:bg-forest-100 rounded-lg">Pratinjau</button>
+                                <label class="px-2 py-1 text-[11px] font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-lg cursor-pointer flex items-center gap-1">
+                                    <svg class="w-3 h-3 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+                                    <span>Ganti</span>
+                                    <input type="file" id="editKkInput" accept=".pdf,.jpg,.jpeg,.png" class="hidden" onchange="handleEditDocChange(this, 'KK')">
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- 3. Buku Rapor (Edit) -->
+                        <div class="p-3 rounded-xl border border-slate-200 bg-white space-y-2 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-1.5">
+                                    <span class="font-bold text-xs text-slate-800">Buku Rapor</span>
+                                    <span class="text-[10px] text-emerald-600 font-bold" id="editRaportStatusText">Tersedia</span>
+                                </div>
+                                <div class="h-24 rounded-lg border border-dashed border-slate-200 bg-slate-50 flex flex-col items-center justify-center p-2 text-center">
+                                    <svg class="w-7 h-7 text-teal-600 mb-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"></path></svg>
+                                    <span class="text-[10px] font-medium text-slate-700 truncate max-w-[130px]" id="editRaportFileName">raport_santri.pdf</span>
+                                </div>
+                            </div>
+                            <div class="pt-2 border-t border-slate-100 flex items-center justify-center gap-1.5">
+                                <button type="button" onclick="openDocPreview('raport')" class="px-2 py-1 text-[11px] font-semibold text-forest-900 bg-forest-50 hover:bg-forest-100 rounded-lg">Pratinjau</button>
+                                <label class="px-2 py-1 text-[11px] font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-lg cursor-pointer flex items-center gap-1">
+                                    <svg class="w-3 h-3 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+                                    <span>Ganti</span>
+                                    <input type="file" id="editRaportInput" accept=".pdf,.jpg,.jpeg,.png" class="hidden" onchange="handleEditDocChange(this, 'Rapor')">
                                 </label>
                             </div>
                         </div>
@@ -864,39 +1022,55 @@
         </div>
     </div>
 
-    <!-- 5. MODAL: Pratinjau Dokumen Berkas -->
-    <div id="docPreviewModal" style="margin-top: 0 !important;" class="!mt-0 fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-slate-100 text-slate-800">
-            <div class="flex items-center justify-between pb-4 border-b border-slate-100">
-                <div class="flex items-center gap-2">
-                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
-                    <h3 class="text-sm font-bold" id="docPreviewTitle">Pratinjau Dokumen</h3>
+    <!-- 5. MODAL: Pratinjau Dokumen Berkas Lengkap -->
+    <div id="docPreviewModal" style="margin-top: 0 !important;" class="!mt-0 fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-xs hidden flex items-center justify-center p-3 sm:p-5">
+        <div class="bg-white rounded-2xl max-w-2xl w-full p-5 sm:p-6 shadow-2xl border border-slate-100 text-slate-800 flex flex-col max-h-[92vh]">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-100 shrink-0">
+                <div class="min-w-0 pr-3">
+                    <div class="flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 shrink-0"></span>
+                        <h3 class="text-sm font-bold truncate text-slate-900" id="docPreviewTitle">Pratinjau Dokumen</h3>
+                    </div>
+                    <p class="text-[11px] text-slate-500 mt-0.5 truncate" id="docPreviewStudentName">Santri: -</p>
                 </div>
-                <button type="button" onclick="closeDocPreview()" class="p-1 text-slate-400 hover:text-slate-600 rounded-lg">
+                <button type="button" onclick="closeDocPreview()" class="p-1.5 text-slate-400 hover:text-slate-600 rounded-lg shrink-0 hover:bg-slate-100 transition-colors">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
                 </button>
             </div>
             
-            <div class="py-6">
-                <div class="p-8 rounded-xl bg-slate-50 border-2 border-dashed border-slate-200 text-center space-y-3">
-                    <div class="w-14 h-14 mx-auto rounded-2xl bg-white shadow-sm border border-slate-200 flex items-center justify-center text-3xl">
-                        📄
+            <div class="py-3 flex-1 overflow-y-auto flex items-center justify-center min-h-[300px] bg-slate-50 rounded-xl my-3 p-2 border border-slate-200/70">
+                <!-- 1. Tampilan Preview Gambar (Pas Foto / Gambar Dokumen) -->
+                <div id="docPreviewImageContainer" class="w-full h-full flex items-center justify-center">
+                    <img id="docPreviewImg" src="" alt="Pratinjau Berkas" class="max-h-[60vh] max-w-full object-contain rounded-lg shadow-sm" />
+                </div>
+                <!-- 2. Tampilan Preview PDF / Frame -->
+                <div id="docPreviewPdfContainer" class="w-full h-[60vh] hidden">
+                    <iframe id="docPreviewIframe" src="" class="w-full h-full rounded-lg border border-slate-200 bg-white" frameborder="0"></iframe>
+                </div>
+                <!-- 3. Tampilan Fallback Jika Berkas Kosong -->
+                <div id="docPreviewEmptyContainer" class="hidden text-center p-8 space-y-2">
+                    <div class="w-12 h-12 mx-auto rounded-xl bg-slate-200 text-slate-500 flex items-center justify-center text-2xl">
+                        📁
                     </div>
-                    <div>
-                        <h4 class="text-sm font-bold text-slate-900" id="docPreviewDocName">Kartu Keluarga Resmi</h4>
-                        <p class="text-xs text-slate-500 mt-1" id="docPreviewStudentName">Muhammad Fatih Azzam</p>
-                    </div>
-                    <div class="p-3 bg-emerald-50 rounded-lg text-emerald-800 text-[11px] font-semibold">
-                        ✓ Berkas terverifikasi diunggah melalui formulir pendaftaran digital
-                    </div>
+                    <p class="text-xs font-semibold text-slate-700">Berkas ini belum diunggah oleh calon santri.</p>
                 </div>
             </div>
 
-            <div class="flex items-center justify-end gap-2 pt-3 border-t border-slate-100">
-                <button type="button" onclick="closeDocPreview()" class="px-3.5 py-1.5 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100">Tutup</button>
-                <button type="button" onclick="alert('Mengunduh salinan berkas PDF...'); closeDocPreview();" class="px-4 py-1.5 rounded-xl text-xs font-bold bg-[#0B3B2C] text-white hover:bg-[#07261C]">Unduh Berkas</button>
+            <div class="flex items-center justify-between gap-2 pt-3 border-t border-slate-100 shrink-0">
+                <span class="text-[11px] text-slate-500 font-mono truncate max-w-[200px]" id="docPreviewFileName">-</span>
+                <div class="flex items-center gap-2">
+                    <button type="button" onclick="closeDocPreview()" class="px-3.5 py-1.5 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100 transition-colors">Tutup</button>
+                    <a id="docPreviewExternalLink" href="#" target="_blank" class="px-3 py-1.5 rounded-xl text-xs font-semibold bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 flex items-center gap-1.5 transition-colors">
+                        <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        <span>Tab Baru</span>
+                    </a>
+                    <a id="docPreviewDownloadLink" href="#" download class="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-[#0B3B2C] text-white hover:bg-[#07261C] flex items-center gap-1.5 shadow-xs transition-colors">
+                        <svg class="w-3.5 h-3.5 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                        <span>Unduh Berkas</span>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -1159,6 +1333,26 @@
                 }
             }
 
+            function resolveFileUrl(path) {
+                if (!path || path === 'missing') return '';
+                if (path.startsWith('http://') || path.startsWith('https://') || path.startsWith('/') || path.startsWith('data:')) {
+                    return path;
+                }
+                return '/storage/' + path;
+            }
+
+            function isPdfPath(path) {
+                if (!path) return false;
+                return path.toLowerCase().split('?')[0].endsWith('.pdf');
+            }
+
+            function onHeaderPhotoError() {
+                const headerPhoto = document.getElementById('detailHeaderPhoto');
+                const headerFallback = document.getElementById('detailAvatarFallback');
+                if (headerPhoto) headerPhoto.classList.add('hidden');
+                if (headerFallback) headerFallback.classList.remove('hidden');
+            }
+
             function renderPendaftaranDetailView(student) {
                 const isPutri = (student.jenis_kelamin || '').toLowerCase().includes('putri');
 
@@ -1166,10 +1360,29 @@
                 document.getElementById('detailGenderBadge').innerText = isPutri ? 'Putri (Akhwat)' : 'Putra (Ikhwan)';
                 document.getElementById('detailStudentName').innerText = student.nama_santri || '-';
                 
-                // Initials
+                // Initials Fallback
                 const names = (student.nama_santri || '').trim().split(/\s+/);
                 const initials = names.length > 1 ? (names[0][0] + names[1][0]).toUpperCase() : (names[0] || 'SB').substring(0, 2).toUpperCase();
-                document.getElementById('detailAvatar').innerText = initials;
+                const fallbackEl = document.getElementById('detailAvatarFallback');
+                if (fallbackEl) fallbackEl.innerText = initials;
+
+                // Pas Foto di Header (Atas)
+                const fotoUrl = resolveFileUrl(student.pas_foto_path);
+                const headerPhoto = document.getElementById('detailHeaderPhoto');
+                if (headerPhoto) {
+                    if (fotoUrl) {
+                        headerPhoto.src = fotoUrl;
+                        headerPhoto.classList.remove('hidden');
+                        if (fallbackEl) fallbackEl.classList.add('hidden');
+                    } else {
+                        headerPhoto.classList.add('hidden');
+                        if (fallbackEl) fallbackEl.classList.remove('hidden');
+                    }
+                }
+                const headerJenjang = document.getElementById('detailHeaderJenjang');
+                if (headerJenjang) headerJenjang.innerText = student.jenjang || 'MTs';
+                const headerSchool = document.getElementById('detailHeaderAsalSekolah');
+                if (headerSchool) headerSchool.innerText = student.asal_sekolah || '-';
 
                 // Birth & Age
                 let ageText = '12 Tahun';
@@ -1230,16 +1443,106 @@
                     document.getElementById('detailMotherWaBtn').classList.add('hidden');
                 }
 
-                // Document Status (Pas Foto, KK, Raport)
+                // Berkas Dokumen Diperlihatkan Langsung (Pas Foto, KK, Raport)
                 const hasFoto = student.pas_foto_path && student.pas_foto_path !== 'missing';
                 const hasKk = student.foto_kk_path && student.foto_kk_path !== 'missing';
                 const hasRaport = student.foto_raport_path && student.foto_raport_path !== 'missing';
 
-                if (document.getElementById('fotoStatusText')) {
-                    document.getElementById('fotoStatusText').innerText = hasFoto ? 'Tersedia (JPG/PNG)' : 'Belum Ada';
+                // 1. Inline Pas Foto 3x4 (Bawah)
+                const detailFotoImg = document.getElementById('detailFotoImg');
+                const detailFotoFallback = document.getElementById('detailFotoFallback');
+                const detailFotoLink = document.getElementById('detailFotoLink');
+                const fotoStatusText = document.getElementById('fotoStatusText');
+                if (hasFoto && fotoUrl) {
+                    if (detailFotoImg) {
+                        detailFotoImg.src = fotoUrl;
+                        detailFotoImg.classList.remove('hidden');
+                    }
+                    if (detailFotoFallback) detailFotoFallback.classList.add('hidden');
+                    if (detailFotoLink) detailFotoLink.href = fotoUrl;
+                    if (fotoStatusText) {
+                        fotoStatusText.innerText = 'Tersedia (3×4)';
+                        fotoStatusText.className = 'text-[10px] text-emerald-600 font-bold bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-100';
+                    }
+                } else {
+                    if (detailFotoImg) detailFotoImg.classList.add('hidden');
+                    if (detailFotoFallback) detailFotoFallback.classList.remove('hidden');
+                    if (detailFotoLink) detailFotoLink.href = '#';
+                    if (fotoStatusText) {
+                        fotoStatusText.innerText = 'Belum Ada';
+                        fotoStatusText.className = 'text-[10px] text-rose-500 font-bold bg-rose-50 px-2 py-0.5 rounded-md border border-rose-100';
+                    }
                 }
-                document.getElementById('kkStatusText').innerText = hasKk ? 'Tersedia (PDF/Gambar)' : 'Belum Ada';
-                document.getElementById('raportStatusText').innerText = hasRaport ? 'Tersedia (PDF/Gambar)' : 'Belum Diunggah';
+
+                // 2. Inline Kartu Keluarga
+                const kkUrl = resolveFileUrl(student.foto_kk_path);
+                const detailKkLink = document.getElementById('detailKkLink');
+                const detailKkFileName = document.getElementById('detailKkFileName');
+                const detailKkImg = document.getElementById('detailKkImg');
+                const detailKkPdfBox = document.getElementById('detailKkPdfBox');
+                const kkStatusText = document.getElementById('kkStatusText');
+                const kkIsPdf = isPdfPath(student.foto_kk_path);
+
+                if (hasKk && kkUrl) {
+                    if (detailKkLink) detailKkLink.href = kkUrl;
+                    const kkName = student.foto_kk_path.split('/').pop();
+                    if (detailKkFileName) detailKkFileName.innerText = kkName;
+                    if (kkStatusText) {
+                        kkStatusText.innerText = kkIsPdf ? 'PDF / Tersedia' : 'Foto / Tersedia';
+                        kkStatusText.className = 'text-[10px] text-emerald-600 font-bold bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-100';
+                    }
+                    if (kkIsPdf) {
+                        if (detailKkImg) detailKkImg.classList.add('hidden');
+                        if (detailKkPdfBox) detailKkPdfBox.classList.remove('hidden');
+                    } else {
+                        if (detailKkImg) {
+                            detailKkImg.src = kkUrl;
+                            detailKkImg.classList.remove('hidden');
+                        }
+                        if (detailKkPdfBox) detailKkPdfBox.classList.add('hidden');
+                    }
+                } else {
+                    if (detailKkLink) detailKkLink.href = '#';
+                    if (kkStatusText) {
+                        kkStatusText.innerText = 'Belum Diunggah';
+                        kkStatusText.className = 'text-[10px] text-rose-500 font-bold bg-rose-50 px-2 py-0.5 rounded-md border border-rose-100';
+                    }
+                }
+
+                // 3. Inline Buku Rapor
+                const raportUrl = resolveFileUrl(student.foto_raport_path);
+                const detailRaportLink = document.getElementById('detailRaportLink');
+                const detailRaportFileName = document.getElementById('detailRaportFileName');
+                const detailRaportImg = document.getElementById('detailRaportImg');
+                const detailRaportPdfBox = document.getElementById('detailRaportPdfBox');
+                const raportStatusText = document.getElementById('raportStatusText');
+                const raportIsPdf = isPdfPath(student.foto_raport_path);
+
+                if (hasRaport && raportUrl) {
+                    if (detailRaportLink) detailRaportLink.href = raportUrl;
+                    const raportName = student.foto_raport_path.split('/').pop();
+                    if (detailRaportFileName) detailRaportFileName.innerText = raportName;
+                    if (raportStatusText) {
+                        raportStatusText.innerText = raportIsPdf ? 'PDF / Tersedia' : 'Foto / Tersedia';
+                        raportStatusText.className = 'text-[10px] text-emerald-600 font-bold bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-100';
+                    }
+                    if (raportIsPdf) {
+                        if (detailRaportImg) detailRaportImg.classList.add('hidden');
+                        if (detailRaportPdfBox) detailRaportPdfBox.classList.remove('hidden');
+                    } else {
+                        if (detailRaportImg) {
+                            detailRaportImg.src = raportUrl;
+                            detailRaportImg.classList.remove('hidden');
+                        }
+                        if (detailRaportPdfBox) detailRaportPdfBox.classList.add('hidden');
+                    }
+                } else {
+                    if (detailRaportLink) detailRaportLink.href = '#';
+                    if (raportStatusText) {
+                        raportStatusText.innerText = 'Belum Diunggah';
+                        raportStatusText.className = 'text-[10px] text-rose-500 font-bold bg-rose-50 px-2 py-0.5 rounded-md border border-rose-100';
+                    }
+                }
                 
                 let docCount = (hasFoto ? 1 : 0) + (hasKk ? 1 : 0) + (hasRaport ? 1 : 0);
                 if (docCount === 3) {
@@ -1295,6 +1598,39 @@
                 document.getElementById('editPendaftaranJobIbu').value = student.pekerjaan_ibu || '';
                 if (student.penghasilan_ibu) {
                     document.getElementById('editPendaftaranIncomeIbu').value = student.penghasilan_ibu;
+                }
+
+                // Berkas Digital di Mode Edit
+                const editFotoImg = document.getElementById('editFotoImgPreview');
+                const editFotoFallback = document.getElementById('editFotoFallback');
+                const editFotoStatus = document.getElementById('editFotoStatusText');
+                const currentFotoUrl = resolveFileUrl(student.pas_foto_path);
+                if (currentFotoUrl) {
+                    if (editFotoImg) {
+                        editFotoImg.src = currentFotoUrl;
+                        editFotoImg.classList.remove('hidden');
+                    }
+                    if (editFotoFallback) editFotoFallback.classList.add('hidden');
+                    if (editFotoStatus) {
+                        editFotoStatus.innerText = 'Tersedia';
+                        editFotoStatus.className = 'text-[10px] text-emerald-600 font-bold';
+                    }
+                } else {
+                    if (editFotoImg) editFotoImg.classList.add('hidden');
+                    if (editFotoFallback) editFotoFallback.classList.remove('hidden');
+                    if (editFotoStatus) {
+                        editFotoStatus.innerText = 'Belum Ada';
+                        editFotoStatus.className = 'text-[10px] text-rose-500 font-bold';
+                    }
+                }
+
+                const editKkName = document.getElementById('editKkFileName');
+                if (editKkName) {
+                    editKkName.innerText = student.foto_kk_path ? student.foto_kk_path.split('/').pop() : 'kartu_keluarga.pdf';
+                }
+                const editRaportName = document.getElementById('editRaportFileName');
+                if (editRaportName) {
+                    editRaportName.innerText = student.foto_raport_path ? student.foto_raport_path.split('/').pop() : 'raport_santri.pdf';
                 }
             }
 
@@ -1513,18 +1849,138 @@
             }
 
             // ====================================================
-            // 4. Document Preview Modal
+            // 4. Document Preview Modal & File Upload Handlers
             // ====================================================
-            function openDocPreview(docType) {
+            function openDocPreview(docKey) {
                 if (!activeDetailStudent) return;
-                document.getElementById('docPreviewTitle').innerText = 'Pratinjau Berkas: ' + docType;
-                document.getElementById('docPreviewDocName').innerText = docType;
-                document.getElementById('docPreviewStudentName').innerText = 'Santri: ' + activeDetailStudent.nama_santri + ' (' + activeDetailStudent.registration_number + ')';
+
+                let path = '';
+                let title = '';
+                let fileName = '';
+
+                const key = String(docKey).toLowerCase();
+                if (key === 'pas_foto' || key.includes('foto')) {
+                    path = activeDetailStudent.pas_foto_path;
+                    title = 'Pas Foto Calon Santri (3×4)';
+                } else if (key === 'kk' || key.includes('keluarga')) {
+                    path = activeDetailStudent.foto_kk_path;
+                    title = 'Kartu Keluarga (KK)';
+                } else if (key === 'raport' || key.includes('rapor') || key.includes('transkrip')) {
+                    path = activeDetailStudent.foto_raport_path;
+                    title = 'Buku Rapor / Transkrip Nilai';
+                } else {
+                    path = activeDetailStudent.foto_kk_path;
+                    title = docKey;
+                }
+
+                const url = resolveFileUrl(path);
+                const isPdf = isPdfPath(path);
+                fileName = path ? path.split('/').pop() : 'Berkas tidak ditemukan';
+
+                document.getElementById('docPreviewTitle').innerText = title;
+                document.getElementById('docPreviewStudentName').innerText = 'Santri: ' + activeDetailStudent.nama_santri + ' (' + (activeDetailStudent.registration_number || '') + ')';
+                document.getElementById('docPreviewFileName').innerText = fileName;
+
+                const imgContainer = document.getElementById('docPreviewImageContainer');
+                const pdfContainer = document.getElementById('docPreviewPdfContainer');
+                const emptyContainer = document.getElementById('docPreviewEmptyContainer');
+                const img = document.getElementById('docPreviewImg');
+                const iframe = document.getElementById('docPreviewIframe');
+                const extLink = document.getElementById('docPreviewExternalLink');
+                const downLink = document.getElementById('docPreviewDownloadLink');
+
+                if (!url) {
+                    imgContainer.classList.add('hidden');
+                    pdfContainer.classList.add('hidden');
+                    emptyContainer.classList.remove('hidden');
+                    extLink.classList.add('hidden');
+                    downLink.classList.add('hidden');
+                } else if (isPdf) {
+                    imgContainer.classList.add('hidden');
+                    pdfContainer.classList.remove('hidden');
+                    emptyContainer.classList.add('hidden');
+                    iframe.src = url;
+                    extLink.classList.remove('hidden');
+                    extLink.href = url;
+                    downLink.classList.remove('hidden');
+                    downLink.href = url;
+                } else {
+                    pdfContainer.classList.add('hidden');
+                    imgContainer.classList.remove('hidden');
+                    emptyContainer.classList.add('hidden');
+                    img.src = url;
+                    extLink.classList.remove('hidden');
+                    extLink.href = url;
+                    downLink.classList.remove('hidden');
+                    downLink.href = url;
+                }
+
                 document.getElementById('docPreviewModal').classList.remove('hidden');
             }
 
             function closeDocPreview() {
+                const iframe = document.getElementById('docPreviewIframe');
+                if (iframe) iframe.src = '';
                 document.getElementById('docPreviewModal').classList.add('hidden');
+            }
+
+            function handleEditFotoChange(input) {
+                if (input.files && input.files[0]) {
+                    const file = input.files[0];
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const newUrl = e.target.result;
+                        const editImg = document.getElementById('editFotoImgPreview');
+                        const editFallback = document.getElementById('editFotoFallback');
+                        if (editImg) {
+                            editImg.src = newUrl;
+                            editImg.classList.remove('hidden');
+                        }
+                        if (editFallback) editFallback.classList.add('hidden');
+
+                        // Update header photo langsung secara real-time
+                        const headerPhoto = document.getElementById('detailHeaderPhoto');
+                        const headerFallback = document.getElementById('detailAvatarFallback');
+                        if (headerPhoto) {
+                            headerPhoto.src = newUrl;
+                            headerPhoto.classList.remove('hidden');
+                        }
+                        if (headerFallback) headerFallback.classList.add('hidden');
+
+                        // Update detail inline foto
+                        const detailImg = document.getElementById('detailFotoImg');
+                        const detailFallback = document.getElementById('detailFotoFallback');
+                        if (detailImg) {
+                            detailImg.src = newUrl;
+                            detailImg.classList.remove('hidden');
+                        }
+                        if (detailFallback) detailFallback.classList.add('hidden');
+
+                        if (activeDetailStudent) {
+                            activeDetailStudent.pas_foto_path = newUrl;
+                        }
+                        showPendaftaranToast('Pas foto baru berhasil dipilih: ' + file.name);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            }
+
+            function handleEditDocChange(input, docType) {
+                if (input.files && input.files[0]) {
+                    const file = input.files[0];
+                    const nameEl = docType === 'KK' ? document.getElementById('editKkFileName') : document.getElementById('editRaportFileName');
+                    if (nameEl) nameEl.innerText = file.name;
+
+                    const fileUrl = URL.createObjectURL(file);
+                    if (activeDetailStudent) {
+                        if (docType === 'KK') {
+                            activeDetailStudent.foto_kk_path = fileUrl;
+                        } else {
+                            activeDetailStudent.foto_raport_path = fileUrl;
+                        }
+                    }
+                    showPendaftaranToast('Berkas ' + docType + ' baru dipilih: ' + file.name);
+                }
             }
 
             // ====================================================
