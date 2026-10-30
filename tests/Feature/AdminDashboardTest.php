@@ -11,18 +11,13 @@ class AdminDashboardTest extends TestCase
     use RefreshDatabase;
 
     /**
-     * Test admin dashboard page loads successfully.
+     * Test admin index route redirects to pendaftaran page when dashboard is hidden.
      */
     public function test_admin_dashboard_can_be_rendered(): void
     {
         $response = $this->get('/admin');
 
-        $response->assertStatus(200);
-        $response->assertSee("Baitul Qur'an");
-        $response->assertSee('Admin Portal');
-        $response->assertSee('Pendaftar PSB');
-        $response->assertSee('Santri Mukim Aktif');
-        $response->assertSee('Dewan Asatidz');
+        $response->assertRedirect(route('admin.pendaftaran.index'));
     }
 
     /**

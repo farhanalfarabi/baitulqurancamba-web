@@ -113,7 +113,7 @@
             
             <!-- Sidebar Header / Brand Identity -->
             <div class="h-20 px-6 flex items-center justify-between border-b border-white/10">
-                <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-3.5 group">
+                <a href="{{ route('admin.pendaftaran.index') }}" class="flex items-center gap-3.5 group">
                     <div class="w-10 h-10 rounded-xl bg-white p-1.5 shadow-md flex items-center justify-center shrink-0 transition-transform group-hover:scale-105 ring-2 ring-emerald-400/20">
                         <img src="{{ asset('assets/images/logo.png') }}" alt="Logo Baitul Qur'an Camba" class="w-full h-full object-contain">
                     </div>
@@ -160,17 +160,6 @@
                         Menu Utama
                     </p>
                     <ul class="space-y-1">
-                        <!-- Dashboard -->
-                        <li>
-                            <a href="{{ route('admin.dashboard') }}" 
-                               class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-150 {{ request()->routeIs('admin.dashboard') ? 'bg-white/15 text-white shadow-xs border-l-4 border-amber-400' : 'text-white/80 hover:bg-white/8 hover:text-white' }}">
-                                <svg class="w-5 h-5 {{ request()->routeIs('admin.dashboard') ? 'text-amber-300' : 'text-emerald-200/70' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-                                </svg>
-                                <span>Dashboard</span>
-                            </a>
-                        </li>
-
                         <!-- Manajemen Pendaftaran -->
                         <li>
                             <a href="{{ route('admin.pendaftaran.index') }}" 

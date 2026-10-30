@@ -440,21 +440,24 @@
                     </div>
                     <div class="flex items-center gap-1.5">
                         <button type="button" 
+                                id="btnQuickVerifikasi"
                                 onclick="changeDetailStatus('terverifikasi')"
-                                class="px-2.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold transition-all shadow-xs flex items-center gap-1 text-[11px]">
+                                class="px-2.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold transition-all shadow-xs flex items-center gap-1 text-[11px] cursor-pointer">
                             <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                             </svg>
                             <span>Verifikasi</span>
                         </button>
                         <button type="button" 
+                                id="btnQuickTerima"
                                 onclick="changeDetailStatus('diterima')"
-                                class="px-2.5 py-1.5 rounded-lg bg-[#0B3B2C] hover:bg-[#07261C] text-white font-bold transition-all shadow-xs text-[11px]">
+                                class="px-2.5 py-1.5 rounded-lg bg-[#0B3B2C] hover:bg-[#07261C] text-white font-bold transition-all shadow-xs text-[11px] cursor-pointer">
                             Terima
                         </button>
                         <button type="button" 
+                                id="btnQuickPending"
                                 onclick="changeDetailStatus('berkas_belum_lengkap')"
-                                class="px-2.5 py-1.5 rounded-lg bg-rose-50 text-rose-700 hover:bg-rose-100 font-semibold border border-rose-200 transition-all text-[11px]">
+                                class="px-2.5 py-1.5 rounded-lg bg-rose-50 text-rose-700 hover:bg-rose-100 font-semibold border border-rose-200 transition-all text-[11px] cursor-pointer">
                             Pending
                         </button>
                     </div>
@@ -1174,6 +1177,37 @@
         </div>
     </div>
 
+    <!-- 8. Modal: Konfirmasi Hapus Data Pendaftar -->
+    <div id="deletePendaftaranModal" style="margin-top: 0 !important;" class="!mt-0 fixed inset-0 z-[60] bg-slate-900/60 backdrop-blur-xs hidden flex items-center justify-center p-4 select-none" onclick="closeDeletePendaftaranModalOnBackdrop(event)">
+        <div class="bg-white rounded-2xl max-w-sm w-full p-5 shadow-2xl border border-slate-100 space-y-4 animate-in fade-in zoom-in-95 duration-200" onclick="event.stopPropagation()">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-red-100 text-red-600 flex items-center justify-center shrink-0">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-900 text-sm">Hapus Data Pendaftaran?</h4>
+                    <p class="text-xs text-slate-500 mt-0.5" id="deletePendaftaranNameText">Konfirmasi penghapusan data pendaftar.</p>
+                </div>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+                Tindakan ini akan menghapus data pendaftaran calon santri dari database sistem secara permanen. Tindakan ini tidak dapat dibatalkan.
+            </p>
+            <div class="flex items-center justify-end gap-2 pt-2 border-t border-slate-100">
+                <button type="button" onclick="closeDeletePendaftaranModal()" class="px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer">
+                    Batal
+                </button>
+                <button type="button" id="btnExecuteDeletePendaftaran" onclick="executeDeletePendaftaran()" class="px-4 py-2 rounded-xl text-xs font-bold bg-red-600 hover:bg-red-700 text-white transition-all shadow-xs inline-flex items-center gap-1.5 cursor-pointer">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                    <span id="btnExecuteDeletePendaftaranText">Ya, Hapus Data</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- 7. Toast Notification -->
     <div id="pendaftaranToast" class="fixed bottom-6 right-6 z-50 bg-[#0B3B2C] text-white px-4 py-3 rounded-2xl shadow-2xl border border-emerald-500/30 flex items-center gap-3 transition-all duration-300 transform translate-y-24 opacity-0 pointer-events-none">
         <div class="w-6 h-6 rounded-full bg-emerald-500 text-white flex items-center justify-center shrink-0">
@@ -1684,10 +1718,51 @@
                 } else {
                     container.innerHTML = '<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-rose-50 text-rose-800 border border-rose-200"><span class="w-2 h-2 rounded-full bg-rose-500"></span>Berkas Belum Lengkap</span>';
                 }
+
+                // Update Quick Status Buttons State (Disable button jika sudah di status tersebut)
+                const btnVerifikasi = document.getElementById('btnQuickVerifikasi');
+                const btnTerima = document.getElementById('btnQuickTerima');
+                const btnPending = document.getElementById('btnQuickPending');
+
+                if (btnVerifikasi) {
+                    if (status === 'terverifikasi') {
+                        btnVerifikasi.disabled = true;
+                        btnVerifikasi.className = 'px-2.5 py-1.5 rounded-lg bg-emerald-600/40 text-white/70 font-semibold cursor-not-allowed flex items-center gap-1 text-[11px] shadow-none pointer-events-none border border-emerald-500/20';
+                        btnVerifikasi.title = 'Data santri ini sudah berstatus Terverifikasi';
+                    } else {
+                        btnVerifikasi.disabled = false;
+                        btnVerifikasi.className = 'px-2.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold transition-all shadow-xs flex items-center gap-1 text-[11px] cursor-pointer';
+                        btnVerifikasi.title = 'Verifikasi berkas santri ini';
+                    }
+                }
+
+                if (btnTerima) {
+                    if (status === 'diterima') {
+                        btnTerima.disabled = true;
+                        btnTerima.className = 'px-2.5 py-1.5 rounded-lg bg-[#0B3B2C]/40 text-white/70 font-semibold cursor-not-allowed text-[11px] shadow-none pointer-events-none border border-[#0B3B2C]/20';
+                        btnTerima.title = 'Santri ini sudah berstatus Diterima';
+                    } else {
+                        btnTerima.disabled = false;
+                        btnTerima.className = 'px-2.5 py-1.5 rounded-lg bg-[#0B3B2C] hover:bg-[#07261C] text-white font-bold transition-all shadow-xs text-[11px] cursor-pointer';
+                        btnTerima.title = 'Terima santri ini';
+                    }
+                }
+
+                if (btnPending) {
+                    if (status === 'berkas_belum_lengkap') {
+                        btnPending.disabled = true;
+                        btnPending.className = 'px-2.5 py-1.5 rounded-lg bg-rose-50/50 text-rose-400 font-semibold border border-rose-100 cursor-not-allowed text-[11px] shadow-none pointer-events-none';
+                        btnPending.title = 'Status berkas saat ini masih pending / belum lengkap';
+                    } else {
+                        btnPending.disabled = false;
+                        btnPending.className = 'px-2.5 py-1.5 rounded-lg bg-rose-50 text-rose-700 hover:bg-rose-100 font-semibold border border-rose-200 transition-all text-[11px] cursor-pointer';
+                        btnPending.title = 'Tandai berkas belum lengkap';
+                    }
+                }
             }
 
             function changeDetailStatus(newStatus) {
-                if (!activeDetailStudent) return;
+                if (!activeDetailStudent || activeDetailStudent.status === newStatus) return;
                 activeDetailStudent.status = newStatus;
                 renderPendaftaranDetailStatus(newStatus);
                 const editStatusSelect = document.getElementById('editPendaftaranStatus');
@@ -2051,15 +2126,58 @@
                 }
             }
 
-            function deleteCurrentPendaftaran() {
-                if (!activeDetailStudent) return;
-                const nama = activeDetailStudent.nama_santri;
-                const studentId = activeDetailStudent.id;
-                if (!confirm('Apakah Anda yakin ingin menghapus data pendaftaran ananda ' + nama + '? Tindakan ini tidak dapat dibatalkan.')) {
-                    return;
+            let pendingDeleteStudentId = null;
+            let pendingDeleteStudentName = '';
+
+            function openDeletePendaftaranModal(studentId = null, studentName = null) {
+                if (!studentId && activeDetailStudent) {
+                    studentId = activeDetailStudent.id;
+                    studentName = activeDetailStudent.nama_santri;
+                }
+                if (!studentId) return;
+
+                pendingDeleteStudentId = studentId;
+                pendingDeleteStudentName = studentName || 'calon santri';
+
+                const nameTextEl = document.getElementById('deletePendaftaranNameText');
+                if (nameTextEl) {
+                    nameTextEl.innerText = 'Hapus pendaftar: ' + pendingDeleteStudentName;
                 }
 
+                const btnConfirm = document.getElementById('btnExecuteDeletePendaftaran');
+                const btnText = document.getElementById('btnExecuteDeletePendaftaranText');
+                if (btnConfirm) btnConfirm.disabled = false;
+                if (btnText) btnText.innerText = 'Ya, Hapus Data';
+
+                const modal = document.getElementById('deletePendaftaranModal');
+                if (modal) modal.classList.remove('hidden');
+            }
+
+            function closeDeletePendaftaranModal() {
+                const modal = document.getElementById('deletePendaftaranModal');
+                if (modal) modal.classList.add('hidden');
+                pendingDeleteStudentId = null;
+                pendingDeleteStudentName = '';
+            }
+
+            function closeDeletePendaftaranModalOnBackdrop(e) {
+                if (e.target.id === 'deletePendaftaranModal') {
+                    closeDeletePendaftaranModal();
+                }
+            }
+
+            function executeDeletePendaftaran() {
+                if (!pendingDeleteStudentId) return;
+
+                const studentId = pendingDeleteStudentId;
+                const nama = pendingDeleteStudentName;
                 const token = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+
+                const btnConfirm = document.getElementById('btnExecuteDeletePendaftaran');
+                const btnText = document.getElementById('btnExecuteDeletePendaftaranText');
+                if (btnConfirm) btnConfirm.disabled = true;
+                if (btnText) btnText.innerText = 'Menghapus...';
+
                 if (token && studentId) {
                     fetch('/admin/pendaftaran/' + studentId, {
                         method: 'DELETE',
@@ -2074,6 +2192,7 @@
                         }
                         return res.json();
                     }).then(res => {
+                        closeDeletePendaftaranModal();
                         closePendaftaranDrawer();
                         const row = document.getElementById('pendaftaran-row-' + studentId);
                         if (row) {
@@ -2082,9 +2201,15 @@
                         showPendaftaranToast('Data pendaftaran ' + nama + ' berhasil dihapus.');
                         applyRegistrationFilter();
                     }).catch(err => {
-                        alert('Error: ' + err.message);
+                        if (btnConfirm) btnConfirm.disabled = false;
+                        if (btnText) btnText.innerText = 'Ya, Hapus Data';
+                        showPendaftaranToast('Gagal menghapus data: ' + err.message);
                     });
                 }
+            }
+
+            function deleteCurrentPendaftaran() {
+                openDeletePendaftaranModal();
             }
 
             // ====================================================
@@ -2156,7 +2281,7 @@
                         window.location.reload();
                     }, 1000);
                 }).catch(err => {
-                    alert('Gagal: ' + err.message);
+                    showPendaftaranToast('Gagal: ' + err.message);
                 });
             }
 
@@ -2168,6 +2293,32 @@
                     toast.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
                 }, 3500);
             }
+
+            // Keyboard shortcut Escape for modals & drawer
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    const deleteModal = document.getElementById('deletePendaftaranModal');
+                    if (deleteModal && !deleteModal.classList.contains('hidden')) {
+                        closeDeletePendaftaranModal();
+                        return;
+                    }
+                    const docModal = document.getElementById('docPreviewModal');
+                    if (docModal && !docModal.classList.contains('hidden')) {
+                        closeDocPreview();
+                        return;
+                    }
+                    const addModal = document.getElementById('manualAddModal');
+                    if (addModal && !addModal.classList.contains('hidden')) {
+                        closeManualAddModal();
+                        return;
+                    }
+                    const drawerBackdrop = document.getElementById('pendaftaranDrawerBackdrop');
+                    if (drawerBackdrop && !drawerBackdrop.classList.contains('hidden')) {
+                        closePendaftaranDrawer();
+                        return;
+                    }
+                }
+            });
         </script>
     </x-slot:scripts>
 

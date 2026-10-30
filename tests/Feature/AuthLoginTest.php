@@ -47,7 +47,7 @@ class AuthLoginTest extends TestCase
     }
 
     /**
-     * Test successful login submission directs user to admin dashboard.
+     * Test successful login submission directs user to admin pendaftaran page.
      */
     public function test_login_submission_redirects_to_admin_dashboard(): void
     {
@@ -56,7 +56,7 @@ class AuthLoginTest extends TestCase
             'password' => 'password',
         ]);
 
-        $response->assertRedirect(route('admin.dashboard'));
+        $response->assertRedirect(route('admin.pendaftaran.index'));
         $response->assertSessionHas('success');
     }
 

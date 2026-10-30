@@ -40,7 +40,9 @@ Route::get('/admin/login', function () {
 
 // Admin Portal Routes
 Route::prefix('admin')->name('admin.')->group(function () {
-    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/', function () {
+        return redirect()->route('admin.pendaftaran.index');
+    })->name('dashboard');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/pendaftaran', [DashboardController::class, 'pendaftaranIndex'])->name('pendaftaran.index');
     Route::post('/pendaftaran', [DashboardController::class, 'pendaftaranStore'])->name('pendaftaran.store');

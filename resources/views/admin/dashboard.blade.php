@@ -102,7 +102,7 @@
                 <span class="text-xs font-medium text-slate-500">santri mukim</span>
             </div>
             <div class="mt-3 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600">
-                <span class="font-semibold text-slate-700">{{ $stats['santri_wustha'] ?? 84 }} MTs · {{ $stats['santri_ulya'] ?? 64 }} MA</span>
+                <span class="font-semibold text-slate-700">{{ $stats['santri_mts'] ?? ($stats['santri_wustha'] ?? 84) }} MTs · {{ $stats['santri_ma'] ?? ($stats['santri_ulya'] ?? 64) }} MA</span>
                 <a href="{{ route('admin.santri.index') }}" class="text-emerald-700 hover:text-emerald-900 font-bold hover:underline">
                     Buku Induk &rarr;
                 </a>
@@ -290,27 +290,27 @@
                     <button type="button" 
                             onclick="filterStatus('all', this)"
                             class="status-filter-btn active px-3 py-1.5 rounded-lg font-bold transition-all bg-[#0B3B2C] text-white shadow-xs">
-                        Semua (6)
+                        Semua ({{ count($recentRegistrations) }})
                     </button>
                     <button type="button" 
                             onclick="filterStatus('pending', this)"
                             class="status-filter-btn px-3 py-1.5 rounded-lg font-semibold text-slate-600 hover:bg-slate-100 transition-all">
-                        Menunggu Verifikasi (3)
+                        Menunggu Verifikasi ({{ $recentRegistrations->where('status', 'pending')->count() }})
                     </button>
                     <button type="button" 
                             onclick="filterStatus('terverifikasi', this)"
                             class="status-filter-btn px-3 py-1.5 rounded-lg font-semibold text-slate-600 hover:bg-slate-100 transition-all">
-                        Terverifikasi (1)
+                        Terverifikasi ({{ $recentRegistrations->where('status', 'terverifikasi')->count() }})
                     </button>
                     <button type="button" 
                             onclick="filterStatus('diterima', this)"
                             class="status-filter-btn px-3 py-1.5 rounded-lg font-semibold text-slate-600 hover:bg-slate-100 transition-all">
-                        Diterima (1)
+                        Diterima ({{ $recentRegistrations->where('status', 'diterima')->count() }})
                     </button>
                     <button type="button" 
                             onclick="filterStatus('berkas_belum_lengkap', this)"
                             class="status-filter-btn px-3 py-1.5 rounded-lg font-semibold text-slate-600 hover:bg-slate-100 transition-all">
-                        Berkas Belum Lengkap (1)
+                        Berkas Belum Lengkap ({{ $recentRegistrations->where('status', 'berkas_belum_lengkap')->count() }})
                     </button>
                 </div>
             </div>
@@ -354,27 +354,38 @@
 
                                 <!-- Nama Santri & Asal -->
                                 <td class="py-3.5 px-4">
-                                    <p class="font-bold text-slate-800">
-                                        {{ $item->nama_santri }}
-                                    </p>
-                                    <p class="text-[11px] text-slate-500 truncate max-w-[180px]">
+                                    <div class="flex items-center gap-1.5">
+                                        <p class="font-bold text-slate-800">
+                                            {{ $item->nama_santri }}
+                                        </p>
+                                        @if(strtolower($item->jenis_kelamin) === 'putri')
+                                            <span class="inline-flex items-center px-1.5 py-0.2 rounded-full text-[10px] font-bold bg-purple-50 text-purple-700 border border-purple-200">
+                                                Putri
+                                            </span>
+                                        @else
+                                            <span class="inline-flex items-center px-1.5 py-0.2 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">
+                                                Putra
+                                            </span>
+                                        @endif
+                                    </div>
+                                    <p class="text-[11px] text-slate-500 truncate max-w-[190px] mt-0.5">
                                         {{ $item->asal_sekolah }}
                                     </p>
                                 </td>
 
                                 <!-- Jenjang Pilihan -->
                                 <td class="py-3.5 px-4 whitespace-nowrap">
-                                    @if(str_contains(strtolower($item->jenjang), 'wustha'))
+                                    @if(str_contains(strtolower($item->jenjang), 'mts') || str_contains(strtolower($item->jenjang), 'wustha'))
                                         <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200">
-                                            Wustha (SMP)
+                                            MTs
                                         </span>
-                                    @elseif(str_contains(strtolower($item->jenjang), 'ulya'))
-                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-teal-50 text-teal-800 border border-teal-200">
-                                            Ulya (SMA)
+                                    @elseif(str_contains(strtolower($item->jenjang), 'ma') || str_contains(strtolower($item->jenjang), 'ulya'))
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-amber-50 text-amber-800 border border-amber-200">
+                                            MA
                                         </span>
                                     @else
-                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-amber-50 text-amber-800 border border-amber-200">
-                                            Tahfizh Khusus
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-teal-50 text-teal-800 border border-teal-200">
+                                            {{ $item->jenjang }}
                                         </span>
                                     @endif
                                 </td>
@@ -387,6 +398,9 @@
                                     <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $item->no_hp_ayah) }}" 
                                        target="_blank" 
                                        class="text-[11px] text-emerald-600 hover:text-emerald-700 hover:underline flex items-center gap-1 mt-0.5 font-medium">
+                                        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"></path>
+                                        </svg>
                                         <span>{{ $item->no_hp_ayah }}</span>
                                     </a>
                                 </td>
@@ -420,18 +434,19 @@
                                 <td class="py-3.5 px-5 text-right whitespace-nowrap">
                                     <button type="button" 
                                             onclick='openStudentDrawer(@json($item))'
-                                            class="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs font-bold text-forest-900 bg-forest-50 hover:bg-[#0B3B2C] hover:text-white transition-all shadow-2xs">
-                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            title="Periksa Berkas & Biodata Pendaftar"
+                                            class="table-action-btn inline-flex flex-row items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-forest-900 bg-forest-50 border border-forest-200/60 hover:bg-[#0B3B2C] hover:text-white hover:border-[#0B3B2C] transition-all shadow-xs whitespace-nowrap shrink-0 cursor-pointer">
+                                        <svg class="w-3.5 h-3.5 shrink-0 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
                                         </svg>
-                                        <span>Periksa</span>
+                                        <span class="whitespace-nowrap">Periksa</span>
                                     </button>
                                 </td>
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="6" class="text-center py-8 text-slate-400">
+                                <td colspan="7" class="text-center py-8 text-slate-400">
                                     Belum ada data pendaftaran yang tercatat.
                                 </td>
                             </tr>
@@ -536,7 +551,7 @@
                             <p class="text-slate-800 font-semibold leading-snug">
                                 Pendaftar baru <span class="text-slate-900 font-bold">Hamzah Asadullah</span> masuk via web.
                             </p>
-                            <span class="text-[10px] text-slate-400">1 jam yang lalu &bull; Jenjang Wustha</span>
+                            <span class="text-[10px] text-slate-400">1 jam yang lalu &bull; Jenjang MTs</span>
                         </div>
                     </div>
 
@@ -556,26 +571,58 @@
                 </div>
             </div>
 
-            <!-- Widget: Pintasan Aksi Cepat -->
+            <!-- Widget: Pintasan Aksi Cepat (4-Card Grid) -->
             <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-subtle">
-                <h3 class="text-sm font-bold text-slate-900 mb-3">
-                    Pintasan Cepat
-                </h3>
-                <div class="grid grid-cols-2 gap-2">
+                <div class="flex items-center justify-between mb-3.5">
+                    <h3 class="text-sm font-bold text-slate-900">
+                        Pintasan Cepat
+                    </h3>
+                    <span class="text-[10px] font-semibold text-slate-400">Akses Cepat</span>
+                </div>
+                <div class="grid grid-cols-2 gap-2.5">
                     <a href="{{ route('admin.pendaftaran.index') }}" 
-                       class="p-2.5 rounded-xl bg-slate-50 hover:bg-forest-50 text-slate-700 hover:text-forest-900 border border-slate-200/80 transition-all text-center flex flex-col items-center">
-                        <svg class="w-4 h-4 text-forest-900 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                        <span class="text-xs font-bold">Verifikasi PSB</span>
+                       class="group p-3 rounded-xl bg-slate-50/80 hover:bg-emerald-50/80 border border-slate-200/80 hover:border-emerald-200 transition-all flex flex-col items-center text-center">
+                        <div class="w-8 h-8 rounded-lg bg-emerald-100/60 group-hover:bg-emerald-200/70 text-emerald-800 flex items-center justify-center mb-1.5 transition-colors">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <span class="text-xs font-bold text-slate-800 group-hover:text-emerald-900">Verifikasi PSB</span>
+                        <span class="text-[10px] text-slate-400">Calon Santri</span>
                     </a>
+
+                    <a href="{{ route('admin.santri.index') }}" 
+                       class="group p-3 rounded-xl bg-slate-50/80 hover:bg-forest-50 border border-slate-200/80 hover:border-forest-200 transition-all flex flex-col items-center text-center">
+                        <div class="w-8 h-8 rounded-lg bg-forest-100/60 group-hover:bg-forest-200/70 text-forest-900 flex items-center justify-center mb-1.5 transition-colors">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                            </svg>
+                        </div>
+                        <span class="text-xs font-bold text-slate-800 group-hover:text-forest-900">Data Santri</span>
+                        <span class="text-[10px] text-slate-400">MTs & MA</span>
+                    </a>
+
+                    <a href="{{ route('admin.guru.index') }}" 
+                       class="group p-3 rounded-xl bg-slate-50/80 hover:bg-teal-50 border border-slate-200/80 hover:border-teal-200 transition-all flex flex-col items-center text-center">
+                        <div class="w-8 h-8 rounded-lg bg-teal-100/60 group-hover:bg-teal-200/70 text-teal-800 flex items-center justify-center mb-1.5 transition-colors">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                            </svg>
+                        </div>
+                        <span class="text-xs font-bold text-slate-800 group-hover:text-teal-900">Dewan Asatidz</span>
+                        <span class="text-[10px] text-slate-400">Asatidz & Guru</span>
+                    </a>
+
                     <button type="button" 
                             onclick="openUploadModal()"
-                            class="p-2.5 rounded-xl bg-slate-50 hover:bg-amber-50 text-slate-700 hover:text-amber-900 border border-slate-200/80 transition-all text-center flex flex-col items-center">
-                        <svg class="w-4 h-4 text-amber-600 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                        </svg>
-                        <span class="text-xs font-bold">Upload Foto</span>
+                            class="group p-3 rounded-xl bg-slate-50/80 hover:bg-amber-50 border border-slate-200/80 hover:border-amber-200 transition-all flex flex-col items-center text-center">
+                        <div class="w-8 h-8 rounded-lg bg-amber-100/60 group-hover:bg-amber-200/70 text-amber-800 flex items-center justify-center mb-1.5 transition-colors">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <span class="text-xs font-bold text-slate-800 group-hover:text-amber-900">Upload Foto</span>
+                        <span class="text-[10px] text-slate-400">Galeri Beranda</span>
                     </button>
                 </div>
             </div>
@@ -664,8 +711,9 @@
         <!-- Drawer Header (Dominan Hijau Tua) -->
         <div class="p-6 bg-gradient-to-r from-[#0B3B2C] via-[#0E4836] to-[#145742] text-white flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <div class="w-12 h-12 rounded-xl bg-white/10 text-amber-300 font-black text-lg flex items-center justify-center border border-white/20" id="drawerAvatar">
-                    FA
+                <div class="w-12 h-12 rounded-xl bg-white/10 text-amber-300 font-black text-lg flex items-center justify-center border border-white/20 overflow-hidden relative shrink-0" id="drawerAvatarWrapper">
+                    <img id="drawerAvatarImg" src="" alt="Pas Foto" class="w-full h-full object-cover hidden">
+                    <span id="drawerAvatar">FA</span>
                 </div>
                 <div>
                     <span class="inline-block px-2 py-0.5 rounded text-[10px] font-bold bg-amber-400 text-forest-950 mb-0.5" id="drawerRegNumber">
@@ -700,15 +748,16 @@
                     <button type="button" 
                             id="btnVerifyAction"
                             onclick="updateStudentStatus('terverifikasi')"
-                            class="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold transition-all shadow-xs flex items-center gap-1.5">
+                            class="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold transition-all shadow-xs flex items-center gap-1.5 cursor-pointer">
                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                         </svg>
                         <span>Verifikasi</span>
                     </button>
                     <button type="button" 
+                            id="btnAcceptAction"
                             onclick="updateStudentStatus('diterima')"
-                            class="px-3 py-1.5 rounded-xl bg-[#0B3B2C] hover:bg-[#0E4836] text-white font-bold transition-all shadow-xs">
+                            class="px-3 py-1.5 rounded-xl bg-[#0B3B2C] hover:bg-[#0E4836] text-white font-bold transition-all shadow-xs cursor-pointer">
                         Terima
                     </button>
                 </div>
@@ -749,36 +798,49 @@
                     <h4 class="font-bold text-slate-900 uppercase tracking-wider text-[11px]">
                         Biodata Calon Santri
                     </h4>
-                    <span class="px-2.5 py-0.5 rounded-md bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11px] font-bold" id="drawerAgeDisplay">-</span>
+                    <span class="px-2.5 py-0.5 rounded-md bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11px] font-bold" id="drawerAgeDisplayBadge">-</span>
                 </div>
-                <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 bg-slate-50/60 p-3.5 rounded-xl border border-slate-100">
+                <div class="bg-slate-50/60 p-4 rounded-xl border border-slate-100 space-y-3">
+                    <div class="grid grid-cols-2 gap-3 pb-3 border-b border-slate-100">
+                        <div>
+                            <span class="text-slate-400 block text-[11px]">Jenjang Pilihan</span>
+                            <strong class="text-slate-900 text-xs font-bold" id="drawerJenjang">-</strong>
+                        </div>
+                        <div>
+                            <span class="text-slate-400 block text-[11px]">Tinggal Bersama</span>
+                            <strong class="text-slate-900 text-xs" id="drawerLivingWith">-</strong>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pb-3 border-b border-slate-100">
+                        <div>
+                            <span class="text-slate-400 block text-[11px]">Tempat, Tgl Lahir</span>
+                            <strong class="text-slate-900 text-xs" id="drawerBirth">-</strong>
+                        </div>
+                        <div>
+                            <span class="text-slate-400 block text-[11px]">Usia / Umur</span>
+                            <strong class="text-emerald-700 font-bold text-xs" id="drawerAgeText">-</strong>
+                        </div>
+                        <div>
+                            <span class="text-slate-400 block text-[11px]">Nomor HP Santri</span>
+                            <strong class="text-slate-900 text-xs font-mono" id="drawerStudentPhone">-</strong>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pb-3 border-b border-slate-100">
+                        <div>
+                            <span class="text-slate-400 block text-[11px]">Email Calon Santri</span>
+                            <strong class="text-slate-900 text-xs font-mono" id="drawerEmail">-</strong>
+                        </div>
+                        <div>
+                            <span class="text-slate-400 block text-[11px]">Asal Sekolah</span>
+                            <strong class="text-slate-900 text-xs" id="drawerSchool">-</strong>
+                        </div>
+                    </div>
+
                     <div>
-                        <span class="text-slate-400 block text-[11px]">Jenjang Pilihan</span>
-                        <strong class="text-slate-900 text-xs" id="drawerJenjang">-</strong>
-                    </div>
-                    <div>
-                        <span class="text-slate-400 block text-[11px]">Jenis Kelamin</span>
-                        <strong class="text-slate-900 text-xs" id="drawerGender">-</strong>
-                    </div>
-                    <div>
-                        <span class="text-slate-400 block text-[11px]">Tinggal Bersama</span>
-                        <strong class="text-slate-900 text-xs" id="drawerLivingWith">-</strong>
-                    </div>
-                    <div class="sm:col-span-2">
-                        <span class="text-slate-400 block text-[11px]">Tempat, Tgl Lahir</span>
-                        <strong class="text-slate-900 text-xs" id="drawerBirth">-</strong>
-                    </div>
-                    <div>
-                        <span class="text-slate-400 block text-[11px]">Nomor HP Santri</span>
-                        <strong class="text-slate-900 text-xs" id="drawerStudentPhone">-</strong>
-                    </div>
-                    <div class="col-span-2 sm:col-span-3">
-                        <span class="text-slate-400 block text-[11px]">Asal Sekolah</span>
-                        <strong class="text-slate-900 text-xs" id="drawerSchool">-</strong>
-                    </div>
-                    <div class="col-span-2 sm:col-span-3">
-                        <span class="text-slate-400 block text-[11px]">Alamat Lengkap</span>
-                        <p class="text-slate-800 text-xs leading-relaxed" id="drawerAddress">-</p>
+                        <span class="text-slate-400 block text-[11px]">Alamat Lengkap Domisili Sesuai KK</span>
+                        <p class="text-slate-800 text-xs leading-relaxed mt-0.5" id="drawerAddress">-</p>
                     </div>
                 </div>
             </div>
@@ -840,35 +902,53 @@
                 <h4 class="font-bold text-slate-900 uppercase tracking-wider text-[11px] pb-1 border-b border-slate-100">
                     Berkas Pendaftaran Terunggah
                 </h4>
-                <div class="grid grid-cols-2 gap-3">
-                    <div class="p-3 rounded-xl border border-slate-200 bg-white flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                    <!-- Pas Foto -->
+                    <div class="p-3 rounded-xl border border-slate-200/80 bg-white flex items-center justify-between">
+                        <div class="flex items-center gap-2 min-w-0">
+                            <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center shrink-0">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                 </svg>
                             </div>
-                            <div>
-                                <strong class="block text-slate-800 text-xs">Kartu Keluarga</strong>
-                                <span class="text-[10px] text-emerald-600 font-semibold">Tersedia (PDF)</span>
+                            <div class="truncate">
+                                <strong class="block text-slate-800 text-xs truncate">Pas Foto</strong>
+                                <span class="text-[10px] text-emerald-600 font-semibold" id="drawerFotoStatus">Tersedia</span>
                             </div>
                         </div>
-                        <button type="button" onclick="alert('Membuka pratinjau Kartu Keluarga')" class="text-forest-900 font-bold hover:underline">Lihat</button>
+                        <a id="drawerFotoLink" href="#" target="_blank" class="text-forest-900 font-bold hover:underline shrink-0 text-xs ml-2">Lihat</a>
                     </div>
 
-                    <div class="p-3 rounded-xl border border-slate-200 bg-white flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <div class="w-8 h-8 rounded-lg bg-teal-50 text-teal-700 flex items-center justify-center">
+                    <!-- Kartu Keluarga -->
+                    <div class="p-3 rounded-xl border border-slate-200/80 bg-white flex items-center justify-between">
+                        <div class="flex items-center gap-2 min-w-0">
+                            <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center shrink-0">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                                 </svg>
                             </div>
-                            <div>
-                                <strong class="block text-slate-800 text-xs">Buku Rapor</strong>
-                                <span class="text-[10px] text-emerald-600 font-semibold">Tersedia (PDF)</span>
+                            <div class="truncate">
+                                <strong class="block text-slate-800 text-xs truncate">Kartu Keluarga</strong>
+                                <span class="text-[10px] text-emerald-600 font-semibold" id="drawerKkStatus">Tersedia</span>
                             </div>
                         </div>
-                        <button type="button" onclick="alert('Membuka pratinjau Buku Rapor Terakhir')" class="text-forest-900 font-bold hover:underline">Lihat</button>
+                        <a id="drawerKkLink" href="#" target="_blank" class="text-forest-900 font-bold hover:underline shrink-0 text-xs ml-2">Lihat</a>
+                    </div>
+
+                    <!-- Buku Rapor -->
+                    <div class="p-3 rounded-xl border border-slate-200/80 bg-white flex items-center justify-between">
+                        <div class="flex items-center gap-2 min-w-0">
+                            <div class="w-8 h-8 rounded-lg bg-teal-50 text-teal-700 flex items-center justify-center shrink-0">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                </svg>
+                            </div>
+                            <div class="truncate">
+                                <strong class="block text-slate-800 text-xs truncate">Buku Rapor</strong>
+                                <span class="text-[10px] text-emerald-600 font-semibold" id="drawerRaportStatus">Tersedia</span>
+                            </div>
+                        </div>
+                        <a id="drawerRaportLink" href="#" target="_blank" class="text-forest-900 font-bold hover:underline shrink-0 text-xs ml-2">Lihat</a>
                     </div>
                 </div>
             </div>
@@ -934,7 +1014,7 @@
                 <div class="space-y-3">
                     <div>
                         <label class="block text-xs font-semibold text-slate-700 mb-1">Judul Dokumentasi Kegiatan</label>
-                        <input type="text" id="uploadPhotoTitle" placeholder="Contoh: Halaqah Tahfizh Fajar Santri Wustha" class="w-full px-3 py-2 text-xs rounded-xl border border-slate-200 outline-hidden focus:border-forest-500 focus:ring-1 focus:ring-forest-200">
+                        <input type="text" id="uploadPhotoTitle" placeholder="Contoh: Halaqah Tahfizh Fajar Santri MTs" class="w-full px-3 py-2 text-xs rounded-xl border border-slate-200 outline-hidden focus:border-forest-500 focus:ring-1 focus:ring-forest-200">
                     </div>
                     <div class="grid grid-cols-2 gap-3">
                         <div>
@@ -1052,7 +1132,7 @@
                 new Chart(doughnutCtx, {
                     type: 'doughnut',
                     data: {
-                        labels: ['Wustha (SMP)', 'Ulya (SMA)'],
+                        labels: ['MTs (SMP)', 'MA (SMA)'],
                         datasets: [{
                             data: [84, 64],
                             backgroundColor: ['#0B3B2C', '#F59E0B'],
@@ -1135,6 +1215,14 @@
             // ==========================================
             let activeStudent = null;
 
+            function resolveFileUrl(path) {
+                if (!path || path === 'missing') return '';
+                if (path.startsWith('http://') || path.startsWith('https://') || path.startsWith('/') || path.startsWith('data:')) {
+                    return path;
+                }
+                return '/storage/' + path;
+            }
+
             function openStudentDrawer(student) {
                 activeStudent = student;
                 
@@ -1142,17 +1230,30 @@
                 document.getElementById('drawerRegNumber').innerText = student.registration_number || 'PSB-2027';
                 document.getElementById('drawerStudentName').innerText = student.nama_santri;
                 
-                // Initials
-                const names = (student.nama_santri || '').split(' ');
+                // Initials Fallback
+                const names = (student.nama_santri || '').trim().split(/\s+/);
                 const initials = names.length > 1 ? (names[0][0] + names[1][0]).toUpperCase() : (student.nama_santri ? student.nama_santri.substring(0, 2).toUpperCase() : 'PS');
-                document.getElementById('drawerAvatar').innerText = initials;
+                
+                // Pas Foto di Header
+                const fotoUrl = resolveFileUrl(student.pas_foto_path);
+                const avatarImg = document.getElementById('drawerAvatarImg');
+                const avatarText = document.getElementById('drawerAvatar');
+                if (fotoUrl) {
+                    avatarImg.src = fotoUrl;
+                    avatarImg.classList.remove('hidden');
+                    avatarText.classList.add('hidden');
+                } else {
+                    avatarImg.classList.add('hidden');
+                    avatarText.classList.remove('hidden');
+                    avatarText.innerText = initials;
+                }
 
                 document.getElementById('drawerJenjang').innerText = student.jenjang || '-';
                 document.getElementById('drawerGender').innerText = student.jenis_kelamin || '-';
                 document.getElementById('drawerLivingWith').innerText = student.tinggal_bersama || 'Orang Tua';
 
-                // Birth & Age
-                let ageText = '12 Tahun';
+                // Birth & Age Display (Otomatis dari field umur atau tanggal lahir)
+                let ageText = '-';
                 let birthFormatted = '-';
                 if (student.tanggal_lahir) {
                     const parts = student.tanggal_lahir.split('T')[0].split('-');
@@ -1162,16 +1263,28 @@
                         const birthDay = parseInt(parts[2], 10);
                         const months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
                         birthFormatted = (student.tempat_lahir || '-') + ', ' + birthDay + ' ' + (months[birthMonth] || parts[1]) + ' ' + birthYear;
-                        ageText = (2026 - birthYear) + ' Tahun';
                     } else {
                         birthFormatted = (student.tempat_lahir || '-') + ', ' + student.tanggal_lahir;
                     }
                 } else if (student.tempat_lahir) {
                     birthFormatted = student.tempat_lahir;
                 }
+
+                if (student.umur !== undefined && student.umur !== null && student.umur !== '') {
+                    ageText = student.umur + ' Tahun';
+                } else if (student.tanggal_lahir) {
+                    const parts = student.tanggal_lahir.split('T')[0].split('-');
+                    if (parts.length === 3) {
+                        const birthYear = parseInt(parts[0], 10);
+                        ageText = (new Date().getFullYear() - birthYear) + ' Tahun';
+                    }
+                }
+
                 document.getElementById('drawerBirth').innerText = birthFormatted;
-                document.getElementById('drawerAgeDisplay').innerText = ageText;
+                document.getElementById('drawerAgeText').innerText = ageText;
+                document.getElementById('drawerAgeDisplayBadge').innerText = ageText !== '-' ? ageText : 'Belum Ditentukan';
                 document.getElementById('drawerStudentPhone').innerText = student.no_hp_santri || '-';
+                document.getElementById('drawerEmail').innerText = student.email || '-';
                 document.getElementById('drawerSchool').innerText = student.asal_sekolah || '-';
                 document.getElementById('drawerAddress').innerText = student.alamat_lengkap || '-';
 
@@ -1195,6 +1308,51 @@
                     document.getElementById('drawerMotherWaLink').classList.remove('hidden');
                 } else {
                     document.getElementById('drawerMotherWaLink').classList.add('hidden');
+                }
+
+                // Berkas Dokumen Links (Pas Foto, KK, Raport)
+                const fotoLink = document.getElementById('drawerFotoLink');
+                const fotoStatus = document.getElementById('drawerFotoStatus');
+                if (fotoUrl) {
+                    fotoLink.href = fotoUrl;
+                    fotoLink.classList.remove('pointer-events-none', 'opacity-40');
+                    fotoStatus.innerText = 'Tersedia';
+                    fotoStatus.className = 'text-[10px] text-emerald-600 font-semibold';
+                } else {
+                    fotoLink.href = '#';
+                    fotoLink.classList.add('pointer-events-none', 'opacity-40');
+                    fotoStatus.innerText = 'Belum Ada';
+                    fotoStatus.className = 'text-[10px] text-slate-400 font-medium';
+                }
+
+                const kkUrl = resolveFileUrl(student.foto_kk_path);
+                const kkLink = document.getElementById('drawerKkLink');
+                const kkStatus = document.getElementById('drawerKkStatus');
+                if (kkUrl) {
+                    kkLink.href = kkUrl;
+                    kkLink.classList.remove('pointer-events-none', 'opacity-40');
+                    kkStatus.innerText = 'Tersedia';
+                    kkStatus.className = 'text-[10px] text-emerald-600 font-semibold';
+                } else {
+                    kkLink.href = '#';
+                    kkLink.classList.add('pointer-events-none', 'opacity-40');
+                    kkStatus.innerText = 'Belum Ada';
+                    kkStatus.className = 'text-[10px] text-slate-400 font-medium';
+                }
+
+                const raportUrl = resolveFileUrl(student.foto_raport_path);
+                const raportLink = document.getElementById('drawerRaportLink');
+                const raportStatus = document.getElementById('drawerRaportStatus');
+                if (raportUrl) {
+                    raportLink.href = raportUrl;
+                    raportLink.classList.remove('pointer-events-none', 'opacity-40');
+                    raportStatus.innerText = 'Tersedia';
+                    raportStatus.className = 'text-[10px] text-emerald-600 font-semibold';
+                } else {
+                    raportLink.href = '#';
+                    raportLink.classList.add('pointer-events-none', 'opacity-40');
+                    raportStatus.innerText = 'Belum Ada';
+                    raportStatus.className = 'text-[10px] text-slate-400 font-medium';
                 }
 
                 renderDrawerStatus(student.status);
@@ -1239,10 +1397,38 @@
                     verifyStepText.innerText = 'Belum Lengkap';
                     verifyStepBox.className = 'p-2.5 rounded-xl bg-rose-50 border border-rose-200';
                 }
+
+                // Update Quick Status Buttons (Disable active status button)
+                const btnVerify = document.getElementById('btnVerifyAction');
+                const btnAccept = document.getElementById('btnAcceptAction');
+
+                if (btnVerify) {
+                    if (status === 'terverifikasi') {
+                        btnVerify.disabled = true;
+                        btnVerify.className = 'px-3 py-1.5 rounded-xl bg-slate-200 text-slate-400 font-semibold cursor-not-allowed flex items-center gap-1.5 border border-slate-300/80 shadow-none pointer-events-none';
+                        btnVerify.title = 'Data santri ini sudah terverifikasi';
+                    } else {
+                        btnVerify.disabled = false;
+                        btnVerify.className = 'px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold transition-all shadow-xs flex items-center gap-1.5 cursor-pointer';
+                        btnVerify.title = 'Tandai terverifikasi';
+                    }
+                }
+
+                if (btnAccept) {
+                    if (status === 'diterima') {
+                        btnAccept.disabled = true;
+                        btnAccept.className = 'px-3 py-1.5 rounded-xl bg-slate-200 text-slate-400 font-semibold cursor-not-allowed border border-slate-300/80 shadow-none pointer-events-none';
+                        btnAccept.title = 'Santri ini sudah diterima';
+                    } else {
+                        btnAccept.disabled = false;
+                        btnAccept.className = 'px-3 py-1.5 rounded-xl bg-[#0B3B2C] hover:bg-[#0E4836] text-white font-bold transition-all shadow-xs cursor-pointer';
+                        btnAccept.title = 'Terima santri ini';
+                    }
+                }
             }
 
             function updateStudentStatus(newStatus) {
-                if (!activeStudent) return;
+                if (!activeStudent || activeStudent.status === newStatus) return;
                 activeStudent.status = newStatus;
                 renderDrawerStatus(newStatus);
 

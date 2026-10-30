@@ -392,6 +392,59 @@
         </div>
     </div>
 
+    <!-- Custom Modal: Konfirmasi Hapus Foto (Clean Tailwind Modal) -->
+    <div id="delete-modal" 
+         class="hidden fixed inset-0 z-[60] bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 select-none"
+         onclick="closeDeleteModalOnBackdrop(event)">
+        <div class="bg-white rounded-2xl max-w-sm w-full p-5 shadow-2xl border border-slate-100 space-y-4 animate-in fade-in zoom-in-95 duration-200"
+             onclick="event.stopPropagation()">
+            
+            <!-- Header Icon & Title -->
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 border border-rose-100 flex items-center justify-center shrink-0">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-900 text-sm">Hapus Foto Galeri?</h4>
+                    <p class="text-xs text-slate-500 mt-0.5" id="delete-modal-year-text">Dokumentasi Pondok Camba</p>
+                </div>
+            </div>
+
+            <!-- Mini Preview of Photo to be Deleted -->
+            <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shadow-2xs">
+                <img id="delete-modal-preview-img" src="" alt="Foto yang akan dihapus" class="w-full h-full object-cover">
+                <span id="delete-modal-badge" class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/65 backdrop-blur-xs text-[10px] font-black text-amber-300 border border-white/20">
+                    2026
+                </span>
+            </div>
+
+            <!-- Warning Text -->
+            <p class="text-xs text-slate-600 leading-relaxed">
+                Tindakan ini akan menghapus foto dari server dan galeri secara permanen. Tindakan ini tidak dapat dibatalkan.
+            </p>
+
+            <!-- Actions Buttons -->
+            <div class="flex items-center justify-end gap-2 pt-2 border-t border-slate-100">
+                <button type="button" 
+                        onclick="closeDeleteModal()" 
+                        class="px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer">
+                    Batal
+                </button>
+                <button type="button" 
+                        id="btn-confirm-delete"
+                        onclick="executeDeletePhoto()" 
+                        class="px-4 py-2 rounded-xl text-xs font-bold bg-rose-600 hover:bg-rose-700 text-white transition-all shadow-xs inline-flex items-center gap-1.5 cursor-pointer">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                    <span id="btn-confirm-delete-text">Ya, Hapus Foto</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Toast Notification Pop-up -->
     <div id="gallery-toast" 
          class="fixed bottom-6 right-6 z-50 transform translate-y-12 opacity-0 transition-all duration-300 pointer-events-none flex items-center gap-3 px-4 py-3 rounded-2xl bg-[#0B3B2C] text-white shadow-xl text-xs font-semibold">
@@ -431,10 +484,22 @@
             refreshGalleryState();
             renderPagination();
 
-            // Keyboard shortcut for lightbox
+            // Keyboard shortcuts (Escape for modals, arrows for lightbox)
             document.addEventListener('keydown', (e) => {
+                const deleteModal = document.getElementById('delete-modal');
+                if (deleteModal && !deleteModal.classList.contains('hidden')) {
+                    if (e.key === 'Escape') closeDeleteModal();
+                    return;
+                }
+
+                const uploadModal = document.getElementById('upload-modal');
+                if (uploadModal && !uploadModal.classList.contains('hidden')) {
+                    if (e.key === 'Escape') closeUploadModal();
+                    return;
+                }
+
                 const lightbox = document.getElementById('lightbox-modal');
-                if (!lightbox.classList.contains('hidden')) {
+                if (lightbox && !lightbox.classList.contains('hidden')) {
                     if (e.key === 'Escape') closeLightbox();
                     if (e.key === 'ArrowLeft') prevPhoto();
                     if (e.key === 'ArrowRight') nextPhoto();
@@ -677,20 +742,63 @@
 
                     showToast('Foto berhasil diganti dengan yang baru!');
                 } else {
-                    alert(result.message || 'Gagal mengganti foto.');
+                    showToast(result.message || 'Gagal mengganti foto.');
                 }
             } catch (err) {
                 console.error(err);
-                alert('Terjadi kesalahan jaringan saat mengganti foto.');
+                showToast('Terjadi kesalahan jaringan saat mengganti foto.');
             } finally {
                 event.target.value = '';
                 replaceTargetPhotoId = null;
             }
         }
 
-        // Delete Photo
-        async function deletePhoto(photoId) {
-            if (!confirm('Apakah Anda yakin ingin menghapus foto ini dari galeri?')) return;
+        // Delete Photo Flow via Custom Confirmation Modal
+        let pendingDeletePhotoId = null;
+
+        function confirmDeletePhoto(photoId) {
+            pendingDeletePhotoId = photoId;
+            const card = document.querySelector(`.gallery-card[data-id="${photoId}"]`);
+            const previewImg = document.getElementById('delete-modal-preview-img');
+            const badge = document.getElementById('delete-modal-badge');
+            const yearText = document.getElementById('delete-modal-year-text');
+
+            if (card) {
+                const src = card.getAttribute('data-src') || '';
+                const year = card.getAttribute('data-year') || '';
+                if (previewImg) previewImg.src = src;
+                if (badge) badge.textContent = year ? `Tahun ${year}` : 'Galeri';
+                if (yearText) yearText.textContent = year ? `Dokumentasi Arsip Tahun ${year}` : 'Dokumentasi Pondok Camba';
+            }
+
+            const btnConfirm = document.getElementById('btn-confirm-delete');
+            const btnText = document.getElementById('btn-confirm-delete-text');
+            if (btnConfirm) btnConfirm.disabled = false;
+            if (btnText) btnText.textContent = 'Ya, Hapus Foto';
+
+            document.getElementById('delete-modal').classList.remove('hidden');
+        }
+
+        function closeDeleteModal() {
+            document.getElementById('delete-modal').classList.add('hidden');
+            pendingDeletePhotoId = null;
+        }
+
+        function closeDeleteModalOnBackdrop(e) {
+            if (e.target.id === 'delete-modal') {
+                closeDeleteModal();
+            }
+        }
+
+        async function executeDeletePhoto() {
+            if (!pendingDeletePhotoId) return;
+
+            const photoId = pendingDeletePhotoId;
+            const btnConfirm = document.getElementById('btn-confirm-delete');
+            const btnText = document.getElementById('btn-confirm-delete-text');
+
+            if (btnConfirm) btnConfirm.disabled = true;
+            if (btnText) btnText.textContent = 'Menghapus...';
 
             try {
                 const response = await fetch(`/admin/gallery/${photoId}`, {
@@ -704,6 +812,8 @@
                 const result = await response.json();
 
                 if (response.ok && result.success) {
+                    closeDeleteModal();
+
                     const card = document.querySelector(`.gallery-card[data-id="${photoId}"]`);
                     if (card) {
                         card.style.transition = 'all 0.3s ease';
@@ -722,12 +832,20 @@
                         }, 300);
                     }
                 } else {
-                    alert(result.message || 'Gagal menghapus foto.');
+                    showToast(result.message || 'Gagal menghapus foto.');
+                    if (btnConfirm) btnConfirm.disabled = false;
+                    if (btnText) btnText.textContent = 'Ya, Hapus Foto';
                 }
             } catch (err) {
                 console.error(err);
-                alert('Terjadi kesalahan koneksi saat menghapus foto.');
+                showToast('Terjadi kesalahan koneksi saat menghapus foto.');
+                if (btnConfirm) btnConfirm.disabled = false;
+                if (btnText) btnText.textContent = 'Ya, Hapus Foto';
             }
+        }
+
+        function deletePhoto(photoId) {
+            confirmDeletePhoto(photoId);
         }
 
         function deletePhotoFromLightbox() {
@@ -735,7 +853,7 @@
             if (!card) return;
             const photoId = card.getAttribute('data-id');
             if (photoId) {
-                deletePhoto(photoId);
+                confirmDeletePhoto(photoId);
             }
         }
 
@@ -820,7 +938,7 @@
             // Filter only images
             const imageFiles = newFiles.filter(f => f.type.startsWith('image/'));
             if (imageFiles.length === 0) {
-                alert('Silakan pilih berkas format gambar (JPG, PNG, WEBP).');
+                showToast('Silakan pilih berkas format gambar (JPG, PNG, WEBP).');
                 return;
             }
 
@@ -877,7 +995,7 @@
 
         async function submitUpload() {
             if (selectedUploadFiles.length === 0) {
-                alert('Silakan pilih atau tarik setidaknya 1 foto terlebih dahulu.');
+                showToast('Silakan pilih atau tarik setidaknya 1 foto terlebih dahulu.');
                 return;
             }
 
@@ -886,7 +1004,7 @@
             if (year === 'custom') {
                 const customYear = document.getElementById('upload-custom-year').value.trim();
                 if (!customYear || isNaN(customYear) || parseInt(customYear, 10) < 2000) {
-                    alert('Silakan masukkan tahun yang valid (contoh: 2027).');
+                    showToast('Silakan masukkan tahun yang valid (contoh: 2027).');
                     return;
                 }
                 year = customYear;
@@ -926,13 +1044,13 @@
                         window.location.href = `/admin/gallery?year=${year}`;
                     }, 800);
                 } else {
-                    alert(result.message || 'Gagal mengunggah foto. Periksa kembali ukuran dan format file.');
+                    showToast(result.message || 'Gagal mengunggah foto. Periksa kembali ukuran dan format file.');
                     btnSubmit.disabled = false;
                     btnText.textContent = 'Simpan Foto';
                 }
             } catch (err) {
                 console.error(err);
-                alert('Terjadi kesalahan jaringan saat mengunggah foto.');
+                showToast('Terjadi kesalahan jaringan saat mengunggah foto.');
                 btnSubmit.disabled = false;
                 btnText.textContent = 'Simpan Foto';
             }

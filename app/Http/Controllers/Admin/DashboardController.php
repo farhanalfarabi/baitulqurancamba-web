@@ -32,6 +32,8 @@ class DashboardController extends Controller
             'pendaftar_verified' => $pendaftarVerified,
             'pendaftar_accepted' => $pendaftarAccepted,
             'santri_aktif' => 148,
+            'santri_mts' => 84,
+            'santri_ma' => 64,
             'santri_wustha' => 84,
             'santri_ulya' => 64,
             'dewan_guru' => Guru::count(),

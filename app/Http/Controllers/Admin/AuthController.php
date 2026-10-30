@@ -38,13 +38,13 @@ class AuthController extends Controller
         if (Auth::attempt(['email' => $credentials['email'], 'password' => $credentials['password']], $remember)) {
             $request->session()->regenerate();
 
-            return redirect()->intended(route('admin.dashboard'))
-                ->with('success', 'Selamat datang kembali di Dashboard Baitul Qur\'an Camba.');
+            return redirect()->intended(route('admin.pendaftaran.index'))
+                ->with('success', 'Selamat datang kembali di Admin Portal Baitul Qur\'an Camba.');
         }
 
-        // In UI preview phase: allow smooth navigation to dashboard
-        return redirect()->route('admin.dashboard')
-            ->with('success', 'Berhasil masuk ke Dashboard Admin Baitul Qur\'an Camba.');
+        // In UI preview phase: allow smooth navigation
+        return redirect()->route('admin.pendaftaran.index')
+            ->with('success', 'Berhasil masuk ke Admin Portal Baitul Qur\'an Camba.');
     }
 
     /**
