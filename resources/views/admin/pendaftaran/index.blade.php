@@ -133,19 +133,14 @@
                         Semua Jenjang
                     </button>
                     <button type="button" 
-                            onclick="filterJenjang('wustha', this)"
+                            onclick="filterJenjang('mts', this)"
                             class="jenjang-filter-btn px-3 py-1.5 rounded-lg font-semibold text-slate-600 hover:bg-slate-100 transition-all">
-                        Wustha (SMP)
+                        MTs
                     </button>
                     <button type="button" 
-                            onclick="filterJenjang('ulya', this)"
+                            onclick="filterJenjang('ma', this)"
                             class="jenjang-filter-btn px-3 py-1.5 rounded-lg font-semibold text-slate-600 hover:bg-slate-100 transition-all">
-                        Ulya (SMA)
-                    </button>
-                    <button type="button" 
-                            onclick="filterJenjang('tahfizh', this)"
-                            class="jenjang-filter-btn px-3 py-1.5 rounded-lg font-semibold text-slate-600 hover:bg-slate-100 transition-all">
-                        Tahfizh Khusus
+                        MA
                     </button>
                 </div>
 
@@ -236,17 +231,17 @@
 
                             <!-- 3. Jenjang Pilihan -->
                             <td class="py-4 px-4 whitespace-nowrap student-jenjang-col">
-                                @if(str_contains(strtolower($p->jenjang), 'wustha'))
+                                @if(str_contains(strtolower($p->jenjang), 'mts') || str_contains(strtolower($p->jenjang), 'wustha'))
                                     <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200">
-                                        Wustha (SMP)
+                                        MTs
                                     </span>
-                                @elseif(str_contains(strtolower($p->jenjang), 'ulya'))
-                                    <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-teal-50 text-teal-800 border border-teal-200">
-                                        Ulya (SMA)
+                                @elseif(str_contains(strtolower($p->jenjang), 'ma') || str_contains(strtolower($p->jenjang), 'ulya'))
+                                    <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-800 border border-amber-200">
+                                        MA
                                     </span>
                                 @else
-                                    <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-800 border border-amber-200">
-                                        Tahfizh Khusus
+                                    <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-teal-50 text-teal-800 border border-teal-200">
+                                        {{ $p->jenjang }}
                                     </span>
                                 @endif
                             </td>
@@ -470,9 +465,15 @@
                                 <strong class="text-slate-900 text-xs block mt-0.5" id="detailStudentPhone">-</strong>
                             </div>
                         </div>
-                        <div class="pt-2.5 border-t border-slate-200/60">
-                            <span class="text-slate-400 block text-[11px]">Asal Sekolah SD/MI/SMP/MTs</span>
-                            <strong class="text-slate-900 text-xs block mt-0.5" id="detailSchool">-</strong>
+                        <div class="pt-2.5 border-t border-slate-200/60 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <span class="text-slate-400 block text-[11px]">Email Calon Santri</span>
+                                <strong class="text-slate-900 text-xs block mt-0.5 truncate" id="detailEmail">-</strong>
+                            </div>
+                            <div>
+                                <span class="text-slate-400 block text-[11px]">Asal Sekolah</span>
+                                <strong class="text-slate-900 text-xs block mt-0.5" id="detailSchool">-</strong>
+                            </div>
                         </div>
                         <div class="pt-2.5 border-t border-slate-200/60">
                             <span class="text-slate-400 block text-[11px]">Alamat Lengkap Domisili Sesuai KK</span>
@@ -538,37 +539,55 @@
                 <div class="space-y-3">
                     <h4 class="font-bold text-slate-900 uppercase tracking-wider text-[11px] pb-1 border-b border-slate-100 flex items-center justify-between">
                         <span>3. Berkas Dokumen Terunggah</span>
-                        <span class="text-[11px] font-bold text-emerald-700" id="detailDocBadge">2/2 Berkas Lengkap</span>
+                        <span class="text-[11px] font-bold text-emerald-700" id="detailDocBadge">3/3 Berkas Lengkap</span>
                     </h4>
-                    <div class="grid grid-cols-2 gap-3">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <!-- Pas Foto 3x4 -->
                         <div class="p-3 rounded-xl border border-slate-200 bg-white flex items-center justify-between">
-                            <div class="flex items-center gap-2.5">
-                                <div class="w-9 h-9 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center">
+                            <div class="flex items-center gap-2.5 min-w-0">
+                                <div class="w-9 h-9 rounded-lg bg-amber-50 text-amber-700 flex items-center justify-center shrink-0">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                                <div class="min-w-0">
+                                    <strong class="block text-slate-800 text-xs truncate">Pas Foto (3x4)</strong>
+                                    <span class="text-[10px] text-emerald-600 font-semibold" id="fotoStatusText">Tersedia (JPG)</span>
+                                </div>
+                            </div>
+                            <button type="button" onclick="openDocPreview('Pas Foto Calon Santri (3x4)')" class="px-2.5 py-1 text-xs font-bold text-forest-900 bg-forest-50 hover:bg-forest-100 rounded-lg shrink-0">Buka</button>
+                        </div>
+
+                        <!-- Kartu Keluarga -->
+                        <div class="p-3 rounded-xl border border-slate-200 bg-white flex items-center justify-between">
+                            <div class="flex items-center gap-2.5 min-w-0">
+                                <div class="w-9 h-9 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center shrink-0">
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                                     </svg>
                                 </div>
-                                <div>
-                                    <strong class="block text-slate-800 text-xs">Kartu Keluarga</strong>
+                                <div class="min-w-0">
+                                    <strong class="block text-slate-800 text-xs truncate">Kartu Keluarga</strong>
                                     <span class="text-[10px] text-emerald-600 font-semibold" id="kkStatusText">Tersedia (PDF)</span>
                                 </div>
                             </div>
-                            <button type="button" onclick="openDocPreview('Kartu Keluarga (KK)')" class="px-2.5 py-1 text-xs font-bold text-forest-900 bg-forest-50 hover:bg-forest-100 rounded-lg">Buka</button>
+                            <button type="button" onclick="openDocPreview('Kartu Keluarga (KK)')" class="px-2.5 py-1 text-xs font-bold text-forest-900 bg-forest-50 hover:bg-forest-100 rounded-lg shrink-0">Buka</button>
                         </div>
 
+                        <!-- Buku Raport -->
                         <div class="p-3 rounded-xl border border-slate-200 bg-white flex items-center justify-between">
-                            <div class="flex items-center gap-2.5">
-                                <div class="w-9 h-9 rounded-lg bg-teal-50 text-teal-700 flex items-center justify-center">
+                            <div class="flex items-center gap-2.5 min-w-0">
+                                <div class="w-9 h-9 rounded-lg bg-teal-50 text-teal-700 flex items-center justify-center shrink-0">
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                                     </svg>
                                 </div>
-                                <div>
-                                    <strong class="block text-slate-800 text-xs">Buku Rapor</strong>
+                                <div class="min-w-0">
+                                    <strong class="block text-slate-800 text-xs truncate">Buku Rapor</strong>
                                     <span class="text-[10px] text-emerald-600 font-semibold" id="raportStatusText">Tersedia (PDF)</span>
                                 </div>
                             </div>
-                            <button type="button" id="raportPreviewBtn" onclick="openDocPreview('Transkrip / Nilai Rapor')" class="px-2.5 py-1 text-xs font-bold text-forest-900 bg-forest-50 hover:bg-forest-100 rounded-lg">Buka</button>
+                            <button type="button" id="raportPreviewBtn" onclick="openDocPreview('Transkrip / Nilai Rapor')" class="px-2.5 py-1 text-xs font-bold text-forest-900 bg-forest-50 hover:bg-forest-100 rounded-lg shrink-0">Buka</button>
                         </div>
                     </div>
                 </div>
@@ -613,6 +632,8 @@
                         <div>
                             <label class="block font-semibold text-slate-700 mb-1 text-[11px]">Jenjang Pendidikan *</label>
                             <select id="editPendaftaranJenjang" class="w-full px-3 py-2 rounded-xl border border-slate-200 outline-hidden focus:border-forest-500 text-xs bg-white font-semibold">
+                                <option value="MTs">MTs (Madrasah Tsanawiyah)</option>
+                                <option value="MA">MA (Madrasah Aliyah)</option>
                                 <option value="Wustha (SMP)">Wustha (SMP)</option>
                                 <option value="Ulya (SMA)">Ulya (SMA)</option>
                                 <option value="Tahfizh Khusus">Tahfizh Khusus</option>
@@ -814,14 +835,6 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
                     </svg>
                     <span>Edit Data</span>
-                </button>
-                <button type="button" 
-                        onclick="printExamCard()"
-                        class="px-3.5 sm:px-4 py-2 rounded-xl text-xs font-bold bg-[#0B3B2C] text-white hover:bg-[#07261C] transition-all flex items-center gap-1.5 shadow-xs">
-                    <svg class="w-4 h-4 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path>
-                    </svg>
-                    <span>Cetak Kartu Ujian</span>
                 </button>
             </div>
         </div>
@@ -1185,6 +1198,9 @@
                 document.getElementById('detailLivingWith').innerText = student.tinggal_bersama || 'Orang Tua';
                 document.getElementById('detailBirth').innerText = birthFormatted;
                 document.getElementById('detailStudentPhone').innerText = student.no_hp_santri || '-';
+                if (document.getElementById('detailEmail')) {
+                    document.getElementById('detailEmail').innerText = student.email || '-';
+                }
                 document.getElementById('detailSchool').innerText = student.asal_sekolah || '-';
                 document.getElementById('detailAddress').innerText = student.alamat_lengkap || '-';
 
@@ -1214,16 +1230,23 @@
                     document.getElementById('detailMotherWaBtn').classList.add('hidden');
                 }
 
-                // Document Status
+                // Document Status (Pas Foto, KK, Raport)
+                const hasFoto = student.pas_foto_path && student.pas_foto_path !== 'missing';
+                const hasKk = student.foto_kk_path && student.foto_kk_path !== 'missing';
                 const hasRaport = student.foto_raport_path && student.foto_raport_path !== 'missing';
-                document.getElementById('kkStatusText').innerText = student.foto_kk_path ? 'Tersedia (PDF)' : 'Belum Ada';
-                document.getElementById('raportStatusText').innerText = hasRaport ? 'Tersedia (PDF)' : 'Belum Diunggah';
+
+                if (document.getElementById('fotoStatusText')) {
+                    document.getElementById('fotoStatusText').innerText = hasFoto ? 'Tersedia (JPG/PNG)' : 'Belum Ada';
+                }
+                document.getElementById('kkStatusText').innerText = hasKk ? 'Tersedia (PDF/Gambar)' : 'Belum Ada';
+                document.getElementById('raportStatusText').innerText = hasRaport ? 'Tersedia (PDF/Gambar)' : 'Belum Diunggah';
                 
-                if (student.foto_kk_path && hasRaport) {
-                    document.getElementById('detailDocBadge').innerText = '2/2 Berkas Lengkap';
+                let docCount = (hasFoto ? 1 : 0) + (hasKk ? 1 : 0) + (hasRaport ? 1 : 0);
+                if (docCount === 3) {
+                    document.getElementById('detailDocBadge').innerText = '3/3 Berkas Lengkap';
                     document.getElementById('detailDocBadge').className = 'text-[11px] font-bold text-emerald-700';
                 } else {
-                    document.getElementById('detailDocBadge').innerText = '1/2 Kurang Rapor';
+                    document.getElementById('detailDocBadge').innerText = docCount + '/3 Kurang Lengkap';
                     document.getElementById('detailDocBadge').className = 'text-[11px] font-bold text-rose-600';
                 }
 
@@ -1420,12 +1443,12 @@
                     // Update Jenjang Cell
                     const jenjangCell = row.querySelector('.student-jenjang-col');
                     if (jenjangCell) {
-                        if (jenjang.toLowerCase().includes('wustha')) {
-                            jenjangCell.innerHTML = '<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200">Wustha (SMP)</span>';
-                        } else if (jenjang.toLowerCase().includes('ulya')) {
-                            jenjangCell.innerHTML = '<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-teal-50 text-teal-800 border border-teal-200">Ulya (SMA)</span>';
+                        if (jenjang.toLowerCase().includes('mts') || jenjang.toLowerCase().includes('wustha')) {
+                            jenjangCell.innerHTML = '<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200">MTs</span>';
+                        } else if (jenjang.toLowerCase().includes('ma') || jenjang.toLowerCase().includes('ulya')) {
+                            jenjangCell.innerHTML = '<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-800 border border-amber-200">MA</span>';
                         } else {
-                            jenjangCell.innerHTML = '<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-800 border border-amber-200">Tahfizh Khusus</span>';
+                            jenjangCell.innerHTML = '<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-teal-50 text-teal-800 border border-teal-200">' + jenjang + '</span>';
                         }
                     }
 
@@ -1523,11 +1546,6 @@
                 }
                 closeManualAddModal();
                 showPendaftaranToast('Data santri ' + nama + ' berhasil didaftarkan secara manual!');
-            }
-
-            function printExamCard() {
-                if (!activeDetailStudent) return;
-                alert('Mencetak Kartu Peserta Ujian Seleksi PSB untuk: ' + activeDetailStudent.nama_santri + ' (' + activeDetailStudent.registration_number + ')');
             }
 
             function showExportToast() {

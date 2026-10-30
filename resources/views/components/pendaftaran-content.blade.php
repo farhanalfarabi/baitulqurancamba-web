@@ -119,7 +119,8 @@
     <!-- =========================================================================
          REGISTRATION FORM WRAPPER
          ========================================================================= -->
-    <form id="form-pendaftaran-santri" class="space-y-8" onsubmit="event.preventDefault(); window.handleRegistrationSubmit();">
+    <form id="form-pendaftaran-santri" action="{{ route('pendaftaran.store') }}" method="POST" enctype="multipart/form-data" class="space-y-8" onsubmit="window.handleRegistrationSubmit(event);">
+      @csrf
 
       <!-- =========================================================================
            CARD 1: DATA CALON SANTRI BARU
@@ -138,7 +139,7 @@
                 Data Calon Santri Baru
               </h2>
               <p class="font-body text-xs text-gray-500 font-medium">
-                Identitas pribadi calon santri, domisili, sekolah asal, dan unggah berkas.
+                Pilihan jenjang, identitas pribadi calon santri, domisili, sekolah asal, dan unggah berkas.
               </p>
             </div>
           </div>
@@ -148,6 +149,55 @@
         </div>
 
         <div class="space-y-6">
+
+          <!-- 0. Pilihan Jenjang Pendidikan (MTs / MA) -->
+          <div>
+            <label class="block font-label font-bold text-xs uppercase tracking-wider text-gray-700 mb-2">
+              Pilihan Jenjang Pendidikan <span class="text-[#CF2B09] font-bold">*</span>
+            </label>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <!-- Option MTs -->
+              <label class="jenjang-card cursor-pointer relative block">
+                <input type="radio" name="jenjang" value="MTs" required class="peer sr-only" checked>
+                <div class="p-4 rounded-2xl bg-stone-50/70 border-2 border-transparent shadow-sm peer-checked:bg-white peer-checked:border-[#CF2B09] peer-checked:shadow-md flex items-center gap-4 transition-all hover:bg-stone-100/70">
+                  <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-700 border border-emerald-100 flex items-center justify-center flex-shrink-0 shadow-sm text-2xl">
+                    📖
+                  </div>
+                  <div class="flex-1">
+                    <div class="flex items-center gap-2">
+                      <span class="font-display font-black text-base uppercase tracking-tight text-gray-900 block">MTs</span>
+                      <span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-label font-bold text-[10px] uppercase">Setara SMP</span>
+                    </div>
+                    <span class="font-body text-xs text-gray-500 block mt-0.5">Madrasah Tsanawiyah Tahfizh</span>
+                  </div>
+                  <div class="w-6 h-6 rounded-full border-2 border-gray-300 bg-white flex items-center justify-center text-xs font-bold text-[#CF2B09]">
+                    <span class="check-indicator">✓</span>
+                  </div>
+                </div>
+              </label>
+
+              <!-- Option MA -->
+              <label class="jenjang-card cursor-pointer relative block">
+                <input type="radio" name="jenjang" value="MA" class="peer sr-only">
+                <div class="p-4 rounded-2xl bg-stone-50/70 border-2 border-transparent shadow-sm peer-checked:bg-white peer-checked:border-[#CF2B09] peer-checked:shadow-md flex items-center gap-4 transition-all hover:bg-stone-100/70">
+                  <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-700 border border-amber-100 flex items-center justify-center flex-shrink-0 shadow-sm text-2xl">
+                    🎓
+                  </div>
+                  <div class="flex-1">
+                    <div class="flex items-center gap-2">
+                      <span class="font-display font-black text-base uppercase tracking-tight text-gray-900 block">MA</span>
+                      <span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 font-label font-bold text-[10px] uppercase">Setara SMA</span>
+                    </div>
+                    <span class="font-body text-xs text-gray-500 block mt-0.5">Madrasah Aliyah Tahfizh & Bahasa</span>
+                  </div>
+                  <div class="w-6 h-6 rounded-full border-2 border-gray-300 bg-white flex items-center justify-center text-xs font-bold text-[#CF2B09]">
+                    <span class="check-indicator hidden">✓</span>
+                  </div>
+                </div>
+              </label>
+            </div>
+            <p class="font-body text-[11px] text-gray-500 mt-2">Pilih jenjang pendidikan formal yang dituju calon santri (MTs atau MA).</p>
+          </div>
 
           <!-- 1. Nama Lengkap -->
           <div>
@@ -239,96 +289,156 @@
             <p class="font-body text-[11px] text-gray-500 mt-1.5">Tulis nama lengkap sekolah dasar (SD/MI) atau madrasah sebelumnya.</p>
           </div>
 
-          <!-- 6. Nomor HP Calon Santri (Jika ada) -->
-          <div>
-            <div class="flex items-center justify-between mb-2">
-              <label for="santri-hp" class="block font-label font-bold text-xs uppercase tracking-wider text-gray-700">
-                Nomor HP Calon Santri
+          <!-- 6. Email Aktif & Nomor HP Calon Santri -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <!-- Email Aktif -->
+            <div>
+              <label for="santri-email" class="block font-label font-bold text-xs uppercase tracking-wider text-gray-700 mb-2">
+                Email Aktif (Bukti Pendaftaran) <span class="text-[#CF2B09] font-bold">*</span>
               </label>
-              <span class="px-2.5 py-0.5 rounded-full bg-gray-100 text-gray-500 font-label font-semibold text-[10px] uppercase">
-                Jika Ada (Opsional)
-              </span>
+              <div class="relative">
+                <span class="absolute inset-y-0 left-0 pl-4 flex items-center text-sm text-gray-400">
+                  ✉️
+                </span>
+                <input type="email" id="santri-email" name="santri_email" required placeholder="misal: wali.santri@gmail.com"
+                       class="w-full pl-12 pr-4 py-3.5 rounded-2xl bg-stone-50/70 focus:bg-white text-gray-900 border border-gray-200 font-body text-sm font-medium focus:outline-none focus:border-[#CF2B09] focus:ring-4 focus:ring-[#CF2B09]/10 transition-all shadow-sm">
+              </div>
+              <p class="font-body text-[11px] text-gray-500 mt-1.5">Tanda terima resmi & nomor registrasi otomatis dikirimkan ke email ini.</p>
             </div>
-            <div class="relative">
-              <span class="absolute inset-y-0 left-0 pl-4 flex items-center font-mono font-bold text-xs text-gray-400">
-                +62
-              </span>
-              <input type="tel" id="santri-hp" name="santri_hp" placeholder="812-3456-7890"
-                     class="w-full pl-14 pr-4 py-3.5 rounded-2xl bg-stone-50/70 focus:bg-white text-gray-900 border border-gray-200 font-body text-sm font-medium focus:outline-none focus:border-[#CF2B09] focus:ring-4 focus:ring-[#CF2B09]/10 transition-all shadow-sm">
+
+            <!-- Nomor HP Santri (Opsional) -->
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <label for="santri-hp" class="block font-label font-bold text-xs uppercase tracking-wider text-gray-700">
+                  Nomor HP Santri
+                </label>
+                <span class="px-2.5 py-0.5 rounded-full bg-gray-100 text-gray-500 font-label font-semibold text-[10px] uppercase">
+                  Jika Ada (Opsional)
+                </span>
+              </div>
+              <div class="relative">
+                <span class="absolute inset-y-0 left-0 pl-4 flex items-center font-mono font-bold text-xs text-gray-400">
+                  +62
+                </span>
+                <input type="tel" id="santri-hp" name="santri_hp" placeholder="812-3456-7890"
+                       class="w-full pl-14 pr-4 py-3.5 rounded-2xl bg-stone-50/70 focus:bg-white text-gray-900 border border-gray-200 font-body text-sm font-medium focus:outline-none focus:border-[#CF2B09] focus:ring-4 focus:ring-[#CF2B09]/10 transition-all shadow-sm">
+              </div>
+              <p class="font-body text-[11px] text-gray-500 mt-1.5">Nomor HP aktif calon santri jika sudah memiliki smartphone pribadi.</p>
             </div>
           </div>
 
-          <!-- 7 & 8: Berkas Upload (Foto KK & Foto Transkrip / Raport) -->
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+          <!-- 7, 8 & 9: Berkas Dokumen Upload (Pas Foto 3x4, Kartu Keluarga & Raport) -->
+          <div class="pt-2">
+            <label class="block font-label font-bold text-xs uppercase tracking-wider text-gray-700 mb-1">
+              Unggah Berkas Dokumen <span class="text-[#CF2B09] font-bold">*</span>
+            </label>
+            <p class="font-body text-[11px] text-gray-500 mb-4">Pastikan seluruh dokumen jelas terbaca untuk kelancaran verifikasi seleksi.</p>
 
-            <!-- 7. Foto Kartu Keluarga -->
-            <div>
-              <label class="block font-label font-bold text-xs uppercase tracking-wider text-gray-700 mb-1.5">
-                Foto Kartu Keluarga <span class="text-[#CF2B09] font-bold">*</span>
-              </label>
-              <p class="font-body text-[11px] text-gray-500 mb-2.5">Upload 1 file yang didukung (JPG, PNG, PDF). Maks 10 MB.</p>
-              
-              <div id="dropzone-kk" class="file-dropzone border-2 border-dashed border-gray-200 hover:border-[#CF2B09] bg-stone-50/60 hover:bg-white rounded-2xl p-5 text-center cursor-pointer transition-all shadow-sm relative group">
-                <input type="file" id="file-kk" name="file_kk" accept=".jpg,.jpeg,.png,.pdf" class="hidden file-input" data-target="preview-kk" data-label="Kartu Keluarga">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+
+              <!-- A. Pas Foto Santri (3x4) -->
+              <div>
+                <label class="block font-label font-bold text-xs uppercase tracking-wider text-gray-700 mb-1.5">
+                  Pas Foto Santri (3x4) <span class="text-[#CF2B09] font-bold">*</span>
+                </label>
+                <p class="font-body text-[11px] text-gray-500 mb-2.5">Foto formal wajah (JPG/PNG). Maks 5 MB.</p>
                 
-                <div id="empty-kk" class="space-y-2">
-                  <div class="w-11 h-11 mx-auto rounded-xl bg-white border border-gray-200 flex items-center justify-center text-xl shadow-sm group-hover:scale-105 transition-transform">
-                    📄
-                  </div>
-                  <div>
-                    <span class="font-label font-bold text-xs text-gray-800 uppercase tracking-wider block">Pilih / Seret Foto KK</span>
-                    <span class="font-body text-[11px] text-gray-400">Format: JPG, PNG, atau PDF</span>
-                  </div>
-                </div>
-
-                <!-- File Selected State Preview -->
-                <div id="preview-kk" class="hidden text-left bg-white p-3 rounded-xl border border-gray-200 shadow-sm flex items-center justify-between gap-3">
-                  <div class="flex items-center gap-2.5 min-w-0">
-                    <span class="text-xl">✅</span>
-                    <div class="min-w-0">
-                      <p class="font-display font-black text-xs text-gray-900 truncate file-name">kk-santri.pdf</p>
-                      <p class="font-mono text-[10px] text-gray-400 file-size">2.4 MB</p>
+                <div id="dropzone-pas-foto" class="file-dropzone border-2 border-dashed border-gray-200 hover:border-[#CF2B09] bg-stone-50/60 hover:bg-white rounded-2xl p-5 text-center cursor-pointer transition-all shadow-sm relative group">
+                  <input type="file" id="file-pas-foto" name="file_pas_foto" accept=".jpg,.jpeg,.png" class="hidden file-input" data-target="preview-pas-foto" data-label="Pas Foto Santri">
+                  
+                  <div id="empty-pas-foto" class="space-y-2">
+                    <div class="w-11 h-11 mx-auto rounded-xl bg-white border border-gray-200 flex items-center justify-center text-xl shadow-sm group-hover:scale-105 transition-transform">
+                      📸
+                    </div>
+                    <div>
+                      <span class="font-label font-bold text-xs text-gray-800 uppercase tracking-wider block">Pilih Pas Foto</span>
+                      <span class="font-body text-[11px] text-gray-400">Format: JPG atau PNG</span>
                     </div>
                   </div>
-                  <button type="button" class="btn-remove-file text-xs text-red-500 font-bold p-1 hover:bg-red-50 rounded" title="Hapus berkas">✕</button>
+
+                  <!-- File Selected State Preview -->
+                  <div id="preview-pas-foto" class="hidden text-left bg-white p-3 rounded-xl border border-gray-200 shadow-sm flex items-center justify-between gap-3">
+                    <div class="flex items-center gap-2.5 min-w-0">
+                      <span class="text-xl">✅</span>
+                      <div class="min-w-0">
+                        <p class="font-display font-black text-xs text-gray-900 truncate file-name">foto-santri.jpg</p>
+                        <p class="font-mono text-[10px] text-gray-400 file-size">1.2 MB</p>
+                      </div>
+                    </div>
+                    <button type="button" class="btn-remove-file text-xs text-red-500 font-bold p-1 hover:bg-red-50 rounded" title="Hapus berkas">✕</button>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <!-- 8. Foto Transkrip Nilai atau Nilai Raport Akhir -->
-            <div>
-              <label class="block font-label font-bold text-xs uppercase tracking-wider text-gray-700 mb-1.5">
-                Foto Transkrip Nilai / Raport <span class="text-[#CF2B09] font-bold">*</span>
-              </label>
-              <p class="font-body text-[11px] text-gray-500 mb-2.5">Upload 1 file yang didukung (JPG, PNG, PDF). Maks 10 MB.</p>
-              
-              <div id="dropzone-raport" class="file-dropzone border-2 border-dashed border-gray-200 hover:border-[#CF2B09] bg-stone-50/60 hover:bg-white rounded-2xl p-5 text-center cursor-pointer transition-all shadow-sm relative group">
-                <input type="file" id="file-raport" name="file_raport" accept=".jpg,.jpeg,.png,.pdf" class="hidden file-input" data-target="preview-raport" data-label="Transkrip Nilai / Raport">
+              <!-- B. Foto Kartu Keluarga -->
+              <div>
+                <label class="block font-label font-bold text-xs uppercase tracking-wider text-gray-700 mb-1.5">
+                  Foto Kartu Keluarga <span class="text-[#CF2B09] font-bold">*</span>
+                </label>
+                <p class="font-body text-[11px] text-gray-500 mb-2.5">JPG, PNG, atau PDF. Maks 10 MB.</p>
                 
-                <div id="empty-raport" class="space-y-2">
-                  <div class="w-11 h-11 mx-auto rounded-xl bg-white border border-gray-200 flex items-center justify-center text-xl shadow-sm group-hover:scale-105 transition-transform">
-                    📊
-                  </div>
-                  <div>
-                    <span class="font-label font-bold text-xs text-gray-800 uppercase tracking-wider block">Pilih / Seret Raport</span>
-                    <span class="font-body text-[11px] text-gray-400">Format: JPG, PNG, atau PDF</span>
-                  </div>
-                </div>
-
-                <!-- File Selected State Preview -->
-                <div id="preview-raport" class="hidden text-left bg-white p-3 rounded-xl border border-gray-200 shadow-sm flex items-center justify-between gap-3">
-                  <div class="flex items-center gap-2.5 min-w-0">
-                    <span class="text-xl">✅</span>
-                    <div class="min-w-0">
-                      <p class="font-display font-black text-xs text-gray-900 truncate file-name">raport-akhir.pdf</p>
-                      <p class="font-mono text-[10px] text-gray-400 file-size">3.1 MB</p>
+                <div id="dropzone-kk" class="file-dropzone border-2 border-dashed border-gray-200 hover:border-[#CF2B09] bg-stone-50/60 hover:bg-white rounded-2xl p-5 text-center cursor-pointer transition-all shadow-sm relative group">
+                  <input type="file" id="file-kk" name="file_kk" accept=".jpg,.jpeg,.png,.pdf" class="hidden file-input" data-target="preview-kk" data-label="Kartu Keluarga">
+                  
+                  <div id="empty-kk" class="space-y-2">
+                    <div class="w-11 h-11 mx-auto rounded-xl bg-white border border-gray-200 flex items-center justify-center text-xl shadow-sm group-hover:scale-105 transition-transform">
+                      📄
+                    </div>
+                    <div>
+                      <span class="font-label font-bold text-xs text-gray-800 uppercase tracking-wider block">Pilih Foto KK</span>
+                      <span class="font-body text-[11px] text-gray-400">Format: JPG, PNG, atau PDF</span>
                     </div>
                   </div>
-                  <button type="button" class="btn-remove-file text-xs text-red-500 font-bold p-1 hover:bg-red-50 rounded" title="Hapus berkas">✕</button>
+
+                  <!-- File Selected State Preview -->
+                  <div id="preview-kk" class="hidden text-left bg-white p-3 rounded-xl border border-gray-200 shadow-sm flex items-center justify-between gap-3">
+                    <div class="flex items-center gap-2.5 min-w-0">
+                      <span class="text-xl">✅</span>
+                      <div class="min-w-0">
+                        <p class="font-display font-black text-xs text-gray-900 truncate file-name">kk-santri.pdf</p>
+                        <p class="font-mono text-[10px] text-gray-400 file-size">2.4 MB</p>
+                      </div>
+                    </div>
+                    <button type="button" class="btn-remove-file text-xs text-red-500 font-bold p-1 hover:bg-red-50 rounded" title="Hapus berkas">✕</button>
+                  </div>
                 </div>
               </div>
-            </div>
 
+              <!-- C. Foto Transkrip Nilai atau Nilai Raport Akhir -->
+              <div>
+                <label class="block font-label font-bold text-xs uppercase tracking-wider text-gray-700 mb-1.5">
+                  Foto Transkrip / Raport <span class="text-[#CF2B09] font-bold">*</span>
+                </label>
+                <p class="font-body text-[11px] text-gray-500 mb-2.5">JPG, PNG, atau PDF. Maks 10 MB.</p>
+                
+                <div id="dropzone-raport" class="file-dropzone border-2 border-dashed border-gray-200 hover:border-[#CF2B09] bg-stone-50/60 hover:bg-white rounded-2xl p-5 text-center cursor-pointer transition-all shadow-sm relative group">
+                  <input type="file" id="file-raport" name="file_raport" accept=".jpg,.jpeg,.png,.pdf" class="hidden file-input" data-target="preview-raport" data-label="Transkrip Nilai / Raport">
+                  
+                  <div id="empty-raport" class="space-y-2">
+                    <div class="w-11 h-11 mx-auto rounded-xl bg-white border border-gray-200 flex items-center justify-center text-xl shadow-sm group-hover:scale-105 transition-transform">
+                      📊
+                    </div>
+                    <div>
+                      <span class="font-label font-bold text-xs text-gray-800 uppercase tracking-wider block">Pilih Raport</span>
+                      <span class="font-body text-[11px] text-gray-400">Format: JPG, PNG, atau PDF</span>
+                    </div>
+                  </div>
+
+                  <!-- File Selected State Preview -->
+                  <div id="preview-raport" class="hidden text-left bg-white p-3 rounded-xl border border-gray-200 shadow-sm flex items-center justify-between gap-3">
+                    <div class="flex items-center gap-2.5 min-w-0">
+                      <span class="text-xl">✅</span>
+                      <div class="min-w-0">
+                        <p class="font-display font-black text-xs text-gray-900 truncate file-name">raport-akhir.pdf</p>
+                        <p class="font-mono text-[10px] text-gray-400 file-size">3.1 MB</p>
+                      </div>
+                    </div>
+                    <button type="button" class="btn-remove-file text-xs text-red-500 font-bold p-1 hover:bg-red-50 rounded" title="Hapus berkas">✕</button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
           </div>
 
           <!-- 9. Tinggal Bersama -->
@@ -557,14 +667,14 @@
 
         <!-- Submit Button -->
         <button type="submit" id="btn-submit-pendaftaran"
-                class="w-full bg-lime hover:bg-[#c4ed00] text-[#121212] font-display font-black text-sm uppercase tracking-wider py-4 px-8 rounded-2xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-3 cursor-pointer">
-          <span>Kirim Formulir Pendaftaran</span>
-          <span class="w-6 h-6 rounded-full bg-[#121212] text-white flex items-center justify-center text-xs font-black">➔</span>
+                class="w-full bg-lime hover:bg-[#c4ed00] text-[#121212] font-display font-black text-sm uppercase tracking-wider py-4 px-8 rounded-2xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-3 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed">
+          <span id="btn-submit-text">Kirim Formulir Pendaftaran</span>
+          <span id="btn-submit-icon" class="w-6 h-6 rounded-full bg-[#121212] text-white flex items-center justify-center text-xs font-black">➔</span>
         </button>
 
         <p class="font-body text-xs text-white/70 mt-5 flex items-center gap-2">
           <span>🔒</span>
-          <span>Data terenkripsi aman dan hanya digunakan oleh tim panitia resmi PSB Baitul Qur'an Camba.</span>
+          <span>Data terenkripsi aman dan langsung tersimpan ke sistem resmi PSB Baitul Qur'an Camba.</span>
         </p>
 
       </div>
@@ -597,12 +707,33 @@
         </div>
       </div>
 
-      <p class="font-body text-xs sm:text-sm text-gray-600 font-medium mb-5 leading-relaxed">
+      <p class="font-body text-xs sm:text-sm text-gray-600 font-medium mb-3 leading-relaxed">
         Jazakumullah khairan. Formulir pendaftaran calon santri baru telah berhasil dicatat oleh sistem PSB Pesantren Tahfizh Baitul Qur'an Camba.
       </p>
 
+      <!-- Email Confirmation Notice -->
+      <div class="p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-900 font-medium mb-4 flex items-center gap-2">
+        <span class="text-base">📧</span>
+        <span>Surat tanda bukti pendaftaran resmi telah dikirim ke: <strong id="summary-email" class="text-emerald-950 font-bold underline">-</strong></span>
+      </div>
+
+      <!-- Official Registration Number Highlight Box -->
+      <div class="p-3.5 rounded-2xl bg-amber-50/90 border border-amber-200 flex items-center justify-between gap-3 mb-4">
+        <div>
+          <span class="font-label font-bold text-[10px] uppercase tracking-wider text-amber-800 block">Nomor Registrasi Resmi:</span>
+          <span id="summary-reg" class="font-mono font-black text-lg sm:text-xl text-amber-950 block">PSB-2027-XXX</span>
+        </div>
+        <button type="button" onclick="window.copyRegistrationNumber()" class="px-3 py-1.5 rounded-xl bg-white border border-amber-200 text-amber-900 text-xs font-bold hover:bg-amber-100 transition-colors shadow-2xs cursor-pointer">
+          📋 Salin No.
+        </button>
+      </div>
+
       <!-- Summary Card -->
-      <div class="rounded-2xl bg-stone-50 border border-stone-200/80 p-4.5 mb-6 space-y-2.5 font-body text-xs sm:text-sm">
+      <div class="rounded-2xl bg-stone-50 border border-stone-200/80 p-4 mb-6 space-y-2.5 font-body text-xs sm:text-sm">
+        <div class="flex justify-between py-1 border-b border-gray-200/60">
+          <span class="text-gray-500">Jenjang Pilihan:</span>
+          <strong id="summary-jenjang" class="font-bold text-gray-900">-</strong>
+        </div>
         <div class="flex justify-between py-1 border-b border-gray-200/60">
           <span class="text-gray-500">Nama Calon Santri:</span>
           <strong id="summary-nama" class="font-bold text-gray-900">-</strong>
@@ -618,6 +749,10 @@
         <div class="flex justify-between py-1 border-b border-gray-200/60">
           <span class="text-gray-500">Asal Sekolah:</span>
           <strong id="summary-sekolah" class="font-bold text-gray-900">-</strong>
+        </div>
+        <div class="flex justify-between py-1 border-b border-gray-200/60">
+          <span class="text-gray-500">Email Terdaftar:</span>
+          <strong id="summary-email-row" class="font-bold text-gray-900">-</strong>
         </div>
         <div class="flex justify-between py-1">
           <span class="text-gray-500">Kontak Ayah / Ibu:</span>
@@ -636,7 +771,7 @@
 
         <div class="flex gap-2">
           <button onclick="window.print()" class="flex-1 py-3 rounded-2xl bg-stone-100 hover:bg-stone-200 text-gray-700 font-label font-bold text-xs uppercase tracking-wider transition-colors">
-            🖨️ Cetak / Simpan
+            🖨️ Cetak Bukti
           </button>
           <a href="{{ url('/') }}" class="flex-1 py-3 text-center rounded-2xl bg-lime hover:bg-[#c4ed00] text-[#121212] font-label font-bold text-xs uppercase tracking-wider transition-colors shadow-sm">
             Kembali ke Beranda
@@ -709,9 +844,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  // Interactive Radio Checkmarks for Gender and Living Cards
+  // Interactive Radio Checkmarks for Gender, Jenjang, and Living Cards
   function updateRadioIndicators() {
-    document.querySelectorAll('.gender-card, .living-card').forEach(card => {
+    document.querySelectorAll('.gender-card, .living-card, .jenjang-card').forEach(card => {
       const radio = card.querySelector('input[type="radio"]');
       const check = card.querySelector('.check-indicator');
       if (radio && check) {
@@ -725,42 +860,139 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   updateRadioIndicators();
 
-  // Submission handler
-  window.handleRegistrationSubmit = function() {
-    const nama = document.getElementById('santri-nama').value;
-    const gender = document.querySelector('input[name="santri_gender"]:checked')?.value || 'Putra';
-    const tempat = document.getElementById('santri-tempat-lahir').value;
-    const tanggal = document.getElementById('santri-tanggal-lahir').value;
-    const sekolah = document.getElementById('santri-asal-sekolah').value;
-    const kontakAyah = document.getElementById('ayah-hp').value;
-    const kontakIbu = document.getElementById('ibu-hp').value;
+  // Async Submission handler with file upload & DB persistence
+  window.handleRegistrationSubmit = async function(e) {
+    if (e) e.preventDefault();
 
-    document.getElementById('summary-nama').textContent = nama;
-    document.getElementById('summary-gender').textContent = gender;
-    document.getElementById('summary-ttl').textContent = (tempat ? tempat + ', ' : '') + (tanggal || '-');
-    document.getElementById('summary-sekolah').textContent = sekolah;
-    document.getElementById('summary-kontak').textContent = kontakAyah || kontakIbu || '-';
+    const form = document.getElementById('form-pendaftaran-santri');
+    const submitBtn = document.getElementById('btn-submit-pendaftaran');
+    const submitText = document.getElementById('btn-submit-text');
+    const submitIcon = document.getElementById('btn-submit-icon');
 
-    // WhatsApp Confirmation link
-    const targetPhone = gender === 'Putri' ? '6282195682105' : '6282124880061';
-    const waText = encodeURIComponent(
-      `Assalamu'alaikum Warahmatullahi Wabarakatuh Panitia PSB Baitul Qur'an Camba.\n\n` +
-      `Saya telah mengisi formulir digital pendaftaran calon santri baru di website:\n` +
-      `• Nama: ${nama}\n` +
-      `• Jenis Kelamin: ${gender}\n` +
-      `• Asal Sekolah: ${sekolah}\n` +
-      `• No. Kontak: ${kontakAyah || kontakIbu}\n\n` +
-      `Mohon informasi tindak lanjut verifikasi berkas. Syukran wa jazakumullah khairan.`
-    );
-    document.getElementById('btn-wa-confirm').href = `https://wa.me/${targetPhone}?text=${waText}`;
+    // Basic validity check
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
 
-    // Show modal
-    const modal = document.getElementById('modal-success-pendaftaran');
-    modal.classList.remove('hidden');
+    const filePasFoto = document.getElementById('file-pas-foto');
+    const fileKk = document.getElementById('file-kk');
+    const fileRaport = document.getElementById('file-raport');
+
+    if (!filePasFoto.files || !filePasFoto.files.length) {
+      alert('Mohon unggah Pas Foto santri (3x4) terlebih dahulu.');
+      document.getElementById('dropzone-pas-foto').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    if (!fileKk.files || !fileKk.files.length) {
+      alert('Mohon unggah berkas Kartu Keluarga (KK) terlebih dahulu.');
+      document.getElementById('dropzone-kk').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    if (!fileRaport.files || !fileRaport.files.length) {
+      alert('Mohon unggah berkas Transkrip Nilai / Raport terlebih dahulu.');
+      document.getElementById('dropzone-raport').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    const formData = new FormData(form);
+
+    // Disable button & show spinner
+    submitBtn.disabled = true;
+    submitText.textContent = 'Menyimpan Data & Mengunggah Berkas...';
+    submitIcon.innerHTML = '⏳';
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest',
+          'Accept': 'application/json'
+        }
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        let errorMsg = result.message || 'Terjadi kesalahan saat menyimpan formulir.';
+        if (result.errors) {
+          const firstField = Object.keys(result.errors)[0];
+          if (firstField && result.errors[firstField][0]) {
+            errorMsg = result.errors[firstField][0];
+          }
+        }
+        alert(errorMsg);
+        return;
+      }
+
+      // Populate Success Modal
+      const data = result.data || {};
+      const regNumber = result.registration_number || '-';
+
+      document.getElementById('summary-reg').textContent = regNumber;
+      document.getElementById('summary-jenjang').textContent = data.jenjang ? (data.jenjang === 'MTs' ? 'MTs (Madrasah Tsanawiyah)' : 'MA (Madrasah Aliyah)') : '-';
+      document.getElementById('summary-nama').textContent = data.nama_santri || '-';
+      document.getElementById('summary-gender').textContent = data.jenis_kelamin || '-';
+      document.getElementById('summary-ttl').textContent = (data.tempat_lahir ? data.tempat_lahir + ', ' : '') + (data.tanggal_lahir || '-');
+      document.getElementById('summary-sekolah').textContent = data.asal_sekolah || '-';
+      document.getElementById('summary-email').textContent = data.email || '-';
+      document.getElementById('summary-email-row').textContent = data.email || '-';
+      document.getElementById('summary-kontak').textContent = data.no_hp_ayah || data.no_hp_ibu || '-';
+
+      // WhatsApp Confirmation link with registration number and jenjang
+      const targetPhone = data.jenis_kelamin === 'Putri' ? '6282195682105' : '6282124880061';
+      const waText = encodeURIComponent(
+        `Assalamu'alaikum Warahmatullahi Wabarakatuh Panitia PSB Baitul Qur'an Camba.\n\n` +
+        `Saya telah mengisi formulir digital pendaftaran calon santri baru di website resmi:\n` +
+        `• No. Registrasi: ${regNumber}\n` +
+        `• Jenjang Pilihan: ${data.jenjang}\n` +
+        `• Nama Calon Santri: ${data.nama_santri}\n` +
+        `• Email Terdaftar: ${data.email}\n` +
+        `• Jenis Kelamin: ${data.jenis_kelamin}\n` +
+        `• Asal Sekolah: ${data.asal_sekolah}\n` +
+        `• No. Kontak Wali: ${data.no_hp_ayah || data.no_hp_ibu}\n\n` +
+        `Mohon informasi tindak lanjut verifikasi berkas dan jadwal tes seleksi. Syukran wa jazakumullah khairan.`
+      );
+      document.getElementById('btn-wa-confirm').href = `https://wa.me/${targetPhone}?text=${waText}`;
+
+      // Show modal
+      const modal = document.getElementById('modal-success-pendaftaran');
+      modal.classList.remove('hidden');
+
+      // Reset form and file inputs
+      form.reset();
+      document.querySelectorAll('.file-dropzone').forEach(zone => {
+        const emptyState = zone.querySelector('[id^="empty-"]');
+        const previewState = zone.querySelector('[id^="preview-"]');
+        if (emptyState) emptyState.classList.remove('hidden');
+        if (previewState) previewState.classList.add('hidden');
+      });
+      updateRadioIndicators();
+
+    } catch (err) {
+      console.error(err);
+      alert('Terjadi kendala jaringan saat mengirim formulir. Pastikan koneksi internet stabil dan coba kembali.');
+    } finally {
+      submitBtn.disabled = false;
+      submitText.textContent = 'Kirim Formulir Pendaftaran';
+      submitIcon.innerHTML = '➔';
+    }
   };
 
   window.closeSuccessModal = function() {
     document.getElementById('modal-success-pendaftaran').classList.add('hidden');
+  };
+
+  window.copyRegistrationNumber = function() {
+    const regText = document.getElementById('summary-reg').textContent;
+    navigator.clipboard.writeText(regText).then(() => {
+      alert('Nomor registrasi ' + regText + ' berhasil disalin ke clipboard!');
+    }).catch(() => {
+      prompt('Salin nomor registrasi berikut:', regText);
+    });
   };
 });
 </script>

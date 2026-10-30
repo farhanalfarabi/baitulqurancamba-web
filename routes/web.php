@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\PendaftaranController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -12,9 +13,8 @@ Route::get('/gallery', function () {
     return view('gallery');
 })->name('gallery');
 
-Route::get('/pendaftaran', function () {
-    return view('pendaftaran');
-})->name('pendaftaran');
+Route::get('/pendaftaran', [PendaftaranController::class, 'index'])->name('pendaftaran');
+Route::post('/pendaftaran', [PendaftaranController::class, 'store'])->name('pendaftaran.store');
 
 Route::get('/daftar', function () {
     return redirect()->route('pendaftaran');

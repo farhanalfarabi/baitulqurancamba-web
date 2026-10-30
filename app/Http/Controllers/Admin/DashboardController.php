@@ -103,6 +103,7 @@ class DashboardController extends Controller
             'tanggal_lahir' => ['nullable', 'date'],
             'alamat_lengkap' => ['nullable', 'string'],
             'asal_sekolah' => ['nullable', 'string', 'max:255'],
+            'email' => ['nullable', 'email', 'max:255'],
             'no_hp_santri' => ['nullable', 'string', 'max:30'],
             'tinggal_bersama' => ['nullable', 'string', 'max:100'],
             'nama_ayah' => ['nullable', 'string', 'max:255'],
