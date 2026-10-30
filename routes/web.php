@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\GuruController;
 use App\Http\Controllers\PendaftaranController;
+use App\Models\Gallery;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -11,7 +13,14 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/gallery', function () {
-    return view('gallery');
+    $galleries = Gallery::query()
+        ->orderBy('year', 'desc')
+        ->orderBy('sort_order', 'asc')
+        ->orderBy('id', 'desc')
+        ->get()
+        ->groupBy('year');
+
+    return view('gallery', compact('galleries'));
 })->name('gallery');
 
 Route::get('/pendaftaran', [PendaftaranController::class, 'index'])->name('pendaftaran');
@@ -44,5 +53,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/guru/{id}', [GuruController::class, 'show'])->name('guru.show');
     Route::put('/guru/{id}', [GuruController::class, 'update'])->name('guru.update');
     Route::delete('/guru/{id}', [GuruController::class, 'destroy'])->name('guru.destroy');
-    Route::get('/gallery', [DashboardController::class, 'galleryIndex'])->name('gallery.index');
+    Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index');
+    Route::post('/gallery', [GalleryController::class, 'store'])->name('gallery.store');
+    Route::match(['put', 'post'], '/gallery/{id}', [GalleryController::class, 'update'])->name('gallery.update');
+    Route::delete('/gallery/{id}', [GalleryController::class, 'destroy'])->name('gallery.destroy');
 });

@@ -1,3 +1,27 @@
+@props([
+    'galleries' => null,
+])
+
+@php
+    if ($galleries === null) {
+        $galleries = \App\Models\Gallery::query()
+            ->orderBy('year', 'desc')
+            ->orderBy('sort_order', 'asc')
+            ->orderBy('id', 'desc')
+            ->get()
+            ->groupBy('year');
+    }
+
+    $totalPhotos = $galleries->flatten()->count();
+
+    $ribbonStyles = [
+        ['bg' => 'bg-[#121212]', 'text' => 'text-lime', 'tilt' => 'tilt-left'],
+        ['bg' => 'bg-[#CF2B09]', 'text' => 'text-white', 'tilt' => 'tilt-right'],
+        ['bg' => 'bg-[#580D14]', 'text' => 'text-white', 'tilt' => 'tilt-left'],
+        ['bg' => 'bg-[#0B3B2C]', 'text' => 'text-amber-300', 'tilt' => 'tilt-right'],
+    ];
+@endphp
+
 <!-- Gallery Page Content Component: Tight Masonry Collage by Year (Varied Heights, Pure Photos, Zero Text Clutter) -->
 <section class="relative pt-6 sm:pt-10 pb-20 overflow-hidden bg-dot-matrix bg-[#FAF7F0]">
 
@@ -41,310 +65,81 @@
         Koleksi dokumentasi foto nyata santri Baitul Qur'an Camba dari tahun ke tahun: halaqah hafalan Al-Qur'an, kelas formal, kepemimpinan, dan keseharian di lereng pegunungan Camba.
       </p>
 
-      <!-- Year Filter Bar (Capsule Buttons) -->
-      <div class="flex justify-center">
-        <div id="gallery-year-filter" class="inline-flex items-center justify-center gap-2 p-1.5 bg-white/90 backdrop-blur-sm border-2 border-[#161616] rounded-2xl sm:rounded-full brutal-shadow-sm">
-          
-          <button data-year="all" class="year-tab-btn active px-4 sm:px-6 py-2 rounded-xl sm:rounded-full font-label font-bold text-xs uppercase tracking-wider transition-all duration-200 cursor-pointer bg-[#121212] text-lime border-2 border-[#161616] brutal-shadow-sm">
-            <span>Semua Tahun</span>
-            <span class="ml-1 text-[10px] opacity-80">(30)</span>
-          </button>
+      <!-- Year Filter Bar (Dynamic Capsule Buttons) -->
+      @if($galleries->isNotEmpty())
+        <div class="flex justify-center">
+          <div id="gallery-year-filter" class="inline-flex items-center justify-center flex-wrap gap-2 p-1.5 bg-white/90 backdrop-blur-sm border-2 border-[#161616] rounded-2xl sm:rounded-full brutal-shadow-sm">
+            
+            <button data-year="all" class="year-tab-btn active px-4 sm:px-6 py-2 rounded-xl sm:rounded-full font-label font-bold text-xs uppercase tracking-wider transition-all duration-200 cursor-pointer bg-[#121212] text-lime border-2 border-[#161616] brutal-shadow-sm">
+              <span>Semua Tahun</span>
+              <span class="ml-1 text-[10px] opacity-80">({{ $totalPhotos }})</span>
+            </button>
 
-          <button data-year="2026" class="year-tab-btn px-4 sm:px-6 py-2 rounded-xl sm:rounded-full font-label font-bold text-xs uppercase tracking-wider transition-all duration-200 cursor-pointer bg-white text-[#121212] border-2 border-transparent hover:bg-gray-100">
-            <span>Tahun 2026</span>
-            <span class="ml-1 text-[10px] text-gray-500">(10)</span>
-          </button>
+            @foreach($galleries as $year => $photos)
+              <button data-year="{{ $year }}" class="year-tab-btn px-4 sm:px-6 py-2 rounded-xl sm:rounded-full font-label font-bold text-xs uppercase tracking-wider transition-all duration-200 cursor-pointer bg-white text-[#121212] border-2 border-transparent hover:bg-gray-100">
+                <span>Tahun {{ $year }}</span>
+                <span class="ml-1 text-[10px] text-gray-500">({{ $photos->count() }})</span>
+              </button>
+            @endforeach
 
-          <button data-year="2025" class="year-tab-btn px-4 sm:px-6 py-2 rounded-xl sm:rounded-full font-label font-bold text-xs uppercase tracking-wider transition-all duration-200 cursor-pointer bg-white text-[#121212] border-2 border-transparent hover:bg-gray-100">
-            <span>Tahun 2025</span>
-            <span class="ml-1 text-[10px] text-gray-500">(10)</span>
-          </button>
-
-          <button data-year="2024" class="year-tab-btn px-4 sm:px-6 py-2 rounded-xl sm:rounded-full font-label font-bold text-xs uppercase tracking-wider transition-all duration-200 cursor-pointer bg-white text-[#121212] border-2 border-transparent hover:bg-gray-100">
-            <span>Tahun 2024</span>
-            <span class="ml-1 text-[10px] text-gray-500">(10)</span>
-          </button>
-
+          </div>
         </div>
-      </div>
+      @endif
 
     </div>
 
     <!-- =========================================================================
-         YEAR 2026 SECTION (Tight Masonry Columns - Dempetan & Varied Heights)
+         DYNAMIC SECTIONS PER YEAR (Tight Masonry Columns - Dempetan & Varied Heights)
          ========================================================================= -->
-    <section id="section-2026" class="gallery-year-section mb-16 sm:mb-20">
-      
-      <!-- Year Header Ribbon -->
-      <div class="flex items-center gap-4 mb-5 sm:mb-6">
-        <div class="px-5 py-2 rounded-2xl bg-[#121212] text-lime font-display font-black text-2xl sm:text-3xl tracking-tight border-2 border-[#161616] brutal-shadow tilt-left transform">
-          2026
-        </div>
-        <div class="h-0.5 flex-1 bg-[#121212]/20"></div>
-        <span class="font-label text-xs sm:text-sm font-bold uppercase tracking-wider text-gray-500">
-          TAHUN AJARAN 2025 / 2026 · 10 FOTO
-        </span>
-      </div>
+    @php
+        $yearIndex = 0;
+    @endphp
 
-      <!-- Tight Masonry Columns: Varied Heights & Close Spacing -->
-      <div class="columns-2 sm:columns-3 md:columns-4 lg:columns-5 gap-2.5 sm:gap-3">
+    @forelse($galleries as $year => $photos)
+      @php
+          $style = $ribbonStyles[$yearIndex % count($ribbonStyles)];
+          $yearIndex++;
+      @endphp
+
+      <section id="section-{{ $year }}" class="gallery-year-section mb-16 sm:mb-20 transition-opacity duration-300" data-year="{{ $year }}">
         
-        <!-- Photo 1: Morning Tahfizh (Medium 4:3) -->
-        <div class="break-inside-avoid mb-2.5 sm:mb-3 photo-card p-1.5 sm:p-2 bg-white rounded-xl sm:rounded-2xl border-2 border-[#161616] brutal-shadow-sm hover:scale-[1.03] hover:z-20 hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden group" data-year="2026">
-          <div class="rounded-lg sm:rounded-xl overflow-hidden bg-gray-100">
-            <img src="/assets/images/pondok/halaqah-tahfidz.jpg" alt="Baitul Qur'an Camba 2026" class="w-full h-auto object-cover block group-hover:scale-105 transition-transform duration-500" loading="lazy">
+        <!-- Year Header Ribbon -->
+        <div class="flex items-center gap-4 mb-5 sm:mb-6">
+          <div class="px-5 py-2 rounded-2xl {{ $style['bg'] }} {{ $style['text'] }} font-display font-black text-2xl sm:text-3xl tracking-tight border-2 border-[#161616] brutal-shadow {{ $style['tilt'] }} transform">
+            {{ $year }}
           </div>
+          <div class="h-0.5 flex-1 bg-[#121212]/20"></div>
+          <span class="font-label text-xs sm:text-sm font-bold uppercase tracking-wider text-gray-500">
+            TAHUN AJARAN {{ (int)$year - 1 }} / {{ $year }} · {{ $photos->count() }} FOTO
+          </span>
         </div>
 
-        <!-- Photo 2: Green Garden Gazebo (Short Panorama) -->
-        <div class="break-inside-avoid mb-2.5 sm:mb-3 photo-card p-1.5 sm:p-2 bg-white rounded-xl sm:rounded-2xl border-2 border-[#161616] brutal-shadow-sm hover:scale-[1.03] hover:z-20 hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden group" data-year="2026">
-          <div class="rounded-lg sm:rounded-xl overflow-hidden bg-gray-100">
-            <img src="/assets/images/pondok/gazebo.jpg" alt="Baitul Qur'an Camba 2026" class="w-full h-auto object-cover block group-hover:scale-105 transition-transform duration-500" loading="lazy">
-          </div>
-        </div>
+        <!-- Tight Masonry Columns: Varied Heights & Close Spacing -->
+        <div class="columns-2 sm:columns-3 md:columns-4 lg:columns-5 gap-2.5 sm:gap-3">
+          
+          @foreach($photos as $photo)
+            <div class="break-inside-avoid mb-2.5 sm:mb-3 photo-card p-1.5 sm:p-2 bg-white rounded-xl sm:rounded-2xl border-2 border-[#161616] brutal-shadow-sm hover:scale-[1.03] hover:z-20 hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden group" 
+                 data-year="{{ $year }}"
+                 data-src="{{ $photo->image_url }}"
+                 data-caption="{{ $photo->caption ?? '' }}">
+              <div class="rounded-lg sm:rounded-xl overflow-hidden bg-gray-100">
+                <img src="{{ $photo->image_url }}" 
+                     alt="{{ $photo->caption ?? 'Baitul Qur\'an Camba '.$year }}" 
+                     class="w-full h-auto object-cover block group-hover:scale-105 transition-transform duration-500" 
+                     loading="lazy">
+              </div>
+            </div>
+          @endforeach
 
-        <!-- Photo 3: Futsal Championship (Tall Portrait) -->
-        <div class="break-inside-avoid mb-2.5 sm:mb-3 photo-card p-1.5 sm:p-2 bg-white rounded-xl sm:rounded-2xl border-2 border-[#161616] brutal-shadow-sm hover:scale-[1.03] hover:z-20 hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden group" data-year="2026">
-          <div class="rounded-lg sm:rounded-xl overflow-hidden bg-gray-100">
-            <img src="/assets/images/pondok/eskul-futsal.jpg" alt="Baitul Qur'an Camba 2026" class="w-full h-auto object-cover block group-hover:scale-105 transition-transform duration-500" loading="lazy">
-          </div>
         </div>
+      </section>
 
-        <!-- Photo 4: Tri-Lingual Public Speaking (Short Panorama) -->
-        <div class="break-inside-avoid mb-2.5 sm:mb-3 photo-card p-1.5 sm:p-2 bg-white rounded-xl sm:rounded-2xl border-2 border-[#161616] brutal-shadow-sm hover:scale-[1.03] hover:z-20 hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden group" data-year="2026">
-          <div class="rounded-lg sm:rounded-xl overflow-hidden bg-gray-100">
-            <img src="/assets/images/pondok/pidato-3-bahasa.jpg" alt="Baitul Qur'an Camba 2026" class="w-full h-auto object-cover block group-hover:scale-105 transition-transform duration-500" loading="lazy">
-          </div>
-        </div>
-
-        <!-- Photo 5: Al-Qur'an Tasmi' Examination (Medium 4:3) -->
-        <div class="break-inside-avoid mb-2.5 sm:mb-3 photo-card p-1.5 sm:p-2 bg-white rounded-xl sm:rounded-2xl border-2 border-[#161616] brutal-shadow-sm hover:scale-[1.03] hover:z-20 hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden group" data-year="2026">
-          <div class="rounded-lg sm:rounded-xl overflow-hidden bg-gray-100">
-            <img src="/assets/images/pondok/masjid.jpg" alt="Al-Qur'an Tasmi' Examination" class="w-full h-auto object-cover block group-hover:scale-105 transition-transform duration-500" loading="lazy">
-          </div>
-        </div>
-
-        <!-- Photo 6: Classroom Discussion (Medium 16:9) -->
-        <div class="break-inside-avoid mb-2.5 sm:mb-3 photo-card p-1.5 sm:p-2 bg-white rounded-xl sm:rounded-2xl border-2 border-[#161616] brutal-shadow-sm hover:scale-[1.03] hover:z-20 hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden group" data-year="2026">
-          <div class="rounded-lg sm:rounded-xl overflow-hidden bg-gray-100">
-            <img src="/assets/images/pondok/suasana-kelas.jpg" alt="Baitul Qur'an Camba 2026" class="w-full h-auto object-cover block group-hover:scale-105 transition-transform duration-500" loading="lazy">
-          </div>
-        </div>
-
-        <!-- Photo 7: Santri Leadership Bootcamp (Landscape) -->
-        <div class="break-inside-avoid mb-2.5 sm:mb-3 photo-card p-1.5 sm:p-2 bg-white rounded-xl sm:rounded-2xl border-2 border-[#161616] brutal-shadow-sm hover:scale-[1.03] hover:z-20 hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden group" data-year="2026">
-          <div class="rounded-lg sm:rounded-xl overflow-hidden bg-gray-100">
-            <img src="/assets/images/pondok/leadership-3.jpg" alt="Baitul Qur'an Camba 2026" class="w-full h-auto object-cover block group-hover:scale-105 transition-transform duration-500" loading="lazy">
-          </div>
-        </div>
-
-        <!-- Photo 8: Kitab Turats Discourse (Short Panorama) -->
-        <div class="break-inside-avoid mb-2.5 sm:mb-3 photo-card p-1.5 sm:p-2 bg-white rounded-xl sm:rounded-2xl border-2 border-[#161616] brutal-shadow-sm hover:scale-[1.03] hover:z-20 hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden group" data-year="2026">
-          <div class="rounded-lg sm:rounded-xl overflow-hidden bg-gray-100">
-            <img src="/assets/images/pondok/taklim-kitab-kuning-2.jpg" alt="Baitul Qur'an Camba 2026" class="w-full h-auto object-cover block group-hover:scale-105 transition-transform duration-500" loading="lazy">
-          </div>
-        </div>
-
-        <!-- Photo 9: Santriwati Tahfizh Program (Medium Square) -->
-        <div class="break-inside-avoid mb-2.5 sm:mb-3 photo-card p-1.5 sm:p-2 bg-white rounded-xl sm:rounded-2xl border-2 border-[#161616] brutal-shadow-sm hover:scale-[1.03] hover:z-20 hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden group" data-year="2026">
-          <div class="rounded-lg sm:rounded-xl overflow-hidden bg-gray-100">
-            <img src="/assets/images/akhwat.png" alt="Baitul Qur'an Camba 2026" class="w-full h-auto object-cover block group-hover:scale-105 transition-transform duration-500" loading="lazy">
-          </div>
-        </div>
-
-        <!-- Photo 10: Parent Guest House (Short Panorama) -->
-        <div class="break-inside-avoid mb-2.5 sm:mb-3 photo-card p-1.5 sm:p-2 bg-white rounded-xl sm:rounded-2xl border-2 border-[#161616] brutal-shadow-sm hover:scale-[1.03] hover:z-20 hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden group" data-year="2026">
-          <div class="rounded-lg sm:rounded-xl overflow-hidden bg-gray-100">
-            <img src="/assets/images/pondok/rumah-tamu.jpg" alt="Baitul Qur'an Camba 2026" class="w-full h-auto object-cover block group-hover:scale-105 transition-transform duration-500" loading="lazy">
-          </div>
-        </div>
-
+    @empty
+      <div class="text-center py-16 bg-white/70 rounded-3xl border-2 border-[#161616] p-8 max-w-xl mx-auto brutal-shadow-sm mb-16">
+        <p class="font-display font-black text-xl uppercase text-[#121212] mb-2">Dokumentasi Sedang Disiapkan</p>
+        <p class="font-body text-sm text-gray-600">Foto dokumentasi santri Baitul Qur'an Camba akan segera diperbarui.</p>
       </div>
-    </section>
-
-    <!-- =========================================================================
-         YEAR 2025 SECTION (Tight Masonry Columns - Dempetan & Varied Heights)
-         ========================================================================= -->
-    <section id="section-2025" class="gallery-year-section mb-16 sm:mb-20">
-      
-      <!-- Year Header Ribbon -->
-      <div class="flex items-center gap-4 mb-5 sm:mb-6">
-        <div class="px-5 py-2 rounded-2xl bg-[#CF2B09] text-white font-display font-black text-2xl sm:text-3xl tracking-tight border-2 border-[#161616] brutal-shadow tilt-right transform">
-          2025
-        </div>
-        <div class="h-0.5 flex-1 bg-[#121212]/20"></div>
-        <span class="font-label text-xs sm:text-sm font-bold uppercase tracking-wider text-gray-500">
-          TAHUN AJARAN 2024 / 2025 · 10 FOTO
-        </span>
-      </div>
-
-      <!-- Tight Masonry Columns: Varied Heights & Close Spacing -->
-      <div class="columns-2 sm:columns-3 md:columns-4 lg:columns-5 gap-2.5 sm:gap-3">
-        
-        <!-- Photo 1: Evening Muraja'ah (Tall Portrait 3:4) -->
-        <div class="break-inside-avoid mb-2.5 sm:mb-3 photo-card p-1.5 sm:p-2 bg-white rounded-xl sm:rounded-2xl border-2 border-[#161616] brutal-shadow-sm hover:scale-[1.03] hover:z-20 hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden group" data-year="2025">
-          <div class="rounded-lg sm:rounded-xl overflow-hidden bg-gray-100">
-            <img src="/assets/images/pondok/halaqah-tahfidz-2.jpg" alt="Baitul Qur'an Camba 2025" class="w-full h-auto object-cover block group-hover:scale-105 transition-transform duration-500" loading="lazy">
-          </div>
-        </div>
-
-        <!-- Photo 2: Dormitory Facility (Short Panorama) -->
-        <div class="break-inside-avoid mb-2.5 sm:mb-3 photo-card p-1.5 sm:p-2 bg-white rounded-xl sm:rounded-2xl border-2 border-[#161616] brutal-shadow-sm hover:scale-[1.03] hover:z-20 hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden group" data-year="2025">
-          <div class="rounded-lg sm:rounded-xl overflow-hidden bg-gray-100">
-            <img src="/assets/images/pondok/asrama.jpg" alt="Baitul Qur'an Camba 2025" class="w-full h-auto object-cover block group-hover:scale-105 transition-transform duration-500" loading="lazy">
-          </div>
-        </div>
-
-        <!-- Photo 3: Leadership Cadre (Very Tall Portrait 9:16) -->
-        <div class="break-inside-avoid mb-2.5 sm:mb-3 photo-card p-1.5 sm:p-2 bg-white rounded-xl sm:rounded-2xl border-2 border-[#161616] brutal-shadow-sm hover:scale-[1.03] hover:z-20 hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden group" data-year="2025">
-          <div class="rounded-lg sm:rounded-xl overflow-hidden bg-gray-100">
-            <img src="/assets/images/pondok/leadership.jpg" alt="Baitul Qur'an Camba 2025" class="w-full h-auto object-cover block group-hover:scale-105 transition-transform duration-500" loading="lazy">
-          </div>
-        </div>
-
-        <!-- Photo 4: Tarbiyah Mentorship (Short Panorama) -->
-        <div class="break-inside-avoid mb-2.5 sm:mb-3 photo-card p-1.5 sm:p-2 bg-white rounded-xl sm:rounded-2xl border-2 border-[#161616] brutal-shadow-sm hover:scale-[1.03] hover:z-20 hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden group" data-year="2025">
-          <div class="rounded-lg sm:rounded-xl overflow-hidden bg-gray-100">
-            <img src="/assets/images/pondok/tarbiah.jpg" alt="Baitul Qur'an Camba 2025" class="w-full h-auto object-cover block group-hover:scale-105 transition-transform duration-500" loading="lazy">
-          </div>
-        </div>
-
-        <!-- Photo 5: Sepak Takraw League (Medium 4:3) -->
-        <div class="break-inside-avoid mb-2.5 sm:mb-3 photo-card p-1.5 sm:p-2 bg-white rounded-xl sm:rounded-2xl border-2 border-[#161616] brutal-shadow-sm hover:scale-[1.03] hover:z-20 hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden group" data-year="2025">
-          <div class="rounded-lg sm:rounded-xl overflow-hidden bg-gray-100">
-            <img src="/assets/images/pondok/eskul-takraw.jpg" alt="Baitul Qur'an Camba 2025" class="w-full h-auto object-cover block group-hover:scale-105 transition-transform duration-500" loading="lazy">
-          </div>
-        </div>
-
-        <!-- Photo 6: Kitab Kuning Study (Short Panorama) -->
-        <div class="break-inside-avoid mb-2.5 sm:mb-3 photo-card p-1.5 sm:p-2 bg-white rounded-xl sm:rounded-2xl border-2 border-[#161616] brutal-shadow-sm hover:scale-[1.03] hover:z-20 hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden group" data-year="2025">
-          <div class="rounded-lg sm:rounded-xl overflow-hidden bg-gray-100">
-            <img src="/assets/images/pondok/taklim-kitab-kuning.jpg" alt="Baitul Qur'an Camba 2025" class="w-full h-auto object-cover block group-hover:scale-105 transition-transform duration-500" loading="lazy">
-          </div>
-        </div>
-
-        <!-- Photo 7: Classroom Group Study (Medium 4:3) -->
-        <div class="break-inside-avoid mb-2.5 sm:mb-3 photo-card p-1.5 sm:p-2 bg-white rounded-xl sm:rounded-2xl border-2 border-[#161616] brutal-shadow-sm hover:scale-[1.03] hover:z-20 hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden group" data-year="2025">
-          <div class="rounded-lg sm:rounded-xl overflow-hidden bg-gray-100">
-            <img src="/assets/images/pondok/suasana-kelas-2.jpg" alt="Baitul Qur'an Camba 2025" class="w-full h-auto object-cover block group-hover:scale-105 transition-transform duration-500" loading="lazy">
-          </div>
-        </div>
-
-        <!-- Photo 8: Volleyball League (Medium 16:9) -->
-        <div class="break-inside-avoid mb-2.5 sm:mb-3 photo-card p-1.5 sm:p-2 bg-white rounded-xl sm:rounded-2xl border-2 border-[#161616] brutal-shadow-sm hover:scale-[1.03] hover:z-20 hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden group" data-year="2025">
-          <div class="rounded-lg sm:rounded-xl overflow-hidden bg-gray-100">
-            <img src="/assets/images/pondok/eskul-volly.jpg" alt="Baitul Qur'an Camba 2025" class="w-full h-auto object-cover block group-hover:scale-105 transition-transform duration-500" loading="lazy">
-          </div>
-        </div>
-
-        <!-- Photo 9: Campus Office (Medium 4:3) -->
-        <div class="break-inside-avoid mb-2.5 sm:mb-3 photo-card p-1.5 sm:p-2 bg-white rounded-xl sm:rounded-2xl border-2 border-[#161616] brutal-shadow-sm hover:scale-[1.03] hover:z-20 hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden group" data-year="2025">
-          <div class="rounded-lg sm:rounded-xl overflow-hidden bg-gray-100">
-            <img src="/assets/images/pondok/kantor.jpg" alt="Baitul Qur'an Camba 2025" class="w-full h-auto object-cover block group-hover:scale-105 transition-transform duration-500" loading="lazy">
-          </div>
-        </div>
-
-        <!-- Photo 10: Mosque Panorama (Short Panorama) -->
-        <div class="break-inside-avoid mb-2.5 sm:mb-3 photo-card p-1.5 sm:p-2 bg-white rounded-xl sm:rounded-2xl border-2 border-[#161616] brutal-shadow-sm hover:scale-[1.03] hover:z-20 hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden group" data-year="2025">
-          <div class="rounded-lg sm:rounded-xl overflow-hidden bg-gray-100">
-            <img src="/assets/images/pondok/masjid-2.jpg" alt="Baitul Qur'an Camba 2025" class="w-full h-auto object-cover block group-hover:scale-105 transition-transform duration-500" loading="lazy">
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- =========================================================================
-         YEAR 2024 SECTION (Tight Masonry Columns - Dempetan & Varied Heights)
-         ========================================================================= -->
-    <section id="section-2024" class="gallery-year-section mb-16 sm:mb-20">
-      
-      <!-- Year Header Ribbon -->
-      <div class="flex items-center gap-4 mb-5 sm:mb-6">
-        <div class="px-5 py-2 rounded-2xl bg-[#580D14] text-white font-display font-black text-2xl sm:text-3xl tracking-tight border-2 border-[#161616] brutal-shadow tilt-left transform">
-          2024
-        </div>
-        <div class="h-0.5 flex-1 bg-[#121212]/20"></div>
-        <span class="font-label text-xs sm:text-sm font-bold uppercase tracking-wider text-gray-500">
-          TAHUN AJARAN 2023 / 2024 · 10 FOTO
-        </span>
-      </div>
-
-      <!-- Tight Masonry Columns: Varied Heights & Close Spacing -->
-      <div class="columns-2 sm:columns-3 md:columns-4 lg:columns-5 gap-2.5 sm:gap-3">
-        
-        <!-- Photo 1: Flag Ceremony (Tall Portrait 3:4) -->
-        <div class="break-inside-avoid mb-2.5 sm:mb-3 photo-card p-1.5 sm:p-2 bg-white rounded-xl sm:rounded-2xl border-2 border-[#161616] brutal-shadow-sm hover:scale-[1.03] hover:z-20 hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden group" data-year="2024">
-          <div class="rounded-lg sm:rounded-xl overflow-hidden bg-gray-100">
-            <img src="/assets/images/pondok/upacara.jpg" alt="Baitul Qur'an Camba 2024" class="w-full h-auto object-cover block group-hover:scale-105 transition-transform duration-500" loading="lazy">
-          </div>
-        </div>
-
-        <!-- Photo 2: Classrooms (Short Panorama) -->
-        <div class="break-inside-avoid mb-2.5 sm:mb-3 photo-card p-1.5 sm:p-2 bg-white rounded-xl sm:rounded-2xl border-2 border-[#161616] brutal-shadow-sm hover:scale-[1.03] hover:z-20 hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden group" data-year="2024">
-          <div class="rounded-lg sm:rounded-xl overflow-hidden bg-gray-100">
-            <img src="/assets/images/pondok/kelas.jpg" alt="Baitul Qur'an Camba 2024" class="w-full h-auto object-cover block group-hover:scale-105 transition-transform duration-500" loading="lazy">
-          </div>
-        </div>
-
-        <!-- Photo 3: Cadre Forum (Very Tall Portrait 9:16) -->
-        <div class="break-inside-avoid mb-2.5 sm:mb-3 photo-card p-1.5 sm:p-2 bg-white rounded-xl sm:rounded-2xl border-2 border-[#161616] brutal-shadow-sm hover:scale-[1.03] hover:z-20 hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden group" data-year="2024">
-          <div class="rounded-lg sm:rounded-xl overflow-hidden bg-gray-100">
-            <img src="/assets/images/pondok/leadership-2.jpg" alt="Baitul Qur'an Camba 2024" class="w-full h-auto object-cover block group-hover:scale-105 transition-transform duration-500" loading="lazy">
-          </div>
-        </div>
-
-        <!-- Photo 4: Sunnah Sports & Focus (Short Panorama) -->
-        <div class="break-inside-avoid mb-2.5 sm:mb-3 photo-card p-1.5 sm:p-2 bg-white rounded-xl sm:rounded-2xl border-2 border-[#161616] brutal-shadow-sm hover:scale-[1.03] hover:z-20 hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden group" data-year="2024">
-          <div class="rounded-lg sm:rounded-xl overflow-hidden bg-gray-100">
-            <img src="/assets/images/pondok/tarbiah-2.jpg" alt="Baitul Qur'an Camba 2024" class="w-full h-auto object-cover block group-hover:scale-105 transition-transform duration-500" loading="lazy">
-          </div>
-        </div>
-
-        <!-- Photo 5: Da'wah Skills Workshop (Medium 4:3) -->
-        <div class="break-inside-avoid mb-2.5 sm:mb-3 photo-card p-1.5 sm:p-2 bg-white rounded-xl sm:rounded-2xl border-2 border-[#161616] brutal-shadow-sm hover:scale-[1.03] hover:z-20 hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden group" data-year="2024">
-          <div class="rounded-lg sm:rounded-xl overflow-hidden bg-gray-100">
-            <img src="/assets/images/pondok/eskul-keterampilan-dakwah.jpg" alt="Baitul Qur'an Camba 2024" class="w-full h-auto object-cover block group-hover:scale-105 transition-transform duration-500" loading="lazy">
-          </div>
-        </div>
-
-        <!-- Photo 6: Friendly Takraw Match (Short Panorama) -->
-        <div class="break-inside-avoid mb-2.5 sm:mb-3 photo-card p-1.5 sm:p-2 bg-white rounded-xl sm:rounded-2xl border-2 border-[#161616] brutal-shadow-sm hover:scale-[1.03] hover:z-20 hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden group" data-year="2024">
-          <div class="rounded-lg sm:rounded-xl overflow-hidden bg-gray-100">
-            <img src="/assets/images/pondok/eskul-takraw-2.jpg" alt="Baitul Qur'an Camba 2024" class="w-full h-auto object-cover block group-hover:scale-105 transition-transform duration-500" loading="lazy">
-          </div>
-        </div>
-
-        <!-- Photo 7: Health Clinic (Short Panorama) -->
-        <div class="break-inside-avoid mb-2.5 sm:mb-3 photo-card p-1.5 sm:p-2 bg-white rounded-xl sm:rounded-2xl border-2 border-[#161616] brutal-shadow-sm hover:scale-[1.03] hover:z-20 hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden group" data-year="2024">
-          <div class="rounded-lg sm:rounded-xl overflow-hidden bg-gray-100">
-            <img src="/assets/images/pondok/uks.jpg" alt="Baitul Qur'an Camba 2024" class="w-full h-auto object-cover block group-hover:scale-105 transition-transform duration-500" loading="lazy">
-          </div>
-        </div>
-
-        <!-- Photo 8: Turats Discussion (Short Panorama) -->
-        <div class="break-inside-avoid mb-2.5 sm:mb-3 photo-card p-1.5 sm:p-2 bg-white rounded-xl sm:rounded-2xl border-2 border-[#161616] brutal-shadow-sm hover:scale-[1.03] hover:z-20 hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden group" data-year="2024">
-          <div class="rounded-lg sm:rounded-xl overflow-hidden bg-gray-100">
-            <img src="/assets/images/pondok/taklim-kitab-kuning-3.jpg" alt="Baitul Qur'an Camba 2024" class="w-full h-auto object-cover block group-hover:scale-105 transition-transform duration-500" loading="lazy">
-          </div>
-        </div>
-
-        <!-- Photo 9: National Event Gathering (Medium 4:3) -->
-        <div class="break-inside-avoid mb-2.5 sm:mb-3 photo-card p-1.5 sm:p-2 bg-white rounded-xl sm:rounded-2xl border-2 border-[#161616] brutal-shadow-sm hover:scale-[1.03] hover:z-20 hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden group" data-year="2024">
-          <div class="rounded-lg sm:rounded-xl overflow-hidden bg-gray-100">
-            <img src="/assets/images/pondok/upacara-2.jpg" alt="Baitul Qur'an Camba 2024" class="w-full h-auto object-cover block group-hover:scale-105 transition-transform duration-500" loading="lazy">
-          </div>
-        </div>
-
-        <!-- Photo 10: Guest House Wing (Short Panorama) -->
-        <div class="break-inside-avoid mb-2.5 sm:mb-3 photo-card p-1.5 sm:p-2 bg-white rounded-xl sm:rounded-2xl border-2 border-[#161616] brutal-shadow-sm hover:scale-[1.03] hover:z-20 hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden group" data-year="2024">
-          <div class="rounded-lg sm:rounded-xl overflow-hidden bg-gray-100">
-            <img src="/assets/images/pondok/rumah-tamu-2.jpg" alt="Baitul Qur'an Camba 2024" class="w-full h-auto object-cover block group-hover:scale-105 transition-transform duration-500" loading="lazy">
-          </div>
-        </div>
-
-      </div>
-    </section>
+    @endforelse
 
     <!-- Campus Visit Callout Billboard (Cherry Wine Signature) -->
     <div class="mt-8 bg-[#580D14] rounded-3xl p-8 sm:p-12 text-white border-4 border-white shadow-2xl relative overflow-hidden">
@@ -384,7 +179,7 @@
   </div>
 
   <!-- Pure Photo Lightbox Viewer (Zero Text Clutter) -->
-  <div id="gallery-lightbox" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 backdrop-blur-md p-4 sm:p-6 transition-opacity duration-300">
+  <div id="gallery-lightbox" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 backdrop-blur-md p-4 sm:p-6 transition-opacity duration-300 select-none">
     <div class="relative max-w-5xl w-full bg-white rounded-3xl p-3 sm:p-4 border-3 border-[#161616] shadow-2xl flex flex-col max-h-[92vh]">
       
       <!-- Top Bar: Year Badge, Counter & Close Button -->
@@ -416,5 +211,126 @@
 
     </div>
   </div>
+
+  <!-- Interactive JavaScript for Public Gallery (Tabs Filter & Lightbox) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Tab Year Filtering
+      const yearButtons = document.querySelectorAll('.year-tab-btn');
+      const yearSections = document.querySelectorAll('.gallery-year-section');
+
+      yearButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const targetYear = btn.getAttribute('data-year');
+
+          // Toggle button styles
+          yearButtons.forEach(b => {
+            b.classList.remove('active', 'bg-[#121212]', 'text-lime', 'border-[#161616]', 'brutal-shadow-sm');
+            b.classList.add('bg-white', 'text-[#121212]', 'border-transparent');
+          });
+
+          btn.classList.add('active', 'bg-[#121212]', 'text-lime', 'border-[#161616]', 'brutal-shadow-sm');
+          btn.classList.remove('bg-white', 'border-transparent');
+
+          // Filter sections
+          yearSections.forEach(section => {
+            if (targetYear === 'all' || section.getAttribute('data-year') === targetYear) {
+              section.classList.remove('hidden');
+            } else {
+              section.classList.add('hidden');
+            }
+          });
+        });
+      });
+
+      // 2. Lightbox functionality
+      const lightbox = document.getElementById('gallery-lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const lightboxYear = document.getElementById('lightbox-year');
+      const lightboxCounter = document.getElementById('lightbox-counter');
+      const closeBtn = document.getElementById('lightbox-close-btn');
+      const prevBtn = document.getElementById('lightbox-prev-btn');
+      const nextBtn = document.getElementById('lightbox-next-btn');
+
+      let currentPhotoIndex = 0;
+      let activePhotoCards = [];
+
+      function getVisiblePhotoCards() {
+        return Array.from(document.querySelectorAll('.photo-card')).filter(card => {
+          return !card.closest('.gallery-year-section').classList.contains('hidden');
+        });
+      }
+
+      function openPublicLightbox(index) {
+        activePhotoCards = getVisiblePhotoCards();
+        if (activePhotoCards.length === 0) return;
+
+        currentPhotoIndex = index;
+        updatePublicLightbox();
+        lightbox.classList.remove('hidden');
+        lightbox.classList.add('flex');
+        document.body.classList.add('overflow-hidden');
+      }
+
+      function closePublicLightbox() {
+        lightbox.classList.add('hidden');
+        lightbox.classList.remove('flex');
+        document.body.classList.remove('overflow-hidden');
+      }
+
+      function updatePublicLightbox() {
+        const card = activePhotoCards[currentPhotoIndex];
+        if (!card) return;
+
+        const src = card.getAttribute('data-src');
+        const year = card.getAttribute('data-year');
+
+        lightboxImg.src = src;
+        lightboxYear.textContent = year ? `Tahun ${year}` : 'Galeri';
+        lightboxCounter.textContent = `${currentPhotoIndex + 1} / ${activePhotoCards.length}`;
+      }
+
+      function prevPublicPhoto() {
+        if (activePhotoCards.length === 0) return;
+        currentPhotoIndex = (currentPhotoIndex - 1 + activePhotoCards.length) % activePhotoCards.length;
+        updatePublicLightbox();
+      }
+
+      function nextPublicPhoto() {
+        if (activePhotoCards.length === 0) return;
+        currentPhotoIndex = (currentPhotoIndex + 1) % activePhotoCards.length;
+        updatePublicLightbox();
+      }
+
+      // Attach click listeners to cards
+      document.querySelectorAll('.photo-card').forEach((card) => {
+        card.addEventListener('click', () => {
+          activePhotoCards = getVisiblePhotoCards();
+          const cardIndex = activePhotoCards.indexOf(card);
+          if (cardIndex !== -1) {
+            openPublicLightbox(cardIndex);
+          }
+        });
+      });
+
+      closeBtn.addEventListener('click', closePublicLightbox);
+      prevBtn.addEventListener('click', prevPublicPhoto);
+      nextBtn.addEventListener('click', nextPublicPhoto);
+
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+          closePublicLightbox();
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('hidden')) {
+          if (e.key === 'Escape') closePublicLightbox();
+          if (e.key === 'ArrowLeft') prevPublicPhoto();
+          if (e.key === 'ArrowRight') nextPublicPhoto();
+        }
+      });
+    });
+  </script>
 
 </section>

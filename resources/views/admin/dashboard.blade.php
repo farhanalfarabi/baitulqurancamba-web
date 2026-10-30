@@ -20,21 +20,28 @@
             </div>
 
             <!-- Quick Action Shortcut from Banner -->
-            <div class="flex flex-wrap sm:flex-nowrap items-center gap-3 shrink-0">
+            <div class="flex flex-wrap sm:flex-nowrap items-center gap-2.5 shrink-0">
                 <a href="{{ route('admin.pendaftaran.index') }}" 
                    class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-forest-950 text-xs font-bold transition-all shadow-sm">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
                     <span>Verifikasi PSB ({{ $stats['pendaftar_pending'] ?? 3 }})</span>
                 </a>
+                <a href="{{ route('admin.guru.index') }}" 
+                   class="inline-flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-semibold transition-all border border-white/15">
+                    <svg class="w-4 h-4 text-emerald-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                    </svg>
+                    <span>Dewan Asatidz</span>
+                </a>
                 <button type="button"
                         onclick="openUploadModal()"
-                        class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-semibold transition-all border border-white/15">
+                        class="inline-flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-semibold transition-all border border-white/15">
                     <svg class="w-4 h-4 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                     </svg>
-                    <span>Upload Foto Galeri</span>
+                    <span>Upload Foto</span>
                 </button>
             </div>
         </div>
@@ -63,14 +70,14 @@
                 <span class="text-3xl font-extrabold text-slate-900 tracking-tight">
                     {{ $stats['total_pendaftar'] ?? 6 }}
                 </span>
-                <span class="text-xs font-medium text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full font-bold">+28%</span>
+                <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200/60">Gel. I Aktif</span>
             </div>
             <div class="mt-3 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
                 <span class="inline-flex items-center gap-1.5 text-amber-700 font-semibold bg-amber-50 px-2 py-0.5 rounded-md">
                     <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
-                    {{ $stats['pendaftar_pending'] ?? 3 }} Menunggu Verifikasi
+                    {{ $stats['pendaftar_pending'] ?? 3 }} Perlu Verifikasi
                 </span>
-                <a href="{{ route('admin.pendaftaran.index') }}" class="text-forest-800 hover:text-forest-950 font-semibold hover:underline">
+                <a href="{{ route('admin.pendaftaran.index') }}" class="text-forest-900 hover:text-emerald-800 font-bold hover:underline">
                     Periksa &rarr;
                 </a>
             </div>
@@ -92,12 +99,12 @@
                 <span class="text-3xl font-extrabold text-slate-900 tracking-tight">
                     {{ $stats['santri_aktif'] ?? 148 }}
                 </span>
-                <span class="text-xs font-medium text-slate-500">santri putra</span>
+                <span class="text-xs font-medium text-slate-500">santri mukim</span>
             </div>
             <div class="mt-3 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600">
-                <span>{{ $stats['santri_wustha'] ?? 84 }} Wustha · {{ $stats['santri_ulya'] ?? 64 }} Ulya</span>
-                <a href="{{ route('admin.santri.index') }}" class="text-emerald-700 hover:text-emerald-900 font-semibold hover:underline">
-                    Detail &rarr;
+                <span class="font-semibold text-slate-700">{{ $stats['santri_wustha'] ?? 84 }} MTs · {{ $stats['santri_ulya'] ?? 64 }} MA</span>
+                <a href="{{ route('admin.santri.index') }}" class="text-emerald-700 hover:text-emerald-900 font-bold hover:underline">
+                    Buku Induk &rarr;
                 </a>
             </div>
         </div>
@@ -122,7 +129,7 @@
             </div>
             <div class="mt-3 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600">
                 <span>{{ $stats['guru_tahfizh'] ?? 8 }} Bersanad · {{ $stats['guru_formal'] ?? 10 }} Diniyah</span>
-                <a href="{{ route('admin.guru.index') }}" class="text-teal-700 hover:text-teal-900 font-semibold hover:underline">
+                <a href="{{ route('admin.guru.index') }}" class="text-teal-700 hover:text-teal-900 font-bold hover:underline">
                     Kelola &rarr;
                 </a>
             </div>
@@ -147,8 +154,8 @@
                 <span class="text-xs font-medium text-slate-500">foto terkurasi</span>
             </div>
             <div class="mt-3 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600">
-                <span class="text-emerald-700 font-medium">{{ $stats['galeri_coverflow'] ?? 6 }} Aktif di 3D Beranda</span>
-                <a href="{{ route('admin.gallery.index') }}" class="text-amber-700 hover:text-amber-900 font-semibold hover:underline">
+                <span class="text-emerald-700 font-semibold">{{ $stats['galeri_coverflow'] ?? 6 }} Aktif di 3D Beranda</span>
+                <a href="{{ route('admin.gallery.index') }}" class="text-amber-700 hover:text-amber-900 font-bold hover:underline">
                     Atur &rarr;
                 </a>
             </div>
@@ -173,7 +180,7 @@
                 <div class="flex items-center gap-2">
                     <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-forest-50 text-forest-900 text-xs font-semibold">
                         <span class="w-2 h-2 rounded-full bg-forest-900"></span>
-                        Wustha & Ulya
+                        MTs & MA
                     </span>
                     <span class="text-xs text-slate-400">|</span>
                     <span class="text-xs font-semibold text-slate-500">6 Bulan Terakhir</span>
@@ -187,7 +194,7 @@
 
             <div class="grid grid-cols-3 gap-4 pt-4 mt-2 border-t border-slate-100 text-center">
                 <div>
-                    <span class="block text-xs text-slate-400 font-medium">Tertinggi</span>
+                    <span class="block text-xs text-slate-400 font-medium">Puncak Masuk</span>
                     <span class="text-sm font-extrabold text-forest-900">14 Calon / Okt</span>
                 </div>
                 <div>
@@ -221,7 +228,7 @@
                     <div class="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 border border-slate-100">
                         <div class="flex items-center gap-2.5">
                             <span class="w-3 h-3 rounded-full bg-[#0B3B2C]"></span>
-                            <span class="text-xs font-bold text-slate-800">Wustha (SMP)</span>
+                            <span class="text-xs font-bold text-slate-800">Tingkat MTs</span>
                         </div>
                         <span class="text-xs font-extrabold text-slate-900">84 Santri (57%)</span>
                     </div>
@@ -229,7 +236,7 @@
                     <div class="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 border border-slate-100">
                         <div class="flex items-center gap-2.5">
                             <span class="w-3 h-3 rounded-full bg-amber-500"></span>
-                            <span class="text-xs font-bold text-slate-800">Ulya (SMA)</span>
+                            <span class="text-xs font-bold text-slate-800">Tingkat MA</span>
                         </div>
                         <span class="text-xs font-extrabold text-slate-900">64 Santri (43%)</span>
                     </div>

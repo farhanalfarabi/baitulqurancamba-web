@@ -609,8 +609,8 @@ class DashboardController extends Controller
     /**
      * Halaman pengelolaan galeri.
      */
-    public function galleryIndex(): View
+    public function galleryIndex(Request $request)
     {
-        return view('admin.gallery.index');
+        return app(GalleryController::class)->index($request);
     }
 }

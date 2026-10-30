@@ -25,8 +25,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             GuruSeeder::class,
             PendaftaranSeeder::class,
+            GallerySeeder::class,
         ]);
-
-        $this->call(GuruSeeder::class);
     }
 }
