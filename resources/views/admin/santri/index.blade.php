@@ -1040,7 +1040,7 @@
     <!-- 5. MODAL: Pratinjau Dokumen Berkas Lengkap -->
     <div id="docPreviewModal" 
          style="margin-top: 0 !important;"
-         class="!mt-0 fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs hidden flex items-center justify-center p-4">
+         class="!mt-0 fixed inset-0 z-[60] bg-slate-900/70 backdrop-blur-xs hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden border border-slate-200">
             <div class="p-4 bg-[#0B3B2C] text-white flex items-center justify-between">
                 <div class="flex items-center gap-2 min-w-0">
@@ -1222,6 +1222,151 @@
                         <div>
                             <label class="block font-semibold text-slate-700 mb-1">No. WhatsApp Ibu</label>
                             <input type="text" name="no_hp_ibu" placeholder="08xxxxxxxxxx" class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-white outline-hidden focus:border-forest-500 text-xs font-mono">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block font-semibold text-slate-700 mb-1">Pekerjaan Ibu</label>
+                            <input type="text" name="pekerjaan_ibu" placeholder="misal: Ibu Rumah Tangga / Guru" class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-white outline-hidden focus:border-forest-500 text-xs">
+                        </div>
+                        <div>
+                            <label class="block font-semibold text-slate-700 mb-1">Penghasilan Ibu</label>
+                            <select name="penghasilan_ibu" class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-white outline-hidden focus:border-forest-500 text-xs">
+                                <option value="">-- Pilih Penghasilan --</option>
+                                <option value="Tidak Berpenghasilan">Tidak Berpenghasilan / IRT</option>
+                                <option value="Kurang dari Rp 1.000.000">Kurang dari Rp 1.000.000</option>
+                                <option value="Rp 1.000.000 - Rp 2.000.000">Rp 1.000.000 - Rp 2.000.000</option>
+                                <option value="Rp 2.000.000 - Rp 3.000.000">Rp 2.000.000 - Rp 3.000.000</option>
+                                <option value="Rp 3.000.000 - Rp 4.000.000">Rp 3.000.000 - Rp 4.000.000</option>
+                                <option value="Rp 4.000.000 - Rp 5.000.000">Rp 4.000.000 - Rp 5.000.000</option>
+                                <option value="Rp 5.000.000 ke atas">Rp 5.000.000 ke atas</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Berkas Dokumen (Opsional) -->
+                <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
+                    <div class="flex items-center justify-between">
+                        <h5 class="font-bold text-slate-900 uppercase text-[10px] tracking-wider text-forest-800 flex items-center gap-1.5">
+                            <span class="w-2 h-2 rounded-full bg-forest-600"></span>
+                            <span>4. Berkas Dokumen Santri (Opsional)</span>
+                        </h5>
+                        <span class="text-[10px] text-slate-400 font-medium">Klik kotak untuk pratinjau</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <!-- 1. Pas Foto (3x4) -->
+                        <div class="p-3 rounded-xl bg-white border border-slate-200 flex flex-col justify-between group hover:border-emerald-300 transition-colors">
+                            <div>
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-[10px] font-bold uppercase text-slate-600 tracking-wider">1. Pas Foto (3×4)</span>
+                                    <span id="manualAddStatus_pas_foto" class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-slate-100 text-slate-500">Belum Ada</span>
+                                </div>
+                                <div class="relative w-full h-32 rounded-lg overflow-hidden bg-slate-100 border border-slate-200 flex items-center justify-center cursor-pointer transition-shadow"
+                                     onclick="handleManualCardClick('pas_foto')"
+                                     title="Klik untuk memilih atau melihat pratinjau">
+                                    <img id="manualAddImg_pas_foto" src="" alt="Pas Foto" class="w-full h-full object-cover hidden" />
+                                    <div id="manualAddFallback_pas_foto" class="flex flex-col items-center justify-center p-2 text-center text-slate-400">
+                                        <svg class="w-8 h-8 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                                        <span class="text-[10px] font-semibold text-slate-500 mt-1">Pilih Pas Foto</span>
+                                        <span class="text-[9px] text-slate-400">JPG/PNG maks 2MB</span>
+                                    </div>
+                                    <div id="manualAddOverlay_pas_foto" class="absolute inset-0 bg-black/40 opacity-0 hover:opacity-100 transition-opacity hidden items-center justify-center gap-1.5 text-white text-[10px] font-bold">
+                                        <svg class="w-4 h-4 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+                                        <span>Pratinjau Foto</span>
+                                    </div>
+                                </div>
+                                <p id="manualAddFileName_pas_foto" class="text-[10px] text-slate-500 truncate mt-1.5 hidden font-mono"></p>
+                            </div>
+                            <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between gap-1 text-[11px]">
+                                <label class="px-2.5 py-1 rounded-lg bg-forest-50 hover:bg-forest-100 text-forest-900 font-bold transition-colors cursor-pointer text-center flex-1">
+                                    <span id="manualAddBtnText_pas_foto">Pilih File</span>
+                                    <input type="file" name="pas_foto" id="manualAddFileInput_pas_foto" accept="image/jpeg,image/png,image/jpg" class="hidden" onchange="previewManualDoc(this, 'pas_foto')">
+                                </label>
+                                <button type="button" id="manualAddRemove_pas_foto" onclick="clearManualDoc('pas_foto')" class="px-2 py-1 rounded-lg bg-red-50 hover:bg-red-100 text-red-600 font-bold transition-colors hidden" title="Hapus berkas">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 2. Kartu Keluarga (KK) -->
+                        <div class="p-3 rounded-xl bg-white border border-slate-200 flex flex-col justify-between group hover:border-emerald-300 transition-colors">
+                            <div>
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-[10px] font-bold uppercase text-slate-600 tracking-wider">2. Kartu Keluarga (KK)</span>
+                                    <span id="manualAddStatus_kk" class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-slate-100 text-slate-500">Belum Ada</span>
+                                </div>
+                                <div class="relative w-full h-32 rounded-lg overflow-hidden bg-slate-100 border border-slate-200 flex items-center justify-center cursor-pointer transition-shadow"
+                                     onclick="handleManualCardClick('kk')"
+                                     title="Klik untuk memilih atau melihat pratinjau">
+                                    <img id="manualAddImg_kk" src="" alt="Kartu Keluarga" class="w-full h-full object-cover hidden" />
+                                    <div id="manualAddPdfBox_kk" class="w-full h-full bg-emerald-50/50 p-2 flex flex-col items-center justify-center text-center hidden">
+                                        <svg class="w-8 h-8 text-rose-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"></path></svg>
+                                        <span class="text-[10px] font-bold text-slate-700 mt-1">Dokumen PDF</span>
+                                        <span class="text-[9px] text-emerald-600 font-semibold">Siap Diunggah</span>
+                                    </div>
+                                    <div id="manualAddFallback_kk" class="flex flex-col items-center justify-center p-2 text-center text-slate-400">
+                                        <svg class="w-8 h-8 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                                        <span class="text-[10px] font-semibold text-slate-500 mt-1">Pilih File KK</span>
+                                        <span class="text-[9px] text-slate-400">PDF/JPG maks 3MB</span>
+                                    </div>
+                                    <div id="manualAddOverlay_kk" class="absolute inset-0 bg-black/40 opacity-0 hover:opacity-100 transition-opacity hidden items-center justify-center gap-1.5 text-white text-[10px] font-bold">
+                                        <svg class="w-4 h-4 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+                                        <span>Pratinjau KK</span>
+                                    </div>
+                                </div>
+                                <p id="manualAddFileName_kk" class="text-[10px] text-slate-500 truncate mt-1.5 hidden font-mono"></p>
+                            </div>
+                            <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between gap-1 text-[11px]">
+                                <label class="px-2.5 py-1 rounded-lg bg-forest-50 hover:bg-forest-100 text-forest-900 font-bold transition-colors cursor-pointer text-center flex-1">
+                                    <span id="manualAddBtnText_kk">Pilih File</span>
+                                    <input type="file" name="foto_kk" id="manualAddFileInput_kk" accept="image/jpeg,image/png,image/jpg,application/pdf" class="hidden" onchange="previewManualDoc(this, 'kk')">
+                                </label>
+                                <button type="button" id="manualAddRemove_kk" onclick="clearManualDoc('kk')" class="px-2 py-1 rounded-lg bg-red-50 hover:bg-red-100 text-red-600 font-bold transition-colors hidden" title="Hapus berkas">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 3. Buku Rapor -->
+                        <div class="p-3 rounded-xl bg-white border border-slate-200 flex flex-col justify-between group hover:border-emerald-300 transition-colors">
+                            <div>
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-[10px] font-bold uppercase text-slate-600 tracking-wider">3. Rapor / Transkrip</span>
+                                    <span id="manualAddStatus_raport" class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-slate-100 text-slate-500">Belum Ada</span>
+                                </div>
+                                <div class="relative w-full h-32 rounded-lg overflow-hidden bg-slate-100 border border-slate-200 flex items-center justify-center cursor-pointer transition-shadow"
+                                     onclick="handleManualCardClick('raport')"
+                                     title="Klik untuk memilih atau melihat pratinjau">
+                                    <img id="manualAddImg_raport" src="" alt="Rapor" class="w-full h-full object-cover hidden" />
+                                    <div id="manualAddPdfBox_raport" class="w-full h-full bg-emerald-50/50 p-2 flex flex-col items-center justify-center text-center hidden">
+                                        <svg class="w-8 h-8 text-rose-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"></path></svg>
+                                        <span class="text-[10px] font-bold text-slate-700 mt-1">Dokumen PDF</span>
+                                        <span class="text-[9px] text-emerald-600 font-semibold">Siap Diunggah</span>
+                                    </div>
+                                    <div id="manualAddFallback_raport" class="flex flex-col items-center justify-center p-2 text-center text-slate-400">
+                                        <svg class="w-8 h-8 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                        <span class="text-[10px] font-semibold text-slate-500 mt-1">Pilih File Rapor</span>
+                                        <span class="text-[9px] text-slate-400">PDF/JPG maks 3MB</span>
+                                    </div>
+                                    <div id="manualAddOverlay_raport" class="absolute inset-0 bg-black/40 opacity-0 hover:opacity-100 transition-opacity hidden items-center justify-center gap-1.5 text-white text-[10px] font-bold">
+                                        <svg class="w-4 h-4 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+                                        <span>Pratinjau Rapor</span>
+                                    </div>
+                                </div>
+                                <p id="manualAddFileName_raport" class="text-[10px] text-slate-500 truncate mt-1.5 hidden font-mono"></p>
+                            </div>
+                            <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between gap-1 text-[11px]">
+                                <label class="px-2.5 py-1 rounded-lg bg-forest-50 hover:bg-forest-100 text-forest-900 font-bold transition-colors cursor-pointer text-center flex-1">
+                                    <span id="manualAddBtnText_raport">Pilih File</span>
+                                    <input type="file" name="foto_raport" id="manualAddFileInput_raport" accept="image/jpeg,image/png,image/jpg,application/pdf" class="hidden" onchange="previewManualDoc(this, 'raport')">
+                                </label>
+                                <button type="button" id="manualAddRemove_raport" onclick="clearManualDoc('raport')" class="px-2 py-1 rounded-lg bg-red-50 hover:bg-red-100 text-red-600 font-bold transition-colors hidden" title="Hapus berkas">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1926,16 +2071,174 @@
             }
 
             // ====================================================
-            // 4. Modal Manual Add New Santri
+            // 4. Modal Manual Add New Santri & Document Previews
             // ====================================================
+            const manualDocFiles = {
+                pas_foto: null,
+                kk: null,
+                raport: null
+            };
+
+            function previewManualDoc(input, docType) {
+                if (!input.files || !input.files[0]) return;
+                const file = input.files[0];
+                manualDocFiles[docType] = file;
+
+                const isPdf = file.type === 'application/pdf' || file.name.toLowerCase().endsWith('.pdf');
+                const isImage = file.type.startsWith('image/');
+                const sizeKb = (file.size / 1024).toFixed(0) + ' KB';
+
+                // Status Badge
+                const statusBadge = document.getElementById(`manualAddStatus_${docType}`);
+                if (statusBadge) {
+                    statusBadge.innerText = 'Siap Unggah';
+                    statusBadge.className = 'text-[9px] font-bold px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800';
+                }
+
+                // File Name
+                const fileNameEl = document.getElementById(`manualAddFileName_${docType}`);
+                if (fileNameEl) {
+                    fileNameEl.innerText = `${file.name} (${sizeKb})`;
+                    fileNameEl.classList.remove('hidden');
+                }
+
+                // Elements
+                const imgEl = document.getElementById(`manualAddImg_${docType}`);
+                const pdfBoxEl = document.getElementById(`manualAddPdfBox_${docType}`);
+                const fallbackEl = document.getElementById(`manualAddFallback_${docType}`);
+                const overlayEl = document.getElementById(`manualAddOverlay_${docType}`);
+                const removeBtn = document.getElementById(`manualAddRemove_${docType}`);
+                const btnText = document.getElementById(`manualAddBtnText_${docType}`);
+
+                if (fallbackEl) fallbackEl.classList.add('hidden');
+                if (overlayEl) {
+                    overlayEl.classList.remove('hidden');
+                    overlayEl.classList.add('flex');
+                }
+                if (removeBtn) removeBtn.classList.remove('hidden');
+                if (btnText) btnText.innerText = 'Ganti';
+
+                if (isImage && imgEl) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        imgEl.src = e.target.result;
+                        imgEl.classList.remove('hidden');
+                    };
+                    reader.readAsDataURL(file);
+                    if (pdfBoxEl) pdfBoxEl.classList.add('hidden');
+                } else if (isPdf && pdfBoxEl) {
+                    if (imgEl) {
+                        imgEl.src = '';
+                        imgEl.classList.add('hidden');
+                    }
+                    pdfBoxEl.classList.remove('hidden');
+                }
+            }
+
+            function clearManualDoc(docType) {
+                manualDocFiles[docType] = null;
+                const input = document.getElementById(`manualAddFileInput_${docType}`);
+                if (input) input.value = '';
+
+                const statusBadge = document.getElementById(`manualAddStatus_${docType}`);
+                if (statusBadge) {
+                    statusBadge.innerText = 'Belum Ada';
+                    statusBadge.className = 'text-[9px] font-bold px-1.5 py-0.5 rounded bg-slate-100 text-slate-500';
+                }
+
+                const fileNameEl = document.getElementById(`manualAddFileName_${docType}`);
+                if (fileNameEl) {
+                    fileNameEl.innerText = '';
+                    fileNameEl.classList.add('hidden');
+                }
+
+                const imgEl = document.getElementById(`manualAddImg_${docType}`);
+                if (imgEl) {
+                    imgEl.src = '';
+                    imgEl.classList.add('hidden');
+                }
+
+                const pdfBoxEl = document.getElementById(`manualAddPdfBox_${docType}`);
+                if (pdfBoxEl) pdfBoxEl.classList.add('hidden');
+
+                const fallbackEl = document.getElementById(`manualAddFallback_${docType}`);
+                if (fallbackEl) fallbackEl.classList.remove('hidden');
+
+                const overlayEl = document.getElementById(`manualAddOverlay_${docType}`);
+                if (overlayEl) {
+                    overlayEl.classList.add('hidden');
+                    overlayEl.classList.remove('flex');
+                }
+
+                const removeBtn = document.getElementById(`manualAddRemove_${docType}`);
+                if (removeBtn) removeBtn.classList.add('hidden');
+
+                const btnText = document.getElementById(`manualAddBtnText_${docType}`);
+                if (btnText) btnText.innerText = 'Pilih File';
+            }
+
+            function handleManualCardClick(docType) {
+                if (manualDocFiles[docType]) {
+                    openLocalDocPreview(docType);
+                } else {
+                    const input = document.getElementById(`manualAddFileInput_${docType}`);
+                    if (input) input.click();
+                }
+            }
+
+            function openLocalDocPreview(docType) {
+                const file = manualDocFiles[docType];
+                if (!file) return;
+
+                let title = 'Pratinjau Dokumen';
+                if (docType === 'pas_foto') title = 'Pas Foto Santri (3×4)';
+                if (docType === 'kk') title = 'Salinan Kartu Keluarga (KK)';
+                if (docType === 'raport') title = 'Transkrip Nilai / Rapor';
+
+                const modal = document.getElementById('docPreviewModal');
+                const imgEl = document.getElementById('docPreviewImg');
+                const frameEl = document.getElementById('docPreviewFrame');
+                const fallbackEl = document.getElementById('docPreviewFallback');
+                const linkEl = document.getElementById('docPreviewExternalLink');
+
+                document.getElementById('docPreviewTitle').innerText = `${title} - ${file.name}`;
+                fallbackEl.classList.add('hidden');
+
+                const isPdf = file.type === 'application/pdf' || file.name.toLowerCase().endsWith('.pdf');
+                const objectUrl = URL.createObjectURL(file);
+
+                linkEl.classList.remove('hidden');
+                linkEl.href = objectUrl;
+
+                if (isPdf) {
+                    imgEl.classList.add('hidden');
+                    frameEl.classList.remove('hidden');
+                    frameEl.src = objectUrl;
+                } else {
+                    frameEl.classList.add('hidden');
+                    imgEl.classList.remove('hidden');
+                    imgEl.src = objectUrl;
+                }
+
+                modal.classList.remove('hidden');
+            }
+
+            function resetManualDocPreviews() {
+                clearManualDoc('pas_foto');
+                clearManualDoc('kk');
+                clearManualDoc('raport');
+            }
+
             function openManualAddModal() {
                 const modal = document.getElementById('manualAddModal');
                 modal.classList.remove('hidden');
                 document.getElementById('manualAddSantriForm').reset();
+                resetManualDocPreviews();
             }
 
             function closeManualAddModal() {
                 document.getElementById('manualAddModal').classList.add('hidden');
+                resetManualDocPreviews();
             }
 
             async function submitManualSantriForm(e) {
@@ -1960,14 +2263,19 @@
                     });
 
                     const data = await res.json();
-                    if (data.success) {
+                    if (res.ok && data.success) {
                         closeManualAddModal();
                         showToast(data.message || 'Santri baru berhasil ditambahkan!');
                         setTimeout(() => {
                             window.location.reload();
                         }, 800);
                     } else {
-                        alert(data.message || 'Gagal menambahkan santri.');
+                        let errorMsg = data.message || 'Gagal menambahkan santri.';
+                        if (data.errors) {
+                            const errorDetails = Object.values(data.errors).flat().join('\n• ');
+                            errorMsg += '\n\n• ' + errorDetails;
+                        }
+                        alert(errorMsg);
                     }
                 } catch (err) {
                     console.error(err);

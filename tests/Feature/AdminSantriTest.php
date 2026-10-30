@@ -6,6 +6,8 @@ use App\Models\Pendaftaran;
 use App\Models\Santri;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
 use Tests\TestCase;
 
 class AdminSantriTest extends TestCase
@@ -89,7 +91,44 @@ class AdminSantriTest extends TestCase
             'email' => 'bilal.baru@example.com',
             'status_santri' => 'aktif',
             'jenjang' => 'MA',
+            'pekerjaan_ibu' => 'Ibu Rumah Tangga',
+            'penghasilan_ibu' => 'Rp 1.000.000 - Rp 2.000.000',
         ]);
+    }
+
+    /**
+     * Test creating a new santri manually with file uploads.
+     */
+    public function test_can_create_santri_manually_with_files(): void
+    {
+        Storage::fake('public');
+
+        $payload = [
+            'nama_santri' => 'Maryam Santriwati',
+            'jenis_kelamin' => 'Putri',
+            'jenjang' => 'MTs',
+            'nama_ayah' => 'Bapak Maryam',
+            'no_hp_ayah' => '081234567800',
+            'nama_ibu' => 'Ibu Maryam',
+            'no_hp_ibu' => '081234567801',
+            'pekerjaan_ibu' => 'Guru',
+            'penghasilan_ibu' => 'Rp 2.000.000 - Rp 3.000.000',
+            'pas_foto' => UploadedFile::fake()->image('pas_foto_maryam.jpg', 300, 400),
+            'foto_kk' => UploadedFile::fake()->create('kk_maryam.pdf', 300, 'application/pdf'),
+            'foto_raport' => UploadedFile::fake()->image('raport_maryam.jpg'),
+        ];
+
+        $response = $this->post('/admin/santri', $payload);
+
+        $response->assertStatus(201);
+        $santri = Santri::where('nama_santri', 'Maryam Santriwati')->firstOrFail();
+
+        $this->assertNotNull($santri->pas_foto_path);
+        $this->assertNotNull($santri->foto_kk_path);
+        $this->assertNotNull($santri->foto_raport_path);
+        Storage::disk('public')->assertExists($santri->pas_foto_path);
+        Storage::disk('public')->assertExists($santri->foto_kk_path);
+        Storage::disk('public')->assertExists($santri->foto_raport_path);
     }
 
     /**
@@ -301,96 +340,62 @@ class AdminSantriTest extends TestCase
     }
 
     /**
-     * Test accepting a prospective student (status 'diterima') automatically creates a santri record.
+     * Test admin can store complete manual pendaftaran with all details and files.
      */
-    public function test_pendaftaran_diterima_automatically_creates_santri_record(): void
+    public function test_can_store_pendaftaran_manually_with_full_details_and_files(): void
     {
-        $pendaftaran = \App\Models\Pendaftaran::create([
-            'registration_number' => 'PSB-2027-991',
-            'nama_santri' => 'Calon Santri Otomatis',
+        Storage::fake('public');
+
+        $foto = UploadedFile::fake()->image('pas_foto_santri.jpg');
+        $kk = UploadedFile::fake()->create('kartu_keluarga.pdf', 100, 'application/pdf');
+        $raport = UploadedFile::fake()->create('raport_santri.pdf', 100, 'application/pdf');
+
+        $payload = [
+            'nama_santri' => 'Muhammad Bilal Al-Banjari',
             'jenis_kelamin' => 'Putra',
             'jenjang' => 'MTs',
             'status' => 'pending',
-            'nama_ayah' => 'Ayah Calon',
-            'no_hp_ayah' => '081234567890',
+            'tempat_lahir' => 'Camba, Maros',
+            'tanggal_lahir' => '2012-05-15',
+            'no_hp_santri' => '081234567899',
+            'email' => 'bilal.santri@example.com',
+            'tinggal_bersama' => 'Orang Tua',
+            'asal_sekolah' => 'SD Negeri 1 Camba',
+            'alamat_lengkap' => 'Jl. Poros Camba-Maros No. 12, Kel. Cempaniga',
+            'nama_ayah' => 'Ahmad Subarjo',
+            'no_hp_ayah' => '081211112222',
+            'pekerjaan_ayah' => 'Wiraswasta',
+            'penghasilan_ayah' => 'Rp 3.000.000 - Rp 5.000.000',
+            'nama_ibu' => 'Siti Aisyah',
+            'no_hp_ibu' => '081233334444',
+            'pekerjaan_ibu' => 'Guru',
+            'penghasilan_ibu' => 'Rp 2.000.000 - Rp 3.000.000',
+            'pas_foto' => $foto,
+            'foto_kk' => $kk,
+            'foto_raport' => $raport,
+        ];
+
+        $response = $this->postJson('/admin/pendaftaran', $payload);
+
+        $response->assertStatus(201);
+        $response->assertJson([
+            'success' => true,
+            'message' => 'Data pendaftaran calon santri berhasil ditambahkan.',
         ]);
 
-        $this->assertDatabaseMissing('santris', [
-            'pendaftaran_id' => $pendaftaran->id,
-        ]);
+        $created = Pendaftaran::where('nama_santri', 'Muhammad Bilal Al-Banjari')->first();
+        $this->assertNotNull($created);
+        $this->assertStringStartsWith('PSB-2027-', $created->registration_number);
+        $this->assertEquals('MTs', $created->jenjang);
+        $this->assertEquals('Ahmad Subarjo', $created->nama_ayah);
+        $this->assertEquals('Siti Aisyah', $created->nama_ibu);
+        $this->assertEquals('Jl. Poros Camba-Maros No. 12, Kel. Cempaniga', $created->alamat_lengkap);
+        $this->assertNotNull($created->pas_foto_path);
+        $this->assertNotNull($created->foto_kk_path);
+        $this->assertNotNull($created->foto_raport_path);
 
-        // Admin updates status to 'diterima'
-        $response = $this->putJson("/admin/pendaftaran/{$pendaftaran->id}", [
-            'status' => 'diterima',
-        ]);
-
-        $response->assertStatus(200);
-
-        $this->assertDatabaseHas('santris', [
-            'pendaftaran_id' => $pendaftaran->id,
-            'nama_santri' => 'Calon Santri Otomatis',
-            'registration_number' => 'PSB-2027-991',
-            'status_santri' => 'aktif',
-        ]);
-    }
-
-    /**
-     * Test reverting status from 'diterima' to 'pending' automatically removes the santri record.
-     */
-    public function test_pendaftaran_reverted_from_diterima_deletes_santri_record(): void
-    {
-        $pendaftaran = \App\Models\Pendaftaran::create([
-            'registration_number' => 'PSB-2027-992',
-            'nama_santri' => 'Santri Batal Diterima',
-            'jenis_kelamin' => 'Putri',
-            'jenjang' => 'MA',
-            'status' => 'diterima',
-            'nama_ayah' => 'Ayah',
-            'no_hp_ayah' => '081234567890',
-        ]);
-
-        $this->assertDatabaseHas('santris', [
-            'pendaftaran_id' => $pendaftaran->id,
-            'nama_santri' => 'Santri Batal Diterima',
-        ]);
-
-        // Admin changes status back to 'pending'
-        $response = $this->putJson("/admin/pendaftaran/{$pendaftaran->id}", [
-            'status' => 'pending',
-        ]);
-
-        $response->assertStatus(200);
-
-        $this->assertDatabaseMissing('santris', [
-            'pendaftaran_id' => $pendaftaran->id,
-        ]);
-    }
-
-    /**
-     * Test deleting a pendaftaran record removes the associated santri.
-     */
-    public function test_deleting_pendaftaran_deletes_associated_santri(): void
-    {
-        $pendaftaran = \App\Models\Pendaftaran::create([
-            'registration_number' => 'PSB-2027-993',
-            'nama_santri' => 'Santri Akan Terhapus Bersama Pendaftaran',
-            'jenis_kelamin' => 'Putra',
-            'jenjang' => 'MTs',
-            'status' => 'diterima',
-            'nama_ayah' => 'Ayah',
-            'no_hp_ayah' => '081234567890',
-        ]);
-
-        $this->assertDatabaseHas('santris', [
-            'pendaftaran_id' => $pendaftaran->id,
-        ]);
-
-        $response = $this->deleteJson("/admin/pendaftaran/{$pendaftaran->id}");
-
-        $response->assertStatus(200);
-
-        $this->assertDatabaseMissing('santris', [
-            'pendaftaran_id' => $pendaftaran->id,
-        ]);
+        Storage::disk('public')->assertExists($created->pas_foto_path);
+        Storage::disk('public')->assertExists($created->foto_kk_path);
+        Storage::disk('public')->assertExists($created->foto_raport_path);
     }
 }

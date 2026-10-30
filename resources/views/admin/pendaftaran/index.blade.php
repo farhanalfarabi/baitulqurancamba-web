@@ -1106,86 +1106,318 @@
         </div>
     </div>
 
-    <!-- 6. MODAL: Input Pendaftar Baru Manual (Offline Walk-In) -->
-    <div id="manualAddModal" style="margin-top: 0 !important;" class="!mt-0 fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl max-w-xl w-full p-6 shadow-2xl border border-slate-100 max-h-[90vh] overflow-y-auto">
-            <div class="flex items-center justify-between pb-4 border-b border-slate-100">
-                <div class="flex items-center gap-2">
-                    <div class="w-8 h-8 rounded-lg bg-forest-50 text-forest-900 flex items-center justify-center">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-sm font-bold text-slate-900">Input Pendaftaran Manual (Offline / Kantor)</h3>
+    <!-- 6. MODAL: Input Pendaftar Baru Manual (Offline / Walk-In) -->
+    <div id="manualAddModal" 
+         style="margin-top: 0 !important;"
+         class="!mt-0 fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl w-full max-w-2xl max-h-[92vh] flex flex-col shadow-2xl overflow-hidden border border-slate-200">
+            <!-- Modal Header -->
+            <div class="p-5 bg-gradient-to-r from-[#0B3B2C] to-[#145742] text-white flex items-center justify-between">
+                <div>
+                    <h3 class="font-bold text-base">Tambah Pendaftar Baru Manual</h3>
+                    <p class="text-xs text-white/70 mt-0.5">Input offline / berkas pendaftaran calon santri baru</p>
                 </div>
-                <button type="button" onclick="closeManualAddModal()" class="p-1 text-slate-400 hover:text-slate-600 rounded-lg">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
+                <button type="button" onclick="closeManualAddModal()" class="p-1.5 text-white/70 hover:text-white rounded-lg">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                 </button>
             </div>
 
-            <div class="py-4 space-y-4 text-xs">
-                <div>
-                    <label class="block font-semibold text-slate-700 mb-1">Nama Lengkap Calon Santri *</label>
-                    <input type="text" id="manualNama" placeholder="Contoh: Faris Al-Habsyi" class="w-full px-3 py-2 rounded-xl border border-slate-200 outline-hidden focus:border-forest-500">
-                </div>
-
-                <div class="grid grid-cols-2 gap-3">
-                    <div>
-                        <label class="block font-semibold text-slate-700 mb-1">Jenis Kelamin *</label>
-                        <select id="manualGender" class="w-full px-3 py-2 rounded-xl border border-slate-200 outline-hidden focus:border-forest-500">
-                            <option value="Putra">Putra (Ikhwan)</option>
-                            <option value="Putri">Putri (Akhwat)</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block font-semibold text-slate-700 mb-1">Jenjang Pilihan *</label>
-                        <select id="manualJenjang" class="w-full px-3 py-2 rounded-xl border border-slate-200 outline-hidden focus:border-forest-500">
-                            <option value="MTs">MTs (Madrasah Tsanawiyah)</option>
-                            <option value="MA">MA (Madrasah Aliyah)</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-2 gap-3">
-                    <div>
-                        <label class="block font-semibold text-slate-700 mb-1">Tempat Lahir</label>
-                        <input type="text" id="manualTempatLahir" placeholder="misal: Camba / Maros" class="w-full px-3 py-2 rounded-xl border border-slate-200 outline-hidden focus:border-forest-500">
-                    </div>
-                    <div>
-                        <label class="block font-semibold text-slate-700 mb-1">Tanggal Lahir</label>
-                        <input type="date" id="manualTglLahir" class="w-full px-3 py-2 rounded-xl border border-slate-200 outline-hidden focus:border-forest-500">
+            <!-- Modal Form Body -->
+            <form id="manualAddPendaftaranForm" onsubmit="submitManualPendaftaranForm(event)" class="flex-1 overflow-y-auto p-5 text-xs text-slate-700 space-y-4">
+                
+                <!-- Status Pendaftaran & Jenjang -->
+                <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
+                    <h5 class="font-bold text-slate-900 uppercase text-[10px] tracking-wider text-forest-800 flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-forest-600"></span>
+                        <span>1. Status Pendaftaran & Jenjang Pendidikan</span>
+                    </h5>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block font-semibold text-slate-700 mb-1">Status Verifikasi Pendaftaran *</label>
+                            <select id="manualAddStatus" name="status" class="w-full px-3 py-2 rounded-xl border border-slate-200 font-bold bg-white outline-hidden focus:border-forest-500 text-xs">
+                                <option value="pending" selected>Menunggu Verifikasi (Pending)</option>
+                                <option value="terverifikasi">Terverifikasi (Berkas Lengkap)</option>
+                                <option value="diterima">Diterima Sebagai Santri</option>
+                                <option value="berkas_belum_lengkap">Berkas Belum Lengkap</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block font-semibold text-slate-700 mb-1">Jenjang Pendidikan *</label>
+                            <select id="manualAddJenjang" name="jenjang" required class="w-full px-3 py-2 rounded-xl border border-slate-200 font-semibold bg-white outline-hidden focus:border-forest-500 text-xs">
+                                <option value="MTs">MTs (Madrasah Tsanawiyah)</option>
+                                <option value="MA">MA (Madrasah Aliyah)</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-2 gap-3">
-                    <div>
-                        <label class="block font-semibold text-slate-700 mb-1">Nama Ayah *</label>
-                        <input type="text" id="manualAyah" placeholder="Nama ayah kandung" class="w-full px-3 py-2 rounded-xl border border-slate-200 outline-hidden focus:border-forest-500">
+                <!-- Biodata Santri -->
+                <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
+                    <h5 class="font-bold text-slate-900 uppercase text-[10px] tracking-wider text-forest-800 flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-forest-600"></span>
+                        <span>2. Biodata Calon Santri</span>
+                    </h5>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <div class="sm:col-span-2">
+                            <label class="block font-semibold text-slate-700 mb-1">Nama Lengkap Santri *</label>
+                            <input type="text" name="nama_santri" required placeholder="Nama lengkap calon santri" class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-white outline-hidden focus:border-forest-500 text-xs font-semibold">
+                        </div>
+                        <div>
+                            <label class="block font-semibold text-slate-700 mb-1">Jenis Kelamin *</label>
+                            <select name="jenis_kelamin" required class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-white outline-hidden focus:border-forest-500 text-xs font-semibold">
+                                <option value="Putra">Putra (Ikhwan)</option>
+                                <option value="Putri">Putri (Akhwat)</option>
+                            </select>
+                        </div>
                     </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block font-semibold text-slate-700 mb-1">Tempat Lahir</label>
+                            <input type="text" name="tempat_lahir" placeholder="misal: Makassar / Camba / Maros" class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-white outline-hidden focus:border-forest-500 text-xs">
+                        </div>
+                        <div>
+                            <label class="block font-semibold text-slate-700 mb-1">Tanggal Lahir</label>
+                            <input type="date" name="tanggal_lahir" class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-white outline-hidden focus:border-forest-500 text-xs font-mono">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block font-semibold text-slate-700 mb-1">Nomor HP Santri</label>
+                            <input type="text" name="no_hp_santri" placeholder="08xxxxxxxxxx" class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-white outline-hidden focus:border-forest-500 text-xs font-mono">
+                        </div>
+                        <div>
+                            <label class="block font-semibold text-slate-700 mb-1">Email Calon Santri</label>
+                            <input type="email" name="email" placeholder="santri@gmail.com" class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-white outline-hidden focus:border-forest-500 text-xs">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block font-semibold text-slate-700 mb-1">Status Tinggal</label>
+                            <select name="tinggal_bersama" class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-white outline-hidden focus:border-forest-500 text-xs">
+                                <option value="Orang Tua" selected>Orang Tua</option>
+                                <option value="Asrama Pondok">Asrama Pondok</option>
+                                <option value="Kakek / Nenek">Kakek / Nenek</option>
+                                <option value="Wali / Saudara">Wali / Saudara</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block font-semibold text-slate-700 mb-1">Asal Sekolah SD/MI/SMP</label>
+                            <input type="text" name="asal_sekolah" placeholder="Nama sekolah sebelumnya" class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-white outline-hidden focus:border-forest-500 text-xs">
+                        </div>
+                    </div>
+
                     <div>
-                        <label class="block font-semibold text-slate-700 mb-1">No. WhatsApp Ayah / Wali *</label>
-                        <input type="text" id="manualHpAyah" placeholder="08xxxxxxxxxx" class="w-full px-3 py-2 rounded-xl border border-slate-200 outline-hidden focus:border-forest-500">
+                        <label class="block font-semibold text-slate-700 mb-1">Alamat Lengkap Domisili Sesuai KK</label>
+                        <textarea name="alamat_lengkap" rows="2" placeholder="Nama jalan, RT/RW, Dusun, Desa/Kelurahan, Kecamatan, Kab/Kota..." class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-white outline-hidden focus:border-forest-500 text-xs"></textarea>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-2 gap-3">
-                    <div>
-                        <label class="block font-semibold text-slate-700 mb-1">Asal Sekolah SD/MI/SMP</label>
-                        <input type="text" id="manualAsalSekolah" placeholder="Nama sekolah asal" class="w-full px-3 py-2 rounded-xl border border-slate-200 outline-hidden focus:border-forest-500">
+                <!-- Data Orang Tua / Wali -->
+                <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
+                    <h5 class="font-bold text-slate-900 uppercase text-[10px] tracking-wider text-forest-800 flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-forest-600"></span>
+                        <span>3. Data Orang Tua / Wali</span>
+                    </h5>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block font-semibold text-slate-700 mb-1">Nama Ayah Kandung / Wali *</label>
+                            <input type="text" name="nama_ayah" required placeholder="Nama lengkap ayah / wali" class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-white outline-hidden focus:border-forest-500 text-xs font-semibold">
+                        </div>
+                        <div>
+                            <label class="block font-semibold text-slate-700 mb-1">No. WhatsApp Ayah / Wali *</label>
+                            <input type="text" name="no_hp_ayah" required placeholder="08xxxxxxxxxx" class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-white outline-hidden focus:border-forest-500 text-xs font-mono">
+                        </div>
                     </div>
-                    <div>
-                        <label class="block font-semibold text-slate-700 mb-1">Email Calon Santri (Opsional)</label>
-                        <input type="email" id="manualEmail" placeholder="santri@gmail.com" class="w-full px-3 py-2 rounded-xl border border-slate-200 outline-hidden focus:border-forest-500">
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block font-semibold text-slate-700 mb-1">Pekerjaan Ayah</label>
+                            <input type="text" name="pekerjaan_ayah" placeholder="misal: PNS / Wiraswasta / Petani" class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-white outline-hidden focus:border-forest-500 text-xs">
+                        </div>
+                        <div>
+                            <label class="block font-semibold text-slate-700 mb-1">Penghasilan Ayah</label>
+                            <select name="penghasilan_ayah" class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-white outline-hidden focus:border-forest-500 text-xs">
+                                <option value="">-- Pilih Penghasilan --</option>
+                                <option value="Kurang dari Rp 1.000.000">Kurang dari Rp 1.000.000</option>
+                                <option value="Rp 1.000.000 - Rp 2.000.000">Rp 1.000.000 - Rp 2.000.000</option>
+                                <option value="Rp 2.000.000 - Rp 3.000.000">Rp 2.000.000 - Rp 3.000.000</option>
+                                <option value="Rp 3.000.000 - Rp 4.000.000">Rp 3.000.000 - Rp 4.000.000</option>
+                                <option value="Rp 4.000.000 - Rp 5.000.000">Rp 4.000.000 - Rp 5.000.000</option>
+                                <option value="Rp 5.000.000 ke atas">Rp 5.000.000 ke atas</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 border-t border-slate-200/60">
+                        <div>
+                            <label class="block font-semibold text-slate-700 mb-1">Nama Ibu Kandung</label>
+                            <input type="text" name="nama_ibu" placeholder="Nama lengkap ibu kandung" class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-white outline-hidden focus:border-forest-500 text-xs">
+                        </div>
+                        <div>
+                            <label class="block font-semibold text-slate-700 mb-1">No. WhatsApp Ibu</label>
+                            <input type="text" name="no_hp_ibu" placeholder="08xxxxxxxxxx" class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-white outline-hidden focus:border-forest-500 text-xs font-mono">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block font-semibold text-slate-700 mb-1">Pekerjaan Ibu</label>
+                            <input type="text" name="pekerjaan_ibu" placeholder="misal: Ibu Rumah Tangga / Guru / Pedagang" class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-white outline-hidden focus:border-forest-500 text-xs">
+                        </div>
+                        <div>
+                            <label class="block font-semibold text-slate-700 mb-1">Penghasilan Ibu</label>
+                            <select name="penghasilan_ibu" class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-white outline-hidden focus:border-forest-500 text-xs">
+                                <option value="">-- Pilih Penghasilan --</option>
+                                <option value="Tidak Berpenghasilan">Tidak Berpenghasilan / IRT</option>
+                                <option value="Kurang dari Rp 1.000.000">Kurang dari Rp 1.000.000</option>
+                                <option value="Rp 1.000.000 - Rp 2.000.000">Rp 1.000.000 - Rp 2.000.000</option>
+                                <option value="Rp 2.000.000 - Rp 3.000.000">Rp 2.000.000 - Rp 3.000.000</option>
+                                <option value="Rp 3.000.000 - Rp 4.000.000">Rp 3.000.000 - Rp 4.000.000</option>
+                                <option value="Rp 4.000.000 - Rp 5.000.000">Rp 4.000.000 - Rp 5.000.000</option>
+                                <option value="Rp 5.000.000 ke atas">Rp 5.000.000 ke atas</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="flex items-center justify-end gap-2 pt-4 border-t border-slate-100">
-                <button type="button" onclick="closeManualAddModal()" class="px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100">Batal</button>
-                <button type="button" onclick="saveManualStudent()" class="px-4 py-2 rounded-xl text-xs font-bold bg-[#0B3B2C] text-white hover:bg-[#07261C]">Simpan Pendaftar</button>
-            </div>
+                <!-- Berkas Dokumen (Opsional) -->
+                <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
+                    <div class="flex items-center justify-between">
+                        <h5 class="font-bold text-slate-900 uppercase text-[10px] tracking-wider text-forest-800 flex items-center gap-1.5">
+                            <span class="w-2 h-2 rounded-full bg-forest-600"></span>
+                            <span>4. Berkas Dokumen Pendaftaran (Opsional)</span>
+                        </h5>
+                        <span class="text-[10px] text-slate-400 font-medium">Klik kotak untuk pratinjau</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <!-- 1. Pas Foto (3x4) -->
+                        <div class="p-3 rounded-xl bg-white border border-slate-200 flex flex-col justify-between group hover:border-emerald-300 transition-colors">
+                            <div>
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-[10px] font-bold uppercase text-slate-600 tracking-wider">1. Pas Foto (3×4)</span>
+                                    <span id="manualAddStatus_pas_foto" class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-slate-100 text-slate-500">Belum Ada</span>
+                                </div>
+                                <div class="relative w-full h-32 rounded-lg overflow-hidden bg-slate-100 border border-slate-200 flex items-center justify-center cursor-pointer transition-shadow"
+                                     onclick="handleManualCardClick('pas_foto')"
+                                     title="Klik untuk memilih atau melihat pratinjau">
+                                    <img id="manualAddImg_pas_foto" src="" alt="Pas Foto" class="w-full h-full object-cover hidden" />
+                                    <div id="manualAddFallback_pas_foto" class="flex flex-col items-center justify-center p-2 text-center text-slate-400">
+                                        <svg class="w-8 h-8 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                                        <span class="text-[10px] font-semibold text-slate-500 mt-1">Pilih Pas Foto</span>
+                                        <span class="text-[9px] text-slate-400">JPG/PNG maks 5MB</span>
+                                    </div>
+                                    <div id="manualAddOverlay_pas_foto" class="absolute inset-0 bg-black/40 opacity-0 hover:opacity-100 transition-opacity hidden items-center justify-center gap-1.5 text-white text-[10px] font-bold">
+                                        <svg class="w-4 h-4 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+                                        <span>Pratinjau Foto</span>
+                                    </div>
+                                </div>
+                                <p id="manualAddFileName_pas_foto" class="text-[10px] text-slate-500 truncate mt-1.5 hidden font-mono"></p>
+                            </div>
+                            <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between gap-1 text-[11px]">
+                                <label class="px-2.5 py-1 rounded-lg bg-forest-50 hover:bg-forest-100 text-forest-900 font-bold transition-colors cursor-pointer text-center flex-1">
+                                    <span id="manualAddBtnText_pas_foto">Pilih File</span>
+                                    <input type="file" name="pas_foto" id="manualAddFileInput_pas_foto" accept="image/jpeg,image/png,image/jpg" class="hidden" onchange="previewManualDoc(this, 'pas_foto')">
+                                </label>
+                                <button type="button" id="manualAddRemove_pas_foto" onclick="clearManualDoc('pas_foto')" class="px-2 py-1 rounded-lg bg-red-50 hover:bg-red-100 text-red-600 font-bold transition-colors hidden" title="Hapus berkas">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 2. Kartu Keluarga (KK) -->
+                        <div class="p-3 rounded-xl bg-white border border-slate-200 flex flex-col justify-between group hover:border-emerald-300 transition-colors">
+                            <div>
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-[10px] font-bold uppercase text-slate-600 tracking-wider">2. Kartu Keluarga (KK)</span>
+                                    <span id="manualAddStatus_kk" class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-slate-100 text-slate-500">Belum Ada</span>
+                                </div>
+                                <div class="relative w-full h-32 rounded-lg overflow-hidden bg-slate-100 border border-slate-200 flex items-center justify-center cursor-pointer transition-shadow"
+                                     onclick="handleManualCardClick('kk')"
+                                     title="Klik untuk memilih atau melihat pratinjau">
+                                    <img id="manualAddImg_kk" src="" alt="Kartu Keluarga" class="w-full h-full object-cover hidden" />
+                                    <div id="manualAddPdfBox_kk" class="w-full h-full bg-emerald-50/50 p-2 flex flex-col items-center justify-center text-center hidden">
+                                        <svg class="w-8 h-8 text-rose-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"></path></svg>
+                                        <span class="text-[10px] font-bold text-slate-700 mt-1">Dokumen PDF</span>
+                                        <span class="text-[9px] text-emerald-600 font-semibold">Siap Diunggah</span>
+                                    </div>
+                                    <div id="manualAddFallback_kk" class="flex flex-col items-center justify-center p-2 text-center text-slate-400">
+                                        <svg class="w-8 h-8 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                                        <span class="text-[10px] font-semibold text-slate-500 mt-1">Pilih File KK</span>
+                                        <span class="text-[9px] text-slate-400">PDF/JPG maks 10MB</span>
+                                    </div>
+                                    <div id="manualAddOverlay_kk" class="absolute inset-0 bg-black/40 opacity-0 hover:opacity-100 transition-opacity hidden items-center justify-center gap-1.5 text-white text-[10px] font-bold">
+                                        <svg class="w-4 h-4 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+                                        <span>Pratinjau KK</span>
+                                    </div>
+                                </div>
+                                <p id="manualAddFileName_kk" class="text-[10px] text-slate-500 truncate mt-1.5 hidden font-mono"></p>
+                            </div>
+                            <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between gap-1 text-[11px]">
+                                <label class="px-2.5 py-1 rounded-lg bg-forest-50 hover:bg-forest-100 text-forest-900 font-bold transition-colors cursor-pointer text-center flex-1">
+                                    <span id="manualAddBtnText_kk">Pilih File</span>
+                                    <input type="file" name="foto_kk" id="manualAddFileInput_kk" accept="image/jpeg,image/png,image/jpg,application/pdf" class="hidden" onchange="previewManualDoc(this, 'kk')">
+                                </label>
+                                <button type="button" id="manualAddRemove_kk" onclick="clearManualDoc('kk')" class="px-2 py-1 rounded-lg bg-red-50 hover:bg-red-100 text-red-600 font-bold transition-colors hidden" title="Hapus berkas">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 3. Rapor / Transkrip -->
+                        <div class="p-3 rounded-xl bg-white border border-slate-200 flex flex-col justify-between group hover:border-emerald-300 transition-colors">
+                            <div>
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-[10px] font-bold uppercase text-slate-600 tracking-wider">3. Rapor / Transkrip</span>
+                                    <span id="manualAddStatus_raport" class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-slate-100 text-slate-500">Belum Ada</span>
+                                </div>
+                                <div class="relative w-full h-32 rounded-lg overflow-hidden bg-slate-100 border border-slate-200 flex items-center justify-center cursor-pointer transition-shadow"
+                                     onclick="handleManualCardClick('raport')"
+                                     title="Klik untuk memilih atau melihat pratinjau">
+                                    <img id="manualAddImg_raport" src="" alt="Rapor" class="w-full h-full object-cover hidden" />
+                                    <div id="manualAddPdfBox_raport" class="w-full h-full bg-emerald-50/50 p-2 flex flex-col items-center justify-center text-center hidden">
+                                        <svg class="w-8 h-8 text-rose-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"></path></svg>
+                                        <span class="text-[10px] font-bold text-slate-700 mt-1">Dokumen PDF</span>
+                                        <span class="text-[9px] text-emerald-600 font-semibold">Siap Diunggah</span>
+                                    </div>
+                                    <div id="manualAddFallback_raport" class="flex flex-col items-center justify-center p-2 text-center text-slate-400">
+                                        <svg class="w-8 h-8 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                        <span class="text-[10px] font-semibold text-slate-500 mt-1">Pilih File Rapor</span>
+                                        <span class="text-[9px] text-slate-400">PDF/JPG maks 10MB</span>
+                                    </div>
+                                    <div id="manualAddOverlay_raport" class="absolute inset-0 bg-black/40 opacity-0 hover:opacity-100 transition-opacity hidden items-center justify-center gap-1.5 text-white text-[10px] font-bold">
+                                        <svg class="w-4 h-4 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+                                        <span>Pratinjau Rapor</span>
+                                    </div>
+                                </div>
+                                <p id="manualAddFileName_raport" class="text-[10px] text-slate-500 truncate mt-1.5 hidden font-mono"></p>
+                            </div>
+                            <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between gap-1 text-[11px]">
+                                <label class="px-2.5 py-1 rounded-lg bg-forest-50 hover:bg-forest-100 text-forest-900 font-bold transition-colors cursor-pointer text-center flex-1">
+                                    <span id="manualAddBtnText_raport">Pilih File</span>
+                                    <input type="file" name="foto_raport" id="manualAddFileInput_raport" accept="image/jpeg,image/png,image/jpg,application/pdf" class="hidden" onchange="previewManualDoc(this, 'raport')">
+                                </label>
+                                <button type="button" id="manualAddRemove_raport" onclick="clearManualDoc('raport')" class="px-2 py-1 rounded-lg bg-red-50 hover:bg-red-100 text-red-600 font-bold transition-colors hidden" title="Hapus berkas">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal Footer Inside Form -->
+                <div class="pt-4 border-t border-slate-200 flex items-center justify-end gap-2">
+                    <button type="button" onclick="closeManualAddModal()" class="px-4 py-2 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100 transition-colors">Batal</button>
+                    <button type="submit" id="btnSubmitManualPendaftaran" class="px-4 py-2 rounded-xl text-xs font-bold bg-[#0B3B2C] hover:bg-[#07261C] text-white flex items-center gap-2 shadow-xs transition-all">
+                        <svg class="w-4 h-4 text-emerald-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span id="btnSubmitManualPendaftaranText">Simpan Data Pendaftar</span>
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 
@@ -2239,76 +2471,233 @@
             }
 
             // ====================================================
-            // 4. Manual Student Add Modal (Offline)
+            // 4. Manual Student Add Modal (Offline / Walk-In Lengkap)
             // ====================================================
+            let manualDocFiles = {
+                pas_foto: null,
+                kk: null,
+                raport: null
+            };
+
+            function previewManualDoc(input, docType) {
+                if (!input.files || !input.files[0]) return;
+                const file = input.files[0];
+                manualDocFiles[docType] = file;
+
+                const sizeKb = (file.size / 1024).toFixed(0) + ' KB';
+                const isImage = file.type.startsWith('image/');
+                const isPdf = file.type === 'application/pdf' || file.name.toLowerCase().endsWith('.pdf');
+
+                const statusBadge = document.getElementById(`manualAddStatus_${docType}`);
+                if (statusBadge) {
+                    statusBadge.innerText = 'Dipilih';
+                    statusBadge.className = 'text-[9px] font-bold px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-700 border border-emerald-200';
+                }
+
+                const fileNameEl = document.getElementById(`manualAddFileName_${docType}`);
+                if (fileNameEl) {
+                    fileNameEl.innerText = `${file.name} (${sizeKb})`;
+                    fileNameEl.classList.remove('hidden');
+                }
+
+                const imgEl = document.getElementById(`manualAddImg_${docType}`);
+                const pdfBoxEl = document.getElementById(`manualAddPdfBox_${docType}`);
+                const fallbackEl = document.getElementById(`manualAddFallback_${docType}`);
+                const overlayEl = document.getElementById(`manualAddOverlay_${docType}`);
+                const removeBtn = document.getElementById(`manualAddRemove_${docType}`);
+                const btnText = document.getElementById(`manualAddBtnText_${docType}`);
+
+                if (fallbackEl) fallbackEl.classList.add('hidden');
+                if (overlayEl) {
+                    overlayEl.classList.remove('hidden');
+                    overlayEl.classList.add('flex');
+                }
+                if (removeBtn) removeBtn.classList.remove('hidden');
+                if (btnText) btnText.innerText = 'Ganti';
+
+                if (isImage && imgEl) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        imgEl.src = e.target.result;
+                        imgEl.classList.remove('hidden');
+                    };
+                    reader.readAsDataURL(file);
+                    if (pdfBoxEl) pdfBoxEl.classList.add('hidden');
+                } else if (isPdf && pdfBoxEl) {
+                    if (imgEl) {
+                        imgEl.src = '';
+                        imgEl.classList.add('hidden');
+                    }
+                    pdfBoxEl.classList.remove('hidden');
+                }
+            }
+
+            function clearManualDoc(docType) {
+                manualDocFiles[docType] = null;
+                const input = document.getElementById(`manualAddFileInput_${docType}`);
+                if (input) input.value = '';
+
+                const statusBadge = document.getElementById(`manualAddStatus_${docType}`);
+                if (statusBadge) {
+                    statusBadge.innerText = 'Belum Ada';
+                    statusBadge.className = 'text-[9px] font-bold px-1.5 py-0.5 rounded bg-slate-100 text-slate-500';
+                }
+
+                const fileNameEl = document.getElementById(`manualAddFileName_${docType}`);
+                if (fileNameEl) {
+                    fileNameEl.innerText = '';
+                    fileNameEl.classList.add('hidden');
+                }
+
+                const imgEl = document.getElementById(`manualAddImg_${docType}`);
+                if (imgEl) {
+                    imgEl.src = '';
+                    imgEl.classList.add('hidden');
+                }
+
+                const pdfBoxEl = document.getElementById(`manualAddPdfBox_${docType}`);
+                if (pdfBoxEl) pdfBoxEl.classList.add('hidden');
+
+                const fallbackEl = document.getElementById(`manualAddFallback_${docType}`);
+                if (fallbackEl) fallbackEl.classList.remove('hidden');
+
+                const overlayEl = document.getElementById(`manualAddOverlay_${docType}`);
+                if (overlayEl) {
+                    overlayEl.classList.add('hidden');
+                    overlayEl.classList.remove('flex');
+                }
+
+                const removeBtn = document.getElementById(`manualAddRemove_${docType}`);
+                if (removeBtn) removeBtn.classList.add('hidden');
+
+                const btnText = document.getElementById(`manualAddBtnText_${docType}`);
+                if (btnText) btnText.innerText = 'Pilih File';
+            }
+
+            function handleManualCardClick(docType) {
+                if (manualDocFiles[docType]) {
+                    openLocalDocPreview(docType);
+                } else {
+                    const input = document.getElementById(`manualAddFileInput_${docType}`);
+                    if (input) input.click();
+                }
+            }
+
+            function openLocalDocPreview(docType) {
+                const file = manualDocFiles[docType];
+                if (!file) return;
+
+                let title = 'Pratinjau Dokumen';
+                if (docType === 'pas_foto') title = 'Pas Foto Santri (3×4)';
+                if (docType === 'kk') title = 'Salinan Kartu Keluarga (KK)';
+                if (docType === 'raport') title = 'Transkrip Nilai / Rapor';
+
+                const modal = document.getElementById('docPreviewModal');
+                const titleEl = document.getElementById('docPreviewTitle');
+                const nameEl = document.getElementById('docPreviewStudentName');
+                const fileNameEl = document.getElementById('docPreviewFileName');
+                const imgContainer = document.getElementById('docPreviewImageContainer');
+                const pdfContainer = document.getElementById('docPreviewPdfContainer');
+                const emptyContainer = document.getElementById('docPreviewEmptyContainer');
+                const imgEl = document.getElementById('docPreviewImg');
+                const iframeEl = document.getElementById('docPreviewIframe');
+                const extLink = document.getElementById('docPreviewExternalLink');
+                const downLink = document.getElementById('docPreviewDownloadLink');
+
+                if (titleEl) titleEl.innerText = title;
+                if (nameEl) nameEl.innerText = 'Berkas Terpilih: ' + file.name;
+                if (fileNameEl) fileNameEl.innerText = file.name;
+
+                if (emptyContainer) emptyContainer.classList.add('hidden');
+
+                const isPdf = file.type === 'application/pdf' || file.name.toLowerCase().endsWith('.pdf');
+                const objectUrl = URL.createObjectURL(file);
+
+                if (extLink) {
+                    extLink.classList.remove('hidden');
+                    extLink.href = objectUrl;
+                }
+                if (downLink) {
+                    downLink.classList.remove('hidden');
+                    downLink.href = objectUrl;
+                }
+
+                if (isPdf) {
+                    if (imgContainer) imgContainer.classList.add('hidden');
+                    if (pdfContainer) pdfContainer.classList.remove('hidden');
+                    if (iframeEl) iframeEl.src = objectUrl;
+                } else {
+                    if (pdfContainer) pdfContainer.classList.add('hidden');
+                    if (imgContainer) imgContainer.classList.remove('hidden');
+                    if (imgEl) imgEl.src = objectUrl;
+                }
+
+                if (modal) modal.classList.remove('hidden');
+            }
+
+            function resetManualDocPreviews() {
+                clearManualDoc('pas_foto');
+                clearManualDoc('kk');
+                clearManualDoc('raport');
+            }
+
             function openManualAddModal() {
-                document.getElementById('manualAddModal').classList.remove('hidden');
+                const modal = document.getElementById('manualAddModal');
+                if (modal) modal.classList.remove('hidden');
+                const form = document.getElementById('manualAddPendaftaranForm');
+                if (form) form.reset();
+                resetManualDocPreviews();
             }
 
             function closeManualAddModal() {
-                document.getElementById('manualAddModal').classList.add('hidden');
+                const modal = document.getElementById('manualAddModal');
+                if (modal) modal.classList.add('hidden');
+                resetManualDocPreviews();
             }
 
-            function saveManualStudent() {
-                const nama = document.getElementById('manualNama').value.trim();
-                const gender = document.getElementById('manualGender').value;
-                const jenjang = document.getElementById('manualJenjang').value;
-                const tempatLahir = document.getElementById('manualTempatLahir').value.trim();
-                const tglLahir = document.getElementById('manualTglLahir').value;
-                const namaAyah = document.getElementById('manualAyah').value.trim();
-                const noHpAyah = document.getElementById('manualHpAyah').value.trim();
-                const asalSekolah = document.getElementById('manualAsalSekolah').value.trim();
-                const emailInput = document.getElementById('manualEmail');
-                const email = emailInput ? emailInput.value.trim() : '';
+            async function submitManualPendaftaranForm(e) {
+                e.preventDefault();
+                const form = document.getElementById('manualAddPendaftaranForm');
+                const btn = document.getElementById('btnSubmitManualPendaftaran');
+                const btnText = document.getElementById('btnSubmitManualPendaftaranText');
 
-                if (!nama) {
-                    alert('Mohon isi nama lengkap calon santri.');
-                    return;
-                }
-                if (!namaAyah) {
-                    alert('Mohon isi nama ayah kandung.');
-                    return;
-                }
-                if (!noHpAyah) {
-                    alert('Mohon isi nomor WhatsApp ayah.');
-                    return;
-                }
+                if (btn) btn.disabled = true;
+                if (btnText) btnText.innerText = 'Menyimpan...';
 
-                const token = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
-                fetch('/admin/pendaftaran', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json',
-                        'X-CSRF-TOKEN': token
-                    },
-                    body: JSON.stringify({
-                        nama_santri: nama,
-                        jenis_kelamin: gender,
-                        jenjang: jenjang,
-                        tempat_lahir: tempatLahir,
-                        tanggal_lahir: tglLahir,
-                        nama_ayah: namaAyah,
-                        no_hp_ayah: noHpAyah,
-                        asal_sekolah: asalSekolah,
-                        email: email,
-                        status: 'pending'
-                    })
-                }).then(async res => {
-                    if (!res.ok) {
-                        const err = await res.json().catch(() => ({}));
-                        throw new Error(err.message || 'Gagal menyimpan data.');
+                const formData = new FormData(form);
+
+                try {
+                    const res = await fetch('/admin/pendaftaran', {
+                        method: 'POST',
+                        headers: {
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                            'Accept': 'application/json'
+                        },
+                        body: formData
+                    });
+
+                    const data = await res.json();
+                    if (res.ok && data.success) {
+                        closeManualAddModal();
+                        showPendaftaranToast(data.message || 'Pendaftar baru berhasil ditambahkan!');
+                        setTimeout(() => {
+                            window.location.reload();
+                        }, 800);
+                    } else {
+                        let errorMsg = data.message || 'Gagal menambahkan pendaftar.';
+                        if (data.errors) {
+                            const errorDetails = Object.values(data.errors).flat().join('\n• ');
+                            errorMsg += '\n\n• ' + errorDetails;
+                        }
+                        alert(errorMsg);
                     }
-                    return res.json();
-                }).then(res => {
-                    closeManualAddModal();
-                    showPendaftaranToast('Data santri ' + nama + ' berhasil didaftarkan! Memuat data...');
-                    setTimeout(() => {
-                        window.location.reload();
-                    }, 1000);
-                }).catch(err => {
-                    showPendaftaranToast('Gagal: ' + err.message);
-                });
+                } catch (err) {
+                    console.error(err);
+                    alert('Terjadi kesalahan koneksi saat menyimpan pendaftaran baru.');
+                } finally {
+                    if (btn) btn.disabled = false;
+                    if (btnText) btnText.innerText = 'Simpan Data Pendaftar';
+                }
             }
 
             function showPendaftaranToast(message) {

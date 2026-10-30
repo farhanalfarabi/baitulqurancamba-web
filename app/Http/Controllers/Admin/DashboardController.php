@@ -121,11 +121,34 @@ class DashboardController extends Controller
             'pekerjaan_ibu' => ['nullable', 'string', 'max:100'],
             'penghasilan_ibu' => ['nullable', 'string', 'max:100'],
             'status' => ['nullable', 'string', 'in:pending,terverifikasi,diterima,berkas_belum_lengkap'],
+            'pas_foto' => ['nullable', 'file', 'mimes:jpeg,png,jpg', 'max:5120'],
+            'foto_kk' => ['nullable', 'file', 'mimes:jpeg,png,jpg,pdf', 'max:10240'],
+            'foto_raport' => ['nullable', 'file', 'mimes:jpeg,png,jpg,pdf', 'max:10240'],
         ]);
 
-        $year = date('Y');
-        $nextNumber = (Pendaftaran::max('id') ?? 0) + 1;
-        $validated['registration_number'] = 'PSB-'.($year + 1).'-'.str_pad((string) $nextNumber, 3, '0', STR_PAD_LEFT);
+        if ($request->hasFile('pas_foto')) {
+            $validated['pas_foto_path'] = $request->file('pas_foto')->store('pendaftaran/pas_foto', 'public');
+        }
+        if ($request->hasFile('foto_kk')) {
+            $validated['foto_kk_path'] = $request->file('foto_kk')->store('pendaftaran/kk', 'public');
+        }
+        if ($request->hasFile('foto_raport')) {
+            $validated['foto_raport_path'] = $request->file('foto_raport')->store('pendaftaran/raport', 'public');
+        }
+
+        $academicYear = 2027;
+        $prefix = "PSB-{$academicYear}-";
+        $lastRegistration = Pendaftaran::where('registration_number', 'LIKE', "{$prefix}%")
+            ->lockForUpdate()
+            ->orderByDesc('id')
+            ->first();
+
+        $nextSequence = 1;
+        if ($lastRegistration && preg_match('/PSB-\d{4}-(\d+)/', $lastRegistration->registration_number, $matches)) {
+            $nextSequence = ((int) $matches[1]) + 1;
+        }
+
+        $validated['registration_number'] = sprintf('%s%03d', $prefix, $nextSequence);
         $validated['status'] = $validated['status'] ?? 'pending';
 
         $pendaftaran = Pendaftaran::create($validated);
