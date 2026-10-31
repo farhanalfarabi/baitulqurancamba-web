@@ -10,9 +10,7 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  # Path direktori project di Hostinger Anda (relatif dari home ~/)
-  # Sesuaikan jika folder Anda berada di 'public_html' atau subfolder lain
-  TARGET_DIR: domains/baitulqurancamba.com/public_html
+  TARGET_DIR: public_html
 
 jobs:
   build-and-deploy:
@@ -55,34 +53,51 @@ jobs:
           script: |
             set -e
 
-            # Masuk ke folder project
+            # Masuk ke folder target
             cd ~/${{ env.TARGET_DIR }}
 
             echo "🚀 Mulai proses deployment..."
 
-            # 1. Aktifkan maintenance mode (opsional)
+            # Inisialisasi git otomatis jika folder masih baru / belum ada git
+            if [ ! -d ".git" ]; then
+              echo "Folder belum terhubung git, melakukan inisialisasi awal..."
+              git init
+              git remote add origin https://github.com/farhanalfarabi/baitulqurancamba-web.git
+              git fetch origin main
+              git reset --hard origin/main
+            else
+              # Ambil update kode terbaru
+              git fetch origin main
+              git reset --hard origin/main
+            fi
+
+            # Siapkan file .env jika belum ada
+            if [ ! -f ".env" ]; then
+              echo "Membuat file .env dari .env.example..."
+              cp .env.example .env
+              php artisan key:generate --force
+            fi
+
+            # 1. Aktifkan maintenance mode
             php artisan down || true
 
-            # 2. Ambil update kode terbaru dari branch main
-            git fetch origin main
-            git reset --hard origin/main
-
-            # 3. Install dependency Composer untuk production
+            # 2. Install dependency Composer untuk production
             composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
 
-            # 4. Jalankan migrasi database
+            # 3. Jalankan migrasi database
             php artisan migrate --force
 
-            # 5. Refresh cache konfigurasi, route, dan view
+            # 4. Refresh cache konfigurasi, route, dan view
             php artisan optimize:clear
             php artisan config:cache
             php artisan route:cache
             php artisan view:cache
 
-            # 6. Pastikan symbolic link storage sudah aktif
+            # 5. Pastikan symbolic link storage sudah aktif
             php artisan storage:link || true
 
-            # 7. Matikan maintenance mode
+            # 6. Matikan maintenance mode
             php artisan up
 
             echo "✅ Deployment ke Hostinger berhasil!"
+
