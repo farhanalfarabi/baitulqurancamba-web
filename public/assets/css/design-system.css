@@ -645,12 +645,12 @@ body {
 
 @media (max-width: 640px) {
   .hero-wave-wrapper {
-    background: linear-gradient(to bottom, #ffffff 0%, #ffffff 45px, #FAF7F0 95px, #FAF7F0 100%);
+    background: linear-gradient(to bottom, #ffffff 0%, #ffffff 45px, #FAF7F0 110px, #FAF7F0 100%);
   }
   .hero-rotating-wave {
-    bottom: 260px;
-    width: 160%;
-    min-width: 580px;
+    bottom: 130px;
+    width: 175%;
+    min-width: 620px;
     filter: drop-shadow(0 6px 20px rgba(74, 14, 23, 0.08));
   }
 }

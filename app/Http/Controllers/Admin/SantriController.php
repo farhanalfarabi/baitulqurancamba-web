@@ -64,7 +64,7 @@ class SantriController extends Controller
         $validated = $request->validate([
             'nama_santri' => ['required', 'string', 'max:255'],
             'jenis_kelamin' => ['required', 'string', 'in:Putra,Putri'],
-            'jenjang' => ['required', 'string', 'in:MTs,MA'],
+            'jenjang' => ['required', 'string', 'in:Wustho,Ulya'],
             'tempat_lahir' => ['nullable', 'string', 'max:100'],
             'tanggal_lahir' => ['nullable', 'date'],
             'alamat_lengkap' => ['nullable', 'string'],

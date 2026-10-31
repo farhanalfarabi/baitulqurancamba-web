@@ -168,7 +168,7 @@
         <div class="label">Nomor Registrasi Resmi:</div>
         <div class="reg-number">{{ $pendaftaran->registration_number }}</div>
         <div class="badge-jenjang">
-          Jenjang: {{ $pendaftaran->jenjang === 'MTs' ? 'MTs (Madrasah Tsanawiyah / SMP)' : 'MA (Madrasah Aliyah / SMA)' }}
+          Jenjang: {{ in_array($pendaftaran->jenjang, ['Wustho', 'Wustha', 'MTs']) ? 'Wustho (Setara SMP)' : 'Ulya (Setara SMA)' }}
         </div>
       </div>
 

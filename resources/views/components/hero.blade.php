@@ -1,5 +1,5 @@
 <!-- Hero Section Component -->
-<section class="relative pt-10 sm:pt-16 pb-4 sm:pb-6 overflow-hidden bg-white">
+<section class="relative pt-6 sm:pt-16 pb-4 sm:pb-6 overflow-hidden bg-white">
 
   <!-- Rotating Cloud Wave Background -->
   <div class="hero-wave-wrapper absolute inset-0 w-full h-full pointer-events-none -z-0 overflow-hidden">
@@ -12,52 +12,55 @@
 
     <!-- Top Pill Badge -->
     <div
-      class="inline-flex items-center gap-2 pl-1.5 pr-3.5 sm:pr-4 py-1 rounded-full bg-[#121212] text-lime border-[2px] border-[#121212] brutal-shadow-sm mb-5 sm:mb-4">
-      <img src="/assets/images/badge-scallop-trophy.svg" alt="Prestasi" class="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0">
-      <span class="font-label font-bold text-[10px] sm:text-xs tracking-wider uppercase text-lime">
+      class="inline-flex items-center gap-1.5 sm:gap-2 pl-1.5 pr-3 sm:pr-4 py-0.5 sm:py-1 rounded-full bg-[#121212] text-lime border-[2px] border-[#121212] brutal-shadow-sm mb-4 sm:mb-4 max-w-full">
+      <img src="/assets/images/badge-scallop-trophy.svg" alt="Prestasi" class="w-4 h-4 sm:w-6 sm:h-6 flex-shrink-0">
+      <span class="font-label font-bold text-[9px] min-[360px]:text-[10px] sm:text-xs tracking-normal min-[360px]:tracking-wider uppercase text-lime truncate">
         Pondok Pesantren Tahfizh Baitul Qur'an Camba
       </span>
     </div>
 
     <!-- Main Hero Title (3-Line Lockup) -->
-    <div class="relative max-w-4xl mx-auto mb-6 sm:mb-4">
+    <div class="relative max-w-4xl mx-auto mb-5 sm:mb-4">
       <h1
-        class="font-display font-black text-[2.5rem] sm:text-5xl lg:text-6xl xl:text-[66px] tracking-tight text-[#121212] uppercase leading-[1.05] sm:leading-[1.02] flex flex-col items-center justify-center gap-1.5 sm:gap-2">
+        class="font-display font-black text-[clamp(1.45rem,6vw,2.25rem)] sm:text-5xl lg:text-6xl xl:text-[66px] tracking-tight text-[#121212] uppercase leading-[1.08] sm:leading-[1.02] flex flex-col items-center justify-center gap-1 sm:gap-2">
         <!-- Line 1 -->
-        <span class="block">MEMBINA GENERASI</span>
+        <span class="block whitespace-nowrap">MEMBINA GENERASI</span>
 
-        <!-- Line 2: Mobile (PENGHAFAL al-qur'an) / Desktop (PENGHAFAL al-qur'an YANG) -->
-        <span class="inline-flex items-center justify-center gap-x-2 sm:gap-x-3 lg:hidden">
+        <!-- Line 2: Mobile (PENGHAFAL Al-Qur'an) / Desktop (PENGHAFAL Al-Qur'an YANG) -->
+        <span class="inline-flex items-center justify-center gap-x-1.5 sm:gap-x-3 whitespace-nowrap lg:hidden">
           <span>PENGHAFAL</span>
           <span
-            class="font-cursive italic font-bold lowercase text-[1.1em] sm:text-[1.2em] text-[#4A0E17] -rotate-3 inline-block">Al-qur'an</span>
+            class="font-cursive italic font-bold normal-case text-[1.15em] sm:text-[1.2em] text-[#4A0E17] -rotate-3 inline-block whitespace-nowrap">Al-Qur'an</span>
         </span>
         <span class="hidden lg:inline-flex items-center justify-center gap-x-3">
           <span>PENGHAFAL</span>
           <span
-            class="font-cursive italic font-bold lowercase text-[1.2em] text-[#4A0E17] -rotate-3 inline-block">Al-qur'an</span>
+            class="font-cursive italic font-bold normal-case text-[1.2em] text-[#4A0E17] -rotate-3 inline-block mr-1">Al-Qur'an</span>
           <span>YANG</span>
         </span>
 
         <!-- Line 3: Mobile (YANG TANGGUH & BERAKHLAK) / Desktop (TANGGUH & BERAKHLAK) -->
-        <span class="block lg:hidden">YANG TANGGUH & BERAKHLAK</span>
+        <span class="block lg:hidden text-center">
+          <span class="inline-block whitespace-nowrap">YANG TANGGUH</span>
+          <span class="inline-block whitespace-nowrap">& BERAKHLAK</span>
+        </span>
         <span class="hidden lg:block">TANGGUH & BERAKHLAK</span>
       </h1>
     </div>
 
     <!-- Hero Primary CTA: Signature Double-Layer Button -->
-    <div class="flex justify-center mb-5 sm:mb-6">
+    <div class="flex justify-center mb-4 sm:mb-6">
       <a href="{{ route('pendaftaran') }}"
         class="hero-cta-btn group bg-white p-1 rounded-xl shadow-md inline-flex items-center transition-transform hover:scale-[1.02] active:scale-[0.98] cursor-pointer focus:outline-none">
         <div
-          class="bg-lime text-[#121212] border-2 border-[#161616] rounded-lg px-6 py-2.5 sm:py-3 flex items-center gap-3 font-display font-black text-xs sm:text-sm uppercase tracking-wider">
+          class="bg-lime text-[#121212] border-2 border-[#161616] rounded-lg px-5 sm:px-6 py-2.5 sm:py-3 flex items-center gap-2.5 sm:gap-3 font-display font-black text-xs sm:text-sm uppercase tracking-wider">
           <span class="roll-link">
             <span class="roll-link-inner">
               <span>DAFTAR SEKARANG</span>
               <span class="text-[#121212]" aria-hidden="true">DAFTAR SEKARANG</span>
             </span>
           </span>
-          <svg class="w-6 h-6 flex-shrink-0 transition-transform duration-500 group-hover:rotate-[45deg] drop-shadow-sm" viewBox="0 0 40 40" fill="none">
+          <svg class="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 transition-transform duration-500 group-hover:rotate-[45deg] drop-shadow-sm" viewBox="0 0 40 40" fill="none">
             <path d="M 20 2 C 22.5 2, 24 4.5, 26 5 C 28 5.5, 30.5 4.5, 32 6 C 33.5 7.5, 32.5 10, 33 12 C 33.5 14, 36 15.5, 36 18 C 36 20.5, 34 22, 33.5 24 C 33 26, 34 28.5, 32.5 30 C 31 31.5, 28.5 30.5, 26.5 31 C 24.5 31.5, 23 34, 20.5 34 C 18 34, 16.5 31.5, 14.5 31 C 12.5 30.5, 10 31.5, 8.5 30 C 7 28.5, 8 26, 7.5 24 C 7 22, 5 20.5, 5 18 C 5 15.5, 7.5 14, 8 12 C 8.5 10, 7.5 7.5, 9 6 C 10.5 4.5, 13 5.5, 15 5 C 17 4.5, 18.5 2, 20 2 Z"
                   fill="#F8330B" stroke="#161616" stroke-width="2" stroke-linejoin="round"/>
             <path d="M 14 18 L 26 18 M 21 13 L 26 18 L 21 23" 
@@ -111,7 +114,7 @@
   @endphp
 
   <!-- Mobile Hero Cards: Seamless Infinite Marquee (Tersusun Rapi, Infinite Loop Berjalan Terus) -->
-  <div class="block lg:hidden relative w-full overflow-hidden py-2 sm:py-3 mt-16 sm:mt-20 select-none hero-mobile-marquee-container">
+  <div class="block lg:hidden relative w-full overflow-hidden py-2 sm:py-3 mt-8 sm:mt-12 select-none hero-mobile-marquee-container">
     <style>
       @keyframes heroMarqueeRight {
         0% {

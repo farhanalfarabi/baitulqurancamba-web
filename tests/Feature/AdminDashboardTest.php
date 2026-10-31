@@ -159,7 +159,7 @@ class AdminDashboardTest extends TestCase
         $payload = [
             'nama_santri' => 'Santri Manual Baru',
             'jenis_kelamin' => 'Putri',
-            'jenjang' => 'MTs',
+            'jenjang' => 'Wustho',
             'tempat_lahir' => 'Camba',
             'tanggal_lahir' => '2014-03-15',
             'nama_ayah' => 'Ayah Manual',
@@ -176,7 +176,7 @@ class AdminDashboardTest extends TestCase
                 'success' => true,
                 'data' => [
                     'nama_santri' => 'Santri Manual Baru',
-                    'jenjang' => 'MTs',
+                    'jenjang' => 'Wustho',
                     'jenis_kelamin' => 'Putri',
                 ],
             ]);

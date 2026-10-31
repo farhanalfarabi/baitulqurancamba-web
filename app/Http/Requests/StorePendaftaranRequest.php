@@ -23,7 +23,7 @@ class StorePendaftaranRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'jenjang' => ['required', 'string', 'in:MTs,MA'],
+            'jenjang' => ['required', 'string', 'in:Wustho,Ulya'],
             'santri_nama' => ['required', 'string', 'max:255'],
             'santri_gender' => ['required', 'string', 'in:Putra,Putri'],
             'santri_tempat_lahir' => ['required', 'string', 'max:100'],
@@ -55,8 +55,8 @@ class StorePendaftaranRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'jenjang.required' => 'Silakan pilih jenjang pendidikan (MTs atau MA).',
-            'jenjang.in' => 'Pilihan jenjang harus MTs atau MA.',
+            'jenjang.required' => 'Silakan pilih jenjang pendidikan (Wustho atau Ulya).',
+            'jenjang.in' => 'Pilihan jenjang harus Wustho atau Ulya.',
             'santri_nama.required' => 'Nama lengkap calon santri wajib diisi.',
             'santri_gender.required' => 'Jenis kelamin calon santri wajib dipilih.',
             'santri_tempat_lahir.required' => 'Tempat lahir wajib diisi.',

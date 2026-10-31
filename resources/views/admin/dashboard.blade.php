@@ -102,7 +102,7 @@
                 <span class="text-xs font-medium text-slate-500">santri mukim</span>
             </div>
             <div class="mt-3 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600">
-                <span class="font-semibold text-slate-700">{{ $stats['santri_mts'] ?? ($stats['santri_wustha'] ?? 84) }} MTs · {{ $stats['santri_ma'] ?? ($stats['santri_ulya'] ?? 64) }} MA</span>
+                <span class="font-semibold text-slate-700">{{ $stats['santri_wustha'] ?? ($stats['santri_mts'] ?? 84) }} Wustho · {{ $stats['santri_ulya'] ?? ($stats['santri_ma'] ?? 64) }} Ulya</span>
                 <a href="{{ route('admin.santri.index') }}" class="text-emerald-700 hover:text-emerald-900 font-bold hover:underline">
                     Buku Induk &rarr;
                 </a>
@@ -180,7 +180,7 @@
                 <div class="flex items-center gap-2">
                     <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-forest-50 text-forest-900 text-xs font-semibold">
                         <span class="w-2 h-2 rounded-full bg-forest-900"></span>
-                        MTs & MA
+                        Wustho & Ulya
                     </span>
                     <span class="text-xs text-slate-400">|</span>
                     <span class="text-xs font-semibold text-slate-500">6 Bulan Terakhir</span>
@@ -228,7 +228,7 @@
                     <div class="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 border border-slate-100">
                         <div class="flex items-center gap-2.5">
                             <span class="w-3 h-3 rounded-full bg-[#0B3B2C]"></span>
-                            <span class="text-xs font-bold text-slate-800">Tingkat MTs</span>
+                            <span class="text-xs font-bold text-slate-800">Tingkat Wustho</span>
                         </div>
                         <span class="text-xs font-extrabold text-slate-900">84 Santri (57%)</span>
                     </div>
@@ -236,7 +236,7 @@
                     <div class="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 border border-slate-100">
                         <div class="flex items-center gap-2.5">
                             <span class="w-3 h-3 rounded-full bg-amber-500"></span>
-                            <span class="text-xs font-bold text-slate-800">Tingkat MA</span>
+                            <span class="text-xs font-bold text-slate-800">Tingkat Ulya</span>
                         </div>
                         <span class="text-xs font-extrabold text-slate-900">64 Santri (43%)</span>
                     </div>
@@ -375,13 +375,13 @@
 
                                 <!-- Jenjang Pilihan -->
                                 <td class="py-3.5 px-4 whitespace-nowrap">
-                                    @if(str_contains(strtolower($item->jenjang), 'mts') || str_contains(strtolower($item->jenjang), 'wustha'))
+                                    @if(str_contains(strtolower($item->jenjang), 'mts') || str_contains(strtolower($item->jenjang), 'wusth'))
                                         <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200">
-                                            MTs
+                                            Wustho
                                         </span>
                                     @elseif(str_contains(strtolower($item->jenjang), 'ma') || str_contains(strtolower($item->jenjang), 'ulya'))
                                         <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-amber-50 text-amber-800 border border-amber-200">
-                                            MA
+                                            Ulya
                                         </span>
                                     @else
                                         <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-teal-50 text-teal-800 border border-teal-200">
@@ -551,7 +551,7 @@
                             <p class="text-slate-800 font-semibold leading-snug">
                                 Pendaftar baru <span class="text-slate-900 font-bold">Hamzah Asadullah</span> masuk via web.
                             </p>
-                            <span class="text-[10px] text-slate-400">1 jam yang lalu &bull; Jenjang MTs</span>
+                            <span class="text-[10px] text-slate-400">1 jam yang lalu &bull; Jenjang Wustho</span>
                         </div>
                     </div>
 
@@ -599,7 +599,7 @@
                             </svg>
                         </div>
                         <span class="text-xs font-bold text-slate-800 group-hover:text-forest-900">Data Santri</span>
-                        <span class="text-[10px] text-slate-400">MTs & MA</span>
+                        <span class="text-[10px] text-slate-400">Wustho & Ulya</span>
                     </a>
 
                     <a href="{{ route('admin.guru.index') }}" 
@@ -1014,7 +1014,7 @@
                 <div class="space-y-3">
                     <div>
                         <label class="block text-xs font-semibold text-slate-700 mb-1">Judul Dokumentasi Kegiatan</label>
-                        <input type="text" id="uploadPhotoTitle" placeholder="Contoh: Halaqah Tahfizh Fajar Santri MTs" class="w-full px-3 py-2 text-xs rounded-xl border border-slate-200 outline-hidden focus:border-forest-500 focus:ring-1 focus:ring-forest-200">
+                        <input type="text" id="uploadPhotoTitle" placeholder="Contoh: Halaqah Tahfizh Fajar Santri Wustho" class="w-full px-3 py-2 text-xs rounded-xl border border-slate-200 outline-hidden focus:border-forest-500 focus:ring-1 focus:ring-forest-200">
                     </div>
                     <div class="grid grid-cols-2 gap-3">
                         <div>
@@ -1132,7 +1132,7 @@
                 new Chart(doughnutCtx, {
                     type: 'doughnut',
                     data: {
-                        labels: ['MTs (SMP)', 'MA (SMA)'],
+                        labels: ['Wustho (Setara SMP)', 'Ulya (Setara SMA)'],
                         datasets: [{
                             data: [84, 64],
                             backgroundColor: ['#0B3B2C', '#F59E0B'],

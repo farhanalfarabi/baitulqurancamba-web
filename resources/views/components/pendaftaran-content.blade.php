@@ -150,25 +150,25 @@
 
         <div class="space-y-6">
 
-          <!-- 0. Pilihan Jenjang Pendidikan (MTs / MA) -->
+          <!-- 0. Pilihan Jenjang Pendidikan (Wustho / Ulya) -->
           <div>
             <label class="block font-label font-bold text-xs uppercase tracking-wider text-gray-700 mb-2">
               Pilihan Jenjang Pendidikan <span class="text-[#CF2B09] font-bold">*</span>
             </label>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <!-- Option MTs -->
+              <!-- Option Wustho -->
               <label class="jenjang-card cursor-pointer relative block">
-                <input type="radio" name="jenjang" value="MTs" required class="peer sr-only" checked>
+                <input type="radio" name="jenjang" value="Wustho" required class="peer sr-only" checked>
                 <div class="p-4 rounded-2xl bg-stone-50/70 border-2 border-transparent shadow-sm peer-checked:bg-white peer-checked:border-[#CF2B09] peer-checked:shadow-md flex items-center gap-4 transition-all hover:bg-stone-100/70">
                   <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-700 border border-emerald-100 flex items-center justify-center flex-shrink-0 shadow-sm text-2xl">
                     📖
                   </div>
                   <div class="flex-1">
                     <div class="flex items-center gap-2">
-                      <span class="font-display font-black text-base uppercase tracking-tight text-gray-900 block">MTs</span>
+                      <span class="font-display font-black text-base uppercase tracking-tight text-gray-900 block">Wustho</span>
                       <span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-label font-bold text-[10px] uppercase">Setara SMP</span>
                     </div>
-                    <span class="font-body text-xs text-gray-500 block mt-0.5">Madrasah Tsanawiyah Tahfizh</span>
+                    <span class="font-body text-xs text-gray-500 block mt-0.5">Pendidikan Kesetaraan / Tahfizh (Setara SMP)</span>
                   </div>
                   <div class="w-6 h-6 rounded-full border-2 border-gray-300 bg-white flex items-center justify-center text-xs font-bold text-[#CF2B09]">
                     <span class="check-indicator">✓</span>
@@ -176,19 +176,19 @@
                 </div>
               </label>
 
-              <!-- Option MA -->
+              <!-- Option Ulya -->
               <label class="jenjang-card cursor-pointer relative block">
-                <input type="radio" name="jenjang" value="MA" class="peer sr-only">
+                <input type="radio" name="jenjang" value="Ulya" class="peer sr-only">
                 <div class="p-4 rounded-2xl bg-stone-50/70 border-2 border-transparent shadow-sm peer-checked:bg-white peer-checked:border-[#CF2B09] peer-checked:shadow-md flex items-center gap-4 transition-all hover:bg-stone-100/70">
                   <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-700 border border-amber-100 flex items-center justify-center flex-shrink-0 shadow-sm text-2xl">
                     🎓
                   </div>
                   <div class="flex-1">
                     <div class="flex items-center gap-2">
-                      <span class="font-display font-black text-base uppercase tracking-tight text-gray-900 block">MA</span>
+                      <span class="font-display font-black text-base uppercase tracking-tight text-gray-900 block">Ulya</span>
                       <span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 font-label font-bold text-[10px] uppercase">Setara SMA</span>
                     </div>
-                    <span class="font-body text-xs text-gray-500 block mt-0.5">Madrasah Aliyah Tahfizh & Bahasa</span>
+                    <span class="font-body text-xs text-gray-500 block mt-0.5">Pendidikan Kesetaraan / Tahfizh & Bahasa (Setara SMA)</span>
                   </div>
                   <div class="w-6 h-6 rounded-full border-2 border-gray-300 bg-white flex items-center justify-center text-xs font-bold text-[#CF2B09]">
                     <span class="check-indicator hidden">✓</span>
@@ -196,7 +196,7 @@
                 </div>
               </label>
             </div>
-            <p class="font-body text-[11px] text-gray-500 mt-2">Pilih jenjang pendidikan formal yang dituju calon santri (MTs atau MA).</p>
+            <p class="font-body text-[11px] text-gray-500 mt-2">Pilih jenjang pendidikan yang dituju calon santri (Wustho atau Ulya).</p>
           </div>
 
           <!-- 1. Nama Lengkap -->
@@ -987,7 +987,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const regNumber = result.registration_number || '-';
 
       document.getElementById('summary-reg').textContent = regNumber;
-      document.getElementById('summary-jenjang').textContent = data.jenjang ? (data.jenjang === 'MTs' ? 'MTs (Madrasah Tsanawiyah)' : 'MA (Madrasah Aliyah)') : '-';
+      document.getElementById('summary-jenjang').textContent = data.jenjang ? ((data.jenjang === 'Wustho' || data.jenjang === 'Wustha' || data.jenjang === 'MTs') ? 'Wustho (Setara SMP)' : 'Ulya (Setara SMA)') : '-';
       document.getElementById('summary-nama').textContent = data.nama_santri || '-';
       document.getElementById('summary-gender').textContent = data.jenis_kelamin || '-';
       document.getElementById('summary-ttl').textContent = (data.tempat_lahir ? data.tempat_lahir + ', ' : '') + (data.tanggal_lahir || '-');

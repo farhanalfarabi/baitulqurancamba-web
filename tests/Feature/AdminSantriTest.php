@@ -59,7 +59,7 @@ class AdminSantriTest extends TestCase
         $payload = [
             'nama_santri' => 'Muhammad Bilal Baru',
             'jenis_kelamin' => 'Putra',
-            'jenjang' => 'MA',
+            'jenjang' => 'Ulya',
             'tempat_lahir' => 'Maros',
             'tanggal_lahir' => '2010-08-15',
             'alamat_lengkap' => 'Jl. Poros Camba No. 12',
@@ -90,7 +90,7 @@ class AdminSantriTest extends TestCase
             'nama_santri' => 'Muhammad Bilal Baru',
             'email' => 'bilal.baru@example.com',
             'status_santri' => 'aktif',
-            'jenjang' => 'MA',
+            'jenjang' => 'Ulya',
             'pekerjaan_ibu' => 'Ibu Rumah Tangga',
             'penghasilan_ibu' => 'Rp 1.000.000 - Rp 2.000.000',
         ]);
@@ -106,7 +106,7 @@ class AdminSantriTest extends TestCase
         $payload = [
             'nama_santri' => 'Maryam Santriwati',
             'jenis_kelamin' => 'Putri',
-            'jenjang' => 'MTs',
+            'jenjang' => 'Wustho',
             'nama_ayah' => 'Bapak Maryam',
             'no_hp_ayah' => '081234567800',
             'nama_ibu' => 'Ibu Maryam',
@@ -353,7 +353,7 @@ class AdminSantriTest extends TestCase
         $payload = [
             'nama_santri' => 'Muhammad Bilal Al-Banjari',
             'jenis_kelamin' => 'Putra',
-            'jenjang' => 'MTs',
+            'jenjang' => 'Wustho',
             'status' => 'pending',
             'tempat_lahir' => 'Camba, Maros',
             'tanggal_lahir' => '2012-05-15',
@@ -386,7 +386,7 @@ class AdminSantriTest extends TestCase
         $created = Pendaftaran::where('nama_santri', 'Muhammad Bilal Al-Banjari')->first();
         $this->assertNotNull($created);
         $this->assertStringStartsWith('PSB-2027-', $created->registration_number);
-        $this->assertEquals('MTs', $created->jenjang);
+        $this->assertEquals('Wustho', $created->jenjang);
         $this->assertEquals('Ahmad Subarjo', $created->nama_ayah);
         $this->assertEquals('Siti Aisyah', $created->nama_ibu);
         $this->assertEquals('Jl. Poros Camba-Maros No. 12, Kel. Cempaniga', $created->alamat_lengkap);

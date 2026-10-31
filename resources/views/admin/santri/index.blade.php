@@ -134,14 +134,14 @@
                         Semua Jenjang
                     </button>
                     <button type="button" 
-                            onclick="filterJenjang('mts', this)"
+                            onclick="filterJenjang('wustho', this)"
                             class="jenjang-filter-btn px-3 py-1.5 rounded-lg font-semibold text-slate-600 hover:bg-slate-100 transition-all">
-                        MTs
+                        Wustho
                     </button>
                     <button type="button" 
-                            onclick="filterJenjang('ma', this)"
+                            onclick="filterJenjang('ulya', this)"
                             class="jenjang-filter-btn px-3 py-1.5 rounded-lg font-semibold text-slate-600 hover:bg-slate-100 transition-all">
-                        MA
+                        Ulya
                     </button>
                 </div>
 
@@ -232,13 +232,13 @@
 
                             <!-- 3. Jenjang Pendidikan -->
                             <td class="py-4 px-4 whitespace-nowrap student-jenjang-col">
-                                @if(str_contains(strtolower($s->jenjang), 'mts') || str_contains(strtolower($s->jenjang), 'wustha'))
+                                @if(str_contains(strtolower($s->jenjang), 'mts') || str_contains(strtolower($s->jenjang), 'wusth'))
                                     <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200">
-                                        MTs
+                                        Wustho
                                     </span>
                                 @elseif(str_contains(strtolower($s->jenjang), 'ma') || str_contains(strtolower($s->jenjang), 'ulya'))
                                     <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-800 border border-amber-200">
-                                        MA
+                                        Ulya
                                     </span>
                                 @else
                                     <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-teal-50 text-teal-800 border border-teal-200">
@@ -378,7 +378,7 @@
                                 Putra
                             </span>
                             <span class="inline-block px-2.5 py-0.5 rounded text-[10px] font-bold bg-emerald-400/25 text-emerald-200 border border-emerald-400/30" id="detailHeaderJenjang">
-                                MTs
+                                Wustho
                             </span>
                             <span class="inline-block px-2.5 py-0.5 rounded text-[10px] font-bold bg-teal-400/25 text-teal-200 border border-teal-400/30" id="detailHeaderAge">
                                 -
@@ -758,8 +758,8 @@
                         <div>
                             <label class="block font-semibold text-slate-700 mb-1 text-[11px]">Jenjang Pendidikan *</label>
                             <select id="editSantriJenjang" class="w-full px-3 py-2 rounded-xl border border-slate-200 outline-hidden focus:border-forest-500 text-xs bg-white font-semibold">
-                                <option value="MTs">MTs (Madrasah Tsanawiyah)</option>
-                                <option value="MA">MA (Madrasah Aliyah)</option>
+                                <option value="Wustho">Wustho (Setara SMP)</option>
+                                <option value="Ulya">Ulya (Setara SMA)</option>
                             </select>
                         </div>
                     </div>
@@ -1107,8 +1107,8 @@
                         <div>
                             <label class="block font-semibold text-slate-700 mb-1">Jenjang Pendidikan *</label>
                             <select id="modalAddJenjang" name="jenjang" required class="w-full px-3 py-2 rounded-xl border border-slate-200 font-semibold bg-white outline-hidden focus:border-forest-500 text-xs">
-                                <option value="MTs">MTs (Madrasah Tsanawiyah)</option>
-                                <option value="MA">MA (Madrasah Aliyah)</option>
+                                <option value="Wustho">Wustho (Setara SMP)</option>
+                                <option value="Ulya">Ulya (Setara SMA)</option>
                             </select>
                         </div>
                     </div>
@@ -1474,7 +1474,12 @@
                     const searchData = row.getAttribute('data-search') || '';
 
                     const matchesGender = (currentSelectedGender === 'all' || rowGender === currentSelectedGender);
-                    const matchesJenjang = (currentSelectedJenjang === 'all' || rowJenjang.includes(currentSelectedJenjang));
+                    const matchesJenjang = (
+                        currentSelectedJenjang === 'all' ||
+                        (currentSelectedJenjang === 'wustho' && (rowJenjang.includes('wusth') || rowJenjang.includes('mts'))) ||
+                        (currentSelectedJenjang === 'ulya' && (rowJenjang.includes('ulya') || rowJenjang.includes('ma'))) ||
+                        rowJenjang.includes(currentSelectedJenjang)
+                    );
                     const matchesStatus = (statusValue === 'all' || rowStatus === statusValue);
                     const matchesSearch = (!searchKeyword || searchData.includes(searchKeyword));
 
@@ -1831,7 +1836,8 @@
             // ====================================================
             function populateSantriEditForm(santri) {
                 document.getElementById('editSantriStatus').value = santri.status_santri || 'aktif';
-                document.getElementById('editSantriJenjang').value = santri.jenjang || 'MTs';
+                const santriJenjang = (santri.jenjang || 'Wustho').toLowerCase();
+                document.getElementById('editSantriJenjang').value = (santriJenjang.includes('ulya') || santriJenjang.includes('ma')) ? 'Ulya' : 'Wustho';
                 document.getElementById('editSantriNama').value = santri.nama_santri || '';
                 document.getElementById('editSantriGender').value = santri.jenis_kelamin || 'Putra';
                 document.getElementById('editSantriTempatLahir').value = santri.tempat_lahir || '';
@@ -2034,10 +2040,10 @@
                 const jenjangCol = row.querySelector('.student-jenjang-col');
                 if (jenjangCol) {
                     const j = (santri.jenjang || '').toLowerCase();
-                    if (j.includes('mts') || j.includes('wustha')) {
-                        jenjangCol.innerHTML = `<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200">MTs</span>`;
+                    if (j.includes('mts') || j.includes('wusth')) {
+                        jenjangCol.innerHTML = `<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200">Wustho</span>`;
                     } else if (j.includes('ma') || j.includes('ulya')) {
-                        jenjangCol.innerHTML = `<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-800 border border-amber-200">MA</span>`;
+                        jenjangCol.innerHTML = `<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-800 border border-amber-200">Ulya</span>`;
                     } else {
                         jenjangCol.innerHTML = `<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-teal-50 text-teal-800 border border-teal-200">${escapeHtml(santri.jenjang)}</span>`;
                     }
