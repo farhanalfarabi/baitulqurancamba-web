@@ -26,7 +26,7 @@ class GalleryFeatureTest extends TestCase
     public function test_public_gallery_page_renders_with_dynamic_years_and_photos(): void
     {
         Gallery::create([
-            'image_path' => '/assets/images/pondok/halaqah-tahfidz.jpg',
+            'image_path' => '/assets/images/pondok/halaqah-tahfidz.webp',
             'year' => 2026,
         ]);
 
@@ -40,7 +40,7 @@ class GalleryFeatureTest extends TestCase
         $response->assertStatus(200);
         $response->assertSee('Tahun 2026');
         $response->assertSee('Tahun 2025');
-        $response->assertSee('halaqah-tahfidz.jpg');
+        $response->assertSee('halaqah-tahfidz.webp');
         $response->assertSee('asrama.jpg');
     }
 
@@ -50,7 +50,7 @@ class GalleryFeatureTest extends TestCase
     public function test_admin_gallery_page_can_be_rendered(): void
     {
         Gallery::create([
-            'image_path' => '/assets/images/pondok/halaqah-tahfidz.jpg',
+            'image_path' => '/assets/images/pondok/halaqah-tahfidz.webp',
             'year' => 2026,
         ]);
 
@@ -67,7 +67,7 @@ class GalleryFeatureTest extends TestCase
     public function test_admin_gallery_json_response_with_year_filter(): void
     {
         Gallery::create([
-            'image_path' => '/assets/images/pondok/halaqah-tahfidz.jpg',
+            'image_path' => '/assets/images/pondok/halaqah-tahfidz.webp',
             'year' => 2026,
         ]);
 
@@ -114,9 +114,41 @@ class GalleryFeatureTest extends TestCase
         $gallery = Gallery::where('year', 2026)->first();
         $this->assertNotNull($gallery);
         $this->assertStringStartsWith('/storage/gallery/', $gallery->image_path);
+        $this->assertStringEndsWith('.webp', $gallery->image_path);
 
         $storedPath = str_replace('/storage/', '', $gallery->image_path);
         Storage::disk('public')->assertExists($storedPath);
+    }
+
+    /**
+     * Test admin upload automatically converts and resizes oversized image to webp.
+     */
+    public function test_admin_upload_converts_and_resizes_oversized_image_to_webp(): void
+    {
+        Storage::fake('public');
+
+        $file = UploadedFile::fake()->image('camera-raw.png', 2400, 1600);
+
+        $response = $this->postJson('/admin/gallery', [
+            'year' => 2026,
+            'photo' => $file,
+        ]);
+
+        $response->assertStatus(201);
+
+        $gallery = Gallery::latest('id')->first();
+        $this->assertNotNull($gallery);
+        $this->assertStringEndsWith('.webp', $gallery->image_path);
+
+        $storedPath = str_replace('/storage/', '', $gallery->image_path);
+        Storage::disk('public')->assertExists($storedPath);
+
+        $storedContent = Storage::disk('public')->get($storedPath);
+        $img = imagecreatefromstring($storedContent);
+        $this->assertNotFalse($img);
+        $this->assertLessThanOrEqual(1920, imagesx($img));
+        $this->assertLessThanOrEqual(1920, imagesy($img));
+        imagedestroy($img);
     }
 
     /**

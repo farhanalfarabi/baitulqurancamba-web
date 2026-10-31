@@ -8,6 +8,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Illuminate\View\View;
 
 class GalleryController extends Controller
@@ -95,7 +96,7 @@ class GalleryController extends Controller
             /** @var array<UploadedFile> $files */
             $files = $request->file('photos');
             foreach ($files as $file) {
-                $path = '/storage/'.$file->store('gallery', 'public');
+                $path = $this->processAndStoreImage($file);
                 $gallery = Gallery::create([
                     'image_path' => $path,
                     'year' => $year,
@@ -108,7 +109,7 @@ class GalleryController extends Controller
         // 2. Tangani upload single foto
         if ($request->hasFile('photo')) {
             $file = $request->file('photo');
-            $path = '/storage/'.$file->store('gallery', 'public');
+            $path = $this->processAndStoreImage($file);
             $gallery = Gallery::create([
                 'image_path' => $path,
                 'year' => $year,
@@ -164,7 +165,7 @@ class GalleryController extends Controller
                 Storage::disk('public')->delete($oldRelative);
             }
 
-            $gallery->image_path = '/storage/'.$request->file('photo')->store('gallery', 'public');
+            $gallery->image_path = $this->processAndStoreImage($request->file('photo'));
         }
 
         $gallery->save();
@@ -196,5 +197,97 @@ class GalleryController extends Controller
             'message' => 'Foto telah berhasil dihapus dari galeri.',
             'total_count' => Gallery::count(),
         ]);
+    }
+
+    /**
+     * Kompres, resize (jika perlu), dan konversi file foto ke format WebP sebelum disimpan.
+     */
+    protected function processAndStoreImage(UploadedFile $file): string
+    {
+        $filename = Str::random(40).'.webp';
+        $destinationPath = 'gallery/'.$filename;
+
+        // Jika GD dan fungsi imagewebp tersedia, lakukan konversi dan kompresi otomatis
+        if (function_exists('imagewebp') && function_exists('imagecreatefromstring')) {
+            try {
+                $fileContent = file_get_contents($file->getRealPath());
+                $image = @imagecreatefromstring($fileContent);
+
+                if ($image !== false) {
+                    // 1. Periksa dan tangani rotasi orientasi EXIF (dari kamera smartphone)
+                    if (function_exists('exif_read_data')) {
+                        $exif = @exif_read_data($file->getRealPath());
+                        if (! empty($exif['Orientation'])) {
+                            switch ($exif['Orientation']) {
+                                case 3:
+                                    $image = imagerotate($image, 180, 0);
+                                    break;
+                                case 6:
+                                    $image = imagerotate($image, -90, 0);
+                                    break;
+                                case 8:
+                                    $image = imagerotate($image, 90, 0);
+                                    break;
+                            }
+                        }
+                    }
+
+                    $origWidth = imagesx($image);
+                    $origHeight = imagesy($image);
+                    $maxDimension = 1920;
+
+                    // 2. Resize proporsional jika resolusi melebihi batas Full HD (1920px)
+                    if ($origWidth > $maxDimension || $origHeight > $maxDimension) {
+                        if ($origWidth >= $origHeight) {
+                            $targetWidth = $maxDimension;
+                            $targetHeight = (int) round(($origHeight / $origWidth) * $maxDimension);
+                        } else {
+                            $targetHeight = $maxDimension;
+                            $targetWidth = (int) round(($origWidth / $origHeight) * $maxDimension);
+                        }
+
+                        $targetCanvas = imagecreatetruecolor($targetWidth, $targetHeight);
+                        imagealphablending($targetCanvas, false);
+                        imagesavealpha($targetCanvas, true);
+
+                        imagecopyresampled(
+                            $targetCanvas,
+                            $image,
+                            0, 0, 0, 0,
+                            $targetWidth, $targetHeight,
+                            $origWidth, $origHeight
+                        );
+
+                        ob_start();
+                        imagewebp($targetCanvas, null, 82);
+                        $webpData = ob_get_clean();
+
+                        imagedestroy($targetCanvas);
+                        imagedestroy($image);
+                    } else {
+                        // Langsung konversi ke WebP kualitas 82%
+                        imagealphablending($image, false);
+                        imagesavealpha($image, true);
+
+                        ob_start();
+                        imagewebp($image, null, 82);
+                        $webpData = ob_get_clean();
+
+                        imagedestroy($image);
+                    }
+
+                    if (! empty($webpData)) {
+                        Storage::disk('public')->put($destinationPath, $webpData);
+
+                        return '/storage/'.$destinationPath;
+                    }
+                }
+            } catch (\Throwable $e) {
+                // Fallback aman jika terjadi kegagalan pemrosesan gambar
+            }
+        }
+
+        // Fallback standar jika ekstensi GD tidak tersedia
+        return '/storage/'.$file->store('gallery', 'public');
     }
 }

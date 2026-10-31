@@ -51,7 +51,7 @@
       <!-- Logo & Tagline -->
       <div class="text-left">
         <div class="flex items-center gap-2 mb-2">
-          <img src="/assets/images/logo.png" alt="Logo BQC" class="h-8 w-auto">
+          <img src="{{ asset('assets/images/logo.webp') }}" alt="Logo BQC" class="h-8 w-auto" loading="lazy" decoding="async">
           <span class="font-display font-black text-xl tracking-tight text-white uppercase">BAITUL QUR'AN CAMBA</span>
         </div>
         <p class="font-body text-xs text-white/70 max-w-md leading-relaxed">

@@ -338,7 +338,7 @@
               <!-- Right Column: Framed Image with 8px solid white border & Overlapping Bottom Sticker -->
               <div class="lg:col-span-6 relative">
                 <div class="relative rounded-2xl sm:rounded-3xl border-[8px] sm:border-[10px] border-white shadow-2xl overflow-hidden aspect-[4/3] bg-black">
-                  <img src="/assets/images/pondok/halaqah-tahfidz.jpg" alt="Halaqah Tahfizh Baitul Qur'an Camba" class="w-full h-full object-cover">
+                  <img src="/assets/images/pondok/halaqah-tahfidz.webp" alt="Halaqah Tahfizh Baitul Qur'an Camba" class="w-full h-full object-cover" loading="lazy" decoding="async">
                 </div>
                 <div class="absolute -bottom-6 sm:-bottom-7 left-1/2 -translate-x-1/2 w-24 sm:w-28 z-20 pointer-events-none drop-shadow-[2px_4px_8px_rgba(0,0,0,0.35)]">
                   <img src="/assets/images/sticker-starburst.svg" alt="Holy Qur'an on Rehal Stand sticker" class="w-full h-auto">
@@ -412,7 +412,7 @@
               <!-- Right Column -->
               <div class="lg:col-span-6 relative">
                 <div class="relative rounded-2xl sm:rounded-3xl border-[8px] sm:border-[10px] border-white shadow-2xl overflow-hidden aspect-[4/3] bg-black">
-                  <img src="/assets/images/pondok/pidato-3-bahasa.jpg" alt="Pendidikan Formal dan Pidato 3 Bahasa" class="w-full h-full object-cover">
+                  <img src="/assets/images/pondok/pidato-3-bahasa.webp" alt="Pendidikan Formal dan Pidato 3 Bahasa" class="w-full h-full object-cover" loading="lazy" decoding="async">
                 </div>
                 <div class="absolute -bottom-6 sm:-bottom-7 left-1/2 -translate-x-1/2 w-20 sm:w-24 z-20 pointer-events-none drop-shadow-[2px_4px_8px_rgba(0,0,0,0.35)]">
                   <img src="/assets/images/sticker-trophy.svg" alt="Classical Islamic Kitab & Qalam sticker" class="w-full h-auto">
@@ -494,7 +494,7 @@
               <!-- Right Column: Framed Image with Camper Van Sticker -->
               <div class="lg:col-span-6 relative">
                 <div class="relative rounded-2xl sm:rounded-3xl border-[8px] sm:border-[10px] border-white shadow-2xl overflow-hidden aspect-[4/3] bg-black">
-                  <img src="/assets/images/pondok/eskul-futsal.jpg" alt="Ekstrakurikuler dan Persaudaraan Santri" class="w-full h-full object-cover">
+                  <img src="/assets/images/pondok/eskul-futsal.webp" alt="Ekstrakurikuler dan Persaudaraan Santri" class="w-full h-full object-cover" loading="lazy" decoding="async">
                 </div>
                 <div class="absolute -bottom-7 sm:-bottom-8 left-1/2 -translate-x-1/2 w-28 sm:w-34 z-20 pointer-events-none drop-shadow-[2px_4px_8px_rgba(0,0,0,0.35)]">
                   <img src="/assets/images/sticker-van.svg" alt="Sunnah Equestrian Horse sticker" class="w-full h-auto">

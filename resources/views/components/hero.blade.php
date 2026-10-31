@@ -75,37 +75,37 @@
   @php
     $heroCards = [
       [
-        'image' => '/assets/images/pondok/halaqah-tahfidz.jpg',
+        'image' => '/assets/images/pondok/halaqah-tahfidz.webp',
         'alt' => "Hafalan Al-Qur'an 30 Juz",
         'title' => "Hafalan Al-Qur'an 30 juz bersanad",
         'theme' => 'cream',
       ],
       [
-        'image' => '/assets/images/pondok/suasana-kelas.jpg',
+        'image' => '/assets/images/pondok/suasana-kelas.webp',
         'alt' => "Pendidikan Formal Terakreditasi",
         'title' => "Pendidikan formal berijazah resmi negara",
         'theme' => 'cherry',
       ],
       [
-        'image' => '/assets/images/pondok/pidato-3-bahasa.jpg',
+        'image' => '/assets/images/pondok/pidato-3-bahasa.webp',
         'alt' => "Pidato 3 Bahasa",
         'title' => "Pidato 3 bahasa Arab & Inggris",
         'theme' => 'cream',
       ],
       [
-        'image' => '/assets/images/pondok/leadership.jpg',
+        'image' => '/assets/images/pondok/leadership.webp',
         'alt' => "Kepemimpinan Islami",
         'title' => "Pembinaan karakter & kepemimpinan",
         'theme' => 'cherry',
       ],
       [
-        'image' => '/assets/images/pondok/taklim-kitab-kuning.jpg',
+        'image' => '/assets/images/pondok/taklim-kitab-kuning.webp',
         'alt' => "Taklim Kitab Kuning",
         'title' => "Kajian taklim kitab kuning klasik",
         'theme' => 'cream',
       ],
       [
-        'image' => '/assets/images/pondok/eskul-futsal.jpg',
+        'image' => '/assets/images/pondok/eskul-futsal.webp',
         'alt' => "Olahraga Santri",
         'title' => "Olahraga santri & ekstrakurikuler",
         'theme' => 'cherry',
@@ -182,7 +182,8 @@
               <!-- Photo -->
               <div class="h-[150px] sm:h-[170px] w-full {{ $isCherry ? 'bg-[#380810]' : 'bg-[#E5E0D5]' }} overflow-hidden relative">
                 <img src="{{ $card['image'] }}" alt="{{ $card['alt'] }}"
-                  class="w-full h-full object-cover pointer-events-none">
+                  class="w-full h-full object-cover pointer-events-none"
+                  decoding="async">
               </div>
               <!-- Scallop Cut & Footer -->
               <div class="relative -mt-3 sm:-mt-3.5 z-10 {{ $isCherry ? 'text-[#580D14] bg-[#580D14]' : 'text-[#FAF7F0] bg-[#FAF7F0]' }}">
@@ -212,7 +213,8 @@
               <!-- Photo -->
               <div class="h-[150px] sm:h-[170px] w-full {{ $isCherry ? 'bg-[#380810]' : 'bg-[#E5E0D5]' }} overflow-hidden relative">
                 <img src="{{ $card['image'] }}" alt="{{ $card['alt'] }}"
-                  class="w-full h-full object-cover pointer-events-none">
+                  class="w-full h-full object-cover pointer-events-none"
+                  decoding="async">
               </div>
               <!-- Scallop Cut & Footer -->
               <div class="relative -mt-3 sm:-mt-3.5 z-10 {{ $isCherry ? 'text-[#580D14] bg-[#580D14]' : 'text-[#FAF7F0] bg-[#FAF7F0]' }}">
@@ -251,7 +253,8 @@
             <!-- Photo -->
             <div class="h-[190px] xl:h-[205px] w-full {{ $isCherry ? 'bg-[#380810]' : 'bg-[#E5E0D5]' }} overflow-hidden relative">
               <img src="{{ $card['image'] }}" alt="{{ $card['alt'] }}"
-                class="w-full h-full object-cover pointer-events-none">
+                class="w-full h-full object-cover pointer-events-none"
+                decoding="async">
             </div>
             <!-- Scallop Cut & Footer -->
             <div class="relative -mt-3.5 z-10 {{ $isCherry ? 'text-[#580D14] bg-[#580D14]' : 'text-[#FAF7F0] bg-[#FAF7F0]' }}">

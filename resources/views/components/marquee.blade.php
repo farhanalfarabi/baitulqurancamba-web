@@ -64,12 +64,14 @@
       <!-- Track Set A -->
       <div class="flex items-center gap-5 shrink-0 pr-5">
         
-        <!-- Card 1: Farhan R. (Using user's photo foto-aku.png) -->
+        <!-- Card 1: Farhan R. (Using user's photo foto-aku.webp) -->
         <div class="p-5 rounded-2xl shadow-[0_4px_16px_rgba(0,0,0,0.06)] hover:shadow-xl transition-all duration-300 w-80 sm:w-88 shrink-0 bg-white border border-[#121212]/15 hover:-translate-y-1">
           <div class="flex items-center gap-3.5">
             <img class="w-12 h-12 rounded-full object-cover border-2 border-[#D4FF00] shadow-sm shrink-0" 
-                 src="{{ asset('assets/images/foto/foto-aku.png') }}" 
-                 alt="Farhan R." />
+                 src="{{ asset('assets/images/foto/foto-aku.webp') }}" 
+                 alt="Farhan R." 
+                 width="48" height="48"
+                 loading="lazy" decoding="async" />
             <div class="flex flex-col text-left">
               <div class="flex items-center gap-1.5">
                 <span class="font-display font-black text-sm text-[#121212]">Farhan R.</span>
@@ -187,8 +189,10 @@
         <div class="p-5 rounded-2xl shadow-[0_4px_16px_rgba(0,0,0,0.06)] hover:shadow-xl transition-all duration-300 w-80 sm:w-88 shrink-0 bg-white border border-[#121212]/15 hover:-translate-y-1">
           <div class="flex items-center gap-3.5">
             <img class="w-12 h-12 rounded-full object-cover border-2 border-[#D4FF00] shadow-sm shrink-0" 
-                 src="{{ asset('assets/images/foto/foto-aku.png') }}" 
-                 alt="Farhan R." />
+                 src="{{ asset('assets/images/foto/foto-aku.webp') }}" 
+                 alt="Farhan R." 
+                 width="48" height="48"
+                 loading="lazy" decoding="async" />
             <div class="flex flex-col text-left">
               <div class="flex items-center gap-1.5">
                 <span class="font-display font-black text-sm text-[#121212]">Farhan R.</span>
@@ -326,12 +330,14 @@
           </p>
         </div>
 
-        <!-- Row 2 Card 2: Farhan R. (Using user's photo foto-aku.png) -->
+        <!-- Row 2 Card 2: Farhan R. (Using user's photo foto-aku.webp) -->
         <div class="p-5 rounded-2xl shadow-[0_4px_16px_rgba(0,0,0,0.06)] hover:shadow-xl transition-all duration-300 w-80 sm:w-88 shrink-0 bg-white border border-[#121212]/15 hover:-translate-y-1">
           <div class="flex items-center gap-3.5">
             <img class="w-12 h-12 rounded-full object-cover border-2 border-[#D4FF00] shadow-sm shrink-0" 
-                 src="{{ asset('assets/images/foto/foto-aku.png') }}" 
-                 alt="Farhan R." />
+                 src="{{ asset('assets/images/foto/foto-aku.webp') }}" 
+                 alt="Farhan R." 
+                 width="48" height="48"
+                 loading="lazy" decoding="async" />
             <div class="flex flex-col text-left">
               <div class="flex items-center gap-1.5">
                 <span class="font-display font-black text-sm text-[#121212]">Farhan R.</span>
@@ -445,12 +451,14 @@
           </p>
         </div>
 
-        <!-- Row 2 Card 2 Duplicate (foto-aku.png) -->
+        <!-- Row 2 Card 2 Duplicate (foto-aku.webp) -->
         <div class="p-5 rounded-2xl shadow-[0_4px_16px_rgba(0,0,0,0.06)] hover:shadow-xl transition-all duration-300 w-80 sm:w-88 shrink-0 bg-white border border-[#121212]/15 hover:-translate-y-1">
           <div class="flex items-center gap-3.5">
             <img class="w-12 h-12 rounded-full object-cover border-2 border-[#D4FF00] shadow-sm shrink-0" 
-                 src="{{ asset('assets/images/foto/foto-aku.png') }}" 
-                 alt="Farhan R." />
+                 src="{{ asset('assets/images/foto/foto-aku.webp') }}" 
+                 alt="Farhan R." 
+                 width="48" height="48"
+                 loading="lazy" decoding="async" />
             <div class="flex flex-col text-left">
               <div class="flex items-center gap-1.5">
                 <span class="font-display font-black text-sm text-[#121212]">Farhan R.</span>

@@ -59,7 +59,8 @@
           <!-- Poster Thumbnail -->
           <div class="aspect-[3/4] rounded-2xl overflow-hidden bg-black/10 relative mb-5 border-4 border-white/20 shadow-md">
             <img src="/assets/images/prestasi/juara (2).webp" alt="Zjilzian Amarung - 2x Gold 1x Silver Medalist"
-              class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+              class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+              loading="lazy" decoding="async">
 
             <!-- Floating Category Badge -->
             <div class="absolute top-3 left-3 px-3 py-1 bg-[#121212] text-lime rounded-full border border-lime/40 font-mono font-bold text-[10px] uppercase tracking-wider shadow-md">
@@ -127,7 +128,8 @@
           <!-- Poster Thumbnail -->
           <div class="aspect-[3/4] rounded-2xl overflow-hidden bg-black/10 relative mb-5 border-4 border-white/10 shadow-md">
             <img src="/assets/images/prestasi/juara (3).webp" alt="Ibrahim Abdurrahman - 1x Gold 2x Silver Medalist"
-              class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+              class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+              loading="lazy" decoding="async">
 
             <!-- Floating Category Badge -->
             <div class="absolute top-3 left-3 px-3 py-1 bg-[#121212] text-lime rounded-full border border-lime/40 font-mono font-bold text-[10px] uppercase tracking-wider shadow-md">
@@ -195,7 +197,8 @@
           <!-- Poster Thumbnail -->
           <div class="aspect-[3/4] rounded-2xl overflow-hidden bg-black/10 relative mb-5 border-4 border-white/20 shadow-md">
             <img src="/assets/images/prestasi/juara (1).webp" alt="Muh. Alif Iwan - 3x Silver Medalist SMP"
-              class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+              class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+              loading="lazy" decoding="async">
 
             <!-- Floating Category Badge -->
             <div class="absolute top-3 left-3 px-3 py-1 bg-[#121212] text-lime rounded-full border border-lime/40 font-mono font-bold text-[10px] uppercase tracking-wider shadow-md">
@@ -285,7 +288,8 @@
           <!-- Poster Thumbnail -->
           <div class="aspect-[3/4] rounded-2xl overflow-hidden bg-black/10 relative mb-5 border-4 border-white/10 shadow-md">
             <img src="/assets/images/prestasi/tasmi (2).webp" alt="Abbas - Tasmi' Hafalan Al-Qur'an 15 Juz"
-              class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+              class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+              loading="lazy" decoding="async">
 
             <!-- Floating Category Badge -->
             <div class="absolute top-3 left-3 px-3 py-1 bg-[#580D14] text-lime rounded-full border border-lime/40 font-mono font-bold text-[10px] uppercase tracking-wider shadow-md">
@@ -353,7 +357,8 @@
           <!-- Poster Thumbnail -->
           <div class="aspect-[3/4] rounded-2xl overflow-hidden bg-black/10 relative mb-5 border-4 border-white/20 shadow-md">
             <img src="/assets/images/prestasi/tasmi (3).webp" alt="Muh. Fiqih - Tasmi' Hafalan Al-Qur'an 13 Juz"
-              class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+              class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+              loading="lazy" decoding="async">
 
             <!-- Floating Category Badge -->
             <div class="absolute top-3 left-3 px-3 py-1 bg-[#580D14] text-lime rounded-full border border-lime/40 font-mono font-bold text-[10px] uppercase tracking-wider shadow-md">
@@ -421,7 +426,8 @@
           <!-- Poster Thumbnail -->
           <div class="aspect-[3/4] rounded-2xl overflow-hidden bg-black/10 relative mb-5 border-4 border-white/10 shadow-md">
             <img src="/assets/images/prestasi/tasmi (1).webp" alt="Zjilzian Amarung - Tasmi' Hafalan Al-Qur'an 10 Juz"
-              class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+              class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+              loading="lazy" decoding="async">
 
             <!-- Floating Category Badge -->
             <div class="absolute top-3 left-3 px-3 py-1 bg-[#580D14] text-lime rounded-full border border-lime/40 font-mono font-bold text-[10px] uppercase tracking-wider shadow-md">

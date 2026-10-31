@@ -34,55 +34,55 @@
       <!-- Card 0 -->
       <div class="coverflow-card absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] h-[220px] sm:w-[270px] sm:h-[270px] md:w-[310px] md:h-[310px] rounded-[24px] sm:rounded-[28px] overflow-hidden cursor-pointer transition-all duration-500 ease-out coverflow-reflection"
            data-index="0">
-        <img src="/assets/images/pondok/halaqah-tahfidz.jpg" alt="Halaqah Fajar Al-Qur'an" class="w-full h-full object-cover pointer-events-none" draggable="false" />
+        <img src="/assets/images/pondok/halaqah-tahfidz.webp" alt="Halaqah Fajar Al-Qur'an" class="w-full h-full object-cover pointer-events-none" draggable="false" loading="lazy" decoding="async" />
       </div>
 
       <!-- Card 1 -->
       <div class="coverflow-card absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] h-[220px] sm:w-[270px] sm:h-[270px] md:w-[310px] md:h-[310px] rounded-[24px] sm:rounded-[28px] overflow-hidden cursor-pointer transition-all duration-500 ease-out coverflow-reflection"
            data-index="1">
-        <img src="/assets/images/pondok/pidato-3-bahasa.jpg" alt="Latihan Pidato Tiga Bahasa" class="w-full h-full object-cover pointer-events-none" draggable="false" />
+        <img src="/assets/images/pondok/pidato-3-bahasa.webp" alt="Latihan Pidato Tiga Bahasa" class="w-full h-full object-cover pointer-events-none" draggable="false" loading="lazy" decoding="async" />
       </div>
 
       <!-- Card 2 -->
       <div class="coverflow-card absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] h-[220px] sm:w-[270px] sm:h-[270px] md:w-[310px] md:h-[310px] rounded-[24px] sm:rounded-[28px] overflow-hidden cursor-pointer transition-all duration-500 ease-out coverflow-reflection"
            data-index="2">
-        <img src="/assets/images/pondok/taklim-kitab-kuning.jpg" alt="Kajian Kitab Kuning Turats" class="w-full h-full object-cover pointer-events-none" draggable="false" />
+        <img src="/assets/images/pondok/taklim-kitab-kuning.webp" alt="Kajian Kitab Kuning Turats" class="w-full h-full object-cover pointer-events-none" draggable="false" loading="lazy" decoding="async" />
       </div>
 
       <!-- Card 3 (Default Center) -->
       <div class="coverflow-card absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] h-[220px] sm:w-[270px] sm:h-[270px] md:w-[310px] md:h-[310px] rounded-[24px] sm:rounded-[28px] overflow-hidden cursor-pointer transition-all duration-500 ease-out coverflow-reflection"
            data-index="3">
-        <img src="/assets/images/pondok/leadership.jpg" alt="Latihan Kepemimpinan Santri" class="w-full h-full object-cover pointer-events-none" draggable="false" />
+        <img src="/assets/images/pondok/leadership.webp" alt="Latihan Kepemimpinan Santri" class="w-full h-full object-cover pointer-events-none" draggable="false" loading="lazy" decoding="async" />
       </div>
 
       <!-- Card 4 -->
       <div class="coverflow-card absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] h-[220px] sm:w-[270px] sm:h-[270px] md:w-[310px] md:h-[310px] rounded-[24px] sm:rounded-[28px] overflow-hidden cursor-pointer transition-all duration-500 ease-out coverflow-reflection"
            data-index="4">
-        <img src="/assets/images/pondok/upacara.jpg" alt="Upacara Kedisiplinan Nasional" class="w-full h-full object-cover pointer-events-none" draggable="false" />
+        <img src="/assets/images/pondok/upacara.jpg" alt="Upacara Kedisiplinan Nasional" class="w-full h-full object-cover pointer-events-none" draggable="false" loading="lazy" decoding="async" />
       </div>
 
       <!-- Card 5 -->
       <div class="coverflow-card absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] h-[220px] sm:w-[270px] sm:h-[270px] md:w-[310px] md:h-[310px] rounded-[24px] sm:rounded-[28px] overflow-hidden cursor-pointer transition-all duration-500 ease-out coverflow-reflection"
            data-index="5">
-        <img src="/assets/images/pondok/eskul-futsal.jpg" alt="Olahraga & Kebugaran" class="w-full h-full object-cover pointer-events-none" draggable="false" />
+        <img src="/assets/images/pondok/eskul-futsal.webp" alt="Olahraga & Kebugaran" class="w-full h-full object-cover pointer-events-none" draggable="false" loading="lazy" decoding="async" />
       </div>
 
       <!-- Card 6 -->
       <div class="coverflow-card absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] h-[220px] sm:w-[270px] sm:h-[270px] md:w-[310px] md:h-[310px] rounded-[24px] sm:rounded-[28px] overflow-hidden cursor-pointer transition-all duration-500 ease-out coverflow-reflection"
            data-index="6">
-        <img src="/assets/images/pondok/gazebo.jpg" alt="Belajar di Gazebo Alam Pegunungan" class="w-full h-full object-cover pointer-events-none" draggable="false" />
+        <img src="/assets/images/pondok/gazebo.jpg" alt="Belajar di Gazebo Alam Pegunungan" class="w-full h-full object-cover pointer-events-none" draggable="false" loading="lazy" decoding="async" />
       </div>
 
       <!-- Card 7 -->
       <div class="coverflow-card absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] h-[220px] sm:w-[270px] sm:h-[270px] md:w-[310px] md:h-[310px] rounded-[24px] sm:rounded-[28px] overflow-hidden cursor-pointer transition-all duration-500 ease-out coverflow-reflection"
            data-index="7">
-        <img src="/assets/images/pondok/masjid.jpg" alt="Ujian Tasmi' Al-Qur'an" class="w-full h-full object-cover pointer-events-none" draggable="false" />
+        <img src="/assets/images/pondok/masjid.webp" alt="Ujian Tasmi' Al-Qur'an" class="w-full h-full object-cover pointer-events-none" draggable="false" loading="lazy" decoding="async" />
       </div>
 
       <!-- Card 8 -->
       <div class="coverflow-card absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] h-[220px] sm:w-[270px] sm:h-[270px] md:w-[310px] md:h-[310px] rounded-[24px] sm:rounded-[28px] overflow-hidden cursor-pointer transition-all duration-500 ease-out coverflow-reflection"
            data-index="8">
-        <img src="/assets/images/pondok/asrama.jpg" alt="Asrama & Lingkungan Pesantren" class="w-full h-full object-cover pointer-events-none" draggable="false" />
+        <img src="/assets/images/pondok/asrama.jpg" alt="Asrama & Lingkungan Pesantren" class="w-full h-full object-cover pointer-events-none" draggable="false" loading="lazy" decoding="async" />
       </div>
 
     </div>

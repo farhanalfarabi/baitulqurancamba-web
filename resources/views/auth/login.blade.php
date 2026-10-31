@@ -82,9 +82,10 @@
             
             <!-- Subtle Pesantren Atmosphere Photo Overlay -->
             <div class="absolute inset-0 z-0">
-                <img src="{{ asset('assets/images/pondok/halaqah-tahfidz.jpg') }}" 
+                <img src="{{ asset('assets/images/pondok/halaqah-tahfidz.webp') }}" 
                      alt="Suasana Halaqah Baitul Qur'an Camba" 
-                     class="w-full h-full object-cover opacity-20 mix-blend-luminosity filter blur-xs">
+                     class="w-full h-full object-cover opacity-20 mix-blend-luminosity filter blur-xs"
+                     loading="lazy" decoding="async">
                 <div class="absolute inset-0 bg-gradient-to-t from-[#041A13] via-[#0B3B2C]/90 to-[#072B20]/80"></div>
                 <div class="absolute inset-0 bg-islamic-pattern"></div>
             </div>

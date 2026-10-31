@@ -347,7 +347,7 @@
                             </div>
                             <p class="text-xs font-bold text-slate-800">Tarik & letakkan foto di sini, atau <span class="text-forest-900 underline font-extrabold">telusuri</span></p>
                             <p class="mt-1 text-[11px] text-slate-500">Bisa pilih 1 foto atau <strong class="text-slate-700">banyak foto sekaligus (multiple)</strong></p>
-                            <p class="mt-1 text-[10px] text-slate-400">Mendukung JPG, PNG, WEBP (Maksimal 10MB per foto)</p>
+                            <p class="mt-1 text-[10px] text-slate-400">Mendukung JPG, PNG, WEBP • Otomatis dikompres & dikonversi ke WebP</p>
                         </div>
 
                         <!-- Selected Preview Area (Single or Multiple Thumbnails Grid) -->

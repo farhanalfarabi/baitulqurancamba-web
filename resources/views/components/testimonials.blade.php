@@ -1,10 +1,11 @@
 <!-- Graduate Competency & Target Output Component (Scalloped Rosette Style with Hanging Swing) -->
 <section id="target-lulusan" class="py-24 sm:py-32 bg-[#2D060B] text-white relative overflow-hidden">
   
-  <!-- Atmospheric Santri Background (hero-bqc.png) -->
+  <!-- Atmospheric Santri Background (hero-bqc.webp) -->
   <div class="absolute inset-0 w-full h-full pointer-events-none select-none z-0 overflow-hidden">
-    <img src="/assets/images/hero-bqc.png" alt="Santri Berprestasi Baitul Qur'an Camba"
-         class="w-full h-full object-cover object-[center_20%] sm:object-center opacity-30 sm:opacity-35 filter brightness-75 contrast-115">
+    <img src="{{ asset('assets/images/hero-bqc.webp') }}" alt="Santri Berprestasi Baitul Qur'an Camba"
+         class="w-full h-full object-cover object-[center_20%] sm:object-center opacity-30 sm:opacity-35 filter brightness-75 contrast-115"
+         loading="lazy" decoding="async">
     <div class="absolute inset-0 bg-gradient-to-b from-[#1E0508]/85 via-[#25080E]/60 to-[#1E0508]/90"></div>
   </div>
 

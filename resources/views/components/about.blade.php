@@ -21,7 +21,8 @@
       class="relative max-w-4xl mx-auto mb-16 rounded-3xl overflow-hidden shadow-2xl border-4 sm:border-8 border-white bg-white">
       <div class="relative aspect-video sm:aspect-[21/9] overflow-hidden">
         <img src="/assets/images/pondok/upacara-2.jpg" alt="Upacara dan Kedisiplinan Santri Baitul Qur'an Camba"
-          class="w-full h-full object-cover brightness-90">
+          class="w-full h-full object-cover brightness-90"
+          loading="lazy" decoding="async">
 
         <!-- Poster Overlay inside Billboard -->
         <div class="absolute inset-0 flex items-center justify-center p-4">

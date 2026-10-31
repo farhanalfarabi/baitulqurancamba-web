@@ -4,8 +4,9 @@
 
     <!-- Logo & Identity -->
     <a href="{{ url('/') }}" class="flex items-center gap-2.5 group focus:outline-none" aria-label="Baitul Qur'an Camba Home">
-      <img src="/assets/images/logo.png" alt="Baitul Qur'an Camba Logo"
-        class="h-8 sm:h-9 w-auto group-hover:scale-105 transition-transform">
+      <img src="{{ asset('assets/images/logo.webp') }}" alt="Baitul Qur'an Camba Logo"
+        class="h-8 sm:h-9 w-auto group-hover:scale-105 transition-transform"
+        decoding="async">
       <div class="hidden sm:flex flex-col text-left">
         <span class="font-display font-black text-xs sm:text-sm leading-none text-[#121212] uppercase tracking-tight">
           BAITUL QUR'AN
