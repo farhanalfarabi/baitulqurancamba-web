@@ -70,20 +70,3 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
 });
 
 
-use Illuminate\Support\Facades\Artisan;
-
-Route::get('/fix-storage', function () {
-    // Hapus jika sebelumnya ada link atau file storage yang rusak
-    if (file_exists(public_path('storage'))) {
-        @unlink(public_path('storage'));
-    }
-
-    // Jalankan storage:link
-    Artisan::call('storage:link');
-
-    return response()->json([
-        'status' => 'success',
-        'message' => 'Symlink storage berhasil dibuat!',
-        'output' => Artisan::output(),
-    ]);
-});
