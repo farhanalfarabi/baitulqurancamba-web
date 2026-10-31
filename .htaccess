@@ -1,0 +1,13 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # 1. Amankan file sensitif agar tidak bisa diakses publik
+    RewriteRule ^\.env - [F,L,NC]
+    RewriteRule ^artisan - [F,L,NC]
+    RewriteRule ^composer\.(json|lock) - [F,L,NC]
+
+    # 2. Arahkan semua request ke folder public/ secara aman tanpa looping
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+
