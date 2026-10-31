@@ -70,3 +70,17 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
 });
 
 
+// Fallback direct storage route (Bypass symlink issues on shared hosting/Hostinger)
+Route::get('/storage/{path}', function (string $path) {
+    $basePath = realpath(storage_path('app/public'));
+    $targetPath = realpath(storage_path('app/public/'.$path));
+
+    if (! $basePath || ! $targetPath || ! str_starts_with($targetPath, $basePath) || ! is_file($targetPath)) {
+        abort(404);
+    }
+
+    return response()->file($targetPath, [
+        'Cache-Control' => 'public, max-age=86400',
+    ]);
+})->where('path', '.*')->name('storage.file');
+

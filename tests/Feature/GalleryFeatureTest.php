@@ -211,4 +211,38 @@ class GalleryFeatureTest extends TestCase
 
         Storage::disk('public')->assertMissing(str_replace('/storage/', '', $path));
     }
+
+    /**
+     * Test direct storage route serves public files and handles missing files gracefully.
+     */
+    public function test_direct_storage_route_serves_public_files(): void
+    {
+        $testFileName = 'gallery/test-route-image.txt';
+        $fullPath = storage_path('app/public/'.$testFileName);
+
+        if (! file_exists(dirname($fullPath))) {
+            mkdir(dirname($fullPath), 0755, true);
+        }
+        file_put_contents($fullPath, 'sample-image-bytes');
+
+        try {
+            $response = $this->get('/storage/'.$testFileName);
+
+            $response->assertStatus(200);
+            $this->assertEquals('sample-image-bytes', $response->streamedContent());
+            $this->assertTrue($response->headers->has('Cache-Control'));
+
+            // Missing file returns 404
+            $missingResponse = $this->get('/storage/gallery/non-existent-photo.jpg');
+            $missingResponse->assertStatus(404);
+
+            // Path traversal attempt returns 404
+            $traversalResponse = $this->get('/storage/../../.env');
+            $traversalResponse->assertStatus(404);
+        } finally {
+            if (file_exists($fullPath)) {
+                unlink($fullPath);
+            }
+        }
+    }
 }
