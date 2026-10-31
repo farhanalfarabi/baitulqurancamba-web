@@ -10,7 +10,7 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  # Path yang benar untuk domain baitulqurancamba.com di Hostinger
+  # Path direktori website di Hostinger
   TARGET_DIR: domains/baitulqurancamba.com/public_html
 
 jobs:
@@ -32,7 +32,7 @@ jobs:
           npm install
           npm run build
 
-      # 2. Upload asset hasil build (public/build) ke folder domain di Hostinger
+      # 2. Upload asset hasil build (public/build) ke Hostinger
       - name: 🚀 Upload Compiled Assets (public/build) to Hostinger
         uses: appleboy/scp-action@v0.1.7
         with:
@@ -60,24 +60,22 @@ jobs:
 
             echo "🚀 Mulai proses deployment di $(pwd)..."
 
-            # Inisialisasi git otomatis jika folder masih baru / belum ada git
+            # Inisialisasi git otomatis jika folder masih baru
             if [ ! -d ".git" ]; then
-              echo "Folder belum terhubung git, melakukan inisialisasi awal..."
+              echo "Melakukan inisialisasi git awal..."
               git init
               git remote add origin https://github.com/farhanalfarabi/baitulqurancamba-web.git
               git fetch origin main
               git reset --hard origin/main
             else
-              # Ambil update kode terbaru
               git fetch origin main
               git reset --hard origin/main
             fi
 
             # Siapkan file .env jika belum ada
             if [ ! -f ".env" ]; then
-              echo "Membuat file .env dari .env.example..."
+              echo "Membuat file .env awal dari .env.example..."
               cp .env.example .env
-              php artisan key:generate --force
             fi
 
             # 1. Aktifkan maintenance mode
@@ -86,22 +84,28 @@ jobs:
             # 2. Install dependency Composer untuk production
             composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
 
-            # 3. Jalankan migrasi database (toleran jika DB belum diatur di .env)
-            php artisan migrate --force || echo "⚠️ Warning: Database migrate dilewati (pastikan kredensial DB di .env sudah sesuai)"
+            # 3. Pastikan APP_KEY sudah terisi jika kosong
+            if ! grep -q "^APP_KEY=base64:" .env; then
+              echo "Membuat APP_KEY..."
+              php artisan key:generate --force
+            fi
 
             # 4. Beri izin akses ke folder storage & cache
             chmod -R 775 storage bootstrap/cache || true
 
-            # 5. Refresh cache konfigurasi, route, dan view
+            # 5. Jalankan migrasi database
+            php artisan migrate --force || echo "⚠️ Warning: Database migrate dilewati"
+
+            # 6. Refresh cache konfigurasi, route, dan view
             php artisan optimize:clear
             php artisan config:cache
             php artisan route:cache
             php artisan view:cache
 
-            # 6. Pastikan symbolic link storage sudah aktif
+            # 7. Pastikan symbolic link storage sudah aktif
             php artisan storage:link || true
 
-            # 7. Matikan maintenance mode
+            # 8. Matikan maintenance mode
             php artisan up
 
             echo "✅ Deployment ke Hostinger berhasil di $(pwd)!"
