@@ -69,7 +69,6 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::delete('/gallery/{id}', [GalleryController::class, 'destroy'])->name('gallery.destroy');
 });
 
-
 // Fallback direct storage route (Bypass symlink issues on shared hosting/Hostinger)
 Route::get('/storage/{path}', function (string $path) {
     $basePath = realpath(storage_path('app/public'));
@@ -83,4 +82,3 @@ Route::get('/storage/{path}', function (string $path) {
         'Cache-Control' => 'public, max-age=86400',
     ]);
 })->where('path', '.*')->name('storage.file');
-

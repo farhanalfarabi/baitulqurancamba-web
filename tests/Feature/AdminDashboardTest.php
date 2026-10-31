@@ -5,6 +5,8 @@ namespace Tests\Feature;
 use App\Models\Pendaftaran;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
 use Tests\TestCase;
 
 class AdminDashboardTest extends TestCase
@@ -118,6 +120,91 @@ class AdminDashboardTest extends TestCase
     }
 
     /**
+     * Test admin can update pendaftaran with files up to 5 MB for photo and 10 MB for documents.
+     */
+    public function test_admin_pendaftaran_can_be_updated_with_large_files(): void
+    {
+        Storage::fake('public');
+
+        $pendaftaran = Pendaftaran::create([
+            'registration_number' => 'PSB-TEST-FILES',
+            'jenjang' => 'Wustho',
+            'nama_santri' => 'Santri Berkas',
+            'jenis_kelamin' => 'Putra',
+            'nama_ayah' => 'Ayah Berkas',
+            'no_hp_ayah' => '08123456789',
+            'status' => 'pending',
+        ]);
+
+        $updatePayload = [
+            'nama_santri' => 'Santri Berkas Update',
+            'pas_foto' => UploadedFile::fake()->create('pas_foto_4mb.jpg', 4000, 'image/jpeg'),
+            'foto_kk' => UploadedFile::fake()->create('kk_8mb.pdf', 8000, 'application/pdf'),
+            'foto_raport' => UploadedFile::fake()->create('raport_8mb.pdf', 8000, 'application/pdf'),
+        ];
+
+        $response = $this->putJson(route('admin.pendaftaran.update', $pendaftaran->id), $updatePayload);
+
+        $response->assertStatus(200)
+            ->assertJson([
+                'success' => true,
+                'data' => [
+                    'id' => $pendaftaran->id,
+                    'nama_santri' => 'Santri Berkas Update',
+                ],
+            ]);
+
+        $pendaftaran->refresh();
+        $this->assertNotNull($pendaftaran->pas_foto_path);
+        $this->assertStringStartsWith('pendaftaran/pas_foto/', $pendaftaran->pas_foto_path);
+        Storage::disk('public')->assertExists($pendaftaran->pas_foto_path);
+
+        $this->assertNotNull($pendaftaran->foto_kk_path);
+        $this->assertStringStartsWith('pendaftaran/kk/', $pendaftaran->foto_kk_path);
+        Storage::disk('public')->assertExists($pendaftaran->foto_kk_path);
+
+        $this->assertNotNull($pendaftaran->foto_raport_path);
+        $this->assertStringStartsWith('pendaftaran/raport/', $pendaftaran->foto_raport_path);
+        Storage::disk('public')->assertExists($pendaftaran->foto_raport_path);
+    }
+
+    /**
+     * Test admin pendaftaran update validates file sizes and formats.
+     */
+    public function test_admin_pendaftaran_update_validates_file_sizes_and_formats(): void
+    {
+        Storage::fake('public');
+
+        $pendaftaran = Pendaftaran::create([
+            'registration_number' => 'PSB-TEST-VALIDASI',
+            'jenjang' => 'Wustho',
+            'nama_santri' => 'Santri Validasi',
+            'jenis_kelamin' => 'Putra',
+            'nama_ayah' => 'Ayah Validasi',
+            'no_hp_ayah' => '08123456789',
+            'status' => 'pending',
+        ]);
+
+        // Pas foto over 5 MB (5121 KB) or PDF format should be rejected
+        $response = $this->putJson(route('admin.pendaftaran.update', $pendaftaran->id), [
+            'pas_foto' => UploadedFile::fake()->create('pas_foto_terlalu_besar.jpg', 6000, 'image/jpeg'),
+            'foto_kk' => UploadedFile::fake()->create('kk_terlalu_besar.pdf', 12000, 'application/pdf'),
+            'foto_raport' => UploadedFile::fake()->create('raport_terlalu_besar.pdf', 12000, 'application/pdf'),
+        ]);
+
+        $response->assertStatus(422)
+            ->assertJsonValidationErrors(['pas_foto', 'foto_kk', 'foto_raport']);
+
+        // Pas foto using PDF format should be rejected
+        $responsePdfPhoto = $this->putJson(route('admin.pendaftaran.update', $pendaftaran->id), [
+            'pas_foto' => UploadedFile::fake()->create('pas_foto.pdf', 500, 'application/pdf'),
+        ]);
+
+        $responsePdfPhoto->assertStatus(422)
+            ->assertJsonValidationErrors(['pas_foto']);
+    }
+
+    /**
      * Test admin pendaftaran status can be updated partially (quick status change).
      */
     public function test_admin_pendaftaran_status_can_be_updated_partially(): void
@@ -192,6 +279,11 @@ class AdminDashboardTest extends TestCase
      */
     public function test_admin_pendaftaran_can_be_deleted(): void
     {
+        Storage::fake('public');
+
+        $pasFoto = UploadedFile::fake()->create('pas_foto.jpg', 500, 'image/jpeg');
+        $pasFotoPath = $pasFoto->store('pendaftaran/pas_foto', 'public');
+
         $pendaftaran = Pendaftaran::create([
             'registration_number' => 'PSB-TEST-DELETE',
             'jenjang' => 'MA',
@@ -200,7 +292,10 @@ class AdminDashboardTest extends TestCase
             'nama_ayah' => 'Ayah Delete',
             'no_hp_ayah' => '081299990000',
             'status' => 'pending',
+            'pas_foto_path' => $pasFotoPath,
         ]);
+
+        Storage::disk('public')->assertExists($pasFotoPath);
 
         $response = $this->deleteJson(route('admin.pendaftaran.destroy', $pendaftaran->id));
 
@@ -212,6 +307,8 @@ class AdminDashboardTest extends TestCase
         $this->assertDatabaseMissing('pendaftarans', [
             'id' => $pendaftaran->id,
         ]);
+
+        Storage::disk('public')->assertMissing($pasFotoPath);
     }
 
     /**

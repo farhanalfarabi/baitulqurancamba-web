@@ -831,12 +831,12 @@ document.addEventListener('DOMContentLoaded', function() {
       zone.classList.remove('bg-stone-100', 'border-[#CF2B09]');
       if (e.dataTransfer.files.length) {
         input.files = e.dataTransfer.files;
-        updatePreview(input, emptyState, previewState);
+        validateAndPreviewFile(input, emptyState, previewState);
       }
     });
 
     input.addEventListener('change', () => {
-      updatePreview(input, emptyState, previewState);
+      validateAndPreviewFile(input, emptyState, previewState);
     });
 
     if (removeBtn) {
@@ -857,6 +857,43 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
   });
+
+  function validateAndPreviewFile(input, emptyEl, previewEl) {
+    if (!input.files || !input.files[0]) return;
+    const file = input.files[0];
+    const inputId = input.id;
+
+    if (inputId === 'file-pas-foto') {
+      const allowed = ['.jpg', '.jpeg', '.png'];
+      const ext = file.name.substring(file.name.lastIndexOf('.')).toLowerCase();
+      if (!allowed.includes(ext)) {
+        alert('Format pas foto harus berupa gambar JPG, JPEG, atau PNG (bukan PDF).');
+        input.value = '';
+        return;
+      }
+      if (file.size > 5 * 1024 * 1024) {
+        alert('Ukuran pas foto melebihi batas maksimal 5 MB (Ukuran berkas: ' + (file.size / (1024 * 1024)).toFixed(2) + ' MB). Silakan gunakan foto dengan ukuran lebih kecil.');
+        input.value = '';
+        return;
+      }
+    } else if (inputId === 'file-kk' || inputId === 'file-raport') {
+      const allowed = ['.jpg', '.jpeg', '.png', '.pdf'];
+      const ext = file.name.substring(file.name.lastIndexOf('.')).toLowerCase();
+      const docName = inputId === 'file-kk' ? 'Kartu Keluarga (KK)' : 'Transkrip Nilai / Raport';
+      if (!allowed.includes(ext)) {
+        alert('Format berkas ' + docName + ' harus JPG, JPEG, PNG, atau PDF.');
+        input.value = '';
+        return;
+      }
+      if (file.size > 10 * 1024 * 1024) {
+        alert('Ukuran berkas ' + docName + ' melebihi batas maksimal 10 MB (Ukuran berkas: ' + (file.size / (1024 * 1024)).toFixed(2) + ' MB). Silakan gunakan berkas dengan ukuran lebih kecil.');
+        input.value = '';
+        return;
+      }
+    }
+
+    updatePreview(input, emptyEl, previewEl);
+  }
 
   function updatePreview(input, emptyEl, previewEl) {
     if (input.files && input.files[0]) {
@@ -938,15 +975,30 @@ document.addEventListener('DOMContentLoaded', function() {
       document.getElementById('dropzone-pas-foto').scrollIntoView({ behavior: 'smooth', block: 'center' });
       return;
     }
+    if (filePasFoto.files[0].size > 5 * 1024 * 1024) {
+      alert('Ukuran Pas Foto santri melebihi batas maksimal 5 MB.');
+      document.getElementById('dropzone-pas-foto').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
 
     if (!fileKk.files || !fileKk.files.length) {
       alert('Mohon unggah berkas Kartu Keluarga (KK) terlebih dahulu.');
       document.getElementById('dropzone-kk').scrollIntoView({ behavior: 'smooth', block: 'center' });
       return;
     }
+    if (fileKk.files[0].size > 10 * 1024 * 1024) {
+      alert('Ukuran berkas Kartu Keluarga (KK) melebihi batas maksimal 10 MB.');
+      document.getElementById('dropzone-kk').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
 
     if (!fileRaport.files || !fileRaport.files.length) {
       alert('Mohon unggah berkas Transkrip Nilai / Raport terlebih dahulu.');
+      document.getElementById('dropzone-raport').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+    if (fileRaport.files[0].size > 10 * 1024 * 1024) {
+      alert('Ukuran berkas Transkrip Nilai / Raport melebihi batas maksimal 10 MB.');
       document.getElementById('dropzone-raport').scrollIntoView({ behavior: 'smooth', block: 'center' });
       return;
     }
@@ -968,7 +1020,21 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
 
-      const result = await response.json();
+      if (response.status === 413) {
+        alert('Gagal mengunggah berkas: Ukuran total berkas melebihi kapasitas server (HTTP 413 Payload Too Large). Pastikan ukuran setiap dokumen tidak melebihi ketentuan.');
+        return;
+      }
+
+      let result;
+      const contentType = response.headers.get('content-type') || '';
+      if (contentType.includes('application/json')) {
+        result = await response.json();
+      } else {
+        const text = await response.text();
+        console.error('Non-JSON server response:', text);
+        alert('Terjadi kesalahan pada server saat memproses berkas pendaftaran (Status: ' + response.status + ').');
+        return;
+      }
 
       if (!response.ok || !result.success) {
         let errorMsg = result.message || 'Terjadi kesalahan saat menyimpan formulir.';

@@ -932,10 +932,11 @@
                         <!-- 1. Pas Foto 3x4 (Edit) -->
                         <div class="p-3 rounded-xl border border-slate-200 bg-white space-y-2 flex flex-col justify-between">
                             <div>
-                                <div class="flex items-center justify-between mb-1.5">
+                                <div class="flex items-center justify-between mb-1">
                                     <span class="font-bold text-xs text-slate-800">Pas Foto (3×4)</span>
                                     <span class="text-[10px] text-emerald-600 font-bold" id="editFotoStatusText">Tersedia</span>
                                 </div>
+                                <p class="text-[9px] text-slate-400 mb-1.5">JPG/PNG maks 5 MB</p>
                                 <div class="w-20 h-24 mx-auto rounded-lg overflow-hidden border border-slate-200 bg-slate-50 relative group flex items-center justify-center">
                                     <img id="editFotoImgPreview" src="" alt="Preview Foto" class="w-full h-full object-cover object-top" onerror="this.classList.add('hidden'); document.getElementById('editFotoFallback').classList.remove('hidden');" />
                                     <div id="editFotoFallback" class="hidden text-[10px] text-slate-400 text-center p-1">Tanpa Foto</div>
@@ -946,7 +947,7 @@
                                 <label class="px-2 py-1 text-[11px] font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-lg cursor-pointer flex items-center gap-1">
                                     <svg class="w-3 h-3 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
                                     <span>Ganti</span>
-                                    <input type="file" id="editFotoInput" accept="image/*" class="hidden" onchange="handleEditFotoChange(this)">
+                                    <input type="file" id="editFotoInput" accept=".jpg,.jpeg,.png" class="hidden" onchange="handleEditFotoChange(this)">
                                 </label>
                             </div>
                         </div>
@@ -954,10 +955,11 @@
                         <!-- 2. Kartu Keluarga (Edit) -->
                         <div class="p-3 rounded-xl border border-slate-200 bg-white space-y-2 flex flex-col justify-between">
                             <div>
-                                <div class="flex items-center justify-between mb-1.5">
+                                <div class="flex items-center justify-between mb-1">
                                     <span class="font-bold text-xs text-slate-800">Kartu Keluarga</span>
                                     <span class="text-[10px] text-emerald-600 font-bold" id="editKkStatusText">Tersedia</span>
                                 </div>
+                                <p class="text-[9px] text-slate-400 mb-1.5">PDF/JPG maks 10 MB</p>
                                 <div class="h-24 rounded-lg border border-dashed border-slate-200 bg-slate-50 flex flex-col items-center justify-center p-2 text-center">
                                     <svg class="w-7 h-7 text-rose-500 mb-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"></path></svg>
                                     <span class="text-[10px] font-medium text-slate-700 truncate max-w-[130px]" id="editKkFileName">kartu_keluarga.pdf</span>
@@ -976,10 +978,11 @@
                         <!-- 3. Buku Rapor (Edit) -->
                         <div class="p-3 rounded-xl border border-slate-200 bg-white space-y-2 flex flex-col justify-between">
                             <div>
-                                <div class="flex items-center justify-between mb-1.5">
+                                <div class="flex items-center justify-between mb-1">
                                     <span class="font-bold text-xs text-slate-800">Buku Rapor</span>
                                     <span class="text-[10px] text-emerald-600 font-bold" id="editRaportStatusText">Tersedia</span>
                                 </div>
+                                <p class="text-[9px] text-slate-400 mb-1.5">PDF/JPG maks 10 MB</p>
                                 <div class="h-24 rounded-lg border border-dashed border-slate-200 bg-slate-50 flex flex-col items-center justify-center p-2 text-center">
                                     <svg class="w-7 h-7 text-teal-600 mb-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"></path></svg>
                                     <span class="text-[10px] font-medium text-slate-700 truncate max-w-[130px]" id="editRaportFileName">raport_santri.pdf</span>
@@ -2232,7 +2235,20 @@
                             'X-CSRF-TOKEN': token
                         },
                         body: formData
-                    }).then(res => res.json()).then(res => {
+                    }).then(async res => {
+                        const resData = await res.json();
+                        if (!res.ok || !resData.success) {
+                            let errorMsg = resData.message || 'Gagal memperbarui data pendaftaran.';
+                            if (resData.errors) {
+                                const errorList = Object.values(resData.errors).flat().join('\n• ');
+                                errorMsg += '\n\n• ' + errorList;
+                            }
+                            alert(errorMsg);
+                            return null;
+                        }
+                        return resData;
+                    }).then(res => {
+                        if (!res) return;
                         console.log('Update success:', res);
                         if (res.data) {
                             if (res.data.umur !== undefined) activeDetailStudent.umur = res.data.umur;
@@ -2333,6 +2349,19 @@
             function handleEditFotoChange(input) {
                 if (input.files && input.files[0]) {
                     const file = input.files[0];
+                    if (file.size > 5 * 1024 * 1024) {
+                        alert('Ukuran pas foto maksimal 5 MB.');
+                        input.value = '';
+                        return;
+                    }
+                    const allowedExts = ['.jpg', '.jpeg', '.png'];
+                    const ext = file.name.substring(file.name.lastIndexOf('.')).toLowerCase();
+                    if (!allowedExts.includes(ext)) {
+                        alert('Format pas foto harus JPG, JPEG, atau PNG.');
+                        input.value = '';
+                        return;
+                    }
+
                     const reader = new FileReader();
                     reader.onload = function(e) {
                         const newUrl = e.target.result;
@@ -2374,6 +2403,19 @@
             function handleEditDocChange(input, docType) {
                 if (input.files && input.files[0]) {
                     const file = input.files[0];
+                    if (file.size > 10 * 1024 * 1024) {
+                        alert('Ukuran berkas ' + docType + ' maksimal 10 MB.');
+                        input.value = '';
+                        return;
+                    }
+                    const allowedExts = ['.pdf', '.jpg', '.jpeg', '.png'];
+                    const ext = file.name.substring(file.name.lastIndexOf('.')).toLowerCase();
+                    if (!allowedExts.includes(ext)) {
+                        alert('Format berkas ' + docType + ' harus PDF, JPG, JPEG, atau PNG.');
+                        input.value = '';
+                        return;
+                    }
+
                     const nameEl = docType === 'KK' ? document.getElementById('editKkFileName') : document.getElementById('editRaportFileName');
                     if (nameEl) nameEl.innerText = file.name;
 
@@ -2487,6 +2529,18 @@
             function previewManualDoc(input, docType) {
                 if (!input.files || !input.files[0]) return;
                 const file = input.files[0];
+
+                if (docType === 'pas_foto' && file.size > 5 * 1024 * 1024) {
+                    alert('Ukuran pas foto maksimal 5 MB.');
+                    input.value = '';
+                    return;
+                }
+                if ((docType === 'kk' || docType === 'raport') && file.size > 10 * 1024 * 1024) {
+                    alert('Ukuran berkas maksimal 10 MB.');
+                    input.value = '';
+                    return;
+                }
+
                 manualDocFiles[docType] = file;
 
                 const sizeKb = (file.size / 1024).toFixed(0) + ' KB';

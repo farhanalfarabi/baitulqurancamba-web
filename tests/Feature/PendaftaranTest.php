@@ -175,4 +175,45 @@ class PendaftaranTest extends TestCase
         $response->assertStatus(422);
         $response->assertJsonValidationErrors(['santri_email', 'file_pas_foto', 'file_kk', 'file_raport']);
     }
+
+    public function test_calon_santri_dapat_mendaftar_dengan_berkas_besar_hingga_batas_maksimal(): void
+    {
+        Storage::fake('public');
+        Mail::fake();
+
+        $payload = [
+            'jenjang' => 'Wustho',
+            'santri_nama' => 'Santri Berkas Maksimal',
+            'santri_gender' => 'Putra',
+            'santri_tempat_lahir' => 'Maros',
+            'santri_tanggal_lahir' => '2014-07-10',
+            'santri_alamat' => 'Jl. Poros Camba Km 50',
+            'santri_asal_sekolah' => 'SD IT Tahfizh Camba',
+            'santri_email' => 'berkas.maksimal@gmail.com',
+            'santri_hp' => '081234567811',
+            'santri_tinggal_bersama' => 'Orang Tua',
+            'file_pas_foto' => UploadedFile::fake()->create('pas_foto_5mb.jpg', 5100, 'image/jpeg'),
+            'file_kk' => UploadedFile::fake()->create('kk_9mb.pdf', 9500, 'application/pdf'),
+            'file_raport' => UploadedFile::fake()->create('raport_9mb.pdf', 9500, 'application/pdf'),
+            'ayah_nama' => 'Ayah',
+            'ayah_hp' => '081122334477',
+            'ayah_pekerjaan' => 'PNS / ASN',
+            'ayah_penghasilan' => '4.000.000-5.000.000',
+            'ibu_nama' => 'Ibu',
+            'ibu_hp' => '081122334488',
+            'ibu_pekerjaan' => 'Ibu Rumah Tangga',
+            'ibu_penghasilan' => '1.000.000-2.000.000',
+        ];
+
+        $response = $this->postJson(route('pendaftaran.store'), $payload);
+
+        $response->assertStatus(200);
+        $response->assertJson([
+            'success' => true,
+            'data' => [
+                'nama_santri' => 'Santri Berkas Maksimal',
+                'jenjang' => 'Wustho',
+            ],
+        ]);
+    }
 }

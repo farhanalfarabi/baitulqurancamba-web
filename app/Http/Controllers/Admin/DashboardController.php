@@ -8,6 +8,7 @@ use App\Models\Pendaftaran;
 use App\Models\Santri;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
@@ -124,6 +125,13 @@ class DashboardController extends Controller
             'pas_foto' => ['nullable', 'file', 'mimes:jpeg,png,jpg', 'max:5120'],
             'foto_kk' => ['nullable', 'file', 'mimes:jpeg,png,jpg,pdf', 'max:10240'],
             'foto_raport' => ['nullable', 'file', 'mimes:jpeg,png,jpg,pdf', 'max:10240'],
+        ], [
+            'pas_foto.mimes' => 'Format pas foto harus berupa gambar JPG, JPEG, atau PNG.',
+            'pas_foto.max' => 'Ukuran pas foto maksimal 5 MB.',
+            'foto_kk.mimes' => 'Format berkas KK harus JPG, JPEG, PNG, atau PDF.',
+            'foto_kk.max' => 'Ukuran berkas KK maksimal 10 MB.',
+            'foto_raport.mimes' => 'Format berkas Raport harus JPG, JPEG, PNG, atau PDF.',
+            'foto_raport.max' => 'Ukuran berkas Raport maksimal 10 MB.',
         ]);
 
         if ($request->hasFile('pas_foto')) {
@@ -187,19 +195,35 @@ class DashboardController extends Controller
             'pekerjaan_ibu' => ['nullable', 'string', 'max:100'],
             'penghasilan_ibu' => ['nullable', 'string', 'max:100'],
             'status' => ['sometimes', 'required', 'string', 'in:pending,terverifikasi,diterima,berkas_belum_lengkap'],
-            'pas_foto' => ['nullable', 'image', 'mimes:jpeg,png,jpg', 'max:2048'],
-            'foto_kk' => ['nullable', 'file', 'mimes:jpeg,png,jpg,pdf', 'max:3072'],
-            'foto_raport' => ['nullable', 'file', 'mimes:jpeg,png,jpg,pdf', 'max:3072'],
+            'pas_foto' => ['nullable', 'file', 'mimes:jpeg,png,jpg', 'max:5120'],
+            'foto_kk' => ['nullable', 'file', 'mimes:jpeg,png,jpg,pdf', 'max:10240'],
+            'foto_raport' => ['nullable', 'file', 'mimes:jpeg,png,jpg,pdf', 'max:10240'],
+        ], [
+            'pas_foto.mimes' => 'Format pas foto harus berupa gambar JPG, JPEG, atau PNG.',
+            'pas_foto.max' => 'Ukuran pas foto maksimal 5 MB.',
+            'foto_kk.mimes' => 'Format berkas KK harus JPG, JPEG, PNG, atau PDF.',
+            'foto_kk.max' => 'Ukuran berkas KK maksimal 10 MB.',
+            'foto_raport.mimes' => 'Format berkas Raport harus JPG, JPEG, PNG, atau PDF.',
+            'foto_raport.max' => 'Ukuran berkas Raport maksimal 10 MB.',
         ]);
 
         if ($request->hasFile('pas_foto')) {
-            $validated['pas_foto_path'] = $request->file('pas_foto')->store('pendaftaran', 'public');
+            if ($pendaftaran->pas_foto_path) {
+                Storage::disk('public')->delete($pendaftaran->pas_foto_path);
+            }
+            $validated['pas_foto_path'] = $request->file('pas_foto')->store('pendaftaran/pas_foto', 'public');
         }
         if ($request->hasFile('foto_kk')) {
-            $validated['foto_kk_path'] = $request->file('foto_kk')->store('pendaftaran', 'public');
+            if ($pendaftaran->foto_kk_path) {
+                Storage::disk('public')->delete($pendaftaran->foto_kk_path);
+            }
+            $validated['foto_kk_path'] = $request->file('foto_kk')->store('pendaftaran/kk', 'public');
         }
         if ($request->hasFile('foto_raport')) {
-            $validated['foto_raport_path'] = $request->file('foto_raport')->store('pendaftaran', 'public');
+            if ($pendaftaran->foto_raport_path) {
+                Storage::disk('public')->delete($pendaftaran->foto_raport_path);
+            }
+            $validated['foto_raport_path'] = $request->file('foto_raport')->store('pendaftaran/raport', 'public');
         }
 
         $pendaftaran->update($validated);
@@ -217,6 +241,17 @@ class DashboardController extends Controller
     public function pendaftaranDestroy(int|string $id): JsonResponse
     {
         $pendaftaran = Pendaftaran::findOrFail($id);
+
+        if ($pendaftaran->pas_foto_path) {
+            Storage::disk('public')->delete($pendaftaran->pas_foto_path);
+        }
+        if ($pendaftaran->foto_kk_path) {
+            Storage::disk('public')->delete($pendaftaran->foto_kk_path);
+        }
+        if ($pendaftaran->foto_raport_path) {
+            Storage::disk('public')->delete($pendaftaran->foto_raport_path);
+        }
+
         $pendaftaran->delete();
 
         return response()->json([
