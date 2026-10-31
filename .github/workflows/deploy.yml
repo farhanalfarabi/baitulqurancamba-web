@@ -10,7 +10,8 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  TARGET_DIR: public_html
+  # Path yang benar untuk domain baitulqurancamba.com di Hostinger
+  TARGET_DIR: domains/baitulqurancamba.com/public_html
 
 jobs:
   build-and-deploy:
@@ -31,7 +32,7 @@ jobs:
           npm install
           npm run build
 
-      # 2. Upload asset hasil build (public/build) ke Hostinger
+      # 2. Upload asset hasil build (public/build) ke folder domain di Hostinger
       - name: 🚀 Upload Compiled Assets (public/build) to Hostinger
         uses: appleboy/scp-action@v0.1.7
         with:
@@ -52,11 +53,12 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             set -e
+            export PATH=/usr/local/bin:/usr/bin:$PATH
 
-            # Masuk ke folder target
+            # Masuk ke folder domain yang tepat
             cd ~/${{ env.TARGET_DIR }}
 
-            echo "🚀 Mulai proses deployment..."
+            echo "🚀 Mulai proses deployment di $(pwd)..."
 
             # Inisialisasi git otomatis jika folder masih baru / belum ada git
             if [ ! -d ".git" ]; then
@@ -84,20 +86,22 @@ jobs:
             # 2. Install dependency Composer untuk production
             composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
 
-            # 3. Jalankan migrasi database
-            php artisan migrate --force
+            # 3. Jalankan migrasi database (toleran jika DB belum diatur di .env)
+            php artisan migrate --force || echo "⚠️ Warning: Database migrate dilewati (pastikan kredensial DB di .env sudah sesuai)"
 
-            # 4. Refresh cache konfigurasi, route, dan view
+            # 4. Beri izin akses ke folder storage & cache
+            chmod -R 775 storage bootstrap/cache || true
+
+            # 5. Refresh cache konfigurasi, route, dan view
             php artisan optimize:clear
             php artisan config:cache
             php artisan route:cache
             php artisan view:cache
 
-            # 5. Pastikan symbolic link storage sudah aktif
+            # 6. Pastikan symbolic link storage sudah aktif
             php artisan storage:link || true
 
-            # 6. Matikan maintenance mode
+            # 7. Matikan maintenance mode
             php artisan up
 
-            echo "✅ Deployment ke Hostinger berhasil!"
-
+            echo "✅ Deployment ke Hostinger berhasil di $(pwd)!"
