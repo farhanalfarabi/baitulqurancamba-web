@@ -15,7 +15,7 @@
       class="inline-flex items-center gap-2 pl-1.5 pr-3.5 sm:pr-4 py-1 rounded-full bg-[#121212] text-lime border-[2px] border-[#121212] brutal-shadow-sm mb-5 sm:mb-4">
       <img src="/assets/images/badge-scallop-trophy.svg" alt="Prestasi" class="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0">
       <span class="font-label font-bold text-[10px] sm:text-xs tracking-wider uppercase text-lime">
-        PONDOK PESANTREN BAITUL QUR'AN
+        Pondok Pesantren Tahfizh Baitul Qur'an Camba
       </span>
     </div>
 

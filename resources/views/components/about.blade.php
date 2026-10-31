@@ -11,7 +11,7 @@
         Iman, Karakter & Al-Qur'an<br class="hidden sm:inline">
         <span
           class="inline-block mt-2 px-5 py-2 bg-[#121212] text-lime rounded-xl border border-[#161616] tilt-right transform">
-          Pondok Pesantren Tahfizh Camba, Maros
+          Pondok Pesantren Tahfizh Baitul Qur'an Camba 
         </span>
       </h2>
     </div>
