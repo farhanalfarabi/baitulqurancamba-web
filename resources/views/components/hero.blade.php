@@ -35,7 +35,7 @@
         <span class="hidden lg:inline-flex items-center justify-center gap-x-3">
           <span>PENGHAFAL</span>
           <span
-            class="font-cursive italic font-bold lowercase text-[1.2em] text-[#4A0E17] -rotate-3 inline-block">al-qur'an</span>
+            class="font-cursive italic font-bold lowercase text-[1.2em] text-[#4A0E17] -rotate-3 inline-block">Al-qur'an</span>
           <span>YANG</span>
         </span>
 
