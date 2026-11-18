@@ -27,6 +27,20 @@ class PendaftaranController extends Controller
      */
     public function store(StorePendaftaranRequest $request): JsonResponse|RedirectResponse
     {
+        if ($request->filled('website')) {
+            Log::warning('Honeypot fallback di controller terpicu dari IP '.$request->ip());
+
+            if ($request->expectsJson() || $request->ajax()) {
+                return response()->json([
+                    'success' => true,
+                    'message' => 'Alhamdulillah, formulir pendaftaran calon santri baru berhasil disimpan. Bukti pendaftaran telah dikirim ke email Anda.',
+                    'registration_number' => 'PSB-2027-'.rand(100, 999),
+                ]);
+            }
+
+            return redirect()->route('pendaftaran')->with('success', 'Alhamdulillah, pendaftaran berhasil disimpan.');
+        }
+
         try {
             $validated = $request->validated();
 

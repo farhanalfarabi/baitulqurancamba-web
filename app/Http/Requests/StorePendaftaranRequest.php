@@ -4,6 +4,8 @@ namespace App\Http\Requests;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Support\Facades\Log;
 
 class StorePendaftaranRequest extends FormRequest
 {
@@ -13,6 +15,27 @@ class StorePendaftaranRequest extends FormRequest
     public function authorize(): bool
     {
         return true;
+    }
+
+    /**
+     * Intercept honeypot bot submissions early before validation, file processing, or database access.
+     */
+    protected function prepareForValidation(): void
+    {
+        if ($this->filled('website')) {
+            Log::warning('Honeypot terpicu: Percobaan spam pendaftaran bot digagalkan dari IP '.$this->ip());
+
+            // Kembalikan respon seolah-olah berhasil agar bot mencatat selesai dan tidak mencari celah lain
+            if ($this->expectsJson() || $this->ajax()) {
+                throw new HttpResponseException(response()->json([
+                    'success' => true,
+                    'message' => 'Alhamdulillah, formulir pendaftaran calon santri baru berhasil disimpan. Bukti pendaftaran telah dikirim ke email Anda.',
+                    'registration_number' => 'PSB-2027-'.rand(100, 999),
+                ]));
+            }
+
+            throw new HttpResponseException(redirect()->route('pendaftaran')->with('success', 'Alhamdulillah, pendaftaran berhasil disimpan.'));
+        }
     }
 
     /**

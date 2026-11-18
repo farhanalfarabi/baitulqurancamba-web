@@ -122,6 +122,12 @@
     <form id="form-pendaftaran-santri" action="{{ route('pendaftaran.store') }}" method="POST" enctype="multipart/form-data" class="space-y-8" onsubmit="window.handleRegistrationSubmit(event);">
       @csrf
 
+      {{-- Honeypot Anti-Spam: Tidak terlihat oleh manusia, perangkap untuk bot pengirim spam --}}
+      <div class="opacity-0 absolute -left-[9999px] -top-[9999px] w-0 h-0 overflow-hidden pointer-events-none select-none" aria-hidden="true" tabindex="-1">
+        <label for="pendaftaran_website_hp">Website Calon Santri (Jangan diisi / Leave blank)</label>
+        <input type="text" name="website" id="pendaftaran_website_hp" value="" tabindex="-1" autocomplete="off" />
+      </div>
+
       <!-- =========================================================================
            CARD 1: DATA CALON SANTRI BARU
            Clean Surface with Rounded [32px] & Soft Layered Shadow

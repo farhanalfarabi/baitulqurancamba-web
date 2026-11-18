@@ -216,4 +216,46 @@ class PendaftaranTest extends TestCase
             ],
         ]);
     }
+
+    public function test_halaman_pendaftaran_memiliki_field_honeypot_website(): void
+    {
+        $response = $this->get(route('pendaftaran'));
+
+        $response->assertStatus(200);
+        $response->assertSee('name="website"', false);
+    }
+
+    public function test_honeypot_menggagalkan_bot_spam_tanpa_menyimpan_ke_database(): void
+    {
+        Storage::fake('public');
+        Mail::fake();
+
+        // Bot mengisi payload termasuk field jebakan honeypot 'website'
+        $botPayload = [
+            'website' => 'https://myxa.cc/',
+            'santri_nama' => '* * * <a href="https://myxa.cc/">message 2</a> * * *',
+            'jenjang' => 'Ulya',
+            'santri_gender' => 'Putri',
+            'santri_email' => 'spambot@example.com',
+            'ayah_nama' => 's0h56n',
+            'ayah_hp' => '520421327585',
+        ];
+
+        $response = $this->postJson(route('pendaftaran.store'), $botPayload);
+
+        // Respon memberikan status 200 dan success agar bot tidak curiga
+        $response->assertStatus(200);
+        $response->assertJson([
+            'success' => true,
+        ]);
+
+        // Tidak ada data yang tersimpan di database
+        $this->assertDatabaseMissing('pendaftarans', [
+            'email' => 'spambot@example.com',
+        ]);
+        $this->assertDatabaseCount('pendaftarans', 0);
+
+        // Tidak ada email yang dikirim
+        Mail::assertNothingSent();
+    }
 }
