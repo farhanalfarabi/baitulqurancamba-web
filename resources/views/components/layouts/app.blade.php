@@ -4,8 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="light">
-    <meta name="supported-color-schemes" content="light">
+    <meta name="color-scheme" content="only light">
+    <meta name="supported-color-schemes" content="only light">
+    <style>
+        :root, html, body {
+            color-scheme: only light !important;
+            supported-color-schemes: only light !important;
+            background-color: #FAF7F0 !important;
+            color: #121212 !important;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root, html, body {
+                color-scheme: only light !important;
+                background-color: #FAF7F0 !important;
+                color: #121212 !important;
+            }
+        }
+    </style>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ $title ?? "Pondok Pesantren Tahfizh Baitul Qur'an Camba | Membina Generasi Qur'ani" }}</title>
     <meta name="description"

@@ -4,8 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="light">
-    <meta name="supported-color-schemes" content="light">
+    <meta name="color-scheme" content="only light">
+    <meta name="supported-color-schemes" content="only light">
+    <style>
+        :root, html, body {
+            color-scheme: only light !important;
+        }
+    </style>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ $title ?? "Admin Portal | Pondok Pesantren Tahfizh Baitul Qur'an Camba" }}</title>
     <link rel="icon" type="image/png" href="{{ asset('assets/images/logo.png') }}">
