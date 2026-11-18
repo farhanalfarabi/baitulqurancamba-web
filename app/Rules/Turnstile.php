@@ -31,8 +31,8 @@ class Turnstile implements ValidationRule
             return;
         }
 
-        // Kunci dummy testing resmi Cloudflare
-        if ($value === '1x00000000000000000000AA' || $secretKey === '1x0000000000000000000000000000000AA') {
+        // Kunci dummy testing resmi Cloudflare (untuk localhost / development)
+        if ($value === '1x00000000000000000000AA' || str_starts_with($secretKey, '1x')) {
             return;
         }
 

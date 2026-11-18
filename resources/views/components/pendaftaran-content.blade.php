@@ -1016,6 +1016,15 @@ document.addEventListener('DOMContentLoaded', function() {
       return;
     }
 
+    // Cek verifikasi Cloudflare Turnstile sebelum submit
+    const turnstileWidget = document.querySelector('.cf-turnstile');
+    const turnstileResponse = form.querySelector('[name="cf-turnstile-response"]')?.value;
+    if (turnstileWidget && !turnstileResponse) {
+      alert('Mohon selesaikan verifikasi keamanan (centang kotak "Verifikasi bahwa Anda adalah manusia") terlebih dahulu.');
+      turnstileWidget.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
     const formData = new FormData(form);
 
     // Disable button & show spinner
