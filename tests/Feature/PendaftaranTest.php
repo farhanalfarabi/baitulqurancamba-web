@@ -176,6 +176,47 @@ class PendaftaranTest extends TestCase
         $response->assertJsonValidationErrors(['santri_email', 'file_pas_foto', 'file_kk', 'file_raport']);
     }
 
+    public function test_validasi_menolak_nama_dengan_tag_html_dan_link_spam(): void
+    {
+        Storage::fake('public');
+
+        $payload = [
+            'jenjang' => 'Ulya',
+            'santri_nama' => '* * * <a href="https://myxa.cc/">message 2</a> * * *',
+            'santri_gender' => 'Putri',
+            'santri_tempat_lahir' => 'Maros',
+            'santri_tanggal_lahir' => '2011-05-18',
+            'santri_alamat' => 'Alamat santri dengan link https://myxa.cc/',
+            'santri_asal_sekolah' => 'Sekolah <script>alert(1)</script>',
+            'santri_email' => 'spam@test.com',
+            'santri_hp' => 'bukan-nomor-telepon',
+            'santri_tinggal_bersama' => 'Orang Tua',
+            'file_pas_foto' => UploadedFile::fake()->image('pas_foto.jpg'),
+            'file_kk' => UploadedFile::fake()->create('kk.pdf', 300, 'application/pdf'),
+            'file_raport' => UploadedFile::fake()->create('raport.pdf', 400, 'application/pdf'),
+            'ayah_nama' => 's0h56n', // Mengandung angka acak
+            'ayah_hp' => 'abc12345',
+            'ayah_pekerjaan' => 'Wiraswasta',
+            'ayah_penghasilan' => '5.000.000-keatas',
+            'ibu_nama' => 'Ibu',
+            'ibu_hp' => '08123456780',
+            'ibu_pekerjaan' => 'Ibu Rumah Tangga',
+            'ibu_penghasilan' => '1.000.000-2.000.000',
+        ];
+
+        $response = $this->postJson(route('pendaftaran.store'), $payload);
+
+        $response->assertStatus(422);
+        $response->assertJsonValidationErrors([
+            'santri_nama',
+            'santri_alamat',
+            'santri_asal_sekolah',
+            'santri_hp',
+            'ayah_nama',
+            'ayah_hp',
+        ]);
+    }
+
     public function test_calon_santri_dapat_mendaftar_dengan_berkas_besar_hingga_batas_maksimal(): void
     {
         Storage::fake('public');
@@ -257,5 +298,25 @@ class PendaftaranTest extends TestCase
 
         // Tidak ada email yang dikirim
         Mail::assertNothingSent();
+    }
+
+    public function test_rate_limiting_membatasi_maksimal_5_kali_request_per_menit(): void
+    {
+        // Lakukan 5 request pertama
+        for ($i = 0; $i < 5; $i++) {
+            $this->postJson(route('pendaftaran.store'), []);
+        }
+
+        // Request ke-6 harus ditolak oleh Rate Limiter dengan HTTP 429
+        $response = $this->postJson(route('pendaftaran.store'), []);
+
+        $response->assertStatus(429);
+        $response->assertJson([
+            'success' => false,
+        ]);
+        $response->assertJsonFragment([
+            'success' => false,
+        ]);
+        $this->assertStringContainsString('Terlalu banyak permintaan pendaftaran', $response->json('message'));
     }
 }

@@ -25,7 +25,9 @@ Route::get('/gallery', function () {
 })->name('gallery');
 
 Route::get('/pendaftaran', [PendaftaranController::class, 'index'])->name('pendaftaran');
-Route::post('/pendaftaran', [PendaftaranController::class, 'store'])->name('pendaftaran.store');
+Route::post('/pendaftaran', [PendaftaranController::class, 'store'])
+    ->middleware('throttle:pendaftaran')
+    ->name('pendaftaran.store');
 
 Route::get('/daftar', function () {
     return redirect()->route('pendaftaran');
