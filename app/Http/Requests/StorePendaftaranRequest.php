@@ -2,10 +2,12 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Turnstile;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Validation\Rule;
 
 class StorePendaftaranRequest extends FormRequest
 {
@@ -67,6 +69,13 @@ class StorePendaftaranRequest extends FormRequest
             'ibu_hp' => ['required', 'string', 'min:9', 'max:25', 'regex:/^(\+?[0-9\s\-]+)$/'],
             'ibu_pekerjaan' => ['required', 'string', 'max:100'],
             'ibu_penghasilan' => ['required', 'string', 'max:100'],
+            'cf-turnstile-response' => [
+                Rule::when(
+                    ! empty(config('services.turnstile.secret_key')) && ! app()->environment('testing'),
+                    ['required', new Turnstile],
+                    ['nullable']
+                ),
+            ],
         ];
     }
 
@@ -119,6 +128,7 @@ class StorePendaftaranRequest extends FormRequest
             'ibu_hp.min' => 'Nomor HP/WA ibu minimal 9 digit.',
             'ibu_pekerjaan.required' => 'Pekerjaan ibu wajib diisi.',
             'ibu_penghasilan.required' => 'Rentang penghasilan ibu wajib dipilih.',
+            'cf-turnstile-response.required' => 'Mohon selesaikan verifikasi keamanan (CAPTCHA) terlebih dahulu.',
         ];
     }
 }

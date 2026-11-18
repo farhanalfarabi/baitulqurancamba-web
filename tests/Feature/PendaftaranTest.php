@@ -2,10 +2,13 @@
 
 namespace Tests\Feature;
 
+use App\Rules\Turnstile;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 use Tests\TestCase;
 
 class PendaftaranTest extends TestCase
@@ -318,5 +321,57 @@ class PendaftaranTest extends TestCase
             'success' => false,
         ]);
         $this->assertStringContainsString('Terlalu banyak permintaan pendaftaran', $response->json('message'));
+    }
+
+    public function test_halaman_pendaftaran_memuat_script_dan_widget_turnstile(): void
+    {
+        config(['services.turnstile.site_key' => '0x4AAAAAAGGZ46px58-LOmXD']);
+
+        $response = $this->get(route('pendaftaran'));
+
+        $response->assertStatus(200);
+        $response->assertSee('challenges.cloudflare.com/turnstile/v0/api.js');
+        $response->assertSee('class="cf-turnstile"', false);
+        $response->assertSee('data-sitekey="0x4AAAAAAGGZ46px58-LOmXD"', false);
+    }
+
+    public function test_turnstile_rule_memvalidasi_token_dengan_sukses(): void
+    {
+        config(['services.turnstile.secret_key' => 'test-secret-key']);
+
+        Http::fake([
+            'challenges.cloudflare.com/turnstile/v0/siteverify' => Http::response([
+                'success' => true,
+            ], 200),
+        ]);
+
+        $validator = Validator::make([
+            'cf-turnstile-response' => 'valid-dummy-token',
+        ], [
+            'cf-turnstile-response' => [new Turnstile],
+        ]);
+
+        $this->assertTrue($validator->passes());
+    }
+
+    public function test_turnstile_rule_menolak_token_yang_tidak_valid(): void
+    {
+        config(['services.turnstile.secret_key' => 'test-secret-key']);
+
+        Http::fake([
+            'challenges.cloudflare.com/turnstile/v0/siteverify' => Http::response([
+                'success' => false,
+                'error-codes' => ['invalid-input-response'],
+            ], 200),
+        ]);
+
+        $validator = Validator::make([
+            'cf-turnstile-response' => 'invalid-dummy-token',
+        ], [
+            'cf-turnstile-response' => [new Turnstile],
+        ]);
+
+        $this->assertFalse($validator->passes());
+        $this->assertStringContainsString('CAPTCHA', $validator->errors()->first('cf-turnstile-response'));
     }
 }

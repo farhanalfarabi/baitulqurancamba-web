@@ -691,13 +691,20 @@
         </h3>
 
         <!-- Statement Checkbox -->
-        <label class="flex items-start gap-3.5 p-4 sm:p-5 rounded-2xl bg-white/10 border border-white/15 hover:bg-white/15 transition-colors cursor-pointer mb-8">
+        <label class="flex items-start gap-3.5 p-4 sm:p-5 rounded-2xl bg-white/10 border border-white/15 hover:bg-white/15 transition-colors cursor-pointer mb-6">
           <input type="checkbox" id="check-pernyataan" required
                  class="mt-1 w-5 h-5 rounded-md border-2 border-white/80 bg-white/20 text-[#CF2B09] focus:ring-0 cursor-pointer">
           <span class="font-body text-xs sm:text-sm text-white/90 leading-relaxed font-medium">
             Dengan ini saya menyatakan bahwa seluruh data calon santri dan orang tua yang diisikan dalam formulir pendaftaran ini adalah <strong class="text-white font-bold underline">benar, sah, dan dapat dipertanggungjawabkan</strong>. Apabila di kemudian hari terdapat ketidaksesuaian data, saya bersedia menerima ketentuan yang berlaku di Pondok Pesantren Tahfizh Baitul Qur'an Camba.
           </span>
         </label>
+
+        <!-- Cloudflare Turnstile CAPTCHA Widget -->
+        @if(config('services.turnstile.site_key'))
+          <div class="mb-6 flex justify-center">
+            <div class="cf-turnstile" data-sitekey="{{ config('services.turnstile.site_key') }}" data-theme="light"></div>
+          </div>
+        @endif
 
         <!-- Submit Button -->
         <button type="submit" id="btn-submit-pendaftaran"
@@ -1043,6 +1050,9 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
       if (!response.ok || !result.success) {
+        if (typeof window.turnstile !== 'undefined' && window.turnstile.reset) {
+          window.turnstile.reset();
+        }
         let errorMsg = result.message || 'Terjadi kesalahan saat menyimpan formulir.';
         if (result.errors) {
           const firstField = Object.keys(result.errors)[0];
@@ -1092,6 +1102,9 @@ document.addEventListener('DOMContentLoaded', function() {
       updateRadioIndicators();
 
     } catch (err) {
+      if (typeof window.turnstile !== 'undefined' && window.turnstile.reset) {
+        window.turnstile.reset();
+      }
       console.error(err);
       alert('Terjadi kendala jaringan saat mengirim formulir. Pastikan koneksi internet stabil dan coba kembali.');
     } finally {
