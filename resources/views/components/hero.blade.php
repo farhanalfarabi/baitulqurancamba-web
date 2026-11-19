@@ -12,7 +12,7 @@
 
     <!-- Top Pill Badge -->
     <div
-      class="inline-flex items-center gap-1.5 sm:gap-2 pl-1.5 pr-3 sm:pr-4 py-0.5 sm:py-1 rounded-full bg-[#121212] text-lime border-[2px] border-[#121212] brutal-shadow-sm mb-4 sm:mb-4 max-w-full">
+      class="inline-flex items-center gap-1.5 sm:gap-2 pl-1.5 pr-3 sm:pr-4 py-0.5 sm:py-1 rounded-full bg-[#121212] text-lime border-[2px] border-[#121212] brutal-shadow-sm mb-6 sm:mb-7 max-w-full">
       <img src="/assets/images/badge-scallop-trophy.svg" alt="Prestasi" class="w-4 h-4 sm:w-6 sm:h-6 flex-shrink-0">
       <span class="font-label font-bold text-[9px] min-[360px]:text-[10px] sm:text-xs tracking-normal min-[360px]:tracking-wider uppercase text-lime truncate">
         Pondok Pesantren Tahfizh Baitul Qur'an Camba
@@ -20,9 +20,9 @@
     </div>
 
     <!-- Main Hero Title (3-Line Lockup) -->
-    <div class="relative max-w-4xl mx-auto mb-5 sm:mb-4">
+    <div class="relative max-w-4xl mx-auto mb-7 sm:mb-9">
       <h1
-        class="font-display font-black text-[clamp(1.9rem,8.2vw,2.6rem)] sm:text-5xl lg:text-6xl xl:text-[66px] tracking-tight text-[#121212] uppercase leading-[1.06] sm:leading-[1.02] flex flex-col items-center justify-center gap-1 sm:gap-2">
+        class="font-display font-black text-[clamp(1.9rem,8.2vw,2.6rem)] sm:text-5xl lg:text-6xl xl:text-[66px] tracking-tight text-[#121212] uppercase leading-[1.08] sm:leading-[1.02] flex flex-col items-center justify-center gap-1.5 sm:gap-2">
         <!-- Line 1 -->
         <span class="block whitespace-nowrap">MEMBINA GENERASI</span>
 
@@ -40,7 +40,7 @@
         </span>
 
         <!-- Line 3: Mobile (YANG TANGGUH & BERAKHLAK) / Desktop (TANGGUH & BERAKHLAK) -->
-        <span class="block lg:hidden text-center">
+        <span class="block lg:hidden text-center mt-0.5 sm:mt-0">
           <span class="inline-block whitespace-nowrap">YANG TANGGUH</span>
           <span class="inline-block whitespace-nowrap">& BERAKHLAK</span>
         </span>
@@ -49,7 +49,7 @@
     </div>
 
     <!-- Hero Primary CTA: Signature Double-Layer Button -->
-    <div class="flex justify-center mb-4 sm:mb-6">
+    <div class="flex justify-center mb-3 sm:mb-4">
       <a href="{{ route('pendaftaran') }}"
         class="hero-cta-btn group bg-white p-1 rounded-xl shadow-md inline-flex items-center transition-transform hover:scale-[1.02] active:scale-[0.98] cursor-pointer focus:outline-none">
         <div
@@ -114,7 +114,7 @@
   @endphp
 
   <!-- Mobile Hero Cards: Seamless Infinite Marquee (Tersusun Rapi, Infinite Loop Berjalan Terus) -->
-  <div class="block lg:hidden relative w-full overflow-hidden py-2 sm:py-3 mt-5 sm:mt-10 select-none hero-mobile-marquee-container">
+  <div class="block lg:hidden relative w-full overflow-hidden py-2 sm:py-3 mt-9 sm:mt-12 select-none hero-mobile-marquee-container">
     <style>
       @keyframes heroMarqueeRight {
         0% {
