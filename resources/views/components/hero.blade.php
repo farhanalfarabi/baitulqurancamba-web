@@ -22,7 +22,7 @@
     <!-- Main Hero Title (3-Line Lockup) -->
     <div class="relative max-w-4xl mx-auto mb-5 sm:mb-4">
       <h1
-        class="font-display font-black text-[clamp(1.45rem,6vw,2.25rem)] sm:text-5xl lg:text-6xl xl:text-[66px] tracking-tight text-[#121212] uppercase leading-[1.08] sm:leading-[1.02] flex flex-col items-center justify-center gap-1 sm:gap-2">
+        class="font-display font-black text-[clamp(1.9rem,8.2vw,2.6rem)] sm:text-5xl lg:text-6xl xl:text-[66px] tracking-tight text-[#121212] uppercase leading-[1.06] sm:leading-[1.02] flex flex-col items-center justify-center gap-1 sm:gap-2">
         <!-- Line 1 -->
         <span class="block whitespace-nowrap">MEMBINA GENERASI</span>
 
@@ -114,7 +114,7 @@
   @endphp
 
   <!-- Mobile Hero Cards: Seamless Infinite Marquee (Tersusun Rapi, Infinite Loop Berjalan Terus) -->
-  <div class="block lg:hidden relative w-full overflow-hidden py-2 sm:py-3 mt-8 sm:mt-12 select-none hero-mobile-marquee-container">
+  <div class="block lg:hidden relative w-full overflow-hidden py-2 sm:py-3 mt-5 sm:mt-10 select-none hero-mobile-marquee-container">
     <style>
       @keyframes heroMarqueeRight {
         0% {
@@ -165,10 +165,6 @@
         }
       }
     </style>
-
-    <!-- Left & Right Gradient Fade Edges -->
-    <div class="pointer-events-none absolute left-0 top-0 h-full w-8 sm:w-16 z-20 bg-gradient-to-r from-[#FAF7F0] via-[#FAF7F0]/80 to-transparent"></div>
-    <div class="pointer-events-none absolute right-0 top-0 h-full w-8 sm:w-16 z-20 bg-gradient-to-l from-[#FAF7F0] via-[#FAF7F0]/80 to-transparent"></div>
 
     <div class="hero-marquee-track-right py-2">
       <!-- Set A -->
