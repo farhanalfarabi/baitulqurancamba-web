@@ -10,13 +10,17 @@
 
   <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center relative z-10">
 
-    <!-- Top Pill Badge -->
-    <div
-      class="inline-flex items-center gap-1.5 sm:gap-2 pl-1.5 pr-3 sm:pr-4 py-0.5 sm:py-1 rounded-full bg-[#121212] text-lime border-[2px] border-[#121212] brutal-shadow-sm mb-6 sm:mb-7 max-w-full">
-      <img src="/assets/images/badge-scallop-trophy.svg" alt="Prestasi" class="w-4 h-4 sm:w-6 sm:h-6 flex-shrink-0">
-      <span class="font-label font-bold text-[9px] min-[360px]:text-[10px] sm:text-xs tracking-normal min-[360px]:tracking-wider uppercase text-lime truncate">
-        Pondok Pesantren Tahfizh Baitul Qur'an Camba
-      </span>
+    <!-- Top Pill Badge with Perched Crest Trophy Icon -->
+    <div class="inline-flex flex-col items-center mb-6 sm:mb-7 max-w-full">
+      <div class="-mb-2.5 sm:-mb-3 z-10 flex-shrink-0">
+        <img src="/assets/images/badge-scallop-trophy.svg" alt="Prestasi" class="w-7 h-7 sm:w-8 sm:h-8 drop-shadow-sm">
+      </div>
+      <div
+        class="inline-flex items-center px-3.5 min-[360px]:px-4 sm:px-5 pt-1.5 pb-1 sm:pt-2 sm:pb-1.5 rounded-full bg-[#121212] text-lime border-[2px] border-[#121212] brutal-shadow-sm max-w-full">
+        <span class="font-label font-bold text-[9px] min-[360px]:text-[10px] sm:text-xs tracking-normal min-[360px]:tracking-wider uppercase text-lime whitespace-nowrap">
+          Pondok Pesantren Tahfizh Baitul Qur'an Camba
+        </span>
+      </div>
     </div>
 
     <!-- Main Hero Title (3-Line Lockup) -->
