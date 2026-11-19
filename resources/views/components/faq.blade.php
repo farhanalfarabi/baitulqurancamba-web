@@ -5,7 +5,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
 
       <!-- Left Column: Header & Emblem -->
-      <div data-animate="slide-left" class="lg:col-span-5 text-left">
+      <div data-animate="fade-up" class="lg:col-span-5 text-left">
         <div class="stamp-badge stamp-badge-red mb-4">
           Tanya & Jawab
         </div>

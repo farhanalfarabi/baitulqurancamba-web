@@ -75,7 +75,7 @@
       </p>
 
       <!-- 3 Pillars of Vision (The "3M" Tactile Grid) -->
-      <div data-stagger-group data-stagger-variant="split-3col" class="grid grid-cols-1 md:grid-cols-3 gap-5 text-left">
+      <div data-stagger-group data-stagger-variant="pop" data-stagger-delay="0.1" data-stagger-tilt="true" class="grid grid-cols-1 md:grid-cols-3 gap-5 text-left">
         
         <!-- Pillar 1: Muhaffizh -->
         <div data-stagger-item data-tilt-card data-tilt-max="3.5" style="--hover-tilt: -0.8deg;" class="krackerz-card rounded-2xl bg-white/10 hover:bg-white/15 backdrop-blur-sm border border-white/20 p-6 sm:p-7 overflow-hidden">

@@ -376,7 +376,7 @@
         break;
       case 'card-pop':
         keyframes = [
-          { opacity: 0, transform: 'translate3d(-44px, 54px, 0) scale(0.84) rotate(-5deg)' },
+          { opacity: 0, transform: 'translate3d(0, 52px, 0) scale(0.84) rotate(-4deg)' },
           { opacity: 1, transform: 'translate3d(0, 0, 0) scale(1) rotate(0deg)' }
         ];
         duration = 860;
@@ -416,13 +416,12 @@
       duration = 800;
       easing = EASE_BOUNCE_CSS;
     } else if (variant === 'row') {
-      const offsetX = idx % 2 === 0 ? -52 : 52;
       keyframes = [
-        { opacity: 0, transform: `translate3d(${offsetX}px, 22px, 0) scale(0.96)` },
+        { opacity: 0, transform: 'translate3d(0, 34px, 0) scale(0.96)' },
         { opacity: 1, transform: 'translate3d(0, 0, 0) scale(1)' }
       ];
-      duration = 720;
-      easing = EASE_SPRING_CSS;
+      duration = 700;
+      easing = EASE_SMOOTH_CSS;
     } else if (variant === 'gallery') {
       const rot = idx % 2 === 0 ? -4 : 4;
       keyframes = [
@@ -432,26 +431,13 @@
       duration = 680;
       easing = EASE_SPRING_CSS;
     } else {
-      // Tactile Krackerz card pop-in (e.g. 9 Pillars: outer cols angle slightly inward!)
-      let startX = 0;
-      let startRot = useTilt ? (idx % 2 === 0 ? -5 : 5) : 0;
-      if (colCount === 3) {
-        if (colIdx === 0) {
-          startX = -48;
-          startRot = -5;
-        } else if (colIdx === 2) {
-          startX = 48;
-          startRot = 5;
-        } else {
-          startX = 0;
-          startRot = 0;
-        }
-      }
+      // Crisp vertical spring pop-in (e.g. 9 Pillars, Visi 3M)
+      const startRot = useTilt ? (idx % 2 === 0 ? -3.5 : 3.5) : 0;
       keyframes = [
-        { opacity: 0, transform: `translate3d(${startX}px, 68px, 0) scale(0.85) rotate(${startRot}deg)` },
+        { opacity: 0, transform: `translate3d(0, 64px, 0) scale(0.86) rotate(${startRot}deg)` },
         { opacity: 1, transform: 'translate3d(0, 0, 0) scale(1) rotate(0deg)' }
       ];
-      duration = 840;
+      duration = 820;
       easing = EASE_SPRING_CSS;
     }
 
