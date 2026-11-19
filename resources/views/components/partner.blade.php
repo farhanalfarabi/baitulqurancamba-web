@@ -1,7 +1,7 @@
 <!-- Islamic Motivation Banner Component: Kemuliaan Menuntut Ilmu -->
 <section id="partner" class="py-16 sm:py-20 bg-[#FAF7F0] relative overflow-hidden">
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="rounded-2xl sm:rounded-3xl bg-[#580D14] text-white p-8 sm:p-14 shadow-2xl text-center relative overflow-hidden border-2 border-white/10">
+    <div data-animate="scale-in" class="rounded-2xl sm:rounded-3xl bg-[#580D14] text-white p-8 sm:p-14 shadow-2xl text-center relative overflow-hidden border-2 border-white/10">
       
       <!-- Ambient Glow Accents -->
       <div class="absolute -right-24 -top-24 w-72 h-72 rounded-full bg-lime/10 blur-3xl pointer-events-none"></div>
@@ -20,7 +20,7 @@
       </h2>
 
       <!-- Hadits Quote Highlight Card with Arabic Script -->
-      <div class="max-w-3xl mx-auto mb-6 p-6 sm:p-8 rounded-2xl bg-white/5 border border-white/15 backdrop-blur-sm text-center">
+      <div data-animate="pop" data-animate-delay="0.12" class="krackerz-card max-w-3xl mx-auto mb-6 p-6 sm:p-8 rounded-2xl bg-white/5 border border-white/15 backdrop-blur-sm text-center overflow-hidden">
         <!-- Arabic Text -->
         <p class="font-serif text-xl sm:text-2xl lg:text-3xl text-lime mb-4 leading-loose tracking-wide" dir="rtl">
           مَنْ خَرَجَ فِي طَلَبِ الْعِلْمِ فَهُوَ فِي سَبِيلِ اللَّهِ حَتَّى يَرْجِعَ
@@ -40,14 +40,14 @@
       </p>
 
       <!-- 3 Virtues of Seeking Knowledge (No Button) -->
-      <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
-        <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-xs font-semibold text-lime shadow-sm">
+      <div data-stagger-group data-stagger-variant="pop" data-stagger-delay="0.08" class="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+        <span data-stagger-item class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-xs font-semibold text-lime shadow-sm">
           <span>✦</span> Jihad Fii Sabilillah
         </span>
-        <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-xs font-semibold text-white/95 shadow-sm">
+        <span data-stagger-item class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-xs font-semibold text-white/95 shadow-sm">
           <span>✦</span> Dimudahkan Jalan Menuju Surga
         </span>
-        <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-xs font-semibold text-white/95 shadow-sm">
+        <span data-stagger-item class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-xs font-semibold text-white/95 shadow-sm">
           <span>✦</span> Didoakan Para Malaikat
         </span>
       </div>

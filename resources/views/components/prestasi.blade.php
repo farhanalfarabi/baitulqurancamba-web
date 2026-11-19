@@ -3,7 +3,7 @@
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
     <!-- Section Header -->
-    <div class="text-center mb-12 sm:mb-16">
+    <div data-animate="fade-up" class="text-center mb-12 sm:mb-16">
       <div class="stamp-badge stamp-badge-lime mb-4">
         Prestasi & Penghargaan Santri
       </div>
@@ -42,18 +42,18 @@
           </span>
         </div>
 
-        <div id="prestasi-row-champions" class="flex overflow-x-auto no-scrollbar gap-4 sm:gap-6 py-4 px-1 -mx-1 snap-x snap-mandatory lg:grid lg:grid-cols-3 lg:gap-6 lg:overflow-visible lg:py-0 lg:px-0 lg:mx-0">
+        <div id="prestasi-row-champions" data-stagger-group data-stagger-delay="0.1" data-stagger-tilt="true" class="flex overflow-x-auto no-scrollbar gap-4 sm:gap-6 py-4 px-1 -mx-1 snap-x snap-mandatory lg:grid lg:grid-cols-3 lg:gap-6 lg:overflow-visible lg:py-0 lg:px-0 lg:mx-0">
 
           <!-- ===================================================================
                CARD 1: Zjilzian Amarung — Burnt Orange (scallop top-right)
                =================================================================== -->
-          <div class="prestasi-card w-[82vw] max-w-[320px] sm:w-[330px] lg:w-auto shrink-0 snap-start rounded-[20px] sm:rounded-[28px] bg-[#C53618] p-5 sm:p-7 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between group overflow-hidden relative cursor-pointer"
+          <div data-stagger-item data-tilt-card data-tilt-max="3.2" style="--hover-tilt: -0.9deg;" class="krackerz-card prestasi-card w-[82vw] max-w-[320px] sm:w-[330px] lg:w-auto shrink-0 snap-start rounded-[20px] sm:rounded-[28px] bg-[#C53618] p-5 sm:p-7 shadow-xl hover:shadow-2xl flex flex-col justify-between group overflow-hidden relative cursor-pointer"
         data-category="champions"
         data-poster-title="Zjilzian Amarung — 2x Gold & 1x Silver Medalist"
         data-poster-desc="Olimpiade Islam Nasional 2025: Medali Emas Bahasa Arab & Aqidah Akhlak, Medali Perak Al-Qur'an Hadits (Diselenggarakan oleh Lingkar Studi Cendekia)."
         data-poster-src="/assets/images/prestasi/juara (2).webp">
             <!-- Scallop notch top-right -->
-            <div class="absolute -top-5 -right-5 w-12 h-12 rounded-full bg-[#FAF7F0]"></div>
+            <div class="card-notch-dot absolute -top-5 -right-5 w-12 h-12 rounded-full bg-[#FAF7F0]"></div>
 
         <div>
           <!-- Poster Thumbnail -->
@@ -116,13 +116,13 @@
       <!-- ===================================================================
            CARD 2: Ibrahim Abdurrahman — Cherry Dark (scallop top-left)
            =================================================================== -->
-      <div class="prestasi-card w-[82vw] max-w-[320px] sm:w-[330px] lg:w-auto shrink-0 snap-start rounded-[20px] sm:rounded-[28px] bg-[#3D0A12] p-5 sm:p-7 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between group overflow-hidden relative cursor-pointer"
+      <div data-stagger-item data-tilt-card data-tilt-max="3.2" style="--hover-tilt: 0.9deg;" class="krackerz-card prestasi-card w-[82vw] max-w-[320px] sm:w-[330px] lg:w-auto shrink-0 snap-start rounded-[20px] sm:rounded-[28px] bg-[#3D0A12] p-5 sm:p-7 shadow-xl hover:shadow-2xl flex flex-col justify-between group overflow-hidden relative cursor-pointer"
         data-category="champions"
         data-poster-title="Ibrahim Abdurrahman — 1x Gold & 2x Silver Medalist"
         data-poster-desc="Olimpiade Islam Nasional 2025: Medali Emas Bahasa Arab, Medali Perak Aqidah Akhlak & Al-Qur'an Hadits (Diselenggarakan oleh Lingkar Studi Cendekia)."
         data-poster-src="/assets/images/prestasi/juara (3).webp">
             <!-- Scallop notch top-left -->
-            <div class="absolute -top-5 -left-5 w-12 h-12 rounded-full bg-[#FAF7F0]"></div>
+            <div class="card-notch-dot absolute -top-5 -left-5 w-12 h-12 rounded-full bg-[#FAF7F0]"></div>
 
         <div>
           <!-- Poster Thumbnail -->
@@ -185,13 +185,13 @@
       <!-- ===================================================================
            CARD 3: Muh. Alif Iwan — Burnt Orange (scallop top-right)
            =================================================================== -->
-      <div class="prestasi-card w-[82vw] max-w-[320px] sm:w-[330px] lg:w-auto shrink-0 snap-start rounded-[20px] sm:rounded-[28px] bg-[#C53618] p-5 sm:p-7 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between group overflow-hidden relative cursor-pointer"
+      <div data-stagger-item data-tilt-card data-tilt-max="3.2" style="--hover-tilt: -0.9deg;" class="krackerz-card prestasi-card w-[82vw] max-w-[320px] sm:w-[330px] lg:w-auto shrink-0 snap-start rounded-[20px] sm:rounded-[28px] bg-[#C53618] p-5 sm:p-7 shadow-xl hover:shadow-2xl flex flex-col justify-between group overflow-hidden relative cursor-pointer"
         data-category="champions"
         data-poster-title="Muh. Alif Iwan — 3x Silver Medalist (SMP / MTs)"
         data-poster-desc="Olimpiade Islam Nasional 2025: Peraih 3 Medali Perak Tingkat SMP cabang Bahasa Arab, Aqidah Akhlak, dan Al-Qur'an Hadits."
         data-poster-src="/assets/images/prestasi/juara (1).webp">
             <!-- Scallop notch top-right -->
-            <div class="absolute -top-5 -right-5 w-12 h-12 rounded-full bg-[#FAF7F0]"></div>
+            <div class="card-notch-dot absolute -top-5 -right-5 w-12 h-12 rounded-full bg-[#FAF7F0]"></div>
 
         <div>
           <!-- Poster Thumbnail -->
@@ -271,18 +271,18 @@
           </span>
         </div>
 
-        <div id="prestasi-row-tasmi" class="flex overflow-x-auto no-scrollbar gap-4 sm:gap-6 py-4 px-1 -mx-1 snap-x snap-mandatory lg:grid lg:grid-cols-3 lg:gap-6 lg:overflow-visible lg:py-0 lg:px-0 lg:mx-0">
+        <div id="prestasi-row-tasmi" data-stagger-group data-stagger-delay="0.1" data-stagger-tilt="true" class="flex overflow-x-auto no-scrollbar gap-4 sm:gap-6 py-4 px-1 -mx-1 snap-x snap-mandatory lg:grid lg:grid-cols-3 lg:gap-6 lg:overflow-visible lg:py-0 lg:px-0 lg:mx-0">
 
           <!-- ===================================================================
                CARD 4: Abbas — Cherry Dark (scallop top-left)
                =================================================================== -->
-          <div class="prestasi-card w-[82vw] max-w-[320px] sm:w-[330px] lg:w-auto shrink-0 snap-start rounded-[20px] sm:rounded-[28px] bg-[#3D0A12] p-5 sm:p-7 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between group overflow-hidden relative cursor-pointer"
+          <div data-stagger-item data-tilt-card data-tilt-max="3.2" style="--hover-tilt: 0.9deg;" class="krackerz-card prestasi-card w-[82vw] max-w-[320px] sm:w-[330px] lg:w-auto shrink-0 snap-start rounded-[20px] sm:rounded-[28px] bg-[#3D0A12] p-5 sm:p-7 shadow-xl hover:shadow-2xl flex flex-col justify-between group overflow-hidden relative cursor-pointer"
         data-category="tasmi"
         data-poster-title="Ananda Abbas — Tasmi' Hafalan 15 Juz Sekali Duduk"
         data-poster-desc="Santri Kelas XII: Ujian Tasmi' Bil Ghaib 15 Juz Al-Qur'an (Juz 1-11 & 27-30) dengan Predikat Jayyid Jiddan (Amat Baik) di hadapan asatidz pembina."
         data-poster-src="/assets/images/prestasi/tasmi (2).webp">
             <!-- Scallop notch top-left -->
-            <div class="absolute -top-5 -left-5 w-12 h-12 rounded-full bg-[#FAF7F0]"></div>
+            <div class="card-notch-dot absolute -top-5 -left-5 w-12 h-12 rounded-full bg-[#FAF7F0]"></div>
 
         <div>
           <!-- Poster Thumbnail -->
@@ -345,13 +345,13 @@
       <!-- ===================================================================
            CARD 5: Muh. Fiqih — Burnt Orange (scallop top-right)
            =================================================================== -->
-      <div class="prestasi-card w-[82vw] max-w-[320px] sm:w-[330px] lg:w-auto shrink-0 snap-start rounded-[20px] sm:rounded-[28px] bg-[#C53618] p-5 sm:p-7 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between group overflow-hidden relative cursor-pointer"
+      <div data-stagger-item data-tilt-card data-tilt-max="3.2" style="--hover-tilt: -0.9deg;" class="krackerz-card prestasi-card w-[82vw] max-w-[320px] sm:w-[330px] lg:w-auto shrink-0 snap-start rounded-[20px] sm:rounded-[28px] bg-[#C53618] p-5 sm:p-7 shadow-xl hover:shadow-2xl flex flex-col justify-between group overflow-hidden relative cursor-pointer"
         data-category="tasmi"
         data-poster-title="Ananda Muh. Fiqih — Tasmi' Hafalan 13 Juz Sekali Duduk"
         data-poster-desc="Santri Kelas XII: Ujian Tasmi' Bil Ghaib 13 Juz Al-Qur'an (Juz 1-11 & 29-30) dengan Predikat Jayyid Jiddan (Amat Baik) di hadapan asatidz pembina."
         data-poster-src="/assets/images/prestasi/tasmi (3).webp">
             <!-- Scallop notch top-right -->
-            <div class="absolute -top-5 -right-5 w-12 h-12 rounded-full bg-[#FAF7F0]"></div>
+            <div class="card-notch-dot absolute -top-5 -right-5 w-12 h-12 rounded-full bg-[#FAF7F0]"></div>
 
         <div>
           <!-- Poster Thumbnail -->
@@ -414,13 +414,13 @@
       <!-- ===================================================================
            CARD 6: Zjilzian Amarung — Cherry Dark (scallop top-left)
            =================================================================== -->
-      <div class="prestasi-card w-[82vw] max-w-[320px] sm:w-[330px] lg:w-auto shrink-0 snap-start rounded-[20px] sm:rounded-[28px] bg-[#3D0A12] p-5 sm:p-7 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between group overflow-hidden relative cursor-pointer"
+      <div data-stagger-item data-tilt-card data-tilt-max="3.2" style="--hover-tilt: 0.9deg;" class="krackerz-card prestasi-card w-[82vw] max-w-[320px] sm:w-[330px] lg:w-auto shrink-0 snap-start rounded-[20px] sm:rounded-[28px] bg-[#3D0A12] p-5 sm:p-7 shadow-xl hover:shadow-2xl flex flex-col justify-between group overflow-hidden relative cursor-pointer"
         data-category="tasmi"
         data-poster-title="Ananda Zjilzian Amarung — Tasmi' Hafalan 10 Juz Sekali Duduk"
         data-poster-desc="Santri Kelas XII: Ujian Tasmi' Bil Ghaib 10 Juz Al-Qur'an (Juz 1-5 & 26-30) dengan Predikat Jayyid Jiddan (Amat Baik) di hadapan asatidz pembina."
         data-poster-src="/assets/images/prestasi/tasmi (1).webp">
             <!-- Scallop notch top-left -->
-            <div class="absolute -top-5 -left-5 w-12 h-12 rounded-full bg-[#FAF7F0]"></div>
+            <div class="card-notch-dot absolute -top-5 -left-5 w-12 h-12 rounded-full bg-[#FAF7F0]"></div>
 
         <div>
           <!-- Poster Thumbnail -->

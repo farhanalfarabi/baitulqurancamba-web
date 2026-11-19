@@ -3,7 +3,7 @@
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
     <!-- Header Lockup: 'PROFIL [SEKOLAH ✓]' + Cursive Subtitle -->
-    <div class="text-center mb-12 sm:mb-16">
+    <div data-animate="fade-up" class="text-center mb-12 sm:mb-16">
       <h2 class="font-display font-black text-4xl sm:text-6xl text-[#121212] uppercase tracking-tight flex items-center justify-center flex-wrap gap-2.5 sm:gap-3">
         <span>PROFIL</span>
         <span class="inline-block relative px-5 sm:px-6 py-1.5 sm:py-2 bg-[#121212] text-lime rounded-2xl border border-[#161616] tilt-right transform shadow-sm">
@@ -23,11 +23,11 @@
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
 
       <!-- LEFT COLUMN (5 Cols): Scalloped Cookie Stamp Photo Frame + Speech Bubble + Megaphone Sticker -->
-      <div class="lg:col-span-5 relative w-full max-w-[390px] mx-auto">
+      <div data-animate="card-pop" class="lg:col-span-5 relative w-full max-w-[390px] mx-auto">
 
         <!-- Speech Bubble (Centered Top with Downward Tail Pointer) -->
         <div class="absolute -top-5 left-1/2 -translate-x-1/2 z-20 whitespace-nowrap">
-          <div class="relative bg-white border border-[#161616] shadow-md px-5 py-1.5 rounded-full font-label font-bold text-xs sm:text-[13px] text-[#121212] flex items-center gap-1.5">
+          <div class="sticker-bob relative bg-white border border-[#161616] shadow-md px-5 py-1.5 rounded-full font-label font-bold text-xs sm:text-[13px] text-[#121212] flex items-center gap-1.5">
             <span class="w-2 h-2 rounded-full bg-[#82E600] animate-pulse"></span>
             <span>Kampus Tahfizh & Sekolah Formal</span>
             <!-- Speech pointer -->
@@ -71,35 +71,35 @@
       <div class="lg:col-span-7 flex flex-col justify-between">
 
         <!-- 1. 4 Stat Cards Row with Bottom-Right Cracker Bite Notch (Matching Exact Reference) -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-3.5 mb-8 text-left">
+        <div data-stagger-group data-stagger-variant="pop" data-stagger-delay="0.09" data-stagger-tilt="true" class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-3.5 mb-8 text-left">
 
           <!-- Stat Card 1 (Vermilion Red #CF2B09) -->
-          <div class="bite-corner-br bg-[#CF2B09] text-white p-5 sm:p-5 lg:p-6 shadow-md hover:shadow-xl transition-all transform hover:-translate-y-1 flex flex-col justify-between min-h-[145px] sm:min-h-[160px]">
-            <span class="font-display font-black text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-none">8+</span>
+          <div data-stagger-item data-tilt-card data-tilt-max="4" style="--hover-tilt: -1.2deg;" class="krackerz-card bite-corner-br bg-[#CF2B09] text-white p-5 sm:p-5 lg:p-6 shadow-md hover:shadow-xl flex flex-col justify-between min-h-[145px] sm:min-h-[160px] overflow-hidden">
+            <span data-count-to="8" data-count-suffix="+" class="font-display font-black text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-none">8+</span>
             <p class="font-body text-xs sm:text-[13px] text-white/95 font-medium leading-snug mt-3">
               tahun membina pendidikan formal & islami
             </p>
           </div>
 
           <!-- Stat Card 2 (Rust Crimson #A52207) -->
-          <div class="bite-corner-br bg-[#A52207] text-white p-5 sm:p-5 lg:p-6 shadow-md hover:shadow-xl transition-all transform hover:-translate-y-1 flex flex-col justify-between min-h-[145px] sm:min-h-[160px]">
-            <span class="font-display font-black text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-none">30</span>
+          <div data-stagger-item data-tilt-card data-tilt-max="4" style="--hover-tilt: 1.2deg;" class="krackerz-card bite-corner-br bg-[#A52207] text-white p-5 sm:p-5 lg:p-6 shadow-md hover:shadow-xl flex flex-col justify-between min-h-[145px] sm:min-h-[160px] overflow-hidden">
+            <span data-count-to="30" data-count-suffix="" class="font-display font-black text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-none">30</span>
             <p class="font-body text-xs sm:text-[13px] text-white/95 font-medium leading-snug mt-3">
               juz standar tahfidz talaqqi bersanad
             </p>
           </div>
 
           <!-- Stat Card 3 (Dark Rust Wine #7C1A06) -->
-          <div class="bite-corner-br bg-[#7C1A06] text-white p-5 sm:p-5 lg:p-6 shadow-md hover:shadow-xl transition-all transform hover:-translate-y-1 flex flex-col justify-between min-h-[145px] sm:min-h-[160px]">
-            <span class="font-display font-black text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-none">150+</span>
+          <div data-stagger-item data-tilt-card data-tilt-max="4" style="--hover-tilt: -1.2deg;" class="krackerz-card bite-corner-br bg-[#7C1A06] text-white p-5 sm:p-5 lg:p-6 shadow-md hover:shadow-xl flex flex-col justify-between min-h-[145px] sm:min-h-[160px] overflow-hidden">
+            <span data-count-to="150" data-count-suffix="+" class="font-display font-black text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-none">150+</span>
             <p class="font-body text-xs sm:text-[13px] text-white/95 font-medium leading-snug mt-3">
               santri aktif & jejaring alumni berkarya
             </p>
           </div>
 
           <!-- Stat Card 4 (Deep Cherry Wine #4A0E17) -->
-          <div class="bite-corner-br bg-[#4A0E17] text-white p-5 sm:p-5 lg:p-6 shadow-md hover:shadow-xl transition-all transform hover:-translate-y-1 flex flex-col justify-between min-h-[145px] sm:min-h-[160px]">
-            <span class="font-display font-black text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-none">100%</span>
+          <div data-stagger-item data-tilt-card data-tilt-max="4" style="--hover-tilt: 1.2deg;" class="krackerz-card bite-corner-br bg-[#4A0E17] text-white p-5 sm:p-5 lg:p-6 shadow-md hover:shadow-xl flex flex-col justify-between min-h-[145px] sm:min-h-[160px] overflow-hidden">
+            <span data-count-to="100" data-count-suffix="%" class="font-display font-black text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-none">100%</span>
             <p class="font-body text-xs sm:text-[13px] text-white/95 font-medium leading-snug mt-3">
               lulusan berijazah resmi formal negara
             </p>
@@ -108,31 +108,31 @@
         </div>
 
         <!-- 2. Accreditations & Credentials Table (4 Clean Horizontal Rows with Subtle Dividers) -->
-        <div class="space-y-0 divide-y divide-[#121212]/10 mb-8 text-left border-t border-b border-[#121212]/10 font-body">
+        <div data-stagger-group data-stagger-variant="row" data-stagger-delay="0.07" class="space-y-0 divide-y divide-[#121212]/10 mb-8 text-left border-t border-b border-[#121212]/10 font-body">
 
           <!-- Row 1 -->
-          <div class="py-3.5 sm:py-4 flex items-center justify-between gap-3 sm:gap-4 hover:bg-black/[0.02] transition-colors">
+          <div data-stagger-item class="py-3.5 sm:py-4 flex items-center justify-between gap-3 sm:gap-4 hover:bg-black/[0.02] transition-colors">
             <span class="font-semibold text-xs sm:text-sm text-[#121212] w-[38%]">Kementerian Agama RI</span>
             <span class="font-medium text-xs sm:text-sm text-[#555555] w-[47%]">Izin Operasional Resmi Pesantren Tahfizh (NSPP)</span>
             <span class="font-mono font-bold text-xs sm:text-sm text-[#121212] text-right w-[15%]">2016</span>
           </div>
 
           <!-- Row 2 -->
-          <div class="py-3.5 sm:py-4 flex items-center justify-between gap-3 sm:gap-4 hover:bg-black/[0.02] transition-colors">
+          <div data-stagger-item class="py-3.5 sm:py-4 flex items-center justify-between gap-3 sm:gap-4 hover:bg-black/[0.02] transition-colors">
             <span class="font-semibold text-xs sm:text-sm text-[#121212] w-[38%]">Kementerian Pendidikan</span>
             <span class="font-medium text-xs sm:text-sm text-[#555555] w-[47%]">Terakreditasi Formal Wustha (SMP) & Ulya (SMA)</span>
             <span class="font-mono font-bold text-xs sm:text-sm text-[#121212] text-right w-[15%]">Resmi</span>
           </div>
 
           <!-- Row 3 -->
-          <div class="py-3.5 sm:py-4 flex items-center justify-between gap-3 sm:gap-4 hover:bg-black/[0.02] transition-colors">
+          <div data-stagger-item class="py-3.5 sm:py-4 flex items-center justify-between gap-3 sm:gap-4 hover:bg-black/[0.02] transition-colors">
             <span class="font-semibold text-xs sm:text-sm text-[#121212] w-[38%]">Sanad Al-Qur'an Mu'tabar</span>
             <span class="font-medium text-xs sm:text-sm text-[#555555] w-[47%]">Riwayat Hafsh 'an 'Ashim Thariq Asy-Syathibiyyah</span>
             <span class="font-mono font-bold text-xs sm:text-sm text-[#121212] text-right w-[15%]">Mutqin</span>
           </div>
 
           <!-- Row 4 -->
-          <div class="py-3.5 sm:py-4 flex items-center justify-between gap-3 sm:gap-4 hover:bg-black/[0.02] transition-colors">
+          <div data-stagger-item class="py-3.5 sm:py-4 flex items-center justify-between gap-3 sm:gap-4 hover:bg-black/[0.02] transition-colors">
             <span class="font-semibold text-xs sm:text-sm text-[#121212] w-[38%]">Majelis Ulama Indonesia (MUI)</span>
             <span class="font-medium text-xs sm:text-sm text-[#555555] w-[47%]">Kader Muballigh & Kepemimpinan Dakwah</span>
             <span class="font-mono font-bold text-xs sm:text-sm text-[#121212] text-right w-[15%]">Aktif</span>
@@ -141,30 +141,30 @@
         </div>
 
         <!-- 3. Bottom Row: 'Legalitas & Kemitraan Resmi:' Logo Badges Strip -->
-        <div class="flex flex-wrap items-center gap-2 sm:gap-3 text-left">
+        <div data-stagger-group data-stagger-variant="pop" data-stagger-delay="0.05" class="flex flex-wrap items-center gap-2 sm:gap-3 text-left">
           <span class="font-label font-bold text-xs text-gray-400 uppercase tracking-wider mr-1">Legalitas & Kemitraan Resmi:</span>
           
-          <div class="px-3.5 py-1.5 rounded-lg bg-[#121212] text-white border border-[#262626] shadow-sm font-display font-black text-[11px] sm:text-xs tracking-wider uppercase inline-flex items-center gap-1.5 hover:border-lime transition-all">
+          <div data-stagger-item class="px-3.5 py-1.5 rounded-lg bg-[#121212] text-white border border-[#262626] shadow-sm font-display font-black text-[11px] sm:text-xs tracking-wider uppercase inline-flex items-center gap-1.5 hover:border-lime hover:-translate-y-0.5 transition-all">
             <span class="w-2 h-2 rounded-full bg-[#E53935]"></span>
             <span>KEMENAG RI</span>
           </div>
 
-          <div class="px-3.5 py-1.5 rounded-lg bg-[#121212] text-white border border-[#262626] shadow-sm font-display font-black text-[11px] sm:text-xs tracking-wider uppercase inline-flex items-center gap-1.5 hover:border-lime transition-all">
+          <div data-stagger-item class="px-3.5 py-1.5 rounded-lg bg-[#121212] text-white border border-[#262626] shadow-sm font-display font-black text-[11px] sm:text-xs tracking-wider uppercase inline-flex items-center gap-1.5 hover:border-lime hover:-translate-y-0.5 transition-all">
             <span class="w-2 h-2 rounded-full bg-[#0088cc]"></span>
             <span>KEMENDIKBUD</span>
           </div>
 
-          <div class="px-3.5 py-1.5 rounded-lg bg-[#121212] text-white border border-[#262626] shadow-sm font-display font-black text-[11px] sm:text-xs tracking-wider uppercase inline-flex items-center gap-1.5 hover:border-lime transition-all">
+          <div data-stagger-item class="px-3.5 py-1.5 rounded-lg bg-[#121212] text-white border border-[#262626] shadow-sm font-display font-black text-[11px] sm:text-xs tracking-wider uppercase inline-flex items-center gap-1.5 hover:border-lime hover:-translate-y-0.5 transition-all">
             <span class="w-2 h-2 rounded-full bg-lime"></span>
             <span>MUI SULSEL</span>
           </div>
 
-          <div class="px-3.5 py-1.5 rounded-lg bg-[#121212] text-white border border-[#262626] shadow-sm font-display font-black text-[11px] sm:text-xs tracking-wider uppercase inline-flex items-center gap-1.5 hover:border-lime transition-all">
+          <div data-stagger-item class="px-3.5 py-1.5 rounded-lg bg-[#121212] text-white border border-[#262626] shadow-sm font-display font-black text-[11px] sm:text-xs tracking-wider uppercase inline-flex items-center gap-1.5 hover:border-lime hover:-translate-y-0.5 transition-all">
             <span class="w-2 h-2 rounded-full bg-[#E53935]"></span>
             <span>SANAD TAHFIZH</span>
           </div>
 
-          <div class="px-3.5 py-1.5 rounded-lg bg-[#121212] text-white border border-[#262626] shadow-sm font-display font-black text-[11px] sm:text-xs tracking-wider uppercase inline-flex items-center gap-1.5 hover:border-lime transition-all">
+          <div data-stagger-item class="px-3.5 py-1.5 rounded-lg bg-[#121212] text-white border border-[#262626] shadow-sm font-display font-black text-[11px] sm:text-xs tracking-wider uppercase inline-flex items-center gap-1.5 hover:border-lime hover:-translate-y-0.5 transition-all">
             <span class="w-2 h-2 rounded-full bg-[#D4FF00]"></span>
             <span>KAB. MAROS</span>
           </div>

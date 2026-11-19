@@ -12,7 +12,7 @@
     }
   </style>
 
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-10 sm:mb-14">
+  <div data-animate="fade-up" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-10 sm:mb-14">
     <!-- Stamp Badge -->
     <div class="stamp-badge stamp-badge-lime mb-3 tilt-left inline-block">
       MOMEN VISUAL & ARSIP 3D
@@ -26,7 +26,7 @@
   </div>
 
   <!-- 3D Perspective Stage Container -->
-  <div class="relative w-full max-w-6xl mx-auto px-4 overflow-visible">
+  <div data-animate="scale-in" class="relative w-full max-w-6xl mx-auto px-4 overflow-visible">
     
     <!-- 3D Viewport Track -->
     <div id="coverflow-viewport" class="relative w-full h-[290px] sm:h-[360px] md:h-[400px] flex items-center justify-center [perspective:1200px] [transform-style:preserve-3d]">
@@ -99,7 +99,7 @@
   </div>
 
   <!-- Center Card Information (Matching Reference 1:1 Layout) -->
-  <div class="mt-8 sm:mt-11 max-w-sm mx-auto text-center px-4">
+  <div id="coverflow-info-panel" class="coverflow-info-panel mt-8 sm:mt-11 max-w-sm mx-auto text-center px-4">
     
     <!-- Title -->
     <h3 id="coverflow-title" class="font-display font-bold text-xl sm:text-2xl text-[#121212] tracking-tight">
@@ -222,7 +222,8 @@
 
       function setup() {
         const viewport = document.getElementById('coverflow-viewport');
-        if (!viewport) return;
+        if (!viewport || viewport.dataset.coverflowBound === '1') return;
+        viewport.dataset.coverflowBound = '1';
 
         const cards = Array.from(viewport.querySelectorAll('.coverflow-card'));
         const dotsContainer = document.getElementById('coverflow-dots-container');

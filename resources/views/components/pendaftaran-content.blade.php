@@ -22,7 +22,7 @@
          HEADER CARD: SALAM, INFORMASI RESMI & KONTAK PANITIA
          Clean Card with Smooth Rounded Corners [32px] & Soft Layered Shadow
          ========================================================================= -->
-    <div class="rounded-[28px] sm:rounded-[36px] bg-white border border-gray-100 shadow-[0_20px_50px_rgba(0,0,0,0.06)] p-6 sm:p-10 lg:p-12 mb-8 relative overflow-hidden">
+    <div data-animate="scale-in" class="rounded-[28px] sm:rounded-[36px] bg-white border border-gray-100 shadow-[0_20px_50px_rgba(0,0,0,0.06)] p-6 sm:p-10 lg:p-12 mb-8 relative overflow-hidden">
       <!-- Subtle Top Color Accent Bar -->
       <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#CF2B09] via-[#E53935] to-[#7C1A06]"></div>
 

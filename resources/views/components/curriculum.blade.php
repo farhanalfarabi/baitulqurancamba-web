@@ -3,7 +3,7 @@
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <!-- Section Header -->
-    <div class="text-center mb-16">
+    <div data-animate="fade-up" class="text-center mb-16">
       <div class="stamp-badge stamp-badge-red mb-4">
         Keunggulan Akademik & Kurikulum
       </div>
@@ -25,7 +25,7 @@
     <div class="mb-20">
       
       <!-- Sub-header -->
-      <div class="text-center max-w-3xl mx-auto mb-10">
+      <div data-animate="fade-up" class="text-center max-w-3xl mx-auto mb-10">
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-gray-200 shadow-sm font-label font-bold text-xs uppercase tracking-wider text-[#121212] mb-3">
           <span class="w-2.5 h-2.5 rounded-full bg-[#E53935] animate-pulse"></span>
           <span>9 Pilar Pendidikan Pesantren</span>
@@ -39,13 +39,13 @@
       </div>
 
       <!-- 9 Pillars Tactile Grid: 3x3 on Desktop, 2 cols on Tablet, 1 col on Mobile -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 text-left">
+      <div data-stagger-group data-stagger-delay="0.06" data-stagger-tilt="true" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 text-left">
         
         <!-- Pillar 01: Tahfizh, Tahsin, Tajwid -->
-        <div class="rounded-2xl sm:rounded-3xl bg-white border border-gray-100 shadow-md hover:shadow-xl p-6 sm:p-7 transition-all duration-300 transform hover:-translate-y-1 relative group flex flex-col justify-between">
+        <div data-stagger-item data-tilt-card data-tilt-max="3" style="--hover-tilt: -0.7deg;" class="krackerz-card krackerz-card-light rounded-2xl sm:rounded-3xl bg-white border border-gray-100 shadow-md hover:shadow-xl p-6 sm:p-7 relative group flex flex-col justify-between overflow-hidden">
           <div>
             <div class="flex items-center justify-between mb-4">
-              <span class="w-10 h-10 rounded-xl bg-[#121212] text-lime font-mono font-black text-xs flex items-center justify-center shadow-sm">
+              <span class="pillar-num-badge w-10 h-10 rounded-xl bg-[#121212] text-lime font-mono font-black text-xs flex items-center justify-center shadow-sm">
                 01
               </span>
               <span class="px-2.5 py-0.5 rounded-full bg-[#FAF7F0] border border-gray-200 text-[#CF2B09] font-label font-bold text-[10px] uppercase tracking-wider">
@@ -66,10 +66,10 @@
         </div>
 
         <!-- Pillar 02: Pelatihan Muballigh -->
-        <div class="rounded-2xl sm:rounded-3xl bg-white border border-gray-100 shadow-md hover:shadow-xl p-6 sm:p-7 transition-all duration-300 transform hover:-translate-y-1 relative group flex flex-col justify-between">
+        <div data-stagger-item data-tilt-card data-tilt-max="3" style="--hover-tilt: 0.7deg;" class="krackerz-card krackerz-card-light rounded-2xl sm:rounded-3xl bg-white border border-gray-100 shadow-md hover:shadow-xl p-6 sm:p-7 relative group flex flex-col justify-between overflow-hidden">
           <div>
             <div class="flex items-center justify-between mb-4">
-              <span class="w-10 h-10 rounded-xl bg-[#121212] text-lime font-mono font-black text-xs flex items-center justify-center shadow-sm">
+              <span class="pillar-num-badge w-10 h-10 rounded-xl bg-[#121212] text-lime font-mono font-black text-xs flex items-center justify-center shadow-sm">
                 02
               </span>
               <span class="px-2.5 py-0.5 rounded-full bg-[#FAF7F0] border border-gray-200 text-[#580D14] font-label font-bold text-[10px] uppercase tracking-wider">
@@ -90,10 +90,10 @@
         </div>
 
         <!-- Pillar 03: Manajemen/Keterampilan Dakwah -->
-        <div class="rounded-2xl sm:rounded-3xl bg-white border border-gray-100 shadow-md hover:shadow-xl p-6 sm:p-7 transition-all duration-300 transform hover:-translate-y-1 relative group flex flex-col justify-between">
+        <div data-stagger-item data-tilt-card data-tilt-max="3" style="--hover-tilt: -0.7deg;" class="krackerz-card krackerz-card-light rounded-2xl sm:rounded-3xl bg-white border border-gray-100 shadow-md hover:shadow-xl p-6 sm:p-7 relative group flex flex-col justify-between overflow-hidden">
           <div>
             <div class="flex items-center justify-between mb-4">
-              <span class="w-10 h-10 rounded-xl bg-[#121212] text-lime font-mono font-black text-xs flex items-center justify-center shadow-sm">
+              <span class="pillar-num-badge w-10 h-10 rounded-xl bg-[#121212] text-lime font-mono font-black text-xs flex items-center justify-center shadow-sm">
                 03
               </span>
               <span class="px-2.5 py-0.5 rounded-full bg-[#FAF7F0] border border-gray-200 text-[#121212] font-label font-bold text-[10px] uppercase tracking-wider">
@@ -114,10 +114,10 @@
         </div>
 
         <!-- Pillar 04: Pengembangan Karakter -->
-        <div class="rounded-2xl sm:rounded-3xl bg-white border border-gray-100 shadow-md hover:shadow-xl p-6 sm:p-7 transition-all duration-300 transform hover:-translate-y-1 relative group flex flex-col justify-between">
+        <div data-stagger-item data-tilt-card data-tilt-max="3" style="--hover-tilt: 0.7deg;" class="krackerz-card krackerz-card-light rounded-2xl sm:rounded-3xl bg-white border border-gray-100 shadow-md hover:shadow-xl p-6 sm:p-7 relative group flex flex-col justify-between overflow-hidden">
           <div>
             <div class="flex items-center justify-between mb-4">
-              <span class="w-10 h-10 rounded-xl bg-[#121212] text-lime font-mono font-black text-xs flex items-center justify-center shadow-sm">
+              <span class="pillar-num-badge w-10 h-10 rounded-xl bg-[#121212] text-lime font-mono font-black text-xs flex items-center justify-center shadow-sm">
                 04
               </span>
               <span class="px-2.5 py-0.5 rounded-full bg-[#FAF7F0] border border-gray-200 text-[#121212] font-label font-bold text-[10px] uppercase tracking-wider">
@@ -138,10 +138,10 @@
         </div>
 
         <!-- Pillar 05: Sanadisasi Al-Qur'an dan Hadits -->
-        <div class="rounded-2xl sm:rounded-3xl bg-white border border-gray-100 shadow-md hover:shadow-xl p-6 sm:p-7 transition-all duration-300 transform hover:-translate-y-1 relative group flex flex-col justify-between">
+        <div data-stagger-item data-tilt-card data-tilt-max="3" style="--hover-tilt: -0.7deg;" class="krackerz-card krackerz-card-light rounded-2xl sm:rounded-3xl bg-white border border-gray-100 shadow-md hover:shadow-xl p-6 sm:p-7 relative group flex flex-col justify-between overflow-hidden">
           <div>
             <div class="flex items-center justify-between mb-4">
-              <span class="w-10 h-10 rounded-xl bg-lime text-[#121212] font-mono font-black text-xs flex items-center justify-center shadow-sm">
+              <span class="pillar-num-badge w-10 h-10 rounded-xl bg-lime text-[#121212] font-mono font-black text-xs flex items-center justify-center shadow-sm">
                 05
               </span>
               <span class="px-2.5 py-0.5 rounded-full bg-lime text-[#121212] font-label font-bold text-[10px] uppercase tracking-wider">
@@ -162,10 +162,10 @@
         </div>
 
         <!-- Pillar 06: Leadership -->
-        <div class="rounded-2xl sm:rounded-3xl bg-white border border-gray-100 shadow-md hover:shadow-xl p-6 sm:p-7 transition-all duration-300 transform hover:-translate-y-1 relative group flex flex-col justify-between">
+        <div data-stagger-item data-tilt-card data-tilt-max="3" style="--hover-tilt: 0.7deg;" class="krackerz-card krackerz-card-light rounded-2xl sm:rounded-3xl bg-white border border-gray-100 shadow-md hover:shadow-xl p-6 sm:p-7 relative group flex flex-col justify-between overflow-hidden">
           <div>
             <div class="flex items-center justify-between mb-4">
-              <span class="w-10 h-10 rounded-xl bg-[#121212] text-lime font-mono font-black text-xs flex items-center justify-center shadow-sm">
+              <span class="pillar-num-badge w-10 h-10 rounded-xl bg-[#121212] text-lime font-mono font-black text-xs flex items-center justify-center shadow-sm">
                 06
               </span>
               <span class="px-2.5 py-0.5 rounded-full bg-[#FAF7F0] border border-gray-200 text-[#A52207] font-label font-bold text-[10px] uppercase tracking-wider">
@@ -186,10 +186,10 @@
         </div>
 
         <!-- Pillar 07: Berpidato Bahasa Arab & Inggris -->
-        <div class="rounded-2xl sm:rounded-3xl bg-white border border-gray-100 shadow-md hover:shadow-xl p-6 sm:p-7 transition-all duration-300 transform hover:-translate-y-1 relative group flex flex-col justify-between">
+        <div data-stagger-item data-tilt-card data-tilt-max="3" style="--hover-tilt: -0.7deg;" class="krackerz-card krackerz-card-light rounded-2xl sm:rounded-3xl bg-white border border-gray-100 shadow-md hover:shadow-xl p-6 sm:p-7 relative group flex flex-col justify-between overflow-hidden">
           <div>
             <div class="flex items-center justify-between mb-4">
-              <span class="w-10 h-10 rounded-xl bg-[#121212] text-lime font-mono font-black text-xs flex items-center justify-center shadow-sm">
+              <span class="pillar-num-badge w-10 h-10 rounded-xl bg-[#121212] text-lime font-mono font-black text-xs flex items-center justify-center shadow-sm">
                 07
               </span>
               <span class="px-2.5 py-0.5 rounded-full bg-[#FAF7F0] border border-gray-200 text-[#121212] font-label font-bold text-[10px] uppercase tracking-wider">
@@ -210,10 +210,10 @@
         </div>
 
         <!-- Pillar 08: Dirosah Islamiyah -->
-        <div class="rounded-2xl sm:rounded-3xl bg-white border border-gray-100 shadow-md hover:shadow-xl p-6 sm:p-7 transition-all duration-300 transform hover:-translate-y-1 relative group flex flex-col justify-between">
+        <div data-stagger-item data-tilt-card data-tilt-max="3" style="--hover-tilt: 0.7deg;" class="krackerz-card krackerz-card-light rounded-2xl sm:rounded-3xl bg-white border border-gray-100 shadow-md hover:shadow-xl p-6 sm:p-7 relative group flex flex-col justify-between overflow-hidden">
           <div>
             <div class="flex items-center justify-between mb-4">
-              <span class="w-10 h-10 rounded-xl bg-[#121212] text-lime font-mono font-black text-xs flex items-center justify-center shadow-sm">
+              <span class="pillar-num-badge w-10 h-10 rounded-xl bg-[#121212] text-lime font-mono font-black text-xs flex items-center justify-center shadow-sm">
                 08
               </span>
               <span class="px-2.5 py-0.5 rounded-full bg-[#FAF7F0] border border-gray-200 text-[#CF2B09] font-label font-bold text-[10px] uppercase tracking-wider">
@@ -234,10 +234,10 @@
         </div>
 
         <!-- Pillar 09: Kurikulum Pemerintah -->
-        <div class="rounded-2xl sm:rounded-3xl bg-white border border-gray-100 shadow-md hover:shadow-xl p-6 sm:p-7 transition-all duration-300 transform hover:-translate-y-1 relative group flex flex-col justify-between">
+        <div data-stagger-item data-tilt-card data-tilt-max="3" style="--hover-tilt: -0.7deg;" class="krackerz-card krackerz-card-light rounded-2xl sm:rounded-3xl bg-white border border-gray-100 shadow-md hover:shadow-xl p-6 sm:p-7 relative group flex flex-col justify-between overflow-hidden">
           <div>
             <div class="flex items-center justify-between mb-4">
-              <span class="w-10 h-10 rounded-xl bg-[#121212] text-lime font-mono font-black text-xs flex items-center justify-center shadow-sm">
+              <span class="pillar-num-badge w-10 h-10 rounded-xl bg-[#121212] text-lime font-mono font-black text-xs flex items-center justify-center shadow-sm">
                 09
               </span>
               <span class="px-2.5 py-0.5 rounded-full bg-[#FAF7F0] border border-gray-200 text-[#003366] font-label font-bold text-[10px] uppercase tracking-wider">
@@ -268,7 +268,7 @@
     <div class="mb-16">
       
       <!-- Sub-header -->
-      <div class="text-center max-w-3xl mx-auto mb-12">
+      <div data-animate="fade-up" class="text-center max-w-3xl mx-auto mb-12">
         <div class="stamp-badge stamp-badge-lime mb-3">
           Jalur Pembelajaran Unggulan
         </div>
@@ -341,7 +341,7 @@
                   <img src="/assets/images/pondok/halaqah-tahfidz.webp" alt="Halaqah Tahfizh Baitul Qur'an Camba" class="w-full h-full object-cover" loading="lazy" decoding="async">
                 </div>
                 <div class="absolute -bottom-6 sm:-bottom-7 left-1/2 -translate-x-1/2 w-24 sm:w-28 z-20 pointer-events-none drop-shadow-[2px_4px_8px_rgba(0,0,0,0.35)]">
-                  <img src="/assets/images/sticker-starburst.svg" alt="Holy Qur'an on Rehal Stand sticker" class="w-full h-auto">
+                  <img src="/assets/images/sticker-starburst.svg" alt="Holy Qur'an on Rehal Stand sticker" class="w-full h-auto sticker-bob">
                 </div>
               </div>
             </div>
@@ -415,7 +415,7 @@
                   <img src="/assets/images/pondok/pidato-3-bahasa.webp" alt="Pendidikan Formal dan Pidato 3 Bahasa" class="w-full h-full object-cover" loading="lazy" decoding="async">
                 </div>
                 <div class="absolute -bottom-6 sm:-bottom-7 left-1/2 -translate-x-1/2 w-20 sm:w-24 z-20 pointer-events-none drop-shadow-[2px_4px_8px_rgba(0,0,0,0.35)]">
-                  <img src="/assets/images/sticker-trophy.svg" alt="Classical Islamic Kitab & Qalam sticker" class="w-full h-auto">
+                  <img src="/assets/images/sticker-trophy.svg" alt="Classical Islamic Kitab & Qalam sticker" class="w-full h-auto sticker-bob">
                 </div>
               </div>
             </div>
@@ -497,7 +497,7 @@
                   <img src="/assets/images/pondok/eskul-futsal.webp" alt="Ekstrakurikuler dan Persaudaraan Santri" class="w-full h-full object-cover" loading="lazy" decoding="async">
                 </div>
                 <div class="absolute -bottom-7 sm:-bottom-8 left-1/2 -translate-x-1/2 w-28 sm:w-34 z-20 pointer-events-none drop-shadow-[2px_4px_8px_rgba(0,0,0,0.35)]">
-                  <img src="/assets/images/sticker-van.svg" alt="Sunnah Equestrian Horse sticker" class="w-full h-auto">
+                  <img src="/assets/images/sticker-van.svg" alt="Sunnah Equestrian Horse sticker" class="w-full h-auto sticker-bob">
                 </div>
               </div>
             </div>

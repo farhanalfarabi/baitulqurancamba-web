@@ -748,7 +748,8 @@ function initPrestasiInteractivity() {
    ========================================================================== */
 function init3DCoverflow() {
   const viewport = document.getElementById('coverflow-viewport');
-  if (!viewport) return;
+  if (!viewport || viewport.dataset.coverflowBound === '1') return;
+  viewport.dataset.coverflowBound = '1';
 
   const cards = Array.from(viewport.querySelectorAll('.coverflow-card'));
   const dotsContainer = document.getElementById('coverflow-dots-container');
@@ -916,14 +917,29 @@ function init3DCoverflow() {
       }
     });
 
+    const infoPanel = document.getElementById('coverflow-info-panel');
     const data = COVERFLOW_DATA[activeIndex] || COVERFLOW_DATA[0];
-    if (titleEl) titleEl.textContent = data.title;
-    if (subtitleEl) subtitleEl.textContent = data.subtitle;
-    if (yearEl) yearEl.textContent = data.year;
-    if (key1El) key1El.textContent = data.key1;
-    if (val1El) val1El.textContent = data.val1;
-    if (key2El) key2El.textContent = data.key2;
-    if (val2El) val2El.textContent = data.val2;
+    const applyInfoText = () => {
+      if (titleEl) titleEl.textContent = data.title;
+      if (subtitleEl) subtitleEl.textContent = data.subtitle;
+      if (yearEl) yearEl.textContent = data.year;
+      if (key1El) key1El.textContent = data.key1;
+      if (val1El) val1El.textContent = data.val1;
+      if (key2El) key2El.textContent = data.key2;
+      if (val2El) val2El.textContent = data.val2;
+    };
+
+    if (infoPanel && infoPanel.dataset.lastIdx !== undefined && infoPanel.dataset.lastIdx !== String(activeIndex)) {
+      infoPanel.classList.add('is-switching');
+      clearTimeout(infoPanel._switchTimer);
+      infoPanel._switchTimer = setTimeout(() => {
+        applyInfoText();
+        infoPanel.classList.remove('is-switching');
+      }, 110);
+    } else {
+      applyInfoText();
+    }
+    if (infoPanel) infoPanel.dataset.lastIdx = String(activeIndex);
 
     if (dotsContainer) {
       const dots = dotsContainer.querySelectorAll('button');

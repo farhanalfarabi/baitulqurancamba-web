@@ -9,17 +9,17 @@
 
 
   <!-- Floating decorative stickers -->
-  <div class="hidden lg:block absolute top-20 sm:top-24 left-12 w-28 h-auto tilt-left opacity-90 pointer-events-none z-10">
-    <img src="/assets/images/sticker-van.svg" alt="Sunnah Equestrian Horse" class="w-full h-auto drop-shadow-lg">
+  <div class="hidden lg:block absolute top-20 sm:top-24 left-12 w-28 h-auto opacity-90 pointer-events-none z-10">
+    <img src="/assets/images/sticker-van.svg" alt="Sunnah Equestrian Horse" class="w-full h-auto drop-shadow-lg sticker-float">
   </div>
-  <div class="hidden lg:block absolute top-24 sm:top-28 right-16 w-16 h-auto tilt-right opacity-90 pointer-events-none z-10">
-    <img src="/assets/images/sticker-rocket.svg" alt="Sunnah Archery Bow & Arrow" class="w-full h-auto drop-shadow-lg">
+  <div class="hidden lg:block absolute top-24 sm:top-28 right-16 w-16 h-auto opacity-90 pointer-events-none z-10">
+    <img src="/assets/images/sticker-rocket.svg" alt="Sunnah Archery Bow & Arrow" class="w-full h-auto drop-shadow-lg sticker-float-alt">
   </div>
-  <div class="hidden lg:block absolute bottom-36 left-20 w-16 h-auto tilt-right opacity-90 pointer-events-none z-10">
-    <img src="/assets/images/sticker-megaphone.svg" alt="Mosque Minaret & Call to Prayer" class="w-full h-auto drop-shadow-lg">
+  <div class="hidden lg:block absolute bottom-36 left-20 w-16 h-auto opacity-90 pointer-events-none z-10">
+    <img src="/assets/images/sticker-megaphone.svg" alt="Mosque Minaret & Call to Prayer" class="w-full h-auto drop-shadow-lg sticker-float">
   </div>
 
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+  <div data-animate="fade-up" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
     
     <!-- Heading -->
     <h2 class="font-display font-black text-4xl sm:text-7xl uppercase tracking-tight text-white mb-6">

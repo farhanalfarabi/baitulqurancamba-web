@@ -3,7 +3,7 @@
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
     <!-- Section Header -->
-    <div class="mb-12">
+    <div data-animate="fade-up" class="mb-12">
       <div class="stamp-badge stamp-badge-red mb-4">
         Identitas & Visi Pesantren
       </div>
@@ -17,11 +17,12 @@
     </div>
 
     <!-- Campus Billboard Frame with Solid White Border -->
-    <div
+    <div data-animate="scale-in"
       class="relative max-w-4xl mx-auto mb-16 rounded-3xl overflow-hidden shadow-2xl border-4 sm:border-8 border-white bg-white">
       <div class="relative aspect-video sm:aspect-[21/9] overflow-hidden">
         <img src="/assets/images/pondok/upacara-2.jpg" alt="Upacara dan Kedisiplinan Santri Baitul Qur'an Camba"
-          class="w-full h-full object-cover brightness-90"
+          data-parallax="0.14" data-parallax-scale="1.08"
+          class="w-full h-full object-cover brightness-90 will-change-transform"
           loading="lazy" decoding="async">
 
         <!-- Poster Overlay inside Billboard -->
@@ -51,7 +52,7 @@
     <!-- =========================================================================
          OFFICIAL INSTITUTIONAL VISION: GENERASI 3M (Deep Cherry Wine Card #580D14)
          ========================================================================= -->
-    <div class="rounded-2xl sm:rounded-3xl bg-[#580D14] text-white p-8 sm:p-12 shadow-2xl mb-14 relative overflow-hidden border-2 border-white/15">
+    <div data-animate="scale-in" class="rounded-2xl sm:rounded-3xl bg-[#580D14] text-white p-8 sm:p-12 shadow-2xl mb-14 relative overflow-hidden border-2 border-white/15">
       <!-- Glow effect -->
       <div class="absolute -right-24 -top-24 w-72 h-72 rounded-full bg-lime/10 blur-3xl pointer-events-none"></div>
 
@@ -74,10 +75,10 @@
       </p>
 
       <!-- 3 Pillars of Vision (The "3M" Tactile Grid) -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 text-left">
+      <div data-stagger-group data-stagger-delay="0.1" data-stagger-tilt="true" class="grid grid-cols-1 md:grid-cols-3 gap-5 text-left">
         
         <!-- Pillar 1: Muhaffizh -->
-        <div class="rounded-2xl bg-white/10 hover:bg-white/15 backdrop-blur-sm border border-white/20 p-6 sm:p-7 transition-all duration-300 transform hover:-translate-y-1">
+        <div data-stagger-item data-tilt-card data-tilt-max="3.5" style="--hover-tilt: -0.8deg;" class="krackerz-card rounded-2xl bg-white/10 hover:bg-white/15 backdrop-blur-sm border border-white/20 p-6 sm:p-7 overflow-hidden">
           <div class="inline-block px-3 py-1 bg-lime text-[#121212] font-label font-black text-[10px] uppercase tracking-wider rounded-lg mb-4">
             30 JUZ MUTQIN & SANAD
           </div>
@@ -93,7 +94,7 @@
         </div>
 
         <!-- Pillar 2: Muballigh -->
-        <div class="rounded-2xl bg-white/10 hover:bg-white/15 backdrop-blur-sm border border-white/20 p-6 sm:p-7 transition-all duration-300 transform hover:-translate-y-1">
+        <div data-stagger-item data-tilt-card data-tilt-max="3.5" style="--hover-tilt: 0.8deg;" class="krackerz-card rounded-2xl bg-white/10 hover:bg-white/15 backdrop-blur-sm border border-white/20 p-6 sm:p-7 overflow-hidden">
           <div class="inline-block px-3 py-1 bg-lime text-[#121212] font-label font-black text-[10px] uppercase tracking-wider rounded-lg mb-4">
             DAKWAH 3 BAHASA
           </div>
@@ -109,7 +110,7 @@
         </div>
 
         <!-- Pillar 3: Mujaahid -->
-        <div class="rounded-2xl bg-white/10 hover:bg-white/15 backdrop-blur-sm border border-white/20 p-6 sm:p-7 transition-all duration-300 transform hover:-translate-y-1">
+        <div data-stagger-item data-tilt-card data-tilt-max="3.5" style="--hover-tilt: -0.8deg;" class="krackerz-card rounded-2xl bg-white/10 hover:bg-white/15 backdrop-blur-sm border border-white/20 p-6 sm:p-7 overflow-hidden">
           <div class="inline-block px-3 py-1 bg-lime text-[#121212] font-label font-black text-[10px] uppercase tracking-wider rounded-lg mb-4">
             DISIPLIN & KEPEMIMPINAN
           </div>
@@ -133,7 +134,7 @@
     <div class="mb-14">
       
       <!-- Sub-header -->
-      <div class="text-center max-w-2xl mx-auto mb-10">
+      <div data-animate="fade-up" class="text-center max-w-2xl mx-auto mb-10">
         <div class="stamp-badge stamp-badge-red mb-3">
           Arah Strategis Pesantren
         </div>
@@ -146,12 +147,12 @@
       </div>
 
       <!-- 4 Missions Grid (2x2 on Desktop, 1 Col on Mobile) — Styled Cards with Scallop Notch -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 text-left">
+      <div data-stagger-group data-stagger-delay="0.09" data-stagger-tilt="true" class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 text-left">
 
         <!-- Mission 01 — Burnt Orange (scallop top-right) -->
-        <div class="rounded-[20px] sm:rounded-[28px] bg-[#C53618] p-7 sm:p-9 relative overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 group min-h-[220px]">
+        <div data-stagger-item data-tilt-card data-tilt-max="3" style="--hover-tilt: -0.9deg;" class="krackerz-card rounded-[20px] sm:rounded-[28px] bg-[#C53618] p-7 sm:p-9 relative overflow-hidden shadow-xl hover:shadow-2xl group min-h-[220px]">
           <!-- Scallop notch top-right -->
-          <div class="absolute -top-5 -right-5 w-12 h-12 rounded-full bg-[#FAF7F0]"></div>
+          <div class="card-notch-dot absolute -top-5 -right-5 w-12 h-12 rounded-full bg-[#FAF7F0]"></div>
           <h4 class="font-display font-black text-2xl sm:text-[28px] uppercase tracking-tight text-white leading-[1.15] mb-1">
             PENGUASAAN <span class="font-cursive lowercase text-white text-2xl sm:text-3xl font-bold">al-qur'an</span>
           </h4>
@@ -161,9 +162,9 @@
         </div>
 
         <!-- Mission 02 — Cherry Dark (scallop top-left) -->
-        <div class="rounded-[20px] sm:rounded-[28px] bg-[#3D0A12] p-7 sm:p-9 relative overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 group min-h-[220px]">
+        <div data-stagger-item data-tilt-card data-tilt-max="3" style="--hover-tilt: 0.9deg;" class="krackerz-card rounded-[20px] sm:rounded-[28px] bg-[#3D0A12] p-7 sm:p-9 relative overflow-hidden shadow-xl hover:shadow-2xl group min-h-[220px]">
           <!-- Scallop notch top-left -->
-          <div class="absolute -top-5 -left-5 w-12 h-12 rounded-full bg-[#FAF7F0]"></div>
+          <div class="card-notch-dot absolute -top-5 -left-5 w-12 h-12 rounded-full bg-[#FAF7F0]"></div>
           <h4 class="font-display font-black text-2xl sm:text-[28px] uppercase tracking-tight text-white leading-[1.15] mb-1">
             KETERAMPILAN <span class="font-cursive lowercase text-lime text-2xl sm:text-3xl font-bold">dakwah</span> SANTRI
           </h4>
@@ -173,9 +174,9 @@
         </div>
 
         <!-- Mission 03 — Burnt Orange (scallop top-right) -->
-        <div class="rounded-[20px] sm:rounded-[28px] bg-[#C53618] p-7 sm:p-9 relative overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 group min-h-[220px]">
+        <div data-stagger-item data-tilt-card data-tilt-max="3" style="--hover-tilt: -0.9deg;" class="krackerz-card rounded-[20px] sm:rounded-[28px] bg-[#C53618] p-7 sm:p-9 relative overflow-hidden shadow-xl hover:shadow-2xl group min-h-[220px]">
           <!-- Scallop notch top-right -->
-          <div class="absolute -top-5 -right-5 w-12 h-12 rounded-full bg-[#FAF7F0]"></div>
+          <div class="card-notch-dot absolute -top-5 -right-5 w-12 h-12 rounded-full bg-[#FAF7F0]"></div>
           <h4 class="font-display font-black text-2xl sm:text-[28px] uppercase tracking-tight text-white leading-[1.15] mb-1">
             KEDISIPLINAN <span class="font-cursive lowercase text-white text-2xl sm:text-3xl font-bold">syariat</span>
           </h4>
@@ -185,9 +186,9 @@
         </div>
 
         <!-- Mission 04 — Cherry Dark (scallop top-left) -->
-        <div class="rounded-[20px] sm:rounded-[28px] bg-[#3D0A12] p-7 sm:p-9 relative overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 group min-h-[220px]">
+        <div data-stagger-item data-tilt-card data-tilt-max="3" style="--hover-tilt: 0.9deg;" class="krackerz-card rounded-[20px] sm:rounded-[28px] bg-[#3D0A12] p-7 sm:p-9 relative overflow-hidden shadow-xl hover:shadow-2xl group min-h-[220px]">
           <!-- Scallop notch top-left -->
-          <div class="absolute -top-5 -left-5 w-12 h-12 rounded-full bg-[#FAF7F0]"></div>
+          <div class="card-notch-dot absolute -top-5 -left-5 w-12 h-12 rounded-full bg-[#FAF7F0]"></div>
           <h4 class="font-display font-black text-2xl sm:text-[28px] uppercase tracking-tight text-white leading-[1.15] mb-1">
             BIMBINGAN <span class="font-cursive lowercase text-lime text-2xl sm:text-3xl font-bold">minat</span> & POTENSI
           </h4>

@@ -38,7 +38,7 @@
     }
   </style>
 
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-10 sm:mb-14">
+  <div data-animate="fade-up" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-10 sm:mb-14">
     <!-- Stamp Badge -->
     <div class="stamp-badge stamp-badge-lime mb-3 tilt-left inline-block">
       SUARA & KISAH KOMUNITAS
@@ -52,7 +52,7 @@
   </div>
 
   <!-- Dual Marquee Streams -->
-  <div class="marquee-container flex flex-col gap-6 relative isolation-isolate w-full overflow-hidden select-none">
+  <div data-animate="fade-up" data-animate-delay="0.1" class="marquee-container flex flex-col gap-6 relative isolation-isolate w-full overflow-hidden select-none">
     
     <!-- Left & Right Gradient Fade Edges -->
     <div class="pointer-events-none absolute left-0 top-0 h-full w-16 sm:w-32 z-20 bg-gradient-to-r from-[#FAF7F0] via-[#FAF7F0]/90 to-transparent"></div>

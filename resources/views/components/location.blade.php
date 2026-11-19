@@ -2,17 +2,17 @@
 <section id="location" class="py-20 sm:py-28 bg-[#FAF7F0] bg-dot-matrix relative overflow-hidden">
   
   <!-- Decorative Floating Stickers -->
-  <div class="hidden lg:block absolute top-12 left-10 w-24 h-auto tilt-left opacity-90 pointer-events-none z-10">
-    <img src="/assets/images/sticker-van.svg" alt="Campus Travel Van Sticker" class="w-full h-auto drop-shadow-lg">
+  <div class="hidden lg:block absolute top-12 left-10 w-24 h-auto opacity-90 pointer-events-none z-10">
+    <img src="/assets/images/sticker-van.svg" alt="Campus Travel Van Sticker" class="w-full h-auto drop-shadow-lg sticker-float">
   </div>
-  <div class="hidden lg:block absolute top-20 right-12 w-20 h-auto tilt-right opacity-90 pointer-events-none z-10">
-    <img src="/assets/images/sticker-starburst.svg" alt="Compass Starburst Sticker" class="w-full h-auto drop-shadow-lg">
+  <div class="hidden lg:block absolute top-20 right-12 w-20 h-auto opacity-90 pointer-events-none z-10">
+    <img src="/assets/images/sticker-starburst.svg" alt="Compass Starburst Sticker" class="w-full h-auto drop-shadow-lg sticker-float-alt">
   </div>
 
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
 
     <!-- Section Header -->
-    <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+    <div data-animate="fade-up" class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
       <div class="stamp-badge stamp-badge-red mb-4 inline-block">
         PETA & PANDUAN LOKASI KAMPUS
       </div>
@@ -28,7 +28,7 @@
     </div>
 
     <!-- Clean Navigator Console Window -->
-    <div class="rounded-3xl bg-white border border-stone-200/90 shadow-2xl overflow-hidden">
+    <div data-animate="scale-in" class="rounded-3xl bg-white border border-stone-200/90 shadow-2xl overflow-hidden">
       
       <!-- Top Console Header Bar -->
       <div class="bg-stone-900 text-white px-4 sm:px-6 py-3 sm:py-3.5 flex flex-wrap items-center justify-between gap-3 border-b border-stone-800">

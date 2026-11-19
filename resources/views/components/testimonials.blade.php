@@ -12,7 +12,7 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
     
     <!-- Header -->
-    <div class="relative inline-block mb-12 sm:mb-16">
+    <div data-animate="fade-up" class="relative inline-block mb-12 sm:mb-16">
       <div class="stamp-badge stamp-badge-lime mb-4">
         Standar Mutu & Target Kelulusan
       </div>
@@ -31,7 +31,7 @@
     <div class="testimonials-track flex items-center justify-start lg:justify-center -space-x-12 sm:-space-x-14 md:-space-x-16 lg:-space-x-16 xl:-space-x-20 overflow-x-auto lg:overflow-visible py-8 sm:py-12 px-4 mb-14 scrollbar-none select-none">
       
       <!-- Card 1 (Orange-Red #F95534 | Tilt -11deg | z-10) -->
-      <div class="scallop-card-wrapper flex-shrink-0 z-10" style="transform: rotate(-11deg);">
+      <div class="scallop-card-wrapper flex-shrink-0 z-10" style="--base-rot: -11deg;">
         <div class="scallop-card-hanger">
           <div class="scallop-card-mask w-[300px] h-[300px] sm:w-[340px] sm:h-[340px] md:w-[370px] md:h-[370px] lg:w-[390px] lg:h-[390px] p-8 sm:p-10 md:p-12 lg:p-14 flex flex-col justify-between text-left relative cursor-pointer"
                style="background-color: #F95534;">
@@ -85,7 +85,7 @@
       </div>
 
       <!-- Card 2 (Vermilion Red #CF2B09 | Tilt +8deg | z-20) -->
-      <div class="scallop-card-wrapper flex-shrink-0 z-20" style="transform: rotate(8deg);">
+      <div class="scallop-card-wrapper flex-shrink-0 z-20" style="--base-rot: 8deg;">
         <div class="scallop-card-hanger">
           <div class="scallop-card-mask w-[300px] h-[300px] sm:w-[340px] sm:h-[340px] md:w-[370px] md:h-[370px] lg:w-[390px] lg:h-[390px] p-8 sm:p-10 md:p-12 lg:p-14 flex flex-col justify-between text-left relative cursor-pointer"
                style="background-color: #CF2B09;">
@@ -140,7 +140,7 @@
       </div>
 
       <!-- Card 3 (Burnt Red #A52207 | Tilt -10deg | z-30) -->
-      <div class="scallop-card-wrapper flex-shrink-0 z-30" style="transform: rotate(-10deg);">
+      <div class="scallop-card-wrapper flex-shrink-0 z-30" style="--base-rot: -10deg;">
         <div class="scallop-card-hanger">
           <div class="scallop-card-mask w-[300px] h-[300px] sm:w-[340px] sm:h-[340px] md:w-[370px] md:h-[370px] lg:w-[390px] lg:h-[390px] p-8 sm:p-10 md:p-12 lg:p-14 flex flex-col justify-between text-left relative cursor-pointer"
                style="background-color: #A52207;">
@@ -194,7 +194,7 @@
       </div>
 
       <!-- Card 4 (Deep Wine #7C1A06 | Tilt +12deg | z-40) -->
-      <div class="scallop-card-wrapper flex-shrink-0 z-40" style="transform: rotate(12deg);">
+      <div class="scallop-card-wrapper flex-shrink-0 z-40" style="--base-rot: 12deg;">
         <div class="scallop-card-hanger">
           <div class="scallop-card-mask w-[300px] h-[300px] sm:w-[340px] sm:h-[340px] md:w-[370px] md:h-[370px] lg:w-[390px] lg:h-[390px] p-8 sm:p-10 md:p-12 lg:p-14 flex flex-col justify-between text-left relative cursor-pointer"
                style="background-color: #7C1A06;">

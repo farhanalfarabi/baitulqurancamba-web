@@ -1,5 +1,5 @@
 <!-- Hero Section Component -->
-<section class="relative pt-6 sm:pt-16 pb-4 sm:pb-6 overflow-hidden bg-white">
+<section data-hero-section class="relative pt-6 sm:pt-16 pb-4 sm:pb-6 overflow-hidden bg-white">
 
   <!-- Rotating Cloud Wave Background -->
   <div class="hero-wave-wrapper absolute inset-0 w-full h-full pointer-events-none -z-0 overflow-hidden">
@@ -11,8 +11,8 @@
   <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center relative z-10">
 
     <!-- Top Pill Badge with Perched Crest Trophy Icon -->
-    <div class="inline-flex flex-col items-center mb-6 sm:mb-7 max-w-full">
-      <div class="-mb-2.5 sm:-mb-3 z-10 flex-shrink-0">
+    <div data-hero-animate="badge" class="inline-flex flex-col items-center mb-6 sm:mb-7 max-w-full">
+      <div class="-mb-2.5 sm:-mb-3 z-10 flex-shrink-0 sticker-bob">
         <img src="/assets/images/badge-scallop-trophy.svg" alt="Prestasi" class="w-7 h-7 sm:w-8 sm:h-8 drop-shadow-sm">
       </div>
       <div
@@ -28,15 +28,15 @@
       <h1
         class="font-display font-black text-[clamp(1.9rem,8.2vw,2.6rem)] sm:text-5xl lg:text-6xl xl:text-[66px] tracking-tight text-[#121212] uppercase leading-[1.08] sm:leading-[1.02] flex flex-col items-center justify-center gap-1.5 sm:gap-2">
         <!-- Line 1 -->
-        <span class="block whitespace-nowrap">MEMBINA GENERASI</span>
+        <span data-hero-animate="headline" class="block whitespace-nowrap">MEMBINA GENERASI</span>
 
         <!-- Line 2: Mobile (PENGHAFAL Al-Qur'an) / Desktop (PENGHAFAL Al-Qur'an YANG) -->
-        <span class="inline-flex items-center justify-center gap-x-1.5 sm:gap-x-3 whitespace-nowrap lg:hidden">
+        <span data-hero-animate="headline" class="inline-flex items-center justify-center gap-x-1.5 sm:gap-x-3 whitespace-nowrap lg:hidden">
           <span>PENGHAFAL</span>
           <span
             class="font-cursive italic font-bold normal-case text-[1.15em] sm:text-[1.2em] text-[#4A0E17] -rotate-3 inline-block whitespace-nowrap">Al-Qur'an</span>
         </span>
-        <span class="hidden lg:inline-flex items-center justify-center gap-x-3">
+        <span data-hero-animate="headline" class="hidden lg:inline-flex items-center justify-center gap-x-3">
           <span>PENGHAFAL</span>
           <span
             class="font-cursive italic font-bold normal-case text-[1.2em] text-[#4A0E17] -rotate-3 inline-block mr-1">Al-Qur'an</span>
@@ -44,16 +44,16 @@
         </span>
 
         <!-- Line 3: Mobile (YANG TANGGUH & BERAKHLAK) / Desktop (TANGGUH & BERAKHLAK) -->
-        <span class="block lg:hidden text-center mt-0.5 sm:mt-0">
+        <span data-hero-animate="headline" class="block lg:hidden text-center mt-0.5 sm:mt-0">
           <span class="inline-block whitespace-nowrap">YANG TANGGUH</span>
           <span class="inline-block whitespace-nowrap">& BERAKHLAK</span>
         </span>
-        <span class="hidden lg:block">TANGGUH & BERAKHLAK</span>
+        <span data-hero-animate="headline" class="hidden lg:block">TANGGUH & BERAKHLAK</span>
       </h1>
     </div>
 
     <!-- Hero Primary CTA: Signature Double-Layer Button -->
-    <div class="flex justify-center mb-3 sm:mb-4">
+    <div data-hero-animate="cta" class="flex justify-center mb-3 sm:mb-4">
       <a href="{{ route('pendaftaran') }}"
         class="hero-cta-btn group bg-white p-1 rounded-xl shadow-md inline-flex items-center transition-transform hover:scale-[1.02] active:scale-[0.98] cursor-pointer focus:outline-none">
         <div
@@ -118,7 +118,7 @@
   @endphp
 
   <!-- Mobile Hero Cards: Seamless Infinite Marquee (Tersusun Rapi, Infinite Loop Berjalan Terus) -->
-  <div class="block lg:hidden relative w-full overflow-hidden py-2 sm:py-3 mt-9 sm:mt-12 select-none hero-mobile-marquee-container">
+  <div data-hero-animate="mobile-marquee" class="block lg:hidden relative w-full overflow-hidden py-2 sm:py-3 mt-9 sm:mt-12 select-none hero-mobile-marquee-container">
     <style>
       @keyframes heroMarqueeRight {
         0% {
@@ -249,6 +249,7 @@
         <div
           class="hero-card-fan hero-card-{{ $cardNum }} relative flex-shrink-0 w-[185px] xl:w-[195px] select-none {{ $zIndex }} cursor-pointer">
           <div
+            data-hero-animate="card"
             class="hero-card-inner w-full rounded-2xl overflow-hidden {{ $isCherry ? 'bg-[#580D14] border-2 border-[#580D14] shadow-[0_8px_20px_rgba(0,0,0,0.15)]' : 'bg-[#FAF7F0] border-2 border-white shadow-[0_8px_20px_rgba(0,0,0,0.1)]' }}">
             <!-- Photo -->
             <div class="h-[190px] xl:h-[205px] w-full {{ $isCherry ? 'bg-[#380810]' : 'bg-[#E5E0D5]' }} overflow-hidden relative">

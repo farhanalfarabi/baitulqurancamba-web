@@ -26,23 +26,23 @@
 <section class="relative pt-6 sm:pt-10 pb-20 overflow-hidden bg-dot-matrix bg-[#FAF7F0]">
 
   <!-- Floating Decorative Stickers -->
-  <div class="hidden xl:block absolute top-12 left-10 w-24 h-auto tilt-left opacity-90 pointer-events-none z-10">
-    <img src="/assets/images/sticker-rocket.svg" alt="Sunnah Archery Bow & Arrow" class="w-full h-auto drop-shadow-md">
+  <div class="hidden xl:block absolute top-12 left-10 w-24 h-auto opacity-90 pointer-events-none z-10">
+    <img src="/assets/images/sticker-rocket.svg" alt="Sunnah Archery Bow & Arrow" class="w-full h-auto drop-shadow-md sticker-float">
   </div>
-  <div class="hidden xl:block absolute top-16 right-12 w-28 h-auto tilt-right opacity-90 pointer-events-none z-10">
-    <img src="/assets/images/sticker-trophy.svg" alt="Classical Islamic Kitab & Qalam" class="w-full h-auto drop-shadow-md">
+  <div class="hidden xl:block absolute top-16 right-12 w-28 h-auto opacity-90 pointer-events-none z-10">
+    <img src="/assets/images/sticker-trophy.svg" alt="Classical Islamic Kitab & Qalam" class="w-full h-auto drop-shadow-md sticker-float-alt">
   </div>
-  <div class="hidden lg:block absolute bottom-32 left-12 w-28 h-auto tilt-left opacity-80 pointer-events-none z-10">
-    <img src="/assets/images/sticker-van.svg" alt="Sunnah Equestrian Horse" class="w-full h-auto drop-shadow-md">
+  <div class="hidden lg:block absolute bottom-32 left-12 w-28 h-auto opacity-80 pointer-events-none z-10">
+    <img src="/assets/images/sticker-van.svg" alt="Sunnah Equestrian Horse" class="w-full h-auto drop-shadow-md sticker-float">
   </div>
-  <div class="hidden lg:block absolute bottom-40 right-14 w-20 h-auto tilt-right opacity-80 pointer-events-none z-10">
-    <img src="/assets/images/sticker-megaphone.svg" alt="Mosque Minaret & Call to Prayer" class="w-full h-auto drop-shadow-md">
+  <div class="hidden lg:block absolute bottom-40 right-14 w-20 h-auto opacity-80 pointer-events-none z-10">
+    <img src="/assets/images/sticker-megaphone.svg" alt="Mosque Minaret & Call to Prayer" class="w-full h-auto drop-shadow-md sticker-float-alt">
   </div>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
     <!-- Header Lockup -->
-    <div class="text-center max-w-4xl mx-auto mb-10 sm:mb-12">
+    <div data-animate="fade-up" class="text-center max-w-4xl mx-auto mb-10 sm:mb-12">
       
       <!-- Top Pill Badge -->
       <div class="inline-flex items-center gap-2 pl-2 pr-4 py-1.5 rounded-full bg-[#121212] text-lime border-[2px] border-[#121212] brutal-shadow-sm mb-4">
@@ -115,10 +115,10 @@
         </div>
 
         <!-- Tight Masonry Columns: Varied Heights & Close Spacing -->
-        <div class="columns-2 sm:columns-3 md:columns-4 lg:columns-5 gap-2.5 sm:gap-3">
+        <div data-stagger-group data-stagger-variant="gallery" data-stagger-delay="0.04" class="columns-2 sm:columns-3 md:columns-4 lg:columns-5 gap-2.5 sm:gap-3">
           
           @foreach($photos as $photo)
-            <div class="break-inside-avoid mb-2.5 sm:mb-3 photo-card p-1.5 sm:p-2 bg-white rounded-xl sm:rounded-2xl border-2 border-[#161616] brutal-shadow-sm hover:scale-[1.03] hover:z-20 hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden group" 
+            <div data-stagger-item class="break-inside-avoid mb-2.5 sm:mb-3 photo-card p-1.5 sm:p-2 bg-white rounded-xl sm:rounded-2xl border-2 border-[#161616] brutal-shadow-sm hover:scale-[1.03] hover:-rotate-1 hover:z-20 hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden group" 
                  data-year="{{ $year }}"
                  data-src="{{ $photo->image_url }}">
               <div class="rounded-lg sm:rounded-xl overflow-hidden bg-gray-100">
@@ -141,7 +141,7 @@
     @endforelse
 
     <!-- Campus Visit Callout Billboard (Cherry Wine Signature) -->
-    <div class="mt-8 bg-[#580D14] rounded-3xl p-8 sm:p-12 text-white border-4 border-white shadow-2xl relative overflow-hidden">
+    <div data-animate="scale-in" class="mt-8 bg-[#580D14] rounded-3xl p-8 sm:p-12 text-white border-4 border-white shadow-2xl relative overflow-hidden">
       <!-- Background SVG Accent -->
       <div class="absolute -right-10 -bottom-10 opacity-10 pointer-events-none w-72 h-72">
         <img src="/assets/svg/footer-wave-shape.svg" alt="" class="w-full h-full filter invert">

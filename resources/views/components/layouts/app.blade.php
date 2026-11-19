@@ -58,6 +58,11 @@
     <!-- Design System CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/design-system.css') }}?v={{ filemtime(public_path('assets/css/design-system.css')) }}">
     <link rel="icon" type="image/png" href="{{ asset('assets/images/logo.png') }}">
+    <script>
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            document.documentElement.classList.add('motion-ready');
+        }
+    </script>
 
     {{ $head ?? '' }}
 </head>
@@ -72,9 +77,10 @@
     <x-footer />
     <x-waitlist-modal />
 
-    <!-- Interactive Scripts -->
-    <script src="{{ asset('assets/js/main.js') }}"></script>
-    <script src="{{ asset('assets/js/motion.js') }}"></script>
+    <!-- Interactive & Motion Scripts -->
+    <script src="{{ asset('assets/js/motion.js') }}?v={{ filemtime(public_path('assets/js/motion.js')) }}"></script>
+    <script src="{{ asset('assets/js/main.js') }}?v={{ filemtime(public_path('assets/js/main.js')) }}"></script>
+    <script src="{{ asset('assets/js/animations.js') }}?v={{ filemtime(public_path('assets/js/animations.js')) }}"></script>
 
     {{ $scripts ?? '' }}
 </body>

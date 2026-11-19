@@ -50,6 +50,7 @@ body {
 }
 
 @media (prefers-color-scheme: dark) {
+
   :root,
   html,
   body {
@@ -393,13 +394,16 @@ body {
 ::-webkit-scrollbar {
   width: 10px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--color-canvas);
   border-left: 2px solid #121212;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #121212;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-biscuit-red);
 }
@@ -419,6 +423,7 @@ body {
     opacity: 0;
     transform: scale(0.9) translateY(20px);
   }
+
   100% {
     opacity: 1;
     transform: scale(1) translateY(0);
@@ -445,7 +450,7 @@ body {
   will-change: transform;
 }
 
-.roll-link-inner > span {
+.roll-link-inner>span {
   display: block;
   height: 1.25em;
   line-height: 1.25em;
@@ -493,21 +498,79 @@ body {
 }
 
 /* Signature Fanned Playing Card Hand (Organic, staggered, "tidak rapi") */
-.hero-card-1 { --card-rot: -6deg; --card-y: 24px; --card-overlap: 0px; }
-.hero-card-2 { --card-rot: -4deg; --card-y: 0px; --card-overlap: -14px; }
-.hero-card-3 { --card-rot: -2deg; --card-y: 10px; --card-overlap: -14px; }
-.hero-card-4 { --card-rot: 2deg; --card-y: 0px; --card-overlap: -14px; }
-.hero-card-5 { --card-rot: 4deg; --card-y: 26px; --card-overlap: -14px; }
-.hero-card-6 { --card-rot: 6deg; --card-y: 0px; --card-overlap: -14px; }
+.hero-card-1 {
+  --card-rot: -6deg;
+  --card-y: 24px;
+  --card-overlap: 0px;
+}
+
+.hero-card-2 {
+  --card-rot: -4deg;
+  --card-y: 0px;
+  --card-overlap: -14px;
+}
+
+.hero-card-3 {
+  --card-rot: -2deg;
+  --card-y: 10px;
+  --card-overlap: -14px;
+}
+
+.hero-card-4 {
+  --card-rot: 2deg;
+  --card-y: 0px;
+  --card-overlap: -14px;
+}
+
+.hero-card-5 {
+  --card-rot: 4deg;
+  --card-y: 26px;
+  --card-overlap: -14px;
+}
+
+.hero-card-6 {
+  --card-rot: 6deg;
+  --card-y: 0px;
+  --card-overlap: -14px;
+}
 
 /* Responsive initial overlap for mobile / small screens */
 @media (max-width: 639px) {
-  .hero-card-1 { --card-rot: -3deg; --card-y: 12px; --card-overlap: 0px; }
-  .hero-card-2 { --card-rot: -2deg; --card-y: 0px; --card-overlap: -8px; }
-  .hero-card-3 { --card-rot: -1deg; --card-y: 5px; --card-overlap: -8px; }
-  .hero-card-4 { --card-rot: 1deg; --card-y: 0px; --card-overlap: -8px; }
-  .hero-card-5 { --card-rot: 2deg; --card-y: 13px; --card-overlap: -8px; }
-  .hero-card-6 { --card-rot: 3deg; --card-y: 0px; --card-overlap: -8px; }
+  .hero-card-1 {
+    --card-rot: -3deg;
+    --card-y: 12px;
+    --card-overlap: 0px;
+  }
+
+  .hero-card-2 {
+    --card-rot: -2deg;
+    --card-y: 0px;
+    --card-overlap: -8px;
+  }
+
+  .hero-card-3 {
+    --card-rot: -1deg;
+    --card-y: 5px;
+    --card-overlap: -8px;
+  }
+
+  .hero-card-4 {
+    --card-rot: 1deg;
+    --card-y: 0px;
+    --card-overlap: -8px;
+  }
+
+  .hero-card-5 {
+    --card-rot: 2deg;
+    --card-y: 13px;
+    --card-overlap: -8px;
+  }
+
+  .hero-card-6 {
+    --card-rot: 3deg;
+    --card-y: 0px;
+    --card-overlap: -8px;
+  }
 }
 
 /* Card inner handles playful hover rotation without scaling/lifting up (matching reference image) */
@@ -555,18 +618,36 @@ body {
 }
 
 @media (max-width: 639px) {
-  .hero-card-1:hover .hero-card-inner { transform: rotate(-5deg); }
-  .hero-card-2:hover .hero-card-inner { transform: rotate(5deg); }
-  .hero-card-3:hover .hero-card-inner { transform: rotate(-4.5deg); }
-  .hero-card-4:hover .hero-card-inner { transform: rotate(5deg); }
-  .hero-card-5:hover .hero-card-inner { transform: rotate(-4.5deg); }
-  .hero-card-6:hover .hero-card-inner { transform: rotate(5deg); }
+  .hero-card-1:hover .hero-card-inner {
+    transform: rotate(-5deg);
+  }
+
+  .hero-card-2:hover .hero-card-inner {
+    transform: rotate(5deg);
+  }
+
+  .hero-card-3:hover .hero-card-inner {
+    transform: rotate(-4.5deg);
+  }
+
+  .hero-card-4:hover .hero-card-inner {
+    transform: rotate(5deg);
+  }
+
+  .hero-card-5:hover .hero-card-inner {
+    transform: rotate(-4.5deg);
+  }
+
+  .hero-card-6:hover .hero-card-inner {
+    transform: rotate(5deg);
+  }
 }
 
 /* Hide scrollbar for clean horizontal swipe on mobile */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -579,13 +660,25 @@ body {
   position: -webkit-sticky;
   position: sticky;
   top: 88px;
-  will-change: transform;
+  transform-origin: 50% 0%;
+  transform: translate3d(0, var(--stack-y, 0px), 0) scale(var(--stack-scale, 1));
+  filter: brightness(var(--stack-brightness, 1));
+  will-change: transform, filter;
 }
 
 @media (min-width: 640px) {
   .curriculum-card-sticky {
     top: 98px;
   }
+}
+
+.curriculum-tab-trigger {
+  transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.25s ease;
+}
+
+.curriculum-tab-trigger:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.06);
 }
 
 .curriculum-card-body {
@@ -616,6 +709,7 @@ body {
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
+
 .card-tabs-row::-webkit-scrollbar {
   display: none;
 }
@@ -650,6 +744,7 @@ body {
   .hero-wave-wrapper {
     background: linear-gradient(to bottom, #ffffff 0%, #ffffff 70px, #FAF7F0 130px, #FAF7F0 100%);
   }
+
   .hero-rotating-wave {
     bottom: 240px;
     width: 160%;
@@ -662,6 +757,7 @@ body {
   .hero-wave-wrapper {
     background: linear-gradient(to bottom, #ffffff 0%, #ffffff 45px, #FAF7F0 110px, #FAF7F0 100%);
   }
+
   .hero-rotating-wave {
     bottom: 130px;
     width: 175%;
@@ -674,6 +770,7 @@ body {
   from {
     transform: translateX(-50%) rotate(0deg);
   }
+
   to {
     transform: translateX(-50%) rotate(-360deg);
   }
@@ -734,6 +831,8 @@ body {
 
 .scallop-card-wrapper {
   position: relative;
+  transform: translate3d(var(--scroll-x, 0px), var(--scroll-y, 0px), 0)
+    rotate(calc(var(--base-rot, 0deg) + var(--scroll-rot, 0deg)));
   transition: z-index 0.3s ease;
   will-change: transform, filter;
 }
@@ -760,15 +859,19 @@ body {
   0% {
     transform: rotate(0deg) scale(1.04);
   }
+
   25% {
     transform: rotate(7deg) scale(1.04);
   }
+
   50% {
     transform: rotate(0deg) scale(1.04);
   }
+
   75% {
     transform: rotate(-7deg) scale(1.04);
   }
+
   100% {
     transform: rotate(0deg) scale(1.04);
   }
@@ -782,6 +885,208 @@ body {
 
 .testimonials-track::-webkit-scrollbar {
   display: none;
+}
+
+/* ==========================================================================
+   Krackerz-Style Framer Motion & Tactile Card Transition System
+   ========================================================================== */
+:root {
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-snappy: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Progressive enhancement: only hide reveal targets when JS activates motion-ready */
+html.motion-ready [data-animate]:not(.is-revealed),
+html.motion-ready [data-stagger-item]:not(.is-revealed),
+html.motion-ready [data-hero-animate]:not(.is-revealed),
+html.motion-ready .scallop-card-hanger:not(.is-revealed) {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* Tactile Card Physics (Playful Krackerz Hover Spring + Subtle Light Sheen) */
+.krackerz-card {
+  position: relative;
+  transition:
+    transform 0.42s var(--ease-spring),
+    box-shadow 0.36s var(--ease-smooth),
+    border-color 0.25s ease,
+    background-color 0.25s ease;
+  transform-style: preserve-3d;
+}
+
+.krackerz-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+  background: radial-gradient(
+    420px circle at var(--spot-x, 50%) var(--spot-y, 20%),
+    rgba(255, 255, 255, 0.16),
+    transparent 62%
+  );
+  transition: opacity 0.35s ease;
+}
+
+.krackerz-card-light::before {
+  background: radial-gradient(
+    420px circle at var(--spot-x, 50%) var(--spot-y, 20%),
+    rgba(212, 255, 0, 0.14),
+    rgba(207, 43, 9, 0.04) 45%,
+    transparent 68%
+  );
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .krackerz-card:hover {
+    transform: translate3d(0, -7px, 0) scale(1.015) rotate(var(--hover-tilt, -0.6deg));
+  }
+
+  .krackerz-card:hover::before {
+    opacity: 1;
+  }
+
+  .krackerz-card:active {
+    transform: translate3d(0, -1px, 0) scale(0.985) rotate(0deg);
+    transition-duration: 0.14s;
+  }
+
+  /* When JS magnetic 3D pointer tilt is actively tracking pointer */
+  .krackerz-card.is-tilting {
+    transition:
+      box-shadow 0.32s var(--ease-smooth),
+      border-color 0.25s ease,
+      background-color 0.25s ease;
+    transform: perspective(900px)
+      translate3d(0, -7px, 0)
+      rotateX(var(--tilt-rx, 0deg))
+      rotateY(var(--tilt-ry, 0deg))
+      scale(1.018);
+  }
+}
+
+/* Tactile number badge bounce inside Pillar cards */
+.krackerz-card .pillar-num-badge {
+  transition: transform 0.42s var(--ease-spring), background-color 0.25s ease, color 0.25s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .krackerz-card:hover .pillar-num-badge {
+    transform: rotate(-8deg) scale(1.12);
+  }
+}
+
+/* Corner notch micro-pulse on Mission / Prestasi cards */
+.krackerz-card .card-notch-dot {
+  transition: transform 0.42s var(--ease-spring);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .krackerz-card:hover .card-notch-dot {
+    transform: scale(1.18);
+  }
+}
+
+/* Organic Floating Decorative Stickers (Krackerz Playful Vibe) */
+@keyframes stickerFloatA {
+  0%, 100% {
+    transform: translate3d(0, 0px, 0) rotate(-3deg);
+  }
+  50% {
+    transform: translate3d(0, -10px, 0) rotate(2deg);
+  }
+}
+
+@keyframes stickerFloatB {
+  0%, 100% {
+    transform: translate3d(0, 0px, 0) rotate(3deg);
+  }
+  50% {
+    transform: translate3d(0, -12px, 0) rotate(-2.5deg);
+  }
+}
+
+@keyframes stickerBobGentle {
+  0%, 100% {
+    transform: translate3d(0, 0px, 0);
+  }
+  50% {
+    transform: translate3d(0, -6px, 0);
+  }
+}
+
+.sticker-float {
+  animation: stickerFloatA 5.4s ease-in-out infinite;
+  will-change: transform;
+}
+
+.sticker-float-alt {
+  animation: stickerFloatB 6.2s ease-in-out infinite;
+  animation-delay: -1.6s;
+  will-change: transform;
+}
+
+.sticker-bob {
+  animation: stickerBobGentle 4.2s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Smooth Coverflow Info Transition */
+.coverflow-info-panel {
+  transition: opacity 0.26s var(--ease-smooth), transform 0.34s var(--ease-spring);
+}
+
+.coverflow-info-panel.is-switching {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+/* FAQ Tactile Spring Upgrade */
+.faq-item {
+  transition:
+    transform 0.34s var(--ease-spring),
+    box-shadow 0.3s var(--ease-smooth),
+    border-color 0.25s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .faq-item:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.faq-item .faq-icon {
+  transition: transform 0.38s var(--ease-spring), background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Full Accessibility Override for Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  html.motion-ready [data-animate],
+  html.motion-ready [data-stagger-item],
+  html.motion-ready [data-hero-animate],
+  html.motion-ready .scallop-card-hanger {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .sticker-float,
+  .sticker-float-alt,
+  .sticker-bob,
+  .hero-rotating-wave,
+  .footer-rotating-wave {
+    animation: none !important;
+  }
+
+  .krackerz-card,
+  .krackerz-card:hover,
+  .krackerz-card.is-tilting {
+    transform: none !important;
+    transition: none !important;
+  }
 }
 
 
