@@ -312,9 +312,10 @@
   }
 
   /* ==========================================================================
-     3. Curriculum Sticky Card Stack Depth Physics (Krackerz / Framer Style)
-     As Card 2 & Card 3 scroll over previous cards, cards underneath scale down,
-     tuck slightly upward, and gently dim to create genuine tactile 3D depth.
+     3. Curriculum Sticky Folder Cards Depth & Inner Content Motion
+     Keeps all 3 folder tabs 100% flush & aligned on the same baseline (zero
+     shell scale/shift), while gently dimming covered folders behind the active
+     tab and smoothly settling the inner content as each card docks.
      ========================================================================== */
   function initCurriculumStackMotion() {
     const container = document.getElementById('curriculum-stack-container');
@@ -329,56 +330,55 @@
     if (cards.length < 2) return;
 
     const state = cards.map(() => ({
-      scale: 1,
-      targetScale: 1,
-      y: 0,
-      targetY: 0,
       bright: 1,
-      targetBright: 1
+      targetBright: 1,
+      contentY: 0,
+      targetContentY: 0,
+      contentScale: 1,
+      targetContentScale: 1,
+      contentOpacity: 1,
+      targetContentOpacity: 1
     }));
 
     let rafId = null;
 
     const computeTargets = () => {
       const stickyTop = window.innerWidth >= 640 ? 98 : 88;
-      const isCompact = window.innerWidth < 640;
-      const scaleStep = isCompact ? 0.04 : 0.055;
-      const yStep = isCompact ? -10 : -16;
-      const brightStep = 0.1;
-
       const rects = cards.map((card) => card.getBoundingClientRect());
 
-      // Compute overlap progress of card[i+1] sliding over card[i]
+      // Compute overlap progress [0..1] of card[i+1] sliding up to dock over card[i]
       const coverProgress = [];
       for (let i = 0; i < cards.length - 1; i++) {
         const currRect = rects[i];
         const nextRect = rects[i + 1];
         const travelDistance = Math.max(currRect.height * 0.85, 320);
-        // Progress is 0 when nextCard top is at stickyTop + travelDistance, 1 when nextCard docks at stickyTop
         const raw = (stickyTop + travelDistance - nextRect.top) / travelDistance;
         coverProgress[i] = Math.max(0, Math.min(1, raw));
       }
 
-      // Card 0 recedes when Card 1 covers it, and recedes further when Card 2 covers Card 1
       const p01 = coverProgress[0] || 0;
       const p12 = coverProgress[1] || 0;
 
-      state[0].targetScale = 1 - p01 * scaleStep - p12 * (scaleStep * 0.72);
-      state[0].targetY = p01 * yStep + p12 * (yStep * 0.65);
-      state[0].targetBright = 1 - p01 * brightStep - p12 * (brightStep * 0.8);
+      // Card 1: stays flush; dims subtly behind active tabs & gently settles content
+      state[0].targetBright = 1 - p01 * 0.08 - p12 * 0.06;
+      state[0].targetContentY = -p01 * 12;
+      state[0].targetContentScale = 1 - p01 * 0.025;
+      state[0].targetContentOpacity = 1 - p01 * 0.25;
 
-      // Card 1 gently scales up from 0.975 -> 1.0 as it docks, then recedes when Card 2 covers it
-      const card1EntryBoost = (1 - p01) * -0.025;
-      state[1].targetScale = 1 + card1EntryBoost - p12 * scaleStep;
-      state[1].targetY = p12 * yStep;
-      state[1].targetBright = 1 - p12 * brightStep;
+      // Card 2: content glides smoothly into place as Card 2 docks, then dims subtly behind Card 3
+      const c2Inv = 1 - p01;
+      state[1].targetBright = 1 - p12 * 0.08;
+      state[1].targetContentY = c2Inv * 18 - p12 * 12;
+      state[1].targetContentScale = 1 - c2Inv * 0.03 - p12 * 0.025;
+      state[1].targetContentOpacity = 1 - c2Inv * 0.2 - p12 * 0.25;
 
-      // Card 2 gently scales up from 0.975 -> 1.0 as it docks
+      // Card 3: content glides smoothly into place as Card 3 docks
       if (state[2]) {
-        const card2EntryBoost = (1 - p12) * -0.025;
-        state[2].targetScale = 1 + card2EntryBoost;
-        state[2].targetY = 0;
+        const c3Inv = 1 - p12;
         state[2].targetBright = 1;
+        state[2].targetContentY = c3Inv * 18;
+        state[2].targetContentScale = 1 - c3Inv * 0.03;
+        state[2].targetContentOpacity = 1 - c3Inv * 0.2;
       }
     };
 
@@ -388,24 +388,33 @@
 
       cards.forEach((card, i) => {
         const s = state[i];
-        const dScale = s.targetScale - s.scale;
-        const dY = s.targetY - s.y;
         const dBright = s.targetBright - s.bright;
+        const dY = s.targetContentY - s.contentY;
+        const dScale = s.targetContentScale - s.contentScale;
+        const dOp = s.targetContentOpacity - s.contentOpacity;
 
-        if (Math.abs(dScale) > 0.0005 || Math.abs(dY) > 0.08 || Math.abs(dBright) > 0.001) {
-          s.scale += dScale * lerp;
-          s.y += dY * lerp;
+        if (
+          Math.abs(dBright) > 0.001 ||
+          Math.abs(dY) > 0.08 ||
+          Math.abs(dScale) > 0.0005 ||
+          Math.abs(dOp) > 0.002
+        ) {
           s.bright += dBright * lerp;
+          s.contentY += dY * lerp;
+          s.contentScale += dScale * lerp;
+          s.contentOpacity += dOp * lerp;
           needsMore = true;
         } else {
-          s.scale = s.targetScale;
-          s.y = s.targetY;
           s.bright = s.targetBright;
+          s.contentY = s.targetContentY;
+          s.contentScale = s.targetContentScale;
+          s.contentOpacity = s.targetContentOpacity;
         }
 
-        card.style.setProperty('--stack-scale', s.scale.toFixed(4));
-        card.style.setProperty('--stack-y', `${s.y.toFixed(2)}px`);
         card.style.setProperty('--stack-brightness', s.bright.toFixed(3));
+        card.style.setProperty('--content-y', `${s.contentY.toFixed(2)}px`);
+        card.style.setProperty('--content-scale', s.contentScale.toFixed(4));
+        card.style.setProperty('--content-opacity', s.contentOpacity.toFixed(3));
       });
 
       if (needsMore) {
