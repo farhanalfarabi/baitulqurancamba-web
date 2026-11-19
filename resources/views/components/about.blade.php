@@ -75,7 +75,7 @@
       </p>
 
       <!-- 3 Pillars of Vision (The "3M" Tactile Grid) -->
-      <div data-stagger-group data-stagger-delay="0.1" data-stagger-tilt="true" class="grid grid-cols-1 md:grid-cols-3 gap-5 text-left">
+      <div data-stagger-group data-stagger-variant="split-3col" class="grid grid-cols-1 md:grid-cols-3 gap-5 text-left">
         
         <!-- Pillar 1: Muhaffizh -->
         <div data-stagger-item data-tilt-card data-tilt-max="3.5" style="--hover-tilt: -0.8deg;" class="krackerz-card rounded-2xl bg-white/10 hover:bg-white/15 backdrop-blur-sm border border-white/20 p-6 sm:p-7 overflow-hidden">
@@ -147,7 +147,7 @@
       </div>
 
       <!-- 4 Missions Grid (2x2 on Desktop, 1 Col on Mobile) — Styled Cards with Scallop Notch -->
-      <div data-stagger-group data-stagger-delay="0.09" data-stagger-tilt="true" class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 text-left">
+      <div data-stagger-group data-stagger-variant="split-2col" class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 text-left">
 
         <!-- Mission 01 — Burnt Orange (scallop top-right) -->
         <div data-stagger-item data-tilt-card data-tilt-max="3" style="--hover-tilt: -0.9deg;" class="krackerz-card rounded-[20px] sm:rounded-[28px] bg-[#C53618] p-7 sm:p-9 relative overflow-hidden shadow-xl hover:shadow-2xl group min-h-[220px]">

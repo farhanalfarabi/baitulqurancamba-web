@@ -908,15 +908,28 @@ html.motion-ready .scallop-card-hanger:not(.is-revealed) {
   will-change: transform, opacity;
 }
 
+[data-stagger-group] {
+  position: relative;
+}
+
 /* Tactile Card Physics (Playful Krackerz Hover Spring + Subtle Light Sheen) */
+/* Note: transform transition is enabled ONLY after reveal & when not actively scroll-driven
+   so entrance animations & RAF scroll-linked motion are 100% crisp with zero lag/fighting. */
 .krackerz-card {
   position: relative;
+  transition:
+    box-shadow 0.36s var(--ease-smooth),
+    border-color 0.25s ease,
+    background-color 0.25s ease;
+  transform-style: preserve-3d;
+}
+
+.krackerz-card.is-revealed:not(.is-scroll-moving) {
   transition:
     transform 0.42s var(--ease-spring),
     box-shadow 0.36s var(--ease-smooth),
     border-color 0.25s ease,
     background-color 0.25s ease;
-  transform-style: preserve-3d;
 }
 
 .krackerz-card::before {
@@ -945,21 +958,21 @@ html.motion-ready .scallop-card-hanger:not(.is-revealed) {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .krackerz-card:hover {
+  .krackerz-card.is-revealed:not(.is-scroll-moving):hover {
     transform: translate3d(0, -7px, 0) scale(1.015) rotate(var(--hover-tilt, -0.6deg));
   }
 
-  .krackerz-card:hover::before {
+  .krackerz-card.is-revealed:not(.is-scroll-moving):hover::before {
     opacity: 1;
   }
 
-  .krackerz-card:active {
+  .krackerz-card.is-revealed:not(.is-scroll-moving):active {
     transform: translate3d(0, -1px, 0) scale(0.985) rotate(0deg);
     transition-duration: 0.14s;
   }
 
   /* When JS magnetic 3D pointer tilt is actively tracking pointer */
-  .krackerz-card.is-tilting {
+  .krackerz-card.is-revealed:not(.is-scroll-moving).is-tilting {
     transition:
       box-shadow 0.32s var(--ease-smooth),
       border-color 0.25s ease,

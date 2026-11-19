@@ -42,7 +42,7 @@
           </span>
         </div>
 
-        <div id="prestasi-row-champions" data-stagger-group data-stagger-delay="0.1" data-stagger-tilt="true" class="flex overflow-x-auto no-scrollbar gap-4 sm:gap-6 py-4 px-1 -mx-1 snap-x snap-mandatory lg:grid lg:grid-cols-3 lg:gap-6 lg:overflow-visible lg:py-0 lg:px-0 lg:mx-0">
+        <div id="prestasi-row-champions" data-stagger-group data-stagger-variant="split-3col" class="flex overflow-x-auto no-scrollbar gap-4 sm:gap-6 py-4 px-1 -mx-1 snap-x snap-mandatory lg:grid lg:grid-cols-3 lg:gap-6 lg:overflow-visible lg:py-0 lg:px-0 lg:mx-0">
 
           <!-- ===================================================================
                CARD 1: Zjilzian Amarung — Burnt Orange (scallop top-right)
@@ -271,7 +271,7 @@
           </span>
         </div>
 
-        <div id="prestasi-row-tasmi" data-stagger-group data-stagger-delay="0.1" data-stagger-tilt="true" class="flex overflow-x-auto no-scrollbar gap-4 sm:gap-6 py-4 px-1 -mx-1 snap-x snap-mandatory lg:grid lg:grid-cols-3 lg:gap-6 lg:overflow-visible lg:py-0 lg:px-0 lg:mx-0">
+        <div id="prestasi-row-tasmi" data-stagger-group data-stagger-variant="split-3col" class="flex overflow-x-auto no-scrollbar gap-4 sm:gap-6 py-4 px-1 -mx-1 snap-x snap-mandatory lg:grid lg:grid-cols-3 lg:gap-6 lg:overflow-visible lg:py-0 lg:px-0 lg:mx-0">
 
           <!-- ===================================================================
                CARD 4: Abbas — Cherry Dark (scallop top-left)
