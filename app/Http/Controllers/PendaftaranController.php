@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePendaftaranRequest;
 use App\Mail\BuktiPendaftaranMail;
 use App\Models\Pendaftaran;
+use App\Services\TelegramNotificationService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
@@ -23,9 +24,9 @@ class PendaftaranController extends Controller
     }
 
     /**
-     * Simpan data pendaftaran santri baru beserta berkas dokumen dan kirim email bukti pendaftaran.
+     * Simpan data pendaftaran santri baru beserta berkas dokumen, kirim email bukti pendaftaran, dan notifikasi Telegram admin.
      */
-    public function store(StorePendaftaranRequest $request): JsonResponse|RedirectResponse
+    public function store(StorePendaftaranRequest $request, TelegramNotificationService $telegramNotification): JsonResponse|RedirectResponse
     {
         if ($request->filled('website')) {
             Log::warning('Honeypot fallback di controller terpicu dari IP '.$request->ip());
@@ -100,6 +101,9 @@ class PendaftaranController extends Controller
             } catch (\Throwable $mailError) {
                 Log::warning('Email bukti pendaftaran gagal terkirim ke '.$pendaftaran->email.': '.$mailError->getMessage());
             }
+
+            // 5. Kirim notifikasi pendaftaran baru ke Telegram admin
+            $telegramNotification->sendPendaftaranBaru($pendaftaran);
 
             if ($request->expectsJson() || $request->ajax()) {
                 return response()->json([

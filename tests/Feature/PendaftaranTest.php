@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Rules\Turnstile;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Http\Client\Request;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
@@ -373,5 +374,183 @@ class PendaftaranTest extends TestCase
 
         $this->assertFalse($validator->passes());
         $this->assertStringContainsString('CAPTCHA', $validator->errors()->first('cf-turnstile-response'));
+    }
+
+    public function test_pendaftaran_baru_mengirim_notifikasi_telegram_jika_konfigurasi_tersedia(): void
+    {
+        Storage::fake('public');
+        Mail::fake();
+        Http::preventStrayRequests();
+
+        config([
+            'services.telegram.bot_token' => 'test-bot-token',
+            'services.telegram.chat_id' => '-1001234567890',
+        ]);
+
+        Http::fake([
+            'api.telegram.org/bot*/sendMessage' => Http::response([
+                'ok' => true,
+                'result' => ['message_id' => 101],
+            ], 200),
+        ]);
+
+        $response = $this->postJson(route('pendaftaran.store'), $this->validPendaftaranPayload());
+
+        $response->assertStatus(200);
+        $registrationNumber = $response->json('registration_number');
+
+        Http::assertSent(function (Request $request) use ($registrationNumber): bool {
+            $text = (string) $request['text'];
+
+            return $request->url() === 'https://api.telegram.org/bottest-bot-token/sendMessage'
+                && $request['chat_id'] === '-1001234567890'
+                && $request['parse_mode'] === 'HTML'
+                && str_contains($text, (string) $registrationNumber)
+                && str_contains($text, 'Ahmad Fauzan')
+                && str_contains($text, 'Wustho')
+                && str_contains($text, 'https://wa.me/6281122334477')
+                && str_contains($text, 'https://wa.me/6281122334488')
+                && str_contains($text, route('admin.pendaftaran.index'));
+        });
+    }
+
+    public function test_pendaftaran_tetap_berhasil_meski_api_telegram_gagal_koneksi(): void
+    {
+        Storage::fake('public');
+        Mail::fake();
+        Http::preventStrayRequests();
+
+        config([
+            'services.telegram.bot_token' => 'test-bot-token',
+            'services.telegram.chat_id' => '-1001234567890',
+        ]);
+
+        Http::fake([
+            'api.telegram.org/bot*/sendMessage' => Http::failedConnection(),
+        ]);
+
+        $response = $this->postJson(route('pendaftaran.store'), $this->validPendaftaranPayload([
+            'santri_nama' => 'Santri Saat Telegram Down',
+            'santri_email' => 'telegram.down@example.com',
+        ]));
+
+        $response->assertStatus(200);
+        $response->assertJson(['success' => true]);
+
+        $this->assertDatabaseHas('pendaftarans', [
+            'nama_santri' => 'Santri Saat Telegram Down',
+            'email' => 'telegram.down@example.com',
+        ]);
+    }
+
+    public function test_pendaftaran_tetap_berhasil_meski_api_telegram_mengembalikan_error(): void
+    {
+        Storage::fake('public');
+        Mail::fake();
+        Http::preventStrayRequests();
+
+        config([
+            'services.telegram.bot_token' => 'test-bot-token',
+            'services.telegram.chat_id' => '-1001234567890',
+        ]);
+
+        Http::fake([
+            'api.telegram.org/bot*/sendMessage' => Http::response([
+                'ok' => false,
+                'description' => 'Bad Request: chat not found',
+            ], 400),
+        ]);
+
+        $response = $this->postJson(route('pendaftaran.store'), $this->validPendaftaranPayload([
+            'santri_nama' => 'Santri Saat Chat Tidak Ditemukan',
+            'santri_email' => 'telegram.error@example.com',
+        ]));
+
+        $response->assertStatus(200);
+        $response->assertJson(['success' => true]);
+
+        $this->assertDatabaseHas('pendaftarans', [
+            'nama_santri' => 'Santri Saat Chat Tidak Ditemukan',
+            'email' => 'telegram.error@example.com',
+        ]);
+    }
+
+    public function test_honeypot_tidak_mengirim_notifikasi_telegram_meski_konfigurasi_tersedia(): void
+    {
+        Storage::fake('public');
+        Mail::fake();
+        Http::preventStrayRequests();
+
+        config([
+            'services.telegram.bot_token' => 'test-bot-token',
+            'services.telegram.chat_id' => '-1001234567890',
+        ]);
+
+        Http::fake([
+            'api.telegram.org/*' => Http::response(['ok' => true], 200),
+        ]);
+
+        $response = $this->postJson(route('pendaftaran.store'), [
+            'website' => 'https://spam-example.test/',
+            'santri_nama' => 'Bot Spam',
+        ]);
+
+        $response->assertStatus(200);
+        Http::assertNothingSent();
+    }
+
+    public function test_notifikasi_telegram_tidak_dikirim_jika_konfigurasi_kosong(): void
+    {
+        Storage::fake('public');
+        Mail::fake();
+        Http::preventStrayRequests();
+
+        config([
+            'services.telegram.bot_token' => '',
+            'services.telegram.chat_id' => '',
+        ]);
+
+        Http::fake([
+            'api.telegram.org/*' => Http::response(['ok' => true], 200),
+        ]);
+
+        $response = $this->postJson(route('pendaftaran.store'), $this->validPendaftaranPayload([
+            'santri_nama' => 'Santri Tanpa Telegram',
+            'santri_email' => 'tanpa.telegram@example.com',
+        ]));
+
+        $response->assertStatus(200);
+        Http::assertNothingSent();
+    }
+
+    /**
+     * @param  array<string, mixed>  $overrides
+     * @return array<string, mixed>
+     */
+    private function validPendaftaranPayload(array $overrides = []): array
+    {
+        return array_merge([
+            'jenjang' => 'Wustho',
+            'santri_nama' => 'Ahmad Fauzan',
+            'santri_gender' => 'Putra',
+            'santri_tempat_lahir' => 'Maros',
+            'santri_tanggal_lahir' => '2014-07-10',
+            'santri_alamat' => 'Jl. Poros Camba Km 50',
+            'santri_asal_sekolah' => 'SD IT Tahfizh Camba',
+            'santri_email' => 'ahmad.fauzan@example.com',
+            'santri_hp' => '081234567811',
+            'santri_tinggal_bersama' => 'Orang Tua',
+            'file_pas_foto' => UploadedFile::fake()->image('pas_foto.jpg', 300, 400),
+            'file_kk' => UploadedFile::fake()->create('kk.pdf', 500, 'application/pdf'),
+            'file_raport' => UploadedFile::fake()->image('raport.jpg'),
+            'ayah_nama' => 'Ir. Hamdan',
+            'ayah_hp' => '081122334477',
+            'ayah_pekerjaan' => 'PNS / ASN',
+            'ayah_penghasilan' => '4.000.000-5.000.000',
+            'ibu_nama' => 'Siti Maryam',
+            'ibu_hp' => '081122334488',
+            'ibu_pekerjaan' => 'Ibu Rumah Tangga',
+            'ibu_penghasilan' => '1.000.000-2.000.000',
+        ], $overrides);
     }
 }
