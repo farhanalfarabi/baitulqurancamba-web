@@ -31,12 +31,12 @@ class StorePendaftaranRequest extends FormRequest
             if ($this->expectsJson() || $this->ajax()) {
                 throw new HttpResponseException(response()->json([
                     'success' => true,
-                    'message' => 'Alhamdulillah, formulir pendaftaran calon santri baru berhasil disimpan. Bukti pendaftaran telah dikirim ke email Anda.',
+                    'message' => 'Alhamdulillah, formulir pendaftaran calon santri baru berhasil disimpan. Admin kami akan menghubungi Anda nanti.',
                     'registration_number' => 'PSB-2027-'.rand(100, 999),
                 ]));
             }
 
-            throw new HttpResponseException(redirect()->route('pendaftaran')->with('success', 'Alhamdulillah, pendaftaran berhasil disimpan.'));
+            throw new HttpResponseException(redirect()->route('pendaftaran')->with('success', 'Alhamdulillah, pendaftaran berhasil disimpan. Admin kami akan menghubungi Anda nanti.'));
         }
     }
 
@@ -100,7 +100,7 @@ class StorePendaftaranRequest extends FormRequest
             'santri_alamat.not_regex' => 'Alamat tidak boleh mengandung tag HTML atau tautan link URL.',
             'santri_asal_sekolah.required' => 'Asal sekolah wajib diisi.',
             'santri_asal_sekolah.regex' => 'Asal sekolah tidak boleh mengandung tag HTML, tautan web, atau simbol terlarang.',
-            'santri_email.required' => 'Alamat email aktif wajib diisi untuk pengiriman bukti pendaftaran.',
+            'santri_email.required' => 'Alamat email aktif wajib diisi.',
             'santri_email.email' => 'Format alamat email tidak valid.',
             'santri_hp.regex' => 'Nomor HP calon santri harus berupa nomor telepon yang valid.',
             'santri_hp.min' => 'Nomor HP calon santri minimal 9 digit.',

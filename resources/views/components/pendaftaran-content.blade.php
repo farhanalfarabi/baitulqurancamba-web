@@ -125,7 +125,7 @@
       {{-- Honeypot Anti-Spam: Tidak terlihat oleh manusia, perangkap untuk bot pengirim spam --}}
       <div class="opacity-0 absolute -left-[9999px] -top-[9999px] w-0 h-0 overflow-hidden pointer-events-none select-none" aria-hidden="true" tabindex="-1">
         <label for="pendaftaran_website_hp">Website Calon Santri (Jangan diisi / Leave blank)</label>
-        <input type="text" name="website" id="pendaftaran_website_hp" value="" tabindex="-1" autocomplete="off" />
+        <input type="text" name="website" id="pendaftaran_website_hp" value="" tabindex="-1" readonly autocomplete="nope" data-lpignore="true" data-1p-ignore data-bwignore data-form-type="other" />
       </div>
 
       <!-- =========================================================================
@@ -300,7 +300,7 @@
             <!-- Email Aktif -->
             <div>
               <label for="santri-email" class="block font-label font-bold text-xs uppercase tracking-wider text-gray-700 mb-2">
-                Email Aktif (Bukti Pendaftaran) <span class="text-[#CF2B09] font-bold">*</span>
+                Email Aktif <span class="text-[#CF2B09] font-bold">*</span>
               </label>
               <div class="relative">
                 <span class="absolute inset-y-0 left-0 pl-4 flex items-center text-sm text-gray-400">
@@ -309,7 +309,7 @@
                 <input type="email" id="santri-email" name="santri_email" required placeholder="misal: wali.santri@gmail.com"
                        class="w-full pl-12 pr-4 py-3.5 rounded-2xl bg-stone-50/70 focus:bg-white text-gray-900 border border-gray-200 font-body text-sm font-medium focus:outline-none focus:border-[#CF2B09] focus:ring-4 focus:ring-[#CF2B09]/10 transition-all shadow-sm">
               </div>
-              <p class="font-body text-[11px] text-gray-500 mt-1.5">Tanda terima resmi & nomor registrasi otomatis dikirimkan ke email ini.</p>
+              <p class="font-body text-[11px] text-gray-500 mt-1.5">Digunakan oleh panitia untuk menghubungi atau menyampaikan informasi pendaftaran.</p>
             </div>
 
             <!-- Nomor HP Santri (Opsional) -->
@@ -702,7 +702,7 @@
         <!-- Cloudflare Turnstile CAPTCHA Widget -->
         @if(config('services.turnstile.site_key'))
           <div class="mb-6 flex justify-center">
-            <div class="cf-turnstile" data-sitekey="{{ config('services.turnstile.site_key') }}" data-theme="light"></div>
+            <div class="cf-turnstile" data-sitekey="{{ config('services.turnstile.site_key') }}" data-theme="light" data-refresh-expired="auto" data-refresh-timeout="auto"></div>
           </div>
         @endif
 
@@ -752,21 +752,10 @@
         Jazakumullah khairan. Formulir pendaftaran calon santri baru telah berhasil dicatat oleh sistem PSB Pesantren Tahfizh Baitul Qur'an Camba.
       </p>
 
-      <!-- Email Confirmation Notice -->
-      <div class="p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-900 font-medium mb-4 flex items-center gap-2">
-        <span class="text-base">📧</span>
-        <span>Surat tanda bukti pendaftaran resmi telah dikirim ke: <strong id="summary-email" class="text-emerald-950 font-bold underline">-</strong></span>
-      </div>
-
-      <!-- Official Registration Number Highlight Box -->
-      <div class="p-3.5 rounded-2xl bg-amber-50/90 border border-amber-200 flex items-center justify-between gap-3 mb-4">
-        <div>
-          <span class="font-label font-bold text-[10px] uppercase tracking-wider text-amber-800 block">Nomor Registrasi Resmi:</span>
-          <span id="summary-reg" class="font-mono font-black text-lg sm:text-xl text-amber-950 block">PSB-2027-XXX</span>
-        </div>
-        <button type="button" onclick="window.copyRegistrationNumber()" class="px-3 py-1.5 rounded-xl bg-white border border-amber-200 text-amber-900 text-xs font-bold hover:bg-amber-100 transition-colors shadow-2xs cursor-pointer">
-          📋 Salin No.
-        </button>
+      <!-- Admin Follow-up Notice -->
+      <div class="p-3.5 rounded-xl bg-emerald-50 border border-emerald-200 text-xs sm:text-sm text-emerald-900 font-medium mb-4 flex items-start gap-2.5">
+        <span class="text-base shrink-0">💬</span>
+        <span>Admin kami akan menghubungi Anda nanti melalui WhatsApp atau email untuk informasi tahap selanjutnya.</span>
       </div>
 
       <!-- Summary Card -->
@@ -1075,15 +1064,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // Populate Success Modal
       const data = result.data || {};
-      const regNumber = result.registration_number || '-';
 
-      document.getElementById('summary-reg').textContent = regNumber;
       document.getElementById('summary-jenjang').textContent = data.jenjang ? ((data.jenjang === 'Wustho' || data.jenjang === 'Wustha' || data.jenjang === 'MTs') ? 'Wustho (Setara SMP)' : 'Ulya (Setara SMA)') : '-';
       document.getElementById('summary-nama').textContent = data.nama_santri || '-';
       document.getElementById('summary-gender').textContent = data.jenis_kelamin || '-';
       document.getElementById('summary-ttl').textContent = (data.tempat_lahir ? data.tempat_lahir + ', ' : '') + (data.tanggal_lahir || '-');
       document.getElementById('summary-sekolah').textContent = data.asal_sekolah || '-';
-      document.getElementById('summary-email').textContent = data.email || '-';
       document.getElementById('summary-email-row').textContent = data.email || '-';
       document.getElementById('summary-kontak').textContent = data.no_hp_ayah || data.no_hp_ibu || '-';
 
@@ -1125,15 +1111,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   window.closeSuccessModal = function() {
     document.getElementById('modal-success-pendaftaran').classList.add('hidden');
-  };
-
-  window.copyRegistrationNumber = function() {
-    const regText = document.getElementById('summary-reg').textContent;
-    navigator.clipboard.writeText(regText).then(() => {
-      alert('Nomor registrasi ' + regText + ' berhasil disalin ke clipboard!');
-    }).catch(() => {
-      prompt('Salin nomor registrasi berikut:', regText);
-    });
   };
 });
 </script>

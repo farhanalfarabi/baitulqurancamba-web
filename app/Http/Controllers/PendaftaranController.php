@@ -3,14 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePendaftaranRequest;
-use App\Mail\BuktiPendaftaranMail;
 use App\Models\Pendaftaran;
 use App\Services\TelegramNotificationService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
 
 class PendaftaranController extends Controller
@@ -24,7 +22,7 @@ class PendaftaranController extends Controller
     }
 
     /**
-     * Simpan data pendaftaran santri baru beserta berkas dokumen, kirim email bukti pendaftaran, dan notifikasi Telegram admin.
+     * Simpan data pendaftaran santri baru beserta berkas dokumen dan kirim notifikasi Telegram admin.
      */
     public function store(StorePendaftaranRequest $request, TelegramNotificationService $telegramNotification): JsonResponse|RedirectResponse
     {
@@ -34,12 +32,12 @@ class PendaftaranController extends Controller
             if ($request->expectsJson() || $request->ajax()) {
                 return response()->json([
                     'success' => true,
-                    'message' => 'Alhamdulillah, formulir pendaftaran calon santri baru berhasil disimpan. Bukti pendaftaran telah dikirim ke email Anda.',
+                    'message' => 'Alhamdulillah, formulir pendaftaran calon santri baru berhasil disimpan. Admin kami akan menghubungi Anda nanti.',
                     'registration_number' => 'PSB-2027-'.rand(100, 999),
                 ]);
             }
 
-            return redirect()->route('pendaftaran')->with('success', 'Alhamdulillah, pendaftaran berhasil disimpan.');
+            return redirect()->route('pendaftaran')->with('success', 'Alhamdulillah, pendaftaran berhasil disimpan. Admin kami akan menghubungi Anda nanti.');
         }
 
         try {
@@ -95,20 +93,13 @@ class PendaftaranController extends Controller
                 ]);
             });
 
-            // 4. Kirim email bukti pendaftaran resmi ke email pendaftar
-            try {
-                Mail::to($pendaftaran->email)->send(new BuktiPendaftaranMail($pendaftaran));
-            } catch (\Throwable $mailError) {
-                Log::warning('Email bukti pendaftaran gagal terkirim ke '.$pendaftaran->email.': '.$mailError->getMessage());
-            }
-
-            // 5. Kirim notifikasi pendaftaran baru ke Telegram admin
+            // 4. Kirim notifikasi pendaftaran baru ke Telegram admin
             $telegramNotification->sendPendaftaranBaru($pendaftaran);
 
             if ($request->expectsJson() || $request->ajax()) {
                 return response()->json([
                     'success' => true,
-                    'message' => 'Alhamdulillah, formulir pendaftaran calon santri baru berhasil disimpan. Bukti pendaftaran telah dikirim ke email Anda.',
+                    'message' => 'Alhamdulillah, formulir pendaftaran calon santri baru berhasil disimpan. Admin kami akan menghubungi Anda nanti.',
                     'registration_number' => $pendaftaran->registration_number,
                     'data' => [
                         'nama_santri' => $pendaftaran->nama_santri,
@@ -126,7 +117,7 @@ class PendaftaranController extends Controller
 
             return redirect()->route('pendaftaran')->with(
                 'success',
-                "Alhamdulillah, formulir pendaftaran santri baru berhasil terkirim. Nomor Registrasi Anda: {$pendaftaran->registration_number}. Bukti pendaftaran telah dikirim ke email {$pendaftaran->email}."
+                'Alhamdulillah, formulir pendaftaran santri baru berhasil terkirim. Admin kami akan menghubungi Anda nanti.'
             );
         } catch (\Throwable $e) {
             Log::error('Gagal menyimpan pendaftaran santri: '.$e->getMessage(), [

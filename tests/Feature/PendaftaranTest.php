@@ -26,6 +26,10 @@ class PendaftaranTest extends TestCase
         $response->assertSee('Ulya');
         $response->assertSee('Email Aktif');
         $response->assertSee('Pas Foto Santri');
+        $response->assertSee('Admin kami akan menghubungi Anda nanti');
+        $response->assertDontSee('Surat tanda bukti pendaftaran resmi telah dikirim ke');
+        $response->assertDontSee('Nomor Registrasi Resmi');
+        $response->assertDontSee('Salin No.');
     }
 
     public function test_calon_santri_dapat_mendaftar_jenjang_wustho(): void
@@ -72,6 +76,8 @@ class PendaftaranTest extends TestCase
             'nama_santri' => 'Muhammad Thoriq Al-Fath',
             'jenjang' => 'Wustho',
         ]);
+
+        Mail::assertNothingSent();
     }
 
     public function test_calon_santri_dapat_mendaftar_jenjang_ulya(): void
@@ -268,6 +274,8 @@ class PendaftaranTest extends TestCase
 
         $response->assertStatus(200);
         $response->assertSee('name="website"', false);
+        $response->assertSee('readonly', false);
+        $response->assertSee('data-lpignore="true"', false);
     }
 
     public function test_honeypot_menggagalkan_bot_spam_tanpa_menyimpan_ke_database(): void
@@ -334,6 +342,7 @@ class PendaftaranTest extends TestCase
         $response->assertSee('challenges.cloudflare.com/turnstile/v0/api.js');
         $response->assertSee('class="cf-turnstile"', false);
         $response->assertSee('data-sitekey="0x4AAAAAAGGZ46px58-LOmXD"', false);
+        $response->assertSee('data-refresh-expired="auto"', false);
     }
 
     public function test_turnstile_rule_memvalidasi_token_dengan_sukses(): void
