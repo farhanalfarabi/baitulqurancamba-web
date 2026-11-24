@@ -22,12 +22,10 @@ class TelegramNotificationService
 
         try {
             $response = Http::withOptions([
-                'curl' => [
-                    CURLOPT_IPRESOLVE => CURL_IPRESOLVE_V4,
-                ],
+                'force_ip_resolve' => 'v4',
             ])
                 ->connectTimeout(5)
-                ->timeout(10)
+                ->timeout(15)
                 ->post("https://api.telegram.org/bot{$botToken}/sendMessage", [
                     'chat_id' => $chatId,
                     'text' => $this->formatPendaftaranBaruMessage($pendaftaran),
