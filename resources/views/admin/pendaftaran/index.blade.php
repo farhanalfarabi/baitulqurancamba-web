@@ -182,6 +182,7 @@
                         <th class="py-3.5 px-4">Jenjang</th>
                         <th class="py-3.5 px-4">Wali & Kontak</th>
                         <th class="py-3.5 px-4">Status</th>
+                        <th class="py-3.5 px-4 whitespace-nowrap">Waktu Daftar</th>
                         <th class="py-3.5 px-5 text-right">Aksi</th>
                     </tr>
                 </thead>
@@ -285,7 +286,21 @@
                                 @endif
                             </td>
 
-                            <!-- 6. Aksi (Detail & Edit Masuk ke Drawer) -->
+                            <!-- 6. Waktu Daftar -->
+                            <td class="py-4 px-4 whitespace-nowrap student-created-col">
+                                @if($p->created_at)
+                                    <p class="font-semibold text-slate-800">
+                                        {{ $p->created_at->translatedFormat('d M Y') }}
+                                    </p>
+                                    <span class="text-[11px] text-slate-400 mt-0.5 block">
+                                        {{ $p->created_at->format('H:i') }} &bull; {{ $p->created_at->diffForHumans() }}
+                                    </span>
+                                @else
+                                    <span class="text-slate-400">-</span>
+                                @endif
+                            </td>
+
+                            <!-- 7. Aksi (Detail & Edit Masuk ke Drawer) -->
                             <td class="py-4 px-5 text-right whitespace-nowrap">
                                 <div class="inline-flex items-center gap-1.5 justify-end">
                                     <button type="button" 
@@ -312,7 +327,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="6" class="text-center py-12 text-slate-400">
+                            <td colspan="7" class="text-center py-12 text-slate-400">
                                 Belum ada data calon santri yang tercatat.
                             </td>
                         </tr>

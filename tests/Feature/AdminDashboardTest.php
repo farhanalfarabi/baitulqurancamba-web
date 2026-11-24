@@ -39,6 +39,7 @@ class AdminDashboardTest extends TestCase
 
         $response->assertStatus(200);
         $response->assertSee('Penerimaan Santri Baru');
+        $response->assertSee('Waktu Daftar');
         $response->assertSee('Edit Data Pendaftar');
         $response->assertSee('switchPendaftaranDrawerMode');
         $response->assertSee('pendaftaranEditView');
