@@ -46,8 +46,32 @@ class Turnstile implements ValidationRule
                     'remoteip' => request()->ip(),
                 ]);
 
-            if (! $response->successful() || ! $response->json('success')) {
+            if (! $response->successful()) {
+                Log::error('Server Cloudflare Turnstile mengembalikan status HTTP error.', [
+                    'status' => $response->status(),
+                    'ip' => request()->ip(),
+                    'errors' => $response->json('error-codes', []),
+                ]);
+
+                $fail('Layanan verifikasi keamanan (CAPTCHA) sedang mengalami gangguan sementara. Silakan coba sesaat lagi.');
+
+                return;
+            }
+
+            if (! $response->json('success')) {
                 $errorCodes = $response->json('error-codes', []);
+
+                if ($this->hasSecretKeyError($errorCodes)) {
+                    Log::error('Konfigurasi secret key Cloudflare Turnstile tidak valid.', [
+                        'ip' => request()->ip(),
+                        'errors' => $errorCodes,
+                    ]);
+
+                    $fail('Konfigurasi verifikasi keamanan (CAPTCHA) pada server bermasalah. Silakan hubungi panitia atau admin.');
+
+                    return;
+                }
+
                 Log::warning('Verifikasi Cloudflare Turnstile gagal', [
                     'ip' => request()->ip(),
                     'errors' => $errorCodes,
@@ -59,5 +83,15 @@ class Turnstile implements ValidationRule
             Log::error('Kendala koneksi ke server Cloudflare Turnstile: '.$e->getMessage());
             $fail('Gagal memverifikasi keamanan CAPTCHA karena gangguan koneksi. Silakan coba sesaat lagi.');
         }
+    }
+
+    /**
+     * Periksa apakah error berasal dari konfigurasi secret key server.
+     *
+     * @param  array<int, string>  $errorCodes
+     */
+    private function hasSecretKeyError(array $errorCodes): bool
+    {
+        return count(array_intersect($errorCodes, ['missing-input-secret', 'invalid-input-secret'])) > 0;
     }
 }

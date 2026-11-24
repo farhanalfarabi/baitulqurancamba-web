@@ -385,6 +385,47 @@ class PendaftaranTest extends TestCase
         $this->assertStringContainsString('CAPTCHA', $validator->errors()->first('cf-turnstile-response'));
     }
 
+    public function test_turnstile_rule_membedakan_error_konfigurasi_secret_key(): void
+    {
+        Http::preventStrayRequests();
+        config(['services.turnstile.secret_key' => 'invalid-secret-key']);
+
+        Http::fake([
+            'challenges.cloudflare.com/turnstile/v0/siteverify' => Http::response([
+                'success' => false,
+                'error-codes' => ['invalid-input-secret'],
+            ], 200),
+        ]);
+
+        $validator = Validator::make([
+            'cf-turnstile-response' => 'valid-looking-token',
+        ], [
+            'cf-turnstile-response' => [new Turnstile],
+        ]);
+
+        $this->assertTrue($validator->fails());
+        $this->assertStringContainsString('Konfigurasi verifikasi keamanan (CAPTCHA) pada server bermasalah', $validator->errors()->first('cf-turnstile-response'));
+    }
+
+    public function test_turnstile_rule_menangani_http_error_dari_server_cloudflare(): void
+    {
+        Http::preventStrayRequests();
+        config(['services.turnstile.secret_key' => 'test-secret-key']);
+
+        Http::fake([
+            'challenges.cloudflare.com/turnstile/v0/siteverify' => Http::response([], 503),
+        ]);
+
+        $validator = Validator::make([
+            'cf-turnstile-response' => 'valid-looking-token',
+        ], [
+            'cf-turnstile-response' => [new Turnstile],
+        ]);
+
+        $this->assertTrue($validator->fails());
+        $this->assertStringContainsString('gangguan sementara', $validator->errors()->first('cf-turnstile-response'));
+    }
+
     public function test_pendaftaran_baru_mengirim_notifikasi_telegram_jika_konfigurasi_tersedia(): void
     {
         Storage::fake('public');
