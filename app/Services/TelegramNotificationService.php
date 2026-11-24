@@ -23,6 +23,7 @@ class TelegramNotificationService
         try {
             $response = Http::withOptions([
                 'force_ip_resolve' => 'v4',
+                'version' => '1.1',
             ])
                 ->connectTimeout(5)
                 ->timeout(15)
